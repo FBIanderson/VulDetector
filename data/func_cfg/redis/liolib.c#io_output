@@ -1,0 +1,52 @@
+static int io_output(lua_State *L)
+ [B2 (ENTRY)]
+   Succs (1): B1
+
+ [B1]
+   1: DeclRefExpr 0x5643dfe64e20 <liolib.c:227:10> 'int (lua_State *, int, const char *)' Function 0x5643dfe63a50 'g_iofile' 'int (lua_State *, int, const char *)'
+g_iofile
+   2: ImplicitCastExpr 0x5643dfe64ec0 <liolib.c:227:10> 'int (*)(lua_State *, int, const char *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5643dfe64e20 <col:10> 'int (lua_State *, int, const char *)' Function 0x5643dfe63a50 'g_iofile' 'int (lua_State *, int, const char *)'
+[B1.1] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(lua_State *, int, const char *))
+   3: DeclRefExpr 0x5643dfe64e48 <liolib.c:227:19> 'lua_State *' lvalue ParmVar 0x5643dfe64ce8 'L' 'lua_State *'
+L
+   4: ImplicitCastExpr 0x5643dfe64f18 <liolib.c:227:19> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x5643dfe64e48 <col:19> 'lua_State *' lvalue ParmVar 0x5643dfe64ce8 'L' 'lua_State *'
+[B1.3] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   5: IntegerLiteral 0x5643dfe64e70 <liolib.c:24:19> 'int' 2
+2
+   6: StringLiteral 0x5643dfe64e90 <liolib.c:227:33> 'char [2]' lvalue "w"
+"w"
+   7: ImplicitCastExpr 0x5643dfe64f30 <liolib.c:227:33> 'char *' <ArrayToPointerDecay>
+`-StringLiteral 0x5643dfe64e90 <col:33> 'char [2]' lvalue "w"
+[B1.6] (ImplicitCastExpr, ArrayToPointerDecay, char *)
+   8: ImplicitCastExpr 0x5643dfe64f48 <liolib.c:227:33> 'const char *' <BitCast>
+`-ImplicitCastExpr 0x5643dfe64f30 <col:33> 'char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x5643dfe64e90 <col:33> 'char [2]' lvalue "w"
+[B1.7] (ImplicitCastExpr, BitCast, const char *)
+   9: CallExpr 0x5643dfe64ed8 <liolib.c:227:10, col:36> 'int'
+|-ImplicitCastExpr 0x5643dfe64ec0 <col:10> 'int (*)(lua_State *, int, const char *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5643dfe64e20 <col:10> 'int (lua_State *, int, const char *)' Function 0x5643dfe63a50 'g_iofile' 'int (lua_State *, int, const char *)'
+|-ImplicitCastExpr 0x5643dfe64f18 <col:19> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x5643dfe64e48 <col:19> 'lua_State *' lvalue ParmVar 0x5643dfe64ce8 'L' 'lua_State *'
+|-IntegerLiteral 0x5643dfe64e70 <line:24:19> 'int' 2
+`-ImplicitCastExpr 0x5643dfe64f48 <line:227:33> 'const char *' <BitCast>
+  `-ImplicitCastExpr 0x5643dfe64f30 <col:33> 'char *' <ArrayToPointerDecay>
+    `-StringLiteral 0x5643dfe64e90 <col:33> 'char [2]' lvalue "w"
+[B1.2]([B1.4], [B1.5], [B1.8])
+  10: ReturnStmt 0x5643dfe64f60 <liolib.c:227:3, col:36>
+`-CallExpr 0x5643dfe64ed8 <col:10, col:36> 'int'
+  |-ImplicitCastExpr 0x5643dfe64ec0 <col:10> 'int (*)(lua_State *, int, const char *)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x5643dfe64e20 <col:10> 'int (lua_State *, int, const char *)' Function 0x5643dfe63a50 'g_iofile' 'int (lua_State *, int, const char *)'
+  |-ImplicitCastExpr 0x5643dfe64f18 <col:19> 'lua_State *' <LValueToRValue>
+  | `-DeclRefExpr 0x5643dfe64e48 <col:19> 'lua_State *' lvalue ParmVar 0x5643dfe64ce8 'L' 'lua_State *'
+  |-IntegerLiteral 0x5643dfe64e70 <line:24:19> 'int' 2
+  `-ImplicitCastExpr 0x5643dfe64f48 <line:227:33> 'const char *' <BitCast>
+    `-ImplicitCastExpr 0x5643dfe64f30 <col:33> 'char *' <ArrayToPointerDecay>
+      `-StringLiteral 0x5643dfe64e90 <col:33> 'char [2]' lvalue "w"
+return [B1.9];
+   Preds (1): B2
+   Succs (1): B0
+
+ [B0 (EXIT)]
+   Preds (1): B1

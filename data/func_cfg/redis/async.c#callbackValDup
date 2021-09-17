@@ -1,0 +1,114 @@
+static void *callbackValDup(void *privdata, const void *src)
+ [B2 (ENTRY)]
+   Succs (1): B1
+
+ [B1]
+   1: DeclRefExpr 0x55bf9a5fec98 <async.c:59:13> 'void *' lvalue ParmVar 0x55bf9a5fead8 'privdata' 'void *'
+privdata
+   2: ImplicitCastExpr 0x55bf9a5fecd0 <async.c:59:13> 'void *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a5fec98 <col:13> 'void *' lvalue ParmVar 0x55bf9a5fead8 'privdata' 'void *'
+[B1.1] (ImplicitCastExpr, LValueToRValue, void *)
+   3: CStyleCastExpr 0x55bf9a5fece8 <async.c:59:6, col:13> 'void' <ToVoid>
+`-ImplicitCastExpr 0x55bf9a5fecd0 <col:13> 'void *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a5fec98 <col:13> 'void *' lvalue ParmVar 0x55bf9a5fead8 'privdata' 'void *'
+(void)[B1.2] (CStyleCastExpr, ToVoid, void)
+   4: DeclRefExpr 0x55bf9a5feda0 <async.c:60:26> 'void *(unsigned long)' Function 0x55bf9a516150 'malloc' 'void *(unsigned long)'
+malloc
+   5: ImplicitCastExpr 0x55bf9a5fee68 <async.c:60:26> 'void *(*)(unsigned long)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a5feda0 <col:26> 'void *(unsigned long)' Function 0x55bf9a516150 'malloc' 'void *(unsigned long)'
+[B1.4] (ImplicitCastExpr, FunctionToPointerDecay, void *(*)(unsigned long))
+   6: UnaryExprOrTypeTraitExpr 0x55bf9a5fee48 <async.c:60:33, col:44> 'unsigned long' sizeof
+`-ParenExpr 0x55bf9a5fee28 <col:39, col:44> 'redisCallback':'struct redisCallback' lvalue
+  `-UnaryOperator 0x55bf9a5fee08 <col:40, col:41> 'redisCallback':'struct redisCallback' lvalue prefix '*'
+    `-ImplicitCastExpr 0x55bf9a5fedf0 <col:41> 'redisCallback *' <LValueToRValue>
+      `-DeclRefExpr 0x55bf9a5fedc8 <col:41> 'redisCallback *' lvalue Var 0x55bf9a5fed40 'dup' 'redisCallback *'
+sizeof (*dup)
+   7: CallExpr 0x55bf9a5fee80 <async.c:60:26, col:45> 'void *'
+|-ImplicitCastExpr 0x55bf9a5fee68 <col:26> 'void *(*)(unsigned long)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a5feda0 <col:26> 'void *(unsigned long)' Function 0x55bf9a516150 'malloc' 'void *(unsigned long)'
+`-UnaryExprOrTypeTraitExpr 0x55bf9a5fee48 <col:33, col:44> 'unsigned long' sizeof
+  `-ParenExpr 0x55bf9a5fee28 <col:39, col:44> 'redisCallback':'struct redisCallback' lvalue
+    `-UnaryOperator 0x55bf9a5fee08 <col:40, col:41> 'redisCallback':'struct redisCallback' lvalue prefix '*'
+      `-ImplicitCastExpr 0x55bf9a5fedf0 <col:41> 'redisCallback *' <LValueToRValue>
+        `-DeclRefExpr 0x55bf9a5fedc8 <col:41> 'redisCallback *' lvalue Var 0x55bf9a5fed40 'dup' 'redisCallback *'
+[B1.5]([B1.6])
+   8: ImplicitCastExpr 0x55bf9a5feeb0 <async.c:60:26, col:45> 'redisCallback *' <BitCast>
+`-CallExpr 0x55bf9a5fee80 <col:26, col:45> 'void *'
+  |-ImplicitCastExpr 0x55bf9a5fee68 <col:26> 'void *(*)(unsigned long)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55bf9a5feda0 <col:26> 'void *(unsigned long)' Function 0x55bf9a516150 'malloc' 'void *(unsigned long)'
+  `-UnaryExprOrTypeTraitExpr 0x55bf9a5fee48 <col:33, col:44> 'unsigned long' sizeof
+    `-ParenExpr 0x55bf9a5fee28 <col:39, col:44> 'redisCallback':'struct redisCallback' lvalue
+      `-UnaryOperator 0x55bf9a5fee08 <col:40, col:41> 'redisCallback':'struct redisCallback' lvalue prefix '*'
+        `-ImplicitCastExpr 0x55bf9a5fedf0 <col:41> 'redisCallback *' <LValueToRValue>
+          `-DeclRefExpr 0x55bf9a5fedc8 <col:41> 'redisCallback *' lvalue Var 0x55bf9a5fed40 'dup' 'redisCallback *'
+[B1.7] (ImplicitCastExpr, BitCast, redisCallback *)
+   9: DeclStmt 0x55bf9a5feec8 <async.c:60:5, col:46>col:20
+`-VarDecl 0x55bf9a5fed40 <col:5, col:45> col:20 used dup 'redisCallback *' cinit
+  `-ImplicitCastExpr 0x55bf9a5feeb0 <col:26, col:45> 'redisCallback *' <BitCast>
+    `-CallExpr 0x55bf9a5fee80 <col:26, col:45> 'void *'
+      |-ImplicitCastExpr 0x55bf9a5fee68 <col:26> 'void *(*)(unsigned long)' <FunctionToPointerDecay>
+      | `-DeclRefExpr 0x55bf9a5feda0 <col:26> 'void *(unsigned long)' Function 0x55bf9a516150 'malloc' 'void *(unsigned long)'
+      `-UnaryExprOrTypeTraitExpr 0x55bf9a5fee48 <col:33, col:44> 'unsigned long' sizeof
+        `-ParenExpr 0x55bf9a5fee28 <col:39, col:44> 'redisCallback':'struct redisCallback' lvalue
+          `-UnaryOperator 0x55bf9a5fee08 <col:40, col:41> 'redisCallback':'struct redisCallback' lvalue prefix '*'
+            `-ImplicitCastExpr 0x55bf9a5fedf0 <col:41> 'redisCallback *' <LValueToRValue>
+              `-DeclRefExpr 0x55bf9a5fedc8 <col:41> 'redisCallback *' lvalue Var 0x55bf9a5fed40 'dup' 'redisCallback *'
+redisCallback *dup = malloc(sizeof (*dup));
+  10: DeclRefExpr 0x55bf9a5feee0 <async.c:61:5> 'void *(void *, const void *, unsigned long)' Function 0x55bf9a5242e0 'memcpy' 'void *(void *, const void *, unsigned long)'
+memcpy
+  11: ImplicitCastExpr 0x55bf9a5ff058 <async.c:61:5> 'void *(*)(void *, const void *, unsigned long)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a5feee0 <col:5> 'void *(void *, const void *, unsigned long)' Function 0x55bf9a5242e0 'memcpy' 'void *(void *, const void *, unsigned long)'
+[B1.10] (ImplicitCastExpr, FunctionToPointerDecay, void *(*)(void *, const void *, unsigned long))
+  12: DeclRefExpr 0x55bf9a5fef08 <async.c:61:12> 'redisCallback *' lvalue Var 0x55bf9a5fed40 'dup' 'redisCallback *'
+dup
+  13: ImplicitCastExpr 0x55bf9a5ff0b0 <async.c:61:12> 'redisCallback *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a5fef08 <col:12> 'redisCallback *' lvalue Var 0x55bf9a5fed40 'dup' 'redisCallback *'
+[B1.12] (ImplicitCastExpr, LValueToRValue, redisCallback *)
+  14: ImplicitCastExpr 0x55bf9a5ff0c8 <async.c:61:12> 'void *' <BitCast>
+`-ImplicitCastExpr 0x55bf9a5ff0b0 <col:12> 'redisCallback *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a5fef08 <col:12> 'redisCallback *' lvalue Var 0x55bf9a5fed40 'dup' 'redisCallback *'
+[B1.13] (ImplicitCastExpr, BitCast, void *)
+  15: DeclRefExpr 0x55bf9a5fef30 <async.c:61:16> 'const void *' lvalue ParmVar 0x55bf9a5feb50 'src' 'const void *'
+src
+  16: ImplicitCastExpr 0x55bf9a5ff0e0 <async.c:61:16> 'const void *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a5fef30 <col:16> 'const void *' lvalue ParmVar 0x55bf9a5feb50 'src' 'const void *'
+[B1.15] (ImplicitCastExpr, LValueToRValue, const void *)
+  17: UnaryExprOrTypeTraitExpr 0x55bf9a5fefd8 <async.c:61:20, col:31> 'unsigned long' sizeof
+`-ParenExpr 0x55bf9a5fefb8 <col:26, col:31> 'redisCallback':'struct redisCallback' lvalue
+  `-UnaryOperator 0x55bf9a5fef98 <col:27, col:28> 'redisCallback':'struct redisCallback' lvalue prefix '*'
+    `-ImplicitCastExpr 0x55bf9a5fef80 <col:28> 'redisCallback *' <LValueToRValue>
+      `-DeclRefExpr 0x55bf9a5fef58 <col:28> 'redisCallback *' lvalue Var 0x55bf9a5fed40 'dup' 'redisCallback *'
+sizeof (*dup)
+  18: CallExpr 0x55bf9a5ff070 <async.c:61:5, col:32> 'void *'
+|-ImplicitCastExpr 0x55bf9a5ff058 <col:5> 'void *(*)(void *, const void *, unsigned long)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a5feee0 <col:5> 'void *(void *, const void *, unsigned long)' Function 0x55bf9a5242e0 'memcpy' 'void *(void *, const void *, unsigned long)'
+|-ImplicitCastExpr 0x55bf9a5ff0c8 <col:12> 'void *' <BitCast>
+| `-ImplicitCastExpr 0x55bf9a5ff0b0 <col:12> 'redisCallback *' <LValueToRValue>
+|   `-DeclRefExpr 0x55bf9a5fef08 <col:12> 'redisCallback *' lvalue Var 0x55bf9a5fed40 'dup' 'redisCallback *'
+|-ImplicitCastExpr 0x55bf9a5ff0e0 <col:16> 'const void *' <LValueToRValue>
+| `-DeclRefExpr 0x55bf9a5fef30 <col:16> 'const void *' lvalue ParmVar 0x55bf9a5feb50 'src' 'const void *'
+`-UnaryExprOrTypeTraitExpr 0x55bf9a5fefd8 <col:20, col:31> 'unsigned long' sizeof
+  `-ParenExpr 0x55bf9a5fefb8 <col:26, col:31> 'redisCallback':'struct redisCallback' lvalue
+    `-UnaryOperator 0x55bf9a5fef98 <col:27, col:28> 'redisCallback':'struct redisCallback' lvalue prefix '*'
+      `-ImplicitCastExpr 0x55bf9a5fef80 <col:28> 'redisCallback *' <LValueToRValue>
+        `-DeclRefExpr 0x55bf9a5fef58 <col:28> 'redisCallback *' lvalue Var 0x55bf9a5fed40 'dup' 'redisCallback *'
+[B1.11]([B1.14], [B1.16], [B1.17])
+  19: DeclRefExpr 0x55bf9a5ff0f8 <async.c:62:12> 'redisCallback *' lvalue Var 0x55bf9a5fed40 'dup' 'redisCallback *'
+dup
+  20: ImplicitCastExpr 0x55bf9a5ff120 <async.c:62:12> 'redisCallback *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a5ff0f8 <col:12> 'redisCallback *' lvalue Var 0x55bf9a5fed40 'dup' 'redisCallback *'
+[B1.19] (ImplicitCastExpr, LValueToRValue, redisCallback *)
+  21: ImplicitCastExpr 0x55bf9a5ff138 <async.c:62:12> 'void *' <BitCast>
+`-ImplicitCastExpr 0x55bf9a5ff120 <col:12> 'redisCallback *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a5ff0f8 <col:12> 'redisCallback *' lvalue Var 0x55bf9a5fed40 'dup' 'redisCallback *'
+[B1.20] (ImplicitCastExpr, BitCast, void *)
+  22: ReturnStmt 0x55bf9a5ff150 <async.c:62:5, col:12>
+`-ImplicitCastExpr 0x55bf9a5ff138 <col:12> 'void *' <BitCast>
+  `-ImplicitCastExpr 0x55bf9a5ff120 <col:12> 'redisCallback *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a5ff0f8 <col:12> 'redisCallback *' lvalue Var 0x55bf9a5fed40 'dup' 'redisCallback *'
+return [B1.21];
+   Preds (1): B2
+   Succs (1): B0
+
+ [B0 (EXIT)]
+   Preds (1): B1

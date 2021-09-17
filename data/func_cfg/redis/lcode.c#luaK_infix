@@ -1,0 +1,223 @@
+void luaK_infix(FuncState *fs, BinOpr op, expdesc *v)
+ [B14 (ENTRY)]
+   Succs (1): B1
+
+ [B1]
+   1: DeclRefExpr 0x5637768e5498 <lcode.c:711:11> 'BinOpr':'enum BinOpr' lvalue ParmVar 0x5637768e5290 'op' 'BinOpr':'enum BinOpr'
+op
+   2: ImplicitCastExpr 0x5637768e54c0 <lcode.c:711:11> 'BinOpr':'enum BinOpr' <LValueToRValue>
+`-DeclRefExpr 0x5637768e5498 <col:11> 'BinOpr':'enum BinOpr' lvalue ParmVar 0x5637768e5290 'op' 'BinOpr':'enum BinOpr'
+[B1.1] (ImplicitCastExpr, LValueToRValue, BinOpr)
+   3: ImplicitCastExpr 0x5637768e54d8 <lcode.c:711:11> 'unsigned int' <IntegralCast>
+`-ImplicitCastExpr 0x5637768e54c0 <col:11> 'BinOpr':'enum BinOpr' <LValueToRValue>
+  `-DeclRefExpr 0x5637768e5498 <col:11> 'BinOpr':'enum BinOpr' lvalue ParmVar 0x5637768e5290 'op' 'BinOpr':'enum BinOpr'
+[B1.2] (ImplicitCastExpr, IntegralCast, unsigned int)
+   T: switch [B1.3]
+   Preds (1): B14
+   Succs (10): B3 B4 B5 B6 B7 B10 B11 B12
+     B13 B2
+
+ [B2]
+  default:
+   1: DeclRefExpr 0x5637768e5e08 <lcode.c:730:7> 'int (FuncState *, expdesc *)' Function 0x5637768d3f88 'luaK_exp2RK' 'int (FuncState *, expdesc *)'
+luaK_exp2RK
+   2: ImplicitCastExpr 0x5637768e5e80 <lcode.c:730:7> 'int (*)(FuncState *, expdesc *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5637768e5e08 <col:7> 'int (FuncState *, expdesc *)' Function 0x5637768d3f88 'luaK_exp2RK' 'int (FuncState *, expdesc *)'
+[B2.1] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(FuncState *, expdesc *))
+   3: DeclRefExpr 0x5637768e5e30 <lcode.c:730:19> 'FuncState *' lvalue ParmVar 0x5637768e5208 'fs' 'FuncState *'
+fs
+   4: ImplicitCastExpr 0x5637768e5ed0 <lcode.c:730:19> 'FuncState *' <LValueToRValue>
+`-DeclRefExpr 0x5637768e5e30 <col:19> 'FuncState *' lvalue ParmVar 0x5637768e5208 'fs' 'FuncState *'
+[B2.3] (ImplicitCastExpr, LValueToRValue, FuncState *)
+   5: DeclRefExpr 0x5637768e5e58 <lcode.c:730:23> 'expdesc *' lvalue ParmVar 0x5637768e5300 'v' 'expdesc *'
+v
+   6: ImplicitCastExpr 0x5637768e5ee8 <lcode.c:730:23> 'expdesc *' <LValueToRValue>
+`-DeclRefExpr 0x5637768e5e58 <col:23> 'expdesc *' lvalue ParmVar 0x5637768e5300 'v' 'expdesc *'
+[B2.5] (ImplicitCastExpr, LValueToRValue, expdesc *)
+   7: CallExpr 0x5637768e5e98 <lcode.c:730:7, col:24> 'int'
+|-ImplicitCastExpr 0x5637768e5e80 <col:7> 'int (*)(FuncState *, expdesc *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5637768e5e08 <col:7> 'int (FuncState *, expdesc *)' Function 0x5637768d3f88 'luaK_exp2RK' 'int (FuncState *, expdesc *)'
+|-ImplicitCastExpr 0x5637768e5ed0 <col:19> 'FuncState *' <LValueToRValue>
+| `-DeclRefExpr 0x5637768e5e30 <col:19> 'FuncState *' lvalue ParmVar 0x5637768e5208 'fs' 'FuncState *'
+`-ImplicitCastExpr 0x5637768e5ee8 <col:23> 'expdesc *' <LValueToRValue>
+  `-DeclRefExpr 0x5637768e5e58 <col:23> 'expdesc *' lvalue ParmVar 0x5637768e5300 'v' 'expdesc *'
+[B2.2]([B2.4], [B2.6])
+   T: break;
+   Preds (1): B1
+   Succs (1): B0
+
+ [B3]
+  case OPR_ADD:
+   Preds (1): B1
+   Succs (1): B4
+
+ [B4]
+  case OPR_SUB:
+   Preds (2): B3 B1
+   Succs (1): B5
+
+ [B5]
+  case OPR_MUL:
+   Preds (2): B4 B1
+   Succs (1): B6
+
+ [B6]
+  case OPR_DIV:
+   Preds (2): B5 B1
+   Succs (1): B7
+
+ [B7]
+  case OPR_MOD:
+   Preds (2): B6 B1
+   Succs (1): B10
+
+ [B8]
+   T: break;
+   Preds (2): B9 B10
+   Succs (1): B0
+
+ [B9]
+   1: DeclRefExpr 0x5637768e5cb0 <lcode.c:726:26> 'int (FuncState *, expdesc *)' Function 0x5637768d3f88 'luaK_exp2RK' 'int (FuncState *, expdesc *)'
+luaK_exp2RK
+   2: ImplicitCastExpr 0x5637768e5d28 <lcode.c:726:26> 'int (*)(FuncState *, expdesc *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5637768e5cb0 <col:26> 'int (FuncState *, expdesc *)' Function 0x5637768d3f88 'luaK_exp2RK' 'int (FuncState *, expdesc *)'
+[B9.1] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(FuncState *, expdesc *))
+   3: DeclRefExpr 0x5637768e5cd8 <lcode.c:726:38> 'FuncState *' lvalue ParmVar 0x5637768e5208 'fs' 'FuncState *'
+fs
+   4: ImplicitCastExpr 0x5637768e5d78 <lcode.c:726:38> 'FuncState *' <LValueToRValue>
+`-DeclRefExpr 0x5637768e5cd8 <col:38> 'FuncState *' lvalue ParmVar 0x5637768e5208 'fs' 'FuncState *'
+[B9.3] (ImplicitCastExpr, LValueToRValue, FuncState *)
+   5: DeclRefExpr 0x5637768e5d00 <lcode.c:726:42> 'expdesc *' lvalue ParmVar 0x5637768e5300 'v' 'expdesc *'
+v
+   6: ImplicitCastExpr 0x5637768e5d90 <lcode.c:726:42> 'expdesc *' <LValueToRValue>
+`-DeclRefExpr 0x5637768e5d00 <col:42> 'expdesc *' lvalue ParmVar 0x5637768e5300 'v' 'expdesc *'
+[B9.5] (ImplicitCastExpr, LValueToRValue, expdesc *)
+   7: CallExpr 0x5637768e5d40 <lcode.c:726:26, col:43> 'int'
+|-ImplicitCastExpr 0x5637768e5d28 <col:26> 'int (*)(FuncState *, expdesc *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5637768e5cb0 <col:26> 'int (FuncState *, expdesc *)' Function 0x5637768d3f88 'luaK_exp2RK' 'int (FuncState *, expdesc *)'
+|-ImplicitCastExpr 0x5637768e5d78 <col:38> 'FuncState *' <LValueToRValue>
+| `-DeclRefExpr 0x5637768e5cd8 <col:38> 'FuncState *' lvalue ParmVar 0x5637768e5208 'fs' 'FuncState *'
+`-ImplicitCastExpr 0x5637768e5d90 <col:42> 'expdesc *' <LValueToRValue>
+  `-DeclRefExpr 0x5637768e5d00 <col:42> 'expdesc *' lvalue ParmVar 0x5637768e5300 'v' 'expdesc *'
+[B9.2]([B9.4], [B9.6])
+   Preds (1): B10
+   Succs (1): B8
+
+ [B10]
+  case OPR_POW:
+   1: DeclRefExpr 0x5637768e5be0 <lcode.c:726:12> 'int (expdesc *)' Function 0x5637768a9328 'isnumeral' 'int (expdesc *)'
+isnumeral
+   2: ImplicitCastExpr 0x5637768e5c30 <lcode.c:726:12> 'int (*)(expdesc *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5637768e5be0 <col:12> 'int (expdesc *)' Function 0x5637768a9328 'isnumeral' 'int (expdesc *)'
+[B10.1] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(expdesc *))
+   3: DeclRefExpr 0x5637768e5c08 <lcode.c:726:22> 'expdesc *' lvalue ParmVar 0x5637768e5300 'v' 'expdesc *'
+v
+   4: ImplicitCastExpr 0x5637768e5c78 <lcode.c:726:22> 'expdesc *' <LValueToRValue>
+`-DeclRefExpr 0x5637768e5c08 <col:22> 'expdesc *' lvalue ParmVar 0x5637768e5300 'v' 'expdesc *'
+[B10.3] (ImplicitCastExpr, LValueToRValue, expdesc *)
+   5: CallExpr 0x5637768e5c48 <lcode.c:726:12, col:23> 'int'
+|-ImplicitCastExpr 0x5637768e5c30 <col:12> 'int (*)(expdesc *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5637768e5be0 <col:12> 'int (expdesc *)' Function 0x5637768a9328 'isnumeral' 'int (expdesc *)'
+`-ImplicitCastExpr 0x5637768e5c78 <col:22> 'expdesc *' <LValueToRValue>
+  `-DeclRefExpr 0x5637768e5c08 <col:22> 'expdesc *' lvalue ParmVar 0x5637768e5300 'v' 'expdesc *'
+[B10.2]([B10.4])
+   6: UnaryOperator 0x5637768e5c90 <lcode.c:726:11, col:23> 'int' prefix '!'
+`-CallExpr 0x5637768e5c48 <col:12, col:23> 'int'
+  |-ImplicitCastExpr 0x5637768e5c30 <col:12> 'int (*)(expdesc *)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x5637768e5be0 <col:12> 'int (expdesc *)' Function 0x5637768a9328 'isnumeral' 'int (expdesc *)'
+  `-ImplicitCastExpr 0x5637768e5c78 <col:22> 'expdesc *' <LValueToRValue>
+    `-DeclRefExpr 0x5637768e5c08 <col:22> 'expdesc *' lvalue ParmVar 0x5637768e5300 'v' 'expdesc *'
+![B10.5]
+   T: if [B10.6]
+   Preds (2): B1 B7
+   Succs (2): B9 B8
+
+ [B11]
+  case OPR_CONCAT:
+   1: DeclRefExpr 0x5637768e5880 <lcode.c:721:7> 'void (FuncState *, expdesc *)' Function 0x5637768d2340 'luaK_exp2nextreg' 'void (FuncState *, expdesc *)'
+luaK_exp2nextreg
+   2: ImplicitCastExpr 0x5637768e58f8 <lcode.c:721:7> 'void (*)(FuncState *, expdesc *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5637768e5880 <col:7> 'void (FuncState *, expdesc *)' Function 0x5637768d2340 'luaK_exp2nextreg' 'void (FuncState *, expdesc *)'
+[B11.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(FuncState *, expdesc *))
+   3: DeclRefExpr 0x5637768e58a8 <lcode.c:721:24> 'FuncState *' lvalue ParmVar 0x5637768e5208 'fs' 'FuncState *'
+fs
+   4: ImplicitCastExpr 0x5637768e5948 <lcode.c:721:24> 'FuncState *' <LValueToRValue>
+`-DeclRefExpr 0x5637768e58a8 <col:24> 'FuncState *' lvalue ParmVar 0x5637768e5208 'fs' 'FuncState *'
+[B11.3] (ImplicitCastExpr, LValueToRValue, FuncState *)
+   5: DeclRefExpr 0x5637768e58d0 <lcode.c:721:28> 'expdesc *' lvalue ParmVar 0x5637768e5300 'v' 'expdesc *'
+v
+   6: ImplicitCastExpr 0x5637768e5960 <lcode.c:721:28> 'expdesc *' <LValueToRValue>
+`-DeclRefExpr 0x5637768e58d0 <col:28> 'expdesc *' lvalue ParmVar 0x5637768e5300 'v' 'expdesc *'
+[B11.5] (ImplicitCastExpr, LValueToRValue, expdesc *)
+   7: CallExpr 0x5637768e5910 <lcode.c:721:7, col:29> 'void'
+|-ImplicitCastExpr 0x5637768e58f8 <col:7> 'void (*)(FuncState *, expdesc *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5637768e5880 <col:7> 'void (FuncState *, expdesc *)' Function 0x5637768d2340 'luaK_exp2nextreg' 'void (FuncState *, expdesc *)'
+|-ImplicitCastExpr 0x5637768e5948 <col:24> 'FuncState *' <LValueToRValue>
+| `-DeclRefExpr 0x5637768e58a8 <col:24> 'FuncState *' lvalue ParmVar 0x5637768e5208 'fs' 'FuncState *'
+`-ImplicitCastExpr 0x5637768e5960 <col:28> 'expdesc *' <LValueToRValue>
+  `-DeclRefExpr 0x5637768e58d0 <col:28> 'expdesc *' lvalue ParmVar 0x5637768e5300 'v' 'expdesc *'
+[B11.2]([B11.4], [B11.6])
+   T: break;
+   Preds (1): B1
+   Succs (1): B0
+
+ [B12]
+  case OPR_OR:
+   1: DeclRefExpr 0x5637768e5700 <lcode.c:717:7> 'void (FuncState *, expdesc *)' Function 0x5637768dc488 'luaK_goiffalse' 'void (FuncState *, expdesc *)'
+luaK_goiffalse
+   2: ImplicitCastExpr 0x5637768e5778 <lcode.c:717:7> 'void (*)(FuncState *, expdesc *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5637768e5700 <col:7> 'void (FuncState *, expdesc *)' Function 0x5637768dc488 'luaK_goiffalse' 'void (FuncState *, expdesc *)'
+[B12.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(FuncState *, expdesc *))
+   3: DeclRefExpr 0x5637768e5728 <lcode.c:717:22> 'FuncState *' lvalue ParmVar 0x5637768e5208 'fs' 'FuncState *'
+fs
+   4: ImplicitCastExpr 0x5637768e57c8 <lcode.c:717:22> 'FuncState *' <LValueToRValue>
+`-DeclRefExpr 0x5637768e5728 <col:22> 'FuncState *' lvalue ParmVar 0x5637768e5208 'fs' 'FuncState *'
+[B12.3] (ImplicitCastExpr, LValueToRValue, FuncState *)
+   5: DeclRefExpr 0x5637768e5750 <lcode.c:717:26> 'expdesc *' lvalue ParmVar 0x5637768e5300 'v' 'expdesc *'
+v
+   6: ImplicitCastExpr 0x5637768e57e0 <lcode.c:717:26> 'expdesc *' <LValueToRValue>
+`-DeclRefExpr 0x5637768e5750 <col:26> 'expdesc *' lvalue ParmVar 0x5637768e5300 'v' 'expdesc *'
+[B12.5] (ImplicitCastExpr, LValueToRValue, expdesc *)
+   7: CallExpr 0x5637768e5790 <lcode.c:717:7, col:27> 'void'
+|-ImplicitCastExpr 0x5637768e5778 <col:7> 'void (*)(FuncState *, expdesc *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5637768e5700 <col:7> 'void (FuncState *, expdesc *)' Function 0x5637768dc488 'luaK_goiffalse' 'void (FuncState *, expdesc *)'
+|-ImplicitCastExpr 0x5637768e57c8 <col:22> 'FuncState *' <LValueToRValue>
+| `-DeclRefExpr 0x5637768e5728 <col:22> 'FuncState *' lvalue ParmVar 0x5637768e5208 'fs' 'FuncState *'
+`-ImplicitCastExpr 0x5637768e57e0 <col:26> 'expdesc *' <LValueToRValue>
+  `-DeclRefExpr 0x5637768e5750 <col:26> 'expdesc *' lvalue ParmVar 0x5637768e5300 'v' 'expdesc *'
+[B12.2]([B12.4], [B12.6])
+   T: break;
+   Preds (1): B1
+   Succs (1): B0
+
+ [B13]
+  case OPR_AND:
+   1: DeclRefExpr 0x5637768e5580 <lcode.c:713:7> 'void (FuncState *, expdesc *)' Function 0x5637768db498 'luaK_goiftrue' 'void (FuncState *, expdesc *)'
+luaK_goiftrue
+   2: ImplicitCastExpr 0x5637768e55f8 <lcode.c:713:7> 'void (*)(FuncState *, expdesc *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5637768e5580 <col:7> 'void (FuncState *, expdesc *)' Function 0x5637768db498 'luaK_goiftrue' 'void (FuncState *, expdesc *)'
+[B13.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(FuncState *, expdesc *))
+   3: DeclRefExpr 0x5637768e55a8 <lcode.c:713:21> 'FuncState *' lvalue ParmVar 0x5637768e5208 'fs' 'FuncState *'
+fs
+   4: ImplicitCastExpr 0x5637768e5648 <lcode.c:713:21> 'FuncState *' <LValueToRValue>
+`-DeclRefExpr 0x5637768e55a8 <col:21> 'FuncState *' lvalue ParmVar 0x5637768e5208 'fs' 'FuncState *'
+[B13.3] (ImplicitCastExpr, LValueToRValue, FuncState *)
+   5: DeclRefExpr 0x5637768e55d0 <lcode.c:713:25> 'expdesc *' lvalue ParmVar 0x5637768e5300 'v' 'expdesc *'
+v
+   6: ImplicitCastExpr 0x5637768e5660 <lcode.c:713:25> 'expdesc *' <LValueToRValue>
+`-DeclRefExpr 0x5637768e55d0 <col:25> 'expdesc *' lvalue ParmVar 0x5637768e5300 'v' 'expdesc *'
+[B13.5] (ImplicitCastExpr, LValueToRValue, expdesc *)
+   7: CallExpr 0x5637768e5610 <lcode.c:713:7, col:26> 'void'
+|-ImplicitCastExpr 0x5637768e55f8 <col:7> 'void (*)(FuncState *, expdesc *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5637768e5580 <col:7> 'void (FuncState *, expdesc *)' Function 0x5637768db498 'luaK_goiftrue' 'void (FuncState *, expdesc *)'
+|-ImplicitCastExpr 0x5637768e5648 <col:21> 'FuncState *' <LValueToRValue>
+| `-DeclRefExpr 0x5637768e55a8 <col:21> 'FuncState *' lvalue ParmVar 0x5637768e5208 'fs' 'FuncState *'
+`-ImplicitCastExpr 0x5637768e5660 <col:25> 'expdesc *' <LValueToRValue>
+  `-DeclRefExpr 0x5637768e55d0 <col:25> 'expdesc *' lvalue ParmVar 0x5637768e5300 'v' 'expdesc *'
+[B13.2]([B13.4], [B13.6])
+   T: break;
+   Preds (1): B1
+   Succs (1): B0
+
+ [B0 (EXIT)]
+   Preds (5): B2 B8 B11 B12 B13

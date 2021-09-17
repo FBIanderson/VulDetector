@@ -1,0 +1,209 @@
+TValue *luaH_setstr(lua_State *L, Table *t, TString *key)
+ [B4 (ENTRY)]
+   Succs (1): B3
+
+ [B1]
+   1: DeclStmt 0x5654000f6db0 <ltable.c:525:5, col:13>col:12
+`-VarDecl 0x5654000f6d50 <col:5, col:12> col:12 used k 'TValue':'struct lua_TValue'
+TValue k;
+   2: DeclRefExpr 0x5654000f6e38 <ltable.c:526:19> 'TValue':'struct lua_TValue' lvalue Var 0x5654000f6d50 'k' 'TValue':'struct lua_TValue'
+k
+   3: UnaryOperator 0x5654000f6e60 <ltable.c:526:18, col:19> 'TValue *' prefix '&'
+`-DeclRefExpr 0x5654000f6e38 <col:19> 'TValue':'struct lua_TValue' lvalue Var 0x5654000f6d50 'k' 'TValue':'struct lua_TValue'
+&[B1.2]
+   4: DeclStmt 0x5654000f6ea0 <./lobject.h:129:5, col:22>col:13
+`-VarDecl 0x5654000f6dd8 <col:5, col:21> col:13 used i_o 'TValue *' cinit
+  `-ParenExpr 0x5654000f6e80 <col:17, col:21> 'TValue *'
+    `-UnaryOperator 0x5654000f6e60 <ltable.c:526:18, col:19> 'TValue *' prefix '&'
+      `-DeclRefExpr 0x5654000f6e38 <col:19> 'TValue':'struct lua_TValue' lvalue Var 0x5654000f6d50 'k' 'TValue':'struct lua_TValue'
+TValue *i_o = (&k);
+   5: DeclRefExpr 0x5654000f6f68 <ltable.c:526:22> 'TString *' lvalue ParmVar 0x5654000f6858 'key' 'TString *'
+key
+   6: ImplicitCastExpr 0x5654000f7010 <./llimits.h:75:26, col:30> 'TString *' <LValueToRValue>
+`-ParenExpr 0x5654000f6ff0 <col:26, col:30> 'TString *' lvalue
+  `-ParenExpr 0x5654000f6f90 <./lobject.h:130:36, col:38> 'TString *' lvalue
+    `-DeclRefExpr 0x5654000f6f68 <ltable.c:526:22> 'TString *' lvalue ParmVar 0x5654000f6858 'key' 'TString *'
+(([B1.5])) (ImplicitCastExpr, LValueToRValue, TString *)
+   7: CStyleCastExpr 0x5654000f7028 <./llimits.h:75:23, col:30> 'GCObject *' <BitCast>
+`-ImplicitCastExpr 0x5654000f7010 <col:26, col:30> 'TString *' <LValueToRValue>
+  `-ParenExpr 0x5654000f6ff0 <col:26, col:30> 'TString *' lvalue
+    `-ParenExpr 0x5654000f6f90 <./lobject.h:130:36, col:38> 'TString *' lvalue
+      `-DeclRefExpr 0x5654000f6f68 <ltable.c:526:22> 'TString *' lvalue ParmVar 0x5654000f6858 'key' 'TString *'
+(GCObject *)[B1.6] (CStyleCastExpr, BitCast, GCObject *)
+   8: DeclRefExpr 0x5654000f6eb8 <./lobject.h:130:5> 'TValue *' lvalue Var 0x5654000f6dd8 'i_o' 'TValue *'
+i_o
+   9: ImplicitCastExpr 0x5654000f6ee0 <./lobject.h:130:5> 'TValue *' <LValueToRValue>
+`-DeclRefExpr 0x5654000f6eb8 <col:5> 'TValue *' lvalue Var 0x5654000f6dd8 'i_o' 'TValue *'
+[B1.8] (ImplicitCastExpr, LValueToRValue, TValue *)
+  10: MemberExpr 0x5654000f6ef8 <./lobject.h:130:5, col:10> 'Value':'Value' lvalue ->value 0x565400089980
+`-ImplicitCastExpr 0x5654000f6ee0 <col:5> 'TValue *' <LValueToRValue>
+  `-DeclRefExpr 0x5654000f6eb8 <col:5> 'TValue *' lvalue Var 0x5654000f6dd8 'i_o' 'TValue *'
+[B1.9]->value
+  11: MemberExpr 0x5654000f6f30 <./lobject.h:130:5, col:16> 'GCObject *' lvalue .gc 0x565400089680
+`-MemberExpr 0x5654000f6ef8 <col:5, col:10> 'Value':'Value' lvalue ->value 0x565400089980
+  `-ImplicitCastExpr 0x5654000f6ee0 <col:5> 'TValue *' <LValueToRValue>
+    `-DeclRefExpr 0x5654000f6eb8 <col:5> 'TValue *' lvalue Var 0x5654000f6dd8 'i_o' 'TValue *'
+[B1.10].gc
+  12: BinaryOperator 0x5654000f7070 <./lobject.h:130:5, ./llimits.h:75:31> 'GCObject *' '='
+|-MemberExpr 0x5654000f6f30 <./lobject.h:130:5, col:16> 'GCObject *' lvalue .gc 0x565400089680
+| `-MemberExpr 0x5654000f6ef8 <col:5, col:10> 'Value':'Value' lvalue ->value 0x565400089980
+|   `-ImplicitCastExpr 0x5654000f6ee0 <col:5> 'TValue *' <LValueToRValue>
+|     `-DeclRefExpr 0x5654000f6eb8 <col:5> 'TValue *' lvalue Var 0x5654000f6dd8 'i_o' 'TValue *'
+`-ParenExpr 0x5654000f7050 <./llimits.h:75:22, col:31> 'GCObject *'
+  `-CStyleCastExpr 0x5654000f7028 <col:23, col:30> 'GCObject *' <BitCast>
+    `-ImplicitCastExpr 0x5654000f7010 <col:26, col:30> 'TString *' <LValueToRValue>
+      `-ParenExpr 0x5654000f6ff0 <col:26, col:30> 'TString *' lvalue
+        `-ParenExpr 0x5654000f6f90 <./lobject.h:130:36, col:38> 'TString *' lvalue
+          `-DeclRefExpr 0x5654000f6f68 <ltable.c:526:22> 'TString *' lvalue ParmVar 0x5654000f6858 'key' 'TString *'
+[B1.11] = ([B1.7])
+  13: IntegerLiteral 0x5654000f7110 <./lua.h:78:22> 'int' 4
+4
+  14: DeclRefExpr 0x5654000f7098 <./lobject.h:130:42> 'TValue *' lvalue Var 0x5654000f6dd8 'i_o' 'TValue *'
+i_o
+  15: ImplicitCastExpr 0x5654000f70c0 <./lobject.h:130:42> 'TValue *' <LValueToRValue>
+`-DeclRefExpr 0x5654000f7098 <col:42> 'TValue *' lvalue Var 0x5654000f6dd8 'i_o' 'TValue *'
+[B1.14] (ImplicitCastExpr, LValueToRValue, TValue *)
+  16: MemberExpr 0x5654000f70d8 <./lobject.h:130:42, col:47> 'int' lvalue ->tt 0x5654000899e0
+`-ImplicitCastExpr 0x5654000f70c0 <col:42> 'TValue *' <LValueToRValue>
+  `-DeclRefExpr 0x5654000f7098 <col:42> 'TValue *' lvalue Var 0x5654000f6dd8 'i_o' 'TValue *'
+[B1.15]->tt
+  17: BinaryOperator 0x5654000f7130 <./lobject.h:130:42, ./lua.h:78:22> 'int' '='
+|-MemberExpr 0x5654000f70d8 <./lobject.h:130:42, col:47> 'int' lvalue ->tt 0x5654000899e0
+| `-ImplicitCastExpr 0x5654000f70c0 <col:42> 'TValue *' <LValueToRValue>
+|   `-DeclRefExpr 0x5654000f7098 <col:42> 'TValue *' lvalue Var 0x5654000f6dd8 'i_o' 'TValue *'
+`-IntegerLiteral 0x5654000f7110 <./lua.h:78:22> 'int' 4
+[B1.16] = [B1.13]
+  18: IntegerLiteral 0x5654000f7158 <./llimits.h:62:31> 'int' 0
+0
+  19: CStyleCastExpr 0x5654000f7188 <./llimits.h:62:25, col:31> 'void' <ToVoid>
+`-IntegerLiteral 0x5654000f7158 <col:31> 'int' 0
+(void)[B1.18] (CStyleCastExpr, ToVoid, void)
+  20: DeclRefExpr 0x5654000f7210 <ltable.c:527:12> 'TValue *(lua_State *, Table *, const TValue *)' Function 0x5654000ec3a0 'newkey' 'TValue *(lua_State *, Table *, const TValue *)'
+newkey
+  21: ImplicitCastExpr 0x5654000f72d0 <ltable.c:527:12> 'TValue *(*)(lua_State *, Table *, const TValue *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5654000f7210 <col:12> 'TValue *(lua_State *, Table *, const TValue *)' Function 0x5654000ec3a0 'newkey' 'TValue *(lua_State *, Table *, const TValue *)'
+[B1.20] (ImplicitCastExpr, FunctionToPointerDecay, TValue *(*)(lua_State *, Table *, const TValue *))
+  22: DeclRefExpr 0x5654000f7238 <ltable.c:527:19> 'lua_State *' lvalue ParmVar 0x5654000f6778 'L' 'lua_State *'
+L
+  23: ImplicitCastExpr 0x5654000f7328 <ltable.c:527:19> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x5654000f7238 <col:19> 'lua_State *' lvalue ParmVar 0x5654000f6778 'L' 'lua_State *'
+[B1.22] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  24: DeclRefExpr 0x5654000f7260 <ltable.c:527:22> 'Table *' lvalue ParmVar 0x5654000f67e8 't' 'Table *'
+t
+  25: ImplicitCastExpr 0x5654000f7340 <ltable.c:527:22> 'Table *' <LValueToRValue>
+`-DeclRefExpr 0x5654000f7260 <col:22> 'Table *' lvalue ParmVar 0x5654000f67e8 't' 'Table *'
+[B1.24] (ImplicitCastExpr, LValueToRValue, Table *)
+  26: DeclRefExpr 0x5654000f7288 <ltable.c:527:26> 'TValue':'struct lua_TValue' lvalue Var 0x5654000f6d50 'k' 'TValue':'struct lua_TValue'
+k
+  27: UnaryOperator 0x5654000f72b0 <ltable.c:527:25, col:26> 'TValue *' prefix '&'
+`-DeclRefExpr 0x5654000f7288 <col:26> 'TValue':'struct lua_TValue' lvalue Var 0x5654000f6d50 'k' 'TValue':'struct lua_TValue'
+&[B1.26]
+  28: ImplicitCastExpr 0x5654000f7358 <ltable.c:527:25, col:26> 'const TValue *' <BitCast>
+`-UnaryOperator 0x5654000f72b0 <col:25, col:26> 'TValue *' prefix '&'
+  `-DeclRefExpr 0x5654000f7288 <col:26> 'TValue':'struct lua_TValue' lvalue Var 0x5654000f6d50 'k' 'TValue':'struct lua_TValue'
+[B1.27] (ImplicitCastExpr, BitCast, const TValue *)
+  29: CallExpr 0x5654000f72e8 <ltable.c:527:12, col:27> 'TValue *'
+|-ImplicitCastExpr 0x5654000f72d0 <col:12> 'TValue *(*)(lua_State *, Table *, const TValue *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5654000f7210 <col:12> 'TValue *(lua_State *, Table *, const TValue *)' Function 0x5654000ec3a0 'newkey' 'TValue *(lua_State *, Table *, const TValue *)'
+|-ImplicitCastExpr 0x5654000f7328 <col:19> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x5654000f7238 <col:19> 'lua_State *' lvalue ParmVar 0x5654000f6778 'L' 'lua_State *'
+|-ImplicitCastExpr 0x5654000f7340 <col:22> 'Table *' <LValueToRValue>
+| `-DeclRefExpr 0x5654000f7260 <col:22> 'Table *' lvalue ParmVar 0x5654000f67e8 't' 'Table *'
+`-ImplicitCastExpr 0x5654000f7358 <col:25, col:26> 'const TValue *' <BitCast>
+  `-UnaryOperator 0x5654000f72b0 <col:25, col:26> 'TValue *' prefix '&'
+    `-DeclRefExpr 0x5654000f7288 <col:26> 'TValue':'struct lua_TValue' lvalue Var 0x5654000f6d50 'k' 'TValue':'struct lua_TValue'
+[B1.21]([B1.23], [B1.25], [B1.28])
+  30: ReturnStmt 0x5654000f7370 <ltable.c:527:5, col:27>
+`-CallExpr 0x5654000f72e8 <col:12, col:27> 'TValue *'
+  |-ImplicitCastExpr 0x5654000f72d0 <col:12> 'TValue *(*)(lua_State *, Table *, const TValue *)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x5654000f7210 <col:12> 'TValue *(lua_State *, Table *, const TValue *)' Function 0x5654000ec3a0 'newkey' 'TValue *(lua_State *, Table *, const TValue *)'
+  |-ImplicitCastExpr 0x5654000f7328 <col:19> 'lua_State *' <LValueToRValue>
+  | `-DeclRefExpr 0x5654000f7238 <col:19> 'lua_State *' lvalue ParmVar 0x5654000f6778 'L' 'lua_State *'
+  |-ImplicitCastExpr 0x5654000f7340 <col:22> 'Table *' <LValueToRValue>
+  | `-DeclRefExpr 0x5654000f7260 <col:22> 'Table *' lvalue ParmVar 0x5654000f67e8 't' 'Table *'
+  `-ImplicitCastExpr 0x5654000f7358 <col:25, col:26> 'const TValue *' <BitCast>
+    `-UnaryOperator 0x5654000f72b0 <col:25, col:26> 'TValue *' prefix '&'
+      `-DeclRefExpr 0x5654000f7288 <col:26> 'TValue':'struct lua_TValue' lvalue Var 0x5654000f6d50 'k' 'TValue':'struct lua_TValue'
+return [B1.29];
+   Preds (1): B3
+   Succs (1): B0
+
+ [B2]
+   1: DeclRefExpr 0x5654000f6c40 <ltable.c:523:27> 'const TValue *' lvalue Var 0x5654000f6a00 'p' 'const TValue *'
+p
+   2: ImplicitCastExpr 0x5654000f6cc8 <./llimits.h:75:26, col:30> 'const TValue *' <LValueToRValue>
+`-ParenExpr 0x5654000f6ca8 <col:26, col:30> 'const TValue *' lvalue
+  `-DeclRefExpr 0x5654000f6c40 <ltable.c:523:27> 'const TValue *' lvalue Var 0x5654000f6a00 'p' 'const TValue *'
+([B2.1]) (ImplicitCastExpr, LValueToRValue, const TValue *)
+   3: CStyleCastExpr 0x5654000f6ce0 <./llimits.h:75:23, col:30> 'TValue *' <BitCast>
+`-ImplicitCastExpr 0x5654000f6cc8 <col:26, col:30> 'const TValue *' <LValueToRValue>
+  `-ParenExpr 0x5654000f6ca8 <col:26, col:30> 'const TValue *' lvalue
+    `-DeclRefExpr 0x5654000f6c40 <ltable.c:523:27> 'const TValue *' lvalue Var 0x5654000f6a00 'p' 'const TValue *'
+(TValue *)[B2.2] (CStyleCastExpr, BitCast, TValue *)
+   4: ReturnStmt 0x5654000f6d28 <ltable.c:523:5, ./llimits.h:75:31>
+`-ParenExpr 0x5654000f6d08 <col:22, col:31> 'TValue *'
+  `-CStyleCastExpr 0x5654000f6ce0 <col:23, col:30> 'TValue *' <BitCast>
+    `-ImplicitCastExpr 0x5654000f6cc8 <col:26, col:30> 'const TValue *' <LValueToRValue>
+      `-ParenExpr 0x5654000f6ca8 <col:26, col:30> 'const TValue *' lvalue
+        `-DeclRefExpr 0x5654000f6c40 <ltable.c:523:27> 'const TValue *' lvalue Var 0x5654000f6a00 'p' 'const TValue *'
+return ([B2.3]);
+   Preds (1): B3
+   Succs (1): B0
+
+ [B3]
+   1: DeclRefExpr 0x5654000f6a60 <ltable.c:521:21> 'const TValue *(Table *, TString *)' Function 0x5654000f0918 'luaH_getstr' 'const TValue *(Table *, TString *)'
+luaH_getstr
+   2: ImplicitCastExpr 0x5654000f6ad8 <ltable.c:521:21> 'const TValue *(*)(Table *, TString *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5654000f6a60 <col:21> 'const TValue *(Table *, TString *)' Function 0x5654000f0918 'luaH_getstr' 'const TValue *(Table *, TString *)'
+[B3.1] (ImplicitCastExpr, FunctionToPointerDecay, const TValue *(*)(Table *, TString *))
+   3: DeclRefExpr 0x5654000f6a88 <ltable.c:521:33> 'Table *' lvalue ParmVar 0x5654000f67e8 't' 'Table *'
+t
+   4: ImplicitCastExpr 0x5654000f6b28 <ltable.c:521:33> 'Table *' <LValueToRValue>
+`-DeclRefExpr 0x5654000f6a88 <col:33> 'Table *' lvalue ParmVar 0x5654000f67e8 't' 'Table *'
+[B3.3] (ImplicitCastExpr, LValueToRValue, Table *)
+   5: DeclRefExpr 0x5654000f6ab0 <ltable.c:521:36> 'TString *' lvalue ParmVar 0x5654000f6858 'key' 'TString *'
+key
+   6: ImplicitCastExpr 0x5654000f6b40 <ltable.c:521:36> 'TString *' <LValueToRValue>
+`-DeclRefExpr 0x5654000f6ab0 <col:36> 'TString *' lvalue ParmVar 0x5654000f6858 'key' 'TString *'
+[B3.5] (ImplicitCastExpr, LValueToRValue, TString *)
+   7: CallExpr 0x5654000f6af0 <ltable.c:521:21, col:39> 'const TValue *'
+|-ImplicitCastExpr 0x5654000f6ad8 <col:21> 'const TValue *(*)(Table *, TString *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5654000f6a60 <col:21> 'const TValue *(Table *, TString *)' Function 0x5654000f0918 'luaH_getstr' 'const TValue *(Table *, TString *)'
+|-ImplicitCastExpr 0x5654000f6b28 <col:33> 'Table *' <LValueToRValue>
+| `-DeclRefExpr 0x5654000f6a88 <col:33> 'Table *' lvalue ParmVar 0x5654000f67e8 't' 'Table *'
+`-ImplicitCastExpr 0x5654000f6b40 <col:36> 'TString *' <LValueToRValue>
+  `-DeclRefExpr 0x5654000f6ab0 <col:36> 'TString *' lvalue ParmVar 0x5654000f6858 'key' 'TString *'
+[B3.2]([B3.4], [B3.6])
+   8: DeclStmt 0x5654000f6b58 <ltable.c:521:3, col:40>col:17
+`-VarDecl 0x5654000f6a00 <col:3, col:39> col:17 used p 'const TValue *' cinit
+  `-CallExpr 0x5654000f6af0 <col:21, col:39> 'const TValue *'
+    |-ImplicitCastExpr 0x5654000f6ad8 <col:21> 'const TValue *(*)(Table *, TString *)' <FunctionToPointerDecay>
+    | `-DeclRefExpr 0x5654000f6a60 <col:21> 'const TValue *(Table *, TString *)' Function 0x5654000f0918 'luaH_getstr' 'const TValue *(Table *, TString *)'
+    |-ImplicitCastExpr 0x5654000f6b28 <col:33> 'Table *' <LValueToRValue>
+    | `-DeclRefExpr 0x5654000f6a88 <col:33> 'Table *' lvalue ParmVar 0x5654000f67e8 't' 'Table *'
+    `-ImplicitCastExpr 0x5654000f6b40 <col:36> 'TString *' <LValueToRValue>
+      `-DeclRefExpr 0x5654000f6ab0 <col:36> 'TString *' lvalue ParmVar 0x5654000f6858 'key' 'TString *'
+const TValue *p = luaH_getstr(t, key);
+   9: DeclRefExpr 0x5654000f6b70 <ltable.c:522:7> 'const TValue *' lvalue Var 0x5654000f6a00 'p' 'const TValue *'
+p
+  10: ImplicitCastExpr 0x5654000f6c00 <ltable.c:522:7> 'const TValue *' <LValueToRValue>
+`-DeclRefExpr 0x5654000f6b70 <col:7> 'const TValue *' lvalue Var 0x5654000f6a00 'p' 'const TValue *'
+[B3.9] (ImplicitCastExpr, LValueToRValue, const TValue *)
+  11: DeclRefExpr 0x5654000f6b98 <./lobject.h:363:27> 'const TValue':'const struct lua_TValue' lvalue Var 0x56540009afb8 'luaO_nilobject_' 'const TValue':'const struct lua_TValue'
+luaO_nilobject_
+  12: UnaryOperator 0x5654000f6bc0 <./lobject.h:363:26, col:27> 'const TValue *' prefix '&'
+`-DeclRefExpr 0x5654000f6b98 <col:27> 'const TValue':'const struct lua_TValue' lvalue Var 0x56540009afb8 'luaO_nilobject_' 'const TValue':'const struct lua_TValue'
+&[B3.11]
+  13: BinaryOperator 0x5654000f6c18 <ltable.c:522:7, ./lobject.h:363:42> 'int' '!='
+|-ImplicitCastExpr 0x5654000f6c00 <ltable.c:522:7> 'const TValue *' <LValueToRValue>
+| `-DeclRefExpr 0x5654000f6b70 <col:7> 'const TValue *' lvalue Var 0x5654000f6a00 'p' 'const TValue *'
+`-ParenExpr 0x5654000f6be0 <./lobject.h:363:25, col:42> 'const TValue *'
+  `-UnaryOperator 0x5654000f6bc0 <col:26, col:27> 'const TValue *' prefix '&'
+    `-DeclRefExpr 0x5654000f6b98 <col:27> 'const TValue':'const struct lua_TValue' lvalue Var 0x56540009afb8 'luaO_nilobject_' 'const TValue':'const struct lua_TValue'
+[B3.10] != ([B3.12])
+   T: if [B3.13]
+   Preds (1): B4
+   Succs (2): B2 B1
+
+ [B0 (EXIT)]
+   Preds (2): B1 B2

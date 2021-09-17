@@ -1,0 +1,117 @@
+static int json_destroy_config(lua_State *l)
+ [B4 (ENTRY)]
+   Succs (1): B3
+
+ [B1]
+   1: IntegerLiteral 0x563107e06d38 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+   2: CStyleCastExpr 0x563107e06d70 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x563107e06d38 <col:24> 'int' 0
+(void *)[B1.1] (CStyleCastExpr, NullToPointer, void *)
+   3: ImplicitCastExpr 0x563107e06db8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'json_config_t *' <NullToPointer>
+`-ParenExpr 0x563107e06d98 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x563107e06d70 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x563107e06d38 <col:24> 'int' 0
+([B1.2]) (ImplicitCastExpr, NullToPointer, json_config_t *)
+   4: DeclRefExpr 0x563107e06d10 <lua_cjson.c:368:5> 'json_config_t *' lvalue Var 0x563107e069d8 'cfg' 'json_config_t *'
+cfg
+   5: BinaryOperator 0x563107e06dd0 <lua_cjson.c:368:5, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25> 'json_config_t *' '='
+|-DeclRefExpr 0x563107e06d10 <lua_cjson.c:368:5> 'json_config_t *' lvalue Var 0x563107e069d8 'cfg' 'json_config_t *'
+`-ImplicitCastExpr 0x563107e06db8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'json_config_t *' <NullToPointer>
+  `-ParenExpr 0x563107e06d98 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x563107e06d70 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x563107e06d38 <col:24> 'int' 0
+[B1.4] = [B1.3]
+   6: IntegerLiteral 0x563107e06df8 <lua_cjson.c:370:12> 'int' 0
+0
+   7: ReturnStmt 0x563107e06e18 <lua_cjson.c:370:5, col:12>
+`-IntegerLiteral 0x563107e06df8 <col:12> 'int' 0
+return [B1.6];
+   Preds (2): B2 B3
+   Succs (1): B0
+
+ [B2]
+   1: DeclRefExpr 0x563107e06bd0 <lua_cjson.c:367:9> 'void (strbuf_t *)' Function 0x563107de7db0 'strbuf_free' 'void (strbuf_t *)'
+strbuf_free
+   2: ImplicitCastExpr 0x563107e06c90 <lua_cjson.c:367:9> 'void (*)(strbuf_t *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x563107e06bd0 <col:9> 'void (strbuf_t *)' Function 0x563107de7db0 'strbuf_free' 'void (strbuf_t *)'
+[B2.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(strbuf_t *))
+   3: DeclRefExpr 0x563107e06bf8 <lua_cjson.c:367:22> 'json_config_t *' lvalue Var 0x563107e069d8 'cfg' 'json_config_t *'
+cfg
+   4: ImplicitCastExpr 0x563107e06c20 <lua_cjson.c:367:22> 'json_config_t *' <LValueToRValue>
+`-DeclRefExpr 0x563107e06bf8 <col:22> 'json_config_t *' lvalue Var 0x563107e069d8 'cfg' 'json_config_t *'
+[B2.3] (ImplicitCastExpr, LValueToRValue, json_config_t *)
+   5: MemberExpr 0x563107e06c38 <lua_cjson.c:367:22, col:27> 'strbuf_t':'strbuf_t' lvalue ->encode_buf 0x563107df0fe0
+`-ImplicitCastExpr 0x563107e06c20 <col:22> 'json_config_t *' <LValueToRValue>
+  `-DeclRefExpr 0x563107e06bf8 <col:22> 'json_config_t *' lvalue Var 0x563107e069d8 'cfg' 'json_config_t *'
+[B2.4]->encode_buf
+   6: UnaryOperator 0x563107e06c70 <lua_cjson.c:367:21, col:27> 'strbuf_t *' prefix '&'
+`-MemberExpr 0x563107e06c38 <col:22, col:27> 'strbuf_t':'strbuf_t' lvalue ->encode_buf 0x563107df0fe0
+  `-ImplicitCastExpr 0x563107e06c20 <col:22> 'json_config_t *' <LValueToRValue>
+    `-DeclRefExpr 0x563107e06bf8 <col:22> 'json_config_t *' lvalue Var 0x563107e069d8 'cfg' 'json_config_t *'
+&[B2.5]
+   7: CallExpr 0x563107e06ca8 <lua_cjson.c:367:9, col:37> 'void'
+|-ImplicitCastExpr 0x563107e06c90 <col:9> 'void (*)(strbuf_t *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x563107e06bd0 <col:9> 'void (strbuf_t *)' Function 0x563107de7db0 'strbuf_free' 'void (strbuf_t *)'
+`-UnaryOperator 0x563107e06c70 <col:21, col:27> 'strbuf_t *' prefix '&'
+  `-MemberExpr 0x563107e06c38 <col:22, col:27> 'strbuf_t':'strbuf_t' lvalue ->encode_buf 0x563107df0fe0
+    `-ImplicitCastExpr 0x563107e06c20 <col:22> 'json_config_t *' <LValueToRValue>
+      `-DeclRefExpr 0x563107e06bf8 <col:22> 'json_config_t *' lvalue Var 0x563107e069d8 'cfg' 'json_config_t *'
+[B2.2]([B2.6])
+   Preds (1): B3
+   Succs (1): B1
+
+ [B3]
+   1: DeclStmt 0x563107e06a38 <lua_cjson.c:363:5, col:23>col:20
+`-VarDecl 0x563107e069d8 <col:5, col:20> col:20 used cfg 'json_config_t *'
+json_config_t *cfg;
+   2: DeclRefExpr 0x563107e06a78 <lua_cjson.c:365:11> 'void *(lua_State *, int)':'void *(lua_State *, int)' Function 0x563107d55018 'lua_touserdata' 'void *(lua_State *, int)':'void *(lua_State *, int)'
+lua_touserdata
+   3: ImplicitCastExpr 0x563107e06ae8 <lua_cjson.c:365:11> 'void *(*)(lua_State *, int)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x563107e06a78 <col:11> 'void *(lua_State *, int)':'void *(lua_State *, int)' Function 0x563107d55018 'lua_touserdata' 'void *(lua_State *, int)':'void *(lua_State *, int)'
+[B3.2] (ImplicitCastExpr, FunctionToPointerDecay, void *(*)(lua_State *, int))
+   4: DeclRefExpr 0x563107e06aa0 <lua_cjson.c:365:26> 'lua_State *' lvalue ParmVar 0x563107e06890 'l' 'lua_State *'
+l
+   5: ImplicitCastExpr 0x563107e06b38 <lua_cjson.c:365:26> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x563107e06aa0 <col:26> 'lua_State *' lvalue ParmVar 0x563107e06890 'l' 'lua_State *'
+[B3.4] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   6: IntegerLiteral 0x563107e06ac8 <lua_cjson.c:365:29> 'int' 1
+1
+   7: CallExpr 0x563107e06b00 <lua_cjson.c:365:11, col:30> 'void *'
+|-ImplicitCastExpr 0x563107e06ae8 <col:11> 'void *(*)(lua_State *, int)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x563107e06a78 <col:11> 'void *(lua_State *, int)':'void *(lua_State *, int)' Function 0x563107d55018 'lua_touserdata' 'void *(lua_State *, int)':'void *(lua_State *, int)'
+|-ImplicitCastExpr 0x563107e06b38 <col:26> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x563107e06aa0 <col:26> 'lua_State *' lvalue ParmVar 0x563107e06890 'l' 'lua_State *'
+`-IntegerLiteral 0x563107e06ac8 <col:29> 'int' 1
+[B3.3]([B3.5], [B3.6])
+   8: ImplicitCastExpr 0x563107e06b50 <lua_cjson.c:365:11, col:30> 'json_config_t *' <BitCast>
+`-CallExpr 0x563107e06b00 <col:11, col:30> 'void *'
+  |-ImplicitCastExpr 0x563107e06ae8 <col:11> 'void *(*)(lua_State *, int)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x563107e06a78 <col:11> 'void *(lua_State *, int)':'void *(lua_State *, int)' Function 0x563107d55018 'lua_touserdata' 'void *(lua_State *, int)':'void *(lua_State *, int)'
+  |-ImplicitCastExpr 0x563107e06b38 <col:26> 'lua_State *' <LValueToRValue>
+  | `-DeclRefExpr 0x563107e06aa0 <col:26> 'lua_State *' lvalue ParmVar 0x563107e06890 'l' 'lua_State *'
+  `-IntegerLiteral 0x563107e06ac8 <col:29> 'int' 1
+[B3.7] (ImplicitCastExpr, BitCast, json_config_t *)
+   9: DeclRefExpr 0x563107e06a50 <lua_cjson.c:365:5> 'json_config_t *' lvalue Var 0x563107e069d8 'cfg' 'json_config_t *'
+cfg
+  10: BinaryOperator 0x563107e06b68 <lua_cjson.c:365:5, col:30> 'json_config_t *' '='
+|-DeclRefExpr 0x563107e06a50 <col:5> 'json_config_t *' lvalue Var 0x563107e069d8 'cfg' 'json_config_t *'
+`-ImplicitCastExpr 0x563107e06b50 <col:11, col:30> 'json_config_t *' <BitCast>
+  `-CallExpr 0x563107e06b00 <col:11, col:30> 'void *'
+    |-ImplicitCastExpr 0x563107e06ae8 <col:11> 'void *(*)(lua_State *, int)' <FunctionToPointerDecay>
+    | `-DeclRefExpr 0x563107e06a78 <col:11> 'void *(lua_State *, int)':'void *(lua_State *, int)' Function 0x563107d55018 'lua_touserdata' 'void *(lua_State *, int)':'void *(lua_State *, int)'
+    |-ImplicitCastExpr 0x563107e06b38 <col:26> 'lua_State *' <LValueToRValue>
+    | `-DeclRefExpr 0x563107e06aa0 <col:26> 'lua_State *' lvalue ParmVar 0x563107e06890 'l' 'lua_State *'
+    `-IntegerLiteral 0x563107e06ac8 <col:29> 'int' 1
+[B3.9] = [B3.8]
+  11: DeclRefExpr 0x563107e06b90 <lua_cjson.c:366:9> 'json_config_t *' lvalue Var 0x563107e069d8 'cfg' 'json_config_t *'
+cfg
+  12: ImplicitCastExpr 0x563107e06bb8 <lua_cjson.c:366:9> 'json_config_t *' <LValueToRValue>
+`-DeclRefExpr 0x563107e06b90 <col:9> 'json_config_t *' lvalue Var 0x563107e069d8 'cfg' 'json_config_t *'
+[B3.11] (ImplicitCastExpr, LValueToRValue, json_config_t *)
+   T: if [B3.12]
+   Preds (1): B4
+   Succs (2): B2 B1
+
+ [B0 (EXIT)]
+   Preds (1): B1

@@ -1,0 +1,207 @@
+static int check_capture(MatchState *ms, int l)
+ [B6 (ENTRY)]
+   Succs (1): B5
+
+ [B1]
+   1: DeclRefExpr 0x55fb421c5460 <lstrlib.c:190:10> 'int' lvalue ParmVar 0x55fb421c4c40 'l' 'int'
+l
+   2: ImplicitCastExpr 0x55fb421c5488 <lstrlib.c:190:10> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55fb421c5460 <col:10> 'int' lvalue ParmVar 0x55fb421c4c40 'l' 'int'
+[B1.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: ReturnStmt 0x55fb421c54a0 <lstrlib.c:190:3, col:10>
+`-ImplicitCastExpr 0x55fb421c5488 <col:10> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x55fb421c5460 <col:10> 'int' lvalue ParmVar 0x55fb421c4c40 'l' 'int'
+return [B1.2];
+   Preds (1): B3
+   Succs (1): B0
+
+ [B2]
+   1: DeclRefExpr 0x55fb421c5298 <lstrlib.c:189:12> 'int (lua_State *, const char *, ...)':'int (lua_State *, const char *, ...)' Function 0x55fb421a7478 'luaL_error' 'int (lua_State *, const char *, ...)':'int (lua_State *, const char *, ...)'
+luaL_error
+   2: ImplicitCastExpr 0x55fb421c5378 <lstrlib.c:189:12> 'int (*)(lua_State *, const char *, ...)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55fb421c5298 <col:12> 'int (lua_State *, const char *, ...)':'int (lua_State *, const char *, ...)' Function 0x55fb421a7478 'luaL_error' 'int (lua_State *, const char *, ...)':'int (lua_State *, const char *, ...)'
+[B2.1] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(lua_State *, const char *, ...))
+   3: DeclRefExpr 0x55fb421c52c0 <lstrlib.c:189:23> 'MatchState *' lvalue ParmVar 0x55fb421c4bc8 'ms' 'MatchState *'
+ms
+   4: ImplicitCastExpr 0x55fb421c52e8 <lstrlib.c:189:23> 'MatchState *' <LValueToRValue>
+`-DeclRefExpr 0x55fb421c52c0 <col:23> 'MatchState *' lvalue ParmVar 0x55fb421c4bc8 'ms' 'MatchState *'
+[B2.3] (ImplicitCastExpr, LValueToRValue, MatchState *)
+   5: MemberExpr 0x55fb421c5300 <lstrlib.c:189:23, col:27> 'lua_State *' lvalue ->L 0x55fb421c36a0
+`-ImplicitCastExpr 0x55fb421c52e8 <col:23> 'MatchState *' <LValueToRValue>
+  `-DeclRefExpr 0x55fb421c52c0 <col:23> 'MatchState *' lvalue ParmVar 0x55fb421c4bc8 'ms' 'MatchState *'
+[B2.4]->L
+   6: ImplicitCastExpr 0x55fb421c53c8 <lstrlib.c:189:23, col:27> 'lua_State *' <LValueToRValue>
+`-MemberExpr 0x55fb421c5300 <col:23, col:27> 'lua_State *' lvalue ->L 0x55fb421c36a0
+  `-ImplicitCastExpr 0x55fb421c52e8 <col:23> 'MatchState *' <LValueToRValue>
+    `-DeclRefExpr 0x55fb421c52c0 <col:23> 'MatchState *' lvalue ParmVar 0x55fb421c4bc8 'ms' 'MatchState *'
+[B2.5] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   7: StringLiteral 0x55fb421c5338 <lstrlib.c:189:30> 'char [22]' lvalue "invalid capture index"
+"invalid capture index"
+   8: ImplicitCastExpr 0x55fb421c53e0 <lstrlib.c:189:30> 'char *' <ArrayToPointerDecay>
+`-StringLiteral 0x55fb421c5338 <col:30> 'char [22]' lvalue "invalid capture index"
+[B2.7] (ImplicitCastExpr, ArrayToPointerDecay, char *)
+   9: ImplicitCastExpr 0x55fb421c53f8 <lstrlib.c:189:30> 'const char *' <BitCast>
+`-ImplicitCastExpr 0x55fb421c53e0 <col:30> 'char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x55fb421c5338 <col:30> 'char [22]' lvalue "invalid capture index"
+[B2.8] (ImplicitCastExpr, BitCast, const char *)
+  10: CallExpr 0x55fb421c5390 <lstrlib.c:189:12, col:53> 'int'
+|-ImplicitCastExpr 0x55fb421c5378 <col:12> 'int (*)(lua_State *, const char *, ...)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55fb421c5298 <col:12> 'int (lua_State *, const char *, ...)':'int (lua_State *, const char *, ...)' Function 0x55fb421a7478 'luaL_error' 'int (lua_State *, const char *, ...)':'int (lua_State *, const char *, ...)'
+|-ImplicitCastExpr 0x55fb421c53c8 <col:23, col:27> 'lua_State *' <LValueToRValue>
+| `-MemberExpr 0x55fb421c5300 <col:23, col:27> 'lua_State *' lvalue ->L 0x55fb421c36a0
+|   `-ImplicitCastExpr 0x55fb421c52e8 <col:23> 'MatchState *' <LValueToRValue>
+|     `-DeclRefExpr 0x55fb421c52c0 <col:23> 'MatchState *' lvalue ParmVar 0x55fb421c4bc8 'ms' 'MatchState *'
+`-ImplicitCastExpr 0x55fb421c53f8 <col:30> 'const char *' <BitCast>
+  `-ImplicitCastExpr 0x55fb421c53e0 <col:30> 'char *' <ArrayToPointerDecay>
+    `-StringLiteral 0x55fb421c5338 <col:30> 'char [22]' lvalue "invalid capture index"
+[B2.2]([B2.6], [B2.9])
+  11: ReturnStmt 0x55fb421c5410 <lstrlib.c:189:5, col:53>
+`-CallExpr 0x55fb421c5390 <col:12, col:53> 'int'
+  |-ImplicitCastExpr 0x55fb421c5378 <col:12> 'int (*)(lua_State *, const char *, ...)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55fb421c5298 <col:12> 'int (lua_State *, const char *, ...)':'int (lua_State *, const char *, ...)' Function 0x55fb421a7478 'luaL_error' 'int (lua_State *, const char *, ...)':'int (lua_State *, const char *, ...)'
+  |-ImplicitCastExpr 0x55fb421c53c8 <col:23, col:27> 'lua_State *' <LValueToRValue>
+  | `-MemberExpr 0x55fb421c5300 <col:23, col:27> 'lua_State *' lvalue ->L 0x55fb421c36a0
+  |   `-ImplicitCastExpr 0x55fb421c52e8 <col:23> 'MatchState *' <LValueToRValue>
+  |     `-DeclRefExpr 0x55fb421c52c0 <col:23> 'MatchState *' lvalue ParmVar 0x55fb421c4bc8 'ms' 'MatchState *'
+  `-ImplicitCastExpr 0x55fb421c53f8 <col:30> 'const char *' <BitCast>
+    `-ImplicitCastExpr 0x55fb421c53e0 <col:30> 'char *' <ArrayToPointerDecay>
+      `-StringLiteral 0x55fb421c5338 <col:30> 'char [22]' lvalue "invalid capture index"
+return [B2.10];
+   Preds (3): B3 B4 B5
+   Succs (1): B0
+
+ [B3]
+   1: DeclRefExpr 0x55fb421c5028 <lstrlib.c:188:34> 'MatchState *' lvalue ParmVar 0x55fb421c4bc8 'ms' 'MatchState *'
+ms
+   2: ImplicitCastExpr 0x55fb421c5050 <lstrlib.c:188:34> 'MatchState *' <LValueToRValue>
+`-DeclRefExpr 0x55fb421c5028 <col:34> 'MatchState *' lvalue ParmVar 0x55fb421c4bc8 'ms' 'MatchState *'
+[B3.1] (ImplicitCastExpr, LValueToRValue, MatchState *)
+   3: MemberExpr 0x55fb421c5068 <lstrlib.c:188:34, col:38> 'struct (anonymous struct at lstrlib.c:175:3) [32]' lvalue ->capture 0x55fb421c39f8
+`-ImplicitCastExpr 0x55fb421c5050 <col:34> 'MatchState *' <LValueToRValue>
+  `-DeclRefExpr 0x55fb421c5028 <col:34> 'MatchState *' lvalue ParmVar 0x55fb421c4bc8 'ms' 'MatchState *'
+[B3.2]->capture
+   4: ImplicitCastExpr 0x55fb421c5128 <lstrlib.c:188:34, col:38> 'struct (anonymous struct at lstrlib.c:175:3) *' <ArrayToPointerDecay>
+`-MemberExpr 0x55fb421c5068 <col:34, col:38> 'struct (anonymous struct at lstrlib.c:175:3) [32]' lvalue ->capture 0x55fb421c39f8
+  `-ImplicitCastExpr 0x55fb421c5050 <col:34> 'MatchState *' <LValueToRValue>
+    `-DeclRefExpr 0x55fb421c5028 <col:34> 'MatchState *' lvalue ParmVar 0x55fb421c4bc8 'ms' 'MatchState *'
+[B3.3] (ImplicitCastExpr, ArrayToPointerDecay, struct (anonymous struct at lstrlib.c:175:3) *)
+   5: DeclRefExpr 0x55fb421c50a0 <lstrlib.c:188:46> 'int' lvalue ParmVar 0x55fb421c4c40 'l' 'int'
+l
+   6: ImplicitCastExpr 0x55fb421c5140 <lstrlib.c:188:46> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55fb421c50a0 <col:46> 'int' lvalue ParmVar 0x55fb421c4c40 'l' 'int'
+[B3.5] (ImplicitCastExpr, LValueToRValue, int)
+   7: ArraySubscriptExpr 0x55fb421c5158 <lstrlib.c:188:34, col:47> 'struct (anonymous struct at lstrlib.c:175:3)':'struct MatchState::(anonymous at lstrlib.c:175:3)' lvalue
+|-ImplicitCastExpr 0x55fb421c5128 <col:34, col:38> 'struct (anonymous struct at lstrlib.c:175:3) *' <ArrayToPointerDecay>
+| `-MemberExpr 0x55fb421c5068 <col:34, col:38> 'struct (anonymous struct at lstrlib.c:175:3) [32]' lvalue ->capture 0x55fb421c39f8
+|   `-ImplicitCastExpr 0x55fb421c5050 <col:34> 'MatchState *' <LValueToRValue>
+|     `-DeclRefExpr 0x55fb421c5028 <col:34> 'MatchState *' lvalue ParmVar 0x55fb421c4bc8 'ms' 'MatchState *'
+`-ImplicitCastExpr 0x55fb421c5140 <col:46> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x55fb421c50a0 <col:46> 'int' lvalue ParmVar 0x55fb421c4c40 'l' 'int'
+[B3.4][[B3.6]]
+   8: MemberExpr 0x55fb421c5180 <lstrlib.c:188:34, col:49> 'ptrdiff_t':'long' lvalue .len 0x55fb421c3860
+`-ArraySubscriptExpr 0x55fb421c5158 <col:34, col:47> 'struct (anonymous struct at lstrlib.c:175:3)':'struct MatchState::(anonymous at lstrlib.c:175:3)' lvalue
+  |-ImplicitCastExpr 0x55fb421c5128 <col:34, col:38> 'struct (anonymous struct at lstrlib.c:175:3) *' <ArrayToPointerDecay>
+  | `-MemberExpr 0x55fb421c5068 <col:34, col:38> 'struct (anonymous struct at lstrlib.c:175:3) [32]' lvalue ->capture 0x55fb421c39f8
+  |   `-ImplicitCastExpr 0x55fb421c5050 <col:34> 'MatchState *' <LValueToRValue>
+  |     `-DeclRefExpr 0x55fb421c5028 <col:34> 'MatchState *' lvalue ParmVar 0x55fb421c4bc8 'ms' 'MatchState *'
+  `-ImplicitCastExpr 0x55fb421c5140 <col:46> 'int' <LValueToRValue>
+    `-DeclRefExpr 0x55fb421c50a0 <col:46> 'int' lvalue ParmVar 0x55fb421c4c40 'l' 'int'
+[B3.7].len
+   9: ImplicitCastExpr 0x55fb421c5218 <lstrlib.c:188:34, col:49> 'ptrdiff_t':'long' <LValueToRValue>
+`-MemberExpr 0x55fb421c5180 <col:34, col:49> 'ptrdiff_t':'long' lvalue .len 0x55fb421c3860
+  `-ArraySubscriptExpr 0x55fb421c5158 <col:34, col:47> 'struct (anonymous struct at lstrlib.c:175:3)':'struct MatchState::(anonymous at lstrlib.c:175:3)' lvalue
+    |-ImplicitCastExpr 0x55fb421c5128 <col:34, col:38> 'struct (anonymous struct at lstrlib.c:175:3) *' <ArrayToPointerDecay>
+    | `-MemberExpr 0x55fb421c5068 <col:34, col:38> 'struct (anonymous struct at lstrlib.c:175:3) [32]' lvalue ->capture 0x55fb421c39f8
+    |   `-ImplicitCastExpr 0x55fb421c5050 <col:34> 'MatchState *' <LValueToRValue>
+    |     `-DeclRefExpr 0x55fb421c5028 <col:34> 'MatchState *' lvalue ParmVar 0x55fb421c4bc8 'ms' 'MatchState *'
+    `-ImplicitCastExpr 0x55fb421c5140 <col:46> 'int' <LValueToRValue>
+      `-DeclRefExpr 0x55fb421c50a0 <col:46> 'int' lvalue ParmVar 0x55fb421c4c40 'l' 'int'
+[B3.8] (ImplicitCastExpr, LValueToRValue, ptrdiff_t)
+  10: IntegerLiteral 0x55fb421c51b8 <lstrlib.c:167:26> 'int' 1
+1
+  11: UnaryOperator 0x55fb421c51d8 <lstrlib.c:167:25, col:26> 'int' prefix '-'
+`-IntegerLiteral 0x55fb421c51b8 <col:26> 'int' 1
+-[B3.10]
+  12: ImplicitCastExpr 0x55fb421c5230 <lstrlib.c:167:24, col:27> 'long' <IntegralCast>
+`-ParenExpr 0x55fb421c51f8 <col:24, col:27> 'int'
+  `-UnaryOperator 0x55fb421c51d8 <col:25, col:26> 'int' prefix '-'
+    `-IntegerLiteral 0x55fb421c51b8 <col:26> 'int' 1
+([B3.11]) (ImplicitCastExpr, IntegralCast, long)
+  13: BinaryOperator 0x55fb421c5248 <lstrlib.c:188:34, line:167:27> 'int' '=='
+|-ImplicitCastExpr 0x55fb421c5218 <line:188:34, col:49> 'ptrdiff_t':'long' <LValueToRValue>
+| `-MemberExpr 0x55fb421c5180 <col:34, col:49> 'ptrdiff_t':'long' lvalue .len 0x55fb421c3860
+|   `-ArraySubscriptExpr 0x55fb421c5158 <col:34, col:47> 'struct (anonymous struct at lstrlib.c:175:3)':'struct MatchState::(anonymous at lstrlib.c:175:3)' lvalue
+|     |-ImplicitCastExpr 0x55fb421c5128 <col:34, col:38> 'struct (anonymous struct at lstrlib.c:175:3) *' <ArrayToPointerDecay>
+|     | `-MemberExpr 0x55fb421c5068 <col:34, col:38> 'struct (anonymous struct at lstrlib.c:175:3) [32]' lvalue ->capture 0x55fb421c39f8
+|     |   `-ImplicitCastExpr 0x55fb421c5050 <col:34> 'MatchState *' <LValueToRValue>
+|     |     `-DeclRefExpr 0x55fb421c5028 <col:34> 'MatchState *' lvalue ParmVar 0x55fb421c4bc8 'ms' 'MatchState *'
+|     `-ImplicitCastExpr 0x55fb421c5140 <col:46> 'int' <LValueToRValue>
+|       `-DeclRefExpr 0x55fb421c50a0 <col:46> 'int' lvalue ParmVar 0x55fb421c4c40 'l' 'int'
+`-ImplicitCastExpr 0x55fb421c5230 <line:167:24, col:27> 'long' <IntegralCast>
+  `-ParenExpr 0x55fb421c51f8 <col:24, col:27> 'int'
+    `-UnaryOperator 0x55fb421c51d8 <col:25, col:26> 'int' prefix '-'
+      `-IntegerLiteral 0x55fb421c51b8 <col:26> 'int' 1
+[B3.9] == [B3.12]
+   T: if [B5.7] || [B4.7] || [B3.13]
+   Preds (1): B4
+   Succs (2): B2 B1
+
+ [B4]
+   1: DeclRefExpr 0x55fb421c4f08 <lstrlib.c:188:16> 'int' lvalue ParmVar 0x55fb421c4c40 'l' 'int'
+l
+   2: ImplicitCastExpr 0x55fb421c4fa8 <lstrlib.c:188:16> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55fb421c4f08 <col:16> 'int' lvalue ParmVar 0x55fb421c4c40 'l' 'int'
+[B4.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: DeclRefExpr 0x55fb421c4f30 <lstrlib.c:188:21> 'MatchState *' lvalue ParmVar 0x55fb421c4bc8 'ms' 'MatchState *'
+ms
+   4: ImplicitCastExpr 0x55fb421c4f58 <lstrlib.c:188:21> 'MatchState *' <LValueToRValue>
+`-DeclRefExpr 0x55fb421c4f30 <col:21> 'MatchState *' lvalue ParmVar 0x55fb421c4bc8 'ms' 'MatchState *'
+[B4.3] (ImplicitCastExpr, LValueToRValue, MatchState *)
+   5: MemberExpr 0x55fb421c4f70 <lstrlib.c:188:21, col:25> 'int' lvalue ->level 0x55fb421c3700
+`-ImplicitCastExpr 0x55fb421c4f58 <col:21> 'MatchState *' <LValueToRValue>
+  `-DeclRefExpr 0x55fb421c4f30 <col:21> 'MatchState *' lvalue ParmVar 0x55fb421c4bc8 'ms' 'MatchState *'
+[B4.4]->level
+   6: ImplicitCastExpr 0x55fb421c4fc0 <lstrlib.c:188:21, col:25> 'int' <LValueToRValue>
+`-MemberExpr 0x55fb421c4f70 <col:21, col:25> 'int' lvalue ->level 0x55fb421c3700
+  `-ImplicitCastExpr 0x55fb421c4f58 <col:21> 'MatchState *' <LValueToRValue>
+    `-DeclRefExpr 0x55fb421c4f30 <col:21> 'MatchState *' lvalue ParmVar 0x55fb421c4bc8 'ms' 'MatchState *'
+[B4.5] (ImplicitCastExpr, LValueToRValue, int)
+   7: BinaryOperator 0x55fb421c4fd8 <lstrlib.c:188:16, col:25> 'int' '>='
+|-ImplicitCastExpr 0x55fb421c4fa8 <col:16> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x55fb421c4f08 <col:16> 'int' lvalue ParmVar 0x55fb421c4c40 'l' 'int'
+`-ImplicitCastExpr 0x55fb421c4fc0 <col:21, col:25> 'int' <LValueToRValue>
+  `-MemberExpr 0x55fb421c4f70 <col:21, col:25> 'int' lvalue ->level 0x55fb421c3700
+    `-ImplicitCastExpr 0x55fb421c4f58 <col:21> 'MatchState *' <LValueToRValue>
+      `-DeclRefExpr 0x55fb421c4f30 <col:21> 'MatchState *' lvalue ParmVar 0x55fb421c4bc8 'ms' 'MatchState *'
+[B4.2] >= [B4.6]
+   T: [B5.7] || [B4.7] || ...
+   Preds (1): B5
+   Succs (2): B2 B3
+
+ [B5]
+   1: DeclRefExpr 0x55fb421c4e08 <lstrlib.c:187:3> 'int' lvalue ParmVar 0x55fb421c4c40 'l' 'int'
+l
+   2: CharacterLiteral 0x55fb421c4e30 <lstrlib.c:187:8> 'int' 49
+'1'
+   3: CompoundAssignOperator 0x55fb421c4e48 <lstrlib.c:187:3, col:8> 'int' '-=' ComputeLHSTy='int' ComputeResultTy='int'
+|-DeclRefExpr 0x55fb421c4e08 <col:3> 'int' lvalue ParmVar 0x55fb421c4c40 'l' 'int'
+`-CharacterLiteral 0x55fb421c4e30 <col:8> 'int' 49
+[B5.1] -= [B5.2]
+   4: DeclRefExpr 0x55fb421c4e80 <lstrlib.c:188:7> 'int' lvalue ParmVar 0x55fb421c4c40 'l' 'int'
+l
+   5: ImplicitCastExpr 0x55fb421c4ec8 <lstrlib.c:188:7> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55fb421c4e80 <col:7> 'int' lvalue ParmVar 0x55fb421c4c40 'l' 'int'
+[B5.4] (ImplicitCastExpr, LValueToRValue, int)
+   6: IntegerLiteral 0x55fb421c4ea8 <lstrlib.c:188:11> 'int' 0
+0
+   7: BinaryOperator 0x55fb421c4ee0 <lstrlib.c:188:7, col:11> 'int' '<'
+|-ImplicitCastExpr 0x55fb421c4ec8 <col:7> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x55fb421c4e80 <col:7> 'int' lvalue ParmVar 0x55fb421c4c40 'l' 'int'
+`-IntegerLiteral 0x55fb421c4ea8 <col:11> 'int' 0
+[B5.5] < [B5.6]
+   T: [B5.7] || ...
+   Preds (1): B6
+   Succs (2): B2 B4
+
+ [B0 (EXIT)]
+   Preds (2): B1 B2

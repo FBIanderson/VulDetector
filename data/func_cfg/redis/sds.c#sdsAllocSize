@@ -1,0 +1,142 @@
+size_t sdsAllocSize(sds s)
+ [B2 (ENTRY)]
+   Succs (1): B1
+
+ [B1]
+   1: DeclRefExpr 0x55e83d100cb0 <sds.c:282:20> 'size_t (const sds)' Function 0x55e83d0e9850 'sdsalloc' 'size_t (const sds)'
+sdsalloc
+   2: ImplicitCastExpr 0x55e83d100d00 <sds.c:282:20> 'size_t (*)(const sds)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55e83d100cb0 <col:20> 'size_t (const sds)' Function 0x55e83d0e9850 'sdsalloc' 'size_t (const sds)'
+[B1.1] (ImplicitCastExpr, FunctionToPointerDecay, size_t (*)(const sds))
+   3: DeclRefExpr 0x55e83d100cd8 <sds.c:282:29> 'sds':'char *' lvalue ParmVar 0x55e83d100b10 's' 'sds':'char *'
+s
+   4: ImplicitCastExpr 0x55e83d100d48 <sds.c:282:29> 'sds':'char *' <LValueToRValue>
+`-DeclRefExpr 0x55e83d100cd8 <col:29> 'sds':'char *' lvalue ParmVar 0x55e83d100b10 's' 'sds':'char *'
+[B1.3] (ImplicitCastExpr, LValueToRValue, sds)
+   5: CallExpr 0x55e83d100d18 <sds.c:282:20, col:30> 'size_t':'unsigned long'
+|-ImplicitCastExpr 0x55e83d100d00 <col:20> 'size_t (*)(const sds)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55e83d100cb0 <col:20> 'size_t (const sds)' Function 0x55e83d0e9850 'sdsalloc' 'size_t (const sds)'
+`-ImplicitCastExpr 0x55e83d100d48 <col:29> 'sds':'char *' <LValueToRValue>
+  `-DeclRefExpr 0x55e83d100cd8 <col:29> 'sds':'char *' lvalue ParmVar 0x55e83d100b10 's' 'sds':'char *'
+[B1.2]([B1.4])
+   6: DeclStmt 0x55e83d100d60 <sds.c:282:5, col:31>col:12
+`-VarDecl 0x55e83d100c50 <col:5, col:30> col:12 used alloc 'size_t':'unsigned long' cinit
+  `-CallExpr 0x55e83d100d18 <col:20, col:30> 'size_t':'unsigned long'
+    |-ImplicitCastExpr 0x55e83d100d00 <col:20> 'size_t (*)(const sds)' <FunctionToPointerDecay>
+    | `-DeclRefExpr 0x55e83d100cb0 <col:20> 'size_t (const sds)' Function 0x55e83d0e9850 'sdsalloc' 'size_t (const sds)'
+    `-ImplicitCastExpr 0x55e83d100d48 <col:29> 'sds':'char *' <LValueToRValue>
+      `-DeclRefExpr 0x55e83d100cd8 <col:29> 'sds':'char *' lvalue ParmVar 0x55e83d100b10 's' 'sds':'char *'
+size_t alloc = sdsalloc(s);
+   7: DeclRefExpr 0x55e83d100da0 <sds.c:283:12> 'int (char)' Function 0x55e83d0f17c8 'sdsHdrSize' 'int (char)'
+sdsHdrSize
+   8: ImplicitCastExpr 0x55e83d100e70 <sds.c:283:12> 'int (*)(char)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55e83d100da0 <col:12> 'int (char)' Function 0x55e83d0f17c8 'sdsHdrSize' 'int (char)'
+[B1.7] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(char))
+   9: DeclRefExpr 0x55e83d100dc8 <sds.c:283:23> 'sds':'char *' lvalue ParmVar 0x55e83d100b10 's' 'sds':'char *'
+s
+  10: ImplicitCastExpr 0x55e83d100e30 <sds.c:283:23> 'sds':'char *' <LValueToRValue>
+`-DeclRefExpr 0x55e83d100dc8 <col:23> 'sds':'char *' lvalue ParmVar 0x55e83d100b10 's' 'sds':'char *'
+[B1.9] (ImplicitCastExpr, LValueToRValue, sds)
+  11: IntegerLiteral 0x55e83d100df0 <sds.c:283:26> 'int' 1
+1
+  12: UnaryOperator 0x55e83d100e10 <sds.c:283:25, col:26> 'int' prefix '-'
+`-IntegerLiteral 0x55e83d100df0 <col:26> 'int' 1
+-[B1.11]
+  13: ArraySubscriptExpr 0x55e83d100e48 <sds.c:283:23, col:27> 'char' lvalue
+|-ImplicitCastExpr 0x55e83d100e30 <col:23> 'sds':'char *' <LValueToRValue>
+| `-DeclRefExpr 0x55e83d100dc8 <col:23> 'sds':'char *' lvalue ParmVar 0x55e83d100b10 's' 'sds':'char *'
+`-UnaryOperator 0x55e83d100e10 <col:25, col:26> 'int' prefix '-'
+  `-IntegerLiteral 0x55e83d100df0 <col:26> 'int' 1
+[B1.10][[B1.12]]
+  14: ImplicitCastExpr 0x55e83d100eb8 <sds.c:283:23, col:27> 'char' <LValueToRValue>
+`-ArraySubscriptExpr 0x55e83d100e48 <col:23, col:27> 'char' lvalue
+  |-ImplicitCastExpr 0x55e83d100e30 <col:23> 'sds':'char *' <LValueToRValue>
+  | `-DeclRefExpr 0x55e83d100dc8 <col:23> 'sds':'char *' lvalue ParmVar 0x55e83d100b10 's' 'sds':'char *'
+  `-UnaryOperator 0x55e83d100e10 <col:25, col:26> 'int' prefix '-'
+    `-IntegerLiteral 0x55e83d100df0 <col:26> 'int' 1
+[B1.13] (ImplicitCastExpr, LValueToRValue, char)
+  15: CallExpr 0x55e83d100e88 <sds.c:283:12, col:28> 'int'
+|-ImplicitCastExpr 0x55e83d100e70 <col:12> 'int (*)(char)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55e83d100da0 <col:12> 'int (char)' Function 0x55e83d0f17c8 'sdsHdrSize' 'int (char)'
+`-ImplicitCastExpr 0x55e83d100eb8 <col:23, col:27> 'char' <LValueToRValue>
+  `-ArraySubscriptExpr 0x55e83d100e48 <col:23, col:27> 'char' lvalue
+    |-ImplicitCastExpr 0x55e83d100e30 <col:23> 'sds':'char *' <LValueToRValue>
+    | `-DeclRefExpr 0x55e83d100dc8 <col:23> 'sds':'char *' lvalue ParmVar 0x55e83d100b10 's' 'sds':'char *'
+    `-UnaryOperator 0x55e83d100e10 <col:25, col:26> 'int' prefix '-'
+      `-IntegerLiteral 0x55e83d100df0 <col:26> 'int' 1
+[B1.8]([B1.14])
+  16: ImplicitCastExpr 0x55e83d100f10 <sds.c:283:12, col:28> 'unsigned long' <IntegralCast>
+`-CallExpr 0x55e83d100e88 <col:12, col:28> 'int'
+  |-ImplicitCastExpr 0x55e83d100e70 <col:12> 'int (*)(char)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55e83d100da0 <col:12> 'int (char)' Function 0x55e83d0f17c8 'sdsHdrSize' 'int (char)'
+  `-ImplicitCastExpr 0x55e83d100eb8 <col:23, col:27> 'char' <LValueToRValue>
+    `-ArraySubscriptExpr 0x55e83d100e48 <col:23, col:27> 'char' lvalue
+      |-ImplicitCastExpr 0x55e83d100e30 <col:23> 'sds':'char *' <LValueToRValue>
+      | `-DeclRefExpr 0x55e83d100dc8 <col:23> 'sds':'char *' lvalue ParmVar 0x55e83d100b10 's' 'sds':'char *'
+      `-UnaryOperator 0x55e83d100e10 <col:25, col:26> 'int' prefix '-'
+        `-IntegerLiteral 0x55e83d100df0 <col:26> 'int' 1
+[B1.15] (ImplicitCastExpr, IntegralCast, unsigned long)
+  17: DeclRefExpr 0x55e83d100ed0 <sds.c:283:30> 'size_t':'unsigned long' lvalue Var 0x55e83d100c50 'alloc' 'size_t':'unsigned long'
+alloc
+  18: ImplicitCastExpr 0x55e83d100ef8 <sds.c:283:30> 'size_t':'unsigned long' <LValueToRValue>
+`-DeclRefExpr 0x55e83d100ed0 <col:30> 'size_t':'unsigned long' lvalue Var 0x55e83d100c50 'alloc' 'size_t':'unsigned long'
+[B1.17] (ImplicitCastExpr, LValueToRValue, size_t)
+  19: BinaryOperator 0x55e83d100f28 <sds.c:283:12, col:30> 'unsigned long' '+'
+|-ImplicitCastExpr 0x55e83d100f10 <col:12, col:28> 'unsigned long' <IntegralCast>
+| `-CallExpr 0x55e83d100e88 <col:12, col:28> 'int'
+|   |-ImplicitCastExpr 0x55e83d100e70 <col:12> 'int (*)(char)' <FunctionToPointerDecay>
+|   | `-DeclRefExpr 0x55e83d100da0 <col:12> 'int (char)' Function 0x55e83d0f17c8 'sdsHdrSize' 'int (char)'
+|   `-ImplicitCastExpr 0x55e83d100eb8 <col:23, col:27> 'char' <LValueToRValue>
+|     `-ArraySubscriptExpr 0x55e83d100e48 <col:23, col:27> 'char' lvalue
+|       |-ImplicitCastExpr 0x55e83d100e30 <col:23> 'sds':'char *' <LValueToRValue>
+|       | `-DeclRefExpr 0x55e83d100dc8 <col:23> 'sds':'char *' lvalue ParmVar 0x55e83d100b10 's' 'sds':'char *'
+|       `-UnaryOperator 0x55e83d100e10 <col:25, col:26> 'int' prefix '-'
+|         `-IntegerLiteral 0x55e83d100df0 <col:26> 'int' 1
+`-ImplicitCastExpr 0x55e83d100ef8 <col:30> 'size_t':'unsigned long' <LValueToRValue>
+  `-DeclRefExpr 0x55e83d100ed0 <col:30> 'size_t':'unsigned long' lvalue Var 0x55e83d100c50 'alloc' 'size_t':'unsigned long'
+[B1.16] + [B1.18]
+  20: IntegerLiteral 0x55e83d100f50 <sds.c:283:36> 'int' 1
+1
+  21: ImplicitCastExpr 0x55e83d100f70 <sds.c:283:36> 'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x55e83d100f50 <col:36> 'int' 1
+[B1.20] (ImplicitCastExpr, IntegralCast, unsigned long)
+  22: BinaryOperator 0x55e83d100f88 <sds.c:283:12, col:36> 'unsigned long' '+'
+|-BinaryOperator 0x55e83d100f28 <col:12, col:30> 'unsigned long' '+'
+| |-ImplicitCastExpr 0x55e83d100f10 <col:12, col:28> 'unsigned long' <IntegralCast>
+| | `-CallExpr 0x55e83d100e88 <col:12, col:28> 'int'
+| |   |-ImplicitCastExpr 0x55e83d100e70 <col:12> 'int (*)(char)' <FunctionToPointerDecay>
+| |   | `-DeclRefExpr 0x55e83d100da0 <col:12> 'int (char)' Function 0x55e83d0f17c8 'sdsHdrSize' 'int (char)'
+| |   `-ImplicitCastExpr 0x55e83d100eb8 <col:23, col:27> 'char' <LValueToRValue>
+| |     `-ArraySubscriptExpr 0x55e83d100e48 <col:23, col:27> 'char' lvalue
+| |       |-ImplicitCastExpr 0x55e83d100e30 <col:23> 'sds':'char *' <LValueToRValue>
+| |       | `-DeclRefExpr 0x55e83d100dc8 <col:23> 'sds':'char *' lvalue ParmVar 0x55e83d100b10 's' 'sds':'char *'
+| |       `-UnaryOperator 0x55e83d100e10 <col:25, col:26> 'int' prefix '-'
+| |         `-IntegerLiteral 0x55e83d100df0 <col:26> 'int' 1
+| `-ImplicitCastExpr 0x55e83d100ef8 <col:30> 'size_t':'unsigned long' <LValueToRValue>
+|   `-DeclRefExpr 0x55e83d100ed0 <col:30> 'size_t':'unsigned long' lvalue Var 0x55e83d100c50 'alloc' 'size_t':'unsigned long'
+`-ImplicitCastExpr 0x55e83d100f70 <col:36> 'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x55e83d100f50 <col:36> 'int' 1
+[B1.19] + [B1.21]
+  23: ReturnStmt 0x55e83d100fb0 <sds.c:283:5, col:36>
+`-BinaryOperator 0x55e83d100f88 <col:12, col:36> 'unsigned long' '+'
+  |-BinaryOperator 0x55e83d100f28 <col:12, col:30> 'unsigned long' '+'
+  | |-ImplicitCastExpr 0x55e83d100f10 <col:12, col:28> 'unsigned long' <IntegralCast>
+  | | `-CallExpr 0x55e83d100e88 <col:12, col:28> 'int'
+  | |   |-ImplicitCastExpr 0x55e83d100e70 <col:12> 'int (*)(char)' <FunctionToPointerDecay>
+  | |   | `-DeclRefExpr 0x55e83d100da0 <col:12> 'int (char)' Function 0x55e83d0f17c8 'sdsHdrSize' 'int (char)'
+  | |   `-ImplicitCastExpr 0x55e83d100eb8 <col:23, col:27> 'char' <LValueToRValue>
+  | |     `-ArraySubscriptExpr 0x55e83d100e48 <col:23, col:27> 'char' lvalue
+  | |       |-ImplicitCastExpr 0x55e83d100e30 <col:23> 'sds':'char *' <LValueToRValue>
+  | |       | `-DeclRefExpr 0x55e83d100dc8 <col:23> 'sds':'char *' lvalue ParmVar 0x55e83d100b10 's' 'sds':'char *'
+  | |       `-UnaryOperator 0x55e83d100e10 <col:25, col:26> 'int' prefix '-'
+  | |         `-IntegerLiteral 0x55e83d100df0 <col:26> 'int' 1
+  | `-ImplicitCastExpr 0x55e83d100ef8 <col:30> 'size_t':'unsigned long' <LValueToRValue>
+  |   `-DeclRefExpr 0x55e83d100ed0 <col:30> 'size_t':'unsigned long' lvalue Var 0x55e83d100c50 'alloc' 'size_t':'unsigned long'
+  `-ImplicitCastExpr 0x55e83d100f70 <col:36> 'unsigned long' <IntegralCast>
+    `-IntegerLiteral 0x55e83d100f50 <col:36> 'int' 1
+return [B1.22];
+   Preds (1): B2
+   Succs (1): B0
+
+ [B0 (EXIT)]
+   Preds (1): B1

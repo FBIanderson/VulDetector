@@ -1,0 +1,65 @@
+sds sdsdup(const sds s)
+ [B2 (ENTRY)]
+   Succs (1): B1
+
+ [B1]
+   1: DeclRefExpr 0x55e83d0fb790 <sds.c:151:12> 'sds (const void *, size_t)' Function 0x55e83d0f2ed8 'sdsnewlen' 'sds (const void *, size_t)'
+sdsnewlen
+   2: ImplicitCastExpr 0x55e83d0fb8e8 <sds.c:151:12> 'sds (*)(const void *, size_t)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55e83d0fb790 <col:12> 'sds (const void *, size_t)' Function 0x55e83d0f2ed8 'sdsnewlen' 'sds (const void *, size_t)'
+[B1.1] (ImplicitCastExpr, FunctionToPointerDecay, sds (*)(const void *, size_t))
+   3: DeclRefExpr 0x55e83d0fb7b8 <sds.c:151:22> 'const sds':'char *const' lvalue ParmVar 0x55e83d0fb660 's' 'const sds':'char *const'
+s
+   4: ImplicitCastExpr 0x55e83d0fb938 <sds.c:151:22> 'sds':'char *' <LValueToRValue>
+`-DeclRefExpr 0x55e83d0fb7b8 <col:22> 'const sds':'char *const' lvalue ParmVar 0x55e83d0fb660 's' 'const sds':'char *const'
+[B1.3] (ImplicitCastExpr, LValueToRValue, sds)
+   5: ImplicitCastExpr 0x55e83d0fb950 <sds.c:151:22> 'const void *' <BitCast>
+`-ImplicitCastExpr 0x55e83d0fb938 <col:22> 'sds':'char *' <LValueToRValue>
+  `-DeclRefExpr 0x55e83d0fb7b8 <col:22> 'const sds':'char *const' lvalue ParmVar 0x55e83d0fb660 's' 'const sds':'char *const'
+[B1.4] (ImplicitCastExpr, BitCast, const void *)
+   6: DeclRefExpr 0x55e83d0fb7e0 <sds.c:151:25> 'size_t (const sds)' Function 0x55e83d052dd0 'sdslen' 'size_t (const sds)'
+sdslen
+   7: ImplicitCastExpr 0x55e83d0fb888 <sds.c:151:25> 'size_t (*)(const sds)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55e83d0fb7e0 <col:25> 'size_t (const sds)' Function 0x55e83d052dd0 'sdslen' 'size_t (const sds)'
+[B1.6] (ImplicitCastExpr, FunctionToPointerDecay, size_t (*)(const sds))
+   8: DeclRefExpr 0x55e83d0fb808 <sds.c:151:32> 'const sds':'char *const' lvalue ParmVar 0x55e83d0fb660 's' 'const sds':'char *const'
+s
+   9: ImplicitCastExpr 0x55e83d0fb8d0 <sds.c:151:32> 'sds':'char *' <LValueToRValue>
+`-DeclRefExpr 0x55e83d0fb808 <col:32> 'const sds':'char *const' lvalue ParmVar 0x55e83d0fb660 's' 'const sds':'char *const'
+[B1.8] (ImplicitCastExpr, LValueToRValue, sds)
+  10: CallExpr 0x55e83d0fb8a0 <sds.c:151:25, col:33> 'size_t':'unsigned long'
+|-ImplicitCastExpr 0x55e83d0fb888 <col:25> 'size_t (*)(const sds)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55e83d0fb7e0 <col:25> 'size_t (const sds)' Function 0x55e83d052dd0 'sdslen' 'size_t (const sds)'
+`-ImplicitCastExpr 0x55e83d0fb8d0 <col:32> 'sds':'char *' <LValueToRValue>
+  `-DeclRefExpr 0x55e83d0fb808 <col:32> 'const sds':'char *const' lvalue ParmVar 0x55e83d0fb660 's' 'const sds':'char *const'
+[B1.7]([B1.9])
+  11: CallExpr 0x55e83d0fb900 <sds.c:151:12, col:34> 'sds':'char *'
+|-ImplicitCastExpr 0x55e83d0fb8e8 <col:12> 'sds (*)(const void *, size_t)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55e83d0fb790 <col:12> 'sds (const void *, size_t)' Function 0x55e83d0f2ed8 'sdsnewlen' 'sds (const void *, size_t)'
+|-ImplicitCastExpr 0x55e83d0fb950 <col:22> 'const void *' <BitCast>
+| `-ImplicitCastExpr 0x55e83d0fb938 <col:22> 'sds':'char *' <LValueToRValue>
+|   `-DeclRefExpr 0x55e83d0fb7b8 <col:22> 'const sds':'char *const' lvalue ParmVar 0x55e83d0fb660 's' 'const sds':'char *const'
+`-CallExpr 0x55e83d0fb8a0 <col:25, col:33> 'size_t':'unsigned long'
+  |-ImplicitCastExpr 0x55e83d0fb888 <col:25> 'size_t (*)(const sds)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55e83d0fb7e0 <col:25> 'size_t (const sds)' Function 0x55e83d052dd0 'sdslen' 'size_t (const sds)'
+  `-ImplicitCastExpr 0x55e83d0fb8d0 <col:32> 'sds':'char *' <LValueToRValue>
+    `-DeclRefExpr 0x55e83d0fb808 <col:32> 'const sds':'char *const' lvalue ParmVar 0x55e83d0fb660 's' 'const sds':'char *const'
+[B1.2]([B1.5], [B1.10])
+  12: ReturnStmt 0x55e83d0fb968 <sds.c:151:5, col:34>
+`-CallExpr 0x55e83d0fb900 <col:12, col:34> 'sds':'char *'
+  |-ImplicitCastExpr 0x55e83d0fb8e8 <col:12> 'sds (*)(const void *, size_t)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55e83d0fb790 <col:12> 'sds (const void *, size_t)' Function 0x55e83d0f2ed8 'sdsnewlen' 'sds (const void *, size_t)'
+  |-ImplicitCastExpr 0x55e83d0fb950 <col:22> 'const void *' <BitCast>
+  | `-ImplicitCastExpr 0x55e83d0fb938 <col:22> 'sds':'char *' <LValueToRValue>
+  |   `-DeclRefExpr 0x55e83d0fb7b8 <col:22> 'const sds':'char *const' lvalue ParmVar 0x55e83d0fb660 's' 'const sds':'char *const'
+  `-CallExpr 0x55e83d0fb8a0 <col:25, col:33> 'size_t':'unsigned long'
+    |-ImplicitCastExpr 0x55e83d0fb888 <col:25> 'size_t (*)(const sds)' <FunctionToPointerDecay>
+    | `-DeclRefExpr 0x55e83d0fb7e0 <col:25> 'size_t (const sds)' Function 0x55e83d052dd0 'sdslen' 'size_t (const sds)'
+    `-ImplicitCastExpr 0x55e83d0fb8d0 <col:32> 'sds':'char *' <LValueToRValue>
+      `-DeclRefExpr 0x55e83d0fb808 <col:32> 'const sds':'char *const' lvalue ParmVar 0x55e83d0fb660 's' 'const sds':'char *const'
+return [B1.11];
+   Preds (1): B2
+   Succs (1): B0
+
+ [B0 (EXIT)]
+   Preds (1): B1

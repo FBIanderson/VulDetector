@@ -1,0 +1,419 @@
+static int checkArgMode(const Proto *pt, int r, enum OpArgMask mode)
+ [B16 (ENTRY)]
+   Succs (1): B2
+
+ [B1]
+   1: IntegerLiteral 0x555e972502c8 <ldebug.c:313:10> 'int' 1
+1
+   2: ReturnStmt 0x555e972502e8 <ldebug.c:313:3, col:10>
+`-IntegerLiteral 0x555e972502c8 <col:10> 'int' 1
+return [B1.1];
+   Preds (5): B3 B9 B12 B13 B2(Unreachable)
+   Succs (1): B0
+
+ [B2]
+   1: DeclRefExpr 0x555e9724f610 <ldebug.c:305:11> 'enum OpArgMask':'enum OpArgMask' lvalue ParmVar 0x555e9724f420 'mode' 'enum OpArgMask':'enum OpArgMask'
+mode
+   2: ImplicitCastExpr 0x555e9724f638 <ldebug.c:305:11> 'enum OpArgMask':'enum OpArgMask' <LValueToRValue>
+`-DeclRefExpr 0x555e9724f610 <col:11> 'enum OpArgMask':'enum OpArgMask' lvalue ParmVar 0x555e9724f420 'mode' 'enum OpArgMask':'enum OpArgMask'
+[B2.1] (ImplicitCastExpr, LValueToRValue, enum OpArgMask)
+   3: ImplicitCastExpr 0x555e9724f650 <ldebug.c:305:11> 'unsigned int' <IntegralCast>
+`-ImplicitCastExpr 0x555e9724f638 <col:11> 'enum OpArgMask':'enum OpArgMask' <LValueToRValue>
+  `-DeclRefExpr 0x555e9724f610 <col:11> 'enum OpArgMask':'enum OpArgMask' lvalue ParmVar 0x555e9724f420 'mode' 'enum OpArgMask':'enum OpArgMask'
+[B2.2] (ImplicitCastExpr, IntegralCast, unsigned int)
+   T: switch [B2.3]
+   Preds (1): B16
+   Succs (5): B8 B11 B12 B15 B1(Unreachable)
+
+ [B3]
+   T: break;
+   Preds (1): B5
+   Succs (1): B1
+
+ [B4]
+   1: IntegerLiteral 0x555e97250180 <ldebug.c:268:36> 'int' 0
+0
+   2: ReturnStmt 0x555e972501a0 <ldebug.c:268:29, col:36>
+`-IntegerLiteral 0x555e97250180 <col:36> 'int' 0
+return [B4.1];
+   Preds (1): B5
+   Succs (1): B0
+
+ [B5]
+   1: ConditionalOperator 0x555e97250110 <./lopcodes.h:122:17, ldebug.c:310:54> 'int'
+|-ParenExpr 0x555e9724fd00 <./lopcodes.h:122:17, col:29> 'int'
+| `-BinaryOperator 0x555e9724fcd8 <col:18, line:119:34> 'int' '&'
+|   |-ImplicitCastExpr 0x555e9724fcc0 <line:122:18, col:20> 'int' <LValueToRValue>
+|   | `-ParenExpr 0x555e9724fbb0 <col:18, col:20> 'int' lvalue
+|   |   `-DeclRefExpr 0x555e9724fb88 <ldebug.c:310:17> 'int' lvalue ParmVar 0x555e9724f368 'r' 'int'
+|   `-ParenExpr 0x555e9724fca0 <./lopcodes.h:119:16, col:34> 'int'
+|     `-BinaryOperator 0x555e9724fc78 <col:17, col:33> 'int' '<<'
+|       |-IntegerLiteral 0x555e9724fbd0 <col:17> 'int' 1
+|       `-ParenExpr 0x555e9724fc58 <col:22, col:33> 'int'
+|         `-BinaryOperator 0x555e9724fc30 <line:38:17, line:119:32> 'int' '-'
+|           |-IntegerLiteral 0x555e9724fbf0 <line:38:17> 'int' 9
+|           `-IntegerLiteral 0x555e9724fc10 <line:119:32> 'int' 1
+|-BinaryOperator 0x555e9724ffd8 <line:125:19, ldebug.c:310:38> 'int' '<'
+| |-ParenExpr 0x555e9724ff28 <./lopcodes.h:125:19, col:37> 'int'
+| | `-BinaryOperator 0x555e9724ff00 <col:20, line:119:34> 'int' '&'
+| |   |-CStyleCastExpr 0x555e9724fdc8 <line:125:20, col:27> 'int' <NoOp>
+| |   | `-ImplicitCastExpr 0x555e9724fdb0 <col:25, col:27> 'int' <LValueToRValue>
+| |   |   `-ParenExpr 0x555e9724fd90 <col:25, col:27> 'int' lvalue
+| |   |     `-DeclRefExpr 0x555e9724fd20 <ldebug.c:310:29> 'int' lvalue ParmVar 0x555e9724f368 'r' 'int'
+| |   `-UnaryOperator 0x555e9724fee0 <./lopcodes.h:125:31, line:119:34> 'int' prefix '~'
+| |     `-ParenExpr 0x555e9724fec0 <col:16, col:34> 'int'
+| |       `-BinaryOperator 0x555e9724fe98 <col:17, col:33> 'int' '<<'
+| |         |-IntegerLiteral 0x555e9724fdf0 <col:17> 'int' 1
+| |         `-ParenExpr 0x555e9724fe78 <col:22, col:33> 'int'
+| |           `-BinaryOperator 0x555e9724fe50 <line:38:17, line:119:32> 'int' '-'
+| |             |-IntegerLiteral 0x555e9724fe10 <line:38:17> 'int' 9
+| |             `-IntegerLiteral 0x555e9724fe30 <line:119:32> 'int' 1
+| `-ImplicitCastExpr 0x555e9724ffc0 <ldebug.c:310:34, col:38> 'int' <LValueToRValue>
+|   `-MemberExpr 0x555e9724ff88 <col:34, col:38> 'const int' lvalue ->sizek 0x555e971d9c88
+|     `-ImplicitCastExpr 0x555e9724ff70 <col:34> 'const Proto *' <LValueToRValue>
+|       `-DeclRefExpr 0x555e9724ff48 <col:34> 'const Proto *' lvalue ParmVar 0x555e9724f2f0 'pt' 'const Proto *'
+`-BinaryOperator 0x555e972500e8 <col:46, col:54> 'int' '<'
+  |-ImplicitCastExpr 0x555e972500a0 <col:46> 'int' <LValueToRValue>
+  | `-DeclRefExpr 0x555e97250000 <col:46> 'int' lvalue ParmVar 0x555e9724f368 'r' 'int'
+  `-ImplicitCastExpr 0x555e972500d0 <col:50, col:54> 'int' <IntegralCast>
+    `-ImplicitCastExpr 0x555e972500b8 <col:50, col:54> 'lu_byte':'unsigned char' <LValueToRValue>
+      `-MemberExpr 0x555e97250068 <col:50, col:54> 'const lu_byte':'const unsigned char' lvalue ->maxstacksize 0x555e971da080
+        `-ImplicitCastExpr 0x555e97250050 <col:50> 'const Proto *' <LValueToRValue>
+          `-DeclRefExpr 0x555e97250028 <col:50> 'const Proto *' lvalue ParmVar 0x555e9724f2f0 'pt' 'const Proto *'
+([B8.8]) ? [B6.15] : [B7.8]
+   2: UnaryOperator 0x555e97250160 <ldebug.c:268:23, col:26> 'int' prefix '!'
+`-ParenExpr 0x555e97250140 <col:24, col:26> 'int'
+  `-ConditionalOperator 0x555e97250110 <./lopcodes.h:122:17, ldebug.c:310:54> 'int'
+    |-ParenExpr 0x555e9724fd00 <./lopcodes.h:122:17, col:29> 'int'
+    | `-BinaryOperator 0x555e9724fcd8 <col:18, line:119:34> 'int' '&'
+    |   |-ImplicitCastExpr 0x555e9724fcc0 <line:122:18, col:20> 'int' <LValueToRValue>
+    |   | `-ParenExpr 0x555e9724fbb0 <col:18, col:20> 'int' lvalue
+    |   |   `-DeclRefExpr 0x555e9724fb88 <ldebug.c:310:17> 'int' lvalue ParmVar 0x555e9724f368 'r' 'int'
+    |   `-ParenExpr 0x555e9724fca0 <./lopcodes.h:119:16, col:34> 'int'
+    |     `-BinaryOperator 0x555e9724fc78 <col:17, col:33> 'int' '<<'
+    |       |-IntegerLiteral 0x555e9724fbd0 <col:17> 'int' 1
+    |       `-ParenExpr 0x555e9724fc58 <col:22, col:33> 'int'
+    |         `-BinaryOperator 0x555e9724fc30 <line:38:17, line:119:32> 'int' '-'
+    |           |-IntegerLiteral 0x555e9724fbf0 <line:38:17> 'int' 9
+    |           `-IntegerLiteral 0x555e9724fc10 <line:119:32> 'int' 1
+    |-BinaryOperator 0x555e9724ffd8 <line:125:19, ldebug.c:310:38> 'int' '<'
+    | |-ParenExpr 0x555e9724ff28 <./lopcodes.h:125:19, col:37> 'int'
+    | | `-BinaryOperator 0x555e9724ff00 <col:20, line:119:34> 'int' '&'
+    | |   |-CStyleCastExpr 0x555e9724fdc8 <line:125:20, col:27> 'int' <NoOp>
+    | |   | `-ImplicitCastExpr 0x555e9724fdb0 <col:25, col:27> 'int' <LValueToRValue>
+    | |   |   `-ParenExpr 0x555e9724fd90 <col:25, col:27> 'int' lvalue
+    | |   |     `-DeclRefExpr 0x555e9724fd20 <ldebug.c:310:29> 'int' lvalue ParmVar 0x555e9724f368 'r' 'int'
+    | |   `-UnaryOperator 0x555e9724fee0 <./lopcodes.h:125:31, line:119:34> 'int' prefix '~'
+    | |     `-ParenExpr 0x555e9724fec0 <col:16, col:34> 'int'
+    | |       `-BinaryOperator 0x555e9724fe98 <col:17, col:33> 'int' '<<'
+    | |         |-IntegerLiteral 0x555e9724fdf0 <col:17> 'int' 1
+    | |         `-ParenExpr 0x555e9724fe78 <col:22, col:33> 'int'
+    | |           `-BinaryOperator 0x555e9724fe50 <line:38:17, line:119:32> 'int' '-'
+    | |             |-IntegerLiteral 0x555e9724fe10 <line:38:17> 'int' 9
+    | |             `-IntegerLiteral 0x555e9724fe30 <line:119:32> 'int' 1
+    | `-ImplicitCastExpr 0x555e9724ffc0 <ldebug.c:310:34, col:38> 'int' <LValueToRValue>
+    |   `-MemberExpr 0x555e9724ff88 <col:34, col:38> 'const int' lvalue ->sizek 0x555e971d9c88
+    |     `-ImplicitCastExpr 0x555e9724ff70 <col:34> 'const Proto *' <LValueToRValue>
+    |       `-DeclRefExpr 0x555e9724ff48 <col:34> 'const Proto *' lvalue ParmVar 0x555e9724f2f0 'pt' 'const Proto *'
+    `-BinaryOperator 0x555e972500e8 <col:46, col:54> 'int' '<'
+      |-ImplicitCastExpr 0x555e972500a0 <col:46> 'int' <LValueToRValue>
+      | `-DeclRefExpr 0x555e97250000 <col:46> 'int' lvalue ParmVar 0x555e9724f368 'r' 'int'
+      `-ImplicitCastExpr 0x555e972500d0 <col:50, col:54> 'int' <IntegralCast>
+        `-ImplicitCastExpr 0x555e972500b8 <col:50, col:54> 'lu_byte':'unsigned char' <LValueToRValue>
+          `-MemberExpr 0x555e97250068 <col:50, col:54> 'const lu_byte':'const unsigned char' lvalue ->maxstacksize 0x555e971da080
+            `-ImplicitCastExpr 0x555e97250050 <col:50> 'const Proto *' <LValueToRValue>
+              `-DeclRefExpr 0x555e97250028 <col:50> 'const Proto *' lvalue ParmVar 0x555e9724f2f0 'pt' 'const Proto *'
+!([B5.1])
+   T: if [B5.2]
+   Preds (2): B6 B7
+   Succs (2): B4 B3
+
+ [B6]
+   1: DeclRefExpr 0x555e9724fd20 <ldebug.c:310:29> 'int' lvalue ParmVar 0x555e9724f368 'r' 'int'
+r
+   2: ImplicitCastExpr 0x555e9724fdb0 <./lopcodes.h:125:25, col:27> 'int' <LValueToRValue>
+`-ParenExpr 0x555e9724fd90 <col:25, col:27> 'int' lvalue
+  `-DeclRefExpr 0x555e9724fd20 <ldebug.c:310:29> 'int' lvalue ParmVar 0x555e9724f368 'r' 'int'
+([B6.1]) (ImplicitCastExpr, LValueToRValue, int)
+   3: CStyleCastExpr 0x555e9724fdc8 <./lopcodes.h:125:20, col:27> 'int' <NoOp>
+`-ImplicitCastExpr 0x555e9724fdb0 <col:25, col:27> 'int' <LValueToRValue>
+  `-ParenExpr 0x555e9724fd90 <col:25, col:27> 'int' lvalue
+    `-DeclRefExpr 0x555e9724fd20 <ldebug.c:310:29> 'int' lvalue ParmVar 0x555e9724f368 'r' 'int'
+(int)[B6.2] (CStyleCastExpr, NoOp, int)
+   4: IntegerLiteral 0x555e9724fdf0 <./lopcodes.h:119:17> 'int' 1
+1
+   5: IntegerLiteral 0x555e9724fe10 <./lopcodes.h:38:17> 'int' 9
+9
+   6: IntegerLiteral 0x555e9724fe30 <./lopcodes.h:119:32> 'int' 1
+1
+   7: BinaryOperator 0x555e9724fe50 <./lopcodes.h:38:17, line:119:32> 'int' '-'
+|-IntegerLiteral 0x555e9724fe10 <line:38:17> 'int' 9
+`-IntegerLiteral 0x555e9724fe30 <line:119:32> 'int' 1
+[B6.5] - [B6.6]
+   8: BinaryOperator 0x555e9724fe98 <./lopcodes.h:119:17, col:33> 'int' '<<'
+|-IntegerLiteral 0x555e9724fdf0 <col:17> 'int' 1
+`-ParenExpr 0x555e9724fe78 <col:22, col:33> 'int'
+  `-BinaryOperator 0x555e9724fe50 <line:38:17, line:119:32> 'int' '-'
+    |-IntegerLiteral 0x555e9724fe10 <line:38:17> 'int' 9
+    `-IntegerLiteral 0x555e9724fe30 <line:119:32> 'int' 1
+[B6.4] << ([B6.7])
+   9: UnaryOperator 0x555e9724fee0 <./lopcodes.h:125:31, line:119:34> 'int' prefix '~'
+`-ParenExpr 0x555e9724fec0 <col:16, col:34> 'int'
+  `-BinaryOperator 0x555e9724fe98 <col:17, col:33> 'int' '<<'
+    |-IntegerLiteral 0x555e9724fdf0 <col:17> 'int' 1
+    `-ParenExpr 0x555e9724fe78 <col:22, col:33> 'int'
+      `-BinaryOperator 0x555e9724fe50 <line:38:17, line:119:32> 'int' '-'
+        |-IntegerLiteral 0x555e9724fe10 <line:38:17> 'int' 9
+        `-IntegerLiteral 0x555e9724fe30 <line:119:32> 'int' 1
+~([B6.8])
+  10: BinaryOperator 0x555e9724ff00 <./lopcodes.h:125:20, line:119:34> 'int' '&'
+|-CStyleCastExpr 0x555e9724fdc8 <line:125:20, col:27> 'int' <NoOp>
+| `-ImplicitCastExpr 0x555e9724fdb0 <col:25, col:27> 'int' <LValueToRValue>
+|   `-ParenExpr 0x555e9724fd90 <col:25, col:27> 'int' lvalue
+|     `-DeclRefExpr 0x555e9724fd20 <ldebug.c:310:29> 'int' lvalue ParmVar 0x555e9724f368 'r' 'int'
+`-UnaryOperator 0x555e9724fee0 <./lopcodes.h:125:31, line:119:34> 'int' prefix '~'
+  `-ParenExpr 0x555e9724fec0 <col:16, col:34> 'int'
+    `-BinaryOperator 0x555e9724fe98 <col:17, col:33> 'int' '<<'
+      |-IntegerLiteral 0x555e9724fdf0 <col:17> 'int' 1
+      `-ParenExpr 0x555e9724fe78 <col:22, col:33> 'int'
+        `-BinaryOperator 0x555e9724fe50 <line:38:17, line:119:32> 'int' '-'
+          |-IntegerLiteral 0x555e9724fe10 <line:38:17> 'int' 9
+          `-IntegerLiteral 0x555e9724fe30 <line:119:32> 'int' 1
+[B6.3] & [B6.9]
+  11: DeclRefExpr 0x555e9724ff48 <ldebug.c:310:34> 'const Proto *' lvalue ParmVar 0x555e9724f2f0 'pt' 'const Proto *'
+pt
+  12: ImplicitCastExpr 0x555e9724ff70 <ldebug.c:310:34> 'const Proto *' <LValueToRValue>
+`-DeclRefExpr 0x555e9724ff48 <col:34> 'const Proto *' lvalue ParmVar 0x555e9724f2f0 'pt' 'const Proto *'
+[B6.11] (ImplicitCastExpr, LValueToRValue, const Proto *)
+  13: MemberExpr 0x555e9724ff88 <ldebug.c:310:34, col:38> 'const int' lvalue ->sizek 0x555e971d9c88
+`-ImplicitCastExpr 0x555e9724ff70 <col:34> 'const Proto *' <LValueToRValue>
+  `-DeclRefExpr 0x555e9724ff48 <col:34> 'const Proto *' lvalue ParmVar 0x555e9724f2f0 'pt' 'const Proto *'
+[B6.12]->sizek
+  14: ImplicitCastExpr 0x555e9724ffc0 <ldebug.c:310:34, col:38> 'int' <LValueToRValue>
+`-MemberExpr 0x555e9724ff88 <col:34, col:38> 'const int' lvalue ->sizek 0x555e971d9c88
+  `-ImplicitCastExpr 0x555e9724ff70 <col:34> 'const Proto *' <LValueToRValue>
+    `-DeclRefExpr 0x555e9724ff48 <col:34> 'const Proto *' lvalue ParmVar 0x555e9724f2f0 'pt' 'const Proto *'
+[B6.13] (ImplicitCastExpr, LValueToRValue, int)
+  15: BinaryOperator 0x555e9724ffd8 <./lopcodes.h:125:19, ldebug.c:310:38> 'int' '<'
+|-ParenExpr 0x555e9724ff28 <./lopcodes.h:125:19, col:37> 'int'
+| `-BinaryOperator 0x555e9724ff00 <col:20, line:119:34> 'int' '&'
+|   |-CStyleCastExpr 0x555e9724fdc8 <line:125:20, col:27> 'int' <NoOp>
+|   | `-ImplicitCastExpr 0x555e9724fdb0 <col:25, col:27> 'int' <LValueToRValue>
+|   |   `-ParenExpr 0x555e9724fd90 <col:25, col:27> 'int' lvalue
+|   |     `-DeclRefExpr 0x555e9724fd20 <ldebug.c:310:29> 'int' lvalue ParmVar 0x555e9724f368 'r' 'int'
+|   `-UnaryOperator 0x555e9724fee0 <./lopcodes.h:125:31, line:119:34> 'int' prefix '~'
+|     `-ParenExpr 0x555e9724fec0 <col:16, col:34> 'int'
+|       `-BinaryOperator 0x555e9724fe98 <col:17, col:33> 'int' '<<'
+|         |-IntegerLiteral 0x555e9724fdf0 <col:17> 'int' 1
+|         `-ParenExpr 0x555e9724fe78 <col:22, col:33> 'int'
+|           `-BinaryOperator 0x555e9724fe50 <line:38:17, line:119:32> 'int' '-'
+|             |-IntegerLiteral 0x555e9724fe10 <line:38:17> 'int' 9
+|             `-IntegerLiteral 0x555e9724fe30 <line:119:32> 'int' 1
+`-ImplicitCastExpr 0x555e9724ffc0 <ldebug.c:310:34, col:38> 'int' <LValueToRValue>
+  `-MemberExpr 0x555e9724ff88 <col:34, col:38> 'const int' lvalue ->sizek 0x555e971d9c88
+    `-ImplicitCastExpr 0x555e9724ff70 <col:34> 'const Proto *' <LValueToRValue>
+      `-DeclRefExpr 0x555e9724ff48 <col:34> 'const Proto *' lvalue ParmVar 0x555e9724f2f0 'pt' 'const Proto *'
+([B6.10]) < [B6.14]
+   Preds (1): B8
+   Succs (1): B5
+
+ [B7]
+   1: DeclRefExpr 0x555e97250000 <ldebug.c:310:46> 'int' lvalue ParmVar 0x555e9724f368 'r' 'int'
+r
+   2: ImplicitCastExpr 0x555e972500a0 <ldebug.c:310:46> 'int' <LValueToRValue>
+`-DeclRefExpr 0x555e97250000 <col:46> 'int' lvalue ParmVar 0x555e9724f368 'r' 'int'
+[B7.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: DeclRefExpr 0x555e97250028 <ldebug.c:310:50> 'const Proto *' lvalue ParmVar 0x555e9724f2f0 'pt' 'const Proto *'
+pt
+   4: ImplicitCastExpr 0x555e97250050 <ldebug.c:310:50> 'const Proto *' <LValueToRValue>
+`-DeclRefExpr 0x555e97250028 <col:50> 'const Proto *' lvalue ParmVar 0x555e9724f2f0 'pt' 'const Proto *'
+[B7.3] (ImplicitCastExpr, LValueToRValue, const Proto *)
+   5: MemberExpr 0x555e97250068 <ldebug.c:310:50, col:54> 'const lu_byte':'const unsigned char' lvalue ->maxstacksize 0x555e971da080
+`-ImplicitCastExpr 0x555e97250050 <col:50> 'const Proto *' <LValueToRValue>
+  `-DeclRefExpr 0x555e97250028 <col:50> 'const Proto *' lvalue ParmVar 0x555e9724f2f0 'pt' 'const Proto *'
+[B7.4]->maxstacksize
+   6: ImplicitCastExpr 0x555e972500b8 <ldebug.c:310:50, col:54> 'lu_byte':'unsigned char' <LValueToRValue>
+`-MemberExpr 0x555e97250068 <col:50, col:54> 'const lu_byte':'const unsigned char' lvalue ->maxstacksize 0x555e971da080
+  `-ImplicitCastExpr 0x555e97250050 <col:50> 'const Proto *' <LValueToRValue>
+    `-DeclRefExpr 0x555e97250028 <col:50> 'const Proto *' lvalue ParmVar 0x555e9724f2f0 'pt' 'const Proto *'
+[B7.5] (ImplicitCastExpr, LValueToRValue, lu_byte)
+   7: ImplicitCastExpr 0x555e972500d0 <ldebug.c:310:50, col:54> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x555e972500b8 <col:50, col:54> 'lu_byte':'unsigned char' <LValueToRValue>
+  `-MemberExpr 0x555e97250068 <col:50, col:54> 'const lu_byte':'const unsigned char' lvalue ->maxstacksize 0x555e971da080
+    `-ImplicitCastExpr 0x555e97250050 <col:50> 'const Proto *' <LValueToRValue>
+      `-DeclRefExpr 0x555e97250028 <col:50> 'const Proto *' lvalue ParmVar 0x555e9724f2f0 'pt' 'const Proto *'
+[B7.6] (ImplicitCastExpr, IntegralCast, int)
+   8: BinaryOperator 0x555e972500e8 <ldebug.c:310:46, col:54> 'int' '<'
+|-ImplicitCastExpr 0x555e972500a0 <col:46> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x555e97250000 <col:46> 'int' lvalue ParmVar 0x555e9724f368 'r' 'int'
+`-ImplicitCastExpr 0x555e972500d0 <col:50, col:54> 'int' <IntegralCast>
+  `-ImplicitCastExpr 0x555e972500b8 <col:50, col:54> 'lu_byte':'unsigned char' <LValueToRValue>
+    `-MemberExpr 0x555e97250068 <col:50, col:54> 'const lu_byte':'const unsigned char' lvalue ->maxstacksize 0x555e971da080
+      `-ImplicitCastExpr 0x555e97250050 <col:50> 'const Proto *' <LValueToRValue>
+        `-DeclRefExpr 0x555e97250028 <col:50> 'const Proto *' lvalue ParmVar 0x555e9724f2f0 'pt' 'const Proto *'
+[B7.2] < [B7.7]
+   Preds (1): B8
+   Succs (1): B5
+
+ [B8]
+  case OpArgK:
+   1: DeclRefExpr 0x555e9724fb88 <ldebug.c:310:17> 'int' lvalue ParmVar 0x555e9724f368 'r' 'int'
+r
+   2: ImplicitCastExpr 0x555e9724fcc0 <./lopcodes.h:122:18, col:20> 'int' <LValueToRValue>
+`-ParenExpr 0x555e9724fbb0 <col:18, col:20> 'int' lvalue
+  `-DeclRefExpr 0x555e9724fb88 <ldebug.c:310:17> 'int' lvalue ParmVar 0x555e9724f368 'r' 'int'
+([B8.1]) (ImplicitCastExpr, LValueToRValue, int)
+   3: IntegerLiteral 0x555e9724fbd0 <./lopcodes.h:119:17> 'int' 1
+1
+   4: IntegerLiteral 0x555e9724fbf0 <./lopcodes.h:38:17> 'int' 9
+9
+   5: IntegerLiteral 0x555e9724fc10 <./lopcodes.h:119:32> 'int' 1
+1
+   6: BinaryOperator 0x555e9724fc30 <./lopcodes.h:38:17, line:119:32> 'int' '-'
+|-IntegerLiteral 0x555e9724fbf0 <line:38:17> 'int' 9
+`-IntegerLiteral 0x555e9724fc10 <line:119:32> 'int' 1
+[B8.4] - [B8.5]
+   7: BinaryOperator 0x555e9724fc78 <./lopcodes.h:119:17, col:33> 'int' '<<'
+|-IntegerLiteral 0x555e9724fbd0 <col:17> 'int' 1
+`-ParenExpr 0x555e9724fc58 <col:22, col:33> 'int'
+  `-BinaryOperator 0x555e9724fc30 <line:38:17, line:119:32> 'int' '-'
+    |-IntegerLiteral 0x555e9724fbf0 <line:38:17> 'int' 9
+    `-IntegerLiteral 0x555e9724fc10 <line:119:32> 'int' 1
+[B8.3] << ([B8.6])
+   8: BinaryOperator 0x555e9724fcd8 <./lopcodes.h:122:18, line:119:34> 'int' '&'
+|-ImplicitCastExpr 0x555e9724fcc0 <line:122:18, col:20> 'int' <LValueToRValue>
+| `-ParenExpr 0x555e9724fbb0 <col:18, col:20> 'int' lvalue
+|   `-DeclRefExpr 0x555e9724fb88 <ldebug.c:310:17> 'int' lvalue ParmVar 0x555e9724f368 'r' 'int'
+`-ParenExpr 0x555e9724fca0 <./lopcodes.h:119:16, col:34> 'int'
+  `-BinaryOperator 0x555e9724fc78 <col:17, col:33> 'int' '<<'
+    |-IntegerLiteral 0x555e9724fbd0 <col:17> 'int' 1
+    `-ParenExpr 0x555e9724fc58 <col:22, col:33> 'int'
+      `-BinaryOperator 0x555e9724fc30 <line:38:17, line:119:32> 'int' '-'
+        |-IntegerLiteral 0x555e9724fbf0 <line:38:17> 'int' 9
+        `-IntegerLiteral 0x555e9724fc10 <line:119:32> 'int' 1
+[B8.2] & ([B8.7])
+   T: ([B8.8]) ? ... : ...
+   Preds (1): B2
+   Succs (2): B6 B7
+
+ [B9]
+   T: break;
+   Preds (1): B11
+   Succs (1): B1
+
+ [B10]
+   1: IntegerLiteral 0x555e9724faa0 <ldebug.c:268:36> 'int' 0
+0
+   2: ReturnStmt 0x555e9724fac0 <ldebug.c:268:29, col:36>
+`-IntegerLiteral 0x555e9724faa0 <col:36> 'int' 0
+return [B10.1];
+   Preds (1): B11
+   Succs (1): B0
+
+ [B11]
+  case OpArgR:
+   1: DeclRefExpr 0x555e9724f910 <ldebug.c:308:31> 'int' lvalue ParmVar 0x555e9724f368 'r' 'int'
+r
+   2: ImplicitCastExpr 0x555e9724f9f0 <ldebug.c:272:32, col:36> 'int' <LValueToRValue>
+`-ParenExpr 0x555e9724f938 <col:32, col:36> 'int' lvalue
+  `-DeclRefExpr 0x555e9724f910 <line:308:31> 'int' lvalue ParmVar 0x555e9724f368 'r' 'int'
+([B11.1]) (ImplicitCastExpr, LValueToRValue, int)
+   3: DeclRefExpr 0x555e9724f958 <ldebug.c:308:27> 'const Proto *' lvalue ParmVar 0x555e9724f2f0 'pt' 'const Proto *'
+pt
+   4: ImplicitCastExpr 0x555e9724f9a0 <ldebug.c:272:40, col:43> 'const Proto *' <LValueToRValue>
+`-ParenExpr 0x555e9724f980 <col:40, col:43> 'const Proto *' lvalue
+  `-DeclRefExpr 0x555e9724f958 <line:308:27> 'const Proto *' lvalue ParmVar 0x555e9724f2f0 'pt' 'const Proto *'
+([B11.3]) (ImplicitCastExpr, LValueToRValue, const Proto *)
+   5: MemberExpr 0x555e9724f9b8 <ldebug.c:272:40, col:46> 'const lu_byte':'const unsigned char' lvalue ->maxstacksize 0x555e971da080
+`-ImplicitCastExpr 0x555e9724f9a0 <col:40, col:43> 'const Proto *' <LValueToRValue>
+  `-ParenExpr 0x555e9724f980 <col:40, col:43> 'const Proto *' lvalue
+    `-DeclRefExpr 0x555e9724f958 <line:308:27> 'const Proto *' lvalue ParmVar 0x555e9724f2f0 'pt' 'const Proto *'
+[B11.4]->maxstacksize
+   6: ImplicitCastExpr 0x555e9724fa08 <ldebug.c:272:40, col:46> 'lu_byte':'unsigned char' <LValueToRValue>
+`-MemberExpr 0x555e9724f9b8 <col:40, col:46> 'const lu_byte':'const unsigned char' lvalue ->maxstacksize 0x555e971da080
+  `-ImplicitCastExpr 0x555e9724f9a0 <col:40, col:43> 'const Proto *' <LValueToRValue>
+    `-ParenExpr 0x555e9724f980 <col:40, col:43> 'const Proto *' lvalue
+      `-DeclRefExpr 0x555e9724f958 <line:308:27> 'const Proto *' lvalue ParmVar 0x555e9724f2f0 'pt' 'const Proto *'
+[B11.5] (ImplicitCastExpr, LValueToRValue, lu_byte)
+   7: ImplicitCastExpr 0x555e9724fa20 <ldebug.c:272:40, col:46> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x555e9724fa08 <col:40, col:46> 'lu_byte':'unsigned char' <LValueToRValue>
+  `-MemberExpr 0x555e9724f9b8 <col:40, col:46> 'const lu_byte':'const unsigned char' lvalue ->maxstacksize 0x555e971da080
+    `-ImplicitCastExpr 0x555e9724f9a0 <col:40, col:43> 'const Proto *' <LValueToRValue>
+      `-ParenExpr 0x555e9724f980 <col:40, col:43> 'const Proto *' lvalue
+        `-DeclRefExpr 0x555e9724f958 <line:308:27> 'const Proto *' lvalue ParmVar 0x555e9724f2f0 'pt' 'const Proto *'
+[B11.6] (ImplicitCastExpr, IntegralCast, int)
+   8: BinaryOperator 0x555e9724fa38 <ldebug.c:272:32, col:46> 'int' '<'
+|-ImplicitCastExpr 0x555e9724f9f0 <col:32, col:36> 'int' <LValueToRValue>
+| `-ParenExpr 0x555e9724f938 <col:32, col:36> 'int' lvalue
+|   `-DeclRefExpr 0x555e9724f910 <line:308:31> 'int' lvalue ParmVar 0x555e9724f368 'r' 'int'
+`-ImplicitCastExpr 0x555e9724fa20 <line:272:40, col:46> 'int' <IntegralCast>
+  `-ImplicitCastExpr 0x555e9724fa08 <col:40, col:46> 'lu_byte':'unsigned char' <LValueToRValue>
+    `-MemberExpr 0x555e9724f9b8 <col:40, col:46> 'const lu_byte':'const unsigned char' lvalue ->maxstacksize 0x555e971da080
+      `-ImplicitCastExpr 0x555e9724f9a0 <col:40, col:43> 'const Proto *' <LValueToRValue>
+        `-ParenExpr 0x555e9724f980 <col:40, col:43> 'const Proto *' lvalue
+          `-DeclRefExpr 0x555e9724f958 <line:308:27> 'const Proto *' lvalue ParmVar 0x555e9724f2f0 'pt' 'const Proto *'
+[B11.2] < [B11.7]
+   9: UnaryOperator 0x555e9724fa80 <ldebug.c:268:23, col:26> 'int' prefix '!'
+`-ParenExpr 0x555e9724fa60 <col:24, col:26> 'int'
+  `-BinaryOperator 0x555e9724fa38 <line:272:32, col:46> 'int' '<'
+    |-ImplicitCastExpr 0x555e9724f9f0 <col:32, col:36> 'int' <LValueToRValue>
+    | `-ParenExpr 0x555e9724f938 <col:32, col:36> 'int' lvalue
+    |   `-DeclRefExpr 0x555e9724f910 <line:308:31> 'int' lvalue ParmVar 0x555e9724f368 'r' 'int'
+    `-ImplicitCastExpr 0x555e9724fa20 <line:272:40, col:46> 'int' <IntegralCast>
+      `-ImplicitCastExpr 0x555e9724fa08 <col:40, col:46> 'lu_byte':'unsigned char' <LValueToRValue>
+        `-MemberExpr 0x555e9724f9b8 <col:40, col:46> 'const lu_byte':'const unsigned char' lvalue ->maxstacksize 0x555e971da080
+          `-ImplicitCastExpr 0x555e9724f9a0 <col:40, col:43> 'const Proto *' <LValueToRValue>
+            `-ParenExpr 0x555e9724f980 <col:40, col:43> 'const Proto *' lvalue
+              `-DeclRefExpr 0x555e9724f958 <line:308:27> 'const Proto *' lvalue ParmVar 0x555e9724f2f0 'pt' 'const Proto *'
+!([B11.8])
+   T: if [B11.9]
+   Preds (1): B2
+   Succs (2): B10 B9
+
+ [B12]
+  case OpArgU:
+   T: break;
+   Preds (1): B2
+   Succs (1): B1
+
+ [B13]
+   T: break;
+   Preds (1): B15
+   Succs (1): B1
+
+ [B14]
+   1: IntegerLiteral 0x555e9724f7c0 <ldebug.c:268:36> 'int' 0
+0
+   2: ReturnStmt 0x555e9724f7e0 <ldebug.c:268:29, col:36>
+`-IntegerLiteral 0x555e9724f7c0 <col:36> 'int' 0
+return [B14.1];
+   Preds (1): B15
+   Succs (1): B0
+
+ [B15]
+  case OpArgN:
+   1: DeclRefExpr 0x555e9724f6f8 <ldebug.c:306:24> 'int' lvalue ParmVar 0x555e9724f368 'r' 'int'
+r
+   2: ImplicitCastExpr 0x555e9724f740 <ldebug.c:306:24> 'int' <LValueToRValue>
+`-DeclRefExpr 0x555e9724f6f8 <col:24> 'int' lvalue ParmVar 0x555e9724f368 'r' 'int'
+[B15.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: IntegerLiteral 0x555e9724f720 <ldebug.c:306:29> 'int' 0
+0
+   4: BinaryOperator 0x555e9724f758 <ldebug.c:306:24, col:29> 'int' '=='
+|-ImplicitCastExpr 0x555e9724f740 <col:24> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x555e9724f6f8 <col:24> 'int' lvalue ParmVar 0x555e9724f368 'r' 'int'
+`-IntegerLiteral 0x555e9724f720 <col:29> 'int' 0
+[B15.2] == [B15.3]
+   5: UnaryOperator 0x555e9724f7a0 <ldebug.c:268:23, col:26> 'int' prefix '!'
+`-ParenExpr 0x555e9724f780 <col:24, col:26> 'int'
+  `-BinaryOperator 0x555e9724f758 <line:306:24, col:29> 'int' '=='
+    |-ImplicitCastExpr 0x555e9724f740 <col:24> 'int' <LValueToRValue>
+    | `-DeclRefExpr 0x555e9724f6f8 <col:24> 'int' lvalue ParmVar 0x555e9724f368 'r' 'int'
+    `-IntegerLiteral 0x555e9724f720 <col:29> 'int' 0
+!([B15.4])
+   T: if [B15.5]
+   Preds (1): B2
+   Succs (2): B14 B13
+
+ [B0 (EXIT)]
+   Preds (4): B1 B4 B10 B14

@@ -1,0 +1,72 @@
+static UnOpr getunopr(int op)
+ [B6 (ENTRY)]
+   Succs (1): B1
+
+ [B1]
+   1: DeclRefExpr 0x558fa8f25628 <lparser.c:779:11> 'int' lvalue ParmVar 0x558fa8f25440 'op' 'int'
+op
+   2: ImplicitCastExpr 0x558fa8f25650 <lparser.c:779:11> 'int' <LValueToRValue>
+`-DeclRefExpr 0x558fa8f25628 <col:11> 'int' lvalue ParmVar 0x558fa8f25440 'op' 'int'
+[B1.1] (ImplicitCastExpr, LValueToRValue, int)
+   T: switch [B1.2]
+   Preds (1): B6
+   Succs (4): B3 B4 B5 B2
+
+ [B2]
+  default:
+   1: DeclRefExpr 0x558fa8f258a0 <lparser.c:783:21> 'int' EnumConstant 0x558fa8eb7b68 'OPR_NOUNOPR' 'int'
+OPR_NOUNOPR
+   2: ImplicitCastExpr 0x558fa8f258c8 <lparser.c:783:21> 'UnOpr':'enum UnOpr' <IntegralCast>
+`-DeclRefExpr 0x558fa8f258a0 <col:21> 'int' EnumConstant 0x558fa8eb7b68 'OPR_NOUNOPR' 'int'
+[B2.1] (ImplicitCastExpr, IntegralCast, UnOpr)
+   3: ReturnStmt 0x558fa8f258e0 <lparser.c:783:14, col:21>
+`-ImplicitCastExpr 0x558fa8f258c8 <col:21> 'UnOpr':'enum UnOpr' <IntegralCast>
+  `-DeclRefExpr 0x558fa8f258a0 <col:21> 'int' EnumConstant 0x558fa8eb7b68 'OPR_NOUNOPR' 'int'
+return [B2.2];
+   Preds (1): B1
+   Succs (1): B0
+
+ [B3]
+  case '#':
+   1: DeclRefExpr 0x558fa8f25848 <lparser.c:782:22> 'int' EnumConstant 0x558fa8eb7b20 'OPR_LEN' 'int'
+OPR_LEN
+   2: ImplicitCastExpr 0x558fa8f25870 <lparser.c:782:22> 'UnOpr':'enum UnOpr' <IntegralCast>
+`-DeclRefExpr 0x558fa8f25848 <col:22> 'int' EnumConstant 0x558fa8eb7b20 'OPR_LEN' 'int'
+[B3.1] (ImplicitCastExpr, IntegralCast, UnOpr)
+   3: ReturnStmt 0x558fa8f25888 <lparser.c:782:15, col:22>
+`-ImplicitCastExpr 0x558fa8f25870 <col:22> 'UnOpr':'enum UnOpr' <IntegralCast>
+  `-DeclRefExpr 0x558fa8f25848 <col:22> 'int' EnumConstant 0x558fa8eb7b20 'OPR_LEN' 'int'
+return [B3.2];
+   Preds (1): B1
+   Succs (1): B0
+
+ [B4]
+  case '-':
+   1: DeclRefExpr 0x558fa8f257a0 <lparser.c:781:22> 'int' EnumConstant 0x558fa8eb7a90 'OPR_MINUS' 'int'
+OPR_MINUS
+   2: ImplicitCastExpr 0x558fa8f257c8 <lparser.c:781:22> 'UnOpr':'enum UnOpr' <IntegralCast>
+`-DeclRefExpr 0x558fa8f257a0 <col:22> 'int' EnumConstant 0x558fa8eb7a90 'OPR_MINUS' 'int'
+[B4.1] (ImplicitCastExpr, IntegralCast, UnOpr)
+   3: ReturnStmt 0x558fa8f257e0 <lparser.c:781:15, col:22>
+`-ImplicitCastExpr 0x558fa8f257c8 <col:22> 'UnOpr':'enum UnOpr' <IntegralCast>
+  `-DeclRefExpr 0x558fa8f257a0 <col:22> 'int' EnumConstant 0x558fa8eb7a90 'OPR_MINUS' 'int'
+return [B4.2];
+   Preds (1): B1
+   Succs (1): B0
+
+ [B5]
+  case TK_NOT:
+   1: DeclRefExpr 0x558fa8f256f8 <lparser.c:780:25> 'int' EnumConstant 0x558fa8eb7ad8 'OPR_NOT' 'int'
+OPR_NOT
+   2: ImplicitCastExpr 0x558fa8f25720 <lparser.c:780:25> 'UnOpr':'enum UnOpr' <IntegralCast>
+`-DeclRefExpr 0x558fa8f256f8 <col:25> 'int' EnumConstant 0x558fa8eb7ad8 'OPR_NOT' 'int'
+[B5.1] (ImplicitCastExpr, IntegralCast, UnOpr)
+   3: ReturnStmt 0x558fa8f25738 <lparser.c:780:18, col:25>
+`-ImplicitCastExpr 0x558fa8f25720 <col:25> 'UnOpr':'enum UnOpr' <IntegralCast>
+  `-DeclRefExpr 0x558fa8f256f8 <col:25> 'int' EnumConstant 0x558fa8eb7ad8 'OPR_NOT' 'int'
+return [B5.2];
+   Preds (1): B1
+   Succs (1): B0
+
+ [B0 (EXIT)]
+   Preds (4): B2 B3 B4 B5

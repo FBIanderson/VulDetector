@@ -1,0 +1,558 @@
+Proto *luaF_newproto(lua_State *L)
+ [B2 (ENTRY)]
+   Succs (1): B1
+
+ [B1]
+   1: DeclRefExpr 0x558bbfdb2220 <./lmem.h:28:26> 'void *(lua_State *, void *, size_t, size_t)' Function 0x558bbfd91428 'luaM_realloc_' 'void *(lua_State *, void *, size_t, size_t)'
+luaM_realloc_
+   2: ImplicitCastExpr 0x558bbfdb2360 <./lmem.h:28:26> 'void *(*)(lua_State *, void *, size_t, size_t)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x558bbfdb2220 <col:26> 'void *(lua_State *, void *, size_t, size_t)' Function 0x558bbfd91428 'luaM_realloc_' 'void *(lua_State *, void *, size_t, size_t)'
+[B1.1] (ImplicitCastExpr, FunctionToPointerDecay, void *(*)(lua_State *, void *, size_t, size_t))
+   3: DeclRefExpr 0x558bbfdb2248 <lfunc.c:116:23> 'lua_State *' lvalue ParmVar 0x558bbfdb2038 'L' 'lua_State *'
+L
+   4: ImplicitCastExpr 0x558bbfdb23c0 <lfunc.c:116:23> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x558bbfdb2248 <col:23> 'lua_State *' lvalue ParmVar 0x558bbfdb2038 'L' 'lua_State *'
+[B1.3] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   5: IntegerLiteral 0x558bbfdb2270 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+   6: CStyleCastExpr 0x558bbfdb22a8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x558bbfdb2270 <col:24> 'int' 0
+(void *)[B1.5] (CStyleCastExpr, NullToPointer, void *)
+   7: IntegerLiteral 0x558bbfdb22f0 <./lmem.h:28:49> 'int' 0
+0
+   8: ImplicitCastExpr 0x558bbfdb23d8 <./lmem.h:28:49> 'size_t':'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x558bbfdb22f0 <col:49> 'int' 0
+[B1.7] (ImplicitCastExpr, IntegralCast, size_t)
+   9: UnaryExprOrTypeTraitExpr 0x558bbfdb2320 <./lmem.h:29:49, col:57> 'unsigned long' sizeof 'Proto':'struct Proto'
+sizeof(Proto)
+  10: CallExpr 0x558bbfdb2378 <./lmem.h:28:26, col:55> 'void *'
+|-ImplicitCastExpr 0x558bbfdb2360 <col:26> 'void *(*)(lua_State *, void *, size_t, size_t)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x558bbfdb2220 <col:26> 'void *(lua_State *, void *, size_t, size_t)' Function 0x558bbfd91428 'luaM_realloc_' 'void *(lua_State *, void *, size_t, size_t)'
+|-ImplicitCastExpr 0x558bbfdb23c0 <lfunc.c:116:23> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x558bbfdb2248 <col:23> 'lua_State *' lvalue ParmVar 0x558bbfdb2038 'L' 'lua_State *'
+|-ParenExpr 0x558bbfdb22d0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'void *'
+| `-CStyleCastExpr 0x558bbfdb22a8 <col:17, col:24> 'void *' <NullToPointer>
+|   `-IntegerLiteral 0x558bbfdb2270 <col:24> 'int' 0
+|-ImplicitCastExpr 0x558bbfdb23d8 <./lmem.h:28:49> 'size_t':'unsigned long' <IntegralCast>
+| `-IntegerLiteral 0x558bbfdb22f0 <col:49> 'int' 0
+`-ParenExpr 0x558bbfdb2340 <col:52, col:54> 'unsigned long'
+  `-UnaryExprOrTypeTraitExpr 0x558bbfdb2320 <line:29:49, col:57> 'unsigned long' sizeof 'Proto':'struct Proto'
+[B1.2]([B1.4], ([B1.6]), [B1.8], ([B1.9]))
+  11: CStyleCastExpr 0x558bbfdb2450 <./llimits.h:75:23, col:30> 'Proto *' <BitCast>
+`-ParenExpr 0x558bbfdb2430 <col:26, col:30> 'void *'
+  `-CallExpr 0x558bbfdb2378 <./lmem.h:28:26, col:55> 'void *'
+    |-ImplicitCastExpr 0x558bbfdb2360 <col:26> 'void *(*)(lua_State *, void *, size_t, size_t)' <FunctionToPointerDecay>
+    | `-DeclRefExpr 0x558bbfdb2220 <col:26> 'void *(lua_State *, void *, size_t, size_t)' Function 0x558bbfd91428 'luaM_realloc_' 'void *(lua_State *, void *, size_t, size_t)'
+    |-ImplicitCastExpr 0x558bbfdb23c0 <lfunc.c:116:23> 'lua_State *' <LValueToRValue>
+    | `-DeclRefExpr 0x558bbfdb2248 <col:23> 'lua_State *' lvalue ParmVar 0x558bbfdb2038 'L' 'lua_State *'
+    |-ParenExpr 0x558bbfdb22d0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'void *'
+    | `-CStyleCastExpr 0x558bbfdb22a8 <col:17, col:24> 'void *' <NullToPointer>
+    |   `-IntegerLiteral 0x558bbfdb2270 <col:24> 'int' 0
+    |-ImplicitCastExpr 0x558bbfdb23d8 <./lmem.h:28:49> 'size_t':'unsigned long' <IntegralCast>
+    | `-IntegerLiteral 0x558bbfdb22f0 <col:49> 'int' 0
+    `-ParenExpr 0x558bbfdb2340 <col:52, col:54> 'unsigned long'
+      `-UnaryExprOrTypeTraitExpr 0x558bbfdb2320 <line:29:49, col:57> 'unsigned long' sizeof 'Proto':'struct Proto'
+(Proto *)([B1.10]) (CStyleCastExpr, BitCast, Proto *)
+  12: DeclStmt 0x558bbfdb2498 <lfunc.c:116:3, col:32>col:10
+`-VarDecl 0x558bbfdb21c0 <col:3, ./llimits.h:75:31> lfunc.c:116:10 used f 'Proto *' cinit
+  `-ParenExpr 0x558bbfdb2478 <./llimits.h:75:22, col:31> 'Proto *'
+    `-CStyleCastExpr 0x558bbfdb2450 <col:23, col:30> 'Proto *' <BitCast>
+      `-ParenExpr 0x558bbfdb2430 <col:26, col:30> 'void *'
+        `-CallExpr 0x558bbfdb2378 <./lmem.h:28:26, col:55> 'void *'
+          |-ImplicitCastExpr 0x558bbfdb2360 <col:26> 'void *(*)(lua_State *, void *, size_t, size_t)' <FunctionToPointerDecay>
+          | `-DeclRefExpr 0x558bbfdb2220 <col:26> 'void *(lua_State *, void *, size_t, size_t)' Function 0x558bbfd91428 'luaM_realloc_' 'void *(lua_State *, void *, size_t, size_t)'
+          |-ImplicitCastExpr 0x558bbfdb23c0 <lfunc.c:116:23> 'lua_State *' <LValueToRValue>
+          | `-DeclRefExpr 0x558bbfdb2248 <col:23> 'lua_State *' lvalue ParmVar 0x558bbfdb2038 'L' 'lua_State *'
+          |-ParenExpr 0x558bbfdb22d0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'void *'
+          | `-CStyleCastExpr 0x558bbfdb22a8 <col:17, col:24> 'void *' <NullToPointer>
+          |   `-IntegerLiteral 0x558bbfdb2270 <col:24> 'int' 0
+          |-ImplicitCastExpr 0x558bbfdb23d8 <./lmem.h:28:49> 'size_t':'unsigned long' <IntegralCast>
+          | `-IntegerLiteral 0x558bbfdb22f0 <col:49> 'int' 0
+          `-ParenExpr 0x558bbfdb2340 <col:52, col:54> 'unsigned long'
+            `-UnaryExprOrTypeTraitExpr 0x558bbfdb2320 <line:29:49, col:57> 'unsigned long' sizeof 'Proto':'struct Proto'
+Proto *f = ((Proto *)(luaM_realloc_(L, ((void *)0), 0, (sizeof(Proto)))));
+  13: DeclRefExpr 0x558bbfdb24b0 <lfunc.c:117:3> 'void (lua_State *, GCObject *, lu_byte)' Function 0x558bbfd907c0 'luaC_link' 'void (lua_State *, GCObject *, lu_byte)'
+luaC_link
+  14: ImplicitCastExpr 0x558bbfdb26b0 <lfunc.c:117:3> 'void (*)(lua_State *, GCObject *, lu_byte)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x558bbfdb24b0 <col:3> 'void (lua_State *, GCObject *, lu_byte)' Function 0x558bbfd907c0 'luaC_link' 'void (lua_State *, GCObject *, lu_byte)'
+[B1.13] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(lua_State *, GCObject *, lu_byte))
+  15: DeclRefExpr 0x558bbfdb24d8 <lfunc.c:117:13> 'lua_State *' lvalue ParmVar 0x558bbfdb2038 'L' 'lua_State *'
+L
+  16: ImplicitCastExpr 0x558bbfdb2708 <lfunc.c:117:13> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x558bbfdb24d8 <col:13> 'lua_State *' lvalue ParmVar 0x558bbfdb2038 'L' 'lua_State *'
+[B1.15] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  17: DeclRefExpr 0x558bbfdb2500 <lfunc.c:117:24> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+f
+  18: ImplicitCastExpr 0x558bbfdb25a8 <./llimits.h:75:26, col:30> 'Proto *' <LValueToRValue>
+`-ParenExpr 0x558bbfdb2588 <col:26, col:30> 'Proto *' lvalue
+  `-ParenExpr 0x558bbfdb2528 <./lstate.h:162:38, col:40> 'Proto *' lvalue
+    `-DeclRefExpr 0x558bbfdb2500 <lfunc.c:117:24> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+(([B1.17])) (ImplicitCastExpr, LValueToRValue, Proto *)
+  19: CStyleCastExpr 0x558bbfdb25c0 <./llimits.h:75:23, col:30> 'GCObject *' <BitCast>
+`-ImplicitCastExpr 0x558bbfdb25a8 <col:26, col:30> 'Proto *' <LValueToRValue>
+  `-ParenExpr 0x558bbfdb2588 <col:26, col:30> 'Proto *' lvalue
+    `-ParenExpr 0x558bbfdb2528 <./lstate.h:162:38, col:40> 'Proto *' lvalue
+      `-DeclRefExpr 0x558bbfdb2500 <lfunc.c:117:24> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+(GCObject *)[B1.18] (CStyleCastExpr, BitCast, GCObject *)
+  20: IntegerLiteral 0x558bbfdb2628 <./lua.h:82:22> 'int' 8
+8
+  21: IntegerLiteral 0x558bbfdb2648 <./lobject.h:28:30> 'int' 1
+1
+  22: BinaryOperator 0x558bbfdb2668 <./lua.h:82:22, ./lobject.h:28:30> 'int' '+'
+|-IntegerLiteral 0x558bbfdb2628 <./lua.h:82:22> 'int' 8
+`-IntegerLiteral 0x558bbfdb2648 <./lobject.h:28:30> 'int' 1
+[B1.20] + [B1.21]
+  23: ImplicitCastExpr 0x558bbfdb2720 <./lobject.h:28:20, col:31> 'lu_byte':'unsigned char' <IntegralCast>
+`-ParenExpr 0x558bbfdb2690 <col:20, col:31> 'int'
+  `-BinaryOperator 0x558bbfdb2668 <./lua.h:82:22, ./lobject.h:28:30> 'int' '+'
+    |-IntegerLiteral 0x558bbfdb2628 <./lua.h:82:22> 'int' 8
+    `-IntegerLiteral 0x558bbfdb2648 <./lobject.h:28:30> 'int' 1
+([B1.22]) (ImplicitCastExpr, IntegralCast, lu_byte)
+  24: CallExpr 0x558bbfdb26c8 <lfunc.c:117:3, col:38> 'void'
+|-ImplicitCastExpr 0x558bbfdb26b0 <col:3> 'void (*)(lua_State *, GCObject *, lu_byte)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x558bbfdb24b0 <col:3> 'void (lua_State *, GCObject *, lu_byte)' Function 0x558bbfd907c0 'luaC_link' 'void (lua_State *, GCObject *, lu_byte)'
+|-ImplicitCastExpr 0x558bbfdb2708 <col:13> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x558bbfdb24d8 <col:13> 'lua_State *' lvalue ParmVar 0x558bbfdb2038 'L' 'lua_State *'
+|-ParenExpr 0x558bbfdb2608 <./lstate.h:162:20, col:42> 'GCObject *'
+| `-ParenExpr 0x558bbfdb25e8 <./llimits.h:75:22, col:31> 'GCObject *'
+|   `-CStyleCastExpr 0x558bbfdb25c0 <col:23, col:30> 'GCObject *' <BitCast>
+|     `-ImplicitCastExpr 0x558bbfdb25a8 <col:26, col:30> 'Proto *' <LValueToRValue>
+|       `-ParenExpr 0x558bbfdb2588 <col:26, col:30> 'Proto *' lvalue
+|         `-ParenExpr 0x558bbfdb2528 <./lstate.h:162:38, col:40> 'Proto *' lvalue
+|           `-DeclRefExpr 0x558bbfdb2500 <lfunc.c:117:24> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+`-ImplicitCastExpr 0x558bbfdb2720 <./lobject.h:28:20, col:31> 'lu_byte':'unsigned char' <IntegralCast>
+  `-ParenExpr 0x558bbfdb2690 <col:20, col:31> 'int'
+    `-BinaryOperator 0x558bbfdb2668 <./lua.h:82:22, ./lobject.h:28:30> 'int' '+'
+      |-IntegerLiteral 0x558bbfdb2628 <./lua.h:82:22> 'int' 8
+      `-IntegerLiteral 0x558bbfdb2648 <./lobject.h:28:30> 'int' 1
+[B1.14]([B1.16], (([B1.19])), [B1.23])
+  25: IntegerLiteral 0x558bbfdb27b0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+  26: CStyleCastExpr 0x558bbfdb27e8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x558bbfdb27b0 <col:24> 'int' 0
+(void *)[B1.25] (CStyleCastExpr, NullToPointer, void *)
+  27: ImplicitCastExpr 0x558bbfdb2830 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'TValue *' <NullToPointer>
+`-ParenExpr 0x558bbfdb2810 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x558bbfdb27e8 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x558bbfdb27b0 <col:24> 'int' 0
+([B1.26]) (ImplicitCastExpr, NullToPointer, TValue *)
+  28: DeclRefExpr 0x558bbfdb2738 <lfunc.c:118:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+f
+  29: ImplicitCastExpr 0x558bbfdb2760 <lfunc.c:118:3> 'Proto *' <LValueToRValue>
+`-DeclRefExpr 0x558bbfdb2738 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.28] (ImplicitCastExpr, LValueToRValue, Proto *)
+  30: MemberExpr 0x558bbfdb2778 <lfunc.c:118:3, col:6> 'TValue *' lvalue ->k 0x558bbfd7e1d8
+`-ImplicitCastExpr 0x558bbfdb2760 <col:3> 'Proto *' <LValueToRValue>
+  `-DeclRefExpr 0x558bbfdb2738 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.29]->k
+  31: BinaryOperator 0x558bbfdb2848 <lfunc.c:118:3, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25> 'TValue *' '='
+|-MemberExpr 0x558bbfdb2778 <lfunc.c:118:3, col:6> 'TValue *' lvalue ->k 0x558bbfd7e1d8
+| `-ImplicitCastExpr 0x558bbfdb2760 <col:3> 'Proto *' <LValueToRValue>
+|   `-DeclRefExpr 0x558bbfdb2738 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+`-ImplicitCastExpr 0x558bbfdb2830 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'TValue *' <NullToPointer>
+  `-ParenExpr 0x558bbfdb2810 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x558bbfdb27e8 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x558bbfdb27b0 <col:24> 'int' 0
+[B1.30] = [B1.27]
+  32: IntegerLiteral 0x558bbfdb28e8 <lfunc.c:119:14> 'int' 0
+0
+  33: DeclRefExpr 0x558bbfdb2870 <lfunc.c:119:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+f
+  34: ImplicitCastExpr 0x558bbfdb2898 <lfunc.c:119:3> 'Proto *' <LValueToRValue>
+`-DeclRefExpr 0x558bbfdb2870 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.33] (ImplicitCastExpr, LValueToRValue, Proto *)
+  35: MemberExpr 0x558bbfdb28b0 <lfunc.c:119:3, col:6> 'int' lvalue ->sizek 0x558bbfd7ea28
+`-ImplicitCastExpr 0x558bbfdb2898 <col:3> 'Proto *' <LValueToRValue>
+  `-DeclRefExpr 0x558bbfdb2870 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.34]->sizek
+  36: BinaryOperator 0x558bbfdb2908 <lfunc.c:119:3, col:14> 'int' '='
+|-MemberExpr 0x558bbfdb28b0 <col:3, col:6> 'int' lvalue ->sizek 0x558bbfd7ea28
+| `-ImplicitCastExpr 0x558bbfdb2898 <col:3> 'Proto *' <LValueToRValue>
+|   `-DeclRefExpr 0x558bbfdb2870 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+`-IntegerLiteral 0x558bbfdb28e8 <col:14> 'int' 0
+[B1.35] = [B1.32]
+  37: IntegerLiteral 0x558bbfdb29a8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+  38: CStyleCastExpr 0x558bbfdb29e0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x558bbfdb29a8 <col:24> 'int' 0
+(void *)[B1.37] (CStyleCastExpr, NullToPointer, void *)
+  39: ImplicitCastExpr 0x558bbfdb2a28 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'struct Proto **' <NullToPointer>
+`-ParenExpr 0x558bbfdb2a08 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x558bbfdb29e0 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x558bbfdb29a8 <col:24> 'int' 0
+([B1.38]) (ImplicitCastExpr, NullToPointer, struct Proto **)
+  40: DeclRefExpr 0x558bbfdb2930 <lfunc.c:120:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+f
+  41: ImplicitCastExpr 0x558bbfdb2958 <lfunc.c:120:3> 'Proto *' <LValueToRValue>
+`-DeclRefExpr 0x558bbfdb2930 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.40] (ImplicitCastExpr, LValueToRValue, Proto *)
+  42: MemberExpr 0x558bbfdb2970 <lfunc.c:120:3, col:6> 'struct Proto **' lvalue ->p 0x558bbfd7e400
+`-ImplicitCastExpr 0x558bbfdb2958 <col:3> 'Proto *' <LValueToRValue>
+  `-DeclRefExpr 0x558bbfdb2930 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.41]->p
+  43: BinaryOperator 0x558bbfdb2a40 <lfunc.c:120:3, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25> 'struct Proto **' '='
+|-MemberExpr 0x558bbfdb2970 <lfunc.c:120:3, col:6> 'struct Proto **' lvalue ->p 0x558bbfd7e400
+| `-ImplicitCastExpr 0x558bbfdb2958 <col:3> 'Proto *' <LValueToRValue>
+|   `-DeclRefExpr 0x558bbfdb2930 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+`-ImplicitCastExpr 0x558bbfdb2a28 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'struct Proto **' <NullToPointer>
+  `-ParenExpr 0x558bbfdb2a08 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x558bbfdb29e0 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x558bbfdb29a8 <col:24> 'int' 0
+[B1.42] = [B1.39]
+  44: IntegerLiteral 0x558bbfdb2ae0 <lfunc.c:121:14> 'int' 0
+0
+  45: DeclRefExpr 0x558bbfdb2a68 <lfunc.c:121:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+f
+  46: ImplicitCastExpr 0x558bbfdb2a90 <lfunc.c:121:3> 'Proto *' <LValueToRValue>
+`-DeclRefExpr 0x558bbfdb2a68 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.45] (ImplicitCastExpr, LValueToRValue, Proto *)
+  47: MemberExpr 0x558bbfdb2aa8 <lfunc.c:121:3, col:6> 'int' lvalue ->sizep 0x558bbfd7eb48
+`-ImplicitCastExpr 0x558bbfdb2a90 <col:3> 'Proto *' <LValueToRValue>
+  `-DeclRefExpr 0x558bbfdb2a68 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.46]->sizep
+  48: BinaryOperator 0x558bbfdb2b00 <lfunc.c:121:3, col:14> 'int' '='
+|-MemberExpr 0x558bbfdb2aa8 <col:3, col:6> 'int' lvalue ->sizep 0x558bbfd7eb48
+| `-ImplicitCastExpr 0x558bbfdb2a90 <col:3> 'Proto *' <LValueToRValue>
+|   `-DeclRefExpr 0x558bbfdb2a68 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+`-IntegerLiteral 0x558bbfdb2ae0 <col:14> 'int' 0
+[B1.47] = [B1.44]
+  49: IntegerLiteral 0x558bbfdb2ba0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+  50: CStyleCastExpr 0x558bbfdb2bd8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x558bbfdb2ba0 <col:24> 'int' 0
+(void *)[B1.49] (CStyleCastExpr, NullToPointer, void *)
+  51: ImplicitCastExpr 0x558bbfdb2c20 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'Instruction *' <NullToPointer>
+`-ParenExpr 0x558bbfdb2c00 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x558bbfdb2bd8 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x558bbfdb2ba0 <col:24> 'int' 0
+([B1.50]) (ImplicitCastExpr, NullToPointer, Instruction *)
+  52: DeclRefExpr 0x558bbfdb2b28 <lfunc.c:122:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+f
+  53: ImplicitCastExpr 0x558bbfdb2b50 <lfunc.c:122:3> 'Proto *' <LValueToRValue>
+`-DeclRefExpr 0x558bbfdb2b28 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.52] (ImplicitCastExpr, LValueToRValue, Proto *)
+  54: MemberExpr 0x558bbfdb2b68 <lfunc.c:122:3, col:6> 'Instruction *' lvalue ->code 0x558bbfd7e2a8
+`-ImplicitCastExpr 0x558bbfdb2b50 <col:3> 'Proto *' <LValueToRValue>
+  `-DeclRefExpr 0x558bbfdb2b28 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.53]->code
+  55: BinaryOperator 0x558bbfdb2c38 <lfunc.c:122:3, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25> 'Instruction *' '='
+|-MemberExpr 0x558bbfdb2b68 <lfunc.c:122:3, col:6> 'Instruction *' lvalue ->code 0x558bbfd7e2a8
+| `-ImplicitCastExpr 0x558bbfdb2b50 <col:3> 'Proto *' <LValueToRValue>
+|   `-DeclRefExpr 0x558bbfdb2b28 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+`-ImplicitCastExpr 0x558bbfdb2c20 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'Instruction *' <NullToPointer>
+  `-ParenExpr 0x558bbfdb2c00 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x558bbfdb2bd8 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x558bbfdb2ba0 <col:24> 'int' 0
+[B1.54] = [B1.51]
+  56: IntegerLiteral 0x558bbfdb2cd8 <lfunc.c:123:17> 'int' 0
+0
+  57: DeclRefExpr 0x558bbfdb2c60 <lfunc.c:123:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+f
+  58: ImplicitCastExpr 0x558bbfdb2c88 <lfunc.c:123:3> 'Proto *' <LValueToRValue>
+`-DeclRefExpr 0x558bbfdb2c60 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.57] (ImplicitCastExpr, LValueToRValue, Proto *)
+  59: MemberExpr 0x558bbfdb2ca0 <lfunc.c:123:3, col:6> 'int' lvalue ->sizecode 0x558bbfd7ea88
+`-ImplicitCastExpr 0x558bbfdb2c88 <col:3> 'Proto *' <LValueToRValue>
+  `-DeclRefExpr 0x558bbfdb2c60 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.58]->sizecode
+  60: BinaryOperator 0x558bbfdb2cf8 <lfunc.c:123:3, col:17> 'int' '='
+|-MemberExpr 0x558bbfdb2ca0 <col:3, col:6> 'int' lvalue ->sizecode 0x558bbfd7ea88
+| `-ImplicitCastExpr 0x558bbfdb2c88 <col:3> 'Proto *' <LValueToRValue>
+|   `-DeclRefExpr 0x558bbfdb2c60 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+`-IntegerLiteral 0x558bbfdb2cd8 <col:17> 'int' 0
+[B1.59] = [B1.56]
+  61: IntegerLiteral 0x558bbfdb2d98 <lfunc.c:124:21> 'int' 0
+0
+  62: DeclRefExpr 0x558bbfdb2d20 <lfunc.c:124:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+f
+  63: ImplicitCastExpr 0x558bbfdb2d48 <lfunc.c:124:3> 'Proto *' <LValueToRValue>
+`-DeclRefExpr 0x558bbfdb2d20 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.62] (ImplicitCastExpr, LValueToRValue, Proto *)
+  64: MemberExpr 0x558bbfdb2d60 <lfunc.c:124:3, col:6> 'int' lvalue ->sizelineinfo 0x558bbfd7eae8
+`-ImplicitCastExpr 0x558bbfdb2d48 <col:3> 'Proto *' <LValueToRValue>
+  `-DeclRefExpr 0x558bbfdb2d20 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.63]->sizelineinfo
+  65: BinaryOperator 0x558bbfdb2db8 <lfunc.c:124:3, col:21> 'int' '='
+|-MemberExpr 0x558bbfdb2d60 <col:3, col:6> 'int' lvalue ->sizelineinfo 0x558bbfd7eae8
+| `-ImplicitCastExpr 0x558bbfdb2d48 <col:3> 'Proto *' <LValueToRValue>
+|   `-DeclRefExpr 0x558bbfdb2d20 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+`-IntegerLiteral 0x558bbfdb2d98 <col:21> 'int' 0
+[B1.64] = [B1.61]
+  66: IntegerLiteral 0x558bbfdb2e58 <lfunc.c:125:21> 'int' 0
+0
+  67: DeclRefExpr 0x558bbfdb2de0 <lfunc.c:125:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+f
+  68: ImplicitCastExpr 0x558bbfdb2e08 <lfunc.c:125:3> 'Proto *' <LValueToRValue>
+`-DeclRefExpr 0x558bbfdb2de0 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.67] (ImplicitCastExpr, LValueToRValue, Proto *)
+  69: MemberExpr 0x558bbfdb2e20 <lfunc.c:125:3, col:6> 'int' lvalue ->sizeupvalues 0x558bbfd7e9c8
+`-ImplicitCastExpr 0x558bbfdb2e08 <col:3> 'Proto *' <LValueToRValue>
+  `-DeclRefExpr 0x558bbfdb2de0 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.68]->sizeupvalues
+  70: BinaryOperator 0x558bbfdb2e78 <lfunc.c:125:3, col:21> 'int' '='
+|-MemberExpr 0x558bbfdb2e20 <col:3, col:6> 'int' lvalue ->sizeupvalues 0x558bbfd7e9c8
+| `-ImplicitCastExpr 0x558bbfdb2e08 <col:3> 'Proto *' <LValueToRValue>
+|   `-DeclRefExpr 0x558bbfdb2de0 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+`-IntegerLiteral 0x558bbfdb2e58 <col:21> 'int' 0
+[B1.69] = [B1.66]
+  71: IntegerLiteral 0x558bbfdb2f18 <lfunc.c:126:13> 'int' 0
+0
+  72: ImplicitCastExpr 0x558bbfdb2f38 <lfunc.c:126:13> 'lu_byte':'unsigned char' <IntegralCast>
+`-IntegerLiteral 0x558bbfdb2f18 <col:13> 'int' 0
+[B1.71] (ImplicitCastExpr, IntegralCast, lu_byte)
+  73: DeclRefExpr 0x558bbfdb2ea0 <lfunc.c:126:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+f
+  74: ImplicitCastExpr 0x558bbfdb2ec8 <lfunc.c:126:3> 'Proto *' <LValueToRValue>
+`-DeclRefExpr 0x558bbfdb2ea0 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.73] (ImplicitCastExpr, LValueToRValue, Proto *)
+  75: MemberExpr 0x558bbfdb2ee0 <lfunc.c:126:3, col:6> 'lu_byte':'unsigned char' lvalue ->nups 0x558bbfd7ed18
+`-ImplicitCastExpr 0x558bbfdb2ec8 <col:3> 'Proto *' <LValueToRValue>
+  `-DeclRefExpr 0x558bbfdb2ea0 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.74]->nups
+  76: BinaryOperator 0x558bbfdb2f50 <lfunc.c:126:3, col:13> 'lu_byte':'unsigned char' '='
+|-MemberExpr 0x558bbfdb2ee0 <col:3, col:6> 'lu_byte':'unsigned char' lvalue ->nups 0x558bbfd7ed18
+| `-ImplicitCastExpr 0x558bbfdb2ec8 <col:3> 'Proto *' <LValueToRValue>
+|   `-DeclRefExpr 0x558bbfdb2ea0 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+`-ImplicitCastExpr 0x558bbfdb2f38 <col:13> 'lu_byte':'unsigned char' <IntegralCast>
+  `-IntegerLiteral 0x558bbfdb2f18 <col:13> 'int' 0
+[B1.75] = [B1.72]
+  77: IntegerLiteral 0x558bbfdb3480 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+  78: CStyleCastExpr 0x558bbfdb34b8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x558bbfdb3480 <col:24> 'int' 0
+(void *)[B1.77] (CStyleCastExpr, NullToPointer, void *)
+  79: ImplicitCastExpr 0x558bbfdb3500 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'TString **' <NullToPointer>
+`-ParenExpr 0x558bbfdb34e0 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x558bbfdb34b8 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x558bbfdb3480 <col:24> 'int' 0
+([B1.78]) (ImplicitCastExpr, NullToPointer, TString **)
+  80: DeclRefExpr 0x558bbfdb2f78 <lfunc.c:127:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+f
+  81: ImplicitCastExpr 0x558bbfdb3430 <lfunc.c:127:3> 'Proto *' <LValueToRValue>
+`-DeclRefExpr 0x558bbfdb2f78 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.80] (ImplicitCastExpr, LValueToRValue, Proto *)
+  82: MemberExpr 0x558bbfdb3448 <lfunc.c:127:3, col:6> 'TString **' lvalue ->upvalues 0x558bbfd7e750
+`-ImplicitCastExpr 0x558bbfdb3430 <col:3> 'Proto *' <LValueToRValue>
+  `-DeclRefExpr 0x558bbfdb2f78 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.81]->upvalues
+  83: BinaryOperator 0x558bbfdb3518 <lfunc.c:127:3, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25> 'TString **' '='
+|-MemberExpr 0x558bbfdb3448 <lfunc.c:127:3, col:6> 'TString **' lvalue ->upvalues 0x558bbfd7e750
+| `-ImplicitCastExpr 0x558bbfdb3430 <col:3> 'Proto *' <LValueToRValue>
+|   `-DeclRefExpr 0x558bbfdb2f78 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+`-ImplicitCastExpr 0x558bbfdb3500 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'TString **' <NullToPointer>
+  `-ParenExpr 0x558bbfdb34e0 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x558bbfdb34b8 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x558bbfdb3480 <col:24> 'int' 0
+[B1.82] = [B1.79]
+  84: IntegerLiteral 0x558bbfdb35b8 <lfunc.c:128:18> 'int' 0
+0
+  85: ImplicitCastExpr 0x558bbfdb35d8 <lfunc.c:128:18> 'lu_byte':'unsigned char' <IntegralCast>
+`-IntegerLiteral 0x558bbfdb35b8 <col:18> 'int' 0
+[B1.84] (ImplicitCastExpr, IntegralCast, lu_byte)
+  86: DeclRefExpr 0x558bbfdb3540 <lfunc.c:128:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+f
+  87: ImplicitCastExpr 0x558bbfdb3568 <lfunc.c:128:3> 'Proto *' <LValueToRValue>
+`-DeclRefExpr 0x558bbfdb3540 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.86] (ImplicitCastExpr, LValueToRValue, Proto *)
+  88: MemberExpr 0x558bbfdb3580 <lfunc.c:128:3, col:6> 'lu_byte':'unsigned char' lvalue ->numparams 0x558bbfd7ed70
+`-ImplicitCastExpr 0x558bbfdb3568 <col:3> 'Proto *' <LValueToRValue>
+  `-DeclRefExpr 0x558bbfdb3540 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.87]->numparams
+  89: BinaryOperator 0x558bbfdb35f0 <lfunc.c:128:3, col:18> 'lu_byte':'unsigned char' '='
+|-MemberExpr 0x558bbfdb3580 <col:3, col:6> 'lu_byte':'unsigned char' lvalue ->numparams 0x558bbfd7ed70
+| `-ImplicitCastExpr 0x558bbfdb3568 <col:3> 'Proto *' <LValueToRValue>
+|   `-DeclRefExpr 0x558bbfdb3540 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+`-ImplicitCastExpr 0x558bbfdb35d8 <col:18> 'lu_byte':'unsigned char' <IntegralCast>
+  `-IntegerLiteral 0x558bbfdb35b8 <col:18> 'int' 0
+[B1.88] = [B1.85]
+  90: IntegerLiteral 0x558bbfdb3690 <lfunc.c:129:18> 'int' 0
+0
+  91: ImplicitCastExpr 0x558bbfdb36b0 <lfunc.c:129:18> 'lu_byte':'unsigned char' <IntegralCast>
+`-IntegerLiteral 0x558bbfdb3690 <col:18> 'int' 0
+[B1.90] (ImplicitCastExpr, IntegralCast, lu_byte)
+  92: DeclRefExpr 0x558bbfdb3618 <lfunc.c:129:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+f
+  93: ImplicitCastExpr 0x558bbfdb3640 <lfunc.c:129:3> 'Proto *' <LValueToRValue>
+`-DeclRefExpr 0x558bbfdb3618 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.92] (ImplicitCastExpr, LValueToRValue, Proto *)
+  94: MemberExpr 0x558bbfdb3658 <lfunc.c:129:3, col:6> 'lu_byte':'unsigned char' lvalue ->is_vararg 0x558bbfd7edc8
+`-ImplicitCastExpr 0x558bbfdb3640 <col:3> 'Proto *' <LValueToRValue>
+  `-DeclRefExpr 0x558bbfdb3618 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.93]->is_vararg
+  95: BinaryOperator 0x558bbfdb36c8 <lfunc.c:129:3, col:18> 'lu_byte':'unsigned char' '='
+|-MemberExpr 0x558bbfdb3658 <col:3, col:6> 'lu_byte':'unsigned char' lvalue ->is_vararg 0x558bbfd7edc8
+| `-ImplicitCastExpr 0x558bbfdb3640 <col:3> 'Proto *' <LValueToRValue>
+|   `-DeclRefExpr 0x558bbfdb3618 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+`-ImplicitCastExpr 0x558bbfdb36b0 <col:18> 'lu_byte':'unsigned char' <IntegralCast>
+  `-IntegerLiteral 0x558bbfdb3690 <col:18> 'int' 0
+[B1.94] = [B1.91]
+  96: IntegerLiteral 0x558bbfdb3768 <lfunc.c:130:21> 'int' 0
+0
+  97: ImplicitCastExpr 0x558bbfdb3788 <lfunc.c:130:21> 'lu_byte':'unsigned char' <IntegralCast>
+`-IntegerLiteral 0x558bbfdb3768 <col:21> 'int' 0
+[B1.96] (ImplicitCastExpr, IntegralCast, lu_byte)
+  98: DeclRefExpr 0x558bbfdb36f0 <lfunc.c:130:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+f
+  99: ImplicitCastExpr 0x558bbfdb3718 <lfunc.c:130:3> 'Proto *' <LValueToRValue>
+`-DeclRefExpr 0x558bbfdb36f0 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.98] (ImplicitCastExpr, LValueToRValue, Proto *)
+ 100: MemberExpr 0x558bbfdb3730 <lfunc.c:130:3, col:6> 'lu_byte':'unsigned char' lvalue ->maxstacksize 0x558bbfd7ee20
+`-ImplicitCastExpr 0x558bbfdb3718 <col:3> 'Proto *' <LValueToRValue>
+  `-DeclRefExpr 0x558bbfdb36f0 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.99]->maxstacksize
+ 101: BinaryOperator 0x558bbfdb37a0 <lfunc.c:130:3, col:21> 'lu_byte':'unsigned char' '='
+|-MemberExpr 0x558bbfdb3730 <col:3, col:6> 'lu_byte':'unsigned char' lvalue ->maxstacksize 0x558bbfd7ee20
+| `-ImplicitCastExpr 0x558bbfdb3718 <col:3> 'Proto *' <LValueToRValue>
+|   `-DeclRefExpr 0x558bbfdb36f0 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+`-ImplicitCastExpr 0x558bbfdb3788 <col:21> 'lu_byte':'unsigned char' <IntegralCast>
+  `-IntegerLiteral 0x558bbfdb3768 <col:21> 'int' 0
+[B1.100] = [B1.97]
+ 102: IntegerLiteral 0x558bbfdb3840 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+ 103: CStyleCastExpr 0x558bbfdb3878 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x558bbfdb3840 <col:24> 'int' 0
+(void *)[B1.102] (CStyleCastExpr, NullToPointer, void *)
+ 104: ImplicitCastExpr 0x558bbfdb38c0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'int *' <NullToPointer>
+`-ParenExpr 0x558bbfdb38a0 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x558bbfdb3878 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x558bbfdb3840 <col:24> 'int' 0
+([B1.103]) (ImplicitCastExpr, NullToPointer, int *)
+ 105: DeclRefExpr 0x558bbfdb37c8 <lfunc.c:131:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+f
+ 106: ImplicitCastExpr 0x558bbfdb37f0 <lfunc.c:131:3> 'Proto *' <LValueToRValue>
+`-DeclRefExpr 0x558bbfdb37c8 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.105] (ImplicitCastExpr, LValueToRValue, Proto *)
+ 107: MemberExpr 0x558bbfdb3808 <lfunc.c:131:3, col:6> 'int *' lvalue ->lineinfo 0x558bbfd7e460
+`-ImplicitCastExpr 0x558bbfdb37f0 <col:3> 'Proto *' <LValueToRValue>
+  `-DeclRefExpr 0x558bbfdb37c8 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.106]->lineinfo
+ 108: BinaryOperator 0x558bbfdb38d8 <lfunc.c:131:3, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25> 'int *' '='
+|-MemberExpr 0x558bbfdb3808 <lfunc.c:131:3, col:6> 'int *' lvalue ->lineinfo 0x558bbfd7e460
+| `-ImplicitCastExpr 0x558bbfdb37f0 <col:3> 'Proto *' <LValueToRValue>
+|   `-DeclRefExpr 0x558bbfdb37c8 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+`-ImplicitCastExpr 0x558bbfdb38c0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'int *' <NullToPointer>
+  `-ParenExpr 0x558bbfdb38a0 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x558bbfdb3878 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x558bbfdb3840 <col:24> 'int' 0
+[B1.107] = [B1.104]
+ 109: IntegerLiteral 0x558bbfdb3978 <lfunc.c:132:20> 'int' 0
+0
+ 110: DeclRefExpr 0x558bbfdb3900 <lfunc.c:132:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+f
+ 111: ImplicitCastExpr 0x558bbfdb3928 <lfunc.c:132:3> 'Proto *' <LValueToRValue>
+`-DeclRefExpr 0x558bbfdb3900 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.110] (ImplicitCastExpr, LValueToRValue, Proto *)
+ 112: MemberExpr 0x558bbfdb3940 <lfunc.c:132:3, col:6> 'int' lvalue ->sizelocvars 0x558bbfd7eba8
+`-ImplicitCastExpr 0x558bbfdb3928 <col:3> 'Proto *' <LValueToRValue>
+  `-DeclRefExpr 0x558bbfdb3900 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.111]->sizelocvars
+ 113: BinaryOperator 0x558bbfdb3998 <lfunc.c:132:3, col:20> 'int' '='
+|-MemberExpr 0x558bbfdb3940 <col:3, col:6> 'int' lvalue ->sizelocvars 0x558bbfd7eba8
+| `-ImplicitCastExpr 0x558bbfdb3928 <col:3> 'Proto *' <LValueToRValue>
+|   `-DeclRefExpr 0x558bbfdb3900 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+`-IntegerLiteral 0x558bbfdb3978 <col:20> 'int' 0
+[B1.112] = [B1.109]
+ 114: IntegerLiteral 0x558bbfdb3a38 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+ 115: CStyleCastExpr 0x558bbfdb3a70 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x558bbfdb3a38 <col:24> 'int' 0
+(void *)[B1.114] (CStyleCastExpr, NullToPointer, void *)
+ 116: ImplicitCastExpr 0x558bbfdb3ab8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'struct LocVar *' <NullToPointer>
+`-ParenExpr 0x558bbfdb3a98 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x558bbfdb3a70 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x558bbfdb3a38 <col:24> 'int' 0
+([B1.115]) (ImplicitCastExpr, NullToPointer, struct LocVar *)
+ 117: DeclRefExpr 0x558bbfdb39c0 <lfunc.c:133:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+f
+ 118: ImplicitCastExpr 0x558bbfdb39e8 <lfunc.c:133:3> 'Proto *' <LValueToRValue>
+`-DeclRefExpr 0x558bbfdb39c0 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.117] (ImplicitCastExpr, LValueToRValue, Proto *)
+ 119: MemberExpr 0x558bbfdb3a00 <lfunc.c:133:3, col:6> 'struct LocVar *' lvalue ->locvars 0x558bbfd7e610
+`-ImplicitCastExpr 0x558bbfdb39e8 <col:3> 'Proto *' <LValueToRValue>
+  `-DeclRefExpr 0x558bbfdb39c0 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.118]->locvars
+ 120: BinaryOperator 0x558bbfdb3ad0 <lfunc.c:133:3, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25> 'struct LocVar *' '='
+|-MemberExpr 0x558bbfdb3a00 <lfunc.c:133:3, col:6> 'struct LocVar *' lvalue ->locvars 0x558bbfd7e610
+| `-ImplicitCastExpr 0x558bbfdb39e8 <col:3> 'Proto *' <LValueToRValue>
+|   `-DeclRefExpr 0x558bbfdb39c0 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+`-ImplicitCastExpr 0x558bbfdb3ab8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'struct LocVar *' <NullToPointer>
+  `-ParenExpr 0x558bbfdb3a98 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x558bbfdb3a70 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x558bbfdb3a38 <col:24> 'int' 0
+[B1.119] = [B1.116]
+ 121: IntegerLiteral 0x558bbfdb3b70 <lfunc.c:134:20> 'int' 0
+0
+ 122: DeclRefExpr 0x558bbfdb3af8 <lfunc.c:134:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+f
+ 123: ImplicitCastExpr 0x558bbfdb3b20 <lfunc.c:134:3> 'Proto *' <LValueToRValue>
+`-DeclRefExpr 0x558bbfdb3af8 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.122] (ImplicitCastExpr, LValueToRValue, Proto *)
+ 124: MemberExpr 0x558bbfdb3b38 <lfunc.c:134:3, col:6> 'int' lvalue ->linedefined 0x558bbfd7ec08
+`-ImplicitCastExpr 0x558bbfdb3b20 <col:3> 'Proto *' <LValueToRValue>
+  `-DeclRefExpr 0x558bbfdb3af8 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.123]->linedefined
+ 125: BinaryOperator 0x558bbfdb3b90 <lfunc.c:134:3, col:20> 'int' '='
+|-MemberExpr 0x558bbfdb3b38 <col:3, col:6> 'int' lvalue ->linedefined 0x558bbfd7ec08
+| `-ImplicitCastExpr 0x558bbfdb3b20 <col:3> 'Proto *' <LValueToRValue>
+|   `-DeclRefExpr 0x558bbfdb3af8 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+`-IntegerLiteral 0x558bbfdb3b70 <col:20> 'int' 0
+[B1.124] = [B1.121]
+ 126: IntegerLiteral 0x558bbfdb3c30 <lfunc.c:135:24> 'int' 0
+0
+ 127: DeclRefExpr 0x558bbfdb3bb8 <lfunc.c:135:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+f
+ 128: ImplicitCastExpr 0x558bbfdb3be0 <lfunc.c:135:3> 'Proto *' <LValueToRValue>
+`-DeclRefExpr 0x558bbfdb3bb8 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.127] (ImplicitCastExpr, LValueToRValue, Proto *)
+ 129: MemberExpr 0x558bbfdb3bf8 <lfunc.c:135:3, col:6> 'int' lvalue ->lastlinedefined 0x558bbfd7ec68
+`-ImplicitCastExpr 0x558bbfdb3be0 <col:3> 'Proto *' <LValueToRValue>
+  `-DeclRefExpr 0x558bbfdb3bb8 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.128]->lastlinedefined
+ 130: BinaryOperator 0x558bbfdb3c50 <lfunc.c:135:3, col:24> 'int' '='
+|-MemberExpr 0x558bbfdb3bf8 <col:3, col:6> 'int' lvalue ->lastlinedefined 0x558bbfd7ec68
+| `-ImplicitCastExpr 0x558bbfdb3be0 <col:3> 'Proto *' <LValueToRValue>
+|   `-DeclRefExpr 0x558bbfdb3bb8 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+`-IntegerLiteral 0x558bbfdb3c30 <col:24> 'int' 0
+[B1.129] = [B1.126]
+ 131: IntegerLiteral 0x558bbfdb3cf0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+ 132: CStyleCastExpr 0x558bbfdb3d28 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x558bbfdb3cf0 <col:24> 'int' 0
+(void *)[B1.131] (CStyleCastExpr, NullToPointer, void *)
+ 133: ImplicitCastExpr 0x558bbfdb3d70 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'TString *' <NullToPointer>
+`-ParenExpr 0x558bbfdb3d50 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x558bbfdb3d28 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x558bbfdb3cf0 <col:24> 'int' 0
+([B1.132]) (ImplicitCastExpr, NullToPointer, TString *)
+ 134: DeclRefExpr 0x558bbfdb3c78 <lfunc.c:136:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+f
+ 135: ImplicitCastExpr 0x558bbfdb3ca0 <lfunc.c:136:3> 'Proto *' <LValueToRValue>
+`-DeclRefExpr 0x558bbfdb3c78 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.134] (ImplicitCastExpr, LValueToRValue, Proto *)
+ 136: MemberExpr 0x558bbfdb3cb8 <lfunc.c:136:3, col:6> 'TString *' lvalue ->source 0x558bbfd7e7a8
+`-ImplicitCastExpr 0x558bbfdb3ca0 <col:3> 'Proto *' <LValueToRValue>
+  `-DeclRefExpr 0x558bbfdb3c78 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.135]->source
+ 137: BinaryOperator 0x558bbfdb3d88 <lfunc.c:136:3, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25> 'TString *' '='
+|-MemberExpr 0x558bbfdb3cb8 <lfunc.c:136:3, col:6> 'TString *' lvalue ->source 0x558bbfd7e7a8
+| `-ImplicitCastExpr 0x558bbfdb3ca0 <col:3> 'Proto *' <LValueToRValue>
+|   `-DeclRefExpr 0x558bbfdb3c78 <col:3> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+`-ImplicitCastExpr 0x558bbfdb3d70 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'TString *' <NullToPointer>
+  `-ParenExpr 0x558bbfdb3d50 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x558bbfdb3d28 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x558bbfdb3cf0 <col:24> 'int' 0
+[B1.136] = [B1.133]
+ 138: DeclRefExpr 0x558bbfdb3db0 <lfunc.c:137:10> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+f
+ 139: ImplicitCastExpr 0x558bbfdb3dd8 <lfunc.c:137:10> 'Proto *' <LValueToRValue>
+`-DeclRefExpr 0x558bbfdb3db0 <col:10> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+[B1.138] (ImplicitCastExpr, LValueToRValue, Proto *)
+ 140: ReturnStmt 0x558bbfdb3df0 <lfunc.c:137:3, col:10>
+`-ImplicitCastExpr 0x558bbfdb3dd8 <col:10> 'Proto *' <LValueToRValue>
+  `-DeclRefExpr 0x558bbfdb3db0 <col:10> 'Proto *' lvalue Var 0x558bbfdb21c0 'f' 'Proto *'
+return [B1.139];
+   Preds (1): B2
+   Succs (1): B0
+
+ [B0 (EXIT)]
+   Preds (1): B1

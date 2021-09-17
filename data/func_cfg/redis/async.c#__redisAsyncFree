@@ -1,0 +1,1083 @@
+static void __redisAsyncFree(redisAsyncContext *ac)
+ [B31 (ENTRY)]
+   Succs (1): B30
+
+ [B1]
+   1: DeclRefExpr 0x55bf9a60ea18 <async.c:302:5> 'void (redisContext *)' Function 0x55bf9a5be3b0 'redisFree' 'void (redisContext *)'
+redisFree
+   2: ImplicitCastExpr 0x55bf9a60ea68 <async.c:302:5> 'void (*)(redisContext *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a60ea18 <col:5> 'void (redisContext *)' Function 0x55bf9a5be3b0 'redisFree' 'void (redisContext *)'
+[B1.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(redisContext *))
+   3: DeclRefExpr 0x55bf9a60ea40 <async.c:302:15> 'redisContext *' lvalue Var 0x55bf9a60c2b8 'c' 'redisContext *'
+c
+   4: ImplicitCastExpr 0x55bf9a60eab0 <async.c:302:15> 'redisContext *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a60ea40 <col:15> 'redisContext *' lvalue Var 0x55bf9a60c2b8 'c' 'redisContext *'
+[B1.3] (ImplicitCastExpr, LValueToRValue, redisContext *)
+   5: CallExpr 0x55bf9a60ea80 <async.c:302:5, col:16> 'void'
+|-ImplicitCastExpr 0x55bf9a60ea68 <col:5> 'void (*)(redisContext *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a60ea18 <col:5> 'void (redisContext *)' Function 0x55bf9a5be3b0 'redisFree' 'void (redisContext *)'
+`-ImplicitCastExpr 0x55bf9a60eab0 <col:15> 'redisContext *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a60ea40 <col:15> 'redisContext *' lvalue Var 0x55bf9a60c2b8 'c' 'redisContext *'
+[B1.2]([B1.4])
+   Preds (4): B2 B6 B8 B9
+   Succs (1): B0
+
+ [B2]
+   1: ConditionalOperator 0x55bf9a60e8c8 <async.c:297:33, ./read.h:37:20> 'int'
+|-ParenExpr 0x55bf9a60e848 <async.c:297:33, col:46> 'int'
+| `-BinaryOperator 0x55bf9a60e820 <col:34, col:45> 'int' '=='
+|   |-ImplicitCastExpr 0x55bf9a60e808 <col:34, col:38> 'int' <LValueToRValue>
+|   | `-MemberExpr 0x55bf9a60e7b0 <col:34, col:38> 'int' lvalue ->err 0x55bf9a5c2750
+|   |   `-ImplicitCastExpr 0x55bf9a60e798 <col:34> 'redisAsyncContext *' <LValueToRValue>
+|   |     `-DeclRefExpr 0x55bf9a60e770 <col:34> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+|   `-IntegerLiteral 0x55bf9a60e7e8 <col:45> 'int' 0
+|-IntegerLiteral 0x55bf9a60e868 <./read.h:38:18> 'int' 0
+`-UnaryOperator 0x55bf9a60e8a8 <line:37:19, col:20> 'int' prefix '-'
+  `-IntegerLiteral 0x55bf9a60e888 <col:20> 'int' 1
+([B5.13]) ? [B3.1] : [B4.2]
+   2: CallExpr 0x55bf9a60e910 <async.c:297:13, col:70> 'void'
+|-ImplicitCastExpr 0x55bf9a60e8f8 <col:13, col:17> 'redisDisconnectCallback *' <LValueToRValue>
+| `-MemberExpr 0x55bf9a60e710 <col:13, col:17> 'redisDisconnectCallback *' lvalue ->onDisconnect 0x55bf9a5c4248
+|   `-ImplicitCastExpr 0x55bf9a60e6f8 <col:13> 'redisAsyncContext *' <LValueToRValue>
+|     `-DeclRefExpr 0x55bf9a60e6d0 <col:13> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+|-ImplicitCastExpr 0x55bf9a60e960 <col:30> 'const struct redisAsyncContext *' <BitCast>
+| `-ImplicitCastExpr 0x55bf9a60e948 <col:30> 'redisAsyncContext *' <LValueToRValue>
+|   `-DeclRefExpr 0x55bf9a60e748 <col:30> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+`-ConditionalOperator 0x55bf9a60e8c8 <col:33, ./read.h:37:20> 'int'
+  |-ParenExpr 0x55bf9a60e848 <async.c:297:33, col:46> 'int'
+  | `-BinaryOperator 0x55bf9a60e820 <col:34, col:45> 'int' '=='
+  |   |-ImplicitCastExpr 0x55bf9a60e808 <col:34, col:38> 'int' <LValueToRValue>
+  |   | `-MemberExpr 0x55bf9a60e7b0 <col:34, col:38> 'int' lvalue ->err 0x55bf9a5c2750
+  |   |   `-ImplicitCastExpr 0x55bf9a60e798 <col:34> 'redisAsyncContext *' <LValueToRValue>
+  |   |     `-DeclRefExpr 0x55bf9a60e770 <col:34> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+  |   `-IntegerLiteral 0x55bf9a60e7e8 <col:45> 'int' 0
+  |-IntegerLiteral 0x55bf9a60e868 <./read.h:38:18> 'int' 0
+  `-UnaryOperator 0x55bf9a60e8a8 <line:37:19, col:20> 'int' prefix '-'
+    `-IntegerLiteral 0x55bf9a60e888 <col:20> 'int' 1
+[B5.4]([B5.7], [B2.1])
+   Preds (2): B3 B4
+   Succs (1): B1
+
+ [B3]
+   1: IntegerLiteral 0x55bf9a60e868 <./read.h:38:18> 'int' 0
+0
+   Preds (1): B5
+   Succs (1): B2
+
+ [B4]
+   1: IntegerLiteral 0x55bf9a60e888 <./read.h:37:20> 'int' 1
+1
+   2: UnaryOperator 0x55bf9a60e8a8 <./read.h:37:19, col:20> 'int' prefix '-'
+`-IntegerLiteral 0x55bf9a60e888 <col:20> 'int' 1
+-[B4.1]
+   Preds (1): B5
+   Succs (1): B2
+
+ [B5]
+   1: DeclRefExpr 0x55bf9a60e6d0 <async.c:297:13> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+ac
+   2: ImplicitCastExpr 0x55bf9a60e6f8 <async.c:297:13> 'redisAsyncContext *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a60e6d0 <col:13> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B5.1] (ImplicitCastExpr, LValueToRValue, redisAsyncContext *)
+   3: MemberExpr 0x55bf9a60e710 <async.c:297:13, col:17> 'redisDisconnectCallback *' lvalue ->onDisconnect 0x55bf9a5c4248
+`-ImplicitCastExpr 0x55bf9a60e6f8 <col:13> 'redisAsyncContext *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a60e6d0 <col:13> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B5.2]->onDisconnect
+   4: ImplicitCastExpr 0x55bf9a60e8f8 <async.c:297:13, col:17> 'redisDisconnectCallback *' <LValueToRValue>
+`-MemberExpr 0x55bf9a60e710 <col:13, col:17> 'redisDisconnectCallback *' lvalue ->onDisconnect 0x55bf9a5c4248
+  `-ImplicitCastExpr 0x55bf9a60e6f8 <col:13> 'redisAsyncContext *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a60e6d0 <col:13> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B5.3] (ImplicitCastExpr, LValueToRValue, redisDisconnectCallback *)
+   5: DeclRefExpr 0x55bf9a60e748 <async.c:297:30> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+ac
+   6: ImplicitCastExpr 0x55bf9a60e948 <async.c:297:30> 'redisAsyncContext *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a60e748 <col:30> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B5.5] (ImplicitCastExpr, LValueToRValue, redisAsyncContext *)
+   7: ImplicitCastExpr 0x55bf9a60e960 <async.c:297:30> 'const struct redisAsyncContext *' <BitCast>
+`-ImplicitCastExpr 0x55bf9a60e948 <col:30> 'redisAsyncContext *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a60e748 <col:30> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B5.6] (ImplicitCastExpr, BitCast, const struct redisAsyncContext *)
+   8: DeclRefExpr 0x55bf9a60e770 <async.c:297:34> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+ac
+   9: ImplicitCastExpr 0x55bf9a60e798 <async.c:297:34> 'redisAsyncContext *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a60e770 <col:34> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B5.8] (ImplicitCastExpr, LValueToRValue, redisAsyncContext *)
+  10: MemberExpr 0x55bf9a60e7b0 <async.c:297:34, col:38> 'int' lvalue ->err 0x55bf9a5c2750
+`-ImplicitCastExpr 0x55bf9a60e798 <col:34> 'redisAsyncContext *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a60e770 <col:34> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B5.9]->err
+  11: ImplicitCastExpr 0x55bf9a60e808 <async.c:297:34, col:38> 'int' <LValueToRValue>
+`-MemberExpr 0x55bf9a60e7b0 <col:34, col:38> 'int' lvalue ->err 0x55bf9a5c2750
+  `-ImplicitCastExpr 0x55bf9a60e798 <col:34> 'redisAsyncContext *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a60e770 <col:34> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B5.10] (ImplicitCastExpr, LValueToRValue, int)
+  12: IntegerLiteral 0x55bf9a60e7e8 <async.c:297:45> 'int' 0
+0
+  13: BinaryOperator 0x55bf9a60e820 <async.c:297:34, col:45> 'int' '=='
+|-ImplicitCastExpr 0x55bf9a60e808 <col:34, col:38> 'int' <LValueToRValue>
+| `-MemberExpr 0x55bf9a60e7b0 <col:34, col:38> 'int' lvalue ->err 0x55bf9a5c2750
+|   `-ImplicitCastExpr 0x55bf9a60e798 <col:34> 'redisAsyncContext *' <LValueToRValue>
+|     `-DeclRefExpr 0x55bf9a60e770 <col:34> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+`-IntegerLiteral 0x55bf9a60e7e8 <col:45> 'int' 0
+[B5.11] == [B5.12]
+   T: ([B5.13]) ? ... : ...
+   Preds (1): B7
+   Succs (2): B3 B4
+
+ [B6]
+   1: DeclRefExpr 0x55bf9a60e578 <async.c:295:13> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+ac
+   2: ImplicitCastExpr 0x55bf9a60e5a0 <async.c:295:13> 'redisAsyncContext *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a60e578 <col:13> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B6.1] (ImplicitCastExpr, LValueToRValue, redisAsyncContext *)
+   3: MemberExpr 0x55bf9a60e5b8 <async.c:295:13, col:17> 'redisDisconnectCallback *' lvalue ->onDisconnect 0x55bf9a5c4248
+`-ImplicitCastExpr 0x55bf9a60e5a0 <col:13> 'redisAsyncContext *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a60e578 <col:13> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B6.2]->onDisconnect
+   4: ImplicitCastExpr 0x55bf9a60e638 <async.c:295:13, col:17> 'redisDisconnectCallback *' <LValueToRValue>
+`-MemberExpr 0x55bf9a60e5b8 <col:13, col:17> 'redisDisconnectCallback *' lvalue ->onDisconnect 0x55bf9a5c4248
+  `-ImplicitCastExpr 0x55bf9a60e5a0 <col:13> 'redisAsyncContext *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a60e578 <col:13> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B6.3] (ImplicitCastExpr, LValueToRValue, redisDisconnectCallback *)
+   5: DeclRefExpr 0x55bf9a60e5f0 <async.c:295:30> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+ac
+   6: ImplicitCastExpr 0x55bf9a60e688 <async.c:295:30> 'redisAsyncContext *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a60e5f0 <col:30> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B6.5] (ImplicitCastExpr, LValueToRValue, redisAsyncContext *)
+   7: ImplicitCastExpr 0x55bf9a60e6a0 <async.c:295:30> 'const struct redisAsyncContext *' <BitCast>
+`-ImplicitCastExpr 0x55bf9a60e688 <col:30> 'redisAsyncContext *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a60e5f0 <col:30> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B6.6] (ImplicitCastExpr, BitCast, const struct redisAsyncContext *)
+   8: IntegerLiteral 0x55bf9a60e618 <./read.h:38:18> 'int' 0
+0
+   9: CallExpr 0x55bf9a60e650 <async.c:295:13, col:41> 'void'
+|-ImplicitCastExpr 0x55bf9a60e638 <col:13, col:17> 'redisDisconnectCallback *' <LValueToRValue>
+| `-MemberExpr 0x55bf9a60e5b8 <col:13, col:17> 'redisDisconnectCallback *' lvalue ->onDisconnect 0x55bf9a5c4248
+|   `-ImplicitCastExpr 0x55bf9a60e5a0 <col:13> 'redisAsyncContext *' <LValueToRValue>
+|     `-DeclRefExpr 0x55bf9a60e578 <col:13> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+|-ImplicitCastExpr 0x55bf9a60e6a0 <col:30> 'const struct redisAsyncContext *' <BitCast>
+| `-ImplicitCastExpr 0x55bf9a60e688 <col:30> 'redisAsyncContext *' <LValueToRValue>
+|   `-DeclRefExpr 0x55bf9a60e5f0 <col:30> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+`-IntegerLiteral 0x55bf9a60e618 <./read.h:38:18> 'int' 0
+[B6.4]([B6.7], [B6.8])
+   Preds (1): B7
+   Succs (1): B1
+
+ [B7]
+   1: DeclRefExpr 0x55bf9a60e4a0 <async.c:294:13> 'redisContext *' lvalue Var 0x55bf9a60c2b8 'c' 'redisContext *'
+c
+   2: ImplicitCastExpr 0x55bf9a60e4c8 <async.c:294:13> 'redisContext *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a60e4a0 <col:13> 'redisContext *' lvalue Var 0x55bf9a60c2b8 'c' 'redisContext *'
+[B7.1] (ImplicitCastExpr, LValueToRValue, redisContext *)
+   3: MemberExpr 0x55bf9a60e4e0 <async.c:294:13, col:16> 'int' lvalue ->flags 0x55bf9a5bbd48
+`-ImplicitCastExpr 0x55bf9a60e4c8 <col:13> 'redisContext *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a60e4a0 <col:13> 'redisContext *' lvalue Var 0x55bf9a60c2b8 'c' 'redisContext *'
+[B7.2]->flags
+   4: ImplicitCastExpr 0x55bf9a60e538 <async.c:294:13, col:16> 'int' <LValueToRValue>
+`-MemberExpr 0x55bf9a60e4e0 <col:13, col:16> 'int' lvalue ->flags 0x55bf9a5bbd48
+  `-ImplicitCastExpr 0x55bf9a60e4c8 <col:13> 'redisContext *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a60e4a0 <col:13> 'redisContext *' lvalue Var 0x55bf9a60c2b8 'c' 'redisContext *'
+[B7.3] (ImplicitCastExpr, LValueToRValue, int)
+   5: IntegerLiteral 0x55bf9a60e518 <./hiredis.h:67:23> 'int' 8
+8
+   6: BinaryOperator 0x55bf9a60e550 <async.c:294:13, ./hiredis.h:67:23> 'int' '&'
+|-ImplicitCastExpr 0x55bf9a60e538 <async.c:294:13, col:16> 'int' <LValueToRValue>
+| `-MemberExpr 0x55bf9a60e4e0 <col:13, col:16> 'int' lvalue ->flags 0x55bf9a5bbd48
+|   `-ImplicitCastExpr 0x55bf9a60e4c8 <col:13> 'redisContext *' <LValueToRValue>
+|     `-DeclRefExpr 0x55bf9a60e4a0 <col:13> 'redisContext *' lvalue Var 0x55bf9a60c2b8 'c' 'redisContext *'
+`-IntegerLiteral 0x55bf9a60e518 <./hiredis.h:67:23> 'int' 8
+[B7.4] & [B7.5]
+   T: if [B7.6]
+   Preds (1): B8
+   Succs (2): B6 B5
+
+ [B8]
+   1: DeclRefExpr 0x55bf9a60e368 <async.c:293:30> 'redisContext *' lvalue Var 0x55bf9a60c2b8 'c' 'redisContext *'
+c
+   2: ImplicitCastExpr 0x55bf9a60e390 <async.c:293:30> 'redisContext *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a60e368 <col:30> 'redisContext *' lvalue Var 0x55bf9a60c2b8 'c' 'redisContext *'
+[B8.1] (ImplicitCastExpr, LValueToRValue, redisContext *)
+   3: MemberExpr 0x55bf9a60e3a8 <async.c:293:30, col:33> 'int' lvalue ->flags 0x55bf9a5bbd48
+`-ImplicitCastExpr 0x55bf9a60e390 <col:30> 'redisContext *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a60e368 <col:30> 'redisContext *' lvalue Var 0x55bf9a60c2b8 'c' 'redisContext *'
+[B8.2]->flags
+   4: ImplicitCastExpr 0x55bf9a60e400 <async.c:293:30, col:33> 'int' <LValueToRValue>
+`-MemberExpr 0x55bf9a60e3a8 <col:30, col:33> 'int' lvalue ->flags 0x55bf9a5bbd48
+  `-ImplicitCastExpr 0x55bf9a60e390 <col:30> 'redisContext *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a60e368 <col:30> 'redisContext *' lvalue Var 0x55bf9a60c2b8 'c' 'redisContext *'
+[B8.3] (ImplicitCastExpr, LValueToRValue, int)
+   5: IntegerLiteral 0x55bf9a60e3e0 <./hiredis.h:57:25> 'int' 2
+2
+   6: BinaryOperator 0x55bf9a60e418 <async.c:293:30, ./hiredis.h:57:25> 'int' '&'
+|-ImplicitCastExpr 0x55bf9a60e400 <async.c:293:30, col:33> 'int' <LValueToRValue>
+| `-MemberExpr 0x55bf9a60e3a8 <col:30, col:33> 'int' lvalue ->flags 0x55bf9a5bbd48
+|   `-ImplicitCastExpr 0x55bf9a60e390 <col:30> 'redisContext *' <LValueToRValue>
+|     `-DeclRefExpr 0x55bf9a60e368 <col:30> 'redisContext *' lvalue Var 0x55bf9a60c2b8 'c' 'redisContext *'
+`-IntegerLiteral 0x55bf9a60e3e0 <./hiredis.h:57:25> 'int' 2
+[B8.4] & [B8.5]
+   T: if [B9.4] && ([B8.6])
+   Preds (1): B9
+   Succs (2): B7 B1
+
+ [B9]
+   1: DeclRefExpr 0x55bf9a60e2f0 <async.c:293:9> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+ac
+   2: ImplicitCastExpr 0x55bf9a60e318 <async.c:293:9> 'redisAsyncContext *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a60e2f0 <col:9> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B9.1] (ImplicitCastExpr, LValueToRValue, redisAsyncContext *)
+   3: MemberExpr 0x55bf9a60e330 <async.c:293:9, col:13> 'redisDisconnectCallback *' lvalue ->onDisconnect 0x55bf9a5c4248
+`-ImplicitCastExpr 0x55bf9a60e318 <col:9> 'redisAsyncContext *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a60e2f0 <col:9> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B9.2]->onDisconnect
+   4: ImplicitCastExpr 0x55bf9a60e460 <async.c:293:9, col:13> 'redisDisconnectCallback *' <LValueToRValue>
+`-MemberExpr 0x55bf9a60e330 <col:9, col:13> 'redisDisconnectCallback *' lvalue ->onDisconnect 0x55bf9a5c4248
+  `-ImplicitCastExpr 0x55bf9a60e318 <col:9> 'redisAsyncContext *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a60e2f0 <col:9> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B9.3] (ImplicitCastExpr, LValueToRValue, redisDisconnectCallback *)
+   T: [B9.4] && ...
+   Preds (1): B10
+   Succs (2): B8 B1
+
+ [B10]
+   1: IntegerLiteral 0x55bf9a60e2a0 <./async_private.h:54:13> 'int' 0
+0
+   T: do ... while [B10.1]
+   Preds (1): B11
+   Succs (2): NULL B9
+
+ [B11]
+   1: IntegerLiteral 0x55bf9a60e1a0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+   2: CStyleCastExpr 0x55bf9a60e1d8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x55bf9a60e1a0 <col:24> 'int' 0
+(void *)[B11.1] (CStyleCastExpr, NullToPointer, void *)
+   3: ImplicitCastExpr 0x55bf9a60e240 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'void (*)(void *)' <NullToPointer>
+`-ParenExpr 0x55bf9a60e220 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x55bf9a60e1d8 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x55bf9a60e1a0 <col:24> 'int' 0
+([B11.2]) (ImplicitCastExpr, NullToPointer, void (*)(void *))
+   4: DeclRefExpr 0x55bf9a60e0f0 <async.c:289:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+ac
+   5: ImplicitCastExpr 0x55bf9a60e118 <async.c:289:17> 'redisAsyncContext *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a60e0f0 <col:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B11.4] (ImplicitCastExpr, LValueToRValue, redisAsyncContext *)
+   6: MemberExpr 0x55bf9a60e130 <async.c:289:17, ./async_private.h:53:14> 'struct (anonymous struct at ./async.h:75:5)':'struct redisAsyncContext::(anonymous at ./async.h:75:5)' lvalue ->ev 0x55bf9a5c4170
+`-ImplicitCastExpr 0x55bf9a60e118 <async.c:289:17> 'redisAsyncContext *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a60e0f0 <col:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B11.5]->ev
+   7: MemberExpr 0x55bf9a60e168 <async.c:289:17, ./async_private.h:53:17> 'void (*)(void *)' lvalue .cleanup 0x55bf9a5c3e50
+`-MemberExpr 0x55bf9a60e130 <async.c:289:17, ./async_private.h:53:14> 'struct (anonymous struct at ./async.h:75:5)':'struct redisAsyncContext::(anonymous at ./async.h:75:5)' lvalue ->ev 0x55bf9a5c4170
+  `-ImplicitCastExpr 0x55bf9a60e118 <async.c:289:17> 'redisAsyncContext *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a60e0f0 <col:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B11.6].cleanup
+   8: BinaryOperator 0x55bf9a60e258 <async.c:289:17, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25> 'void (*)(void *)' '='
+|-MemberExpr 0x55bf9a60e168 <async.c:289:17, ./async_private.h:53:17> 'void (*)(void *)' lvalue .cleanup 0x55bf9a5c3e50
+| `-MemberExpr 0x55bf9a60e130 <async.c:289:17, ./async_private.h:53:14> 'struct (anonymous struct at ./async.h:75:5)':'struct redisAsyncContext::(anonymous at ./async.h:75:5)' lvalue ->ev 0x55bf9a5c4170
+|   `-ImplicitCastExpr 0x55bf9a60e118 <async.c:289:17> 'redisAsyncContext *' <LValueToRValue>
+|     `-DeclRefExpr 0x55bf9a60e0f0 <col:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+`-ImplicitCastExpr 0x55bf9a60e240 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'void (*)(void *)' <NullToPointer>
+  `-ParenExpr 0x55bf9a60e220 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x55bf9a60e1d8 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x55bf9a60e1a0 <col:24> 'int' 0
+[B11.7] = [B11.3]
+   Preds (2): B12 B13
+   Succs (1): B10
+
+ [B12]
+   1: DeclRefExpr 0x55bf9a60deb8 <async.c:289:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+ac
+   2: ImplicitCastExpr 0x55bf9a60df00 <./async_private.h:52:32, col:36> 'redisAsyncContext *' <LValueToRValue>
+`-ParenExpr 0x55bf9a60dee0 <col:32, col:36> 'redisAsyncContext *' lvalue
+  `-DeclRefExpr 0x55bf9a60deb8 <async.c:289:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+([B12.1]) (ImplicitCastExpr, LValueToRValue, redisAsyncContext *)
+   3: MemberExpr 0x55bf9a60df18 <./async_private.h:52:32, col:39> 'struct (anonymous struct at ./async.h:75:5)':'struct redisAsyncContext::(anonymous at ./async.h:75:5)' lvalue ->ev 0x55bf9a5c4170
+`-ImplicitCastExpr 0x55bf9a60df00 <col:32, col:36> 'redisAsyncContext *' <LValueToRValue>
+  `-ParenExpr 0x55bf9a60dee0 <col:32, col:36> 'redisAsyncContext *' lvalue
+    `-DeclRefExpr 0x55bf9a60deb8 <async.c:289:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B12.2]->ev
+   4: MemberExpr 0x55bf9a60df50 <./async_private.h:52:32, col:42> 'void (*)(void *)' lvalue .cleanup 0x55bf9a5c3e50
+`-MemberExpr 0x55bf9a60df18 <col:32, col:39> 'struct (anonymous struct at ./async.h:75:5)':'struct redisAsyncContext::(anonymous at ./async.h:75:5)' lvalue ->ev 0x55bf9a5c4170
+  `-ImplicitCastExpr 0x55bf9a60df00 <col:32, col:36> 'redisAsyncContext *' <LValueToRValue>
+    `-ParenExpr 0x55bf9a60dee0 <col:32, col:36> 'redisAsyncContext *' lvalue
+      `-DeclRefExpr 0x55bf9a60deb8 <async.c:289:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B12.3].cleanup
+   5: ImplicitCastExpr 0x55bf9a60e058 <./async_private.h:52:32, col:42> 'void (*)(void *)' <LValueToRValue>
+`-MemberExpr 0x55bf9a60df50 <col:32, col:42> 'void (*)(void *)' lvalue .cleanup 0x55bf9a5c3e50
+  `-MemberExpr 0x55bf9a60df18 <col:32, col:39> 'struct (anonymous struct at ./async.h:75:5)':'struct redisAsyncContext::(anonymous at ./async.h:75:5)' lvalue ->ev 0x55bf9a5c4170
+    `-ImplicitCastExpr 0x55bf9a60df00 <col:32, col:36> 'redisAsyncContext *' <LValueToRValue>
+      `-ParenExpr 0x55bf9a60dee0 <col:32, col:36> 'redisAsyncContext *' lvalue
+        `-DeclRefExpr 0x55bf9a60deb8 <async.c:289:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B12.4] (ImplicitCastExpr, LValueToRValue, void (*)(void *))
+   6: DeclRefExpr 0x55bf9a60df88 <async.c:289:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+ac
+   7: ImplicitCastExpr 0x55bf9a60dfd0 <./async_private.h:52:50, col:54> 'redisAsyncContext *' <LValueToRValue>
+`-ParenExpr 0x55bf9a60dfb0 <col:50, col:54> 'redisAsyncContext *' lvalue
+  `-DeclRefExpr 0x55bf9a60df88 <async.c:289:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+([B12.6]) (ImplicitCastExpr, LValueToRValue, redisAsyncContext *)
+   8: MemberExpr 0x55bf9a60dfe8 <./async_private.h:52:50, col:57> 'struct (anonymous struct at ./async.h:75:5)':'struct redisAsyncContext::(anonymous at ./async.h:75:5)' lvalue ->ev 0x55bf9a5c4170
+`-ImplicitCastExpr 0x55bf9a60dfd0 <col:50, col:54> 'redisAsyncContext *' <LValueToRValue>
+  `-ParenExpr 0x55bf9a60dfb0 <col:50, col:54> 'redisAsyncContext *' lvalue
+    `-DeclRefExpr 0x55bf9a60df88 <async.c:289:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B12.7]->ev
+   9: MemberExpr 0x55bf9a60e020 <./async_private.h:52:50, col:60> 'void *' lvalue .data 0x55bf9a5c2918
+`-MemberExpr 0x55bf9a60dfe8 <col:50, col:57> 'struct (anonymous struct at ./async.h:75:5)':'struct redisAsyncContext::(anonymous at ./async.h:75:5)' lvalue ->ev 0x55bf9a5c4170
+  `-ImplicitCastExpr 0x55bf9a60dfd0 <col:50, col:54> 'redisAsyncContext *' <LValueToRValue>
+    `-ParenExpr 0x55bf9a60dfb0 <col:50, col:54> 'redisAsyncContext *' lvalue
+      `-DeclRefExpr 0x55bf9a60df88 <async.c:289:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B12.8].data
+  10: ImplicitCastExpr 0x55bf9a60e0a0 <./async_private.h:52:50, col:60> 'void *' <LValueToRValue>
+`-MemberExpr 0x55bf9a60e020 <col:50, col:60> 'void *' lvalue .data 0x55bf9a5c2918
+  `-MemberExpr 0x55bf9a60dfe8 <col:50, col:57> 'struct (anonymous struct at ./async.h:75:5)':'struct redisAsyncContext::(anonymous at ./async.h:75:5)' lvalue ->ev 0x55bf9a5c4170
+    `-ImplicitCastExpr 0x55bf9a60dfd0 <col:50, col:54> 'redisAsyncContext *' <LValueToRValue>
+      `-ParenExpr 0x55bf9a60dfb0 <col:50, col:54> 'redisAsyncContext *' lvalue
+        `-DeclRefExpr 0x55bf9a60df88 <async.c:289:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B12.9] (ImplicitCastExpr, LValueToRValue, void *)
+  11: CallExpr 0x55bf9a60e070 <./async_private.h:52:32, col:64> 'void'
+|-ImplicitCastExpr 0x55bf9a60e058 <col:32, col:42> 'void (*)(void *)' <LValueToRValue>
+| `-MemberExpr 0x55bf9a60df50 <col:32, col:42> 'void (*)(void *)' lvalue .cleanup 0x55bf9a5c3e50
+|   `-MemberExpr 0x55bf9a60df18 <col:32, col:39> 'struct (anonymous struct at ./async.h:75:5)':'struct redisAsyncContext::(anonymous at ./async.h:75:5)' lvalue ->ev 0x55bf9a5c4170
+|     `-ImplicitCastExpr 0x55bf9a60df00 <col:32, col:36> 'redisAsyncContext *' <LValueToRValue>
+|       `-ParenExpr 0x55bf9a60dee0 <col:32, col:36> 'redisAsyncContext *' lvalue
+|         `-DeclRefExpr 0x55bf9a60deb8 <async.c:289:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+`-ImplicitCastExpr 0x55bf9a60e0a0 <./async_private.h:52:50, col:60> 'void *' <LValueToRValue>
+  `-MemberExpr 0x55bf9a60e020 <col:50, col:60> 'void *' lvalue .data 0x55bf9a5c2918
+    `-MemberExpr 0x55bf9a60dfe8 <col:50, col:57> 'struct (anonymous struct at ./async.h:75:5)':'struct redisAsyncContext::(anonymous at ./async.h:75:5)' lvalue ->ev 0x55bf9a5c4170
+      `-ImplicitCastExpr 0x55bf9a60dfd0 <col:50, col:54> 'redisAsyncContext *' <LValueToRValue>
+        `-ParenExpr 0x55bf9a60dfb0 <col:50, col:54> 'redisAsyncContext *' lvalue
+          `-DeclRefExpr 0x55bf9a60df88 <async.c:289:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B12.5]([B12.10])
+   Preds (1): B13
+   Succs (1): B11
+
+ [B13]
+   1: DeclRefExpr 0x55bf9a60ddd0 <async.c:289:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+ac
+   2: ImplicitCastExpr 0x55bf9a60de18 <./async_private.h:52:13, col:17> 'redisAsyncContext *' <LValueToRValue>
+`-ParenExpr 0x55bf9a60ddf8 <col:13, col:17> 'redisAsyncContext *' lvalue
+  `-DeclRefExpr 0x55bf9a60ddd0 <async.c:289:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+([B13.1]) (ImplicitCastExpr, LValueToRValue, redisAsyncContext *)
+   3: MemberExpr 0x55bf9a60de30 <./async_private.h:52:13, col:20> 'struct (anonymous struct at ./async.h:75:5)':'struct redisAsyncContext::(anonymous at ./async.h:75:5)' lvalue ->ev 0x55bf9a5c4170
+`-ImplicitCastExpr 0x55bf9a60de18 <col:13, col:17> 'redisAsyncContext *' <LValueToRValue>
+  `-ParenExpr 0x55bf9a60ddf8 <col:13, col:17> 'redisAsyncContext *' lvalue
+    `-DeclRefExpr 0x55bf9a60ddd0 <async.c:289:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B13.2]->ev
+   4: MemberExpr 0x55bf9a60de68 <./async_private.h:52:13, col:23> 'void (*)(void *)' lvalue .cleanup 0x55bf9a5c3e50
+`-MemberExpr 0x55bf9a60de30 <col:13, col:20> 'struct (anonymous struct at ./async.h:75:5)':'struct redisAsyncContext::(anonymous at ./async.h:75:5)' lvalue ->ev 0x55bf9a5c4170
+  `-ImplicitCastExpr 0x55bf9a60de18 <col:13, col:17> 'redisAsyncContext *' <LValueToRValue>
+    `-ParenExpr 0x55bf9a60ddf8 <col:13, col:17> 'redisAsyncContext *' lvalue
+      `-DeclRefExpr 0x55bf9a60ddd0 <async.c:289:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B13.3].cleanup
+   5: ImplicitCastExpr 0x55bf9a60dea0 <./async_private.h:52:13, col:23> 'void (*)(void *)' <LValueToRValue>
+`-MemberExpr 0x55bf9a60de68 <col:13, col:23> 'void (*)(void *)' lvalue .cleanup 0x55bf9a5c3e50
+  `-MemberExpr 0x55bf9a60de30 <col:13, col:20> 'struct (anonymous struct at ./async.h:75:5)':'struct redisAsyncContext::(anonymous at ./async.h:75:5)' lvalue ->ev 0x55bf9a5c4170
+    `-ImplicitCastExpr 0x55bf9a60de18 <col:13, col:17> 'redisAsyncContext *' <LValueToRValue>
+      `-ParenExpr 0x55bf9a60ddf8 <col:13, col:17> 'redisAsyncContext *' lvalue
+        `-DeclRefExpr 0x55bf9a60ddd0 <async.c:289:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B13.4] (ImplicitCastExpr, LValueToRValue, void (*)(void *))
+   T: if [B13.5]
+   Preds (2): B14 B15
+   Succs (2): B12 B11
+
+ [B14]
+   Succs (1): B13
+
+ [B15]
+   1: DeclRefExpr 0x55bf9a60dbe8 <async.c:285:5> 'void (dictIterator *)' Function 0x55bf9a5f6b80 'dictReleaseIterator' 'void (dictIterator *)'
+dictReleaseIterator
+   2: ImplicitCastExpr 0x55bf9a60dc38 <async.c:285:5> 'void (*)(dictIterator *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a60dbe8 <col:5> 'void (dictIterator *)' Function 0x55bf9a5f6b80 'dictReleaseIterator' 'void (dictIterator *)'
+[B15.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(dictIterator *))
+   3: DeclRefExpr 0x55bf9a60dc10 <async.c:285:25> 'dictIterator *' lvalue Var 0x55bf9a60c480 'it' 'dictIterator *'
+it
+   4: ImplicitCastExpr 0x55bf9a60dc80 <async.c:285:25> 'dictIterator *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a60dc10 <col:25> 'dictIterator *' lvalue Var 0x55bf9a60c480 'it' 'dictIterator *'
+[B15.3] (ImplicitCastExpr, LValueToRValue, dictIterator *)
+   5: CallExpr 0x55bf9a60dc50 <async.c:285:5, col:27> 'void'
+|-ImplicitCastExpr 0x55bf9a60dc38 <col:5> 'void (*)(dictIterator *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a60dbe8 <col:5> 'void (dictIterator *)' Function 0x55bf9a5f6b80 'dictReleaseIterator' 'void (dictIterator *)'
+`-ImplicitCastExpr 0x55bf9a60dc80 <col:25> 'dictIterator *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a60dc10 <col:25> 'dictIterator *' lvalue Var 0x55bf9a60c480 'it' 'dictIterator *'
+[B15.2]([B15.4])
+   6: DeclRefExpr 0x55bf9a60dc98 <async.c:286:5> 'void (dict *)' Function 0x55bf9a5f3d00 'dictRelease' 'void (dict *)'
+dictRelease
+   7: ImplicitCastExpr 0x55bf9a60dd70 <async.c:286:5> 'void (*)(dict *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a60dc98 <col:5> 'void (dict *)' Function 0x55bf9a5f3d00 'dictRelease' 'void (dict *)'
+[B15.6] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(dict *))
+   8: DeclRefExpr 0x55bf9a60dcc0 <async.c:286:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+ac
+   9: ImplicitCastExpr 0x55bf9a60dce8 <async.c:286:17> 'redisAsyncContext *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a60dcc0 <col:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B15.8] (ImplicitCastExpr, LValueToRValue, redisAsyncContext *)
+  10: MemberExpr 0x55bf9a60dd00 <async.c:286:17, col:21> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+`-ImplicitCastExpr 0x55bf9a60dce8 <col:17> 'redisAsyncContext *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a60dcc0 <col:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B15.9]->sub
+  11: MemberExpr 0x55bf9a60dd38 <async.c:286:17, col:25> 'struct dict *' lvalue .patterns 0x55bf9a5c47e0
+`-MemberExpr 0x55bf9a60dd00 <col:17, col:21> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+  `-ImplicitCastExpr 0x55bf9a60dce8 <col:17> 'redisAsyncContext *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a60dcc0 <col:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B15.10].patterns
+  12: ImplicitCastExpr 0x55bf9a60ddb8 <async.c:286:17, col:25> 'struct dict *' <LValueToRValue>
+`-MemberExpr 0x55bf9a60dd38 <col:17, col:25> 'struct dict *' lvalue .patterns 0x55bf9a5c47e0
+  `-MemberExpr 0x55bf9a60dd00 <col:17, col:21> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+    `-ImplicitCastExpr 0x55bf9a60dce8 <col:17> 'redisAsyncContext *' <LValueToRValue>
+      `-DeclRefExpr 0x55bf9a60dcc0 <col:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B15.11] (ImplicitCastExpr, LValueToRValue, struct dict *)
+  13: CallExpr 0x55bf9a60dd88 <async.c:286:5, col:33> 'void'
+|-ImplicitCastExpr 0x55bf9a60dd70 <col:5> 'void (*)(dict *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a60dc98 <col:5> 'void (dict *)' Function 0x55bf9a5f3d00 'dictRelease' 'void (dict *)'
+`-ImplicitCastExpr 0x55bf9a60ddb8 <col:17, col:25> 'struct dict *' <LValueToRValue>
+  `-MemberExpr 0x55bf9a60dd38 <col:17, col:25> 'struct dict *' lvalue .patterns 0x55bf9a5c47e0
+    `-MemberExpr 0x55bf9a60dd00 <col:17, col:21> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+      `-ImplicitCastExpr 0x55bf9a60dce8 <col:17> 'redisAsyncContext *' <LValueToRValue>
+        `-DeclRefExpr 0x55bf9a60dcc0 <col:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B15.7]([B15.12])
+   Preds (1): B18
+   Succs (1): B13
+
+ [B16]
+   Preds (1): B17
+   Succs (1): B18
+
+ [B17]
+   1: DeclRefExpr 0x55bf9a60d988 <async.c:284:9> 'void (redisAsyncContext *, redisCallback *, redisReply *)' Function 0x55bf9a60b990 '__redisRunCallback' 'void (redisAsyncContext *, redisCallback *, redisReply *)'
+__redisRunCallback
+   2: ImplicitCastExpr 0x55bf9a60db10 <async.c:284:9> 'void (*)(redisAsyncContext *, redisCallback *, redisReply *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a60d988 <col:9> 'void (redisAsyncContext *, redisCallback *, redisReply *)' Function 0x55bf9a60b990 '__redisRunCallback' 'void (redisAsyncContext *, redisCallback *, redisReply *)'
+[B17.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(redisAsyncContext *, redisCallback *, redisReply *))
+   3: DeclRefExpr 0x55bf9a60d9b0 <async.c:284:28> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+ac
+   4: ImplicitCastExpr 0x55bf9a60db68 <async.c:284:28> 'redisAsyncContext *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a60d9b0 <col:28> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B17.3] (ImplicitCastExpr, LValueToRValue, redisAsyncContext *)
+   5: DeclRefExpr 0x55bf9a60d9d8 <async.c:284:47> 'dictEntry *' lvalue Var 0x55bf9a60c508 'de' 'dictEntry *'
+de
+   6: ImplicitCastExpr 0x55bf9a60da20 <./dict.h:109:30, col:33> 'dictEntry *' <LValueToRValue>
+`-ParenExpr 0x55bf9a60da00 <col:30, col:33> 'dictEntry *' lvalue
+  `-DeclRefExpr 0x55bf9a60d9d8 <async.c:284:47> 'dictEntry *' lvalue Var 0x55bf9a60c508 'de' 'dictEntry *'
+([B17.5]) (ImplicitCastExpr, LValueToRValue, dictEntry *)
+   7: MemberExpr 0x55bf9a60da38 <./dict.h:109:30, col:36> 'void *' lvalue ->val 0x55bf9a5c9bb8
+`-ImplicitCastExpr 0x55bf9a60da20 <col:30, col:33> 'dictEntry *' <LValueToRValue>
+  `-ParenExpr 0x55bf9a60da00 <col:30, col:33> 'dictEntry *' lvalue
+    `-DeclRefExpr 0x55bf9a60d9d8 <async.c:284:47> 'dictEntry *' lvalue Var 0x55bf9a60c508 'de' 'dictEntry *'
+[B17.6]->val
+   8: ImplicitCastExpr 0x55bf9a60db80 <./dict.h:109:29, col:39> 'void *' <LValueToRValue>
+`-ParenExpr 0x55bf9a60da70 <col:29, col:39> 'void *' lvalue
+  `-MemberExpr 0x55bf9a60da38 <col:30, col:36> 'void *' lvalue ->val 0x55bf9a5c9bb8
+    `-ImplicitCastExpr 0x55bf9a60da20 <col:30, col:33> 'dictEntry *' <LValueToRValue>
+      `-ParenExpr 0x55bf9a60da00 <col:30, col:33> 'dictEntry *' lvalue
+        `-DeclRefExpr 0x55bf9a60d9d8 <async.c:284:47> 'dictEntry *' lvalue Var 0x55bf9a60c508 'de' 'dictEntry *'
+([B17.7]) (ImplicitCastExpr, LValueToRValue, void *)
+   9: ImplicitCastExpr 0x55bf9a60db98 <./dict.h:109:29, col:39> 'redisCallback *' <BitCast>
+`-ImplicitCastExpr 0x55bf9a60db80 <col:29, col:39> 'void *' <LValueToRValue>
+  `-ParenExpr 0x55bf9a60da70 <col:29, col:39> 'void *' lvalue
+    `-MemberExpr 0x55bf9a60da38 <col:30, col:36> 'void *' lvalue ->val 0x55bf9a5c9bb8
+      `-ImplicitCastExpr 0x55bf9a60da20 <col:30, col:33> 'dictEntry *' <LValueToRValue>
+        `-ParenExpr 0x55bf9a60da00 <col:30, col:33> 'dictEntry *' lvalue
+          `-DeclRefExpr 0x55bf9a60d9d8 <async.c:284:47> 'dictEntry *' lvalue Var 0x55bf9a60c508 'de' 'dictEntry *'
+[B17.8] (ImplicitCastExpr, BitCast, redisCallback *)
+  10: IntegerLiteral 0x55bf9a60da90 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+  11: CStyleCastExpr 0x55bf9a60dac8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x55bf9a60da90 <col:24> 'int' 0
+(void *)[B17.10] (CStyleCastExpr, NullToPointer, void *)
+  12: ImplicitCastExpr 0x55bf9a60dbb0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'redisReply *' <NullToPointer>
+`-ParenExpr 0x55bf9a60daf0 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x55bf9a60dac8 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x55bf9a60da90 <col:24> 'int' 0
+([B17.11]) (ImplicitCastExpr, NullToPointer, redisReply *)
+  13: CallExpr 0x55bf9a60db28 <async.c:284:9, col:55> 'void'
+|-ImplicitCastExpr 0x55bf9a60db10 <col:9> 'void (*)(redisAsyncContext *, redisCallback *, redisReply *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a60d988 <col:9> 'void (redisAsyncContext *, redisCallback *, redisReply *)' Function 0x55bf9a60b990 '__redisRunCallback' 'void (redisAsyncContext *, redisCallback *, redisReply *)'
+|-ImplicitCastExpr 0x55bf9a60db68 <col:28> 'redisAsyncContext *' <LValueToRValue>
+| `-DeclRefExpr 0x55bf9a60d9b0 <col:28> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+|-ImplicitCastExpr 0x55bf9a60db98 <./dict.h:109:29, col:39> 'redisCallback *' <BitCast>
+| `-ImplicitCastExpr 0x55bf9a60db80 <col:29, col:39> 'void *' <LValueToRValue>
+|   `-ParenExpr 0x55bf9a60da70 <col:29, col:39> 'void *' lvalue
+|     `-MemberExpr 0x55bf9a60da38 <col:30, col:36> 'void *' lvalue ->val 0x55bf9a5c9bb8
+|       `-ImplicitCastExpr 0x55bf9a60da20 <col:30, col:33> 'dictEntry *' <LValueToRValue>
+|         `-ParenExpr 0x55bf9a60da00 <col:30, col:33> 'dictEntry *' lvalue
+|           `-DeclRefExpr 0x55bf9a60d9d8 <async.c:284:47> 'dictEntry *' lvalue Var 0x55bf9a60c508 'de' 'dictEntry *'
+`-ImplicitCastExpr 0x55bf9a60dbb0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'redisReply *' <NullToPointer>
+  `-ParenExpr 0x55bf9a60daf0 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x55bf9a60dac8 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x55bf9a60da90 <col:24> 'int' 0
+[B17.2]([B17.4], [B17.9], [B17.12])
+   Preds (1): B18
+   Succs (1): B16
+
+ [B18]
+   1: DeclRefExpr 0x55bf9a60d7d0 <async.c:283:18> 'dictEntry *(dictIterator *)' Function 0x55bf9a5f5dd8 'dictNext' 'dictEntry *(dictIterator *)'
+dictNext
+   2: ImplicitCastExpr 0x55bf9a60d820 <async.c:283:18> 'dictEntry *(*)(dictIterator *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a60d7d0 <col:18> 'dictEntry *(dictIterator *)' Function 0x55bf9a5f5dd8 'dictNext' 'dictEntry *(dictIterator *)'
+[B18.1] (ImplicitCastExpr, FunctionToPointerDecay, dictEntry *(*)(dictIterator *))
+   3: DeclRefExpr 0x55bf9a60d7f8 <async.c:283:27> 'dictIterator *' lvalue Var 0x55bf9a60c480 'it' 'dictIterator *'
+it
+   4: ImplicitCastExpr 0x55bf9a60d868 <async.c:283:27> 'dictIterator *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a60d7f8 <col:27> 'dictIterator *' lvalue Var 0x55bf9a60c480 'it' 'dictIterator *'
+[B18.3] (ImplicitCastExpr, LValueToRValue, dictIterator *)
+   5: CallExpr 0x55bf9a60d838 <async.c:283:18, col:29> 'dictEntry *'
+|-ImplicitCastExpr 0x55bf9a60d820 <col:18> 'dictEntry *(*)(dictIterator *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a60d7d0 <col:18> 'dictEntry *(dictIterator *)' Function 0x55bf9a5f5dd8 'dictNext' 'dictEntry *(dictIterator *)'
+`-ImplicitCastExpr 0x55bf9a60d868 <col:27> 'dictIterator *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a60d7f8 <col:27> 'dictIterator *' lvalue Var 0x55bf9a60c480 'it' 'dictIterator *'
+[B18.2]([B18.4])
+   6: DeclRefExpr 0x55bf9a60d7a8 <async.c:283:13> 'dictEntry *' lvalue Var 0x55bf9a60c508 'de' 'dictEntry *'
+de
+   7: BinaryOperator 0x55bf9a60d880 <async.c:283:13, col:29> 'dictEntry *' '='
+|-DeclRefExpr 0x55bf9a60d7a8 <col:13> 'dictEntry *' lvalue Var 0x55bf9a60c508 'de' 'dictEntry *'
+`-CallExpr 0x55bf9a60d838 <col:18, col:29> 'dictEntry *'
+  |-ImplicitCastExpr 0x55bf9a60d820 <col:18> 'dictEntry *(*)(dictIterator *)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55bf9a60d7d0 <col:18> 'dictEntry *(dictIterator *)' Function 0x55bf9a5f5dd8 'dictNext' 'dictEntry *(dictIterator *)'
+  `-ImplicitCastExpr 0x55bf9a60d868 <col:27> 'dictIterator *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a60d7f8 <col:27> 'dictIterator *' lvalue Var 0x55bf9a60c480 'it' 'dictIterator *'
+[B18.6] = [B18.5]
+   8: IntegerLiteral 0x55bf9a60d8c8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+   9: CStyleCastExpr 0x55bf9a60d900 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x55bf9a60d8c8 <col:24> 'int' 0
+(void *)[B18.8] (CStyleCastExpr, NullToPointer, void *)
+  10: ImplicitCastExpr 0x55bf9a60d948 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'dictEntry *' <BitCast>
+`-ParenExpr 0x55bf9a60d928 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x55bf9a60d900 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x55bf9a60d8c8 <col:24> 'int' 0
+([B18.9]) (ImplicitCastExpr, BitCast, dictEntry *)
+  11: BinaryOperator 0x55bf9a60d960 <async.c:283:12, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25> 'int' '!='
+|-ParenExpr 0x55bf9a60d8a8 <async.c:283:12, col:30> 'dictEntry *'
+| `-BinaryOperator 0x55bf9a60d880 <col:13, col:29> 'dictEntry *' '='
+|   |-DeclRefExpr 0x55bf9a60d7a8 <col:13> 'dictEntry *' lvalue Var 0x55bf9a60c508 'de' 'dictEntry *'
+|   `-CallExpr 0x55bf9a60d838 <col:18, col:29> 'dictEntry *'
+|     |-ImplicitCastExpr 0x55bf9a60d820 <col:18> 'dictEntry *(*)(dictIterator *)' <FunctionToPointerDecay>
+|     | `-DeclRefExpr 0x55bf9a60d7d0 <col:18> 'dictEntry *(dictIterator *)' Function 0x55bf9a5f5dd8 'dictNext' 'dictEntry *(dictIterator *)'
+|     `-ImplicitCastExpr 0x55bf9a60d868 <col:27> 'dictIterator *' <LValueToRValue>
+|       `-DeclRefExpr 0x55bf9a60d7f8 <col:27> 'dictIterator *' lvalue Var 0x55bf9a60c480 'it' 'dictIterator *'
+`-ImplicitCastExpr 0x55bf9a60d948 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'dictEntry *' <BitCast>
+  `-ParenExpr 0x55bf9a60d928 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x55bf9a60d900 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x55bf9a60d8c8 <col:24> 'int' 0
+([B18.7]) != [B18.10]
+   T: while [B18.11]
+   Preds (2): B16 B19
+   Succs (2): B17 B15
+
+ [B19]
+   1: DeclRefExpr 0x55bf9a60d3d8 <async.c:279:5> 'void (dictIterator *)' Function 0x55bf9a5f6b80 'dictReleaseIterator' 'void (dictIterator *)'
+dictReleaseIterator
+   2: ImplicitCastExpr 0x55bf9a60d488 <async.c:279:5> 'void (*)(dictIterator *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a60d3d8 <col:5> 'void (dictIterator *)' Function 0x55bf9a5f6b80 'dictReleaseIterator' 'void (dictIterator *)'
+[B19.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(dictIterator *))
+   3: DeclRefExpr 0x55bf9a60d400 <async.c:279:25> 'dictIterator *' lvalue Var 0x55bf9a60c480 'it' 'dictIterator *'
+it
+   4: ImplicitCastExpr 0x55bf9a60d4d0 <async.c:279:25> 'dictIterator *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a60d400 <col:25> 'dictIterator *' lvalue Var 0x55bf9a60c480 'it' 'dictIterator *'
+[B19.3] (ImplicitCastExpr, LValueToRValue, dictIterator *)
+   5: CallExpr 0x55bf9a60d4a0 <async.c:279:5, col:27> 'void'
+|-ImplicitCastExpr 0x55bf9a60d488 <col:5> 'void (*)(dictIterator *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a60d3d8 <col:5> 'void (dictIterator *)' Function 0x55bf9a5f6b80 'dictReleaseIterator' 'void (dictIterator *)'
+`-ImplicitCastExpr 0x55bf9a60d4d0 <col:25> 'dictIterator *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a60d400 <col:25> 'dictIterator *' lvalue Var 0x55bf9a60c480 'it' 'dictIterator *'
+[B19.2]([B19.4])
+   6: DeclRefExpr 0x55bf9a60d4e8 <async.c:280:5> 'void (dict *)' Function 0x55bf9a5f3d00 'dictRelease' 'void (dict *)'
+dictRelease
+   7: ImplicitCastExpr 0x55bf9a60d5c0 <async.c:280:5> 'void (*)(dict *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a60d4e8 <col:5> 'void (dict *)' Function 0x55bf9a5f3d00 'dictRelease' 'void (dict *)'
+[B19.6] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(dict *))
+   8: DeclRefExpr 0x55bf9a60d510 <async.c:280:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+ac
+   9: ImplicitCastExpr 0x55bf9a60d538 <async.c:280:17> 'redisAsyncContext *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a60d510 <col:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B19.8] (ImplicitCastExpr, LValueToRValue, redisAsyncContext *)
+  10: MemberExpr 0x55bf9a60d550 <async.c:280:17, col:21> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+`-ImplicitCastExpr 0x55bf9a60d538 <col:17> 'redisAsyncContext *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a60d510 <col:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B19.9]->sub
+  11: MemberExpr 0x55bf9a60d588 <async.c:280:17, col:25> 'struct dict *' lvalue .channels 0x55bf9a5c4770
+`-MemberExpr 0x55bf9a60d550 <col:17, col:21> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+  `-ImplicitCastExpr 0x55bf9a60d538 <col:17> 'redisAsyncContext *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a60d510 <col:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B19.10].channels
+  12: ImplicitCastExpr 0x55bf9a60d608 <async.c:280:17, col:25> 'struct dict *' <LValueToRValue>
+`-MemberExpr 0x55bf9a60d588 <col:17, col:25> 'struct dict *' lvalue .channels 0x55bf9a5c4770
+  `-MemberExpr 0x55bf9a60d550 <col:17, col:21> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+    `-ImplicitCastExpr 0x55bf9a60d538 <col:17> 'redisAsyncContext *' <LValueToRValue>
+      `-DeclRefExpr 0x55bf9a60d510 <col:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B19.11] (ImplicitCastExpr, LValueToRValue, struct dict *)
+  13: CallExpr 0x55bf9a60d5d8 <async.c:280:5, col:33> 'void'
+|-ImplicitCastExpr 0x55bf9a60d5c0 <col:5> 'void (*)(dict *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a60d4e8 <col:5> 'void (dict *)' Function 0x55bf9a5f3d00 'dictRelease' 'void (dict *)'
+`-ImplicitCastExpr 0x55bf9a60d608 <col:17, col:25> 'struct dict *' <LValueToRValue>
+  `-MemberExpr 0x55bf9a60d588 <col:17, col:25> 'struct dict *' lvalue .channels 0x55bf9a5c4770
+    `-MemberExpr 0x55bf9a60d550 <col:17, col:21> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+      `-ImplicitCastExpr 0x55bf9a60d538 <col:17> 'redisAsyncContext *' <LValueToRValue>
+        `-DeclRefExpr 0x55bf9a60d510 <col:17> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B19.7]([B19.12])
+  14: DeclRefExpr 0x55bf9a60d648 <async.c:282:10> 'dictIterator *(dict *)' Function 0x55bf9a5f5190 'dictGetIterator' 'dictIterator *(dict *)'
+dictGetIterator
+  15: ImplicitCastExpr 0x55bf9a60d720 <async.c:282:10> 'dictIterator *(*)(dict *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a60d648 <col:10> 'dictIterator *(dict *)' Function 0x55bf9a5f5190 'dictGetIterator' 'dictIterator *(dict *)'
+[B19.14] (ImplicitCastExpr, FunctionToPointerDecay, dictIterator *(*)(dict *))
+  16: DeclRefExpr 0x55bf9a60d670 <async.c:282:26> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+ac
+  17: ImplicitCastExpr 0x55bf9a60d698 <async.c:282:26> 'redisAsyncContext *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a60d670 <col:26> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B19.16] (ImplicitCastExpr, LValueToRValue, redisAsyncContext *)
+  18: MemberExpr 0x55bf9a60d6b0 <async.c:282:26, col:30> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+`-ImplicitCastExpr 0x55bf9a60d698 <col:26> 'redisAsyncContext *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a60d670 <col:26> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B19.17]->sub
+  19: MemberExpr 0x55bf9a60d6e8 <async.c:282:26, col:34> 'struct dict *' lvalue .patterns 0x55bf9a5c47e0
+`-MemberExpr 0x55bf9a60d6b0 <col:26, col:30> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+  `-ImplicitCastExpr 0x55bf9a60d698 <col:26> 'redisAsyncContext *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a60d670 <col:26> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B19.18].patterns
+  20: ImplicitCastExpr 0x55bf9a60d768 <async.c:282:26, col:34> 'struct dict *' <LValueToRValue>
+`-MemberExpr 0x55bf9a60d6e8 <col:26, col:34> 'struct dict *' lvalue .patterns 0x55bf9a5c47e0
+  `-MemberExpr 0x55bf9a60d6b0 <col:26, col:30> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+    `-ImplicitCastExpr 0x55bf9a60d698 <col:26> 'redisAsyncContext *' <LValueToRValue>
+      `-DeclRefExpr 0x55bf9a60d670 <col:26> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B19.19] (ImplicitCastExpr, LValueToRValue, struct dict *)
+  21: CallExpr 0x55bf9a60d738 <async.c:282:10, col:42> 'dictIterator *'
+|-ImplicitCastExpr 0x55bf9a60d720 <col:10> 'dictIterator *(*)(dict *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a60d648 <col:10> 'dictIterator *(dict *)' Function 0x55bf9a5f5190 'dictGetIterator' 'dictIterator *(dict *)'
+`-ImplicitCastExpr 0x55bf9a60d768 <col:26, col:34> 'struct dict *' <LValueToRValue>
+  `-MemberExpr 0x55bf9a60d6e8 <col:26, col:34> 'struct dict *' lvalue .patterns 0x55bf9a5c47e0
+    `-MemberExpr 0x55bf9a60d6b0 <col:26, col:30> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+      `-ImplicitCastExpr 0x55bf9a60d698 <col:26> 'redisAsyncContext *' <LValueToRValue>
+        `-DeclRefExpr 0x55bf9a60d670 <col:26> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B19.15]([B19.20])
+  22: DeclRefExpr 0x55bf9a60d620 <async.c:282:5> 'dictIterator *' lvalue Var 0x55bf9a60c480 'it' 'dictIterator *'
+it
+  23: BinaryOperator 0x55bf9a60d780 <async.c:282:5, col:42> 'dictIterator *' '='
+|-DeclRefExpr 0x55bf9a60d620 <col:5> 'dictIterator *' lvalue Var 0x55bf9a60c480 'it' 'dictIterator *'
+`-CallExpr 0x55bf9a60d738 <col:10, col:42> 'dictIterator *'
+  |-ImplicitCastExpr 0x55bf9a60d720 <col:10> 'dictIterator *(*)(dict *)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55bf9a60d648 <col:10> 'dictIterator *(dict *)' Function 0x55bf9a5f5190 'dictGetIterator' 'dictIterator *(dict *)'
+  `-ImplicitCastExpr 0x55bf9a60d768 <col:26, col:34> 'struct dict *' <LValueToRValue>
+    `-MemberExpr 0x55bf9a60d6e8 <col:26, col:34> 'struct dict *' lvalue .patterns 0x55bf9a5c47e0
+      `-MemberExpr 0x55bf9a60d6b0 <col:26, col:30> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+        `-ImplicitCastExpr 0x55bf9a60d698 <col:26> 'redisAsyncContext *' <LValueToRValue>
+          `-DeclRefExpr 0x55bf9a60d670 <col:26> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B19.22] = [B19.21]
+   Preds (1): B22
+   Succs (1): B18
+
+ [B20]
+   Preds (1): B21
+   Succs (1): B22
+
+ [B21]
+   1: DeclRefExpr 0x55bf9a60d160 <async.c:278:9> 'void (redisAsyncContext *, redisCallback *, redisReply *)' Function 0x55bf9a60b990 '__redisRunCallback' 'void (redisAsyncContext *, redisCallback *, redisReply *)'
+__redisRunCallback
+   2: ImplicitCastExpr 0x55bf9a60d300 <async.c:278:9> 'void (*)(redisAsyncContext *, redisCallback *, redisReply *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a60d160 <col:9> 'void (redisAsyncContext *, redisCallback *, redisReply *)' Function 0x55bf9a60b990 '__redisRunCallback' 'void (redisAsyncContext *, redisCallback *, redisReply *)'
+[B21.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(redisAsyncContext *, redisCallback *, redisReply *))
+   3: DeclRefExpr 0x55bf9a60d188 <async.c:278:28> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+ac
+   4: ImplicitCastExpr 0x55bf9a60d358 <async.c:278:28> 'redisAsyncContext *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a60d188 <col:28> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B21.3] (ImplicitCastExpr, LValueToRValue, redisAsyncContext *)
+   5: DeclRefExpr 0x55bf9a60d1b0 <async.c:278:47> 'dictEntry *' lvalue Var 0x55bf9a60c508 'de' 'dictEntry *'
+de
+   6: ImplicitCastExpr 0x55bf9a60d210 <./dict.h:109:30, col:33> 'dictEntry *' <LValueToRValue>
+`-ParenExpr 0x55bf9a60d1d8 <col:30, col:33> 'dictEntry *' lvalue
+  `-DeclRefExpr 0x55bf9a60d1b0 <async.c:278:47> 'dictEntry *' lvalue Var 0x55bf9a60c508 'de' 'dictEntry *'
+([B21.5]) (ImplicitCastExpr, LValueToRValue, dictEntry *)
+   7: MemberExpr 0x55bf9a60d228 <./dict.h:109:30, col:36> 'void *' lvalue ->val 0x55bf9a5c9bb8
+`-ImplicitCastExpr 0x55bf9a60d210 <col:30, col:33> 'dictEntry *' <LValueToRValue>
+  `-ParenExpr 0x55bf9a60d1d8 <col:30, col:33> 'dictEntry *' lvalue
+    `-DeclRefExpr 0x55bf9a60d1b0 <async.c:278:47> 'dictEntry *' lvalue Var 0x55bf9a60c508 'de' 'dictEntry *'
+[B21.6]->val
+   8: ImplicitCastExpr 0x55bf9a60d370 <./dict.h:109:29, col:39> 'void *' <LValueToRValue>
+`-ParenExpr 0x55bf9a60d260 <col:29, col:39> 'void *' lvalue
+  `-MemberExpr 0x55bf9a60d228 <col:30, col:36> 'void *' lvalue ->val 0x55bf9a5c9bb8
+    `-ImplicitCastExpr 0x55bf9a60d210 <col:30, col:33> 'dictEntry *' <LValueToRValue>
+      `-ParenExpr 0x55bf9a60d1d8 <col:30, col:33> 'dictEntry *' lvalue
+        `-DeclRefExpr 0x55bf9a60d1b0 <async.c:278:47> 'dictEntry *' lvalue Var 0x55bf9a60c508 'de' 'dictEntry *'
+([B21.7]) (ImplicitCastExpr, LValueToRValue, void *)
+   9: ImplicitCastExpr 0x55bf9a60d388 <./dict.h:109:29, col:39> 'redisCallback *' <BitCast>
+`-ImplicitCastExpr 0x55bf9a60d370 <col:29, col:39> 'void *' <LValueToRValue>
+  `-ParenExpr 0x55bf9a60d260 <col:29, col:39> 'void *' lvalue
+    `-MemberExpr 0x55bf9a60d228 <col:30, col:36> 'void *' lvalue ->val 0x55bf9a5c9bb8
+      `-ImplicitCastExpr 0x55bf9a60d210 <col:30, col:33> 'dictEntry *' <LValueToRValue>
+        `-ParenExpr 0x55bf9a60d1d8 <col:30, col:33> 'dictEntry *' lvalue
+          `-DeclRefExpr 0x55bf9a60d1b0 <async.c:278:47> 'dictEntry *' lvalue Var 0x55bf9a60c508 'de' 'dictEntry *'
+[B21.8] (ImplicitCastExpr, BitCast, redisCallback *)
+  10: IntegerLiteral 0x55bf9a60d280 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+  11: CStyleCastExpr 0x55bf9a60d2b8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x55bf9a60d280 <col:24> 'int' 0
+(void *)[B21.10] (CStyleCastExpr, NullToPointer, void *)
+  12: ImplicitCastExpr 0x55bf9a60d3a0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'redisReply *' <NullToPointer>
+`-ParenExpr 0x55bf9a60d2e0 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x55bf9a60d2b8 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x55bf9a60d280 <col:24> 'int' 0
+([B21.11]) (ImplicitCastExpr, NullToPointer, redisReply *)
+  13: CallExpr 0x55bf9a60d318 <async.c:278:9, col:55> 'void'
+|-ImplicitCastExpr 0x55bf9a60d300 <col:9> 'void (*)(redisAsyncContext *, redisCallback *, redisReply *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a60d160 <col:9> 'void (redisAsyncContext *, redisCallback *, redisReply *)' Function 0x55bf9a60b990 '__redisRunCallback' 'void (redisAsyncContext *, redisCallback *, redisReply *)'
+|-ImplicitCastExpr 0x55bf9a60d358 <col:28> 'redisAsyncContext *' <LValueToRValue>
+| `-DeclRefExpr 0x55bf9a60d188 <col:28> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+|-ImplicitCastExpr 0x55bf9a60d388 <./dict.h:109:29, col:39> 'redisCallback *' <BitCast>
+| `-ImplicitCastExpr 0x55bf9a60d370 <col:29, col:39> 'void *' <LValueToRValue>
+|   `-ParenExpr 0x55bf9a60d260 <col:29, col:39> 'void *' lvalue
+|     `-MemberExpr 0x55bf9a60d228 <col:30, col:36> 'void *' lvalue ->val 0x55bf9a5c9bb8
+|       `-ImplicitCastExpr 0x55bf9a60d210 <col:30, col:33> 'dictEntry *' <LValueToRValue>
+|         `-ParenExpr 0x55bf9a60d1d8 <col:30, col:33> 'dictEntry *' lvalue
+|           `-DeclRefExpr 0x55bf9a60d1b0 <async.c:278:47> 'dictEntry *' lvalue Var 0x55bf9a60c508 'de' 'dictEntry *'
+`-ImplicitCastExpr 0x55bf9a60d3a0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'redisReply *' <NullToPointer>
+  `-ParenExpr 0x55bf9a60d2e0 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x55bf9a60d2b8 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x55bf9a60d280 <col:24> 'int' 0
+[B21.2]([B21.4], [B21.9], [B21.12])
+   Preds (1): B22
+   Succs (1): B20
+
+ [B22]
+   1: DeclRefExpr 0x55bf9a60cf48 <async.c:277:18> 'dictEntry *(dictIterator *)' Function 0x55bf9a5f5dd8 'dictNext' 'dictEntry *(dictIterator *)'
+dictNext
+   2: ImplicitCastExpr 0x55bf9a60cff8 <async.c:277:18> 'dictEntry *(*)(dictIterator *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a60cf48 <col:18> 'dictEntry *(dictIterator *)' Function 0x55bf9a5f5dd8 'dictNext' 'dictEntry *(dictIterator *)'
+[B22.1] (ImplicitCastExpr, FunctionToPointerDecay, dictEntry *(*)(dictIterator *))
+   3: DeclRefExpr 0x55bf9a60cf70 <async.c:277:27> 'dictIterator *' lvalue Var 0x55bf9a60c480 'it' 'dictIterator *'
+it
+   4: ImplicitCastExpr 0x55bf9a60d040 <async.c:277:27> 'dictIterator *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a60cf70 <col:27> 'dictIterator *' lvalue Var 0x55bf9a60c480 'it' 'dictIterator *'
+[B22.3] (ImplicitCastExpr, LValueToRValue, dictIterator *)
+   5: CallExpr 0x55bf9a60d010 <async.c:277:18, col:29> 'dictEntry *'
+|-ImplicitCastExpr 0x55bf9a60cff8 <col:18> 'dictEntry *(*)(dictIterator *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a60cf48 <col:18> 'dictEntry *(dictIterator *)' Function 0x55bf9a5f5dd8 'dictNext' 'dictEntry *(dictIterator *)'
+`-ImplicitCastExpr 0x55bf9a60d040 <col:27> 'dictIterator *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a60cf70 <col:27> 'dictIterator *' lvalue Var 0x55bf9a60c480 'it' 'dictIterator *'
+[B22.2]([B22.4])
+   6: DeclRefExpr 0x55bf9a60cf20 <async.c:277:13> 'dictEntry *' lvalue Var 0x55bf9a60c508 'de' 'dictEntry *'
+de
+   7: BinaryOperator 0x55bf9a60d058 <async.c:277:13, col:29> 'dictEntry *' '='
+|-DeclRefExpr 0x55bf9a60cf20 <col:13> 'dictEntry *' lvalue Var 0x55bf9a60c508 'de' 'dictEntry *'
+`-CallExpr 0x55bf9a60d010 <col:18, col:29> 'dictEntry *'
+  |-ImplicitCastExpr 0x55bf9a60cff8 <col:18> 'dictEntry *(*)(dictIterator *)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55bf9a60cf48 <col:18> 'dictEntry *(dictIterator *)' Function 0x55bf9a5f5dd8 'dictNext' 'dictEntry *(dictIterator *)'
+  `-ImplicitCastExpr 0x55bf9a60d040 <col:27> 'dictIterator *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a60cf70 <col:27> 'dictIterator *' lvalue Var 0x55bf9a60c480 'it' 'dictIterator *'
+[B22.6] = [B22.5]
+   8: IntegerLiteral 0x55bf9a60d0a0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+   9: CStyleCastExpr 0x55bf9a60d0d8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x55bf9a60d0a0 <col:24> 'int' 0
+(void *)[B22.8] (CStyleCastExpr, NullToPointer, void *)
+  10: ImplicitCastExpr 0x55bf9a60d120 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'dictEntry *' <BitCast>
+`-ParenExpr 0x55bf9a60d100 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x55bf9a60d0d8 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x55bf9a60d0a0 <col:24> 'int' 0
+([B22.9]) (ImplicitCastExpr, BitCast, dictEntry *)
+  11: BinaryOperator 0x55bf9a60d138 <async.c:277:12, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25> 'int' '!='
+|-ParenExpr 0x55bf9a60d080 <async.c:277:12, col:30> 'dictEntry *'
+| `-BinaryOperator 0x55bf9a60d058 <col:13, col:29> 'dictEntry *' '='
+|   |-DeclRefExpr 0x55bf9a60cf20 <col:13> 'dictEntry *' lvalue Var 0x55bf9a60c508 'de' 'dictEntry *'
+|   `-CallExpr 0x55bf9a60d010 <col:18, col:29> 'dictEntry *'
+|     |-ImplicitCastExpr 0x55bf9a60cff8 <col:18> 'dictEntry *(*)(dictIterator *)' <FunctionToPointerDecay>
+|     | `-DeclRefExpr 0x55bf9a60cf48 <col:18> 'dictEntry *(dictIterator *)' Function 0x55bf9a5f5dd8 'dictNext' 'dictEntry *(dictIterator *)'
+|     `-ImplicitCastExpr 0x55bf9a60d040 <col:27> 'dictIterator *' <LValueToRValue>
+|       `-DeclRefExpr 0x55bf9a60cf70 <col:27> 'dictIterator *' lvalue Var 0x55bf9a60c480 'it' 'dictIterator *'
+`-ImplicitCastExpr 0x55bf9a60d120 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'dictEntry *' <BitCast>
+  `-ParenExpr 0x55bf9a60d100 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x55bf9a60d0d8 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x55bf9a60d0a0 <col:24> 'int' 0
+([B22.7]) != [B22.10]
+   T: while [B22.11]
+   Preds (2): B20 B23
+   Succs (2): B21 B19
+
+ [B23]
+   1: DeclRefExpr 0x55bf9a60cd60 <async.c:276:10> 'dictIterator *(dict *)' Function 0x55bf9a5f5190 'dictGetIterator' 'dictIterator *(dict *)'
+dictGetIterator
+   2: ImplicitCastExpr 0x55bf9a60ce98 <async.c:276:10> 'dictIterator *(*)(dict *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a60cd60 <col:10> 'dictIterator *(dict *)' Function 0x55bf9a5f5190 'dictGetIterator' 'dictIterator *(dict *)'
+[B23.1] (ImplicitCastExpr, FunctionToPointerDecay, dictIterator *(*)(dict *))
+   3: DeclRefExpr 0x55bf9a60cd88 <async.c:276:26> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+ac
+   4: ImplicitCastExpr 0x55bf9a60cdb0 <async.c:276:26> 'redisAsyncContext *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a60cd88 <col:26> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B23.3] (ImplicitCastExpr, LValueToRValue, redisAsyncContext *)
+   5: MemberExpr 0x55bf9a60cdc8 <async.c:276:26, col:30> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+`-ImplicitCastExpr 0x55bf9a60cdb0 <col:26> 'redisAsyncContext *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a60cd88 <col:26> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B23.4]->sub
+   6: MemberExpr 0x55bf9a60ce00 <async.c:276:26, col:34> 'struct dict *' lvalue .channels 0x55bf9a5c4770
+`-MemberExpr 0x55bf9a60cdc8 <col:26, col:30> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+  `-ImplicitCastExpr 0x55bf9a60cdb0 <col:26> 'redisAsyncContext *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a60cd88 <col:26> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B23.5].channels
+   7: ImplicitCastExpr 0x55bf9a60cee0 <async.c:276:26, col:34> 'struct dict *' <LValueToRValue>
+`-MemberExpr 0x55bf9a60ce00 <col:26, col:34> 'struct dict *' lvalue .channels 0x55bf9a5c4770
+  `-MemberExpr 0x55bf9a60cdc8 <col:26, col:30> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+    `-ImplicitCastExpr 0x55bf9a60cdb0 <col:26> 'redisAsyncContext *' <LValueToRValue>
+      `-DeclRefExpr 0x55bf9a60cd88 <col:26> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B23.6] (ImplicitCastExpr, LValueToRValue, struct dict *)
+   8: CallExpr 0x55bf9a60ceb0 <async.c:276:10, col:42> 'dictIterator *'
+|-ImplicitCastExpr 0x55bf9a60ce98 <col:10> 'dictIterator *(*)(dict *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a60cd60 <col:10> 'dictIterator *(dict *)' Function 0x55bf9a5f5190 'dictGetIterator' 'dictIterator *(dict *)'
+`-ImplicitCastExpr 0x55bf9a60cee0 <col:26, col:34> 'struct dict *' <LValueToRValue>
+  `-MemberExpr 0x55bf9a60ce00 <col:26, col:34> 'struct dict *' lvalue .channels 0x55bf9a5c4770
+    `-MemberExpr 0x55bf9a60cdc8 <col:26, col:30> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+      `-ImplicitCastExpr 0x55bf9a60cdb0 <col:26> 'redisAsyncContext *' <LValueToRValue>
+        `-DeclRefExpr 0x55bf9a60cd88 <col:26> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B23.2]([B23.7])
+   9: DeclRefExpr 0x55bf9a60cd38 <async.c:276:5> 'dictIterator *' lvalue Var 0x55bf9a60c480 'it' 'dictIterator *'
+it
+  10: BinaryOperator 0x55bf9a60cef8 <async.c:276:5, col:42> 'dictIterator *' '='
+|-DeclRefExpr 0x55bf9a60cd38 <col:5> 'dictIterator *' lvalue Var 0x55bf9a60c480 'it' 'dictIterator *'
+`-CallExpr 0x55bf9a60ceb0 <col:10, col:42> 'dictIterator *'
+  |-ImplicitCastExpr 0x55bf9a60ce98 <col:10> 'dictIterator *(*)(dict *)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55bf9a60cd60 <col:10> 'dictIterator *(dict *)' Function 0x55bf9a5f5190 'dictGetIterator' 'dictIterator *(dict *)'
+  `-ImplicitCastExpr 0x55bf9a60cee0 <col:26, col:34> 'struct dict *' <LValueToRValue>
+    `-MemberExpr 0x55bf9a60ce00 <col:26, col:34> 'struct dict *' lvalue .channels 0x55bf9a5c4770
+      `-MemberExpr 0x55bf9a60cdc8 <col:26, col:30> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+        `-ImplicitCastExpr 0x55bf9a60cdb0 <col:26> 'redisAsyncContext *' <LValueToRValue>
+          `-DeclRefExpr 0x55bf9a60cd88 <col:26> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B23.9] = [B23.8]
+   Preds (1): B26
+   Succs (1): B22
+
+ [B24]
+   Preds (1): B25
+   Succs (1): B26
+
+ [B25]
+   1: DeclRefExpr 0x55bf9a60cb78 <async.c:273:9> 'void (redisAsyncContext *, redisCallback *, redisReply *)' Function 0x55bf9a60b990 '__redisRunCallback' 'void (redisAsyncContext *, redisCallback *, redisReply *)'
+__redisRunCallback
+   2: ImplicitCastExpr 0x55bf9a60cc90 <async.c:273:9> 'void (*)(redisAsyncContext *, redisCallback *, redisReply *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a60cb78 <col:9> 'void (redisAsyncContext *, redisCallback *, redisReply *)' Function 0x55bf9a60b990 '__redisRunCallback' 'void (redisAsyncContext *, redisCallback *, redisReply *)'
+[B25.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(redisAsyncContext *, redisCallback *, redisReply *))
+   3: DeclRefExpr 0x55bf9a60cba0 <async.c:273:28> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+ac
+   4: ImplicitCastExpr 0x55bf9a60cce8 <async.c:273:28> 'redisAsyncContext *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a60cba0 <col:28> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B25.3] (ImplicitCastExpr, LValueToRValue, redisAsyncContext *)
+   5: DeclRefExpr 0x55bf9a60cbc8 <async.c:273:32> 'redisCallback':'struct redisCallback' lvalue Var 0x55bf9a60c3f8 'cb' 'redisCallback':'struct redisCallback'
+cb
+   6: UnaryOperator 0x55bf9a60cbf0 <async.c:273:31, col:32> 'redisCallback *' prefix '&'
+`-DeclRefExpr 0x55bf9a60cbc8 <col:32> 'redisCallback':'struct redisCallback' lvalue Var 0x55bf9a60c3f8 'cb' 'redisCallback':'struct redisCallback'
+&[B25.5]
+   7: IntegerLiteral 0x55bf9a60cc10 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+   8: CStyleCastExpr 0x55bf9a60cc48 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x55bf9a60cc10 <col:24> 'int' 0
+(void *)[B25.7] (CStyleCastExpr, NullToPointer, void *)
+   9: ImplicitCastExpr 0x55bf9a60cd00 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'redisReply *' <NullToPointer>
+`-ParenExpr 0x55bf9a60cc70 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x55bf9a60cc48 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x55bf9a60cc10 <col:24> 'int' 0
+([B25.8]) (ImplicitCastExpr, NullToPointer, redisReply *)
+  10: CallExpr 0x55bf9a60cca8 <async.c:273:9, col:39> 'void'
+|-ImplicitCastExpr 0x55bf9a60cc90 <col:9> 'void (*)(redisAsyncContext *, redisCallback *, redisReply *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a60cb78 <col:9> 'void (redisAsyncContext *, redisCallback *, redisReply *)' Function 0x55bf9a60b990 '__redisRunCallback' 'void (redisAsyncContext *, redisCallback *, redisReply *)'
+|-ImplicitCastExpr 0x55bf9a60cce8 <col:28> 'redisAsyncContext *' <LValueToRValue>
+| `-DeclRefExpr 0x55bf9a60cba0 <col:28> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+|-UnaryOperator 0x55bf9a60cbf0 <col:31, col:32> 'redisCallback *' prefix '&'
+| `-DeclRefExpr 0x55bf9a60cbc8 <col:32> 'redisCallback':'struct redisCallback' lvalue Var 0x55bf9a60c3f8 'cb' 'redisCallback':'struct redisCallback'
+`-ImplicitCastExpr 0x55bf9a60cd00 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'redisReply *' <NullToPointer>
+  `-ParenExpr 0x55bf9a60cc70 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x55bf9a60cc48 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x55bf9a60cc10 <col:24> 'int' 0
+[B25.2]([B25.4], [B25.6], [B25.9])
+   Preds (1): B26
+   Succs (1): B24
+
+ [B26]
+   1: DeclRefExpr 0x55bf9a60c9a0 <async.c:272:12> 'int (redisCallbackList *, redisCallback *)' Function 0x55bf9a60ab10 '__redisShiftCallback' 'int (redisCallbackList *, redisCallback *)'
+__redisShiftCallback
+   2: ImplicitCastExpr 0x55bf9a60cae0 <async.c:272:12> 'int (*)(redisCallbackList *, redisCallback *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a60c9a0 <col:12> 'int (redisCallbackList *, redisCallback *)' Function 0x55bf9a60ab10 '__redisShiftCallback' 'int (redisCallbackList *, redisCallback *)'
+[B26.1] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(redisCallbackList *, redisCallback *))
+   3: DeclRefExpr 0x55bf9a60c9c8 <async.c:272:34> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+ac
+   4: ImplicitCastExpr 0x55bf9a60c9f0 <async.c:272:34> 'redisAsyncContext *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a60c9c8 <col:34> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B26.3] (ImplicitCastExpr, LValueToRValue, redisAsyncContext *)
+   5: MemberExpr 0x55bf9a60ca08 <async.c:272:34, col:38> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+`-ImplicitCastExpr 0x55bf9a60c9f0 <col:34> 'redisAsyncContext *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a60c9c8 <col:34> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B26.4]->sub
+   6: MemberExpr 0x55bf9a60ca40 <async.c:272:34, col:42> 'redisCallbackList':'struct redisCallbackList' lvalue .invalid 0x55bf9a5c4670
+`-MemberExpr 0x55bf9a60ca08 <col:34, col:38> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+  `-ImplicitCastExpr 0x55bf9a60c9f0 <col:34> 'redisAsyncContext *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a60c9c8 <col:34> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B26.5].invalid
+   7: UnaryOperator 0x55bf9a60ca78 <async.c:272:33, col:42> 'redisCallbackList *' prefix '&'
+`-MemberExpr 0x55bf9a60ca40 <col:34, col:42> 'redisCallbackList':'struct redisCallbackList' lvalue .invalid 0x55bf9a5c4670
+  `-MemberExpr 0x55bf9a60ca08 <col:34, col:38> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+    `-ImplicitCastExpr 0x55bf9a60c9f0 <col:34> 'redisAsyncContext *' <LValueToRValue>
+      `-DeclRefExpr 0x55bf9a60c9c8 <col:34> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+&[B26.6]
+   8: DeclRefExpr 0x55bf9a60ca98 <async.c:272:51> 'redisCallback':'struct redisCallback' lvalue Var 0x55bf9a60c3f8 'cb' 'redisCallback':'struct redisCallback'
+cb
+   9: UnaryOperator 0x55bf9a60cac0 <async.c:272:50, col:51> 'redisCallback *' prefix '&'
+`-DeclRefExpr 0x55bf9a60ca98 <col:51> 'redisCallback':'struct redisCallback' lvalue Var 0x55bf9a60c3f8 'cb' 'redisCallback':'struct redisCallback'
+&[B26.8]
+  10: CallExpr 0x55bf9a60caf8 <async.c:272:12, col:53> 'int'
+|-ImplicitCastExpr 0x55bf9a60cae0 <col:12> 'int (*)(redisCallbackList *, redisCallback *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a60c9a0 <col:12> 'int (redisCallbackList *, redisCallback *)' Function 0x55bf9a60ab10 '__redisShiftCallback' 'int (redisCallbackList *, redisCallback *)'
+|-UnaryOperator 0x55bf9a60ca78 <col:33, col:42> 'redisCallbackList *' prefix '&'
+| `-MemberExpr 0x55bf9a60ca40 <col:34, col:42> 'redisCallbackList':'struct redisCallbackList' lvalue .invalid 0x55bf9a5c4670
+|   `-MemberExpr 0x55bf9a60ca08 <col:34, col:38> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+|     `-ImplicitCastExpr 0x55bf9a60c9f0 <col:34> 'redisAsyncContext *' <LValueToRValue>
+|       `-DeclRefExpr 0x55bf9a60c9c8 <col:34> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+`-UnaryOperator 0x55bf9a60cac0 <col:50, col:51> 'redisCallback *' prefix '&'
+  `-DeclRefExpr 0x55bf9a60ca98 <col:51> 'redisCallback':'struct redisCallback' lvalue Var 0x55bf9a60c3f8 'cb' 'redisCallback':'struct redisCallback'
+[B26.2]([B26.7], [B26.9])
+  11: IntegerLiteral 0x55bf9a60cb30 <./read.h:38:18> 'int' 0
+0
+  12: BinaryOperator 0x55bf9a60cb50 <async.c:272:12, ./read.h:38:18> 'int' '=='
+|-CallExpr 0x55bf9a60caf8 <async.c:272:12, col:53> 'int'
+| |-ImplicitCastExpr 0x55bf9a60cae0 <col:12> 'int (*)(redisCallbackList *, redisCallback *)' <FunctionToPointerDecay>
+| | `-DeclRefExpr 0x55bf9a60c9a0 <col:12> 'int (redisCallbackList *, redisCallback *)' Function 0x55bf9a60ab10 '__redisShiftCallback' 'int (redisCallbackList *, redisCallback *)'
+| |-UnaryOperator 0x55bf9a60ca78 <col:33, col:42> 'redisCallbackList *' prefix '&'
+| | `-MemberExpr 0x55bf9a60ca40 <col:34, col:42> 'redisCallbackList':'struct redisCallbackList' lvalue .invalid 0x55bf9a5c4670
+| |   `-MemberExpr 0x55bf9a60ca08 <col:34, col:38> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+| |     `-ImplicitCastExpr 0x55bf9a60c9f0 <col:34> 'redisAsyncContext *' <LValueToRValue>
+| |       `-DeclRefExpr 0x55bf9a60c9c8 <col:34> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+| `-UnaryOperator 0x55bf9a60cac0 <col:50, col:51> 'redisCallback *' prefix '&'
+|   `-DeclRefExpr 0x55bf9a60ca98 <col:51> 'redisCallback':'struct redisCallback' lvalue Var 0x55bf9a60c3f8 'cb' 'redisCallback':'struct redisCallback'
+`-IntegerLiteral 0x55bf9a60cb30 <./read.h:38:18> 'int' 0
+[B26.10] == [B26.11]
+   T: while [B26.12]
+   Preds (2): B24 B29
+   Succs (2): B25 B23
+
+ [B27]
+   Preds (1): B28
+   Succs (1): B29
+
+ [B28]
+   1: DeclRefExpr 0x55bf9a60c780 <async.c:269:9> 'void (redisAsyncContext *, redisCallback *, redisReply *)' Function 0x55bf9a60b990 '__redisRunCallback' 'void (redisAsyncContext *, redisCallback *, redisReply *)'
+__redisRunCallback
+   2: ImplicitCastExpr 0x55bf9a60c8f8 <async.c:269:9> 'void (*)(redisAsyncContext *, redisCallback *, redisReply *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a60c780 <col:9> 'void (redisAsyncContext *, redisCallback *, redisReply *)' Function 0x55bf9a60b990 '__redisRunCallback' 'void (redisAsyncContext *, redisCallback *, redisReply *)'
+[B28.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(redisAsyncContext *, redisCallback *, redisReply *))
+   3: DeclRefExpr 0x55bf9a60c7a8 <async.c:269:28> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+ac
+   4: ImplicitCastExpr 0x55bf9a60c950 <async.c:269:28> 'redisAsyncContext *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a60c7a8 <col:28> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B28.3] (ImplicitCastExpr, LValueToRValue, redisAsyncContext *)
+   5: DeclRefExpr 0x55bf9a60c7d0 <async.c:269:32> 'redisCallback':'struct redisCallback' lvalue Var 0x55bf9a60c3f8 'cb' 'redisCallback':'struct redisCallback'
+cb
+   6: UnaryOperator 0x55bf9a60c7f8 <async.c:269:31, col:32> 'redisCallback *' prefix '&'
+`-DeclRefExpr 0x55bf9a60c7d0 <col:32> 'redisCallback':'struct redisCallback' lvalue Var 0x55bf9a60c3f8 'cb' 'redisCallback':'struct redisCallback'
+&[B28.5]
+   7: IntegerLiteral 0x55bf9a60c818 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+   8: CStyleCastExpr 0x55bf9a60c850 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x55bf9a60c818 <col:24> 'int' 0
+(void *)[B28.7] (CStyleCastExpr, NullToPointer, void *)
+   9: ImplicitCastExpr 0x55bf9a60c968 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'redisReply *' <NullToPointer>
+`-ParenExpr 0x55bf9a60c878 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x55bf9a60c850 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x55bf9a60c818 <col:24> 'int' 0
+([B28.8]) (ImplicitCastExpr, NullToPointer, redisReply *)
+  10: CallExpr 0x55bf9a60c910 <async.c:269:9, col:39> 'void'
+|-ImplicitCastExpr 0x55bf9a60c8f8 <col:9> 'void (*)(redisAsyncContext *, redisCallback *, redisReply *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a60c780 <col:9> 'void (redisAsyncContext *, redisCallback *, redisReply *)' Function 0x55bf9a60b990 '__redisRunCallback' 'void (redisAsyncContext *, redisCallback *, redisReply *)'
+|-ImplicitCastExpr 0x55bf9a60c950 <col:28> 'redisAsyncContext *' <LValueToRValue>
+| `-DeclRefExpr 0x55bf9a60c7a8 <col:28> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+|-UnaryOperator 0x55bf9a60c7f8 <col:31, col:32> 'redisCallback *' prefix '&'
+| `-DeclRefExpr 0x55bf9a60c7d0 <col:32> 'redisCallback':'struct redisCallback' lvalue Var 0x55bf9a60c3f8 'cb' 'redisCallback':'struct redisCallback'
+`-ImplicitCastExpr 0x55bf9a60c968 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'redisReply *' <NullToPointer>
+  `-ParenExpr 0x55bf9a60c878 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x55bf9a60c850 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x55bf9a60c818 <col:24> 'int' 0
+[B28.2]([B28.4], [B28.6], [B28.9])
+   Preds (1): B29
+   Succs (1): B27
+
+ [B29]
+   1: DeclRefExpr 0x55bf9a60c580 <async.c:268:12> 'int (redisCallbackList *, redisCallback *)' Function 0x55bf9a60ab10 '__redisShiftCallback' 'int (redisCallbackList *, redisCallback *)'
+__redisShiftCallback
+   2: ImplicitCastExpr 0x55bf9a60c6e8 <async.c:268:12> 'int (*)(redisCallbackList *, redisCallback *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a60c580 <col:12> 'int (redisCallbackList *, redisCallback *)' Function 0x55bf9a60ab10 '__redisShiftCallback' 'int (redisCallbackList *, redisCallback *)'
+[B29.1] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(redisCallbackList *, redisCallback *))
+   3: DeclRefExpr 0x55bf9a60c5a8 <async.c:268:34> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+ac
+   4: ImplicitCastExpr 0x55bf9a60c5d0 <async.c:268:34> 'redisAsyncContext *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a60c5a8 <col:34> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B29.3] (ImplicitCastExpr, LValueToRValue, redisAsyncContext *)
+   5: MemberExpr 0x55bf9a60c5e8 <async.c:268:34, col:38> 'redisCallbackList':'struct redisCallbackList' lvalue ->replies 0x55bf9a5c4360
+`-ImplicitCastExpr 0x55bf9a60c5d0 <col:34> 'redisAsyncContext *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a60c5a8 <col:34> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B29.4]->replies
+   6: UnaryOperator 0x55bf9a60c620 <async.c:268:33, col:38> 'redisCallbackList *' prefix '&'
+`-MemberExpr 0x55bf9a60c5e8 <col:34, col:38> 'redisCallbackList':'struct redisCallbackList' lvalue ->replies 0x55bf9a5c4360
+  `-ImplicitCastExpr 0x55bf9a60c5d0 <col:34> 'redisAsyncContext *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a60c5a8 <col:34> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+&[B29.5]
+   7: DeclRefExpr 0x55bf9a60c640 <async.c:268:47> 'redisCallback':'struct redisCallback' lvalue Var 0x55bf9a60c3f8 'cb' 'redisCallback':'struct redisCallback'
+cb
+   8: UnaryOperator 0x55bf9a60c668 <async.c:268:46, col:47> 'redisCallback *' prefix '&'
+`-DeclRefExpr 0x55bf9a60c640 <col:47> 'redisCallback':'struct redisCallback' lvalue Var 0x55bf9a60c3f8 'cb' 'redisCallback':'struct redisCallback'
+&[B29.7]
+   9: CallExpr 0x55bf9a60c700 <async.c:268:12, col:49> 'int'
+|-ImplicitCastExpr 0x55bf9a60c6e8 <col:12> 'int (*)(redisCallbackList *, redisCallback *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a60c580 <col:12> 'int (redisCallbackList *, redisCallback *)' Function 0x55bf9a60ab10 '__redisShiftCallback' 'int (redisCallbackList *, redisCallback *)'
+|-UnaryOperator 0x55bf9a60c620 <col:33, col:38> 'redisCallbackList *' prefix '&'
+| `-MemberExpr 0x55bf9a60c5e8 <col:34, col:38> 'redisCallbackList':'struct redisCallbackList' lvalue ->replies 0x55bf9a5c4360
+|   `-ImplicitCastExpr 0x55bf9a60c5d0 <col:34> 'redisAsyncContext *' <LValueToRValue>
+|     `-DeclRefExpr 0x55bf9a60c5a8 <col:34> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+`-UnaryOperator 0x55bf9a60c668 <col:46, col:47> 'redisCallback *' prefix '&'
+  `-DeclRefExpr 0x55bf9a60c640 <col:47> 'redisCallback':'struct redisCallback' lvalue Var 0x55bf9a60c3f8 'cb' 'redisCallback':'struct redisCallback'
+[B29.2]([B29.6], [B29.8])
+  10: IntegerLiteral 0x55bf9a60c738 <./read.h:38:18> 'int' 0
+0
+  11: BinaryOperator 0x55bf9a60c758 <async.c:268:12, ./read.h:38:18> 'int' '=='
+|-CallExpr 0x55bf9a60c700 <async.c:268:12, col:49> 'int'
+| |-ImplicitCastExpr 0x55bf9a60c6e8 <col:12> 'int (*)(redisCallbackList *, redisCallback *)' <FunctionToPointerDecay>
+| | `-DeclRefExpr 0x55bf9a60c580 <col:12> 'int (redisCallbackList *, redisCallback *)' Function 0x55bf9a60ab10 '__redisShiftCallback' 'int (redisCallbackList *, redisCallback *)'
+| |-UnaryOperator 0x55bf9a60c620 <col:33, col:38> 'redisCallbackList *' prefix '&'
+| | `-MemberExpr 0x55bf9a60c5e8 <col:34, col:38> 'redisCallbackList':'struct redisCallbackList' lvalue ->replies 0x55bf9a5c4360
+| |   `-ImplicitCastExpr 0x55bf9a60c5d0 <col:34> 'redisAsyncContext *' <LValueToRValue>
+| |     `-DeclRefExpr 0x55bf9a60c5a8 <col:34> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+| `-UnaryOperator 0x55bf9a60c668 <col:46, col:47> 'redisCallback *' prefix '&'
+|   `-DeclRefExpr 0x55bf9a60c640 <col:47> 'redisCallback':'struct redisCallback' lvalue Var 0x55bf9a60c3f8 'cb' 'redisCallback':'struct redisCallback'
+`-IntegerLiteral 0x55bf9a60c738 <./read.h:38:18> 'int' 0
+[B29.9] == [B29.10]
+   T: while [B29.11]
+   Preds (2): B27 B30
+   Succs (2): B28 B26
+
+ [B30]
+   1: DeclRefExpr 0x55bf9a60c318 <async.c:262:25> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+ac
+   2: ImplicitCastExpr 0x55bf9a60c340 <async.c:262:25> 'redisAsyncContext *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a60c318 <col:25> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B30.1] (ImplicitCastExpr, LValueToRValue, redisAsyncContext *)
+   3: MemberExpr 0x55bf9a60c358 <async.c:262:25, col:29> 'redisContext':'struct redisContext' lvalue ->c 0x55bf9a5c26f0
+`-ImplicitCastExpr 0x55bf9a60c340 <col:25> 'redisAsyncContext *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a60c318 <col:25> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+[B30.2]->c
+   4: UnaryOperator 0x55bf9a60c3b0 <async.c:262:23, col:30> 'redisContext *' prefix '&'
+`-ParenExpr 0x55bf9a60c390 <col:24, col:30> 'redisContext':'struct redisContext' lvalue
+  `-MemberExpr 0x55bf9a60c358 <col:25, col:29> 'redisContext':'struct redisContext' lvalue ->c 0x55bf9a5c26f0
+    `-ImplicitCastExpr 0x55bf9a60c340 <col:25> 'redisAsyncContext *' <LValueToRValue>
+      `-DeclRefExpr 0x55bf9a60c318 <col:25> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+&([B30.3])
+   5: DeclStmt 0x55bf9a60c3d0 <async.c:262:5, col:31>col:19
+`-VarDecl 0x55bf9a60c2b8 <col:5, col:30> col:19 used c 'redisContext *' cinit
+  `-UnaryOperator 0x55bf9a60c3b0 <col:23, col:30> 'redisContext *' prefix '&'
+    `-ParenExpr 0x55bf9a60c390 <col:24, col:30> 'redisContext':'struct redisContext' lvalue
+      `-MemberExpr 0x55bf9a60c358 <col:25, col:29> 'redisContext':'struct redisContext' lvalue ->c 0x55bf9a5c26f0
+        `-ImplicitCastExpr 0x55bf9a60c340 <col:25> 'redisAsyncContext *' <LValueToRValue>
+          `-DeclRefExpr 0x55bf9a60c318 <col:25> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a60c120 'ac' 'redisAsyncContext *'
+redisContext *c = &(ac->c);
+   6: DeclStmt 0x55bf9a60c458 <async.c:263:5, col:21>col:19
+`-VarDecl 0x55bf9a60c3f8 <col:5, col:19> col:19 used cb 'redisCallback':'struct redisCallback'
+redisCallback cb;
+   7: DeclStmt 0x55bf9a60c4e0 <async.c:264:5, col:21>col:19
+`-VarDecl 0x55bf9a60c480 <col:5, col:19> col:19 used it 'dictIterator *'
+dictIterator *it;
+   8: DeclStmt 0x55bf9a60c568 <async.c:265:5, col:18>col:16
+`-VarDecl 0x55bf9a60c508 <col:5, col:16> col:16 used de 'dictEntry *'
+dictEntry *de;
+   Preds (1): B31
+   Succs (1): B29
+
+ [B0 (EXIT)]
+   Preds (1): B1

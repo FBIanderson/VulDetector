@@ -1,0 +1,1181 @@
+static GCObject **sweeplist(lua_State *L, GCObject **p, lu_mem count)
+ [B13 (ENTRY)]
+   Succs (1): B12
+
+ [B1]
+   1: DeclRefExpr 0x55ef1b1fae80 <lgc.c:427:10> 'GCObject **' lvalue ParmVar 0x55ef1b1f5d68 'p' 'GCObject **'
+p
+   2: ImplicitCastExpr 0x55ef1b1faea8 <lgc.c:427:10> 'GCObject **' <LValueToRValue>
+`-DeclRefExpr 0x55ef1b1fae80 <col:10> 'GCObject **' lvalue ParmVar 0x55ef1b1f5d68 'p' 'GCObject **'
+[B1.1] (ImplicitCastExpr, LValueToRValue, GCObject **)
+   3: ReturnStmt 0x55ef1b1faec0 <lgc.c:427:3, col:10>
+`-ImplicitCastExpr 0x55ef1b1faea8 <col:10> 'GCObject **' <LValueToRValue>
+  `-DeclRefExpr 0x55ef1b1fae80 <col:10> 'GCObject **' lvalue ParmVar 0x55ef1b1f5d68 'p' 'GCObject **'
+return [B1.2];
+   Preds (2): B10 B11
+   Succs (1): B0
+
+ [B2]
+   Preds (2): B3 B6
+   Succs (1): B11
+
+ [B3]
+   1: DeclRefExpr 0x55ef1b1fac80 <lgc.c:424:7> 'void (lua_State *, GCObject *)' Function 0x55ef1b1f2f40 'freeobj' 'void (lua_State *, GCObject *)'
+freeobj
+   2: ImplicitCastExpr 0x55ef1b1fad58 <lgc.c:424:7> 'void (*)(lua_State *, GCObject *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55ef1b1fac80 <col:7> 'void (lua_State *, GCObject *)' Function 0x55ef1b1f2f40 'freeobj' 'void (lua_State *, GCObject *)'
+[B3.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(lua_State *, GCObject *))
+   3: DeclRefExpr 0x55ef1b1faca8 <lgc.c:424:15> 'lua_State *' lvalue ParmVar 0x55ef1b1f5cf0 'L' 'lua_State *'
+L
+   4: ImplicitCastExpr 0x55ef1b1fada8 <lgc.c:424:15> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55ef1b1faca8 <col:15> 'lua_State *' lvalue ParmVar 0x55ef1b1f5cf0 'L' 'lua_State *'
+[B3.3] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   5: DeclRefExpr 0x55ef1b1facd0 <lgc.c:424:18> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+curr
+   6: ImplicitCastExpr 0x55ef1b1fadc0 <lgc.c:424:18> 'GCObject *' <LValueToRValue>
+`-DeclRefExpr 0x55ef1b1facd0 <col:18> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B3.5] (ImplicitCastExpr, LValueToRValue, GCObject *)
+   7: CallExpr 0x55ef1b1fad70 <lgc.c:424:7, col:22> 'void'
+|-ImplicitCastExpr 0x55ef1b1fad58 <col:7> 'void (*)(lua_State *, GCObject *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55ef1b1fac80 <col:7> 'void (lua_State *, GCObject *)' Function 0x55ef1b1f2f40 'freeobj' 'void (lua_State *, GCObject *)'
+|-ImplicitCastExpr 0x55ef1b1fada8 <col:15> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x55ef1b1faca8 <col:15> 'lua_State *' lvalue ParmVar 0x55ef1b1f5cf0 'L' 'lua_State *'
+`-ImplicitCastExpr 0x55ef1b1fadc0 <col:18> 'GCObject *' <LValueToRValue>
+  `-DeclRefExpr 0x55ef1b1facd0 <col:18> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B3.2]([B3.4], [B3.6])
+   Preds (2): B4 B5
+   Succs (1): B2
+
+ [B4]
+   1: DeclRefExpr 0x55ef1b1fab58 <lgc.c:423:21> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+curr
+   2: ImplicitCastExpr 0x55ef1b1fab80 <lgc.c:423:21> 'GCObject *' <LValueToRValue>
+`-DeclRefExpr 0x55ef1b1fab58 <col:21> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B4.1] (ImplicitCastExpr, LValueToRValue, GCObject *)
+   3: MemberExpr 0x55ef1b1fab98 <lgc.c:423:21, col:27> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+`-ImplicitCastExpr 0x55ef1b1fab80 <col:21> 'GCObject *' <LValueToRValue>
+  `-DeclRefExpr 0x55ef1b1fab58 <col:21> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B4.2]->gch
+   4: MemberExpr 0x55ef1b1fabd0 <lgc.c:423:21, col:31> 'GCObject *' lvalue .next 0x55ef1b17ec78
+`-MemberExpr 0x55ef1b1fab98 <col:21, col:27> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+  `-ImplicitCastExpr 0x55ef1b1fab80 <col:21> 'GCObject *' <LValueToRValue>
+    `-DeclRefExpr 0x55ef1b1fab58 <col:21> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B4.3].next
+   5: ImplicitCastExpr 0x55ef1b1fac08 <lgc.c:423:21, col:31> 'GCObject *' <LValueToRValue>
+`-MemberExpr 0x55ef1b1fabd0 <col:21, col:31> 'GCObject *' lvalue .next 0x55ef1b17ec78
+  `-MemberExpr 0x55ef1b1fab98 <col:21, col:27> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+    `-ImplicitCastExpr 0x55ef1b1fab80 <col:21> 'GCObject *' <LValueToRValue>
+      `-DeclRefExpr 0x55ef1b1fab58 <col:21> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B4.4] (ImplicitCastExpr, LValueToRValue, GCObject *)
+   6: DeclRefExpr 0x55ef1b1faae0 <lgc.c:423:9> 'global_State *' lvalue Var 0x55ef1b1f6068 'g' 'global_State *'
+g
+   7: ImplicitCastExpr 0x55ef1b1fab08 <lgc.c:423:9> 'global_State *' <LValueToRValue>
+`-DeclRefExpr 0x55ef1b1faae0 <col:9> 'global_State *' lvalue Var 0x55ef1b1f6068 'g' 'global_State *'
+[B4.6] (ImplicitCastExpr, LValueToRValue, global_State *)
+   8: MemberExpr 0x55ef1b1fab20 <lgc.c:423:9, col:12> 'GCObject *' lvalue ->rootgc 0x55ef1b19eca0
+`-ImplicitCastExpr 0x55ef1b1fab08 <col:9> 'global_State *' <LValueToRValue>
+  `-DeclRefExpr 0x55ef1b1faae0 <col:9> 'global_State *' lvalue Var 0x55ef1b1f6068 'g' 'global_State *'
+[B4.7]->rootgc
+   9: BinaryOperator 0x55ef1b1fac20 <lgc.c:423:9, col:31> 'GCObject *' '='
+|-MemberExpr 0x55ef1b1fab20 <col:9, col:12> 'GCObject *' lvalue ->rootgc 0x55ef1b19eca0
+| `-ImplicitCastExpr 0x55ef1b1fab08 <col:9> 'global_State *' <LValueToRValue>
+|   `-DeclRefExpr 0x55ef1b1faae0 <col:9> 'global_State *' lvalue Var 0x55ef1b1f6068 'g' 'global_State *'
+`-ImplicitCastExpr 0x55ef1b1fac08 <col:21, col:31> 'GCObject *' <LValueToRValue>
+  `-MemberExpr 0x55ef1b1fabd0 <col:21, col:31> 'GCObject *' lvalue .next 0x55ef1b17ec78
+    `-MemberExpr 0x55ef1b1fab98 <col:21, col:27> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+      `-ImplicitCastExpr 0x55ef1b1fab80 <col:21> 'GCObject *' <LValueToRValue>
+        `-DeclRefExpr 0x55ef1b1fab58 <col:21> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B4.8] = [B4.5]
+   Preds (1): B5
+   Succs (1): B3
+
+ [B5]
+   1: IntegerLiteral 0x55ef1b1fa820 <./llimits.h:62:31> 'int' 0
+0
+   2: CStyleCastExpr 0x55ef1b1fa850 <./llimits.h:62:25, col:31> 'void' <ToVoid>
+`-IntegerLiteral 0x55ef1b1fa820 <col:31> 'int' 0
+(void)[B5.1] (CStyleCastExpr, ToVoid, void)
+   3: DeclRefExpr 0x55ef1b1fa8f8 <lgc.c:421:12> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+curr
+   4: ImplicitCastExpr 0x55ef1b1fa920 <lgc.c:421:12> 'GCObject *' <LValueToRValue>
+`-DeclRefExpr 0x55ef1b1fa8f8 <col:12> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B5.3] (ImplicitCastExpr, LValueToRValue, GCObject *)
+   5: MemberExpr 0x55ef1b1fa938 <lgc.c:421:12, col:18> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+`-ImplicitCastExpr 0x55ef1b1fa920 <col:12> 'GCObject *' <LValueToRValue>
+  `-DeclRefExpr 0x55ef1b1fa8f8 <col:12> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B5.4]->gch
+   6: MemberExpr 0x55ef1b1fa970 <lgc.c:421:12, col:22> 'GCObject *' lvalue .next 0x55ef1b17ec78
+`-MemberExpr 0x55ef1b1fa938 <col:12, col:18> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+  `-ImplicitCastExpr 0x55ef1b1fa920 <col:12> 'GCObject *' <LValueToRValue>
+    `-DeclRefExpr 0x55ef1b1fa8f8 <col:12> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B5.5].next
+   7: ImplicitCastExpr 0x55ef1b1fa9a8 <lgc.c:421:12, col:22> 'GCObject *' <LValueToRValue>
+`-MemberExpr 0x55ef1b1fa970 <col:12, col:22> 'GCObject *' lvalue .next 0x55ef1b17ec78
+  `-MemberExpr 0x55ef1b1fa938 <col:12, col:18> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+    `-ImplicitCastExpr 0x55ef1b1fa920 <col:12> 'GCObject *' <LValueToRValue>
+      `-DeclRefExpr 0x55ef1b1fa8f8 <col:12> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B5.6] (ImplicitCastExpr, LValueToRValue, GCObject *)
+   8: DeclRefExpr 0x55ef1b1fa898 <lgc.c:421:8> 'GCObject **' lvalue ParmVar 0x55ef1b1f5d68 'p' 'GCObject **'
+p
+   9: ImplicitCastExpr 0x55ef1b1fa8c0 <lgc.c:421:8> 'GCObject **' <LValueToRValue>
+`-DeclRefExpr 0x55ef1b1fa898 <col:8> 'GCObject **' lvalue ParmVar 0x55ef1b1f5d68 'p' 'GCObject **'
+[B5.8] (ImplicitCastExpr, LValueToRValue, GCObject **)
+  10: UnaryOperator 0x55ef1b1fa8d8 <lgc.c:421:7, col:8> 'GCObject *' lvalue prefix '*'
+`-ImplicitCastExpr 0x55ef1b1fa8c0 <col:8> 'GCObject **' <LValueToRValue>
+  `-DeclRefExpr 0x55ef1b1fa898 <col:8> 'GCObject **' lvalue ParmVar 0x55ef1b1f5d68 'p' 'GCObject **'
+*[B5.9]
+  11: BinaryOperator 0x55ef1b1fa9c0 <lgc.c:421:7, col:22> 'GCObject *' '='
+|-UnaryOperator 0x55ef1b1fa8d8 <col:7, col:8> 'GCObject *' lvalue prefix '*'
+| `-ImplicitCastExpr 0x55ef1b1fa8c0 <col:8> 'GCObject **' <LValueToRValue>
+|   `-DeclRefExpr 0x55ef1b1fa898 <col:8> 'GCObject **' lvalue ParmVar 0x55ef1b1f5d68 'p' 'GCObject **'
+`-ImplicitCastExpr 0x55ef1b1fa9a8 <col:12, col:22> 'GCObject *' <LValueToRValue>
+  `-MemberExpr 0x55ef1b1fa970 <col:12, col:22> 'GCObject *' lvalue .next 0x55ef1b17ec78
+    `-MemberExpr 0x55ef1b1fa938 <col:12, col:18> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+      `-ImplicitCastExpr 0x55ef1b1fa920 <col:12> 'GCObject *' <LValueToRValue>
+        `-DeclRefExpr 0x55ef1b1fa8f8 <col:12> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B5.10] = [B5.7]
+  12: DeclRefExpr 0x55ef1b1fa9e8 <lgc.c:422:11> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+curr
+  13: ImplicitCastExpr 0x55ef1b1faa88 <lgc.c:422:11> 'GCObject *' <LValueToRValue>
+`-DeclRefExpr 0x55ef1b1fa9e8 <col:11> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B5.12] (ImplicitCastExpr, LValueToRValue, GCObject *)
+  14: DeclRefExpr 0x55ef1b1faa10 <lgc.c:422:19> 'global_State *' lvalue Var 0x55ef1b1f6068 'g' 'global_State *'
+g
+  15: ImplicitCastExpr 0x55ef1b1faa38 <lgc.c:422:19> 'global_State *' <LValueToRValue>
+`-DeclRefExpr 0x55ef1b1faa10 <col:19> 'global_State *' lvalue Var 0x55ef1b1f6068 'g' 'global_State *'
+[B5.14] (ImplicitCastExpr, LValueToRValue, global_State *)
+  16: MemberExpr 0x55ef1b1faa50 <lgc.c:422:19, col:22> 'GCObject *' lvalue ->rootgc 0x55ef1b19eca0
+`-ImplicitCastExpr 0x55ef1b1faa38 <col:19> 'global_State *' <LValueToRValue>
+  `-DeclRefExpr 0x55ef1b1faa10 <col:19> 'global_State *' lvalue Var 0x55ef1b1f6068 'g' 'global_State *'
+[B5.15]->rootgc
+  17: ImplicitCastExpr 0x55ef1b1faaa0 <lgc.c:422:19, col:22> 'GCObject *' <LValueToRValue>
+`-MemberExpr 0x55ef1b1faa50 <col:19, col:22> 'GCObject *' lvalue ->rootgc 0x55ef1b19eca0
+  `-ImplicitCastExpr 0x55ef1b1faa38 <col:19> 'global_State *' <LValueToRValue>
+    `-DeclRefExpr 0x55ef1b1faa10 <col:19> 'global_State *' lvalue Var 0x55ef1b1f6068 'g' 'global_State *'
+[B5.16] (ImplicitCastExpr, LValueToRValue, GCObject *)
+  18: BinaryOperator 0x55ef1b1faab8 <lgc.c:422:11, col:22> 'int' '=='
+|-ImplicitCastExpr 0x55ef1b1faa88 <col:11> 'GCObject *' <LValueToRValue>
+| `-DeclRefExpr 0x55ef1b1fa9e8 <col:11> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+`-ImplicitCastExpr 0x55ef1b1faaa0 <col:19, col:22> 'GCObject *' <LValueToRValue>
+  `-MemberExpr 0x55ef1b1faa50 <col:19, col:22> 'GCObject *' lvalue ->rootgc 0x55ef1b19eca0
+    `-ImplicitCastExpr 0x55ef1b1faa38 <col:19> 'global_State *' <LValueToRValue>
+      `-DeclRefExpr 0x55ef1b1faa10 <col:19> 'global_State *' lvalue Var 0x55ef1b1f6068 'g' 'global_State *'
+[B5.13] == [B5.17]
+   T: if [B5.18]
+   Preds (1): B7
+   Succs (2): B4 B3
+
+ [B6]
+   1: IntegerLiteral 0x55ef1b1f6f98 <./llimits.h:62:31> 'int' 0
+0
+   2: CStyleCastExpr 0x55ef1b1f6fc8 <./llimits.h:62:25, col:31> 'void' <ToVoid>
+`-IntegerLiteral 0x55ef1b1f6f98 <col:31> 'int' 0
+(void)[B6.1] (CStyleCastExpr, ToVoid, void)
+   3: DeclRefExpr 0x55ef1b1f70e0 <lgc.c:416:20> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+curr
+   4: ImplicitCastExpr 0x55ef1b1f7128 <lgc.c:35:34, col:36> 'GCObject *' <LValueToRValue>
+`-ParenExpr 0x55ef1b1f7108 <col:34, col:36> 'GCObject *' lvalue
+  `-DeclRefExpr 0x55ef1b1f70e0 <line:416:20> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+([B6.3]) (ImplicitCastExpr, LValueToRValue, GCObject *)
+   5: MemberExpr 0x55ef1b1f7140 <lgc.c:35:34, col:39> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+`-ImplicitCastExpr 0x55ef1b1f7128 <col:34, col:36> 'GCObject *' <LValueToRValue>
+  `-ParenExpr 0x55ef1b1f7108 <col:34, col:36> 'GCObject *' lvalue
+    `-DeclRefExpr 0x55ef1b1f70e0 <line:416:20> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B6.4]->gch
+   6: MemberExpr 0x55ef1b1f7178 <lgc.c:35:34, col:43> 'lu_byte':'unsigned char' lvalue .marked 0x55ef1b17ed48
+`-MemberExpr 0x55ef1b1f7140 <col:34, col:39> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+  `-ImplicitCastExpr 0x55ef1b1f7128 <col:34, col:36> 'GCObject *' <LValueToRValue>
+    `-ParenExpr 0x55ef1b1f7108 <col:34, col:36> 'GCObject *' lvalue
+      `-DeclRefExpr 0x55ef1b1f70e0 <line:416:20> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B6.5].marked
+   7: ImplicitCastExpr 0x55ef1b1f7520 <lgc.c:35:34, col:43> 'lu_byte':'unsigned char' <LValueToRValue>
+`-MemberExpr 0x55ef1b1f7178 <col:34, col:43> 'lu_byte':'unsigned char' lvalue .marked 0x55ef1b17ed48
+  `-MemberExpr 0x55ef1b1f7140 <col:34, col:39> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+    `-ImplicitCastExpr 0x55ef1b1f7128 <col:34, col:36> 'GCObject *' <LValueToRValue>
+      `-ParenExpr 0x55ef1b1f7108 <col:34, col:36> 'GCObject *' lvalue
+        `-DeclRefExpr 0x55ef1b1f70e0 <line:416:20> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B6.6] (ImplicitCastExpr, LValueToRValue, lu_byte)
+   8: ImplicitCastExpr 0x55ef1b1f7538 <lgc.c:35:34, col:43> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x55ef1b1f7520 <col:34, col:43> 'lu_byte':'unsigned char' <LValueToRValue>
+  `-MemberExpr 0x55ef1b1f7178 <col:34, col:43> 'lu_byte':'unsigned char' lvalue .marked 0x55ef1b17ed48
+    `-MemberExpr 0x55ef1b1f7140 <col:34, col:39> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+      `-ImplicitCastExpr 0x55ef1b1f7128 <col:34, col:36> 'GCObject *' <LValueToRValue>
+        `-ParenExpr 0x55ef1b1f7108 <col:34, col:36> 'GCObject *' lvalue
+          `-DeclRefExpr 0x55ef1b1f70e0 <line:416:20> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B6.7] (ImplicitCastExpr, IntegralCast, int)
+   9: IntegerLiteral 0x55ef1b1f71b0 <./lgc.h:30:21> 'int' 1
+1
+  10: IntegerLiteral 0x55ef1b1f71d0 <./lgc.h:56:18> 'int' 2
+2
+  11: BinaryOperator 0x55ef1b1f7210 <./lgc.h:30:21, col:26> 'int' '<<'
+|-IntegerLiteral 0x55ef1b1f71b0 <col:21> 'int' 1
+`-ParenExpr 0x55ef1b1f71f0 <col:24, col:26> 'int'
+  `-IntegerLiteral 0x55ef1b1f71d0 <line:56:18> 'int' 2
+[B6.9] << ([B6.10])
+  12: IntegerLiteral 0x55ef1b1f7258 <./lgc.h:30:21> 'int' 1
+1
+  13: IntegerLiteral 0x55ef1b1f7278 <./lgc.h:54:19> 'int' 0
+0
+  14: BinaryOperator 0x55ef1b1f72b8 <./lgc.h:30:21, col:26> 'int' '<<'
+|-IntegerLiteral 0x55ef1b1f7258 <col:21> 'int' 1
+`-ParenExpr 0x55ef1b1f7298 <col:24, col:26> 'int'
+  `-IntegerLiteral 0x55ef1b1f7278 <line:54:19> 'int' 0
+[B6.12] << ([B6.13])
+  15: IntegerLiteral 0x55ef1b1f7300 <./lgc.h:30:21> 'int' 1
+1
+  16: IntegerLiteral 0x55ef1b1f7320 <./lgc.h:55:19> 'int' 1
+1
+  17: BinaryOperator 0x55ef1b1f7360 <./lgc.h:30:21, col:26> 'int' '<<'
+|-IntegerLiteral 0x55ef1b1f7300 <col:21> 'int' 1
+`-ParenExpr 0x55ef1b1f7340 <col:24, col:26> 'int'
+  `-IntegerLiteral 0x55ef1b1f7320 <line:55:19> 'int' 1
+[B6.15] << ([B6.16])
+  18: BinaryOperator 0x55ef1b1f73a8 <./lgc.h:30:20, col:27> 'int' '|'
+|-ParenExpr 0x55ef1b1f72e0 <col:20, col:27> 'int'
+| `-BinaryOperator 0x55ef1b1f72b8 <col:21, col:26> 'int' '<<'
+|   |-IntegerLiteral 0x55ef1b1f7258 <col:21> 'int' 1
+|   `-ParenExpr 0x55ef1b1f7298 <col:24, col:26> 'int'
+|     `-IntegerLiteral 0x55ef1b1f7278 <line:54:19> 'int' 0
+`-ParenExpr 0x55ef1b1f7388 <line:30:20, col:27> 'int'
+  `-BinaryOperator 0x55ef1b1f7360 <col:21, col:26> 'int' '<<'
+    |-IntegerLiteral 0x55ef1b1f7300 <col:21> 'int' 1
+    `-ParenExpr 0x55ef1b1f7340 <col:24, col:26> 'int'
+      `-IntegerLiteral 0x55ef1b1f7320 <line:55:19> 'int' 1
+([B6.14]) | ([B6.17])
+  19: BinaryOperator 0x55ef1b1f73f0 <./lgc.h:30:20, line:31:51> 'int' '|'
+|-ParenExpr 0x55ef1b1f7238 <line:30:20, col:27> 'int'
+| `-BinaryOperator 0x55ef1b1f7210 <col:21, col:26> 'int' '<<'
+|   |-IntegerLiteral 0x55ef1b1f71b0 <col:21> 'int' 1
+|   `-ParenExpr 0x55ef1b1f71f0 <col:24, col:26> 'int'
+|     `-IntegerLiteral 0x55ef1b1f71d0 <line:56:18> 'int' 2
+`-ParenExpr 0x55ef1b1f73d0 <line:31:25, col:51> 'int'
+  `-BinaryOperator 0x55ef1b1f73a8 <line:30:20, col:27> 'int' '|'
+    |-ParenExpr 0x55ef1b1f72e0 <col:20, col:27> 'int'
+    | `-BinaryOperator 0x55ef1b1f72b8 <col:21, col:26> 'int' '<<'
+    |   |-IntegerLiteral 0x55ef1b1f7258 <col:21> 'int' 1
+    |   `-ParenExpr 0x55ef1b1f7298 <col:24, col:26> 'int'
+    |     `-IntegerLiteral 0x55ef1b1f7278 <line:54:19> 'int' 0
+    `-ParenExpr 0x55ef1b1f7388 <line:30:20, col:27> 'int'
+      `-BinaryOperator 0x55ef1b1f7360 <col:21, col:26> 'int' '<<'
+        |-IntegerLiteral 0x55ef1b1f7300 <col:21> 'int' 1
+        `-ParenExpr 0x55ef1b1f7340 <col:24, col:26> 'int'
+          `-IntegerLiteral 0x55ef1b1f7320 <line:55:19> 'int' 1
+([B6.11]) | ([B6.18])
+  20: UnaryOperator 0x55ef1b1f7438 <lgc.c:32:29, col:58> 'int' prefix '~'
+`-ParenExpr 0x55ef1b1f7418 <col:30, col:58> 'int'
+  `-BinaryOperator 0x55ef1b1f73f0 <./lgc.h:30:20, line:31:51> 'int' '|'
+    |-ParenExpr 0x55ef1b1f7238 <line:30:20, col:27> 'int'
+    | `-BinaryOperator 0x55ef1b1f7210 <col:21, col:26> 'int' '<<'
+    |   |-IntegerLiteral 0x55ef1b1f71b0 <col:21> 'int' 1
+    |   `-ParenExpr 0x55ef1b1f71f0 <col:24, col:26> 'int'
+    |     `-IntegerLiteral 0x55ef1b1f71d0 <line:56:18> 'int' 2
+    `-ParenExpr 0x55ef1b1f73d0 <line:31:25, col:51> 'int'
+      `-BinaryOperator 0x55ef1b1f73a8 <line:30:20, col:27> 'int' '|'
+        |-ParenExpr 0x55ef1b1f72e0 <col:20, col:27> 'int'
+        | `-BinaryOperator 0x55ef1b1f72b8 <col:21, col:26> 'int' '<<'
+        |   |-IntegerLiteral 0x55ef1b1f7258 <col:21> 'int' 1
+        |   `-ParenExpr 0x55ef1b1f7298 <col:24, col:26> 'int'
+        |     `-IntegerLiteral 0x55ef1b1f7278 <line:54:19> 'int' 0
+        `-ParenExpr 0x55ef1b1f7388 <line:30:20, col:27> 'int'
+          `-BinaryOperator 0x55ef1b1f7360 <col:21, col:26> 'int' '<<'
+            |-IntegerLiteral 0x55ef1b1f7300 <col:21> 'int' 1
+            `-ParenExpr 0x55ef1b1f7340 <col:24, col:26> 'int'
+              `-IntegerLiteral 0x55ef1b1f7320 <line:55:19> 'int' 1
+~([B6.19])
+  21: CStyleCastExpr 0x55ef1b1f74d8 <./llimits.h:75:23, col:30> 'lu_byte':'unsigned char' <IntegralCast>
+`-ParenExpr 0x55ef1b1f74b8 <col:26, col:30> 'int'
+  `-ParenExpr 0x55ef1b1f7458 <line:78:36, col:38> 'int'
+    `-UnaryOperator 0x55ef1b1f7438 <lgc.c:32:29, col:58> 'int' prefix '~'
+      `-ParenExpr 0x55ef1b1f7418 <col:30, col:58> 'int'
+        `-BinaryOperator 0x55ef1b1f73f0 <./lgc.h:30:20, line:31:51> 'int' '|'
+          |-ParenExpr 0x55ef1b1f7238 <line:30:20, col:27> 'int'
+          | `-BinaryOperator 0x55ef1b1f7210 <col:21, col:26> 'int' '<<'
+          |   |-IntegerLiteral 0x55ef1b1f71b0 <col:21> 'int' 1
+          |   `-ParenExpr 0x55ef1b1f71f0 <col:24, col:26> 'int'
+          |     `-IntegerLiteral 0x55ef1b1f71d0 <line:56:18> 'int' 2
+          `-ParenExpr 0x55ef1b1f73d0 <line:31:25, col:51> 'int'
+            `-BinaryOperator 0x55ef1b1f73a8 <line:30:20, col:27> 'int' '|'
+              |-ParenExpr 0x55ef1b1f72e0 <col:20, col:27> 'int'
+              | `-BinaryOperator 0x55ef1b1f72b8 <col:21, col:26> 'int' '<<'
+              |   |-IntegerLiteral 0x55ef1b1f7258 <col:21> 'int' 1
+              |   `-ParenExpr 0x55ef1b1f7298 <col:24, col:26> 'int'
+              |     `-IntegerLiteral 0x55ef1b1f7278 <line:54:19> 'int' 0
+              `-ParenExpr 0x55ef1b1f7388 <line:30:20, col:27> 'int'
+                `-BinaryOperator 0x55ef1b1f7360 <col:21, col:26> 'int' '<<'
+                  |-IntegerLiteral 0x55ef1b1f7300 <col:21> 'int' 1
+                  `-ParenExpr 0x55ef1b1f7340 <col:24, col:26> 'int'
+                    `-IntegerLiteral 0x55ef1b1f7320 <line:55:19> 'int' 1
+(lu_byte)(([B6.20])) (CStyleCastExpr, IntegralCast, lu_byte)
+  22: ImplicitCastExpr 0x55ef1b1f7550 <./llimits.h:75:22, col:31> 'int' <IntegralCast>
+`-ParenExpr 0x55ef1b1f7500 <col:22, col:31> 'lu_byte':'unsigned char'
+  `-CStyleCastExpr 0x55ef1b1f74d8 <col:23, col:30> 'lu_byte':'unsigned char' <IntegralCast>
+    `-ParenExpr 0x55ef1b1f74b8 <col:26, col:30> 'int'
+      `-ParenExpr 0x55ef1b1f7458 <line:78:36, col:38> 'int'
+        `-UnaryOperator 0x55ef1b1f7438 <lgc.c:32:29, col:58> 'int' prefix '~'
+          `-ParenExpr 0x55ef1b1f7418 <col:30, col:58> 'int'
+            `-BinaryOperator 0x55ef1b1f73f0 <./lgc.h:30:20, line:31:51> 'int' '|'
+              |-ParenExpr 0x55ef1b1f7238 <line:30:20, col:27> 'int'
+              | `-BinaryOperator 0x55ef1b1f7210 <col:21, col:26> 'int' '<<'
+              |   |-IntegerLiteral 0x55ef1b1f71b0 <col:21> 'int' 1
+              |   `-ParenExpr 0x55ef1b1f71f0 <col:24, col:26> 'int'
+              |     `-IntegerLiteral 0x55ef1b1f71d0 <line:56:18> 'int' 2
+              `-ParenExpr 0x55ef1b1f73d0 <line:31:25, col:51> 'int'
+                `-BinaryOperator 0x55ef1b1f73a8 <line:30:20, col:27> 'int' '|'
+                  |-ParenExpr 0x55ef1b1f72e0 <col:20, col:27> 'int'
+                  | `-BinaryOperator 0x55ef1b1f72b8 <col:21, col:26> 'int' '<<'
+                  |   |-IntegerLiteral 0x55ef1b1f7258 <col:21> 'int' 1
+                  |   `-ParenExpr 0x55ef1b1f7298 <col:24, col:26> 'int'
+                  |     `-IntegerLiteral 0x55ef1b1f7278 <line:54:19> 'int' 0
+                  `-ParenExpr 0x55ef1b1f7388 <line:30:20, col:27> 'int'
+                    `-BinaryOperator 0x55ef1b1f7360 <col:21, col:26> 'int' '<<'
+                      |-IntegerLiteral 0x55ef1b1f7300 <col:21> 'int' 1
+                      `-ParenExpr 0x55ef1b1f7340 <col:24, col:26> 'int'
+                        `-IntegerLiteral 0x55ef1b1f7320 <line:55:19> 'int' 1
+([B6.21]) (ImplicitCastExpr, IntegralCast, int)
+  23: BinaryOperator 0x55ef1b1f7568 <lgc.c:35:34, ./llimits.h:75:31> 'int' '&'
+|-ImplicitCastExpr 0x55ef1b1f7538 <lgc.c:35:34, col:43> 'int' <IntegralCast>
+| `-ImplicitCastExpr 0x55ef1b1f7520 <col:34, col:43> 'lu_byte':'unsigned char' <LValueToRValue>
+|   `-MemberExpr 0x55ef1b1f7178 <col:34, col:43> 'lu_byte':'unsigned char' lvalue .marked 0x55ef1b17ed48
+|     `-MemberExpr 0x55ef1b1f7140 <col:34, col:39> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+|       `-ImplicitCastExpr 0x55ef1b1f7128 <col:34, col:36> 'GCObject *' <LValueToRValue>
+|         `-ParenExpr 0x55ef1b1f7108 <col:34, col:36> 'GCObject *' lvalue
+|           `-DeclRefExpr 0x55ef1b1f70e0 <line:416:20> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+`-ImplicitCastExpr 0x55ef1b1f7550 <./llimits.h:75:22, col:31> 'int' <IntegralCast>
+  `-ParenExpr 0x55ef1b1f7500 <col:22, col:31> 'lu_byte':'unsigned char'
+    `-CStyleCastExpr 0x55ef1b1f74d8 <col:23, col:30> 'lu_byte':'unsigned char' <IntegralCast>
+      `-ParenExpr 0x55ef1b1f74b8 <col:26, col:30> 'int'
+        `-ParenExpr 0x55ef1b1f7458 <line:78:36, col:38> 'int'
+          `-UnaryOperator 0x55ef1b1f7438 <lgc.c:32:29, col:58> 'int' prefix '~'
+            `-ParenExpr 0x55ef1b1f7418 <col:30, col:58> 'int'
+              `-BinaryOperator 0x55ef1b1f73f0 <./lgc.h:30:20, line:31:51> 'int' '|'
+                |-ParenExpr 0x55ef1b1f7238 <line:30:20, col:27> 'int'
+                | `-BinaryOperator 0x55ef1b1f7210 <col:21, col:26> 'int' '<<'
+                |   |-IntegerLiteral 0x55ef1b1f71b0 <col:21> 'int' 1
+                |   `-ParenExpr 0x55ef1b1f71f0 <col:24, col:26> 'int'
+                |     `-IntegerLiteral 0x55ef1b1f71d0 <line:56:18> 'int' 2
+                `-ParenExpr 0x55ef1b1f73d0 <line:31:25, col:51> 'int'
+                  `-BinaryOperator 0x55ef1b1f73a8 <line:30:20, col:27> 'int' '|'
+                    |-ParenExpr 0x55ef1b1f72e0 <col:20, col:27> 'int'
+                    | `-BinaryOperator 0x55ef1b1f72b8 <col:21, col:26> 'int' '<<'
+                    |   |-IntegerLiteral 0x55ef1b1f7258 <col:21> 'int' 1
+                    |   `-ParenExpr 0x55ef1b1f7298 <col:24, col:26> 'int'
+                    |     `-IntegerLiteral 0x55ef1b1f7278 <line:54:19> 'int' 0
+                    `-ParenExpr 0x55ef1b1f7388 <line:30:20, col:27> 'int'
+                      `-BinaryOperator 0x55ef1b1f7360 <col:21, col:26> 'int' '<<'
+                        |-IntegerLiteral 0x55ef1b1f7300 <col:21> 'int' 1
+                        `-ParenExpr 0x55ef1b1f7340 <col:24, col:26> 'int'
+                          `-IntegerLiteral 0x55ef1b1f7320 <line:55:19> 'int' 1
+[B6.8] & [B6.22]
+  24: DeclRefExpr 0x55ef1b1f75b0 <lgc.c:416:17> 'global_State *' lvalue Var 0x55ef1b1f6068 'g' 'global_State *'
+g
+  25: ImplicitCastExpr 0x55ef1b1f75f8 <./lgc.h:77:37, col:39> 'global_State *' <LValueToRValue>
+`-ParenExpr 0x55ef1b1f75d8 <col:37, col:39> 'global_State *' lvalue
+  `-DeclRefExpr 0x55ef1b1f75b0 <lgc.c:416:17> 'global_State *' lvalue Var 0x55ef1b1f6068 'g' 'global_State *'
+([B6.24]) (ImplicitCastExpr, LValueToRValue, global_State *)
+  26: MemberExpr 0x55ef1b1f7610 <./lgc.h:77:37, col:42> 'lu_byte':'unsigned char' lvalue ->currentwhite 0x55ef1b19eb90
+`-ImplicitCastExpr 0x55ef1b1f75f8 <col:37, col:39> 'global_State *' <LValueToRValue>
+  `-ParenExpr 0x55ef1b1f75d8 <col:37, col:39> 'global_State *' lvalue
+    `-DeclRefExpr 0x55ef1b1f75b0 <lgc.c:416:17> 'global_State *' lvalue Var 0x55ef1b1f6068 'g' 'global_State *'
+[B6.25]->currentwhite
+  27: ImplicitCastExpr 0x55ef1b1f77e0 <./lgc.h:77:37, col:42> 'lu_byte':'unsigned char' <LValueToRValue>
+`-MemberExpr 0x55ef1b1f7610 <col:37, col:42> 'lu_byte':'unsigned char' lvalue ->currentwhite 0x55ef1b19eb90
+  `-ImplicitCastExpr 0x55ef1b1f75f8 <col:37, col:39> 'global_State *' <LValueToRValue>
+    `-ParenExpr 0x55ef1b1f75d8 <col:37, col:39> 'global_State *' lvalue
+      `-DeclRefExpr 0x55ef1b1f75b0 <lgc.c:416:17> 'global_State *' lvalue Var 0x55ef1b1f6068 'g' 'global_State *'
+[B6.26] (ImplicitCastExpr, LValueToRValue, lu_byte)
+  28: ImplicitCastExpr 0x55ef1b1f77f8 <./lgc.h:77:37, col:42> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x55ef1b1f77e0 <col:37, col:42> 'lu_byte':'unsigned char' <LValueToRValue>
+  `-MemberExpr 0x55ef1b1f7610 <col:37, col:42> 'lu_byte':'unsigned char' lvalue ->currentwhite 0x55ef1b19eb90
+    `-ImplicitCastExpr 0x55ef1b1f75f8 <col:37, col:39> 'global_State *' <LValueToRValue>
+      `-ParenExpr 0x55ef1b1f75d8 <col:37, col:39> 'global_State *' lvalue
+        `-DeclRefExpr 0x55ef1b1f75b0 <lgc.c:416:17> 'global_State *' lvalue Var 0x55ef1b1f6068 'g' 'global_State *'
+[B6.27] (ImplicitCastExpr, IntegralCast, int)
+  29: IntegerLiteral 0x55ef1b1f7648 <./lgc.h:30:21> 'int' 1
+1
+  30: IntegerLiteral 0x55ef1b1f7668 <./lgc.h:54:19> 'int' 0
+0
+  31: BinaryOperator 0x55ef1b1f76a8 <./lgc.h:30:21, col:26> 'int' '<<'
+|-IntegerLiteral 0x55ef1b1f7648 <col:21> 'int' 1
+`-ParenExpr 0x55ef1b1f7688 <col:24, col:26> 'int'
+  `-IntegerLiteral 0x55ef1b1f7668 <line:54:19> 'int' 0
+[B6.29] << ([B6.30])
+  32: IntegerLiteral 0x55ef1b1f76f0 <./lgc.h:30:21> 'int' 1
+1
+  33: IntegerLiteral 0x55ef1b1f7710 <./lgc.h:55:19> 'int' 1
+1
+  34: BinaryOperator 0x55ef1b1f7750 <./lgc.h:30:21, col:26> 'int' '<<'
+|-IntegerLiteral 0x55ef1b1f76f0 <col:21> 'int' 1
+`-ParenExpr 0x55ef1b1f7730 <col:24, col:26> 'int'
+  `-IntegerLiteral 0x55ef1b1f7710 <line:55:19> 'int' 1
+[B6.32] << ([B6.33])
+  35: BinaryOperator 0x55ef1b1f7798 <./lgc.h:30:20, col:27> 'int' '|'
+|-ParenExpr 0x55ef1b1f76d0 <col:20, col:27> 'int'
+| `-BinaryOperator 0x55ef1b1f76a8 <col:21, col:26> 'int' '<<'
+|   |-IntegerLiteral 0x55ef1b1f7648 <col:21> 'int' 1
+|   `-ParenExpr 0x55ef1b1f7688 <col:24, col:26> 'int'
+|     `-IntegerLiteral 0x55ef1b1f7668 <line:54:19> 'int' 0
+`-ParenExpr 0x55ef1b1f7778 <line:30:20, col:27> 'int'
+  `-BinaryOperator 0x55ef1b1f7750 <col:21, col:26> 'int' '<<'
+    |-IntegerLiteral 0x55ef1b1f76f0 <col:21> 'int' 1
+    `-ParenExpr 0x55ef1b1f7730 <col:24, col:26> 'int'
+      `-IntegerLiteral 0x55ef1b1f7710 <line:55:19> 'int' 1
+([B6.31]) | ([B6.34])
+  36: BinaryOperator 0x55ef1b1f7810 <./lgc.h:77:37, line:31:51> 'int' '&'
+|-ImplicitCastExpr 0x55ef1b1f77f8 <line:77:37, col:42> 'int' <IntegralCast>
+| `-ImplicitCastExpr 0x55ef1b1f77e0 <col:37, col:42> 'lu_byte':'unsigned char' <LValueToRValue>
+|   `-MemberExpr 0x55ef1b1f7610 <col:37, col:42> 'lu_byte':'unsigned char' lvalue ->currentwhite 0x55ef1b19eb90
+|     `-ImplicitCastExpr 0x55ef1b1f75f8 <col:37, col:39> 'global_State *' <LValueToRValue>
+|       `-ParenExpr 0x55ef1b1f75d8 <col:37, col:39> 'global_State *' lvalue
+|         `-DeclRefExpr 0x55ef1b1f75b0 <lgc.c:416:17> 'global_State *' lvalue Var 0x55ef1b1f6068 'g' 'global_State *'
+`-ParenExpr 0x55ef1b1f77c0 <./lgc.h:31:25, col:51> 'int'
+  `-BinaryOperator 0x55ef1b1f7798 <line:30:20, col:27> 'int' '|'
+    |-ParenExpr 0x55ef1b1f76d0 <col:20, col:27> 'int'
+    | `-BinaryOperator 0x55ef1b1f76a8 <col:21, col:26> 'int' '<<'
+    |   |-IntegerLiteral 0x55ef1b1f7648 <col:21> 'int' 1
+    |   `-ParenExpr 0x55ef1b1f7688 <col:24, col:26> 'int'
+    |     `-IntegerLiteral 0x55ef1b1f7668 <line:54:19> 'int' 0
+    `-ParenExpr 0x55ef1b1f7778 <line:30:20, col:27> 'int'
+      `-BinaryOperator 0x55ef1b1f7750 <col:21, col:26> 'int' '<<'
+        |-IntegerLiteral 0x55ef1b1f76f0 <col:21> 'int' 1
+        `-ParenExpr 0x55ef1b1f7730 <col:24, col:26> 'int'
+          `-IntegerLiteral 0x55ef1b1f7710 <line:55:19> 'int' 1
+[B6.28] & ([B6.35])
+  37: CStyleCastExpr 0x55ef1b1f7898 <./llimits.h:75:23, col:30> 'lu_byte':'unsigned char' <IntegralCast>
+`-ParenExpr 0x55ef1b1f7878 <col:26, col:30> 'int'
+  `-BinaryOperator 0x55ef1b1f7810 <./lgc.h:77:37, line:31:51> 'int' '&'
+    |-ImplicitCastExpr 0x55ef1b1f77f8 <line:77:37, col:42> 'int' <IntegralCast>
+    | `-ImplicitCastExpr 0x55ef1b1f77e0 <col:37, col:42> 'lu_byte':'unsigned char' <LValueToRValue>
+    |   `-MemberExpr 0x55ef1b1f7610 <col:37, col:42> 'lu_byte':'unsigned char' lvalue ->currentwhite 0x55ef1b19eb90
+    |     `-ImplicitCastExpr 0x55ef1b1f75f8 <col:37, col:39> 'global_State *' <LValueToRValue>
+    |       `-ParenExpr 0x55ef1b1f75d8 <col:37, col:39> 'global_State *' lvalue
+    |         `-DeclRefExpr 0x55ef1b1f75b0 <lgc.c:416:17> 'global_State *' lvalue Var 0x55ef1b1f6068 'g' 'global_State *'
+    `-ParenExpr 0x55ef1b1f77c0 <./lgc.h:31:25, col:51> 'int'
+      `-BinaryOperator 0x55ef1b1f7798 <line:30:20, col:27> 'int' '|'
+        |-ParenExpr 0x55ef1b1f76d0 <col:20, col:27> 'int'
+        | `-BinaryOperator 0x55ef1b1f76a8 <col:21, col:26> 'int' '<<'
+        |   |-IntegerLiteral 0x55ef1b1f7648 <col:21> 'int' 1
+        |   `-ParenExpr 0x55ef1b1f7688 <col:24, col:26> 'int'
+        |     `-IntegerLiteral 0x55ef1b1f7668 <line:54:19> 'int' 0
+        `-ParenExpr 0x55ef1b1f7778 <line:30:20, col:27> 'int'
+          `-BinaryOperator 0x55ef1b1f7750 <col:21, col:26> 'int' '<<'
+            |-IntegerLiteral 0x55ef1b1f76f0 <col:21> 'int' 1
+            `-ParenExpr 0x55ef1b1f7730 <col:24, col:26> 'int'
+              `-IntegerLiteral 0x55ef1b1f7710 <line:55:19> 'int' 1
+(lu_byte)([B6.36]) (CStyleCastExpr, IntegralCast, lu_byte)
+  38: ImplicitCastExpr 0x55ef1b1f78e0 <./llimits.h:75:22, col:31> 'int' <IntegralCast>
+`-ParenExpr 0x55ef1b1f78c0 <col:22, col:31> 'lu_byte':'unsigned char'
+  `-CStyleCastExpr 0x55ef1b1f7898 <col:23, col:30> 'lu_byte':'unsigned char' <IntegralCast>
+    `-ParenExpr 0x55ef1b1f7878 <col:26, col:30> 'int'
+      `-BinaryOperator 0x55ef1b1f7810 <./lgc.h:77:37, line:31:51> 'int' '&'
+        |-ImplicitCastExpr 0x55ef1b1f77f8 <line:77:37, col:42> 'int' <IntegralCast>
+        | `-ImplicitCastExpr 0x55ef1b1f77e0 <col:37, col:42> 'lu_byte':'unsigned char' <LValueToRValue>
+        |   `-MemberExpr 0x55ef1b1f7610 <col:37, col:42> 'lu_byte':'unsigned char' lvalue ->currentwhite 0x55ef1b19eb90
+        |     `-ImplicitCastExpr 0x55ef1b1f75f8 <col:37, col:39> 'global_State *' <LValueToRValue>
+        |       `-ParenExpr 0x55ef1b1f75d8 <col:37, col:39> 'global_State *' lvalue
+        |         `-DeclRefExpr 0x55ef1b1f75b0 <lgc.c:416:17> 'global_State *' lvalue Var 0x55ef1b1f6068 'g' 'global_State *'
+        `-ParenExpr 0x55ef1b1f77c0 <./lgc.h:31:25, col:51> 'int'
+          `-BinaryOperator 0x55ef1b1f7798 <line:30:20, col:27> 'int' '|'
+            |-ParenExpr 0x55ef1b1f76d0 <col:20, col:27> 'int'
+            | `-BinaryOperator 0x55ef1b1f76a8 <col:21, col:26> 'int' '<<'
+            |   |-IntegerLiteral 0x55ef1b1f7648 <col:21> 'int' 1
+            |   `-ParenExpr 0x55ef1b1f7688 <col:24, col:26> 'int'
+            |     `-IntegerLiteral 0x55ef1b1f7668 <line:54:19> 'int' 0
+            `-ParenExpr 0x55ef1b1f7778 <line:30:20, col:27> 'int'
+              `-BinaryOperator 0x55ef1b1f7750 <col:21, col:26> 'int' '<<'
+                |-IntegerLiteral 0x55ef1b1f76f0 <col:21> 'int' 1
+                `-ParenExpr 0x55ef1b1f7730 <col:24, col:26> 'int'
+                  `-IntegerLiteral 0x55ef1b1f7710 <line:55:19> 'int' 1
+([B6.37]) (ImplicitCastExpr, IntegralCast, int)
+  39: BinaryOperator 0x55ef1b1f78f8 <lgc.c:35:33, ./llimits.h:75:31> 'int' '|'
+|-ParenExpr 0x55ef1b1f7590 <lgc.c:35:33, col:61> 'int'
+| `-BinaryOperator 0x55ef1b1f7568 <col:34, ./llimits.h:75:31> 'int' '&'
+|   |-ImplicitCastExpr 0x55ef1b1f7538 <lgc.c:35:34, col:43> 'int' <IntegralCast>
+|   | `-ImplicitCastExpr 0x55ef1b1f7520 <col:34, col:43> 'lu_byte':'unsigned char' <LValueToRValue>
+|   |   `-MemberExpr 0x55ef1b1f7178 <col:34, col:43> 'lu_byte':'unsigned char' lvalue .marked 0x55ef1b17ed48
+|   |     `-MemberExpr 0x55ef1b1f7140 <col:34, col:39> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+|   |       `-ImplicitCastExpr 0x55ef1b1f7128 <col:34, col:36> 'GCObject *' <LValueToRValue>
+|   |         `-ParenExpr 0x55ef1b1f7108 <col:34, col:36> 'GCObject *' lvalue
+|   |           `-DeclRefExpr 0x55ef1b1f70e0 <line:416:20> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+|   `-ImplicitCastExpr 0x55ef1b1f7550 <./llimits.h:75:22, col:31> 'int' <IntegralCast>
+|     `-ParenExpr 0x55ef1b1f7500 <col:22, col:31> 'lu_byte':'unsigned char'
+|       `-CStyleCastExpr 0x55ef1b1f74d8 <col:23, col:30> 'lu_byte':'unsigned char' <IntegralCast>
+|         `-ParenExpr 0x55ef1b1f74b8 <col:26, col:30> 'int'
+|           `-ParenExpr 0x55ef1b1f7458 <line:78:36, col:38> 'int'
+|             `-UnaryOperator 0x55ef1b1f7438 <lgc.c:32:29, col:58> 'int' prefix '~'
+|               `-ParenExpr 0x55ef1b1f7418 <col:30, col:58> 'int'
+|                 `-BinaryOperator 0x55ef1b1f73f0 <./lgc.h:30:20, line:31:51> 'int' '|'
+|                   |-ParenExpr 0x55ef1b1f7238 <line:30:20, col:27> 'int'
+|                   | `-BinaryOperator 0x55ef1b1f7210 <col:21, col:26> 'int' '<<'
+|                   |   |-IntegerLiteral 0x55ef1b1f71b0 <col:21> 'int' 1
+|                   |   `-ParenExpr 0x55ef1b1f71f0 <col:24, col:26> 'int'
+|                   |     `-IntegerLiteral 0x55ef1b1f71d0 <line:56:18> 'int' 2
+|                   `-ParenExpr 0x55ef1b1f73d0 <line:31:25, col:51> 'int'
+|                     `-BinaryOperator 0x55ef1b1f73a8 <line:30:20, col:27> 'int' '|'
+|                       |-ParenExpr 0x55ef1b1f72e0 <col:20, col:27> 'int'
+|                       | `-BinaryOperator 0x55ef1b1f72b8 <col:21, col:26> 'int' '<<'
+|                       |   |-IntegerLiteral 0x55ef1b1f7258 <col:21> 'int' 1
+|                       |   `-ParenExpr 0x55ef1b1f7298 <col:24, col:26> 'int'
+|                       |     `-IntegerLiteral 0x55ef1b1f7278 <line:54:19> 'int' 0
+|                       `-ParenExpr 0x55ef1b1f7388 <line:30:20, col:27> 'int'
+|                         `-BinaryOperator 0x55ef1b1f7360 <col:21, col:26> 'int' '<<'
+|                           |-IntegerLiteral 0x55ef1b1f7300 <col:21> 'int' 1
+|                           `-ParenExpr 0x55ef1b1f7340 <col:24, col:26> 'int'
+|                             `-IntegerLiteral 0x55ef1b1f7320 <line:55:19> 'int' 1
+`-ImplicitCastExpr 0x55ef1b1f78e0 <./llimits.h:75:22, col:31> 'int' <IntegralCast>
+  `-ParenExpr 0x55ef1b1f78c0 <col:22, col:31> 'lu_byte':'unsigned char'
+    `-CStyleCastExpr 0x55ef1b1f7898 <col:23, col:30> 'lu_byte':'unsigned char' <IntegralCast>
+      `-ParenExpr 0x55ef1b1f7878 <col:26, col:30> 'int'
+        `-BinaryOperator 0x55ef1b1f7810 <./lgc.h:77:37, line:31:51> 'int' '&'
+          |-ImplicitCastExpr 0x55ef1b1f77f8 <line:77:37, col:42> 'int' <IntegralCast>
+          | `-ImplicitCastExpr 0x55ef1b1f77e0 <col:37, col:42> 'lu_byte':'unsigned char' <LValueToRValue>
+          |   `-MemberExpr 0x55ef1b1f7610 <col:37, col:42> 'lu_byte':'unsigned char' lvalue ->currentwhite 0x55ef1b19eb90
+          |     `-ImplicitCastExpr 0x55ef1b1f75f8 <col:37, col:39> 'global_State *' <LValueToRValue>
+          |       `-ParenExpr 0x55ef1b1f75d8 <col:37, col:39> 'global_State *' lvalue
+          |         `-DeclRefExpr 0x55ef1b1f75b0 <lgc.c:416:17> 'global_State *' lvalue Var 0x55ef1b1f6068 'g' 'global_State *'
+          `-ParenExpr 0x55ef1b1f77c0 <./lgc.h:31:25, col:51> 'int'
+            `-BinaryOperator 0x55ef1b1f7798 <line:30:20, col:27> 'int' '|'
+              |-ParenExpr 0x55ef1b1f76d0 <col:20, col:27> 'int'
+              | `-BinaryOperator 0x55ef1b1f76a8 <col:21, col:26> 'int' '<<'
+              |   |-IntegerLiteral 0x55ef1b1f7648 <col:21> 'int' 1
+              |   `-ParenExpr 0x55ef1b1f7688 <col:24, col:26> 'int'
+              |     `-IntegerLiteral 0x55ef1b1f7668 <line:54:19> 'int' 0
+              `-ParenExpr 0x55ef1b1f7778 <line:30:20, col:27> 'int'
+                `-BinaryOperator 0x55ef1b1f7750 <col:21, col:26> 'int' '<<'
+                  |-IntegerLiteral 0x55ef1b1f76f0 <col:21> 'int' 1
+                  `-ParenExpr 0x55ef1b1f7730 <col:24, col:26> 'int'
+                    `-IntegerLiteral 0x55ef1b1f7710 <line:55:19> 'int' 1
+([B6.23]) | [B6.38]
+  40: CStyleCastExpr 0x55ef1b1f79a0 <./llimits.h:75:23, col:30> 'lu_byte':'unsigned char' <IntegralCast>
+`-ParenExpr 0x55ef1b1f7980 <col:26, col:30> 'int'
+  `-ParenExpr 0x55ef1b1f7920 <line:78:36, col:38> 'int'
+    `-BinaryOperator 0x55ef1b1f78f8 <lgc.c:35:33, ./llimits.h:75:31> 'int' '|'
+      |-ParenExpr 0x55ef1b1f7590 <lgc.c:35:33, col:61> 'int'
+      | `-BinaryOperator 0x55ef1b1f7568 <col:34, ./llimits.h:75:31> 'int' '&'
+      |   |-ImplicitCastExpr 0x55ef1b1f7538 <lgc.c:35:34, col:43> 'int' <IntegralCast>
+      |   | `-ImplicitCastExpr 0x55ef1b1f7520 <col:34, col:43> 'lu_byte':'unsigned char' <LValueToRValue>
+      |   |   `-MemberExpr 0x55ef1b1f7178 <col:34, col:43> 'lu_byte':'unsigned char' lvalue .marked 0x55ef1b17ed48
+      |   |     `-MemberExpr 0x55ef1b1f7140 <col:34, col:39> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+      |   |       `-ImplicitCastExpr 0x55ef1b1f7128 <col:34, col:36> 'GCObject *' <LValueToRValue>
+      |   |         `-ParenExpr 0x55ef1b1f7108 <col:34, col:36> 'GCObject *' lvalue
+      |   |           `-DeclRefExpr 0x55ef1b1f70e0 <line:416:20> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+      |   `-ImplicitCastExpr 0x55ef1b1f7550 <./llimits.h:75:22, col:31> 'int' <IntegralCast>
+      |     `-ParenExpr 0x55ef1b1f7500 <col:22, col:31> 'lu_byte':'unsigned char'
+      |       `-CStyleCastExpr 0x55ef1b1f74d8 <col:23, col:30> 'lu_byte':'unsigned char' <IntegralCast>
+      |         `-ParenExpr 0x55ef1b1f74b8 <col:26, col:30> 'int'
+      |           `-ParenExpr 0x55ef1b1f7458 <line:78:36, col:38> 'int'
+      |             `-UnaryOperator 0x55ef1b1f7438 <lgc.c:32:29, col:58> 'int' prefix '~'
+      |               `-ParenExpr 0x55ef1b1f7418 <col:30, col:58> 'int'
+      |                 `-BinaryOperator 0x55ef1b1f73f0 <./lgc.h:30:20, line:31:51> 'int' '|'
+      |                   |-ParenExpr 0x55ef1b1f7238 <line:30:20, col:27> 'int'
+      |                   | `-BinaryOperator 0x55ef1b1f7210 <col:21, col:26> 'int' '<<'
+      |                   |   |-IntegerLiteral 0x55ef1b1f71b0 <col:21> 'int' 1
+      |                   |   `-ParenExpr 0x55ef1b1f71f0 <col:24, col:26> 'int'
+      |                   |     `-IntegerLiteral 0x55ef1b1f71d0 <line:56:18> 'int' 2
+      |                   `-ParenExpr 0x55ef1b1f73d0 <line:31:25, col:51> 'int'
+      |                     `-BinaryOperator 0x55ef1b1f73a8 <line:30:20, col:27> 'int' '|'
+      |                       |-ParenExpr 0x55ef1b1f72e0 <col:20, col:27> 'int'
+      |                       | `-BinaryOperator 0x55ef1b1f72b8 <col:21, col:26> 'int' '<<'
+      |                       |   |-IntegerLiteral 0x55ef1b1f7258 <col:21> 'int' 1
+      |                       |   `-ParenExpr 0x55ef1b1f7298 <col:24, col:26> 'int'
+      |                       |     `-IntegerLiteral 0x55ef1b1f7278 <line:54:19> 'int' 0
+      |                       `-ParenExpr 0x55ef1b1f7388 <line:30:20, col:27> 'int'
+      |                         `-BinaryOperator 0x55ef1b1f7360 <col:21, col:26> 'int' '<<'
+      |                           |-IntegerLiteral 0x55ef1b1f7300 <col:21> 'int' 1
+      |                           `-ParenExpr 0x55ef1b1f7340 <col:24, col:26> 'int'
+      |                             `-IntegerLiteral 0x55ef1b1f7320 <line:55:19> 'int' 1
+      `-ImplicitCastExpr 0x55ef1b1f78e0 <./llimits.h:75:22, col:31> 'int' <IntegralCast>
+        `-ParenExpr 0x55ef1b1f78c0 <col:22, col:31> 'lu_byte':'unsigned char'
+          `-CStyleCastExpr 0x55ef1b1f7898 <col:23, col:30> 'lu_byte':'unsigned char' <IntegralCast>
+            `-ParenExpr 0x55ef1b1f7878 <col:26, col:30> 'int'
+              `-BinaryOperator 0x55ef1b1f7810 <./lgc.h:77:37, line:31:51> 'int' '&'
+                |-ImplicitCastExpr 0x55ef1b1f77f8 <line:77:37, col:42> 'int' <IntegralCast>
+                | `-ImplicitCastExpr 0x55ef1b1f77e0 <col:37, col:42> 'lu_byte':'unsigned char' <LValueToRValue>
+                |   `-MemberExpr 0x55ef1b1f7610 <col:37, col:42> 'lu_byte':'unsigned char' lvalue ->currentwhite 0x55ef1b19eb90
+                |     `-ImplicitCastExpr 0x55ef1b1f75f8 <col:37, col:39> 'global_State *' <LValueToRValue>
+                |       `-ParenExpr 0x55ef1b1f75d8 <col:37, col:39> 'global_State *' lvalue
+                |         `-DeclRefExpr 0x55ef1b1f75b0 <lgc.c:416:17> 'global_State *' lvalue Var 0x55ef1b1f6068 'g' 'global_State *'
+                `-ParenExpr 0x55ef1b1f77c0 <./lgc.h:31:25, col:51> 'int'
+                  `-BinaryOperator 0x55ef1b1f7798 <line:30:20, col:27> 'int' '|'
+                    |-ParenExpr 0x55ef1b1f76d0 <col:20, col:27> 'int'
+                    | `-BinaryOperator 0x55ef1b1f76a8 <col:21, col:26> 'int' '<<'
+                    |   |-IntegerLiteral 0x55ef1b1f7648 <col:21> 'int' 1
+                    |   `-ParenExpr 0x55ef1b1f7688 <col:24, col:26> 'int'
+                    |     `-IntegerLiteral 0x55ef1b1f7668 <line:54:19> 'int' 0
+                    `-ParenExpr 0x55ef1b1f7778 <line:30:20, col:27> 'int'
+                      `-BinaryOperator 0x55ef1b1f7750 <col:21, col:26> 'int' '<<'
+                        |-IntegerLiteral 0x55ef1b1f76f0 <col:21> 'int' 1
+                        `-ParenExpr 0x55ef1b1f7730 <col:24, col:26> 'int'
+                          `-IntegerLiteral 0x55ef1b1f7710 <line:55:19> 'int' 1
+(lu_byte)(([B6.39])) (CStyleCastExpr, IntegralCast, lu_byte)
+  41: DeclRefExpr 0x55ef1b1f7010 <lgc.c:416:20> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+curr
+  42: ImplicitCastExpr 0x55ef1b1f7058 <lgc.c:35:5, col:7> 'GCObject *' <LValueToRValue>
+`-ParenExpr 0x55ef1b1f7038 <col:5, col:7> 'GCObject *' lvalue
+  `-DeclRefExpr 0x55ef1b1f7010 <line:416:20> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+([B6.41]) (ImplicitCastExpr, LValueToRValue, GCObject *)
+  43: MemberExpr 0x55ef1b1f7070 <lgc.c:35:5, col:10> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+`-ImplicitCastExpr 0x55ef1b1f7058 <col:5, col:7> 'GCObject *' <LValueToRValue>
+  `-ParenExpr 0x55ef1b1f7038 <col:5, col:7> 'GCObject *' lvalue
+    `-DeclRefExpr 0x55ef1b1f7010 <line:416:20> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B6.42]->gch
+  44: MemberExpr 0x55ef1b1f70a8 <lgc.c:35:5, col:14> 'lu_byte':'unsigned char' lvalue .marked 0x55ef1b17ed48
+`-MemberExpr 0x55ef1b1f7070 <col:5, col:10> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+  `-ImplicitCastExpr 0x55ef1b1f7058 <col:5, col:7> 'GCObject *' <LValueToRValue>
+    `-ParenExpr 0x55ef1b1f7038 <col:5, col:7> 'GCObject *' lvalue
+      `-DeclRefExpr 0x55ef1b1f7010 <line:416:20> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B6.43].marked
+  45: BinaryOperator 0x55ef1b1fa690 <lgc.c:35:5, ./llimits.h:75:31> 'lu_byte':'unsigned char' '='
+|-MemberExpr 0x55ef1b1f70a8 <lgc.c:35:5, col:14> 'lu_byte':'unsigned char' lvalue .marked 0x55ef1b17ed48
+| `-MemberExpr 0x55ef1b1f7070 <col:5, col:10> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+|   `-ImplicitCastExpr 0x55ef1b1f7058 <col:5, col:7> 'GCObject *' <LValueToRValue>
+|     `-ParenExpr 0x55ef1b1f7038 <col:5, col:7> 'GCObject *' lvalue
+|       `-DeclRefExpr 0x55ef1b1f7010 <line:416:20> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+`-ParenExpr 0x55ef1b1f79c8 <./llimits.h:75:22, col:31> 'lu_byte':'unsigned char'
+  `-CStyleCastExpr 0x55ef1b1f79a0 <col:23, col:30> 'lu_byte':'unsigned char' <IntegralCast>
+    `-ParenExpr 0x55ef1b1f7980 <col:26, col:30> 'int'
+      `-ParenExpr 0x55ef1b1f7920 <line:78:36, col:38> 'int'
+        `-BinaryOperator 0x55ef1b1f78f8 <lgc.c:35:33, ./llimits.h:75:31> 'int' '|'
+          |-ParenExpr 0x55ef1b1f7590 <lgc.c:35:33, col:61> 'int'
+          | `-BinaryOperator 0x55ef1b1f7568 <col:34, ./llimits.h:75:31> 'int' '&'
+          |   |-ImplicitCastExpr 0x55ef1b1f7538 <lgc.c:35:34, col:43> 'int' <IntegralCast>
+          |   | `-ImplicitCastExpr 0x55ef1b1f7520 <col:34, col:43> 'lu_byte':'unsigned char' <LValueToRValue>
+          |   |   `-MemberExpr 0x55ef1b1f7178 <col:34, col:43> 'lu_byte':'unsigned char' lvalue .marked 0x55ef1b17ed48
+          |   |     `-MemberExpr 0x55ef1b1f7140 <col:34, col:39> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+          |   |       `-ImplicitCastExpr 0x55ef1b1f7128 <col:34, col:36> 'GCObject *' <LValueToRValue>
+          |   |         `-ParenExpr 0x55ef1b1f7108 <col:34, col:36> 'GCObject *' lvalue
+          |   |           `-DeclRefExpr 0x55ef1b1f70e0 <line:416:20> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+          |   `-ImplicitCastExpr 0x55ef1b1f7550 <./llimits.h:75:22, col:31> 'int' <IntegralCast>
+          |     `-ParenExpr 0x55ef1b1f7500 <col:22, col:31> 'lu_byte':'unsigned char'
+          |       `-CStyleCastExpr 0x55ef1b1f74d8 <col:23, col:30> 'lu_byte':'unsigned char' <IntegralCast>
+          |         `-ParenExpr 0x55ef1b1f74b8 <col:26, col:30> 'int'
+          |           `-ParenExpr 0x55ef1b1f7458 <line:78:36, col:38> 'int'
+          |             `-UnaryOperator 0x55ef1b1f7438 <lgc.c:32:29, col:58> 'int' prefix '~'
+          |               `-ParenExpr 0x55ef1b1f7418 <col:30, col:58> 'int'
+          |                 `-BinaryOperator 0x55ef1b1f73f0 <./lgc.h:30:20, line:31:51> 'int' '|'
+          |                   |-ParenExpr 0x55ef1b1f7238 <line:30:20, col:27> 'int'
+          |                   | `-BinaryOperator 0x55ef1b1f7210 <col:21, col:26> 'int' '<<'
+          |                   |   |-IntegerLiteral 0x55ef1b1f71b0 <col:21> 'int' 1
+          |                   |   `-ParenExpr 0x55ef1b1f71f0 <col:24, col:26> 'int'
+          |                   |     `-IntegerLiteral 0x55ef1b1f71d0 <line:56:18> 'int' 2
+          |                   `-ParenExpr 0x55ef1b1f73d0 <line:31:25, col:51> 'int'
+          |                     `-BinaryOperator 0x55ef1b1f73a8 <line:30:20, col:27> 'int' '|'
+          |                       |-ParenExpr 0x55ef1b1f72e0 <col:20, col:27> 'int'
+          |                       | `-BinaryOperator 0x55ef1b1f72b8 <col:21, col:26> 'int' '<<'
+          |                       |   |-IntegerLiteral 0x55ef1b1f7258 <col:21> 'int' 1
+          |                       |   `-ParenExpr 0x55ef1b1f7298 <col:24, col:26> 'int'
+          |                       |     `-IntegerLiteral 0x55ef1b1f7278 <line:54:19> 'int' 0
+          |                       `-ParenExpr 0x55ef1b1f7388 <line:30:20, col:27> 'int'
+          |                         `-BinaryOperator 0x55ef1b1f7360 <col:21, col:26> 'int' '<<'
+          |                           |-IntegerLiteral 0x55ef1b1f7300 <col:21> 'int' 1
+          |                           `-ParenExpr 0x55ef1b1f7340 <col:24, col:26> 'int'
+          |                             `-IntegerLiteral 0x55ef1b1f7320 <line:55:19> 'int' 1
+          `-ImplicitCastExpr 0x55ef1b1f78e0 <./llimits.h:75:22, col:31> 'int' <IntegralCast>
+            `-ParenExpr 0x55ef1b1f78c0 <col:22, col:31> 'lu_byte':'unsigned char'
+              `-CStyleCastExpr 0x55ef1b1f7898 <col:23, col:30> 'lu_byte':'unsigned char' <IntegralCast>
+                `-ParenExpr 0x55ef1b1f7878 <col:26, col:30> 'int'
+                  `-BinaryOperator 0x55ef1b1f7810 <./lgc.h:77:37, line:31:51> 'int' '&'
+                    |-ImplicitCastExpr 0x55ef1b1f77f8 <line:77:37, col:42> 'int' <IntegralCast>
+                    | `-ImplicitCastExpr 0x55ef1b1f77e0 <col:37, col:42> 'lu_byte':'unsigned char' <LValueToRValue>
+                    |   `-MemberExpr 0x55ef1b1f7610 <col:37, col:42> 'lu_byte':'unsigned char' lvalue ->currentwhite 0x55ef1b19eb90
+                    |     `-ImplicitCastExpr 0x55ef1b1f75f8 <col:37, col:39> 'global_State *' <LValueToRValue>
+                    |       `-ParenExpr 0x55ef1b1f75d8 <col:37, col:39> 'global_State *' lvalue
+                    |         `-DeclRefExpr 0x55ef1b1f75b0 <lgc.c:416:17> 'global_State *' lvalue Var 0x55ef1b1f6068 'g' 'global_State *'
+                    `-ParenExpr 0x55ef1b1f77c0 <./lgc.h:31:25, col:51> 'int'
+                      `-BinaryOperator 0x55ef1b1f7798 <line:30:20, col:27> 'int' '|'
+                        |-ParenExpr 0x55ef1b1f76d0 <col:20, col:27> 'int'
+                        | `-BinaryOperator 0x55ef1b1f76a8 <col:21, col:26> 'int' '<<'
+                        |   |-IntegerLiteral 0x55ef1b1f7648 <col:21> 'int' 1
+                        |   `-ParenExpr 0x55ef1b1f7688 <col:24, col:26> 'int'
+                        |     `-IntegerLiteral 0x55ef1b1f7668 <line:54:19> 'int' 0
+                        `-ParenExpr 0x55ef1b1f7778 <line:30:20, col:27> 'int'
+                          `-BinaryOperator 0x55ef1b1f7750 <col:21, col:26> 'int' '<<'
+                            |-IntegerLiteral 0x55ef1b1f76f0 <col:21> 'int' 1
+                            `-ParenExpr 0x55ef1b1f7730 <col:24, col:26> 'int'
+                              `-IntegerLiteral 0x55ef1b1f7710 <line:55:19> 'int' 1
+[B6.44] = ([B6.40])
+  46: DeclRefExpr 0x55ef1b1fa700 <lgc.c:417:12> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+curr
+  47: ImplicitCastExpr 0x55ef1b1fa728 <lgc.c:417:12> 'GCObject *' <LValueToRValue>
+`-DeclRefExpr 0x55ef1b1fa700 <col:12> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B6.46] (ImplicitCastExpr, LValueToRValue, GCObject *)
+  48: MemberExpr 0x55ef1b1fa740 <lgc.c:417:12, col:18> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+`-ImplicitCastExpr 0x55ef1b1fa728 <col:12> 'GCObject *' <LValueToRValue>
+  `-DeclRefExpr 0x55ef1b1fa700 <col:12> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B6.47]->gch
+  49: MemberExpr 0x55ef1b1fa778 <lgc.c:417:12, col:22> 'GCObject *' lvalue .next 0x55ef1b17ec78
+`-MemberExpr 0x55ef1b1fa740 <col:12, col:18> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+  `-ImplicitCastExpr 0x55ef1b1fa728 <col:12> 'GCObject *' <LValueToRValue>
+    `-DeclRefExpr 0x55ef1b1fa700 <col:12> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B6.48].next
+  50: UnaryOperator 0x55ef1b1fa7b0 <lgc.c:417:11, col:22> 'GCObject **' prefix '&'
+`-MemberExpr 0x55ef1b1fa778 <col:12, col:22> 'GCObject *' lvalue .next 0x55ef1b17ec78
+  `-MemberExpr 0x55ef1b1fa740 <col:12, col:18> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+    `-ImplicitCastExpr 0x55ef1b1fa728 <col:12> 'GCObject *' <LValueToRValue>
+      `-DeclRefExpr 0x55ef1b1fa700 <col:12> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+&[B6.49]
+  51: DeclRefExpr 0x55ef1b1fa6d8 <lgc.c:417:7> 'GCObject **' lvalue ParmVar 0x55ef1b1f5d68 'p' 'GCObject **'
+p
+  52: BinaryOperator 0x55ef1b1fa7d0 <lgc.c:417:7, col:22> 'GCObject **' '='
+|-DeclRefExpr 0x55ef1b1fa6d8 <col:7> 'GCObject **' lvalue ParmVar 0x55ef1b1f5d68 'p' 'GCObject **'
+`-UnaryOperator 0x55ef1b1fa7b0 <col:11, col:22> 'GCObject **' prefix '&'
+  `-MemberExpr 0x55ef1b1fa778 <col:12, col:22> 'GCObject *' lvalue .next 0x55ef1b17ec78
+    `-MemberExpr 0x55ef1b1fa740 <col:12, col:18> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+      `-ImplicitCastExpr 0x55ef1b1fa728 <col:12> 'GCObject *' <LValueToRValue>
+        `-DeclRefExpr 0x55ef1b1fa700 <col:12> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B6.51] = [B6.50]
+   Preds (1): B7
+   Succs (1): B2
+
+ [B7]
+   1: DeclRefExpr 0x55ef1b1f6c70 <lgc.c:414:10> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+curr
+   2: ImplicitCastExpr 0x55ef1b1f6c98 <lgc.c:414:10> 'GCObject *' <LValueToRValue>
+`-DeclRefExpr 0x55ef1b1f6c70 <col:10> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B7.1] (ImplicitCastExpr, LValueToRValue, GCObject *)
+   3: MemberExpr 0x55ef1b1f6cb0 <lgc.c:414:10, col:16> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+`-ImplicitCastExpr 0x55ef1b1f6c98 <col:10> 'GCObject *' <LValueToRValue>
+  `-DeclRefExpr 0x55ef1b1f6c70 <col:10> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B7.2]->gch
+   4: MemberExpr 0x55ef1b1f6ce8 <lgc.c:414:10, col:20> 'lu_byte':'unsigned char' lvalue .marked 0x55ef1b17ed48
+`-MemberExpr 0x55ef1b1f6cb0 <col:10, col:16> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+  `-ImplicitCastExpr 0x55ef1b1f6c98 <col:10> 'GCObject *' <LValueToRValue>
+    `-DeclRefExpr 0x55ef1b1f6c70 <col:10> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B7.3].marked
+   5: ImplicitCastExpr 0x55ef1b1f6eb8 <lgc.c:414:10, col:20> 'lu_byte':'unsigned char' <LValueToRValue>
+`-MemberExpr 0x55ef1b1f6ce8 <col:10, col:20> 'lu_byte':'unsigned char' lvalue .marked 0x55ef1b17ed48
+  `-MemberExpr 0x55ef1b1f6cb0 <col:10, col:16> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+    `-ImplicitCastExpr 0x55ef1b1f6c98 <col:10> 'GCObject *' <LValueToRValue>
+      `-DeclRefExpr 0x55ef1b1f6c70 <col:10> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B7.4] (ImplicitCastExpr, LValueToRValue, lu_byte)
+   6: ImplicitCastExpr 0x55ef1b1f6ed0 <lgc.c:414:10, col:20> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x55ef1b1f6eb8 <col:10, col:20> 'lu_byte':'unsigned char' <LValueToRValue>
+  `-MemberExpr 0x55ef1b1f6ce8 <col:10, col:20> 'lu_byte':'unsigned char' lvalue .marked 0x55ef1b17ed48
+    `-MemberExpr 0x55ef1b1f6cb0 <col:10, col:16> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+      `-ImplicitCastExpr 0x55ef1b1f6c98 <col:10> 'GCObject *' <LValueToRValue>
+        `-DeclRefExpr 0x55ef1b1f6c70 <col:10> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B7.5] (ImplicitCastExpr, IntegralCast, int)
+   7: IntegerLiteral 0x55ef1b1f6d20 <./lgc.h:30:21> 'int' 1
+1
+   8: IntegerLiteral 0x55ef1b1f6d40 <./lgc.h:54:19> 'int' 0
+0
+   9: BinaryOperator 0x55ef1b1f6d80 <./lgc.h:30:21, col:26> 'int' '<<'
+|-IntegerLiteral 0x55ef1b1f6d20 <col:21> 'int' 1
+`-ParenExpr 0x55ef1b1f6d60 <col:24, col:26> 'int'
+  `-IntegerLiteral 0x55ef1b1f6d40 <line:54:19> 'int' 0
+[B7.7] << ([B7.8])
+  10: IntegerLiteral 0x55ef1b1f6dc8 <./lgc.h:30:21> 'int' 1
+1
+  11: IntegerLiteral 0x55ef1b1f6de8 <./lgc.h:55:19> 'int' 1
+1
+  12: BinaryOperator 0x55ef1b1f6e28 <./lgc.h:30:21, col:26> 'int' '<<'
+|-IntegerLiteral 0x55ef1b1f6dc8 <col:21> 'int' 1
+`-ParenExpr 0x55ef1b1f6e08 <col:24, col:26> 'int'
+  `-IntegerLiteral 0x55ef1b1f6de8 <line:55:19> 'int' 1
+[B7.10] << ([B7.11])
+  13: BinaryOperator 0x55ef1b1f6e70 <./lgc.h:30:20, col:27> 'int' '|'
+|-ParenExpr 0x55ef1b1f6da8 <col:20, col:27> 'int'
+| `-BinaryOperator 0x55ef1b1f6d80 <col:21, col:26> 'int' '<<'
+|   |-IntegerLiteral 0x55ef1b1f6d20 <col:21> 'int' 1
+|   `-ParenExpr 0x55ef1b1f6d60 <col:24, col:26> 'int'
+|     `-IntegerLiteral 0x55ef1b1f6d40 <line:54:19> 'int' 0
+`-ParenExpr 0x55ef1b1f6e50 <line:30:20, col:27> 'int'
+  `-BinaryOperator 0x55ef1b1f6e28 <col:21, col:26> 'int' '<<'
+    |-IntegerLiteral 0x55ef1b1f6dc8 <col:21> 'int' 1
+    `-ParenExpr 0x55ef1b1f6e08 <col:24, col:26> 'int'
+      `-IntegerLiteral 0x55ef1b1f6de8 <line:55:19> 'int' 1
+([B7.9]) | ([B7.12])
+  14: BinaryOperator 0x55ef1b1f6ee8 <lgc.c:414:10, ./lgc.h:31:51> 'int' '^'
+|-ImplicitCastExpr 0x55ef1b1f6ed0 <lgc.c:414:10, col:20> 'int' <IntegralCast>
+| `-ImplicitCastExpr 0x55ef1b1f6eb8 <col:10, col:20> 'lu_byte':'unsigned char' <LValueToRValue>
+|   `-MemberExpr 0x55ef1b1f6ce8 <col:10, col:20> 'lu_byte':'unsigned char' lvalue .marked 0x55ef1b17ed48
+|     `-MemberExpr 0x55ef1b1f6cb0 <col:10, col:16> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+|       `-ImplicitCastExpr 0x55ef1b1f6c98 <col:10> 'GCObject *' <LValueToRValue>
+|         `-DeclRefExpr 0x55ef1b1f6c70 <col:10> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+`-ParenExpr 0x55ef1b1f6e98 <./lgc.h:31:25, col:51> 'int'
+  `-BinaryOperator 0x55ef1b1f6e70 <line:30:20, col:27> 'int' '|'
+    |-ParenExpr 0x55ef1b1f6da8 <col:20, col:27> 'int'
+    | `-BinaryOperator 0x55ef1b1f6d80 <col:21, col:26> 'int' '<<'
+    |   |-IntegerLiteral 0x55ef1b1f6d20 <col:21> 'int' 1
+    |   `-ParenExpr 0x55ef1b1f6d60 <col:24, col:26> 'int'
+    |     `-IntegerLiteral 0x55ef1b1f6d40 <line:54:19> 'int' 0
+    `-ParenExpr 0x55ef1b1f6e50 <line:30:20, col:27> 'int'
+      `-BinaryOperator 0x55ef1b1f6e28 <col:21, col:26> 'int' '<<'
+        |-IntegerLiteral 0x55ef1b1f6dc8 <col:21> 'int' 1
+        `-ParenExpr 0x55ef1b1f6e08 <col:24, col:26> 'int'
+          `-IntegerLiteral 0x55ef1b1f6de8 <line:55:19> 'int' 1
+[B7.6] ^ ([B7.13])
+  15: DeclRefExpr 0x55ef1b1f6f30 <lgc.c:414:42> 'int' lvalue Var 0x55ef1b1f61a8 'deadmask' 'int'
+deadmask
+  16: ImplicitCastExpr 0x55ef1b1f6f58 <lgc.c:414:42> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55ef1b1f6f30 <col:42> 'int' lvalue Var 0x55ef1b1f61a8 'deadmask' 'int'
+[B7.15] (ImplicitCastExpr, LValueToRValue, int)
+  17: BinaryOperator 0x55ef1b1f6f70 <lgc.c:414:9, col:42> 'int' '&'
+|-ParenExpr 0x55ef1b1f6f10 <col:9, col:38> 'int'
+| `-BinaryOperator 0x55ef1b1f6ee8 <col:10, ./lgc.h:31:51> 'int' '^'
+|   |-ImplicitCastExpr 0x55ef1b1f6ed0 <lgc.c:414:10, col:20> 'int' <IntegralCast>
+|   | `-ImplicitCastExpr 0x55ef1b1f6eb8 <col:10, col:20> 'lu_byte':'unsigned char' <LValueToRValue>
+|   |   `-MemberExpr 0x55ef1b1f6ce8 <col:10, col:20> 'lu_byte':'unsigned char' lvalue .marked 0x55ef1b17ed48
+|   |     `-MemberExpr 0x55ef1b1f6cb0 <col:10, col:16> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+|   |       `-ImplicitCastExpr 0x55ef1b1f6c98 <col:10> 'GCObject *' <LValueToRValue>
+|   |         `-DeclRefExpr 0x55ef1b1f6c70 <col:10> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+|   `-ParenExpr 0x55ef1b1f6e98 <./lgc.h:31:25, col:51> 'int'
+|     `-BinaryOperator 0x55ef1b1f6e70 <line:30:20, col:27> 'int' '|'
+|       |-ParenExpr 0x55ef1b1f6da8 <col:20, col:27> 'int'
+|       | `-BinaryOperator 0x55ef1b1f6d80 <col:21, col:26> 'int' '<<'
+|       |   |-IntegerLiteral 0x55ef1b1f6d20 <col:21> 'int' 1
+|       |   `-ParenExpr 0x55ef1b1f6d60 <col:24, col:26> 'int'
+|       |     `-IntegerLiteral 0x55ef1b1f6d40 <line:54:19> 'int' 0
+|       `-ParenExpr 0x55ef1b1f6e50 <line:30:20, col:27> 'int'
+|         `-BinaryOperator 0x55ef1b1f6e28 <col:21, col:26> 'int' '<<'
+|           |-IntegerLiteral 0x55ef1b1f6dc8 <col:21> 'int' 1
+|           `-ParenExpr 0x55ef1b1f6e08 <col:24, col:26> 'int'
+|             `-IntegerLiteral 0x55ef1b1f6de8 <line:55:19> 'int' 1
+`-ImplicitCastExpr 0x55ef1b1f6f58 <lgc.c:414:42> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x55ef1b1f6f30 <col:42> 'int' lvalue Var 0x55ef1b1f61a8 'deadmask' 'int'
+([B7.14]) & [B7.16]
+   T: if [B7.17]
+   Preds (2): B8 B9
+   Succs (2): B6 B5
+
+ [B8]
+   1: DeclRefExpr 0x55ef1b1f6848 <lgc.c:404:29> 'GCObject **(lua_State *, GCObject **, lu_mem)' Function 0x55ef1b1f5f18 'sweeplist' 'GCObject **(lua_State *, GCObject **, lu_mem)'
+sweeplist
+   2: ImplicitCastExpr 0x55ef1b1f6bc8 <lgc.c:404:29> 'GCObject **(*)(lua_State *, GCObject **, lu_mem)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55ef1b1f6848 <col:29> 'GCObject **(lua_State *, GCObject **, lu_mem)' Function 0x55ef1b1f5f18 'sweeplist' 'GCObject **(lua_State *, GCObject **, lu_mem)'
+[B8.1] (ImplicitCastExpr, FunctionToPointerDecay, GCObject **(*)(lua_State *, GCObject **, lu_mem))
+   3: DeclRefExpr 0x55ef1b1f6870 <lgc.c:413:22> 'lua_State *' lvalue ParmVar 0x55ef1b1f5cf0 'L' 'lua_State *'
+L
+   4: ImplicitCastExpr 0x55ef1b1f6c20 <lgc.c:413:22> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55ef1b1f6870 <col:22> 'lua_State *' lvalue ParmVar 0x55ef1b1f5cf0 'L' 'lua_State *'
+[B8.3] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   5: DeclRefExpr 0x55ef1b1f6898 <lgc.c:413:33> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+curr
+   6: ImplicitCastExpr 0x55ef1b1f68e0 <./lstate.h:159:59, col:61> 'GCObject *' <LValueToRValue>
+`-ParenExpr 0x55ef1b1f68c0 <col:59, col:61> 'GCObject *' lvalue
+  `-DeclRefExpr 0x55ef1b1f6898 <lgc.c:413:33> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+([B8.5]) (ImplicitCastExpr, LValueToRValue, GCObject *)
+   7: MemberExpr 0x55ef1b1f68f8 <./lstate.h:159:59, col:64> 'struct lua_State':'struct lua_State' lvalue ->th 0x55ef1b1a2ea8
+`-ImplicitCastExpr 0x55ef1b1f68e0 <col:59, col:61> 'GCObject *' <LValueToRValue>
+  `-ParenExpr 0x55ef1b1f68c0 <col:59, col:61> 'GCObject *' lvalue
+    `-DeclRefExpr 0x55ef1b1f6898 <lgc.c:413:33> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B8.6]->th
+   8: UnaryOperator 0x55ef1b1f6950 <./lstate.h:159:57, col:66> 'struct lua_State *' prefix '&'
+`-ParenExpr 0x55ef1b1f6930 <col:58, col:66> 'struct lua_State':'struct lua_State' lvalue
+  `-MemberExpr 0x55ef1b1f68f8 <col:59, col:64> 'struct lua_State':'struct lua_State' lvalue ->th 0x55ef1b1a2ea8
+    `-ImplicitCastExpr 0x55ef1b1f68e0 <col:59, col:61> 'GCObject *' <LValueToRValue>
+      `-ParenExpr 0x55ef1b1f68c0 <col:59, col:61> 'GCObject *' lvalue
+        `-DeclRefExpr 0x55ef1b1f6898 <lgc.c:413:33> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+&([B8.7])
+   9: MemberExpr 0x55ef1b1f6990 <./llimits.h:63:25, lgc.c:413:40> 'GCObject *' lvalue ->openupval 0x55ef1b1a18f0
+`-ParenExpr 0x55ef1b1f6970 <./llimits.h:63:25, col:27> 'struct lua_State *'
+  `-UnaryOperator 0x55ef1b1f6950 <./lstate.h:159:57, col:66> 'struct lua_State *' prefix '&'
+    `-ParenExpr 0x55ef1b1f6930 <col:58, col:66> 'struct lua_State':'struct lua_State' lvalue
+      `-MemberExpr 0x55ef1b1f68f8 <col:59, col:64> 'struct lua_State':'struct lua_State' lvalue ->th 0x55ef1b1a2ea8
+        `-ImplicitCastExpr 0x55ef1b1f68e0 <col:59, col:61> 'GCObject *' <LValueToRValue>
+          `-ParenExpr 0x55ef1b1f68c0 <col:59, col:61> 'GCObject *' lvalue
+            `-DeclRefExpr 0x55ef1b1f6898 <lgc.c:413:33> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+([B8.8])->openupval
+  10: UnaryOperator 0x55ef1b1f69c8 <lgc.c:413:25, col:40> 'GCObject **' prefix '&'
+`-MemberExpr 0x55ef1b1f6990 <./llimits.h:63:25, lgc.c:413:40> 'GCObject *' lvalue ->openupval 0x55ef1b1a18f0
+  `-ParenExpr 0x55ef1b1f6970 <./llimits.h:63:25, col:27> 'struct lua_State *'
+    `-UnaryOperator 0x55ef1b1f6950 <./lstate.h:159:57, col:66> 'struct lua_State *' prefix '&'
+      `-ParenExpr 0x55ef1b1f6930 <col:58, col:66> 'struct lua_State':'struct lua_State' lvalue
+        `-MemberExpr 0x55ef1b1f68f8 <col:59, col:64> 'struct lua_State':'struct lua_State' lvalue ->th 0x55ef1b1a2ea8
+          `-ImplicitCastExpr 0x55ef1b1f68e0 <col:59, col:61> 'GCObject *' <LValueToRValue>
+            `-ParenExpr 0x55ef1b1f68c0 <col:59, col:61> 'GCObject *' lvalue
+              `-DeclRefExpr 0x55ef1b1f6898 <lgc.c:413:33> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+&[B8.9]
+  11: IntegerLiteral 0x55ef1b1f69e8 <./llimits.h:32:38> 'int' 0
+0
+  12: CStyleCastExpr 0x55ef1b1f6a18 <./llimits.h:32:30, col:38> 'lu_mem':'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x55ef1b1f69e8 <col:38> 'int' 0
+(lu_mem)[B8.11] (CStyleCastExpr, IntegralCast, lu_mem)
+  13: UnaryOperator 0x55ef1b1f6a40 <./llimits.h:32:29, col:38> 'lu_mem':'unsigned long' prefix '~'
+`-CStyleCastExpr 0x55ef1b1f6a18 <col:30, col:38> 'lu_mem':'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x55ef1b1f69e8 <col:38> 'int' 0
+~[B8.12]
+  14: CStyleCastExpr 0x55ef1b1f6ac0 <./llimits.h:32:20, col:39> 'lu_mem':'unsigned long' <NoOp>
+`-ParenExpr 0x55ef1b1f6aa0 <col:28, col:39> 'lu_mem':'unsigned long'
+  `-UnaryOperator 0x55ef1b1f6a40 <col:29, col:38> 'lu_mem':'unsigned long' prefix '~'
+    `-CStyleCastExpr 0x55ef1b1f6a18 <col:30, col:38> 'lu_mem':'unsigned long' <IntegralCast>
+      `-IntegerLiteral 0x55ef1b1f69e8 <col:38> 'int' 0
+(lu_mem)([B8.13]) (CStyleCastExpr, NoOp, lu_mem)
+  15: IntegerLiteral 0x55ef1b1f6ae8 <./llimits.h:32:41> 'int' 2
+2
+  16: ImplicitCastExpr 0x55ef1b1f6b08 <./llimits.h:32:41> 'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x55ef1b1f6ae8 <col:41> 'int' 2
+[B8.15] (ImplicitCastExpr, IntegralCast, unsigned long)
+  17: BinaryOperator 0x55ef1b1f6b20 <./llimits.h:32:20, col:41> 'unsigned long' '-'
+|-CStyleCastExpr 0x55ef1b1f6ac0 <col:20, col:39> 'lu_mem':'unsigned long' <NoOp>
+| `-ParenExpr 0x55ef1b1f6aa0 <col:28, col:39> 'lu_mem':'unsigned long'
+|   `-UnaryOperator 0x55ef1b1f6a40 <col:29, col:38> 'lu_mem':'unsigned long' prefix '~'
+|     `-CStyleCastExpr 0x55ef1b1f6a18 <col:30, col:38> 'lu_mem':'unsigned long' <IntegralCast>
+|       `-IntegerLiteral 0x55ef1b1f69e8 <col:38> 'int' 0
+`-ImplicitCastExpr 0x55ef1b1f6b08 <col:41> 'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x55ef1b1f6ae8 <col:41> 'int' 2
+[B8.14] - [B8.16]
+  18: CallExpr 0x55ef1b1f6be0 <lgc.c:404:29, col:52> 'GCObject **'
+|-ImplicitCastExpr 0x55ef1b1f6bc8 <col:29> 'GCObject **(*)(lua_State *, GCObject **, lu_mem)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55ef1b1f6848 <col:29> 'GCObject **(lua_State *, GCObject **, lu_mem)' Function 0x55ef1b1f5f18 'sweeplist' 'GCObject **(lua_State *, GCObject **, lu_mem)'
+|-ImplicitCastExpr 0x55ef1b1f6c20 <line:413:22> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x55ef1b1f6870 <col:22> 'lua_State *' lvalue ParmVar 0x55ef1b1f5cf0 'L' 'lua_State *'
+|-UnaryOperator 0x55ef1b1f69c8 <col:25, col:40> 'GCObject **' prefix '&'
+| `-MemberExpr 0x55ef1b1f6990 <./llimits.h:63:25, lgc.c:413:40> 'GCObject *' lvalue ->openupval 0x55ef1b1a18f0
+|   `-ParenExpr 0x55ef1b1f6970 <./llimits.h:63:25, col:27> 'struct lua_State *'
+|     `-UnaryOperator 0x55ef1b1f6950 <./lstate.h:159:57, col:66> 'struct lua_State *' prefix '&'
+|       `-ParenExpr 0x55ef1b1f6930 <col:58, col:66> 'struct lua_State':'struct lua_State' lvalue
+|         `-MemberExpr 0x55ef1b1f68f8 <col:59, col:64> 'struct lua_State':'struct lua_State' lvalue ->th 0x55ef1b1a2ea8
+|           `-ImplicitCastExpr 0x55ef1b1f68e0 <col:59, col:61> 'GCObject *' <LValueToRValue>
+|             `-ParenExpr 0x55ef1b1f68c0 <col:59, col:61> 'GCObject *' lvalue
+|               `-DeclRefExpr 0x55ef1b1f6898 <lgc.c:413:33> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+`-ParenExpr 0x55ef1b1f6b48 <./llimits.h:32:19, col:42> 'unsigned long'
+  `-BinaryOperator 0x55ef1b1f6b20 <col:20, col:41> 'unsigned long' '-'
+    |-CStyleCastExpr 0x55ef1b1f6ac0 <col:20, col:39> 'lu_mem':'unsigned long' <NoOp>
+    | `-ParenExpr 0x55ef1b1f6aa0 <col:28, col:39> 'lu_mem':'unsigned long'
+    |   `-UnaryOperator 0x55ef1b1f6a40 <col:29, col:38> 'lu_mem':'unsigned long' prefix '~'
+    |     `-CStyleCastExpr 0x55ef1b1f6a18 <col:30, col:38> 'lu_mem':'unsigned long' <IntegralCast>
+    |       `-IntegerLiteral 0x55ef1b1f69e8 <col:38> 'int' 0
+    `-ImplicitCastExpr 0x55ef1b1f6b08 <col:41> 'unsigned long' <IntegralCast>
+      `-IntegerLiteral 0x55ef1b1f6ae8 <col:41> 'int' 2
+[B8.2]([B8.4], [B8.10], ([B8.17]))
+   Preds (1): B9
+   Succs (1): B7
+
+ [B9]
+   1: DeclRefExpr 0x55ef1b1f6720 <lgc.c:412:9> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+curr
+   2: ImplicitCastExpr 0x55ef1b1f6748 <lgc.c:412:9> 'GCObject *' <LValueToRValue>
+`-DeclRefExpr 0x55ef1b1f6720 <col:9> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B9.1] (ImplicitCastExpr, LValueToRValue, GCObject *)
+   3: MemberExpr 0x55ef1b1f6760 <lgc.c:412:9, col:15> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+`-ImplicitCastExpr 0x55ef1b1f6748 <col:9> 'GCObject *' <LValueToRValue>
+  `-DeclRefExpr 0x55ef1b1f6720 <col:9> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B9.2]->gch
+   4: MemberExpr 0x55ef1b1f6798 <lgc.c:412:9, col:19> 'lu_byte':'unsigned char' lvalue .tt 0x55ef1b17ecf0
+`-MemberExpr 0x55ef1b1f6760 <col:9, col:15> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+  `-ImplicitCastExpr 0x55ef1b1f6748 <col:9> 'GCObject *' <LValueToRValue>
+    `-DeclRefExpr 0x55ef1b1f6720 <col:9> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B9.3].tt
+   5: ImplicitCastExpr 0x55ef1b1f67f0 <lgc.c:412:9, col:19> 'lu_byte':'unsigned char' <LValueToRValue>
+`-MemberExpr 0x55ef1b1f6798 <col:9, col:19> 'lu_byte':'unsigned char' lvalue .tt 0x55ef1b17ecf0
+  `-MemberExpr 0x55ef1b1f6760 <col:9, col:15> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+    `-ImplicitCastExpr 0x55ef1b1f6748 <col:9> 'GCObject *' <LValueToRValue>
+      `-DeclRefExpr 0x55ef1b1f6720 <col:9> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B9.4] (ImplicitCastExpr, LValueToRValue, lu_byte)
+   6: ImplicitCastExpr 0x55ef1b1f6808 <lgc.c:412:9, col:19> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x55ef1b1f67f0 <col:9, col:19> 'lu_byte':'unsigned char' <LValueToRValue>
+  `-MemberExpr 0x55ef1b1f6798 <col:9, col:19> 'lu_byte':'unsigned char' lvalue .tt 0x55ef1b17ecf0
+    `-MemberExpr 0x55ef1b1f6760 <col:9, col:15> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+      `-ImplicitCastExpr 0x55ef1b1f6748 <col:9> 'GCObject *' <LValueToRValue>
+        `-DeclRefExpr 0x55ef1b1f6720 <col:9> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+[B9.5] (ImplicitCastExpr, IntegralCast, int)
+   7: IntegerLiteral 0x55ef1b1f67d0 <./lua.h:82:22> 'int' 8
+8
+   8: BinaryOperator 0x55ef1b1f6820 <lgc.c:412:9, ./lua.h:82:22> 'int' '=='
+|-ImplicitCastExpr 0x55ef1b1f6808 <lgc.c:412:9, col:19> 'int' <IntegralCast>
+| `-ImplicitCastExpr 0x55ef1b1f67f0 <col:9, col:19> 'lu_byte':'unsigned char' <LValueToRValue>
+|   `-MemberExpr 0x55ef1b1f6798 <col:9, col:19> 'lu_byte':'unsigned char' lvalue .tt 0x55ef1b17ecf0
+|     `-MemberExpr 0x55ef1b1f6760 <col:9, col:15> 'GCheader':'struct GCheader' lvalue ->gch 0x55ef1b1a2bd0
+|       `-ImplicitCastExpr 0x55ef1b1f6748 <col:9> 'GCObject *' <LValueToRValue>
+|         `-DeclRefExpr 0x55ef1b1f6720 <col:9> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+`-IntegerLiteral 0x55ef1b1f67d0 <./lua.h:82:22> 'int' 8
+[B9.6] == [B9.7]
+   T: if [B9.8]
+   Preds (1): B10
+   Succs (2): B8 B7
+
+ [B10]
+   1: DeclRefExpr 0x55ef1b1f6650 <lgc.c:411:33> 'lu_mem':'unsigned long' lvalue ParmVar 0x55ef1b1f5dd8 'count' 'lu_mem':'unsigned long'
+count
+   2: UnaryOperator 0x55ef1b1f6678 <lgc.c:411:33, col:38> 'lu_mem':'unsigned long' postfix '--'
+`-DeclRefExpr 0x55ef1b1f6650 <col:33> 'lu_mem':'unsigned long' lvalue ParmVar 0x55ef1b1f5dd8 'count' 'lu_mem':'unsigned long'
+[B10.1]--
+   3: IntegerLiteral 0x55ef1b1f6698 <lgc.c:411:43> 'int' 0
+0
+   4: ImplicitCastExpr 0x55ef1b1f66b8 <lgc.c:411:43> 'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x55ef1b1f6698 <col:43> 'int' 0
+[B10.3] (ImplicitCastExpr, IntegralCast, unsigned long)
+   5: BinaryOperator 0x55ef1b1f66d0 <lgc.c:411:33, col:43> 'int' '>'
+|-UnaryOperator 0x55ef1b1f6678 <col:33, col:38> 'lu_mem':'unsigned long' postfix '--'
+| `-DeclRefExpr 0x55ef1b1f6650 <col:33> 'lu_mem':'unsigned long' lvalue ParmVar 0x55ef1b1f5dd8 'count' 'lu_mem':'unsigned long'
+`-ImplicitCastExpr 0x55ef1b1f66b8 <col:43> 'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x55ef1b1f6698 <col:43> 'int' 0
+[B10.2] > [B10.4]
+   T: while [B11.10] && [B10.5]
+   Preds (1): B11
+   Succs (2): B9 B1
+
+ [B11]
+   1: DeclRefExpr 0x55ef1b1f64d0 <lgc.c:411:19> 'GCObject **' lvalue ParmVar 0x55ef1b1f5d68 'p' 'GCObject **'
+p
+   2: ImplicitCastExpr 0x55ef1b1f64f8 <lgc.c:411:19> 'GCObject **' <LValueToRValue>
+`-DeclRefExpr 0x55ef1b1f64d0 <col:19> 'GCObject **' lvalue ParmVar 0x55ef1b1f5d68 'p' 'GCObject **'
+[B11.1] (ImplicitCastExpr, LValueToRValue, GCObject **)
+   3: UnaryOperator 0x55ef1b1f6510 <lgc.c:411:18, col:19> 'GCObject *' lvalue prefix '*'
+`-ImplicitCastExpr 0x55ef1b1f64f8 <col:19> 'GCObject **' <LValueToRValue>
+  `-DeclRefExpr 0x55ef1b1f64d0 <col:19> 'GCObject **' lvalue ParmVar 0x55ef1b1f5d68 'p' 'GCObject **'
+*[B11.2]
+   4: ImplicitCastExpr 0x55ef1b1f6530 <lgc.c:411:18, col:19> 'GCObject *' <LValueToRValue>
+`-UnaryOperator 0x55ef1b1f6510 <col:18, col:19> 'GCObject *' lvalue prefix '*'
+  `-ImplicitCastExpr 0x55ef1b1f64f8 <col:19> 'GCObject **' <LValueToRValue>
+    `-DeclRefExpr 0x55ef1b1f64d0 <col:19> 'GCObject **' lvalue ParmVar 0x55ef1b1f5d68 'p' 'GCObject **'
+[B11.3] (ImplicitCastExpr, LValueToRValue, GCObject *)
+   5: DeclRefExpr 0x55ef1b1f64a8 <lgc.c:411:11> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+curr
+   6: BinaryOperator 0x55ef1b1f6548 <lgc.c:411:11, col:19> 'GCObject *' '='
+|-DeclRefExpr 0x55ef1b1f64a8 <col:11> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+`-ImplicitCastExpr 0x55ef1b1f6530 <col:18, col:19> 'GCObject *' <LValueToRValue>
+  `-UnaryOperator 0x55ef1b1f6510 <col:18, col:19> 'GCObject *' lvalue prefix '*'
+    `-ImplicitCastExpr 0x55ef1b1f64f8 <col:19> 'GCObject **' <LValueToRValue>
+      `-DeclRefExpr 0x55ef1b1f64d0 <col:19> 'GCObject **' lvalue ParmVar 0x55ef1b1f5d68 'p' 'GCObject **'
+[B11.5] = [B11.4]
+   7: IntegerLiteral 0x55ef1b1f6590 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+   8: CStyleCastExpr 0x55ef1b1f65c8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x55ef1b1f6590 <col:24> 'int' 0
+(void *)[B11.7] (CStyleCastExpr, NullToPointer, void *)
+   9: ImplicitCastExpr 0x55ef1b1f6610 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'GCObject *' <BitCast>
+`-ParenExpr 0x55ef1b1f65f0 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x55ef1b1f65c8 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x55ef1b1f6590 <col:24> 'int' 0
+([B11.8]) (ImplicitCastExpr, BitCast, GCObject *)
+  10: BinaryOperator 0x55ef1b1f6628 <lgc.c:411:10, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25> 'int' '!='
+|-ParenExpr 0x55ef1b1f6570 <lgc.c:411:10, col:20> 'GCObject *'
+| `-BinaryOperator 0x55ef1b1f6548 <col:11, col:19> 'GCObject *' '='
+|   |-DeclRefExpr 0x55ef1b1f64a8 <col:11> 'GCObject *' lvalue Var 0x55ef1b1f5fe0 'curr' 'GCObject *'
+|   `-ImplicitCastExpr 0x55ef1b1f6530 <col:18, col:19> 'GCObject *' <LValueToRValue>
+|     `-UnaryOperator 0x55ef1b1f6510 <col:18, col:19> 'GCObject *' lvalue prefix '*'
+|       `-ImplicitCastExpr 0x55ef1b1f64f8 <col:19> 'GCObject **' <LValueToRValue>
+|         `-DeclRefExpr 0x55ef1b1f64d0 <col:19> 'GCObject **' lvalue ParmVar 0x55ef1b1f5d68 'p' 'GCObject **'
+`-ImplicitCastExpr 0x55ef1b1f6610 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'GCObject *' <BitCast>
+  `-ParenExpr 0x55ef1b1f65f0 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x55ef1b1f65c8 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x55ef1b1f6590 <col:24> 'int' 0
+([B11.6]) != [B11.9]
+   T: [B11.10] && ...
+   Preds (2): B2 B12
+   Succs (2): B10 B1
+
+ [B12]
+   1: DeclStmt 0x55ef1b1f6040 <lgc.c:408:3, col:17>col:13
+`-VarDecl 0x55ef1b1f5fe0 <col:3, col:13> col:13 used curr 'GCObject *'
+GCObject *curr;
+   2: DeclRefExpr 0x55ef1b1f60c8 <lgc.c:409:23> 'lua_State *' lvalue ParmVar 0x55ef1b1f5cf0 'L' 'lua_State *'
+L
+   3: ImplicitCastExpr 0x55ef1b1f60f0 <lgc.c:409:23> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55ef1b1f60c8 <col:23> 'lua_State *' lvalue ParmVar 0x55ef1b1f5cf0 'L' 'lua_State *'
+[B12.2] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   4: MemberExpr 0x55ef1b1f6108 <lgc.c:409:23, ./lstate.h:130:18> 'global_State *' lvalue ->l_G 0x55ef1b1a1218
+`-ImplicitCastExpr 0x55ef1b1f60f0 <lgc.c:409:23> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x55ef1b1f60c8 <col:23> 'lua_State *' lvalue ParmVar 0x55ef1b1f5cf0 'L' 'lua_State *'
+[B12.3]->l_G
+   5: ImplicitCastExpr 0x55ef1b1f6160 <./lstate.h:130:14, col:21> 'global_State *' <LValueToRValue>
+`-ParenExpr 0x55ef1b1f6140 <col:14, col:21> 'global_State *' lvalue
+  `-MemberExpr 0x55ef1b1f6108 <lgc.c:409:23, ./lstate.h:130:18> 'global_State *' lvalue ->l_G 0x55ef1b1a1218
+    `-ImplicitCastExpr 0x55ef1b1f60f0 <lgc.c:409:23> 'lua_State *' <LValueToRValue>
+      `-DeclRefExpr 0x55ef1b1f60c8 <col:23> 'lua_State *' lvalue ParmVar 0x55ef1b1f5cf0 'L' 'lua_State *'
+([B12.4]) (ImplicitCastExpr, LValueToRValue, global_State *)
+   6: DeclStmt 0x55ef1b1f6178 <lgc.c:409:3, col:25>col:17
+`-VarDecl 0x55ef1b1f6068 <col:3, ./lstate.h:130:21> lgc.c:409:17 used g 'global_State *' cinit
+  `-ImplicitCastExpr 0x55ef1b1f6160 <./lstate.h:130:14, col:21> 'global_State *' <LValueToRValue>
+    `-ParenExpr 0x55ef1b1f6140 <col:14, col:21> 'global_State *' lvalue
+      `-MemberExpr 0x55ef1b1f6108 <lgc.c:409:23, ./lstate.h:130:18> 'global_State *' lvalue ->l_G 0x55ef1b1a1218
+        `-ImplicitCastExpr 0x55ef1b1f60f0 <lgc.c:409:23> 'lua_State *' <LValueToRValue>
+          `-DeclRefExpr 0x55ef1b1f60c8 <col:23> 'lua_State *' lvalue ParmVar 0x55ef1b1f5cf0 'L' 'lua_State *'
+global_State *g = (L->l_G);
+   7: DeclRefExpr 0x55ef1b1f6208 <lgc.c:410:29> 'global_State *' lvalue Var 0x55ef1b1f6068 'g' 'global_State *'
+g
+   8: ImplicitCastExpr 0x55ef1b1f6230 <lgc.c:410:29> 'global_State *' <LValueToRValue>
+`-DeclRefExpr 0x55ef1b1f6208 <col:29> 'global_State *' lvalue Var 0x55ef1b1f6068 'g' 'global_State *'
+[B12.7] (ImplicitCastExpr, LValueToRValue, global_State *)
+   9: MemberExpr 0x55ef1b1f6248 <lgc.c:410:29, ./lgc.h:69:27> 'lu_byte':'unsigned char' lvalue ->currentwhite 0x55ef1b19eb90
+`-ImplicitCastExpr 0x55ef1b1f6230 <lgc.c:410:29> 'global_State *' <LValueToRValue>
+  `-DeclRefExpr 0x55ef1b1f6208 <col:29> 'global_State *' lvalue Var 0x55ef1b1f6068 'g' 'global_State *'
+[B12.8]->currentwhite
+  10: ImplicitCastExpr 0x55ef1b1f6418 <lgc.c:410:29, ./lgc.h:69:27> 'lu_byte':'unsigned char' <LValueToRValue>
+`-MemberExpr 0x55ef1b1f6248 <lgc.c:410:29, ./lgc.h:69:27> 'lu_byte':'unsigned char' lvalue ->currentwhite 0x55ef1b19eb90
+  `-ImplicitCastExpr 0x55ef1b1f6230 <lgc.c:410:29> 'global_State *' <LValueToRValue>
+    `-DeclRefExpr 0x55ef1b1f6208 <col:29> 'global_State *' lvalue Var 0x55ef1b1f6068 'g' 'global_State *'
+[B12.9] (ImplicitCastExpr, LValueToRValue, lu_byte)
+  11: ImplicitCastExpr 0x55ef1b1f6430 <lgc.c:410:29, ./lgc.h:69:27> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x55ef1b1f6418 <lgc.c:410:29, ./lgc.h:69:27> 'lu_byte':'unsigned char' <LValueToRValue>
+  `-MemberExpr 0x55ef1b1f6248 <lgc.c:410:29, ./lgc.h:69:27> 'lu_byte':'unsigned char' lvalue ->currentwhite 0x55ef1b19eb90
+    `-ImplicitCastExpr 0x55ef1b1f6230 <lgc.c:410:29> 'global_State *' <LValueToRValue>
+      `-DeclRefExpr 0x55ef1b1f6208 <col:29> 'global_State *' lvalue Var 0x55ef1b1f6068 'g' 'global_State *'
+[B12.10] (ImplicitCastExpr, IntegralCast, int)
+  12: IntegerLiteral 0x55ef1b1f6280 <./lgc.h:30:21> 'int' 1
+1
+  13: IntegerLiteral 0x55ef1b1f62a0 <./lgc.h:54:19> 'int' 0
+0
+  14: BinaryOperator 0x55ef1b1f62e0 <./lgc.h:30:21, col:26> 'int' '<<'
+|-IntegerLiteral 0x55ef1b1f6280 <col:21> 'int' 1
+`-ParenExpr 0x55ef1b1f62c0 <col:24, col:26> 'int'
+  `-IntegerLiteral 0x55ef1b1f62a0 <line:54:19> 'int' 0
+[B12.12] << ([B12.13])
+  15: IntegerLiteral 0x55ef1b1f6328 <./lgc.h:30:21> 'int' 1
+1
+  16: IntegerLiteral 0x55ef1b1f6348 <./lgc.h:55:19> 'int' 1
+1
+  17: BinaryOperator 0x55ef1b1f6388 <./lgc.h:30:21, col:26> 'int' '<<'
+|-IntegerLiteral 0x55ef1b1f6328 <col:21> 'int' 1
+`-ParenExpr 0x55ef1b1f6368 <col:24, col:26> 'int'
+  `-IntegerLiteral 0x55ef1b1f6348 <line:55:19> 'int' 1
+[B12.15] << ([B12.16])
+  18: BinaryOperator 0x55ef1b1f63d0 <./lgc.h:30:20, col:27> 'int' '|'
+|-ParenExpr 0x55ef1b1f6308 <col:20, col:27> 'int'
+| `-BinaryOperator 0x55ef1b1f62e0 <col:21, col:26> 'int' '<<'
+|   |-IntegerLiteral 0x55ef1b1f6280 <col:21> 'int' 1
+|   `-ParenExpr 0x55ef1b1f62c0 <col:24, col:26> 'int'
+|     `-IntegerLiteral 0x55ef1b1f62a0 <line:54:19> 'int' 0
+`-ParenExpr 0x55ef1b1f63b0 <line:30:20, col:27> 'int'
+  `-BinaryOperator 0x55ef1b1f6388 <col:21, col:26> 'int' '<<'
+    |-IntegerLiteral 0x55ef1b1f6328 <col:21> 'int' 1
+    `-ParenExpr 0x55ef1b1f6368 <col:24, col:26> 'int'
+      `-IntegerLiteral 0x55ef1b1f6348 <line:55:19> 'int' 1
+([B12.14]) | ([B12.17])
+  19: BinaryOperator 0x55ef1b1f6448 <lgc.c:410:29, ./lgc.h:31:51> 'int' '^'
+|-ImplicitCastExpr 0x55ef1b1f6430 <lgc.c:410:29, ./lgc.h:69:27> 'int' <IntegralCast>
+| `-ImplicitCastExpr 0x55ef1b1f6418 <lgc.c:410:29, ./lgc.h:69:27> 'lu_byte':'unsigned char' <LValueToRValue>
+|   `-MemberExpr 0x55ef1b1f6248 <lgc.c:410:29, ./lgc.h:69:27> 'lu_byte':'unsigned char' lvalue ->currentwhite 0x55ef1b19eb90
+|     `-ImplicitCastExpr 0x55ef1b1f6230 <lgc.c:410:29> 'global_State *' <LValueToRValue>
+|       `-DeclRefExpr 0x55ef1b1f6208 <col:29> 'global_State *' lvalue Var 0x55ef1b1f6068 'g' 'global_State *'
+`-ParenExpr 0x55ef1b1f63f8 <./lgc.h:31:25, col:51> 'int'
+  `-BinaryOperator 0x55ef1b1f63d0 <line:30:20, col:27> 'int' '|'
+    |-ParenExpr 0x55ef1b1f6308 <col:20, col:27> 'int'
+    | `-BinaryOperator 0x55ef1b1f62e0 <col:21, col:26> 'int' '<<'
+    |   |-IntegerLiteral 0x55ef1b1f6280 <col:21> 'int' 1
+    |   `-ParenExpr 0x55ef1b1f62c0 <col:24, col:26> 'int'
+    |     `-IntegerLiteral 0x55ef1b1f62a0 <line:54:19> 'int' 0
+    `-ParenExpr 0x55ef1b1f63b0 <line:30:20, col:27> 'int'
+      `-BinaryOperator 0x55ef1b1f6388 <col:21, col:26> 'int' '<<'
+        |-IntegerLiteral 0x55ef1b1f6328 <col:21> 'int' 1
+        `-ParenExpr 0x55ef1b1f6368 <col:24, col:26> 'int'
+          `-IntegerLiteral 0x55ef1b1f6348 <line:55:19> 'int' 1
+[B12.11] ^ ([B12.18])
+  20: DeclStmt 0x55ef1b1f6490 <lgc.c:410:3, col:31>col:7
+`-VarDecl 0x55ef1b1f61a8 <col:3, ./lgc.h:69:51> lgc.c:410:7 used deadmask 'int' cinit
+  `-ParenExpr 0x55ef1b1f6470 <./lgc.h:69:23, col:51> 'int'
+    `-BinaryOperator 0x55ef1b1f6448 <lgc.c:410:29, ./lgc.h:31:51> 'int' '^'
+      |-ImplicitCastExpr 0x55ef1b1f6430 <lgc.c:410:29, ./lgc.h:69:27> 'int' <IntegralCast>
+      | `-ImplicitCastExpr 0x55ef1b1f6418 <lgc.c:410:29, ./lgc.h:69:27> 'lu_byte':'unsigned char' <LValueToRValue>
+      |   `-MemberExpr 0x55ef1b1f6248 <lgc.c:410:29, ./lgc.h:69:27> 'lu_byte':'unsigned char' lvalue ->currentwhite 0x55ef1b19eb90
+      |     `-ImplicitCastExpr 0x55ef1b1f6230 <lgc.c:410:29> 'global_State *' <LValueToRValue>
+      |       `-DeclRefExpr 0x55ef1b1f6208 <col:29> 'global_State *' lvalue Var 0x55ef1b1f6068 'g' 'global_State *'
+      `-ParenExpr 0x55ef1b1f63f8 <./lgc.h:31:25, col:51> 'int'
+        `-BinaryOperator 0x55ef1b1f63d0 <line:30:20, col:27> 'int' '|'
+          |-ParenExpr 0x55ef1b1f6308 <col:20, col:27> 'int'
+          | `-BinaryOperator 0x55ef1b1f62e0 <col:21, col:26> 'int' '<<'
+          |   |-IntegerLiteral 0x55ef1b1f6280 <col:21> 'int' 1
+          |   `-ParenExpr 0x55ef1b1f62c0 <col:24, col:26> 'int'
+          |     `-IntegerLiteral 0x55ef1b1f62a0 <line:54:19> 'int' 0
+          `-ParenExpr 0x55ef1b1f63b0 <line:30:20, col:27> 'int'
+            `-BinaryOperator 0x55ef1b1f6388 <col:21, col:26> 'int' '<<'
+              |-IntegerLiteral 0x55ef1b1f6328 <col:21> 'int' 1
+              `-ParenExpr 0x55ef1b1f6368 <col:24, col:26> 'int'
+                `-IntegerLiteral 0x55ef1b1f6348 <line:55:19> 'int' 1
+int deadmask = (g->currentwhite ^ ((1 << (0)) | (1 << (1))));
+   Preds (1): B13
+   Succs (1): B11
+
+ [B0 (EXIT)]
+   Preds (1): B1

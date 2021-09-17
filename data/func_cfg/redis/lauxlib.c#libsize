@@ -1,0 +1,66 @@
+static int libsize(const luaL_Reg *l)
+ [B6 (ENTRY)]
+   Succs (1): B5
+
+ [B1]
+   1: DeclRefExpr 0x55f89cfcb0e8 <lauxlib.c:238:10> 'int' lvalue Var 0x55f89cfcaef8 'size' 'int'
+size
+   2: ImplicitCastExpr 0x55f89cfcb110 <lauxlib.c:238:10> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55f89cfcb0e8 <col:10> 'int' lvalue Var 0x55f89cfcaef8 'size' 'int'
+[B1.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: ReturnStmt 0x55f89cfcb128 <lauxlib.c:238:3, col:10>
+`-ImplicitCastExpr 0x55f89cfcb110 <col:10> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x55f89cfcb0e8 <col:10> 'int' lvalue Var 0x55f89cfcaef8 'size' 'int'
+return [B1.2];
+   Preds (1): B4
+   Succs (1): B0
+
+ [B2]
+   1: DeclRefExpr 0x55f89cfcb020 <lauxlib.c:237:19> 'const luaL_Reg *' lvalue ParmVar 0x55f89cfcad28 'l' 'const luaL_Reg *'
+l
+   2: UnaryOperator 0x55f89cfcb048 <lauxlib.c:237:19, col:20> 'const luaL_Reg *' postfix '++'
+`-DeclRefExpr 0x55f89cfcb020 <col:19> 'const luaL_Reg *' lvalue ParmVar 0x55f89cfcad28 'l' 'const luaL_Reg *'
+[B2.1]++
+   Preds (1): B3
+   Succs (1): B4
+
+ [B3]
+   1: DeclRefExpr 0x55f89cfcb068 <lauxlib.c:237:24> 'int' lvalue Var 0x55f89cfcaef8 'size' 'int'
+size
+   2: UnaryOperator 0x55f89cfcb090 <lauxlib.c:237:24, col:28> 'int' postfix '++'
+`-DeclRefExpr 0x55f89cfcb068 <col:24> 'int' lvalue Var 0x55f89cfcaef8 'size' 'int'
+[B3.1]++
+   Preds (1): B4
+   Succs (1): B2
+
+ [B4]
+   1: DeclRefExpr 0x55f89cfcaf90 <lauxlib.c:237:10> 'const luaL_Reg *' lvalue ParmVar 0x55f89cfcad28 'l' 'const luaL_Reg *'
+l
+   2: ImplicitCastExpr 0x55f89cfcafb8 <lauxlib.c:237:10> 'const luaL_Reg *' <LValueToRValue>
+`-DeclRefExpr 0x55f89cfcaf90 <col:10> 'const luaL_Reg *' lvalue ParmVar 0x55f89cfcad28 'l' 'const luaL_Reg *'
+[B4.1] (ImplicitCastExpr, LValueToRValue, const luaL_Reg *)
+   3: MemberExpr 0x55f89cfcafd0 <lauxlib.c:237:10, col:13> 'const char *const' lvalue ->name 0x55f89cfb01a8
+`-ImplicitCastExpr 0x55f89cfcafb8 <col:10> 'const luaL_Reg *' <LValueToRValue>
+  `-DeclRefExpr 0x55f89cfcaf90 <col:10> 'const luaL_Reg *' lvalue ParmVar 0x55f89cfcad28 'l' 'const luaL_Reg *'
+[B4.2]->name
+   4: ImplicitCastExpr 0x55f89cfcb008 <lauxlib.c:237:10, col:13> 'const char *' <LValueToRValue>
+`-MemberExpr 0x55f89cfcafd0 <col:10, col:13> 'const char *const' lvalue ->name 0x55f89cfb01a8
+  `-ImplicitCastExpr 0x55f89cfcafb8 <col:10> 'const luaL_Reg *' <LValueToRValue>
+    `-DeclRefExpr 0x55f89cfcaf90 <col:10> 'const luaL_Reg *' lvalue ParmVar 0x55f89cfcad28 'l' 'const luaL_Reg *'
+[B4.3] (ImplicitCastExpr, LValueToRValue, const char *)
+   T: for (; [B4.4]; ...)
+   Preds (2): B2 B5
+   Succs (2): B3 B1
+
+ [B5]
+   1: IntegerLiteral 0x55f89cfcaf58 <lauxlib.c:236:14> 'int' 0
+0
+   2: DeclStmt 0x55f89cfcaf78 <lauxlib.c:236:3, col:15>col:7
+`-VarDecl 0x55f89cfcaef8 <col:3, col:14> col:7 used size 'int' cinit
+  `-IntegerLiteral 0x55f89cfcaf58 <col:14> 'int' 0
+int size = 0;
+   Preds (1): B6
+   Succs (1): B4
+
+ [B0 (EXIT)]
+   Preds (1): B1

@@ -1,0 +1,524 @@
+static void check_conflict(LexState *ls, struct LHS_assign *lh, expdesc *v)
+ [B11 (ENTRY)]
+   Succs (1): B10
+
+ [B1]
+   1: DeclRefExpr 0x558fa8f2c530 <lparser.c:925:5> 'int (FuncState *, OpCode, int, int, int)' Function 0x558fa8eb9498 'luaK_codeABC' 'int (FuncState *, OpCode, int, int, int)'
+luaK_codeABC
+   2: ImplicitCastExpr 0x558fa8f2c728 <lparser.c:925:5> 'int (*)(FuncState *, OpCode, int, int, int)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x558fa8f2c530 <col:5> 'int (FuncState *, OpCode, int, int, int)' Function 0x558fa8eb9498 'luaK_codeABC' 'int (FuncState *, OpCode, int, int, int)'
+[B1.1] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(FuncState *, OpCode, int, int, int))
+   3: DeclRefExpr 0x558fa8f2c558 <lparser.c:925:18> 'FuncState *' lvalue Var 0x558fa8f2b198 'fs' 'FuncState *'
+fs
+   4: ImplicitCastExpr 0x558fa8f2c790 <lparser.c:925:18> 'FuncState *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8f2c558 <col:18> 'FuncState *' lvalue Var 0x558fa8f2b198 'fs' 'FuncState *'
+[B1.3] (ImplicitCastExpr, LValueToRValue, FuncState *)
+   5: DeclRefExpr 0x558fa8f2c580 <lparser.c:925:22> 'int' EnumConstant 0x558fa8eaf320 'OP_MOVE' 'int'
+OP_MOVE
+   6: ImplicitCastExpr 0x558fa8f2c7a8 <lparser.c:925:22> 'OpCode':'OpCode' <IntegralCast>
+`-DeclRefExpr 0x558fa8f2c580 <col:22> 'int' EnumConstant 0x558fa8eaf320 'OP_MOVE' 'int'
+[B1.5] (ImplicitCastExpr, IntegralCast, OpCode)
+   7: DeclRefExpr 0x558fa8f2c5a8 <lparser.c:925:31> 'FuncState *' lvalue Var 0x558fa8f2b198 'fs' 'FuncState *'
+fs
+   8: ImplicitCastExpr 0x558fa8f2c5d0 <lparser.c:925:31> 'FuncState *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8f2c5a8 <col:31> 'FuncState *' lvalue Var 0x558fa8f2b198 'fs' 'FuncState *'
+[B1.7] (ImplicitCastExpr, LValueToRValue, FuncState *)
+   9: MemberExpr 0x558fa8f2c5e8 <lparser.c:925:31, col:35> 'int' lvalue ->freereg 0x558fa8eb42f0
+`-ImplicitCastExpr 0x558fa8f2c5d0 <col:31> 'FuncState *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8f2c5a8 <col:31> 'FuncState *' lvalue Var 0x558fa8f2b198 'fs' 'FuncState *'
+[B1.8]->freereg
+  10: ImplicitCastExpr 0x558fa8f2c7c0 <lparser.c:925:31, col:35> 'int' <LValueToRValue>
+`-MemberExpr 0x558fa8f2c5e8 <col:31, col:35> 'int' lvalue ->freereg 0x558fa8eb42f0
+  `-ImplicitCastExpr 0x558fa8f2c5d0 <col:31> 'FuncState *' <LValueToRValue>
+    `-DeclRefExpr 0x558fa8f2c5a8 <col:31> 'FuncState *' lvalue Var 0x558fa8f2b198 'fs' 'FuncState *'
+[B1.9] (ImplicitCastExpr, LValueToRValue, int)
+  11: DeclRefExpr 0x558fa8f2c620 <lparser.c:925:44> 'expdesc *' lvalue ParmVar 0x558fa8f2af98 'v' 'expdesc *'
+v
+  12: ImplicitCastExpr 0x558fa8f2c648 <lparser.c:925:44> 'expdesc *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8f2c620 <col:44> 'expdesc *' lvalue ParmVar 0x558fa8f2af98 'v' 'expdesc *'
+[B1.11] (ImplicitCastExpr, LValueToRValue, expdesc *)
+  13: MemberExpr 0x558fa8f2c660 <lparser.c:925:44, col:47> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue ->u 0x558fa8eb1260
+`-ImplicitCastExpr 0x558fa8f2c648 <col:44> 'expdesc *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8f2c620 <col:44> 'expdesc *' lvalue ParmVar 0x558fa8f2af98 'v' 'expdesc *'
+[B1.12]->u
+  14: MemberExpr 0x558fa8f2c698 <lparser.c:925:44, col:49> 'struct (anonymous struct at ./lparser.h:40:5)':'struct expdesc::(anonymous at ./lparser.h:40:5)' lvalue .s 0x558fa8eb1120
+`-MemberExpr 0x558fa8f2c660 <col:44, col:47> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue ->u 0x558fa8eb1260
+  `-ImplicitCastExpr 0x558fa8f2c648 <col:44> 'expdesc *' <LValueToRValue>
+    `-DeclRefExpr 0x558fa8f2c620 <col:44> 'expdesc *' lvalue ParmVar 0x558fa8f2af98 'v' 'expdesc *'
+[B1.13].s
+  15: MemberExpr 0x558fa8f2c6d0 <lparser.c:925:44, col:51> 'int' lvalue .info 0x558fa8eb1028
+`-MemberExpr 0x558fa8f2c698 <col:44, col:49> 'struct (anonymous struct at ./lparser.h:40:5)':'struct expdesc::(anonymous at ./lparser.h:40:5)' lvalue .s 0x558fa8eb1120
+  `-MemberExpr 0x558fa8f2c660 <col:44, col:47> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue ->u 0x558fa8eb1260
+    `-ImplicitCastExpr 0x558fa8f2c648 <col:44> 'expdesc *' <LValueToRValue>
+      `-DeclRefExpr 0x558fa8f2c620 <col:44> 'expdesc *' lvalue ParmVar 0x558fa8f2af98 'v' 'expdesc *'
+[B1.14].info
+  16: ImplicitCastExpr 0x558fa8f2c7d8 <lparser.c:925:44, col:51> 'int' <LValueToRValue>
+`-MemberExpr 0x558fa8f2c6d0 <col:44, col:51> 'int' lvalue .info 0x558fa8eb1028
+  `-MemberExpr 0x558fa8f2c698 <col:44, col:49> 'struct (anonymous struct at ./lparser.h:40:5)':'struct expdesc::(anonymous at ./lparser.h:40:5)' lvalue .s 0x558fa8eb1120
+    `-MemberExpr 0x558fa8f2c660 <col:44, col:47> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue ->u 0x558fa8eb1260
+      `-ImplicitCastExpr 0x558fa8f2c648 <col:44> 'expdesc *' <LValueToRValue>
+        `-DeclRefExpr 0x558fa8f2c620 <col:44> 'expdesc *' lvalue ParmVar 0x558fa8f2af98 'v' 'expdesc *'
+[B1.15] (ImplicitCastExpr, LValueToRValue, int)
+  17: IntegerLiteral 0x558fa8f2c708 <lparser.c:925:57> 'int' 0
+0
+  18: CallExpr 0x558fa8f2c740 <lparser.c:925:5, col:58> 'int'
+|-ImplicitCastExpr 0x558fa8f2c728 <col:5> 'int (*)(FuncState *, OpCode, int, int, int)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x558fa8f2c530 <col:5> 'int (FuncState *, OpCode, int, int, int)' Function 0x558fa8eb9498 'luaK_codeABC' 'int (FuncState *, OpCode, int, int, int)'
+|-ImplicitCastExpr 0x558fa8f2c790 <col:18> 'FuncState *' <LValueToRValue>
+| `-DeclRefExpr 0x558fa8f2c558 <col:18> 'FuncState *' lvalue Var 0x558fa8f2b198 'fs' 'FuncState *'
+|-ImplicitCastExpr 0x558fa8f2c7a8 <col:22> 'OpCode':'OpCode' <IntegralCast>
+| `-DeclRefExpr 0x558fa8f2c580 <col:22> 'int' EnumConstant 0x558fa8eaf320 'OP_MOVE' 'int'
+|-ImplicitCastExpr 0x558fa8f2c7c0 <col:31, col:35> 'int' <LValueToRValue>
+| `-MemberExpr 0x558fa8f2c5e8 <col:31, col:35> 'int' lvalue ->freereg 0x558fa8eb42f0
+|   `-ImplicitCastExpr 0x558fa8f2c5d0 <col:31> 'FuncState *' <LValueToRValue>
+|     `-DeclRefExpr 0x558fa8f2c5a8 <col:31> 'FuncState *' lvalue Var 0x558fa8f2b198 'fs' 'FuncState *'
+|-ImplicitCastExpr 0x558fa8f2c7d8 <col:44, col:51> 'int' <LValueToRValue>
+| `-MemberExpr 0x558fa8f2c6d0 <col:44, col:51> 'int' lvalue .info 0x558fa8eb1028
+|   `-MemberExpr 0x558fa8f2c698 <col:44, col:49> 'struct (anonymous struct at ./lparser.h:40:5)':'struct expdesc::(anonymous at ./lparser.h:40:5)' lvalue .s 0x558fa8eb1120
+|     `-MemberExpr 0x558fa8f2c660 <col:44, col:47> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue ->u 0x558fa8eb1260
+|       `-ImplicitCastExpr 0x558fa8f2c648 <col:44> 'expdesc *' <LValueToRValue>
+|         `-DeclRefExpr 0x558fa8f2c620 <col:44> 'expdesc *' lvalue ParmVar 0x558fa8f2af98 'v' 'expdesc *'
+`-IntegerLiteral 0x558fa8f2c708 <col:57> 'int' 0
+[B1.2]([B1.4], [B1.6], [B1.10], [B1.16], [B1.17])
+  19: DeclRefExpr 0x558fa8f2c7f0 <lparser.c:926:5> 'void (FuncState *, int)' Function 0x558fa8eb9d18 'luaK_reserveregs' 'void (FuncState *, int)'
+luaK_reserveregs
+  20: ImplicitCastExpr 0x558fa8f2c860 <lparser.c:926:5> 'void (*)(FuncState *, int)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x558fa8f2c7f0 <col:5> 'void (FuncState *, int)' Function 0x558fa8eb9d18 'luaK_reserveregs' 'void (FuncState *, int)'
+[B1.19] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(FuncState *, int))
+  21: DeclRefExpr 0x558fa8f2c818 <lparser.c:926:22> 'FuncState *' lvalue Var 0x558fa8f2b198 'fs' 'FuncState *'
+fs
+  22: ImplicitCastExpr 0x558fa8f2c8b0 <lparser.c:926:22> 'FuncState *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8f2c818 <col:22> 'FuncState *' lvalue Var 0x558fa8f2b198 'fs' 'FuncState *'
+[B1.21] (ImplicitCastExpr, LValueToRValue, FuncState *)
+  23: IntegerLiteral 0x558fa8f2c840 <lparser.c:926:26> 'int' 1
+1
+  24: CallExpr 0x558fa8f2c878 <lparser.c:926:5, col:27> 'void'
+|-ImplicitCastExpr 0x558fa8f2c860 <col:5> 'void (*)(FuncState *, int)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x558fa8f2c7f0 <col:5> 'void (FuncState *, int)' Function 0x558fa8eb9d18 'luaK_reserveregs' 'void (FuncState *, int)'
+|-ImplicitCastExpr 0x558fa8f2c8b0 <col:22> 'FuncState *' <LValueToRValue>
+| `-DeclRefExpr 0x558fa8f2c818 <col:22> 'FuncState *' lvalue Var 0x558fa8f2b198 'fs' 'FuncState *'
+`-IntegerLiteral 0x558fa8f2c840 <col:26> 'int' 1
+[B1.20]([B1.22], [B1.23])
+   Preds (1): B2
+   Succs (1): B0
+
+ [B2]
+   1: DeclRefExpr 0x558fa8f2c4f0 <lparser.c:924:7> 'int' lvalue Var 0x558fa8f2b3d8 'conflict' 'int'
+conflict
+   2: ImplicitCastExpr 0x558fa8f2c518 <lparser.c:924:7> 'int' <LValueToRValue>
+`-DeclRefExpr 0x558fa8f2c4f0 <col:7> 'int' lvalue Var 0x558fa8f2b3d8 'conflict' 'int'
+[B2.1] (ImplicitCastExpr, LValueToRValue, int)
+   T: if [B2.2]
+   Preds (1): B9
+   Succs (2): B1 B0
+
+ [B3]
+   1: DeclRefExpr 0x558fa8f2b4d8 <lparser.c:912:19> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+lh
+   2: ImplicitCastExpr 0x558fa8f2b500 <lparser.c:912:19> 'struct LHS_assign *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8f2b4d8 <col:19> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B3.1] (ImplicitCastExpr, LValueToRValue, struct LHS_assign *)
+   3: MemberExpr 0x558fa8f2b518 <lparser.c:912:19, col:23> 'struct LHS_assign *' lvalue ->prev 0x558fa8f2adf0
+`-ImplicitCastExpr 0x558fa8f2b500 <col:19> 'struct LHS_assign *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8f2b4d8 <col:19> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B3.2]->prev
+   4: ImplicitCastExpr 0x558fa8f2b550 <lparser.c:912:19, col:23> 'struct LHS_assign *' <LValueToRValue>
+`-MemberExpr 0x558fa8f2b518 <col:19, col:23> 'struct LHS_assign *' lvalue ->prev 0x558fa8f2adf0
+  `-ImplicitCastExpr 0x558fa8f2b500 <col:19> 'struct LHS_assign *' <LValueToRValue>
+    `-DeclRefExpr 0x558fa8f2b4d8 <col:19> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B3.3] (ImplicitCastExpr, LValueToRValue, struct LHS_assign *)
+   5: DeclRefExpr 0x558fa8f2b4b0 <lparser.c:912:14> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+lh
+   6: BinaryOperator 0x558fa8f2b568 <lparser.c:912:14, col:23> 'struct LHS_assign *' '='
+|-DeclRefExpr 0x558fa8f2b4b0 <col:14> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+`-ImplicitCastExpr 0x558fa8f2b550 <col:19, col:23> 'struct LHS_assign *' <LValueToRValue>
+  `-MemberExpr 0x558fa8f2b518 <col:19, col:23> 'struct LHS_assign *' lvalue ->prev 0x558fa8f2adf0
+    `-ImplicitCastExpr 0x558fa8f2b500 <col:19> 'struct LHS_assign *' <LValueToRValue>
+      `-DeclRefExpr 0x558fa8f2b4d8 <col:19> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B3.5] = [B3.4]
+   Preds (3): B4 B5 B8
+   Succs (1): B9
+
+ [B4]
+   1: IntegerLiteral 0x558fa8f2c220 <lparser.c:919:20> 'int' 1
+1
+   2: DeclRefExpr 0x558fa8f2c1f8 <lparser.c:919:9> 'int' lvalue Var 0x558fa8f2b3d8 'conflict' 'int'
+conflict
+   3: BinaryOperator 0x558fa8f2c240 <lparser.c:919:9, col:20> 'int' '='
+|-DeclRefExpr 0x558fa8f2c1f8 <col:9> 'int' lvalue Var 0x558fa8f2b3d8 'conflict' 'int'
+`-IntegerLiteral 0x558fa8f2c220 <col:20> 'int' 1
+[B4.2] = [B4.1]
+   4: DeclRefExpr 0x558fa8f2c388 <lparser.c:920:25> 'int' lvalue Var 0x558fa8f2b2b8 'extra' 'int'
+extra
+   5: ImplicitCastExpr 0x558fa8f2c3b0 <lparser.c:920:25> 'int' <LValueToRValue>
+`-DeclRefExpr 0x558fa8f2c388 <col:25> 'int' lvalue Var 0x558fa8f2b2b8 'extra' 'int'
+[B4.4] (ImplicitCastExpr, LValueToRValue, int)
+   6: DeclRefExpr 0x558fa8f2c268 <lparser.c:920:9> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+lh
+   7: ImplicitCastExpr 0x558fa8f2c290 <lparser.c:920:9> 'struct LHS_assign *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8f2c268 <col:9> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B4.6] (ImplicitCastExpr, LValueToRValue, struct LHS_assign *)
+   8: MemberExpr 0x558fa8f2c2a8 <lparser.c:920:9, col:13> 'expdesc':'struct expdesc' lvalue ->v 0x558fa8f2ae48
+`-ImplicitCastExpr 0x558fa8f2c290 <col:9> 'struct LHS_assign *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8f2c268 <col:9> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B4.7]->v
+   9: MemberExpr 0x558fa8f2c2e0 <lparser.c:920:9, col:15> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue .u 0x558fa8eb1260
+`-MemberExpr 0x558fa8f2c2a8 <col:9, col:13> 'expdesc':'struct expdesc' lvalue ->v 0x558fa8f2ae48
+  `-ImplicitCastExpr 0x558fa8f2c290 <col:9> 'struct LHS_assign *' <LValueToRValue>
+    `-DeclRefExpr 0x558fa8f2c268 <col:9> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B4.8].u
+  10: MemberExpr 0x558fa8f2c318 <lparser.c:920:9, col:17> 'struct (anonymous struct at ./lparser.h:40:5)':'struct expdesc::(anonymous at ./lparser.h:40:5)' lvalue .s 0x558fa8eb1120
+`-MemberExpr 0x558fa8f2c2e0 <col:9, col:15> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue .u 0x558fa8eb1260
+  `-MemberExpr 0x558fa8f2c2a8 <col:9, col:13> 'expdesc':'struct expdesc' lvalue ->v 0x558fa8f2ae48
+    `-ImplicitCastExpr 0x558fa8f2c290 <col:9> 'struct LHS_assign *' <LValueToRValue>
+      `-DeclRefExpr 0x558fa8f2c268 <col:9> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B4.9].s
+  11: MemberExpr 0x558fa8f2c350 <lparser.c:920:9, col:19> 'int' lvalue .aux 0x558fa8eb1088
+`-MemberExpr 0x558fa8f2c318 <col:9, col:17> 'struct (anonymous struct at ./lparser.h:40:5)':'struct expdesc::(anonymous at ./lparser.h:40:5)' lvalue .s 0x558fa8eb1120
+  `-MemberExpr 0x558fa8f2c2e0 <col:9, col:15> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue .u 0x558fa8eb1260
+    `-MemberExpr 0x558fa8f2c2a8 <col:9, col:13> 'expdesc':'struct expdesc' lvalue ->v 0x558fa8f2ae48
+      `-ImplicitCastExpr 0x558fa8f2c290 <col:9> 'struct LHS_assign *' <LValueToRValue>
+        `-DeclRefExpr 0x558fa8f2c268 <col:9> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B4.10].aux
+  12: BinaryOperator 0x558fa8f2c3c8 <lparser.c:920:9, col:25> 'int' '='
+|-MemberExpr 0x558fa8f2c350 <col:9, col:19> 'int' lvalue .aux 0x558fa8eb1088
+| `-MemberExpr 0x558fa8f2c318 <col:9, col:17> 'struct (anonymous struct at ./lparser.h:40:5)':'struct expdesc::(anonymous at ./lparser.h:40:5)' lvalue .s 0x558fa8eb1120
+|   `-MemberExpr 0x558fa8f2c2e0 <col:9, col:15> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue .u 0x558fa8eb1260
+|     `-MemberExpr 0x558fa8f2c2a8 <col:9, col:13> 'expdesc':'struct expdesc' lvalue ->v 0x558fa8f2ae48
+|       `-ImplicitCastExpr 0x558fa8f2c290 <col:9> 'struct LHS_assign *' <LValueToRValue>
+|         `-DeclRefExpr 0x558fa8f2c268 <col:9> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+`-ImplicitCastExpr 0x558fa8f2c3b0 <col:25> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8f2c388 <col:25> 'int' lvalue Var 0x558fa8f2b2b8 'extra' 'int'
+[B4.11] = [B4.5]
+   Preds (1): B5
+   Succs (1): B3
+
+ [B5]
+   1: DeclRefExpr 0x558fa8f2bf98 <lparser.c:918:11> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+lh
+   2: ImplicitCastExpr 0x558fa8f2bfc0 <lparser.c:918:11> 'struct LHS_assign *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8f2bf98 <col:11> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B5.1] (ImplicitCastExpr, LValueToRValue, struct LHS_assign *)
+   3: MemberExpr 0x558fa8f2bfd8 <lparser.c:918:11, col:15> 'expdesc':'struct expdesc' lvalue ->v 0x558fa8f2ae48
+`-ImplicitCastExpr 0x558fa8f2bfc0 <col:11> 'struct LHS_assign *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8f2bf98 <col:11> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B5.2]->v
+   4: MemberExpr 0x558fa8f2c010 <lparser.c:918:11, col:17> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue .u 0x558fa8eb1260
+`-MemberExpr 0x558fa8f2bfd8 <col:11, col:15> 'expdesc':'struct expdesc' lvalue ->v 0x558fa8f2ae48
+  `-ImplicitCastExpr 0x558fa8f2bfc0 <col:11> 'struct LHS_assign *' <LValueToRValue>
+    `-DeclRefExpr 0x558fa8f2bf98 <col:11> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B5.3].u
+   5: MemberExpr 0x558fa8f2c048 <lparser.c:918:11, col:19> 'struct (anonymous struct at ./lparser.h:40:5)':'struct expdesc::(anonymous at ./lparser.h:40:5)' lvalue .s 0x558fa8eb1120
+`-MemberExpr 0x558fa8f2c010 <col:11, col:17> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue .u 0x558fa8eb1260
+  `-MemberExpr 0x558fa8f2bfd8 <col:11, col:15> 'expdesc':'struct expdesc' lvalue ->v 0x558fa8f2ae48
+    `-ImplicitCastExpr 0x558fa8f2bfc0 <col:11> 'struct LHS_assign *' <LValueToRValue>
+      `-DeclRefExpr 0x558fa8f2bf98 <col:11> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B5.4].s
+   6: MemberExpr 0x558fa8f2c080 <lparser.c:918:11, col:21> 'int' lvalue .aux 0x558fa8eb1088
+`-MemberExpr 0x558fa8f2c048 <col:11, col:19> 'struct (anonymous struct at ./lparser.h:40:5)':'struct expdesc::(anonymous at ./lparser.h:40:5)' lvalue .s 0x558fa8eb1120
+  `-MemberExpr 0x558fa8f2c010 <col:11, col:17> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue .u 0x558fa8eb1260
+    `-MemberExpr 0x558fa8f2bfd8 <col:11, col:15> 'expdesc':'struct expdesc' lvalue ->v 0x558fa8f2ae48
+      `-ImplicitCastExpr 0x558fa8f2bfc0 <col:11> 'struct LHS_assign *' <LValueToRValue>
+        `-DeclRefExpr 0x558fa8f2bf98 <col:11> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B5.5].aux
+   7: ImplicitCastExpr 0x558fa8f2c1a0 <lparser.c:918:11, col:21> 'int' <LValueToRValue>
+`-MemberExpr 0x558fa8f2c080 <col:11, col:21> 'int' lvalue .aux 0x558fa8eb1088
+  `-MemberExpr 0x558fa8f2c048 <col:11, col:19> 'struct (anonymous struct at ./lparser.h:40:5)':'struct expdesc::(anonymous at ./lparser.h:40:5)' lvalue .s 0x558fa8eb1120
+    `-MemberExpr 0x558fa8f2c010 <col:11, col:17> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue .u 0x558fa8eb1260
+      `-MemberExpr 0x558fa8f2bfd8 <col:11, col:15> 'expdesc':'struct expdesc' lvalue ->v 0x558fa8f2ae48
+        `-ImplicitCastExpr 0x558fa8f2bfc0 <col:11> 'struct LHS_assign *' <LValueToRValue>
+          `-DeclRefExpr 0x558fa8f2bf98 <col:11> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B5.6] (ImplicitCastExpr, LValueToRValue, int)
+   8: DeclRefExpr 0x558fa8f2c0b8 <lparser.c:918:28> 'expdesc *' lvalue ParmVar 0x558fa8f2af98 'v' 'expdesc *'
+v
+   9: ImplicitCastExpr 0x558fa8f2c0e0 <lparser.c:918:28> 'expdesc *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8f2c0b8 <col:28> 'expdesc *' lvalue ParmVar 0x558fa8f2af98 'v' 'expdesc *'
+[B5.8] (ImplicitCastExpr, LValueToRValue, expdesc *)
+  10: MemberExpr 0x558fa8f2c0f8 <lparser.c:918:28, col:31> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue ->u 0x558fa8eb1260
+`-ImplicitCastExpr 0x558fa8f2c0e0 <col:28> 'expdesc *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8f2c0b8 <col:28> 'expdesc *' lvalue ParmVar 0x558fa8f2af98 'v' 'expdesc *'
+[B5.9]->u
+  11: MemberExpr 0x558fa8f2c130 <lparser.c:918:28, col:33> 'struct (anonymous struct at ./lparser.h:40:5)':'struct expdesc::(anonymous at ./lparser.h:40:5)' lvalue .s 0x558fa8eb1120
+`-MemberExpr 0x558fa8f2c0f8 <col:28, col:31> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue ->u 0x558fa8eb1260
+  `-ImplicitCastExpr 0x558fa8f2c0e0 <col:28> 'expdesc *' <LValueToRValue>
+    `-DeclRefExpr 0x558fa8f2c0b8 <col:28> 'expdesc *' lvalue ParmVar 0x558fa8f2af98 'v' 'expdesc *'
+[B5.10].s
+  12: MemberExpr 0x558fa8f2c168 <lparser.c:918:28, col:35> 'int' lvalue .info 0x558fa8eb1028
+`-MemberExpr 0x558fa8f2c130 <col:28, col:33> 'struct (anonymous struct at ./lparser.h:40:5)':'struct expdesc::(anonymous at ./lparser.h:40:5)' lvalue .s 0x558fa8eb1120
+  `-MemberExpr 0x558fa8f2c0f8 <col:28, col:31> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue ->u 0x558fa8eb1260
+    `-ImplicitCastExpr 0x558fa8f2c0e0 <col:28> 'expdesc *' <LValueToRValue>
+      `-DeclRefExpr 0x558fa8f2c0b8 <col:28> 'expdesc *' lvalue ParmVar 0x558fa8f2af98 'v' 'expdesc *'
+[B5.11].info
+  13: ImplicitCastExpr 0x558fa8f2c1b8 <lparser.c:918:28, col:35> 'int' <LValueToRValue>
+`-MemberExpr 0x558fa8f2c168 <col:28, col:35> 'int' lvalue .info 0x558fa8eb1028
+  `-MemberExpr 0x558fa8f2c130 <col:28, col:33> 'struct (anonymous struct at ./lparser.h:40:5)':'struct expdesc::(anonymous at ./lparser.h:40:5)' lvalue .s 0x558fa8eb1120
+    `-MemberExpr 0x558fa8f2c0f8 <col:28, col:31> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue ->u 0x558fa8eb1260
+      `-ImplicitCastExpr 0x558fa8f2c0e0 <col:28> 'expdesc *' <LValueToRValue>
+        `-DeclRefExpr 0x558fa8f2c0b8 <col:28> 'expdesc *' lvalue ParmVar 0x558fa8f2af98 'v' 'expdesc *'
+[B5.12] (ImplicitCastExpr, LValueToRValue, int)
+  14: BinaryOperator 0x558fa8f2c1d0 <lparser.c:918:11, col:35> 'int' '=='
+|-ImplicitCastExpr 0x558fa8f2c1a0 <col:11, col:21> 'int' <LValueToRValue>
+| `-MemberExpr 0x558fa8f2c080 <col:11, col:21> 'int' lvalue .aux 0x558fa8eb1088
+|   `-MemberExpr 0x558fa8f2c048 <col:11, col:19> 'struct (anonymous struct at ./lparser.h:40:5)':'struct expdesc::(anonymous at ./lparser.h:40:5)' lvalue .s 0x558fa8eb1120
+|     `-MemberExpr 0x558fa8f2c010 <col:11, col:17> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue .u 0x558fa8eb1260
+|       `-MemberExpr 0x558fa8f2bfd8 <col:11, col:15> 'expdesc':'struct expdesc' lvalue ->v 0x558fa8f2ae48
+|         `-ImplicitCastExpr 0x558fa8f2bfc0 <col:11> 'struct LHS_assign *' <LValueToRValue>
+|           `-DeclRefExpr 0x558fa8f2bf98 <col:11> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+`-ImplicitCastExpr 0x558fa8f2c1b8 <col:28, col:35> 'int' <LValueToRValue>
+  `-MemberExpr 0x558fa8f2c168 <col:28, col:35> 'int' lvalue .info 0x558fa8eb1028
+    `-MemberExpr 0x558fa8f2c130 <col:28, col:33> 'struct (anonymous struct at ./lparser.h:40:5)':'struct expdesc::(anonymous at ./lparser.h:40:5)' lvalue .s 0x558fa8eb1120
+      `-MemberExpr 0x558fa8f2c0f8 <col:28, col:31> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue ->u 0x558fa8eb1260
+        `-ImplicitCastExpr 0x558fa8f2c0e0 <col:28> 'expdesc *' <LValueToRValue>
+          `-DeclRefExpr 0x558fa8f2c0b8 <col:28> 'expdesc *' lvalue ParmVar 0x558fa8f2af98 'v' 'expdesc *'
+[B5.7] == [B5.13]
+   T: if [B5.14]
+   Preds (2): B6 B7
+   Succs (2): B4 B3
+
+ [B6]
+   1: IntegerLiteral 0x558fa8f2b960 <lparser.c:915:20> 'int' 1
+1
+   2: DeclRefExpr 0x558fa8f2b938 <lparser.c:915:9> 'int' lvalue Var 0x558fa8f2b3d8 'conflict' 'int'
+conflict
+   3: BinaryOperator 0x558fa8f2b980 <lparser.c:915:9, col:20> 'int' '='
+|-DeclRefExpr 0x558fa8f2b938 <col:9> 'int' lvalue Var 0x558fa8f2b3d8 'conflict' 'int'
+`-IntegerLiteral 0x558fa8f2b960 <col:20> 'int' 1
+[B6.2] = [B6.1]
+   4: DeclRefExpr 0x558fa8f2bed8 <lparser.c:916:26> 'int' lvalue Var 0x558fa8f2b2b8 'extra' 'int'
+extra
+   5: ImplicitCastExpr 0x558fa8f2bf00 <lparser.c:916:26> 'int' <LValueToRValue>
+`-DeclRefExpr 0x558fa8f2bed8 <col:26> 'int' lvalue Var 0x558fa8f2b2b8 'extra' 'int'
+[B6.4] (ImplicitCastExpr, LValueToRValue, int)
+   6: DeclRefExpr 0x558fa8f2b9a8 <lparser.c:916:9> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+lh
+   7: ImplicitCastExpr 0x558fa8f2b9d0 <lparser.c:916:9> 'struct LHS_assign *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8f2b9a8 <col:9> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B6.6] (ImplicitCastExpr, LValueToRValue, struct LHS_assign *)
+   8: MemberExpr 0x558fa8f2b9e8 <lparser.c:916:9, col:13> 'expdesc':'struct expdesc' lvalue ->v 0x558fa8f2ae48
+`-ImplicitCastExpr 0x558fa8f2b9d0 <col:9> 'struct LHS_assign *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8f2b9a8 <col:9> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B6.7]->v
+   9: MemberExpr 0x558fa8f2ba20 <lparser.c:916:9, col:15> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue .u 0x558fa8eb1260
+`-MemberExpr 0x558fa8f2b9e8 <col:9, col:13> 'expdesc':'struct expdesc' lvalue ->v 0x558fa8f2ae48
+  `-ImplicitCastExpr 0x558fa8f2b9d0 <col:9> 'struct LHS_assign *' <LValueToRValue>
+    `-DeclRefExpr 0x558fa8f2b9a8 <col:9> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B6.8].u
+  10: MemberExpr 0x558fa8f2ba58 <lparser.c:916:9, col:17> 'struct (anonymous struct at ./lparser.h:40:5)':'struct expdesc::(anonymous at ./lparser.h:40:5)' lvalue .s 0x558fa8eb1120
+`-MemberExpr 0x558fa8f2ba20 <col:9, col:15> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue .u 0x558fa8eb1260
+  `-MemberExpr 0x558fa8f2b9e8 <col:9, col:13> 'expdesc':'struct expdesc' lvalue ->v 0x558fa8f2ae48
+    `-ImplicitCastExpr 0x558fa8f2b9d0 <col:9> 'struct LHS_assign *' <LValueToRValue>
+      `-DeclRefExpr 0x558fa8f2b9a8 <col:9> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B6.9].s
+  11: MemberExpr 0x558fa8f2bea0 <lparser.c:916:9, col:19> 'int' lvalue .info 0x558fa8eb1028
+`-MemberExpr 0x558fa8f2ba58 <col:9, col:17> 'struct (anonymous struct at ./lparser.h:40:5)':'struct expdesc::(anonymous at ./lparser.h:40:5)' lvalue .s 0x558fa8eb1120
+  `-MemberExpr 0x558fa8f2ba20 <col:9, col:15> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue .u 0x558fa8eb1260
+    `-MemberExpr 0x558fa8f2b9e8 <col:9, col:13> 'expdesc':'struct expdesc' lvalue ->v 0x558fa8f2ae48
+      `-ImplicitCastExpr 0x558fa8f2b9d0 <col:9> 'struct LHS_assign *' <LValueToRValue>
+        `-DeclRefExpr 0x558fa8f2b9a8 <col:9> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B6.10].info
+  12: BinaryOperator 0x558fa8f2bf18 <lparser.c:916:9, col:26> 'int' '='
+|-MemberExpr 0x558fa8f2bea0 <col:9, col:19> 'int' lvalue .info 0x558fa8eb1028
+| `-MemberExpr 0x558fa8f2ba58 <col:9, col:17> 'struct (anonymous struct at ./lparser.h:40:5)':'struct expdesc::(anonymous at ./lparser.h:40:5)' lvalue .s 0x558fa8eb1120
+|   `-MemberExpr 0x558fa8f2ba20 <col:9, col:15> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue .u 0x558fa8eb1260
+|     `-MemberExpr 0x558fa8f2b9e8 <col:9, col:13> 'expdesc':'struct expdesc' lvalue ->v 0x558fa8f2ae48
+|       `-ImplicitCastExpr 0x558fa8f2b9d0 <col:9> 'struct LHS_assign *' <LValueToRValue>
+|         `-DeclRefExpr 0x558fa8f2b9a8 <col:9> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+`-ImplicitCastExpr 0x558fa8f2bf00 <col:26> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8f2bed8 <col:26> 'int' lvalue Var 0x558fa8f2b2b8 'extra' 'int'
+[B6.11] = [B6.5]
+   Preds (1): B7
+   Succs (1): B5
+
+ [B7]
+   1: DeclRefExpr 0x558fa8f2b6d8 <lparser.c:914:11> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+lh
+   2: ImplicitCastExpr 0x558fa8f2b700 <lparser.c:914:11> 'struct LHS_assign *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8f2b6d8 <col:11> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B7.1] (ImplicitCastExpr, LValueToRValue, struct LHS_assign *)
+   3: MemberExpr 0x558fa8f2b718 <lparser.c:914:11, col:15> 'expdesc':'struct expdesc' lvalue ->v 0x558fa8f2ae48
+`-ImplicitCastExpr 0x558fa8f2b700 <col:11> 'struct LHS_assign *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8f2b6d8 <col:11> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B7.2]->v
+   4: MemberExpr 0x558fa8f2b750 <lparser.c:914:11, col:17> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue .u 0x558fa8eb1260
+`-MemberExpr 0x558fa8f2b718 <col:11, col:15> 'expdesc':'struct expdesc' lvalue ->v 0x558fa8f2ae48
+  `-ImplicitCastExpr 0x558fa8f2b700 <col:11> 'struct LHS_assign *' <LValueToRValue>
+    `-DeclRefExpr 0x558fa8f2b6d8 <col:11> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B7.3].u
+   5: MemberExpr 0x558fa8f2b788 <lparser.c:914:11, col:19> 'struct (anonymous struct at ./lparser.h:40:5)':'struct expdesc::(anonymous at ./lparser.h:40:5)' lvalue .s 0x558fa8eb1120
+`-MemberExpr 0x558fa8f2b750 <col:11, col:17> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue .u 0x558fa8eb1260
+  `-MemberExpr 0x558fa8f2b718 <col:11, col:15> 'expdesc':'struct expdesc' lvalue ->v 0x558fa8f2ae48
+    `-ImplicitCastExpr 0x558fa8f2b700 <col:11> 'struct LHS_assign *' <LValueToRValue>
+      `-DeclRefExpr 0x558fa8f2b6d8 <col:11> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B7.4].s
+   6: MemberExpr 0x558fa8f2b7c0 <lparser.c:914:11, col:21> 'int' lvalue .info 0x558fa8eb1028
+`-MemberExpr 0x558fa8f2b788 <col:11, col:19> 'struct (anonymous struct at ./lparser.h:40:5)':'struct expdesc::(anonymous at ./lparser.h:40:5)' lvalue .s 0x558fa8eb1120
+  `-MemberExpr 0x558fa8f2b750 <col:11, col:17> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue .u 0x558fa8eb1260
+    `-MemberExpr 0x558fa8f2b718 <col:11, col:15> 'expdesc':'struct expdesc' lvalue ->v 0x558fa8f2ae48
+      `-ImplicitCastExpr 0x558fa8f2b700 <col:11> 'struct LHS_assign *' <LValueToRValue>
+        `-DeclRefExpr 0x558fa8f2b6d8 <col:11> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B7.5].info
+   7: ImplicitCastExpr 0x558fa8f2b8e0 <lparser.c:914:11, col:21> 'int' <LValueToRValue>
+`-MemberExpr 0x558fa8f2b7c0 <col:11, col:21> 'int' lvalue .info 0x558fa8eb1028
+  `-MemberExpr 0x558fa8f2b788 <col:11, col:19> 'struct (anonymous struct at ./lparser.h:40:5)':'struct expdesc::(anonymous at ./lparser.h:40:5)' lvalue .s 0x558fa8eb1120
+    `-MemberExpr 0x558fa8f2b750 <col:11, col:17> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue .u 0x558fa8eb1260
+      `-MemberExpr 0x558fa8f2b718 <col:11, col:15> 'expdesc':'struct expdesc' lvalue ->v 0x558fa8f2ae48
+        `-ImplicitCastExpr 0x558fa8f2b700 <col:11> 'struct LHS_assign *' <LValueToRValue>
+          `-DeclRefExpr 0x558fa8f2b6d8 <col:11> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B7.6] (ImplicitCastExpr, LValueToRValue, int)
+   8: DeclRefExpr 0x558fa8f2b7f8 <lparser.c:914:29> 'expdesc *' lvalue ParmVar 0x558fa8f2af98 'v' 'expdesc *'
+v
+   9: ImplicitCastExpr 0x558fa8f2b820 <lparser.c:914:29> 'expdesc *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8f2b7f8 <col:29> 'expdesc *' lvalue ParmVar 0x558fa8f2af98 'v' 'expdesc *'
+[B7.8] (ImplicitCastExpr, LValueToRValue, expdesc *)
+  10: MemberExpr 0x558fa8f2b838 <lparser.c:914:29, col:32> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue ->u 0x558fa8eb1260
+`-ImplicitCastExpr 0x558fa8f2b820 <col:29> 'expdesc *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8f2b7f8 <col:29> 'expdesc *' lvalue ParmVar 0x558fa8f2af98 'v' 'expdesc *'
+[B7.9]->u
+  11: MemberExpr 0x558fa8f2b870 <lparser.c:914:29, col:34> 'struct (anonymous struct at ./lparser.h:40:5)':'struct expdesc::(anonymous at ./lparser.h:40:5)' lvalue .s 0x558fa8eb1120
+`-MemberExpr 0x558fa8f2b838 <col:29, col:32> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue ->u 0x558fa8eb1260
+  `-ImplicitCastExpr 0x558fa8f2b820 <col:29> 'expdesc *' <LValueToRValue>
+    `-DeclRefExpr 0x558fa8f2b7f8 <col:29> 'expdesc *' lvalue ParmVar 0x558fa8f2af98 'v' 'expdesc *'
+[B7.10].s
+  12: MemberExpr 0x558fa8f2b8a8 <lparser.c:914:29, col:36> 'int' lvalue .info 0x558fa8eb1028
+`-MemberExpr 0x558fa8f2b870 <col:29, col:34> 'struct (anonymous struct at ./lparser.h:40:5)':'struct expdesc::(anonymous at ./lparser.h:40:5)' lvalue .s 0x558fa8eb1120
+  `-MemberExpr 0x558fa8f2b838 <col:29, col:32> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue ->u 0x558fa8eb1260
+    `-ImplicitCastExpr 0x558fa8f2b820 <col:29> 'expdesc *' <LValueToRValue>
+      `-DeclRefExpr 0x558fa8f2b7f8 <col:29> 'expdesc *' lvalue ParmVar 0x558fa8f2af98 'v' 'expdesc *'
+[B7.11].info
+  13: ImplicitCastExpr 0x558fa8f2b8f8 <lparser.c:914:29, col:36> 'int' <LValueToRValue>
+`-MemberExpr 0x558fa8f2b8a8 <col:29, col:36> 'int' lvalue .info 0x558fa8eb1028
+  `-MemberExpr 0x558fa8f2b870 <col:29, col:34> 'struct (anonymous struct at ./lparser.h:40:5)':'struct expdesc::(anonymous at ./lparser.h:40:5)' lvalue .s 0x558fa8eb1120
+    `-MemberExpr 0x558fa8f2b838 <col:29, col:32> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue ->u 0x558fa8eb1260
+      `-ImplicitCastExpr 0x558fa8f2b820 <col:29> 'expdesc *' <LValueToRValue>
+        `-DeclRefExpr 0x558fa8f2b7f8 <col:29> 'expdesc *' lvalue ParmVar 0x558fa8f2af98 'v' 'expdesc *'
+[B7.12] (ImplicitCastExpr, LValueToRValue, int)
+  14: BinaryOperator 0x558fa8f2b910 <lparser.c:914:11, col:36> 'int' '=='
+|-ImplicitCastExpr 0x558fa8f2b8e0 <col:11, col:21> 'int' <LValueToRValue>
+| `-MemberExpr 0x558fa8f2b7c0 <col:11, col:21> 'int' lvalue .info 0x558fa8eb1028
+|   `-MemberExpr 0x558fa8f2b788 <col:11, col:19> 'struct (anonymous struct at ./lparser.h:40:5)':'struct expdesc::(anonymous at ./lparser.h:40:5)' lvalue .s 0x558fa8eb1120
+|     `-MemberExpr 0x558fa8f2b750 <col:11, col:17> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue .u 0x558fa8eb1260
+|       `-MemberExpr 0x558fa8f2b718 <col:11, col:15> 'expdesc':'struct expdesc' lvalue ->v 0x558fa8f2ae48
+|         `-ImplicitCastExpr 0x558fa8f2b700 <col:11> 'struct LHS_assign *' <LValueToRValue>
+|           `-DeclRefExpr 0x558fa8f2b6d8 <col:11> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+`-ImplicitCastExpr 0x558fa8f2b8f8 <col:29, col:36> 'int' <LValueToRValue>
+  `-MemberExpr 0x558fa8f2b8a8 <col:29, col:36> 'int' lvalue .info 0x558fa8eb1028
+    `-MemberExpr 0x558fa8f2b870 <col:29, col:34> 'struct (anonymous struct at ./lparser.h:40:5)':'struct expdesc::(anonymous at ./lparser.h:40:5)' lvalue .s 0x558fa8eb1120
+      `-MemberExpr 0x558fa8f2b838 <col:29, col:32> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue ->u 0x558fa8eb1260
+        `-ImplicitCastExpr 0x558fa8f2b820 <col:29> 'expdesc *' <LValueToRValue>
+          `-DeclRefExpr 0x558fa8f2b7f8 <col:29> 'expdesc *' lvalue ParmVar 0x558fa8f2af98 'v' 'expdesc *'
+[B7.7] == [B7.13]
+   T: if [B7.14]
+   Preds (1): B8
+   Succs (2): B6 B5
+
+ [B8]
+   1: DeclRefExpr 0x558fa8f2b590 <lparser.c:913:9> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+lh
+   2: ImplicitCastExpr 0x558fa8f2b5b8 <lparser.c:913:9> 'struct LHS_assign *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8f2b590 <col:9> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B8.1] (ImplicitCastExpr, LValueToRValue, struct LHS_assign *)
+   3: MemberExpr 0x558fa8f2b5d0 <lparser.c:913:9, col:13> 'expdesc':'struct expdesc' lvalue ->v 0x558fa8f2ae48
+`-ImplicitCastExpr 0x558fa8f2b5b8 <col:9> 'struct LHS_assign *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8f2b590 <col:9> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B8.2]->v
+   4: MemberExpr 0x558fa8f2b608 <lparser.c:913:9, col:15> 'expkind':'expkind' lvalue .k 0x558fa8eb0e70
+`-MemberExpr 0x558fa8f2b5d0 <col:9, col:13> 'expdesc':'struct expdesc' lvalue ->v 0x558fa8f2ae48
+  `-ImplicitCastExpr 0x558fa8f2b5b8 <col:9> 'struct LHS_assign *' <LValueToRValue>
+    `-DeclRefExpr 0x558fa8f2b590 <col:9> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B8.3].k
+   5: ImplicitCastExpr 0x558fa8f2b668 <lparser.c:913:9, col:15> 'expkind':'expkind' <LValueToRValue>
+`-MemberExpr 0x558fa8f2b608 <col:9, col:15> 'expkind':'expkind' lvalue .k 0x558fa8eb0e70
+  `-MemberExpr 0x558fa8f2b5d0 <col:9, col:13> 'expdesc':'struct expdesc' lvalue ->v 0x558fa8f2ae48
+    `-ImplicitCastExpr 0x558fa8f2b5b8 <col:9> 'struct LHS_assign *' <LValueToRValue>
+      `-DeclRefExpr 0x558fa8f2b590 <col:9> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B8.4] (ImplicitCastExpr, LValueToRValue, expkind)
+   6: ImplicitCastExpr 0x558fa8f2b680 <lparser.c:913:9, col:15> 'unsigned int' <IntegralCast>
+`-ImplicitCastExpr 0x558fa8f2b668 <col:9, col:15> 'expkind':'expkind' <LValueToRValue>
+  `-MemberExpr 0x558fa8f2b608 <col:9, col:15> 'expkind':'expkind' lvalue .k 0x558fa8eb0e70
+    `-MemberExpr 0x558fa8f2b5d0 <col:9, col:13> 'expdesc':'struct expdesc' lvalue ->v 0x558fa8f2ae48
+      `-ImplicitCastExpr 0x558fa8f2b5b8 <col:9> 'struct LHS_assign *' <LValueToRValue>
+        `-DeclRefExpr 0x558fa8f2b590 <col:9> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B8.5] (ImplicitCastExpr, IntegralCast, unsigned int)
+   7: DeclRefExpr 0x558fa8f2b640 <lparser.c:913:20> 'int' EnumConstant 0x558fa8eb0b18 'VINDEXED' 'int'
+VINDEXED
+   8: ImplicitCastExpr 0x558fa8f2b698 <lparser.c:913:20> 'unsigned int' <IntegralCast>
+`-DeclRefExpr 0x558fa8f2b640 <col:20> 'int' EnumConstant 0x558fa8eb0b18 'VINDEXED' 'int'
+[B8.7] (ImplicitCastExpr, IntegralCast, unsigned int)
+   9: BinaryOperator 0x558fa8f2b6b0 <lparser.c:913:9, col:20> 'int' '=='
+|-ImplicitCastExpr 0x558fa8f2b680 <col:9, col:15> 'unsigned int' <IntegralCast>
+| `-ImplicitCastExpr 0x558fa8f2b668 <col:9, col:15> 'expkind':'expkind' <LValueToRValue>
+|   `-MemberExpr 0x558fa8f2b608 <col:9, col:15> 'expkind':'expkind' lvalue .k 0x558fa8eb0e70
+|     `-MemberExpr 0x558fa8f2b5d0 <col:9, col:13> 'expdesc':'struct expdesc' lvalue ->v 0x558fa8f2ae48
+|       `-ImplicitCastExpr 0x558fa8f2b5b8 <col:9> 'struct LHS_assign *' <LValueToRValue>
+|         `-DeclRefExpr 0x558fa8f2b590 <col:9> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+`-ImplicitCastExpr 0x558fa8f2b698 <col:20> 'unsigned int' <IntegralCast>
+  `-DeclRefExpr 0x558fa8f2b640 <col:20> 'int' EnumConstant 0x558fa8eb0b18 'VINDEXED' 'int'
+[B8.6] == [B8.8]
+   T: if [B8.9]
+   Preds (1): B9
+   Succs (2): B7 B3
+
+ [B9]
+   1: DeclRefExpr 0x558fa8f2b470 <lparser.c:912:10> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+lh
+   2: ImplicitCastExpr 0x558fa8f2b498 <lparser.c:912:10> 'struct LHS_assign *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8f2b470 <col:10> 'struct LHS_assign *' lvalue ParmVar 0x558fa8f2af28 'lh' 'struct LHS_assign *'
+[B9.1] (ImplicitCastExpr, LValueToRValue, struct LHS_assign *)
+   T: for (; [B9.2]; ...)
+   Preds (2): B3 B10
+   Succs (2): B8 B2
+
+ [B10]
+   1: DeclRefExpr 0x558fa8f2b1f8 <lparser.c:909:19> 'LexState *' lvalue ParmVar 0x558fa8f2aea0 'ls' 'LexState *'
+ls
+   2: ImplicitCastExpr 0x558fa8f2b220 <lparser.c:909:19> 'LexState *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8f2b1f8 <col:19> 'LexState *' lvalue ParmVar 0x558fa8f2aea0 'ls' 'LexState *'
+[B10.1] (ImplicitCastExpr, LValueToRValue, LexState *)
+   3: MemberExpr 0x558fa8f2b238 <lparser.c:909:19, col:23> 'struct FuncState *' lvalue ->fs 0x558fa8ea05f0
+`-ImplicitCastExpr 0x558fa8f2b220 <col:19> 'LexState *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8f2b1f8 <col:19> 'LexState *' lvalue ParmVar 0x558fa8f2aea0 'ls' 'LexState *'
+[B10.2]->fs
+   4: ImplicitCastExpr 0x558fa8f2b270 <lparser.c:909:19, col:23> 'struct FuncState *' <LValueToRValue>
+`-MemberExpr 0x558fa8f2b238 <col:19, col:23> 'struct FuncState *' lvalue ->fs 0x558fa8ea05f0
+  `-ImplicitCastExpr 0x558fa8f2b220 <col:19> 'LexState *' <LValueToRValue>
+    `-DeclRefExpr 0x558fa8f2b1f8 <col:19> 'LexState *' lvalue ParmVar 0x558fa8f2aea0 'ls' 'LexState *'
+[B10.3] (ImplicitCastExpr, LValueToRValue, struct FuncState *)
+   5: DeclStmt 0x558fa8f2b288 <lparser.c:909:3, col:25>col:14
+`-VarDecl 0x558fa8f2b198 <col:3, col:23> col:14 used fs 'FuncState *' cinit
+  `-ImplicitCastExpr 0x558fa8f2b270 <col:19, col:23> 'struct FuncState *' <LValueToRValue>
+    `-MemberExpr 0x558fa8f2b238 <col:19, col:23> 'struct FuncState *' lvalue ->fs 0x558fa8ea05f0
+      `-ImplicitCastExpr 0x558fa8f2b220 <col:19> 'LexState *' <LValueToRValue>
+        `-DeclRefExpr 0x558fa8f2b1f8 <col:19> 'LexState *' lvalue ParmVar 0x558fa8f2aea0 'ls' 'LexState *'
+FuncState *fs = ls->fs;
+   6: DeclRefExpr 0x558fa8f2b318 <lparser.c:910:15> 'FuncState *' lvalue Var 0x558fa8f2b198 'fs' 'FuncState *'
+fs
+   7: ImplicitCastExpr 0x558fa8f2b340 <lparser.c:910:15> 'FuncState *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8f2b318 <col:15> 'FuncState *' lvalue Var 0x558fa8f2b198 'fs' 'FuncState *'
+[B10.6] (ImplicitCastExpr, LValueToRValue, FuncState *)
+   8: MemberExpr 0x558fa8f2b358 <lparser.c:910:15, col:19> 'int' lvalue ->freereg 0x558fa8eb42f0
+`-ImplicitCastExpr 0x558fa8f2b340 <col:15> 'FuncState *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8f2b318 <col:15> 'FuncState *' lvalue Var 0x558fa8f2b198 'fs' 'FuncState *'
+[B10.7]->freereg
+   9: ImplicitCastExpr 0x558fa8f2b390 <lparser.c:910:15, col:19> 'int' <LValueToRValue>
+`-MemberExpr 0x558fa8f2b358 <col:15, col:19> 'int' lvalue ->freereg 0x558fa8eb42f0
+  `-ImplicitCastExpr 0x558fa8f2b340 <col:15> 'FuncState *' <LValueToRValue>
+    `-DeclRefExpr 0x558fa8f2b318 <col:15> 'FuncState *' lvalue Var 0x558fa8f2b198 'fs' 'FuncState *'
+[B10.8] (ImplicitCastExpr, LValueToRValue, int)
+  10: DeclStmt 0x558fa8f2b3a8 <lparser.c:910:3, col:26>col:7
+`-VarDecl 0x558fa8f2b2b8 <col:3, col:19> col:7 used extra 'int' cinit
+  `-ImplicitCastExpr 0x558fa8f2b390 <col:15, col:19> 'int' <LValueToRValue>
+    `-MemberExpr 0x558fa8f2b358 <col:15, col:19> 'int' lvalue ->freereg 0x558fa8eb42f0
+      `-ImplicitCastExpr 0x558fa8f2b340 <col:15> 'FuncState *' <LValueToRValue>
+        `-DeclRefExpr 0x558fa8f2b318 <col:15> 'FuncState *' lvalue Var 0x558fa8f2b198 'fs' 'FuncState *'
+int extra = fs->freereg;
+  11: IntegerLiteral 0x558fa8f2b438 <lparser.c:911:18> 'int' 0
+0
+  12: DeclStmt 0x558fa8f2b458 <lparser.c:911:3, col:19>col:7
+`-VarDecl 0x558fa8f2b3d8 <col:3, col:18> col:7 used conflict 'int' cinit
+  `-IntegerLiteral 0x558fa8f2b438 <col:18> 'int' 0
+int conflict = 0;
+   Preds (1): B11
+   Succs (1): B9
+
+ [B0 (EXIT)]
+   Preds (2): B1 B2

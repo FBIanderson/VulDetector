@@ -1,0 +1,329 @@
+static void errorlimit(FuncState *fs, int limit, const char *what)
+ [B5 (ENTRY)]
+   Succs (1): B4
+
+ [B1]
+   1: ConditionalOperator 0x558fa8eecf50 <lparser.c:72:21, line:75:60> 'const char *'
+|-ParenExpr 0x558fa8eeb728 <line:72:21, col:45> 'int'
+| `-BinaryOperator 0x558fa8eeb700 <col:22, col:44> 'int' '=='
+|   |-ImplicitCastExpr 0x558fa8eeb6e8 <col:22, col:29> 'int' <LValueToRValue>
+|   | `-MemberExpr 0x558fa8eeb690 <col:22, col:29> 'int' lvalue ->linedefined 0x558fa8e8f688
+|   |   `-ImplicitCastExpr 0x558fa8eeb678 <col:22, col:26> 'Proto *' <LValueToRValue>
+|   |     `-MemberExpr 0x558fa8eeb640 <col:22, col:26> 'Proto *' lvalue ->f 0x558fa8eb3e58
+|   |       `-ImplicitCastExpr 0x558fa8eeb628 <col:22> 'FuncState *' <LValueToRValue>
+|   |         `-DeclRefExpr 0x558fa8eeb600 <col:22> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+|   `-IntegerLiteral 0x558fa8eeb6c8 <col:44> 'int' 0
+|-CallExpr 0x558fa8eeb8e0 <line:73:5, col:77> 'const char *'
+| |-ImplicitCastExpr 0x558fa8eeb8c8 <col:5> 'const char *(*)(lua_State *, const char *, ...)' <FunctionToPointerDecay>
+| | `-DeclRefExpr 0x558fa8eeb748 <col:5> 'const char *(lua_State *, const char *, ...)' Function 0x558fa8e96058 'luaO_pushfstring' 'const char *(lua_State *, const char *, ...)'
+| |-ImplicitCastExpr 0x558fa8eeb928 <col:22, col:26> 'struct lua_State *' <LValueToRValue>
+| | `-MemberExpr 0x558fa8eeb7b0 <col:22, col:26> 'struct lua_State *' lvalue ->L 0x558fa8eb4070
+| |   `-ImplicitCastExpr 0x558fa8eeb798 <col:22> 'FuncState *' <LValueToRValue>
+| |     `-DeclRefExpr 0x558fa8eeb770 <col:22> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+| |-ImplicitCastExpr 0x558fa8eeb958 <col:29> 'const char *' <BitCast>
+| | `-ImplicitCastExpr 0x558fa8eeb940 <col:29> 'char *' <ArrayToPointerDecay>
+| |   `-StringLiteral 0x558fa8eeb828 <col:29> 'char [34]' lvalue "main function has more than %d %s"
+| |-ImplicitCastExpr 0x558fa8eeb970 <col:66> 'int' <LValueToRValue>
+| | `-DeclRefExpr 0x558fa8eeb878 <col:66> 'int' lvalue ParmVar 0x558fa8eeb320 'limit' 'int'
+| `-ImplicitCastExpr 0x558fa8eeb988 <col:73> 'const char *' <LValueToRValue>
+|   `-DeclRefExpr 0x558fa8eeb8a0 <col:73> 'const char *' lvalue ParmVar 0x558fa8eeb398 'what' 'const char *'
+`-CallExpr 0x558fa8eecda8 <line:74:5, line:75:60> 'const char *'
+  |-ImplicitCastExpr 0x558fa8eecd90 <line:74:5> 'const char *(*)(lua_State *, const char *, ...)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x558fa8eeb9a0 <col:5> 'const char *(lua_State *, const char *, ...)' Function 0x558fa8e96058 'luaO_pushfstring' 'const char *(lua_State *, const char *, ...)'
+  |-ImplicitCastExpr 0x558fa8eecdf8 <col:22, col:26> 'struct lua_State *' <LValueToRValue>
+  | `-MemberExpr 0x558fa8eeba08 <col:22, col:26> 'struct lua_State *' lvalue ->L 0x558fa8eb4070
+  |   `-ImplicitCastExpr 0x558fa8eeb9f0 <col:22> 'FuncState *' <LValueToRValue>
+  |     `-DeclRefExpr 0x558fa8eeb9c8 <col:22> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+  |-ImplicitCastExpr 0x558fa8eece28 <col:29> 'const char *' <BitCast>
+  | `-ImplicitCastExpr 0x558fa8eece10 <col:29> 'char *' <ArrayToPointerDecay>
+  |   `-StringLiteral 0x558fa8eecc28 <col:29> 'char [40]' lvalue "function at line %d has more than %d %s"
+  |-ImplicitCastExpr 0x558fa8eece40 <line:75:29, col:36> 'int' <LValueToRValue>
+  | `-MemberExpr 0x558fa8eecd08 <col:29, col:36> 'int' lvalue ->linedefined 0x558fa8e8f688
+  |   `-ImplicitCastExpr 0x558fa8eeccf0 <col:29, col:33> 'Proto *' <LValueToRValue>
+  |     `-MemberExpr 0x558fa8eeccb8 <col:29, col:33> 'Proto *' lvalue ->f 0x558fa8eb3e58
+  |       `-ImplicitCastExpr 0x558fa8eecca0 <col:29> 'FuncState *' <LValueToRValue>
+  |         `-DeclRefExpr 0x558fa8eecc78 <col:29> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+  |-ImplicitCastExpr 0x558fa8eece58 <col:49> 'int' <LValueToRValue>
+  | `-DeclRefExpr 0x558fa8eecd40 <col:49> 'int' lvalue ParmVar 0x558fa8eeb320 'limit' 'int'
+  `-ImplicitCastExpr 0x558fa8eece70 <col:56> 'const char *' <LValueToRValue>
+    `-DeclRefExpr 0x558fa8eecd68 <col:56> 'const char *' lvalue ParmVar 0x558fa8eeb398 'what' 'const char *'
+([B4.8]) ? [B2.14] : [B3.20]
+   2: DeclStmt 0x558fa8eecf80 <lparser.c:72:3, line:75:61>line:72:15
+`-VarDecl 0x558fa8eeb5a0 <col:3, line:75:60> line:72:15 used msg 'const char *' cinit
+  `-ConditionalOperator 0x558fa8eecf50 <col:21, line:75:60> 'const char *'
+    |-ParenExpr 0x558fa8eeb728 <line:72:21, col:45> 'int'
+    | `-BinaryOperator 0x558fa8eeb700 <col:22, col:44> 'int' '=='
+    |   |-ImplicitCastExpr 0x558fa8eeb6e8 <col:22, col:29> 'int' <LValueToRValue>
+    |   | `-MemberExpr 0x558fa8eeb690 <col:22, col:29> 'int' lvalue ->linedefined 0x558fa8e8f688
+    |   |   `-ImplicitCastExpr 0x558fa8eeb678 <col:22, col:26> 'Proto *' <LValueToRValue>
+    |   |     `-MemberExpr 0x558fa8eeb640 <col:22, col:26> 'Proto *' lvalue ->f 0x558fa8eb3e58
+    |   |       `-ImplicitCastExpr 0x558fa8eeb628 <col:22> 'FuncState *' <LValueToRValue>
+    |   |         `-DeclRefExpr 0x558fa8eeb600 <col:22> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+    |   `-IntegerLiteral 0x558fa8eeb6c8 <col:44> 'int' 0
+    |-CallExpr 0x558fa8eeb8e0 <line:73:5, col:77> 'const char *'
+    | |-ImplicitCastExpr 0x558fa8eeb8c8 <col:5> 'const char *(*)(lua_State *, const char *, ...)' <FunctionToPointerDecay>
+    | | `-DeclRefExpr 0x558fa8eeb748 <col:5> 'const char *(lua_State *, const char *, ...)' Function 0x558fa8e96058 'luaO_pushfstring' 'const char *(lua_State *, const char *, ...)'
+    | |-ImplicitCastExpr 0x558fa8eeb928 <col:22, col:26> 'struct lua_State *' <LValueToRValue>
+    | | `-MemberExpr 0x558fa8eeb7b0 <col:22, col:26> 'struct lua_State *' lvalue ->L 0x558fa8eb4070
+    | |   `-ImplicitCastExpr 0x558fa8eeb798 <col:22> 'FuncState *' <LValueToRValue>
+    | |     `-DeclRefExpr 0x558fa8eeb770 <col:22> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+    | |-ImplicitCastExpr 0x558fa8eeb958 <col:29> 'const char *' <BitCast>
+    | | `-ImplicitCastExpr 0x558fa8eeb940 <col:29> 'char *' <ArrayToPointerDecay>
+    | |   `-StringLiteral 0x558fa8eeb828 <col:29> 'char [34]' lvalue "main function has more than %d %s"
+    | |-ImplicitCastExpr 0x558fa8eeb970 <col:66> 'int' <LValueToRValue>
+    | | `-DeclRefExpr 0x558fa8eeb878 <col:66> 'int' lvalue ParmVar 0x558fa8eeb320 'limit' 'int'
+    | `-ImplicitCastExpr 0x558fa8eeb988 <col:73> 'const char *' <LValueToRValue>
+    |   `-DeclRefExpr 0x558fa8eeb8a0 <col:73> 'const char *' lvalue ParmVar 0x558fa8eeb398 'what' 'const char *'
+    `-CallExpr 0x558fa8eecda8 <line:74:5, line:75:60> 'const char *'
+      |-ImplicitCastExpr 0x558fa8eecd90 <line:74:5> 'const char *(*)(lua_State *, const char *, ...)' <FunctionToPointerDecay>
+      | `-DeclRefExpr 0x558fa8eeb9a0 <col:5> 'const char *(lua_State *, const char *, ...)' Function 0x558fa8e96058 'luaO_pushfstring' 'const char *(lua_State *, const char *, ...)'
+      |-ImplicitCastExpr 0x558fa8eecdf8 <col:22, col:26> 'struct lua_State *' <LValueToRValue>
+      | `-MemberExpr 0x558fa8eeba08 <col:22, col:26> 'struct lua_State *' lvalue ->L 0x558fa8eb4070
+      |   `-ImplicitCastExpr 0x558fa8eeb9f0 <col:22> 'FuncState *' <LValueToRValue>
+      |     `-DeclRefExpr 0x558fa8eeb9c8 <col:22> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+      |-ImplicitCastExpr 0x558fa8eece28 <col:29> 'const char *' <BitCast>
+      | `-ImplicitCastExpr 0x558fa8eece10 <col:29> 'char *' <ArrayToPointerDecay>
+      |   `-StringLiteral 0x558fa8eecc28 <col:29> 'char [40]' lvalue "function at line %d has more than %d %s"
+      |-ImplicitCastExpr 0x558fa8eece40 <line:75:29, col:36> 'int' <LValueToRValue>
+      | `-MemberExpr 0x558fa8eecd08 <col:29, col:36> 'int' lvalue ->linedefined 0x558fa8e8f688
+      |   `-ImplicitCastExpr 0x558fa8eeccf0 <col:29, col:33> 'Proto *' <LValueToRValue>
+      |     `-MemberExpr 0x558fa8eeccb8 <col:29, col:33> 'Proto *' lvalue ->f 0x558fa8eb3e58
+      |       `-ImplicitCastExpr 0x558fa8eecca0 <col:29> 'FuncState *' <LValueToRValue>
+      |         `-DeclRefExpr 0x558fa8eecc78 <col:29> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+      |-ImplicitCastExpr 0x558fa8eece58 <col:49> 'int' <LValueToRValue>
+      | `-DeclRefExpr 0x558fa8eecd40 <col:49> 'int' lvalue ParmVar 0x558fa8eeb320 'limit' 'int'
+      `-ImplicitCastExpr 0x558fa8eece70 <col:56> 'const char *' <LValueToRValue>
+        `-DeclRefExpr 0x558fa8eecd68 <col:56> 'const char *' lvalue ParmVar 0x558fa8eeb398 'what' 'const char *'
+const char *msg = (fs->f->linedefined == 0) ? luaO_pushfstring(fs->L, "main function has more than %d %s", limit, what) : luaO_pushfstring(fs->L, "function at line %d has more than %d %s", fs->f->linedefined, limit, what);
+   3: DeclRefExpr 0x558fa8eecf98 <lparser.c:76:3> 'void (LexState *, const char *, int)' Function 0x558fa8ea1940 'luaX_lexerror' 'void (LexState *, const char *, int)'
+luaX_lexerror
+   4: ImplicitCastExpr 0x558fa8eed0d8 <lparser.c:76:3> 'void (*)(LexState *, const char *, int)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x558fa8eecf98 <col:3> 'void (LexState *, const char *, int)' Function 0x558fa8ea1940 'luaX_lexerror' 'void (LexState *, const char *, int)'
+[B1.3] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(LexState *, const char *, int))
+   5: DeclRefExpr 0x558fa8eecfc0 <lparser.c:76:17> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+fs
+   6: ImplicitCastExpr 0x558fa8eecfe8 <lparser.c:76:17> 'FuncState *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8eecfc0 <col:17> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+[B1.5] (ImplicitCastExpr, LValueToRValue, FuncState *)
+   7: MemberExpr 0x558fa8eed000 <lparser.c:76:17, col:21> 'struct LexState *' lvalue ->ls 0x558fa8eb4000
+`-ImplicitCastExpr 0x558fa8eecfe8 <col:17> 'FuncState *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8eecfc0 <col:17> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+[B1.6]->ls
+   8: ImplicitCastExpr 0x558fa8eed130 <lparser.c:76:17, col:21> 'struct LexState *' <LValueToRValue>
+`-MemberExpr 0x558fa8eed000 <col:17, col:21> 'struct LexState *' lvalue ->ls 0x558fa8eb4000
+  `-ImplicitCastExpr 0x558fa8eecfe8 <col:17> 'FuncState *' <LValueToRValue>
+    `-DeclRefExpr 0x558fa8eecfc0 <col:17> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+[B1.7] (ImplicitCastExpr, LValueToRValue, struct LexState *)
+   9: DeclRefExpr 0x558fa8eed038 <lparser.c:76:25> 'const char *' lvalue Var 0x558fa8eeb5a0 'msg' 'const char *'
+msg
+  10: ImplicitCastExpr 0x558fa8eed148 <lparser.c:76:25> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8eed038 <col:25> 'const char *' lvalue Var 0x558fa8eeb5a0 'msg' 'const char *'
+[B1.9] (ImplicitCastExpr, LValueToRValue, const char *)
+  11: IntegerLiteral 0x558fa8eed060 <lparser.c:76:30> 'int' 0
+0
+  12: CallExpr 0x558fa8eed0f0 <lparser.c:76:3, col:31> 'void'
+|-ImplicitCastExpr 0x558fa8eed0d8 <col:3> 'void (*)(LexState *, const char *, int)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x558fa8eecf98 <col:3> 'void (LexState *, const char *, int)' Function 0x558fa8ea1940 'luaX_lexerror' 'void (LexState *, const char *, int)'
+|-ImplicitCastExpr 0x558fa8eed130 <col:17, col:21> 'struct LexState *' <LValueToRValue>
+| `-MemberExpr 0x558fa8eed000 <col:17, col:21> 'struct LexState *' lvalue ->ls 0x558fa8eb4000
+|   `-ImplicitCastExpr 0x558fa8eecfe8 <col:17> 'FuncState *' <LValueToRValue>
+|     `-DeclRefExpr 0x558fa8eecfc0 <col:17> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+|-ImplicitCastExpr 0x558fa8eed148 <col:25> 'const char *' <LValueToRValue>
+| `-DeclRefExpr 0x558fa8eed038 <col:25> 'const char *' lvalue Var 0x558fa8eeb5a0 'msg' 'const char *'
+`-IntegerLiteral 0x558fa8eed060 <col:30> 'int' 0
+[B1.4]([B1.8], [B1.10], [B1.11])
+   Preds (2): B2 B3
+   Succs (1): B0
+
+ [B2]
+   1: DeclRefExpr 0x558fa8eeb748 <lparser.c:73:5> 'const char *(lua_State *, const char *, ...)' Function 0x558fa8e96058 'luaO_pushfstring' 'const char *(lua_State *, const char *, ...)'
+luaO_pushfstring
+   2: ImplicitCastExpr 0x558fa8eeb8c8 <lparser.c:73:5> 'const char *(*)(lua_State *, const char *, ...)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x558fa8eeb748 <col:5> 'const char *(lua_State *, const char *, ...)' Function 0x558fa8e96058 'luaO_pushfstring' 'const char *(lua_State *, const char *, ...)'
+[B2.1] (ImplicitCastExpr, FunctionToPointerDecay, const char *(*)(lua_State *, const char *, ...))
+   3: DeclRefExpr 0x558fa8eeb770 <lparser.c:73:22> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+fs
+   4: ImplicitCastExpr 0x558fa8eeb798 <lparser.c:73:22> 'FuncState *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8eeb770 <col:22> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+[B2.3] (ImplicitCastExpr, LValueToRValue, FuncState *)
+   5: MemberExpr 0x558fa8eeb7b0 <lparser.c:73:22, col:26> 'struct lua_State *' lvalue ->L 0x558fa8eb4070
+`-ImplicitCastExpr 0x558fa8eeb798 <col:22> 'FuncState *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8eeb770 <col:22> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+[B2.4]->L
+   6: ImplicitCastExpr 0x558fa8eeb928 <lparser.c:73:22, col:26> 'struct lua_State *' <LValueToRValue>
+`-MemberExpr 0x558fa8eeb7b0 <col:22, col:26> 'struct lua_State *' lvalue ->L 0x558fa8eb4070
+  `-ImplicitCastExpr 0x558fa8eeb798 <col:22> 'FuncState *' <LValueToRValue>
+    `-DeclRefExpr 0x558fa8eeb770 <col:22> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+[B2.5] (ImplicitCastExpr, LValueToRValue, struct lua_State *)
+   7: StringLiteral 0x558fa8eeb828 <lparser.c:73:29> 'char [34]' lvalue "main function has more than %d %s"
+"main function has more than %d %s"
+   8: ImplicitCastExpr 0x558fa8eeb940 <lparser.c:73:29> 'char *' <ArrayToPointerDecay>
+`-StringLiteral 0x558fa8eeb828 <col:29> 'char [34]' lvalue "main function has more than %d %s"
+[B2.7] (ImplicitCastExpr, ArrayToPointerDecay, char *)
+   9: ImplicitCastExpr 0x558fa8eeb958 <lparser.c:73:29> 'const char *' <BitCast>
+`-ImplicitCastExpr 0x558fa8eeb940 <col:29> 'char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x558fa8eeb828 <col:29> 'char [34]' lvalue "main function has more than %d %s"
+[B2.8] (ImplicitCastExpr, BitCast, const char *)
+  10: DeclRefExpr 0x558fa8eeb878 <lparser.c:73:66> 'int' lvalue ParmVar 0x558fa8eeb320 'limit' 'int'
+limit
+  11: ImplicitCastExpr 0x558fa8eeb970 <lparser.c:73:66> 'int' <LValueToRValue>
+`-DeclRefExpr 0x558fa8eeb878 <col:66> 'int' lvalue ParmVar 0x558fa8eeb320 'limit' 'int'
+[B2.10] (ImplicitCastExpr, LValueToRValue, int)
+  12: DeclRefExpr 0x558fa8eeb8a0 <lparser.c:73:73> 'const char *' lvalue ParmVar 0x558fa8eeb398 'what' 'const char *'
+what
+  13: ImplicitCastExpr 0x558fa8eeb988 <lparser.c:73:73> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8eeb8a0 <col:73> 'const char *' lvalue ParmVar 0x558fa8eeb398 'what' 'const char *'
+[B2.12] (ImplicitCastExpr, LValueToRValue, const char *)
+  14: CallExpr 0x558fa8eeb8e0 <lparser.c:73:5, col:77> 'const char *'
+|-ImplicitCastExpr 0x558fa8eeb8c8 <col:5> 'const char *(*)(lua_State *, const char *, ...)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x558fa8eeb748 <col:5> 'const char *(lua_State *, const char *, ...)' Function 0x558fa8e96058 'luaO_pushfstring' 'const char *(lua_State *, const char *, ...)'
+|-ImplicitCastExpr 0x558fa8eeb928 <col:22, col:26> 'struct lua_State *' <LValueToRValue>
+| `-MemberExpr 0x558fa8eeb7b0 <col:22, col:26> 'struct lua_State *' lvalue ->L 0x558fa8eb4070
+|   `-ImplicitCastExpr 0x558fa8eeb798 <col:22> 'FuncState *' <LValueToRValue>
+|     `-DeclRefExpr 0x558fa8eeb770 <col:22> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+|-ImplicitCastExpr 0x558fa8eeb958 <col:29> 'const char *' <BitCast>
+| `-ImplicitCastExpr 0x558fa8eeb940 <col:29> 'char *' <ArrayToPointerDecay>
+|   `-StringLiteral 0x558fa8eeb828 <col:29> 'char [34]' lvalue "main function has more than %d %s"
+|-ImplicitCastExpr 0x558fa8eeb970 <col:66> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x558fa8eeb878 <col:66> 'int' lvalue ParmVar 0x558fa8eeb320 'limit' 'int'
+`-ImplicitCastExpr 0x558fa8eeb988 <col:73> 'const char *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8eeb8a0 <col:73> 'const char *' lvalue ParmVar 0x558fa8eeb398 'what' 'const char *'
+[B2.2]([B2.6], [B2.9], [B2.11], [B2.13])
+   Preds (1): B4
+   Succs (1): B1
+
+ [B3]
+   1: DeclRefExpr 0x558fa8eeb9a0 <lparser.c:74:5> 'const char *(lua_State *, const char *, ...)' Function 0x558fa8e96058 'luaO_pushfstring' 'const char *(lua_State *, const char *, ...)'
+luaO_pushfstring
+   2: ImplicitCastExpr 0x558fa8eecd90 <lparser.c:74:5> 'const char *(*)(lua_State *, const char *, ...)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x558fa8eeb9a0 <col:5> 'const char *(lua_State *, const char *, ...)' Function 0x558fa8e96058 'luaO_pushfstring' 'const char *(lua_State *, const char *, ...)'
+[B3.1] (ImplicitCastExpr, FunctionToPointerDecay, const char *(*)(lua_State *, const char *, ...))
+   3: DeclRefExpr 0x558fa8eeb9c8 <lparser.c:74:22> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+fs
+   4: ImplicitCastExpr 0x558fa8eeb9f0 <lparser.c:74:22> 'FuncState *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8eeb9c8 <col:22> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+[B3.3] (ImplicitCastExpr, LValueToRValue, FuncState *)
+   5: MemberExpr 0x558fa8eeba08 <lparser.c:74:22, col:26> 'struct lua_State *' lvalue ->L 0x558fa8eb4070
+`-ImplicitCastExpr 0x558fa8eeb9f0 <col:22> 'FuncState *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8eeb9c8 <col:22> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+[B3.4]->L
+   6: ImplicitCastExpr 0x558fa8eecdf8 <lparser.c:74:22, col:26> 'struct lua_State *' <LValueToRValue>
+`-MemberExpr 0x558fa8eeba08 <col:22, col:26> 'struct lua_State *' lvalue ->L 0x558fa8eb4070
+  `-ImplicitCastExpr 0x558fa8eeb9f0 <col:22> 'FuncState *' <LValueToRValue>
+    `-DeclRefExpr 0x558fa8eeb9c8 <col:22> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+[B3.5] (ImplicitCastExpr, LValueToRValue, struct lua_State *)
+   7: StringLiteral 0x558fa8eecc28 <lparser.c:74:29> 'char [40]' lvalue "function at line %d has more than %d %s"
+"function at line %d has more than %d %s"
+   8: ImplicitCastExpr 0x558fa8eece10 <lparser.c:74:29> 'char *' <ArrayToPointerDecay>
+`-StringLiteral 0x558fa8eecc28 <col:29> 'char [40]' lvalue "function at line %d has more than %d %s"
+[B3.7] (ImplicitCastExpr, ArrayToPointerDecay, char *)
+   9: ImplicitCastExpr 0x558fa8eece28 <lparser.c:74:29> 'const char *' <BitCast>
+`-ImplicitCastExpr 0x558fa8eece10 <col:29> 'char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x558fa8eecc28 <col:29> 'char [40]' lvalue "function at line %d has more than %d %s"
+[B3.8] (ImplicitCastExpr, BitCast, const char *)
+  10: DeclRefExpr 0x558fa8eecc78 <lparser.c:75:29> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+fs
+  11: ImplicitCastExpr 0x558fa8eecca0 <lparser.c:75:29> 'FuncState *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8eecc78 <col:29> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+[B3.10] (ImplicitCastExpr, LValueToRValue, FuncState *)
+  12: MemberExpr 0x558fa8eeccb8 <lparser.c:75:29, col:33> 'Proto *' lvalue ->f 0x558fa8eb3e58
+`-ImplicitCastExpr 0x558fa8eecca0 <col:29> 'FuncState *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8eecc78 <col:29> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+[B3.11]->f
+  13: ImplicitCastExpr 0x558fa8eeccf0 <lparser.c:75:29, col:33> 'Proto *' <LValueToRValue>
+`-MemberExpr 0x558fa8eeccb8 <col:29, col:33> 'Proto *' lvalue ->f 0x558fa8eb3e58
+  `-ImplicitCastExpr 0x558fa8eecca0 <col:29> 'FuncState *' <LValueToRValue>
+    `-DeclRefExpr 0x558fa8eecc78 <col:29> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+[B3.12] (ImplicitCastExpr, LValueToRValue, Proto *)
+  14: MemberExpr 0x558fa8eecd08 <lparser.c:75:29, col:36> 'int' lvalue ->linedefined 0x558fa8e8f688
+`-ImplicitCastExpr 0x558fa8eeccf0 <col:29, col:33> 'Proto *' <LValueToRValue>
+  `-MemberExpr 0x558fa8eeccb8 <col:29, col:33> 'Proto *' lvalue ->f 0x558fa8eb3e58
+    `-ImplicitCastExpr 0x558fa8eecca0 <col:29> 'FuncState *' <LValueToRValue>
+      `-DeclRefExpr 0x558fa8eecc78 <col:29> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+[B3.13]->linedefined
+  15: ImplicitCastExpr 0x558fa8eece40 <lparser.c:75:29, col:36> 'int' <LValueToRValue>
+`-MemberExpr 0x558fa8eecd08 <col:29, col:36> 'int' lvalue ->linedefined 0x558fa8e8f688
+  `-ImplicitCastExpr 0x558fa8eeccf0 <col:29, col:33> 'Proto *' <LValueToRValue>
+    `-MemberExpr 0x558fa8eeccb8 <col:29, col:33> 'Proto *' lvalue ->f 0x558fa8eb3e58
+      `-ImplicitCastExpr 0x558fa8eecca0 <col:29> 'FuncState *' <LValueToRValue>
+        `-DeclRefExpr 0x558fa8eecc78 <col:29> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+[B3.14] (ImplicitCastExpr, LValueToRValue, int)
+  16: DeclRefExpr 0x558fa8eecd40 <lparser.c:75:49> 'int' lvalue ParmVar 0x558fa8eeb320 'limit' 'int'
+limit
+  17: ImplicitCastExpr 0x558fa8eece58 <lparser.c:75:49> 'int' <LValueToRValue>
+`-DeclRefExpr 0x558fa8eecd40 <col:49> 'int' lvalue ParmVar 0x558fa8eeb320 'limit' 'int'
+[B3.16] (ImplicitCastExpr, LValueToRValue, int)
+  18: DeclRefExpr 0x558fa8eecd68 <lparser.c:75:56> 'const char *' lvalue ParmVar 0x558fa8eeb398 'what' 'const char *'
+what
+  19: ImplicitCastExpr 0x558fa8eece70 <lparser.c:75:56> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8eecd68 <col:56> 'const char *' lvalue ParmVar 0x558fa8eeb398 'what' 'const char *'
+[B3.18] (ImplicitCastExpr, LValueToRValue, const char *)
+  20: CallExpr 0x558fa8eecda8 <lparser.c:74:5, line:75:60> 'const char *'
+|-ImplicitCastExpr 0x558fa8eecd90 <line:74:5> 'const char *(*)(lua_State *, const char *, ...)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x558fa8eeb9a0 <col:5> 'const char *(lua_State *, const char *, ...)' Function 0x558fa8e96058 'luaO_pushfstring' 'const char *(lua_State *, const char *, ...)'
+|-ImplicitCastExpr 0x558fa8eecdf8 <col:22, col:26> 'struct lua_State *' <LValueToRValue>
+| `-MemberExpr 0x558fa8eeba08 <col:22, col:26> 'struct lua_State *' lvalue ->L 0x558fa8eb4070
+|   `-ImplicitCastExpr 0x558fa8eeb9f0 <col:22> 'FuncState *' <LValueToRValue>
+|     `-DeclRefExpr 0x558fa8eeb9c8 <col:22> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+|-ImplicitCastExpr 0x558fa8eece28 <col:29> 'const char *' <BitCast>
+| `-ImplicitCastExpr 0x558fa8eece10 <col:29> 'char *' <ArrayToPointerDecay>
+|   `-StringLiteral 0x558fa8eecc28 <col:29> 'char [40]' lvalue "function at line %d has more than %d %s"
+|-ImplicitCastExpr 0x558fa8eece40 <line:75:29, col:36> 'int' <LValueToRValue>
+| `-MemberExpr 0x558fa8eecd08 <col:29, col:36> 'int' lvalue ->linedefined 0x558fa8e8f688
+|   `-ImplicitCastExpr 0x558fa8eeccf0 <col:29, col:33> 'Proto *' <LValueToRValue>
+|     `-MemberExpr 0x558fa8eeccb8 <col:29, col:33> 'Proto *' lvalue ->f 0x558fa8eb3e58
+|       `-ImplicitCastExpr 0x558fa8eecca0 <col:29> 'FuncState *' <LValueToRValue>
+|         `-DeclRefExpr 0x558fa8eecc78 <col:29> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+|-ImplicitCastExpr 0x558fa8eece58 <col:49> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x558fa8eecd40 <col:49> 'int' lvalue ParmVar 0x558fa8eeb320 'limit' 'int'
+`-ImplicitCastExpr 0x558fa8eece70 <col:56> 'const char *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8eecd68 <col:56> 'const char *' lvalue ParmVar 0x558fa8eeb398 'what' 'const char *'
+[B3.2]([B3.6], [B3.9], [B3.15], [B3.17], [B3.19])
+   Preds (1): B4
+   Succs (1): B1
+
+ [B4]
+   1: DeclRefExpr 0x558fa8eeb600 <lparser.c:72:22> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+fs
+   2: ImplicitCastExpr 0x558fa8eeb628 <lparser.c:72:22> 'FuncState *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8eeb600 <col:22> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+[B4.1] (ImplicitCastExpr, LValueToRValue, FuncState *)
+   3: MemberExpr 0x558fa8eeb640 <lparser.c:72:22, col:26> 'Proto *' lvalue ->f 0x558fa8eb3e58
+`-ImplicitCastExpr 0x558fa8eeb628 <col:22> 'FuncState *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8eeb600 <col:22> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+[B4.2]->f
+   4: ImplicitCastExpr 0x558fa8eeb678 <lparser.c:72:22, col:26> 'Proto *' <LValueToRValue>
+`-MemberExpr 0x558fa8eeb640 <col:22, col:26> 'Proto *' lvalue ->f 0x558fa8eb3e58
+  `-ImplicitCastExpr 0x558fa8eeb628 <col:22> 'FuncState *' <LValueToRValue>
+    `-DeclRefExpr 0x558fa8eeb600 <col:22> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+[B4.3] (ImplicitCastExpr, LValueToRValue, Proto *)
+   5: MemberExpr 0x558fa8eeb690 <lparser.c:72:22, col:29> 'int' lvalue ->linedefined 0x558fa8e8f688
+`-ImplicitCastExpr 0x558fa8eeb678 <col:22, col:26> 'Proto *' <LValueToRValue>
+  `-MemberExpr 0x558fa8eeb640 <col:22, col:26> 'Proto *' lvalue ->f 0x558fa8eb3e58
+    `-ImplicitCastExpr 0x558fa8eeb628 <col:22> 'FuncState *' <LValueToRValue>
+      `-DeclRefExpr 0x558fa8eeb600 <col:22> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+[B4.4]->linedefined
+   6: ImplicitCastExpr 0x558fa8eeb6e8 <lparser.c:72:22, col:29> 'int' <LValueToRValue>
+`-MemberExpr 0x558fa8eeb690 <col:22, col:29> 'int' lvalue ->linedefined 0x558fa8e8f688
+  `-ImplicitCastExpr 0x558fa8eeb678 <col:22, col:26> 'Proto *' <LValueToRValue>
+    `-MemberExpr 0x558fa8eeb640 <col:22, col:26> 'Proto *' lvalue ->f 0x558fa8eb3e58
+      `-ImplicitCastExpr 0x558fa8eeb628 <col:22> 'FuncState *' <LValueToRValue>
+        `-DeclRefExpr 0x558fa8eeb600 <col:22> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+[B4.5] (ImplicitCastExpr, LValueToRValue, int)
+   7: IntegerLiteral 0x558fa8eeb6c8 <lparser.c:72:44> 'int' 0
+0
+   8: BinaryOperator 0x558fa8eeb700 <lparser.c:72:22, col:44> 'int' '=='
+|-ImplicitCastExpr 0x558fa8eeb6e8 <col:22, col:29> 'int' <LValueToRValue>
+| `-MemberExpr 0x558fa8eeb690 <col:22, col:29> 'int' lvalue ->linedefined 0x558fa8e8f688
+|   `-ImplicitCastExpr 0x558fa8eeb678 <col:22, col:26> 'Proto *' <LValueToRValue>
+|     `-MemberExpr 0x558fa8eeb640 <col:22, col:26> 'Proto *' lvalue ->f 0x558fa8eb3e58
+|       `-ImplicitCastExpr 0x558fa8eeb628 <col:22> 'FuncState *' <LValueToRValue>
+|         `-DeclRefExpr 0x558fa8eeb600 <col:22> 'FuncState *' lvalue ParmVar 0x558fa8eeb2a8 'fs' 'FuncState *'
+`-IntegerLiteral 0x558fa8eeb6c8 <col:44> 'int' 0
+[B4.6] == [B4.7]
+   T: ([B4.8]) ? ... : ...
+   Preds (1): B5
+   Succs (2): B2 B3
+
+ [B0 (EXIT)]
+   Preds (1): B1

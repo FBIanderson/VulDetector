@@ -1,0 +1,482 @@
+static const char *matchbalance(MatchState *ms, const char *s, const char *p)
+ [B15 (ENTRY)]
+   Succs (1): B14
+
+ [B1]
+   1: IntegerLiteral 0x55fb42114960 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+   2: CStyleCastExpr 0x55fb42114998 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x55fb42114960 <col:24> 'int' 0
+(void *)[B1.1] (CStyleCastExpr, NullToPointer, void *)
+   3: ImplicitCastExpr 0x55fb421149e0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'const char *' <NullToPointer>
+`-ParenExpr 0x55fb421149c0 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x55fb42114998 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x55fb42114960 <col:24> 'int' 0
+([B1.2]) (ImplicitCastExpr, NullToPointer, const char *)
+   4: ReturnStmt 0x55fb421149f8 <lstrlib.c:297:3, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25>
+`-ImplicitCastExpr 0x55fb421149e0 <col:16, col:25> 'const char *' <NullToPointer>
+  `-ParenExpr 0x55fb421149c0 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x55fb42114998 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x55fb42114960 <col:24> 'int' 0
+return [B1.3];
+   Preds (1): B8
+   Succs (1): B0
+
+ [B2]
+   Preds (3): B3 B4 B6
+   Succs (1): B8
+
+ [B3]
+   1: DeclRefExpr 0x55fb42114808 <lstrlib.c:294:25> 'int' lvalue Var 0x55fb42114300 'cont' 'int'
+cont
+   2: UnaryOperator 0x55fb42114830 <lstrlib.c:294:25, col:29> 'int' postfix '++'
+`-DeclRefExpr 0x55fb42114808 <col:25> 'int' lvalue Var 0x55fb42114300 'cont' 'int'
+[B3.1]++
+   Preds (1): B4
+   Succs (1): B2
+
+ [B4]
+   1: DeclRefExpr 0x55fb42114710 <lstrlib.c:294:17> 'const char *' lvalue ParmVar 0x55fb42113828 's' 'const char *'
+s
+   2: ImplicitCastExpr 0x55fb42114738 <lstrlib.c:294:17> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x55fb42114710 <col:17> 'const char *' lvalue ParmVar 0x55fb42113828 's' 'const char *'
+[B4.1] (ImplicitCastExpr, LValueToRValue, const char *)
+   3: UnaryOperator 0x55fb42114750 <lstrlib.c:294:16, col:17> 'const char' lvalue prefix '*'
+`-ImplicitCastExpr 0x55fb42114738 <col:17> 'const char *' <LValueToRValue>
+  `-DeclRefExpr 0x55fb42114710 <col:17> 'const char *' lvalue ParmVar 0x55fb42113828 's' 'const char *'
+*[B4.2]
+   4: ImplicitCastExpr 0x55fb42114798 <lstrlib.c:294:16, col:17> 'char' <LValueToRValue>
+`-UnaryOperator 0x55fb42114750 <col:16, col:17> 'const char' lvalue prefix '*'
+  `-ImplicitCastExpr 0x55fb42114738 <col:17> 'const char *' <LValueToRValue>
+    `-DeclRefExpr 0x55fb42114710 <col:17> 'const char *' lvalue ParmVar 0x55fb42113828 's' 'const char *'
+[B4.3] (ImplicitCastExpr, LValueToRValue, char)
+   5: ImplicitCastExpr 0x55fb421147b0 <lstrlib.c:294:16, col:17> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x55fb42114798 <col:16, col:17> 'char' <LValueToRValue>
+  `-UnaryOperator 0x55fb42114750 <col:16, col:17> 'const char' lvalue prefix '*'
+    `-ImplicitCastExpr 0x55fb42114738 <col:17> 'const char *' <LValueToRValue>
+      `-DeclRefExpr 0x55fb42114710 <col:17> 'const char *' lvalue ParmVar 0x55fb42113828 's' 'const char *'
+[B4.4] (ImplicitCastExpr, IntegralCast, int)
+   6: DeclRefExpr 0x55fb42114770 <lstrlib.c:294:22> 'int' lvalue Var 0x55fb42114058 'b' 'int'
+b
+   7: ImplicitCastExpr 0x55fb421147c8 <lstrlib.c:294:22> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55fb42114770 <col:22> 'int' lvalue Var 0x55fb42114058 'b' 'int'
+[B4.6] (ImplicitCastExpr, LValueToRValue, int)
+   8: BinaryOperator 0x55fb421147e0 <lstrlib.c:294:16, col:22> 'int' '=='
+|-ImplicitCastExpr 0x55fb421147b0 <col:16, col:17> 'int' <IntegralCast>
+| `-ImplicitCastExpr 0x55fb42114798 <col:16, col:17> 'char' <LValueToRValue>
+|   `-UnaryOperator 0x55fb42114750 <col:16, col:17> 'const char' lvalue prefix '*'
+|     `-ImplicitCastExpr 0x55fb42114738 <col:17> 'const char *' <LValueToRValue>
+|       `-DeclRefExpr 0x55fb42114710 <col:17> 'const char *' lvalue ParmVar 0x55fb42113828 's' 'const char *'
+`-ImplicitCastExpr 0x55fb421147c8 <col:22> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x55fb42114770 <col:22> 'int' lvalue Var 0x55fb42114058 'b' 'int'
+[B4.5] == [B4.7]
+   T: if [B4.8]
+   Preds (1): B7
+   Succs (2): B3 B2
+
+ [B5]
+   1: DeclRefExpr 0x55fb42114620 <lstrlib.c:292:33> 'const char *' lvalue ParmVar 0x55fb42113828 's' 'const char *'
+s
+   2: ImplicitCastExpr 0x55fb42114668 <lstrlib.c:292:33> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x55fb42114620 <col:33> 'const char *' lvalue ParmVar 0x55fb42113828 's' 'const char *'
+[B5.1] (ImplicitCastExpr, LValueToRValue, const char *)
+   3: IntegerLiteral 0x55fb42114648 <lstrlib.c:292:35> 'int' 1
+1
+   4: BinaryOperator 0x55fb42114680 <lstrlib.c:292:33, col:35> 'const char *' '+'
+|-ImplicitCastExpr 0x55fb42114668 <col:33> 'const char *' <LValueToRValue>
+| `-DeclRefExpr 0x55fb42114620 <col:33> 'const char *' lvalue ParmVar 0x55fb42113828 's' 'const char *'
+`-IntegerLiteral 0x55fb42114648 <col:35> 'int' 1
+[B5.2] + [B5.3]
+   5: ReturnStmt 0x55fb421146a8 <lstrlib.c:292:26, col:35>
+`-BinaryOperator 0x55fb42114680 <col:33, col:35> 'const char *' '+'
+  |-ImplicitCastExpr 0x55fb42114668 <col:33> 'const char *' <LValueToRValue>
+  | `-DeclRefExpr 0x55fb42114620 <col:33> 'const char *' lvalue ParmVar 0x55fb42113828 's' 'const char *'
+  `-IntegerLiteral 0x55fb42114648 <col:35> 'int' 1
+return [B5.4];
+   Preds (1): B6
+   Succs (1): B0
+
+ [B6]
+   1: DeclRefExpr 0x55fb42114590 <lstrlib.c:292:15> 'int' lvalue Var 0x55fb42114300 'cont' 'int'
+cont
+   2: UnaryOperator 0x55fb421145b8 <lstrlib.c:292:13, col:15> 'int' prefix '--'
+`-DeclRefExpr 0x55fb42114590 <col:15> 'int' lvalue Var 0x55fb42114300 'cont' 'int'
+--[B6.1]
+   3: IntegerLiteral 0x55fb421145d8 <lstrlib.c:292:23> 'int' 0
+0
+   4: BinaryOperator 0x55fb421145f8 <lstrlib.c:292:13, col:23> 'int' '=='
+|-UnaryOperator 0x55fb421145b8 <col:13, col:15> 'int' prefix '--'
+| `-DeclRefExpr 0x55fb42114590 <col:15> 'int' lvalue Var 0x55fb42114300 'cont' 'int'
+`-IntegerLiteral 0x55fb421145d8 <col:23> 'int' 0
+[B6.2] == [B6.3]
+   T: if [B6.4]
+   Preds (1): B7
+   Succs (2): B5 B2
+
+ [B7]
+   1: DeclRefExpr 0x55fb42114498 <lstrlib.c:291:12> 'const char *' lvalue ParmVar 0x55fb42113828 's' 'const char *'
+s
+   2: ImplicitCastExpr 0x55fb421144c0 <lstrlib.c:291:12> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x55fb42114498 <col:12> 'const char *' lvalue ParmVar 0x55fb42113828 's' 'const char *'
+[B7.1] (ImplicitCastExpr, LValueToRValue, const char *)
+   3: UnaryOperator 0x55fb421144d8 <lstrlib.c:291:11, col:12> 'const char' lvalue prefix '*'
+`-ImplicitCastExpr 0x55fb421144c0 <col:12> 'const char *' <LValueToRValue>
+  `-DeclRefExpr 0x55fb42114498 <col:12> 'const char *' lvalue ParmVar 0x55fb42113828 's' 'const char *'
+*[B7.2]
+   4: ImplicitCastExpr 0x55fb42114520 <lstrlib.c:291:11, col:12> 'char' <LValueToRValue>
+`-UnaryOperator 0x55fb421144d8 <col:11, col:12> 'const char' lvalue prefix '*'
+  `-ImplicitCastExpr 0x55fb421144c0 <col:12> 'const char *' <LValueToRValue>
+    `-DeclRefExpr 0x55fb42114498 <col:12> 'const char *' lvalue ParmVar 0x55fb42113828 's' 'const char *'
+[B7.3] (ImplicitCastExpr, LValueToRValue, char)
+   5: ImplicitCastExpr 0x55fb42114538 <lstrlib.c:291:11, col:12> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x55fb42114520 <col:11, col:12> 'char' <LValueToRValue>
+  `-UnaryOperator 0x55fb421144d8 <col:11, col:12> 'const char' lvalue prefix '*'
+    `-ImplicitCastExpr 0x55fb421144c0 <col:12> 'const char *' <LValueToRValue>
+      `-DeclRefExpr 0x55fb42114498 <col:12> 'const char *' lvalue ParmVar 0x55fb42113828 's' 'const char *'
+[B7.4] (ImplicitCastExpr, IntegralCast, int)
+   6: DeclRefExpr 0x55fb421144f8 <lstrlib.c:291:17> 'int' lvalue Var 0x55fb42114178 'e' 'int'
+e
+   7: ImplicitCastExpr 0x55fb42114550 <lstrlib.c:291:17> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55fb421144f8 <col:17> 'int' lvalue Var 0x55fb42114178 'e' 'int'
+[B7.6] (ImplicitCastExpr, LValueToRValue, int)
+   8: BinaryOperator 0x55fb42114568 <lstrlib.c:291:11, col:17> 'int' '=='
+|-ImplicitCastExpr 0x55fb42114538 <col:11, col:12> 'int' <IntegralCast>
+| `-ImplicitCastExpr 0x55fb42114520 <col:11, col:12> 'char' <LValueToRValue>
+|   `-UnaryOperator 0x55fb421144d8 <col:11, col:12> 'const char' lvalue prefix '*'
+|     `-ImplicitCastExpr 0x55fb421144c0 <col:12> 'const char *' <LValueToRValue>
+|       `-DeclRefExpr 0x55fb42114498 <col:12> 'const char *' lvalue ParmVar 0x55fb42113828 's' 'const char *'
+`-ImplicitCastExpr 0x55fb42114550 <col:17> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x55fb421144f8 <col:17> 'int' lvalue Var 0x55fb42114178 'e' 'int'
+[B7.5] == [B7.7]
+   T: if [B7.8]
+   Preds (1): B8
+   Succs (2): B6 B4
+
+ [B8]
+   1: DeclRefExpr 0x55fb42114398 <lstrlib.c:290:14> 'const char *' lvalue ParmVar 0x55fb42113828 's' 'const char *'
+s
+   2: UnaryOperator 0x55fb421143c0 <lstrlib.c:290:12, col:14> 'const char *' prefix '++'
+`-DeclRefExpr 0x55fb42114398 <col:14> 'const char *' lvalue ParmVar 0x55fb42113828 's' 'const char *'
+++[B8.1]
+   3: DeclRefExpr 0x55fb421143e0 <lstrlib.c:290:18> 'MatchState *' lvalue ParmVar 0x55fb421137b0 'ms' 'MatchState *'
+ms
+   4: ImplicitCastExpr 0x55fb42114408 <lstrlib.c:290:18> 'MatchState *' <LValueToRValue>
+`-DeclRefExpr 0x55fb421143e0 <col:18> 'MatchState *' lvalue ParmVar 0x55fb421137b0 'ms' 'MatchState *'
+[B8.3] (ImplicitCastExpr, LValueToRValue, MatchState *)
+   5: MemberExpr 0x55fb42114420 <lstrlib.c:290:18, col:22> 'const char *' lvalue ->src_end 0x55fb421c3648
+`-ImplicitCastExpr 0x55fb42114408 <col:18> 'MatchState *' <LValueToRValue>
+  `-DeclRefExpr 0x55fb421143e0 <col:18> 'MatchState *' lvalue ParmVar 0x55fb421137b0 'ms' 'MatchState *'
+[B8.4]->src_end
+   6: ImplicitCastExpr 0x55fb42114458 <lstrlib.c:290:18, col:22> 'const char *' <LValueToRValue>
+`-MemberExpr 0x55fb42114420 <col:18, col:22> 'const char *' lvalue ->src_end 0x55fb421c3648
+  `-ImplicitCastExpr 0x55fb42114408 <col:18> 'MatchState *' <LValueToRValue>
+    `-DeclRefExpr 0x55fb421143e0 <col:18> 'MatchState *' lvalue ParmVar 0x55fb421137b0 'ms' 'MatchState *'
+[B8.5] (ImplicitCastExpr, LValueToRValue, const char *)
+   7: BinaryOperator 0x55fb42114470 <lstrlib.c:290:12, col:22> 'int' '<'
+|-UnaryOperator 0x55fb421143c0 <col:12, col:14> 'const char *' prefix '++'
+| `-DeclRefExpr 0x55fb42114398 <col:14> 'const char *' lvalue ParmVar 0x55fb42113828 's' 'const char *'
+`-ImplicitCastExpr 0x55fb42114458 <col:18, col:22> 'const char *' <LValueToRValue>
+  `-MemberExpr 0x55fb42114420 <col:18, col:22> 'const char *' lvalue ->src_end 0x55fb421c3648
+    `-ImplicitCastExpr 0x55fb42114408 <col:18> 'MatchState *' <LValueToRValue>
+      `-DeclRefExpr 0x55fb421143e0 <col:18> 'MatchState *' lvalue ParmVar 0x55fb421137b0 'ms' 'MatchState *'
+[B8.2] < [B8.6]
+   T: while [B8.7]
+   Preds (2): B2 B9
+   Succs (2): B7 B1
+
+ [B9]
+   1: DeclRefExpr 0x55fb421140b8 <lstrlib.c:287:14> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+p
+   2: ImplicitCastExpr 0x55fb421140e0 <lstrlib.c:287:14> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x55fb421140b8 <col:14> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+[B9.1] (ImplicitCastExpr, LValueToRValue, const char *)
+   3: UnaryOperator 0x55fb421140f8 <lstrlib.c:287:13, col:14> 'const char' lvalue prefix '*'
+`-ImplicitCastExpr 0x55fb421140e0 <col:14> 'const char *' <LValueToRValue>
+  `-DeclRefExpr 0x55fb421140b8 <col:14> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+*[B9.2]
+   4: ImplicitCastExpr 0x55fb42114118 <lstrlib.c:287:13, col:14> 'char' <LValueToRValue>
+`-UnaryOperator 0x55fb421140f8 <col:13, col:14> 'const char' lvalue prefix '*'
+  `-ImplicitCastExpr 0x55fb421140e0 <col:14> 'const char *' <LValueToRValue>
+    `-DeclRefExpr 0x55fb421140b8 <col:14> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+[B9.3] (ImplicitCastExpr, LValueToRValue, char)
+   5: ImplicitCastExpr 0x55fb42114130 <lstrlib.c:287:13, col:14> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x55fb42114118 <col:13, col:14> 'char' <LValueToRValue>
+  `-UnaryOperator 0x55fb421140f8 <col:13, col:14> 'const char' lvalue prefix '*'
+    `-ImplicitCastExpr 0x55fb421140e0 <col:14> 'const char *' <LValueToRValue>
+      `-DeclRefExpr 0x55fb421140b8 <col:14> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+[B9.4] (ImplicitCastExpr, IntegralCast, int)
+   6: DeclStmt 0x55fb42114148 <lstrlib.c:287:5, col:15>col:9
+`-VarDecl 0x55fb42114058 <col:5, col:14> col:9 used b 'int' cinit
+  `-ImplicitCastExpr 0x55fb42114130 <col:13, col:14> 'int' <IntegralCast>
+    `-ImplicitCastExpr 0x55fb42114118 <col:13, col:14> 'char' <LValueToRValue>
+      `-UnaryOperator 0x55fb421140f8 <col:13, col:14> 'const char' lvalue prefix '*'
+        `-ImplicitCastExpr 0x55fb421140e0 <col:14> 'const char *' <LValueToRValue>
+          `-DeclRefExpr 0x55fb421140b8 <col:14> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+int b = *p;
+   7: DeclRefExpr 0x55fb421141d8 <lstrlib.c:288:15> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+p
+   8: ImplicitCastExpr 0x55fb42114220 <lstrlib.c:288:15> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x55fb421141d8 <col:15> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+[B9.7] (ImplicitCastExpr, LValueToRValue, const char *)
+   9: IntegerLiteral 0x55fb42114200 <lstrlib.c:288:17> 'int' 1
+1
+  10: BinaryOperator 0x55fb42114238 <lstrlib.c:288:15, col:17> 'const char *' '+'
+|-ImplicitCastExpr 0x55fb42114220 <col:15> 'const char *' <LValueToRValue>
+| `-DeclRefExpr 0x55fb421141d8 <col:15> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+`-IntegerLiteral 0x55fb42114200 <col:17> 'int' 1
+[B9.8] + [B9.9]
+  11: UnaryOperator 0x55fb42114280 <lstrlib.c:288:13, col:18> 'const char' lvalue prefix '*'
+`-ParenExpr 0x55fb42114260 <col:14, col:18> 'const char *'
+  `-BinaryOperator 0x55fb42114238 <col:15, col:17> 'const char *' '+'
+    |-ImplicitCastExpr 0x55fb42114220 <col:15> 'const char *' <LValueToRValue>
+    | `-DeclRefExpr 0x55fb421141d8 <col:15> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+    `-IntegerLiteral 0x55fb42114200 <col:17> 'int' 1
+*([B9.10])
+  12: ImplicitCastExpr 0x55fb421142a0 <lstrlib.c:288:13, col:18> 'char' <LValueToRValue>
+`-UnaryOperator 0x55fb42114280 <col:13, col:18> 'const char' lvalue prefix '*'
+  `-ParenExpr 0x55fb42114260 <col:14, col:18> 'const char *'
+    `-BinaryOperator 0x55fb42114238 <col:15, col:17> 'const char *' '+'
+      |-ImplicitCastExpr 0x55fb42114220 <col:15> 'const char *' <LValueToRValue>
+      | `-DeclRefExpr 0x55fb421141d8 <col:15> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+      `-IntegerLiteral 0x55fb42114200 <col:17> 'int' 1
+[B9.11] (ImplicitCastExpr, LValueToRValue, char)
+  13: ImplicitCastExpr 0x55fb421142b8 <lstrlib.c:288:13, col:18> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x55fb421142a0 <col:13, col:18> 'char' <LValueToRValue>
+  `-UnaryOperator 0x55fb42114280 <col:13, col:18> 'const char' lvalue prefix '*'
+    `-ParenExpr 0x55fb42114260 <col:14, col:18> 'const char *'
+      `-BinaryOperator 0x55fb42114238 <col:15, col:17> 'const char *' '+'
+        |-ImplicitCastExpr 0x55fb42114220 <col:15> 'const char *' <LValueToRValue>
+        | `-DeclRefExpr 0x55fb421141d8 <col:15> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+        `-IntegerLiteral 0x55fb42114200 <col:17> 'int' 1
+[B9.12] (ImplicitCastExpr, IntegralCast, int)
+  14: DeclStmt 0x55fb421142d0 <lstrlib.c:288:5, col:19>col:9
+`-VarDecl 0x55fb42114178 <col:5, col:18> col:9 used e 'int' cinit
+  `-ImplicitCastExpr 0x55fb421142b8 <col:13, col:18> 'int' <IntegralCast>
+    `-ImplicitCastExpr 0x55fb421142a0 <col:13, col:18> 'char' <LValueToRValue>
+      `-UnaryOperator 0x55fb42114280 <col:13, col:18> 'const char' lvalue prefix '*'
+        `-ParenExpr 0x55fb42114260 <col:14, col:18> 'const char *'
+          `-BinaryOperator 0x55fb42114238 <col:15, col:17> 'const char *' '+'
+            |-ImplicitCastExpr 0x55fb42114220 <col:15> 'const char *' <LValueToRValue>
+            | `-DeclRefExpr 0x55fb421141d8 <col:15> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+            `-IntegerLiteral 0x55fb42114200 <col:17> 'int' 1
+int e = *(p + 1);
+  15: IntegerLiteral 0x55fb42114360 <lstrlib.c:289:16> 'int' 1
+1
+  16: DeclStmt 0x55fb42114380 <lstrlib.c:289:5, col:17>col:9
+`-VarDecl 0x55fb42114300 <col:5, col:16> col:9 used cont 'int' cinit
+  `-IntegerLiteral 0x55fb42114360 <col:16> 'int' 1
+int cont = 1;
+   Preds (1): B11
+   Succs (1): B8
+
+ [B10]
+   1: IntegerLiteral 0x55fb42113f90 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+   2: CStyleCastExpr 0x55fb42113fc8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x55fb42113f90 <col:24> 'int' 0
+(void *)[B10.1] (CStyleCastExpr, NullToPointer, void *)
+   3: ImplicitCastExpr 0x55fb42114010 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'const char *' <NullToPointer>
+`-ParenExpr 0x55fb42113ff0 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x55fb42113fc8 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x55fb42113f90 <col:24> 'int' 0
+([B10.2]) (ImplicitCastExpr, NullToPointer, const char *)
+   4: ReturnStmt 0x55fb42114028 <lstrlib.c:285:17, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25>
+`-ImplicitCastExpr 0x55fb42114010 <col:16, col:25> 'const char *' <NullToPointer>
+  `-ParenExpr 0x55fb42113ff0 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x55fb42113fc8 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x55fb42113f90 <col:24> 'int' 0
+return [B10.3];
+   Preds (1): B11
+   Succs (1): B0
+
+ [B11]
+   1: DeclRefExpr 0x55fb42113e48 <lstrlib.c:285:8> 'const char *' lvalue ParmVar 0x55fb42113828 's' 'const char *'
+s
+   2: ImplicitCastExpr 0x55fb42113e70 <lstrlib.c:285:8> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x55fb42113e48 <col:8> 'const char *' lvalue ParmVar 0x55fb42113828 's' 'const char *'
+[B11.1] (ImplicitCastExpr, LValueToRValue, const char *)
+   3: UnaryOperator 0x55fb42113e88 <lstrlib.c:285:7, col:8> 'const char' lvalue prefix '*'
+`-ImplicitCastExpr 0x55fb42113e70 <col:8> 'const char *' <LValueToRValue>
+  `-DeclRefExpr 0x55fb42113e48 <col:8> 'const char *' lvalue ParmVar 0x55fb42113828 's' 'const char *'
+*[B11.2]
+   4: ImplicitCastExpr 0x55fb42113f08 <lstrlib.c:285:7, col:8> 'char' <LValueToRValue>
+`-UnaryOperator 0x55fb42113e88 <col:7, col:8> 'const char' lvalue prefix '*'
+  `-ImplicitCastExpr 0x55fb42113e70 <col:8> 'const char *' <LValueToRValue>
+    `-DeclRefExpr 0x55fb42113e48 <col:8> 'const char *' lvalue ParmVar 0x55fb42113828 's' 'const char *'
+[B11.3] (ImplicitCastExpr, LValueToRValue, char)
+   5: ImplicitCastExpr 0x55fb42113f20 <lstrlib.c:285:7, col:8> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x55fb42113f08 <col:7, col:8> 'char' <LValueToRValue>
+  `-UnaryOperator 0x55fb42113e88 <col:7, col:8> 'const char' lvalue prefix '*'
+    `-ImplicitCastExpr 0x55fb42113e70 <col:8> 'const char *' <LValueToRValue>
+      `-DeclRefExpr 0x55fb42113e48 <col:8> 'const char *' lvalue ParmVar 0x55fb42113828 's' 'const char *'
+[B11.4] (ImplicitCastExpr, IntegralCast, int)
+   6: DeclRefExpr 0x55fb42113ea8 <lstrlib.c:285:14> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+p
+   7: ImplicitCastExpr 0x55fb42113ed0 <lstrlib.c:285:14> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x55fb42113ea8 <col:14> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+[B11.6] (ImplicitCastExpr, LValueToRValue, const char *)
+   8: UnaryOperator 0x55fb42113ee8 <lstrlib.c:285:13, col:14> 'const char' lvalue prefix '*'
+`-ImplicitCastExpr 0x55fb42113ed0 <col:14> 'const char *' <LValueToRValue>
+  `-DeclRefExpr 0x55fb42113ea8 <col:14> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+*[B11.7]
+   9: ImplicitCastExpr 0x55fb42113f38 <lstrlib.c:285:13, col:14> 'char' <LValueToRValue>
+`-UnaryOperator 0x55fb42113ee8 <col:13, col:14> 'const char' lvalue prefix '*'
+  `-ImplicitCastExpr 0x55fb42113ed0 <col:14> 'const char *' <LValueToRValue>
+    `-DeclRefExpr 0x55fb42113ea8 <col:14> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+[B11.8] (ImplicitCastExpr, LValueToRValue, char)
+  10: ImplicitCastExpr 0x55fb42113f50 <lstrlib.c:285:13, col:14> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x55fb42113f38 <col:13, col:14> 'char' <LValueToRValue>
+  `-UnaryOperator 0x55fb42113ee8 <col:13, col:14> 'const char' lvalue prefix '*'
+    `-ImplicitCastExpr 0x55fb42113ed0 <col:14> 'const char *' <LValueToRValue>
+      `-DeclRefExpr 0x55fb42113ea8 <col:14> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+[B11.9] (ImplicitCastExpr, IntegralCast, int)
+  11: BinaryOperator 0x55fb42113f68 <lstrlib.c:285:7, col:14> 'int' '!='
+|-ImplicitCastExpr 0x55fb42113f20 <col:7, col:8> 'int' <IntegralCast>
+| `-ImplicitCastExpr 0x55fb42113f08 <col:7, col:8> 'char' <LValueToRValue>
+|   `-UnaryOperator 0x55fb42113e88 <col:7, col:8> 'const char' lvalue prefix '*'
+|     `-ImplicitCastExpr 0x55fb42113e70 <col:8> 'const char *' <LValueToRValue>
+|       `-DeclRefExpr 0x55fb42113e48 <col:8> 'const char *' lvalue ParmVar 0x55fb42113828 's' 'const char *'
+`-ImplicitCastExpr 0x55fb42113f50 <col:13, col:14> 'int' <IntegralCast>
+  `-ImplicitCastExpr 0x55fb42113f38 <col:13, col:14> 'char' <LValueToRValue>
+    `-UnaryOperator 0x55fb42113ee8 <col:13, col:14> 'const char' lvalue prefix '*'
+      `-ImplicitCastExpr 0x55fb42113ed0 <col:14> 'const char *' <LValueToRValue>
+        `-DeclRefExpr 0x55fb42113ea8 <col:14> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+[B11.5] != [B11.10]
+   T: if [B11.11]
+   Preds (2): B12 B13
+   Succs (2): B10 B9
+
+ [B12]
+   1: DeclRefExpr 0x55fb42113c38 <lstrlib.c:284:5> 'int (lua_State *, const char *, ...)':'int (lua_State *, const char *, ...)' Function 0x55fb421a7478 'luaL_error' 'int (lua_State *, const char *, ...)':'int (lua_State *, const char *, ...)'
+luaL_error
+   2: ImplicitCastExpr 0x55fb42113d78 <lstrlib.c:284:5> 'int (*)(lua_State *, const char *, ...)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55fb42113c38 <col:5> 'int (lua_State *, const char *, ...)':'int (lua_State *, const char *, ...)' Function 0x55fb421a7478 'luaL_error' 'int (lua_State *, const char *, ...)':'int (lua_State *, const char *, ...)'
+[B12.1] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(lua_State *, const char *, ...))
+   3: DeclRefExpr 0x55fb42113c60 <lstrlib.c:284:16> 'MatchState *' lvalue ParmVar 0x55fb421137b0 'ms' 'MatchState *'
+ms
+   4: ImplicitCastExpr 0x55fb42113c88 <lstrlib.c:284:16> 'MatchState *' <LValueToRValue>
+`-DeclRefExpr 0x55fb42113c60 <col:16> 'MatchState *' lvalue ParmVar 0x55fb421137b0 'ms' 'MatchState *'
+[B12.3] (ImplicitCastExpr, LValueToRValue, MatchState *)
+   5: MemberExpr 0x55fb42113cc0 <lstrlib.c:284:16, col:20> 'lua_State *' lvalue ->L 0x55fb421c36a0
+`-ImplicitCastExpr 0x55fb42113c88 <col:16> 'MatchState *' <LValueToRValue>
+  `-DeclRefExpr 0x55fb42113c60 <col:16> 'MatchState *' lvalue ParmVar 0x55fb421137b0 'ms' 'MatchState *'
+[B12.4]->L
+   6: ImplicitCastExpr 0x55fb42113dc8 <lstrlib.c:284:16, col:20> 'lua_State *' <LValueToRValue>
+`-MemberExpr 0x55fb42113cc0 <col:16, col:20> 'lua_State *' lvalue ->L 0x55fb421c36a0
+  `-ImplicitCastExpr 0x55fb42113c88 <col:16> 'MatchState *' <LValueToRValue>
+    `-DeclRefExpr 0x55fb42113c60 <col:16> 'MatchState *' lvalue ParmVar 0x55fb421137b0 'ms' 'MatchState *'
+[B12.5] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   7: StringLiteral 0x55fb42113d38 <lstrlib.c:284:23> 'char [19]' lvalue "unbalanced pattern"
+"unbalanced pattern"
+   8: ImplicitCastExpr 0x55fb42113de0 <lstrlib.c:284:23> 'char *' <ArrayToPointerDecay>
+`-StringLiteral 0x55fb42113d38 <col:23> 'char [19]' lvalue "unbalanced pattern"
+[B12.7] (ImplicitCastExpr, ArrayToPointerDecay, char *)
+   9: ImplicitCastExpr 0x55fb42113df8 <lstrlib.c:284:23> 'const char *' <BitCast>
+`-ImplicitCastExpr 0x55fb42113de0 <col:23> 'char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x55fb42113d38 <col:23> 'char [19]' lvalue "unbalanced pattern"
+[B12.8] (ImplicitCastExpr, BitCast, const char *)
+  10: CallExpr 0x55fb42113d90 <lstrlib.c:284:5, col:43> 'int'
+|-ImplicitCastExpr 0x55fb42113d78 <col:5> 'int (*)(lua_State *, const char *, ...)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55fb42113c38 <col:5> 'int (lua_State *, const char *, ...)':'int (lua_State *, const char *, ...)' Function 0x55fb421a7478 'luaL_error' 'int (lua_State *, const char *, ...)':'int (lua_State *, const char *, ...)'
+|-ImplicitCastExpr 0x55fb42113dc8 <col:16, col:20> 'lua_State *' <LValueToRValue>
+| `-MemberExpr 0x55fb42113cc0 <col:16, col:20> 'lua_State *' lvalue ->L 0x55fb421c36a0
+|   `-ImplicitCastExpr 0x55fb42113c88 <col:16> 'MatchState *' <LValueToRValue>
+|     `-DeclRefExpr 0x55fb42113c60 <col:16> 'MatchState *' lvalue ParmVar 0x55fb421137b0 'ms' 'MatchState *'
+`-ImplicitCastExpr 0x55fb42113df8 <col:23> 'const char *' <BitCast>
+  `-ImplicitCastExpr 0x55fb42113de0 <col:23> 'char *' <ArrayToPointerDecay>
+    `-StringLiteral 0x55fb42113d38 <col:23> 'char [19]' lvalue "unbalanced pattern"
+[B12.2]([B12.6], [B12.9])
+   Preds (2): B13 B14
+   Succs (1): B11
+
+ [B13]
+   1: DeclRefExpr 0x55fb42113ad0 <lstrlib.c:283:20> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+p
+   2: ImplicitCastExpr 0x55fb42113b18 <lstrlib.c:283:20> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x55fb42113ad0 <col:20> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+[B13.1] (ImplicitCastExpr, LValueToRValue, const char *)
+   3: IntegerLiteral 0x55fb42113af8 <lstrlib.c:283:22> 'int' 1
+1
+   4: BinaryOperator 0x55fb42113b30 <lstrlib.c:283:20, col:22> 'const char *' '+'
+|-ImplicitCastExpr 0x55fb42113b18 <col:20> 'const char *' <LValueToRValue>
+| `-DeclRefExpr 0x55fb42113ad0 <col:20> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+`-IntegerLiteral 0x55fb42113af8 <col:22> 'int' 1
+[B13.2] + [B13.3]
+   5: UnaryOperator 0x55fb42113b78 <lstrlib.c:283:18, col:23> 'const char' lvalue prefix '*'
+`-ParenExpr 0x55fb42113b58 <col:19, col:23> 'const char *'
+  `-BinaryOperator 0x55fb42113b30 <col:20, col:22> 'const char *' '+'
+    |-ImplicitCastExpr 0x55fb42113b18 <col:20> 'const char *' <LValueToRValue>
+    | `-DeclRefExpr 0x55fb42113ad0 <col:20> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+    `-IntegerLiteral 0x55fb42113af8 <col:22> 'int' 1
+*([B13.4])
+   6: ImplicitCastExpr 0x55fb42113bb8 <lstrlib.c:283:18, col:23> 'char' <LValueToRValue>
+`-UnaryOperator 0x55fb42113b78 <col:18, col:23> 'const char' lvalue prefix '*'
+  `-ParenExpr 0x55fb42113b58 <col:19, col:23> 'const char *'
+    `-BinaryOperator 0x55fb42113b30 <col:20, col:22> 'const char *' '+'
+      |-ImplicitCastExpr 0x55fb42113b18 <col:20> 'const char *' <LValueToRValue>
+      | `-DeclRefExpr 0x55fb42113ad0 <col:20> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+      `-IntegerLiteral 0x55fb42113af8 <col:22> 'int' 1
+[B13.5] (ImplicitCastExpr, LValueToRValue, char)
+   7: ImplicitCastExpr 0x55fb42113bd0 <lstrlib.c:283:18, col:23> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x55fb42113bb8 <col:18, col:23> 'char' <LValueToRValue>
+  `-UnaryOperator 0x55fb42113b78 <col:18, col:23> 'const char' lvalue prefix '*'
+    `-ParenExpr 0x55fb42113b58 <col:19, col:23> 'const char *'
+      `-BinaryOperator 0x55fb42113b30 <col:20, col:22> 'const char *' '+'
+        |-ImplicitCastExpr 0x55fb42113b18 <col:20> 'const char *' <LValueToRValue>
+        | `-DeclRefExpr 0x55fb42113ad0 <col:20> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+        `-IntegerLiteral 0x55fb42113af8 <col:22> 'int' 1
+[B13.6] (ImplicitCastExpr, IntegralCast, int)
+   8: IntegerLiteral 0x55fb42113b98 <lstrlib.c:283:28> 'int' 0
+0
+   9: BinaryOperator 0x55fb42113be8 <lstrlib.c:283:18, col:28> 'int' '=='
+|-ImplicitCastExpr 0x55fb42113bd0 <col:18, col:23> 'int' <IntegralCast>
+| `-ImplicitCastExpr 0x55fb42113bb8 <col:18, col:23> 'char' <LValueToRValue>
+|   `-UnaryOperator 0x55fb42113b78 <col:18, col:23> 'const char' lvalue prefix '*'
+|     `-ParenExpr 0x55fb42113b58 <col:19, col:23> 'const char *'
+|       `-BinaryOperator 0x55fb42113b30 <col:20, col:22> 'const char *' '+'
+|         |-ImplicitCastExpr 0x55fb42113b18 <col:20> 'const char *' <LValueToRValue>
+|         | `-DeclRefExpr 0x55fb42113ad0 <col:20> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+|         `-IntegerLiteral 0x55fb42113af8 <col:22> 'int' 1
+`-IntegerLiteral 0x55fb42113b98 <col:28> 'int' 0
+[B13.7] == [B13.8]
+   T: if [B14.7] || [B13.9]
+   Preds (1): B14
+   Succs (2): B12 B11
+
+ [B14]
+   1: DeclRefExpr 0x55fb421139f8 <lstrlib.c:283:8> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+p
+   2: ImplicitCastExpr 0x55fb42113a20 <lstrlib.c:283:8> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x55fb421139f8 <col:8> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+[B14.1] (ImplicitCastExpr, LValueToRValue, const char *)
+   3: UnaryOperator 0x55fb42113a38 <lstrlib.c:283:7, col:8> 'const char' lvalue prefix '*'
+`-ImplicitCastExpr 0x55fb42113a20 <col:8> 'const char *' <LValueToRValue>
+  `-DeclRefExpr 0x55fb421139f8 <col:8> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+*[B14.2]
+   4: ImplicitCastExpr 0x55fb42113a78 <lstrlib.c:283:7, col:8> 'char' <LValueToRValue>
+`-UnaryOperator 0x55fb42113a38 <col:7, col:8> 'const char' lvalue prefix '*'
+  `-ImplicitCastExpr 0x55fb42113a20 <col:8> 'const char *' <LValueToRValue>
+    `-DeclRefExpr 0x55fb421139f8 <col:8> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+[B14.3] (ImplicitCastExpr, LValueToRValue, char)
+   5: ImplicitCastExpr 0x55fb42113a90 <lstrlib.c:283:7, col:8> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x55fb42113a78 <col:7, col:8> 'char' <LValueToRValue>
+  `-UnaryOperator 0x55fb42113a38 <col:7, col:8> 'const char' lvalue prefix '*'
+    `-ImplicitCastExpr 0x55fb42113a20 <col:8> 'const char *' <LValueToRValue>
+      `-DeclRefExpr 0x55fb421139f8 <col:8> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+[B14.4] (ImplicitCastExpr, IntegralCast, int)
+   6: IntegerLiteral 0x55fb42113a58 <lstrlib.c:283:13> 'int' 0
+0
+   7: BinaryOperator 0x55fb42113aa8 <lstrlib.c:283:7, col:13> 'int' '=='
+|-ImplicitCastExpr 0x55fb42113a90 <col:7, col:8> 'int' <IntegralCast>
+| `-ImplicitCastExpr 0x55fb42113a78 <col:7, col:8> 'char' <LValueToRValue>
+|   `-UnaryOperator 0x55fb42113a38 <col:7, col:8> 'const char' lvalue prefix '*'
+|     `-ImplicitCastExpr 0x55fb42113a20 <col:8> 'const char *' <LValueToRValue>
+|       `-DeclRefExpr 0x55fb421139f8 <col:8> 'const char *' lvalue ParmVar 0x55fb421138a0 'p' 'const char *'
+`-IntegerLiteral 0x55fb42113a58 <col:13> 'int' 0
+[B14.5] == [B14.6]
+   T: [B14.7] || ...
+   Preds (1): B15
+   Succs (2): B12 B13
+
+ [B0 (EXIT)]
+   Preds (3): B1 B5 B10

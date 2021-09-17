@@ -1,0 +1,1081 @@
+void luaV_gettable(lua_State *L, const TValue *t, TValue *key, StkId val)
+ [B20 (ENTRY)]
+   Succs (1): B19
+
+ [B1]
+   1: DeclRefExpr 0x5590ecedfb18 <lvm.c:130:3> 'void (lua_State *, const char *, ...)' Function 0x5590ecea4d80 'luaG_runerror' 'void (lua_State *, const char *, ...)'
+luaG_runerror
+   2: ImplicitCastExpr 0x5590ecedfbf8 <lvm.c:130:3> 'void (*)(lua_State *, const char *, ...)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5590ecedfb18 <col:3> 'void (lua_State *, const char *, ...)' Function 0x5590ecea4d80 'luaG_runerror' 'void (lua_State *, const char *, ...)'
+[B1.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(lua_State *, const char *, ...))
+   3: DeclRefExpr 0x5590ecedfb40 <lvm.c:130:17> 'lua_State *' lvalue ParmVar 0x5590ecedd1f0 'L' 'lua_State *'
+L
+   4: ImplicitCastExpr 0x5590ecedfc48 <lvm.c:130:17> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x5590ecedfb40 <col:17> 'lua_State *' lvalue ParmVar 0x5590ecedd1f0 'L' 'lua_State *'
+[B1.3] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   5: StringLiteral 0x5590ecedfb68 <lvm.c:130:20> 'char [17]' lvalue "loop in gettable"
+"loop in gettable"
+   6: ImplicitCastExpr 0x5590ecedfc60 <lvm.c:130:20> 'char *' <ArrayToPointerDecay>
+`-StringLiteral 0x5590ecedfb68 <col:20> 'char [17]' lvalue "loop in gettable"
+[B1.5] (ImplicitCastExpr, ArrayToPointerDecay, char *)
+   7: ImplicitCastExpr 0x5590ecedfc78 <lvm.c:130:20> 'const char *' <BitCast>
+`-ImplicitCastExpr 0x5590ecedfc60 <col:20> 'char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x5590ecedfb68 <col:20> 'char [17]' lvalue "loop in gettable"
+[B1.6] (ImplicitCastExpr, BitCast, const char *)
+   8: CallExpr 0x5590ecedfc10 <lvm.c:130:3, col:38> 'void'
+|-ImplicitCastExpr 0x5590ecedfbf8 <col:3> 'void (*)(lua_State *, const char *, ...)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5590ecedfb18 <col:3> 'void (lua_State *, const char *, ...)' Function 0x5590ecea4d80 'luaG_runerror' 'void (lua_State *, const char *, ...)'
+|-ImplicitCastExpr 0x5590ecedfc48 <col:17> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x5590ecedfb40 <col:17> 'lua_State *' lvalue ParmVar 0x5590ecedd1f0 'L' 'lua_State *'
+`-ImplicitCastExpr 0x5590ecedfc78 <col:20> 'const char *' <BitCast>
+  `-ImplicitCastExpr 0x5590ecedfc60 <col:20> 'char *' <ArrayToPointerDecay>
+    `-StringLiteral 0x5590ecedfb68 <col:20> 'char [17]' lvalue "loop in gettable"
+[B1.2]([B1.4], [B1.7])
+   Preds (1): B18
+   Succs (1): B0
+
+ [B2]
+   1: DeclRefExpr 0x5590ecedd670 <lvm.c:110:37> 'int' lvalue Var 0x5590ecedd500 'loop' 'int'
+loop
+   2: UnaryOperator 0x5590ecedd698 <lvm.c:110:37, col:41> 'int' postfix '++'
+`-DeclRefExpr 0x5590ecedd670 <col:37> 'int' lvalue Var 0x5590ecedd500 'loop' 'int'
+[B2.1]++
+   Preds (1): B3
+   Succs (1): B18
+
+ [B3]
+   1: DeclRefExpr 0x5590ecedfa48 <lvm.c:128:9> 'const TValue *' lvalue Var 0x5590ecedd6c8 'tm' 'const TValue *'
+tm
+   2: ImplicitCastExpr 0x5590ecedfa70 <lvm.c:128:9> 'const TValue *' <LValueToRValue>
+`-DeclRefExpr 0x5590ecedfa48 <col:9> 'const TValue *' lvalue Var 0x5590ecedd6c8 'tm' 'const TValue *'
+[B3.1] (ImplicitCastExpr, LValueToRValue, const TValue *)
+   3: DeclRefExpr 0x5590ecedfa20 <lvm.c:128:5> 'const TValue *' lvalue ParmVar 0x5590ecedd260 't' 'const TValue *'
+t
+   4: BinaryOperator 0x5590ecedfa88 <lvm.c:128:5, col:9> 'const TValue *' '='
+|-DeclRefExpr 0x5590ecedfa20 <col:5> 'const TValue *' lvalue ParmVar 0x5590ecedd260 't' 'const TValue *'
+`-ImplicitCastExpr 0x5590ecedfa70 <col:9> 'const TValue *' <LValueToRValue>
+  `-DeclRefExpr 0x5590ecedfa48 <col:9> 'const TValue *' lvalue Var 0x5590ecedd6c8 'tm' 'const TValue *'
+[B3.3] = [B3.2]
+   Preds (1): B5
+   Succs (1): B2
+
+ [B4]
+   1: DeclRefExpr 0x5590ecedf768 <lvm.c:125:7> 'void (lua_State *, StkId, const TValue *, const TValue *, const TValue *)' Function 0x5590eced8c60 'callTMres' 'void (lua_State *, StkId, const TValue *, const TValue *, const TValue *)'
+callTMres
+   2: ImplicitCastExpr 0x5590ecedf8b8 <lvm.c:125:7> 'void (*)(lua_State *, StkId, const TValue *, const TValue *, const TValue *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5590ecedf768 <col:7> 'void (lua_State *, StkId, const TValue *, const TValue *, const TValue *)' Function 0x5590eced8c60 'callTMres' 'void (lua_State *, StkId, const TValue *, const TValue *, const TValue *)'
+[B4.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(lua_State *, StkId, const TValue *, const TValue *, const TValue *))
+   3: DeclRefExpr 0x5590ecedf790 <lvm.c:125:17> 'lua_State *' lvalue ParmVar 0x5590ecedd1f0 'L' 'lua_State *'
+L
+   4: ImplicitCastExpr 0x5590ecedf920 <lvm.c:125:17> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x5590ecedf790 <col:17> 'lua_State *' lvalue ParmVar 0x5590ecedd1f0 'L' 'lua_State *'
+[B4.3] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   5: DeclRefExpr 0x5590ecedf7b8 <lvm.c:125:20> 'StkId':'TValue *' lvalue ParmVar 0x5590ecedd340 'val' 'StkId':'TValue *'
+val
+   6: ImplicitCastExpr 0x5590ecedf938 <lvm.c:125:20> 'StkId':'TValue *' <LValueToRValue>
+`-DeclRefExpr 0x5590ecedf7b8 <col:20> 'StkId':'TValue *' lvalue ParmVar 0x5590ecedd340 'val' 'StkId':'TValue *'
+[B4.5] (ImplicitCastExpr, LValueToRValue, StkId)
+   7: DeclRefExpr 0x5590ecedf7e0 <lvm.c:125:25> 'const TValue *' lvalue Var 0x5590ecedd6c8 'tm' 'const TValue *'
+tm
+   8: ImplicitCastExpr 0x5590ecedf950 <lvm.c:125:25> 'const TValue *' <LValueToRValue>
+`-DeclRefExpr 0x5590ecedf7e0 <col:25> 'const TValue *' lvalue Var 0x5590ecedd6c8 'tm' 'const TValue *'
+[B4.7] (ImplicitCastExpr, LValueToRValue, const TValue *)
+   9: DeclRefExpr 0x5590ecedf808 <lvm.c:125:29> 'const TValue *' lvalue ParmVar 0x5590ecedd260 't' 'const TValue *'
+t
+  10: ImplicitCastExpr 0x5590ecedf968 <lvm.c:125:29> 'const TValue *' <LValueToRValue>
+`-DeclRefExpr 0x5590ecedf808 <col:29> 'const TValue *' lvalue ParmVar 0x5590ecedd260 't' 'const TValue *'
+[B4.9] (ImplicitCastExpr, LValueToRValue, const TValue *)
+  11: DeclRefExpr 0x5590ecedf830 <lvm.c:125:32> 'TValue *' lvalue ParmVar 0x5590ecedd2d0 'key' 'TValue *'
+key
+  12: ImplicitCastExpr 0x5590ecedf980 <lvm.c:125:32> 'TValue *' <LValueToRValue>
+`-DeclRefExpr 0x5590ecedf830 <col:32> 'TValue *' lvalue ParmVar 0x5590ecedd2d0 'key' 'TValue *'
+[B4.11] (ImplicitCastExpr, LValueToRValue, TValue *)
+  13: ImplicitCastExpr 0x5590ecedf998 <lvm.c:125:32> 'const TValue *' <BitCast>
+`-ImplicitCastExpr 0x5590ecedf980 <col:32> 'TValue *' <LValueToRValue>
+  `-DeclRefExpr 0x5590ecedf830 <col:32> 'TValue *' lvalue ParmVar 0x5590ecedd2d0 'key' 'TValue *'
+[B4.12] (ImplicitCastExpr, BitCast, const TValue *)
+  14: CallExpr 0x5590ecedf8d0 <lvm.c:125:7, col:35> 'void'
+|-ImplicitCastExpr 0x5590ecedf8b8 <col:7> 'void (*)(lua_State *, StkId, const TValue *, const TValue *, const TValue *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5590ecedf768 <col:7> 'void (lua_State *, StkId, const TValue *, const TValue *, const TValue *)' Function 0x5590eced8c60 'callTMres' 'void (lua_State *, StkId, const TValue *, const TValue *, const TValue *)'
+|-ImplicitCastExpr 0x5590ecedf920 <col:17> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x5590ecedf790 <col:17> 'lua_State *' lvalue ParmVar 0x5590ecedd1f0 'L' 'lua_State *'
+|-ImplicitCastExpr 0x5590ecedf938 <col:20> 'StkId':'TValue *' <LValueToRValue>
+| `-DeclRefExpr 0x5590ecedf7b8 <col:20> 'StkId':'TValue *' lvalue ParmVar 0x5590ecedd340 'val' 'StkId':'TValue *'
+|-ImplicitCastExpr 0x5590ecedf950 <col:25> 'const TValue *' <LValueToRValue>
+| `-DeclRefExpr 0x5590ecedf7e0 <col:25> 'const TValue *' lvalue Var 0x5590ecedd6c8 'tm' 'const TValue *'
+|-ImplicitCastExpr 0x5590ecedf968 <col:29> 'const TValue *' <LValueToRValue>
+| `-DeclRefExpr 0x5590ecedf808 <col:29> 'const TValue *' lvalue ParmVar 0x5590ecedd260 't' 'const TValue *'
+`-ImplicitCastExpr 0x5590ecedf998 <col:32> 'const TValue *' <BitCast>
+  `-ImplicitCastExpr 0x5590ecedf980 <col:32> 'TValue *' <LValueToRValue>
+    `-DeclRefExpr 0x5590ecedf830 <col:32> 'TValue *' lvalue ParmVar 0x5590ecedd2d0 'key' 'TValue *'
+[B4.2]([B4.4], [B4.6], [B4.8], [B4.10], [B4.13])
+  15: ReturnStmt 0x5590ecedf9b0 <lvm.c:126:7>
+return;
+   Preds (1): B5
+   Succs (1): B0
+
+ [B5]
+   1: DeclRefExpr 0x5590ecedf630 <lvm.c:124:22> 'const TValue *' lvalue Var 0x5590ecedd6c8 'tm' 'const TValue *'
+tm
+   2: ImplicitCastExpr 0x5590ecedf678 <./lobject.h:90:19, col:21> 'const TValue *' <LValueToRValue>
+`-ParenExpr 0x5590ecedf658 <col:19, col:21> 'const TValue *' lvalue
+  `-DeclRefExpr 0x5590ecedf630 <lvm.c:124:22> 'const TValue *' lvalue Var 0x5590ecedd6c8 'tm' 'const TValue *'
+([B5.1]) (ImplicitCastExpr, LValueToRValue, const TValue *)
+   3: MemberExpr 0x5590ecedf690 <./lobject.h:90:19, col:24> 'const int' lvalue ->tt 0x5590ece76e00
+`-ImplicitCastExpr 0x5590ecedf678 <col:19, col:21> 'const TValue *' <LValueToRValue>
+  `-ParenExpr 0x5590ecedf658 <col:19, col:21> 'const TValue *' lvalue
+    `-DeclRefExpr 0x5590ecedf630 <lvm.c:124:22> 'const TValue *' lvalue Var 0x5590ecedd6c8 'tm' 'const TValue *'
+[B5.2]->tt
+   4: ImplicitCastExpr 0x5590ecedf708 <./lobject.h:90:18, col:26> 'int' <LValueToRValue>
+`-ParenExpr 0x5590ecedf6c8 <col:18, col:26> 'const int' lvalue
+  `-MemberExpr 0x5590ecedf690 <col:19, col:24> 'const int' lvalue ->tt 0x5590ece76e00
+    `-ImplicitCastExpr 0x5590ecedf678 <col:19, col:21> 'const TValue *' <LValueToRValue>
+      `-ParenExpr 0x5590ecedf658 <col:19, col:21> 'const TValue *' lvalue
+        `-DeclRefExpr 0x5590ecedf630 <lvm.c:124:22> 'const TValue *' lvalue Var 0x5590ecedd6c8 'tm' 'const TValue *'
+([B5.3]) (ImplicitCastExpr, LValueToRValue, int)
+   5: IntegerLiteral 0x5590ecedf6e8 <./lua.h:80:24> 'int' 6
+6
+   6: BinaryOperator 0x5590ecedf720 <./lobject.h:90:18, ./lua.h:80:24> 'int' '=='
+|-ImplicitCastExpr 0x5590ecedf708 <./lobject.h:90:18, col:26> 'int' <LValueToRValue>
+| `-ParenExpr 0x5590ecedf6c8 <col:18, col:26> 'const int' lvalue
+|   `-MemberExpr 0x5590ecedf690 <col:19, col:24> 'const int' lvalue ->tt 0x5590ece76e00
+|     `-ImplicitCastExpr 0x5590ecedf678 <col:19, col:21> 'const TValue *' <LValueToRValue>
+|       `-ParenExpr 0x5590ecedf658 <col:19, col:21> 'const TValue *' lvalue
+|         `-DeclRefExpr 0x5590ecedf630 <lvm.c:124:22> 'const TValue *' lvalue Var 0x5590ecedd6c8 'tm' 'const TValue *'
+`-IntegerLiteral 0x5590ecedf6e8 <./lua.h:80:24> 'int' 6
+[B5.4] == [B5.5]
+   T: if ([B5.6])
+   Preds (3): B6 B7 B9
+   Succs (2): B4 B3
+
+ [B6]
+   1: DeclRefExpr 0x5590ecedf408 <lvm.c:123:7> 'void (lua_State *, const TValue *, const char *)' Function 0x5590ecea40c0 'luaG_typeerror' 'void (lua_State *, const TValue *, const char *)'
+luaG_typeerror
+   2: ImplicitCastExpr 0x5590ecedf508 <lvm.c:123:7> 'void (*)(lua_State *, const TValue *, const char *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5590ecedf408 <col:7> 'void (lua_State *, const TValue *, const char *)' Function 0x5590ecea40c0 'luaG_typeerror' 'void (lua_State *, const TValue *, const char *)'
+[B6.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(lua_State *, const TValue *, const char *))
+   3: DeclRefExpr 0x5590ecedf430 <lvm.c:123:22> 'lua_State *' lvalue ParmVar 0x5590ecedd1f0 'L' 'lua_State *'
+L
+   4: ImplicitCastExpr 0x5590ecedf560 <lvm.c:123:22> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x5590ecedf430 <col:22> 'lua_State *' lvalue ParmVar 0x5590ecedd1f0 'L' 'lua_State *'
+[B6.3] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   5: DeclRefExpr 0x5590ecedf458 <lvm.c:123:25> 'const TValue *' lvalue ParmVar 0x5590ecedd260 't' 'const TValue *'
+t
+   6: ImplicitCastExpr 0x5590ecedf578 <lvm.c:123:25> 'const TValue *' <LValueToRValue>
+`-DeclRefExpr 0x5590ecedf458 <col:25> 'const TValue *' lvalue ParmVar 0x5590ecedd260 't' 'const TValue *'
+[B6.5] (ImplicitCastExpr, LValueToRValue, const TValue *)
+   7: StringLiteral 0x5590ecedf480 <lvm.c:123:28> 'char [6]' lvalue "index"
+"index"
+   8: ImplicitCastExpr 0x5590ecedf590 <lvm.c:123:28> 'char *' <ArrayToPointerDecay>
+`-StringLiteral 0x5590ecedf480 <col:28> 'char [6]' lvalue "index"
+[B6.7] (ImplicitCastExpr, ArrayToPointerDecay, char *)
+   9: ImplicitCastExpr 0x5590ecedf5a8 <lvm.c:123:28> 'const char *' <BitCast>
+`-ImplicitCastExpr 0x5590ecedf590 <col:28> 'char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x5590ecedf480 <col:28> 'char [6]' lvalue "index"
+[B6.8] (ImplicitCastExpr, BitCast, const char *)
+  10: CallExpr 0x5590ecedf520 <lvm.c:123:7, col:35> 'void'
+|-ImplicitCastExpr 0x5590ecedf508 <col:7> 'void (*)(lua_State *, const TValue *, const char *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5590ecedf408 <col:7> 'void (lua_State *, const TValue *, const char *)' Function 0x5590ecea40c0 'luaG_typeerror' 'void (lua_State *, const TValue *, const char *)'
+|-ImplicitCastExpr 0x5590ecedf560 <col:22> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x5590ecedf430 <col:22> 'lua_State *' lvalue ParmVar 0x5590ecedd1f0 'L' 'lua_State *'
+|-ImplicitCastExpr 0x5590ecedf578 <col:25> 'const TValue *' <LValueToRValue>
+| `-DeclRefExpr 0x5590ecedf458 <col:25> 'const TValue *' lvalue ParmVar 0x5590ecedd260 't' 'const TValue *'
+`-ImplicitCastExpr 0x5590ecedf5a8 <col:28> 'const char *' <BitCast>
+  `-ImplicitCastExpr 0x5590ecedf590 <col:28> 'char *' <ArrayToPointerDecay>
+    `-StringLiteral 0x5590ecedf480 <col:28> 'char [6]' lvalue "index"
+[B6.2]([B6.4], [B6.6], [B6.9])
+   Preds (1): B7
+   Succs (1): B5
+
+ [B7]
+   1: DeclRefExpr 0x5590ecedf150 <lvm.c:122:27> 'const TValue *(lua_State *, const TValue *, TMS)' Function 0x5590ece95020 'luaT_gettmbyobj' 'const TValue *(lua_State *, const TValue *, TMS)'
+luaT_gettmbyobj
+   2: ImplicitCastExpr 0x5590ecedf248 <lvm.c:122:27> 'const TValue *(*)(lua_State *, const TValue *, TMS)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5590ecedf150 <col:27> 'const TValue *(lua_State *, const TValue *, TMS)' Function 0x5590ece95020 'luaT_gettmbyobj' 'const TValue *(lua_State *, const TValue *, TMS)'
+[B7.1] (ImplicitCastExpr, FunctionToPointerDecay, const TValue *(*)(lua_State *, const TValue *, TMS))
+   3: DeclRefExpr 0x5590ecedf178 <lvm.c:122:43> 'lua_State *' lvalue ParmVar 0x5590ecedd1f0 'L' 'lua_State *'
+L
+   4: ImplicitCastExpr 0x5590ecedf2a0 <lvm.c:122:43> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x5590ecedf178 <col:43> 'lua_State *' lvalue ParmVar 0x5590ecedd1f0 'L' 'lua_State *'
+[B7.3] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   5: DeclRefExpr 0x5590ecedf1a0 <lvm.c:122:46> 'const TValue *' lvalue ParmVar 0x5590ecedd260 't' 'const TValue *'
+t
+   6: ImplicitCastExpr 0x5590ecedf2b8 <lvm.c:122:46> 'const TValue *' <LValueToRValue>
+`-DeclRefExpr 0x5590ecedf1a0 <col:46> 'const TValue *' lvalue ParmVar 0x5590ecedd260 't' 'const TValue *'
+[B7.5] (ImplicitCastExpr, LValueToRValue, const TValue *)
+   7: DeclRefExpr 0x5590ecedf1c8 <lvm.c:122:49> 'int' EnumConstant 0x5590ece94340 'TM_INDEX' 'int'
+TM_INDEX
+   8: ImplicitCastExpr 0x5590ecedf2d0 <lvm.c:122:49> 'TMS':'TMS' <IntegralCast>
+`-DeclRefExpr 0x5590ecedf1c8 <col:49> 'int' EnumConstant 0x5590ece94340 'TM_INDEX' 'int'
+[B7.7] (ImplicitCastExpr, IntegralCast, TMS)
+   9: CallExpr 0x5590ecedf260 <lvm.c:122:27, col:57> 'const TValue *'
+|-ImplicitCastExpr 0x5590ecedf248 <col:27> 'const TValue *(*)(lua_State *, const TValue *, TMS)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5590ecedf150 <col:27> 'const TValue *(lua_State *, const TValue *, TMS)' Function 0x5590ece95020 'luaT_gettmbyobj' 'const TValue *(lua_State *, const TValue *, TMS)'
+|-ImplicitCastExpr 0x5590ecedf2a0 <col:43> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x5590ecedf178 <col:43> 'lua_State *' lvalue ParmVar 0x5590ecedd1f0 'L' 'lua_State *'
+|-ImplicitCastExpr 0x5590ecedf2b8 <col:46> 'const TValue *' <LValueToRValue>
+| `-DeclRefExpr 0x5590ecedf1a0 <col:46> 'const TValue *' lvalue ParmVar 0x5590ecedd260 't' 'const TValue *'
+`-ImplicitCastExpr 0x5590ecedf2d0 <col:49> 'TMS':'TMS' <IntegralCast>
+  `-DeclRefExpr 0x5590ecedf1c8 <col:49> 'int' EnumConstant 0x5590ece94340 'TM_INDEX' 'int'
+[B7.2]([B7.4], [B7.6], [B7.8])
+  10: DeclRefExpr 0x5590ecedf128 <lvm.c:122:22> 'const TValue *' lvalue Var 0x5590ecedd6c8 'tm' 'const TValue *'
+tm
+  11: BinaryOperator 0x5590ecedf2e8 <lvm.c:122:22, col:57> 'const TValue *' '='
+|-DeclRefExpr 0x5590ecedf128 <col:22> 'const TValue *' lvalue Var 0x5590ecedd6c8 'tm' 'const TValue *'
+`-CallExpr 0x5590ecedf260 <col:27, col:57> 'const TValue *'
+  |-ImplicitCastExpr 0x5590ecedf248 <col:27> 'const TValue *(*)(lua_State *, const TValue *, TMS)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x5590ecedf150 <col:27> 'const TValue *(lua_State *, const TValue *, TMS)' Function 0x5590ece95020 'luaT_gettmbyobj' 'const TValue *(lua_State *, const TValue *, TMS)'
+  |-ImplicitCastExpr 0x5590ecedf2a0 <col:43> 'lua_State *' <LValueToRValue>
+  | `-DeclRefExpr 0x5590ecedf178 <col:43> 'lua_State *' lvalue ParmVar 0x5590ecedd1f0 'L' 'lua_State *'
+  |-ImplicitCastExpr 0x5590ecedf2b8 <col:46> 'const TValue *' <LValueToRValue>
+  | `-DeclRefExpr 0x5590ecedf1a0 <col:46> 'const TValue *' lvalue ParmVar 0x5590ecedd260 't' 'const TValue *'
+  `-ImplicitCastExpr 0x5590ecedf2d0 <col:49> 'TMS':'TMS' <IntegralCast>
+    `-DeclRefExpr 0x5590ecedf1c8 <col:49> 'int' EnumConstant 0x5590ece94340 'TM_INDEX' 'int'
+[B7.10] = [B7.9]
+  12: MemberExpr 0x5590ecedf330 <./lobject.h:90:19, col:24> 'const int' lvalue ->tt 0x5590ece76e00
+`-ParenExpr 0x5590ecedf310 <col:19, col:21> 'const TValue *'
+  `-BinaryOperator 0x5590ecedf2e8 <lvm.c:122:22, col:57> 'const TValue *' '='
+    |-DeclRefExpr 0x5590ecedf128 <col:22> 'const TValue *' lvalue Var 0x5590ecedd6c8 'tm' 'const TValue *'
+    `-CallExpr 0x5590ecedf260 <col:27, col:57> 'const TValue *'
+      |-ImplicitCastExpr 0x5590ecedf248 <col:27> 'const TValue *(*)(lua_State *, const TValue *, TMS)' <FunctionToPointerDecay>
+      | `-DeclRefExpr 0x5590ecedf150 <col:27> 'const TValue *(lua_State *, const TValue *, TMS)' Function 0x5590ece95020 'luaT_gettmbyobj' 'const TValue *(lua_State *, const TValue *, TMS)'
+      |-ImplicitCastExpr 0x5590ecedf2a0 <col:43> 'lua_State *' <LValueToRValue>
+      | `-DeclRefExpr 0x5590ecedf178 <col:43> 'lua_State *' lvalue ParmVar 0x5590ecedd1f0 'L' 'lua_State *'
+      |-ImplicitCastExpr 0x5590ecedf2b8 <col:46> 'const TValue *' <LValueToRValue>
+      | `-DeclRefExpr 0x5590ecedf1a0 <col:46> 'const TValue *' lvalue ParmVar 0x5590ecedd260 't' 'const TValue *'
+      `-ImplicitCastExpr 0x5590ecedf2d0 <col:49> 'TMS':'TMS' <IntegralCast>
+        `-DeclRefExpr 0x5590ecedf1c8 <col:49> 'int' EnumConstant 0x5590ece94340 'TM_INDEX' 'int'
+([B7.11])->tt
+  13: ImplicitCastExpr 0x5590ecedf3a8 <./lobject.h:90:18, col:26> 'int' <LValueToRValue>
+`-ParenExpr 0x5590ecedf368 <col:18, col:26> 'const int' lvalue
+  `-MemberExpr 0x5590ecedf330 <col:19, col:24> 'const int' lvalue ->tt 0x5590ece76e00
+    `-ParenExpr 0x5590ecedf310 <col:19, col:21> 'const TValue *'
+      `-BinaryOperator 0x5590ecedf2e8 <lvm.c:122:22, col:57> 'const TValue *' '='
+        |-DeclRefExpr 0x5590ecedf128 <col:22> 'const TValue *' lvalue Var 0x5590ecedd6c8 'tm' 'const TValue *'
+        `-CallExpr 0x5590ecedf260 <col:27, col:57> 'const TValue *'
+          |-ImplicitCastExpr 0x5590ecedf248 <col:27> 'const TValue *(*)(lua_State *, const TValue *, TMS)' <FunctionToPointerDecay>
+          | `-DeclRefExpr 0x5590ecedf150 <col:27> 'const TValue *(lua_State *, const TValue *, TMS)' Function 0x5590ece95020 'luaT_gettmbyobj' 'const TValue *(lua_State *, const TValue *, TMS)'
+          |-ImplicitCastExpr 0x5590ecedf2a0 <col:43> 'lua_State *' <LValueToRValue>
+          | `-DeclRefExpr 0x5590ecedf178 <col:43> 'lua_State *' lvalue ParmVar 0x5590ecedd1f0 'L' 'lua_State *'
+          |-ImplicitCastExpr 0x5590ecedf2b8 <col:46> 'const TValue *' <LValueToRValue>
+          | `-DeclRefExpr 0x5590ecedf1a0 <col:46> 'const TValue *' lvalue ParmVar 0x5590ecedd260 't' 'const TValue *'
+          `-ImplicitCastExpr 0x5590ecedf2d0 <col:49> 'TMS':'TMS' <IntegralCast>
+            `-DeclRefExpr 0x5590ecedf1c8 <col:49> 'int' EnumConstant 0x5590ece94340 'TM_INDEX' 'int'
+([B7.12]) (ImplicitCastExpr, LValueToRValue, int)
+  14: IntegerLiteral 0x5590ecedf388 <./lua.h:74:19> 'int' 0
+0
+  15: BinaryOperator 0x5590ecedf3c0 <./lobject.h:90:18, ./lua.h:74:19> 'int' '=='
+|-ImplicitCastExpr 0x5590ecedf3a8 <./lobject.h:90:18, col:26> 'int' <LValueToRValue>
+| `-ParenExpr 0x5590ecedf368 <col:18, col:26> 'const int' lvalue
+|   `-MemberExpr 0x5590ecedf330 <col:19, col:24> 'const int' lvalue ->tt 0x5590ece76e00
+|     `-ParenExpr 0x5590ecedf310 <col:19, col:21> 'const TValue *'
+|       `-BinaryOperator 0x5590ecedf2e8 <lvm.c:122:22, col:57> 'const TValue *' '='
+|         |-DeclRefExpr 0x5590ecedf128 <col:22> 'const TValue *' lvalue Var 0x5590ecedd6c8 'tm' 'const TValue *'
+|         `-CallExpr 0x5590ecedf260 <col:27, col:57> 'const TValue *'
+|           |-ImplicitCastExpr 0x5590ecedf248 <col:27> 'const TValue *(*)(lua_State *, const TValue *, TMS)' <FunctionToPointerDecay>
+|           | `-DeclRefExpr 0x5590ecedf150 <col:27> 'const TValue *(lua_State *, const TValue *, TMS)' Function 0x5590ece95020 'luaT_gettmbyobj' 'const TValue *(lua_State *, const TValue *, TMS)'
+|           |-ImplicitCastExpr 0x5590ecedf2a0 <col:43> 'lua_State *' <LValueToRValue>
+|           | `-DeclRefExpr 0x5590ecedf178 <col:43> 'lua_State *' lvalue ParmVar 0x5590ecedd1f0 'L' 'lua_State *'
+|           |-ImplicitCastExpr 0x5590ecedf2b8 <col:46> 'const TValue *' <LValueToRValue>
+|           | `-DeclRefExpr 0x5590ecedf1a0 <col:46> 'const TValue *' lvalue ParmVar 0x5590ecedd260 't' 'const TValue *'
+|           `-ImplicitCastExpr 0x5590ecedf2d0 <col:49> 'TMS':'TMS' <IntegralCast>
+|             `-DeclRefExpr 0x5590ecedf1c8 <col:49> 'int' EnumConstant 0x5590ece94340 'TM_INDEX' 'int'
+`-IntegerLiteral 0x5590ecedf388 <./lua.h:74:19> 'int' 0
+[B7.13] == [B7.14]
+   T: if ([B7.15])
+   Preds (1): B17
+   Succs (2): B6 B5
+
+ [B8]
+   1: DeclRefExpr 0x5590ecedec08 <lvm.c:117:26> 'const TValue *' lvalue Var 0x5590ecedda70 'res' 'const TValue *'
+res
+   2: ImplicitCastExpr 0x5590ecedec50 <./lobject.h:162:22, col:27> 'const TValue *' <LValueToRValue>
+`-ParenExpr 0x5590ecedec30 <col:22, col:27> 'const TValue *' lvalue
+  `-DeclRefExpr 0x5590ecedec08 <lvm.c:117:26> 'const TValue *' lvalue Var 0x5590ecedda70 'res' 'const TValue *'
+([B8.1]) (ImplicitCastExpr, LValueToRValue, const TValue *)
+   3: DeclStmt 0x5590ecedec68 <./lobject.h:162:5, col:28>col:19
+`-VarDecl 0x5590ecedeba8 <col:5, col:27> col:19 used o2 'const TValue *' cinit
+  `-ImplicitCastExpr 0x5590ecedec50 <col:22, col:27> 'const TValue *' <LValueToRValue>
+    `-ParenExpr 0x5590ecedec30 <col:22, col:27> 'const TValue *' lvalue
+      `-DeclRefExpr 0x5590ecedec08 <lvm.c:117:26> 'const TValue *' lvalue Var 0x5590ecedda70 'res' 'const TValue *'
+const TValue *o2 = (res);
+   4: DeclRefExpr 0x5590ecedecf0 <lvm.c:117:21> 'StkId':'TValue *' lvalue ParmVar 0x5590ecedd340 'val' 'StkId':'TValue *'
+val
+   5: ImplicitCastExpr 0x5590eceded38 <./lobject.h:162:41, col:46> 'StkId':'TValue *' <LValueToRValue>
+`-ParenExpr 0x5590eceded18 <col:41, col:46> 'StkId':'TValue *' lvalue
+  `-DeclRefExpr 0x5590ecedecf0 <lvm.c:117:21> 'StkId':'TValue *' lvalue ParmVar 0x5590ecedd340 'val' 'StkId':'TValue *'
+([B8.4]) (ImplicitCastExpr, LValueToRValue, StkId)
+   6: DeclStmt 0x5590eceded50 <./lobject.h:162:30, col:47>col:38
+`-VarDecl 0x5590ecedec90 <col:30, col:46> col:38 used o1 'TValue *' cinit
+  `-ImplicitCastExpr 0x5590eceded38 <col:41, col:46> 'StkId':'TValue *' <LValueToRValue>
+    `-ParenExpr 0x5590eceded18 <col:41, col:46> 'StkId':'TValue *' lvalue
+      `-DeclRefExpr 0x5590ecedecf0 <lvm.c:117:21> 'StkId':'TValue *' lvalue ParmVar 0x5590ecedd340 'val' 'StkId':'TValue *'
+TValue *o1 = (val);
+   7: DeclRefExpr 0x5590ecedede0 <./lobject.h:163:17> 'const TValue *' lvalue Var 0x5590ecedeba8 'o2' 'const TValue *'
+o2
+   8: ImplicitCastExpr 0x5590ecedee08 <./lobject.h:163:17> 'const TValue *' <LValueToRValue>
+`-DeclRefExpr 0x5590ecedede0 <col:17> 'const TValue *' lvalue Var 0x5590ecedeba8 'o2' 'const TValue *'
+[B8.7] (ImplicitCastExpr, LValueToRValue, const TValue *)
+   9: MemberExpr 0x5590ecedee20 <./lobject.h:163:17, col:21> 'const Value':'const Value' lvalue ->value 0x5590ece76da0
+`-ImplicitCastExpr 0x5590ecedee08 <col:17> 'const TValue *' <LValueToRValue>
+  `-DeclRefExpr 0x5590ecedede0 <col:17> 'const TValue *' lvalue Var 0x5590ecedeba8 'o2' 'const TValue *'
+[B8.8]->value
+  10: ImplicitCastExpr 0x5590ecedee58 <./lobject.h:163:17, col:21> 'Value':'Value' <LValueToRValue>
+`-MemberExpr 0x5590ecedee20 <col:17, col:21> 'const Value':'const Value' lvalue ->value 0x5590ece76da0
+  `-ImplicitCastExpr 0x5590ecedee08 <col:17> 'const TValue *' <LValueToRValue>
+    `-DeclRefExpr 0x5590ecedede0 <col:17> 'const TValue *' lvalue Var 0x5590ecedeba8 'o2' 'const TValue *'
+[B8.9] (ImplicitCastExpr, LValueToRValue, Value)
+  11: DeclRefExpr 0x5590eceded68 <./lobject.h:163:5> 'TValue *' lvalue Var 0x5590ecedec90 'o1' 'TValue *'
+o1
+  12: ImplicitCastExpr 0x5590eceded90 <./lobject.h:163:5> 'TValue *' <LValueToRValue>
+`-DeclRefExpr 0x5590eceded68 <col:5> 'TValue *' lvalue Var 0x5590ecedec90 'o1' 'TValue *'
+[B8.11] (ImplicitCastExpr, LValueToRValue, TValue *)
+  13: MemberExpr 0x5590ecededa8 <./lobject.h:163:5, col:9> 'Value':'Value' lvalue ->value 0x5590ece76da0
+`-ImplicitCastExpr 0x5590eceded90 <col:5> 'TValue *' <LValueToRValue>
+  `-DeclRefExpr 0x5590eceded68 <col:5> 'TValue *' lvalue Var 0x5590ecedec90 'o1' 'TValue *'
+[B8.12]->value
+  14: BinaryOperator 0x5590ecedee70 <./lobject.h:163:5, col:21> 'Value':'Value' '='
+|-MemberExpr 0x5590ecededa8 <col:5, col:9> 'Value':'Value' lvalue ->value 0x5590ece76da0
+| `-ImplicitCastExpr 0x5590eceded90 <col:5> 'TValue *' <LValueToRValue>
+|   `-DeclRefExpr 0x5590eceded68 <col:5> 'TValue *' lvalue Var 0x5590ecedec90 'o1' 'TValue *'
+`-ImplicitCastExpr 0x5590ecedee58 <col:17, col:21> 'Value':'Value' <LValueToRValue>
+  `-MemberExpr 0x5590ecedee20 <col:17, col:21> 'const Value':'const Value' lvalue ->value 0x5590ece76da0
+    `-ImplicitCastExpr 0x5590ecedee08 <col:17> 'const TValue *' <LValueToRValue>
+      `-DeclRefExpr 0x5590ecedede0 <col:17> 'const TValue *' lvalue Var 0x5590ecedeba8 'o2' 'const TValue *'
+[B8.13] = [B8.10]
+  15: DeclRefExpr 0x5590ecedef10 <./lobject.h:163:35> 'const TValue *' lvalue Var 0x5590ecedeba8 'o2' 'const TValue *'
+o2
+  16: ImplicitCastExpr 0x5590ecedef38 <./lobject.h:163:35> 'const TValue *' <LValueToRValue>
+`-DeclRefExpr 0x5590ecedef10 <col:35> 'const TValue *' lvalue Var 0x5590ecedeba8 'o2' 'const TValue *'
+[B8.15] (ImplicitCastExpr, LValueToRValue, const TValue *)
+  17: MemberExpr 0x5590ecedef50 <./lobject.h:163:35, col:39> 'const int' lvalue ->tt 0x5590ece76e00
+`-ImplicitCastExpr 0x5590ecedef38 <col:35> 'const TValue *' <LValueToRValue>
+  `-DeclRefExpr 0x5590ecedef10 <col:35> 'const TValue *' lvalue Var 0x5590ecedeba8 'o2' 'const TValue *'
+[B8.16]->tt
+  18: ImplicitCastExpr 0x5590ecedef88 <./lobject.h:163:35, col:39> 'int' <LValueToRValue>
+`-MemberExpr 0x5590ecedef50 <col:35, col:39> 'const int' lvalue ->tt 0x5590ece76e00
+  `-ImplicitCastExpr 0x5590ecedef38 <col:35> 'const TValue *' <LValueToRValue>
+    `-DeclRefExpr 0x5590ecedef10 <col:35> 'const TValue *' lvalue Var 0x5590ecedeba8 'o2' 'const TValue *'
+[B8.17] (ImplicitCastExpr, LValueToRValue, int)
+  19: DeclRefExpr 0x5590ecedee98 <./lobject.h:163:28> 'TValue *' lvalue Var 0x5590ecedec90 'o1' 'TValue *'
+o1
+  20: ImplicitCastExpr 0x5590ecedeec0 <./lobject.h:163:28> 'TValue *' <LValueToRValue>
+`-DeclRefExpr 0x5590ecedee98 <col:28> 'TValue *' lvalue Var 0x5590ecedec90 'o1' 'TValue *'
+[B8.19] (ImplicitCastExpr, LValueToRValue, TValue *)
+  21: MemberExpr 0x5590ecedeed8 <./lobject.h:163:28, col:32> 'int' lvalue ->tt 0x5590ece76e00
+`-ImplicitCastExpr 0x5590ecedeec0 <col:28> 'TValue *' <LValueToRValue>
+  `-DeclRefExpr 0x5590ecedee98 <col:28> 'TValue *' lvalue Var 0x5590ecedec90 'o1' 'TValue *'
+[B8.20]->tt
+  22: BinaryOperator 0x5590ecedefa0 <./lobject.h:163:28, col:39> 'int' '='
+|-MemberExpr 0x5590ecedeed8 <col:28, col:32> 'int' lvalue ->tt 0x5590ece76e00
+| `-ImplicitCastExpr 0x5590ecedeec0 <col:28> 'TValue *' <LValueToRValue>
+|   `-DeclRefExpr 0x5590ecedee98 <col:28> 'TValue *' lvalue Var 0x5590ecedec90 'o1' 'TValue *'
+`-ImplicitCastExpr 0x5590ecedef88 <col:35, col:39> 'int' <LValueToRValue>
+  `-MemberExpr 0x5590ecedef50 <col:35, col:39> 'const int' lvalue ->tt 0x5590ece76e00
+    `-ImplicitCastExpr 0x5590ecedef38 <col:35> 'const TValue *' <LValueToRValue>
+      `-DeclRefExpr 0x5590ecedef10 <col:35> 'const TValue *' lvalue Var 0x5590ecedeba8 'o2' 'const TValue *'
+[B8.21] = [B8.18]
+  23: IntegerLiteral 0x5590ecedefc8 <./llimits.h:62:31> 'int' 0
+0
+  24: CStyleCastExpr 0x5590ecedeff8 <./llimits.h:62:25, col:31> 'void' <ToVoid>
+`-IntegerLiteral 0x5590ecedefc8 <col:31> 'int' 0
+(void)[B8.23] (CStyleCastExpr, ToVoid, void)
+  25: ReturnStmt 0x5590ecedf088 <lvm.c:118:9>
+return;
+   Preds (2): B9 B16
+   Succs (1): B0
+
+ [B9]
+   1: ConditionalOperator 0x5590ecedea18 <./ltm.h:41:26, line:42:70> 'const TValue *'
+|-BinaryOperator 0x5590ecede350 <line:41:26, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25> 'int' '=='
+| |-ImplicitCastExpr 0x5590ecede320 <./ltm.h:41:26, col:29> 'struct Table *' <LValueToRValue>
+| | `-ParenExpr 0x5590ecede280 <col:26, col:29> 'struct Table *' lvalue
+| |   `-MemberExpr 0x5590ecedde18 <lvm.c:116:27, col:30> 'struct Table *' lvalue ->metatable 0x5590ece90e10
+| |     `-ImplicitCastExpr 0x5590ecedde00 <col:27> 'Table *' <LValueToRValue>
+| |       `-DeclRefExpr 0x5590ecedddd8 <col:27> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+| `-ImplicitCastExpr 0x5590ecede338 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'struct Table *' <BitCast>
+|   `-ParenExpr 0x5590ecede300 <col:16, col:25> 'void *'
+|     `-CStyleCastExpr 0x5590ecede2d8 <col:17, col:24> 'void *' <NullToPointer>
+|       `-IntegerLiteral 0x5590ecede2a0 <col:24> 'int' 0
+|-ImplicitCastExpr 0x5590ecedea00 <col:16, col:25> 'const TValue *' <NullToPointer>
+| `-ParenExpr 0x5590ecede3d8 <col:16, col:25> 'void *'
+|   `-CStyleCastExpr 0x5590ecede3b0 <col:17, col:24> 'void *' <NullToPointer>
+|     `-IntegerLiteral 0x5590ecede378 <col:24> 'int' 0
+`-ConditionalOperator 0x5590ecede9d0 <./ltm.h:42:3, col:70> 'const TValue *'
+  |-ParenExpr 0x5590ecede5e8 <col:3, col:27> 'unsigned int'
+  | `-BinaryOperator 0x5590ecede5c0 <col:4, col:26> 'unsigned int' '&'
+  |   |-ImplicitCastExpr 0x5590ecede5a8 <col:4, col:10> 'unsigned int' <IntegralCast>
+  |   | `-ImplicitCastExpr 0x5590ecede590 <col:4, col:10> 'lu_byte':'unsigned char' <LValueToRValue>
+  |   |   `-MemberExpr 0x5590ecede4a8 <col:4, col:10> 'lu_byte':'unsigned char' lvalue ->flags 0x5590ece90d48
+  |   |     `-ImplicitCastExpr 0x5590ecede490 <col:4, col:7> 'struct Table *' <LValueToRValue>
+  |   |       `-ParenExpr 0x5590ecede470 <col:4, col:7> 'struct Table *' lvalue
+  |   |         `-MemberExpr 0x5590ecede438 <lvm.c:116:27, col:30> 'struct Table *' lvalue ->metatable 0x5590ece90e10
+  |   |           `-ImplicitCastExpr 0x5590ecede420 <col:27> 'Table *' <LValueToRValue>
+  |   |             `-DeclRefExpr 0x5590ecede3f8 <col:27> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+  |   `-ParenExpr 0x5590ecede570 <./ltm.h:42:18, col:26> 'unsigned int'
+  |     `-BinaryOperator 0x5590ecede548 <col:19, col:25> 'unsigned int' '<<'
+  |       |-IntegerLiteral 0x5590ecede4e0 <col:19> 'unsigned int' 1
+  |       `-ParenExpr 0x5590ecede528 <col:23, col:25> 'int'
+  |         `-DeclRefExpr 0x5590ecede500 <lvm.c:116:41> 'int' EnumConstant 0x5590ece94340 'TM_INDEX' 'int'
+  |-ImplicitCastExpr 0x5590ecede9b8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'const TValue *' <NullToPointer>
+  | `-ParenExpr 0x5590ecede668 <col:16, col:25> 'void *'
+  |   `-CStyleCastExpr 0x5590ecede640 <col:17, col:24> 'void *' <NullToPointer>
+  |     `-IntegerLiteral 0x5590ecede608 <col:24> 'int' 0
+  `-CallExpr 0x5590ecede930 <./ltm.h:42:38, col:70> 'const TValue *'
+    |-ImplicitCastExpr 0x5590ecede918 <col:38> 'const TValue *(*)(Table *, TMS, TString *)' <FunctionToPointerDecay>
+    | `-DeclRefExpr 0x5590ecede688 <col:38> 'const TValue *(Table *, TMS, TString *)' Function 0x5590ece94cd0 'luaT_gettm' 'const TValue *(Table *, TMS, TString *)'
+    |-ImplicitCastExpr 0x5590ecede970 <lvm.c:116:27, col:30> 'struct Table *' <LValueToRValue>
+    | `-MemberExpr 0x5590ecede6f0 <col:27, col:30> 'struct Table *' lvalue ->metatable 0x5590ece90e10
+    |   `-ImplicitCastExpr 0x5590ecede6d8 <col:27> 'Table *' <LValueToRValue>
+    |     `-DeclRefExpr 0x5590ecede6b0 <col:27> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+    |-ImplicitCastExpr 0x5590ecede988 <col:41> 'TMS':'TMS' <IntegralCast>
+    | `-DeclRefExpr 0x5590ecede728 <col:41> 'int' EnumConstant 0x5590ece94340 'TM_INDEX' 'int'
+    `-ImplicitCastExpr 0x5590ecede9a0 <./ltm.h:42:56, col:69> 'TString *' <LValueToRValue>
+      `-ArraySubscriptExpr 0x5590ecede898 <col:56, col:69> 'TString *' lvalue
+        |-ImplicitCastExpr 0x5590ecede880 <col:56, col:61> 'TString **' <ArrayToPointerDecay>
+        | `-MemberExpr 0x5590ecede820 <col:56, col:61> 'TString *[17]' lvalue ->tmname 0x5590ece9fc88
+        |   `-ImplicitCastExpr 0x5590ecede808 <col:56, col:58> 'global_State *' <LValueToRValue>
+        |     `-ParenExpr 0x5590ecede7e8 <col:56, col:58> 'global_State *' lvalue
+        |       `-ParenExpr 0x5590ecede7c8 <./lstate.h:130:14, col:21> 'global_State *' lvalue
+        |         `-MemberExpr 0x5590ecede790 <lvm.c:116:24, ./lstate.h:130:18> 'global_State *' lvalue ->l_G 0x5590ecea0118
+        |           `-ImplicitCastExpr 0x5590ecede778 <lvm.c:116:24> 'lua_State *' <LValueToRValue>
+        |             `-DeclRefExpr 0x5590ecede750 <col:24> 'lua_State *' lvalue ParmVar 0x5590ecedd1f0 'L' 'lua_State *'
+        `-DeclRefExpr 0x5590ecede858 <col:41> 'int' EnumConstant 0x5590ece94340 'TM_INDEX' 'int'
+[B15.8] ? [B10.3] : [B11.1]
+   2: DeclRefExpr 0x5590ecedddb0 <lvm.c:116:12> 'const TValue *' lvalue Var 0x5590ecedd6c8 'tm' 'const TValue *'
+tm
+   3: BinaryOperator 0x5590ecedea68 <lvm.c:116:12, ./ltm.h:42:71> 'const TValue *' '='
+|-DeclRefExpr 0x5590ecedddb0 <lvm.c:116:12> 'const TValue *' lvalue Var 0x5590ecedd6c8 'tm' 'const TValue *'
+`-ParenExpr 0x5590ecedea48 <./ltm.h:41:25, line:42:71> 'const TValue *'
+  `-ConditionalOperator 0x5590ecedea18 <line:41:26, line:42:70> 'const TValue *'
+    |-BinaryOperator 0x5590ecede350 <line:41:26, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25> 'int' '=='
+    | |-ImplicitCastExpr 0x5590ecede320 <./ltm.h:41:26, col:29> 'struct Table *' <LValueToRValue>
+    | | `-ParenExpr 0x5590ecede280 <col:26, col:29> 'struct Table *' lvalue
+    | |   `-MemberExpr 0x5590ecedde18 <lvm.c:116:27, col:30> 'struct Table *' lvalue ->metatable 0x5590ece90e10
+    | |     `-ImplicitCastExpr 0x5590ecedde00 <col:27> 'Table *' <LValueToRValue>
+    | |       `-DeclRefExpr 0x5590ecedddd8 <col:27> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+    | `-ImplicitCastExpr 0x5590ecede338 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'struct Table *' <BitCast>
+    |   `-ParenExpr 0x5590ecede300 <col:16, col:25> 'void *'
+    |     `-CStyleCastExpr 0x5590ecede2d8 <col:17, col:24> 'void *' <NullToPointer>
+    |       `-IntegerLiteral 0x5590ecede2a0 <col:24> 'int' 0
+    |-ImplicitCastExpr 0x5590ecedea00 <col:16, col:25> 'const TValue *' <NullToPointer>
+    | `-ParenExpr 0x5590ecede3d8 <col:16, col:25> 'void *'
+    |   `-CStyleCastExpr 0x5590ecede3b0 <col:17, col:24> 'void *' <NullToPointer>
+    |     `-IntegerLiteral 0x5590ecede378 <col:24> 'int' 0
+    `-ConditionalOperator 0x5590ecede9d0 <./ltm.h:42:3, col:70> 'const TValue *'
+      |-ParenExpr 0x5590ecede5e8 <col:3, col:27> 'unsigned int'
+      | `-BinaryOperator 0x5590ecede5c0 <col:4, col:26> 'unsigned int' '&'
+      |   |-ImplicitCastExpr 0x5590ecede5a8 <col:4, col:10> 'unsigned int' <IntegralCast>
+      |   | `-ImplicitCastExpr 0x5590ecede590 <col:4, col:10> 'lu_byte':'unsigned char' <LValueToRValue>
+      |   |   `-MemberExpr 0x5590ecede4a8 <col:4, col:10> 'lu_byte':'unsigned char' lvalue ->flags 0x5590ece90d48
+      |   |     `-ImplicitCastExpr 0x5590ecede490 <col:4, col:7> 'struct Table *' <LValueToRValue>
+      |   |       `-ParenExpr 0x5590ecede470 <col:4, col:7> 'struct Table *' lvalue
+      |   |         `-MemberExpr 0x5590ecede438 <lvm.c:116:27, col:30> 'struct Table *' lvalue ->metatable 0x5590ece90e10
+      |   |           `-ImplicitCastExpr 0x5590ecede420 <col:27> 'Table *' <LValueToRValue>
+      |   |             `-DeclRefExpr 0x5590ecede3f8 <col:27> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+      |   `-ParenExpr 0x5590ecede570 <./ltm.h:42:18, col:26> 'unsigned int'
+      |     `-BinaryOperator 0x5590ecede548 <col:19, col:25> 'unsigned int' '<<'
+      |       |-IntegerLiteral 0x5590ecede4e0 <col:19> 'unsigned int' 1
+      |       `-ParenExpr 0x5590ecede528 <col:23, col:25> 'int'
+      |         `-DeclRefExpr 0x5590ecede500 <lvm.c:116:41> 'int' EnumConstant 0x5590ece94340 'TM_INDEX' 'int'
+      |-ImplicitCastExpr 0x5590ecede9b8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'const TValue *' <NullToPointer>
+      | `-ParenExpr 0x5590ecede668 <col:16, col:25> 'void *'
+      |   `-CStyleCastExpr 0x5590ecede640 <col:17, col:24> 'void *' <NullToPointer>
+      |     `-IntegerLiteral 0x5590ecede608 <col:24> 'int' 0
+      `-CallExpr 0x5590ecede930 <./ltm.h:42:38, col:70> 'const TValue *'
+        |-ImplicitCastExpr 0x5590ecede918 <col:38> 'const TValue *(*)(Table *, TMS, TString *)' <FunctionToPointerDecay>
+        | `-DeclRefExpr 0x5590ecede688 <col:38> 'const TValue *(Table *, TMS, TString *)' Function 0x5590ece94cd0 'luaT_gettm' 'const TValue *(Table *, TMS, TString *)'
+        |-ImplicitCastExpr 0x5590ecede970 <lvm.c:116:27, col:30> 'struct Table *' <LValueToRValue>
+        | `-MemberExpr 0x5590ecede6f0 <col:27, col:30> 'struct Table *' lvalue ->metatable 0x5590ece90e10
+        |   `-ImplicitCastExpr 0x5590ecede6d8 <col:27> 'Table *' <LValueToRValue>
+        |     `-DeclRefExpr 0x5590ecede6b0 <col:27> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+        |-ImplicitCastExpr 0x5590ecede988 <col:41> 'TMS':'TMS' <IntegralCast>
+        | `-DeclRefExpr 0x5590ecede728 <col:41> 'int' EnumConstant 0x5590ece94340 'TM_INDEX' 'int'
+        `-ImplicitCastExpr 0x5590ecede9a0 <./ltm.h:42:56, col:69> 'TString *' <LValueToRValue>
+          `-ArraySubscriptExpr 0x5590ecede898 <col:56, col:69> 'TString *' lvalue
+            |-ImplicitCastExpr 0x5590ecede880 <col:56, col:61> 'TString **' <ArrayToPointerDecay>
+            | `-MemberExpr 0x5590ecede820 <col:56, col:61> 'TString *[17]' lvalue ->tmname 0x5590ece9fc88
+            |   `-ImplicitCastExpr 0x5590ecede808 <col:56, col:58> 'global_State *' <LValueToRValue>
+            |     `-ParenExpr 0x5590ecede7e8 <col:56, col:58> 'global_State *' lvalue
+            |       `-ParenExpr 0x5590ecede7c8 <./lstate.h:130:14, col:21> 'global_State *' lvalue
+            |         `-MemberExpr 0x5590ecede790 <lvm.c:116:24, ./lstate.h:130:18> 'global_State *' lvalue ->l_G 0x5590ecea0118
+            |           `-ImplicitCastExpr 0x5590ecede778 <lvm.c:116:24> 'lua_State *' <LValueToRValue>
+            |             `-DeclRefExpr 0x5590ecede750 <col:24> 'lua_State *' lvalue ParmVar 0x5590ecedd1f0 'L' 'lua_State *'
+            `-DeclRefExpr 0x5590ecede858 <col:41> 'int' EnumConstant 0x5590ece94340 'TM_INDEX' 'int'
+[B9.2] = ([B9.1])
+   4: IntegerLiteral 0x5590ecedeab0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+   5: CStyleCastExpr 0x5590ecedeae8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x5590ecedeab0 <col:24> 'int' 0
+(void *)[B9.4] (CStyleCastExpr, NullToPointer, void *)
+   6: ImplicitCastExpr 0x5590ecedeb30 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'const TValue *' <BitCast>
+`-ParenExpr 0x5590ecedeb10 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x5590ecedeae8 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x5590ecedeab0 <col:24> 'int' 0
+([B9.5]) (ImplicitCastExpr, BitCast, const TValue *)
+   7: BinaryOperator 0x5590ecedeb48 <lvm.c:116:11, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25> 'int' '=='
+|-ParenExpr 0x5590ecedea90 <lvm.c:116:11, col:50> 'const TValue *'
+| `-BinaryOperator 0x5590ecedea68 <col:12, ./ltm.h:42:71> 'const TValue *' '='
+|   |-DeclRefExpr 0x5590ecedddb0 <lvm.c:116:12> 'const TValue *' lvalue Var 0x5590ecedd6c8 'tm' 'const TValue *'
+|   `-ParenExpr 0x5590ecedea48 <./ltm.h:41:25, line:42:71> 'const TValue *'
+|     `-ConditionalOperator 0x5590ecedea18 <line:41:26, line:42:70> 'const TValue *'
+|       |-BinaryOperator 0x5590ecede350 <line:41:26, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25> 'int' '=='
+|       | |-ImplicitCastExpr 0x5590ecede320 <./ltm.h:41:26, col:29> 'struct Table *' <LValueToRValue>
+|       | | `-ParenExpr 0x5590ecede280 <col:26, col:29> 'struct Table *' lvalue
+|       | |   `-MemberExpr 0x5590ecedde18 <lvm.c:116:27, col:30> 'struct Table *' lvalue ->metatable 0x5590ece90e10
+|       | |     `-ImplicitCastExpr 0x5590ecedde00 <col:27> 'Table *' <LValueToRValue>
+|       | |       `-DeclRefExpr 0x5590ecedddd8 <col:27> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+|       | `-ImplicitCastExpr 0x5590ecede338 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'struct Table *' <BitCast>
+|       |   `-ParenExpr 0x5590ecede300 <col:16, col:25> 'void *'
+|       |     `-CStyleCastExpr 0x5590ecede2d8 <col:17, col:24> 'void *' <NullToPointer>
+|       |       `-IntegerLiteral 0x5590ecede2a0 <col:24> 'int' 0
+|       |-ImplicitCastExpr 0x5590ecedea00 <col:16, col:25> 'const TValue *' <NullToPointer>
+|       | `-ParenExpr 0x5590ecede3d8 <col:16, col:25> 'void *'
+|       |   `-CStyleCastExpr 0x5590ecede3b0 <col:17, col:24> 'void *' <NullToPointer>
+|       |     `-IntegerLiteral 0x5590ecede378 <col:24> 'int' 0
+|       `-ConditionalOperator 0x5590ecede9d0 <./ltm.h:42:3, col:70> 'const TValue *'
+|         |-ParenExpr 0x5590ecede5e8 <col:3, col:27> 'unsigned int'
+|         | `-BinaryOperator 0x5590ecede5c0 <col:4, col:26> 'unsigned int' '&'
+|         |   |-ImplicitCastExpr 0x5590ecede5a8 <col:4, col:10> 'unsigned int' <IntegralCast>
+|         |   | `-ImplicitCastExpr 0x5590ecede590 <col:4, col:10> 'lu_byte':'unsigned char' <LValueToRValue>
+|         |   |   `-MemberExpr 0x5590ecede4a8 <col:4, col:10> 'lu_byte':'unsigned char' lvalue ->flags 0x5590ece90d48
+|         |   |     `-ImplicitCastExpr 0x5590ecede490 <col:4, col:7> 'struct Table *' <LValueToRValue>
+|         |   |       `-ParenExpr 0x5590ecede470 <col:4, col:7> 'struct Table *' lvalue
+|         |   |         `-MemberExpr 0x5590ecede438 <lvm.c:116:27, col:30> 'struct Table *' lvalue ->metatable 0x5590ece90e10
+|         |   |           `-ImplicitCastExpr 0x5590ecede420 <col:27> 'Table *' <LValueToRValue>
+|         |   |             `-DeclRefExpr 0x5590ecede3f8 <col:27> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+|         |   `-ParenExpr 0x5590ecede570 <./ltm.h:42:18, col:26> 'unsigned int'
+|         |     `-BinaryOperator 0x5590ecede548 <col:19, col:25> 'unsigned int' '<<'
+|         |       |-IntegerLiteral 0x5590ecede4e0 <col:19> 'unsigned int' 1
+|         |       `-ParenExpr 0x5590ecede528 <col:23, col:25> 'int'
+|         |         `-DeclRefExpr 0x5590ecede500 <lvm.c:116:41> 'int' EnumConstant 0x5590ece94340 'TM_INDEX' 'int'
+|         |-ImplicitCastExpr 0x5590ecede9b8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'const TValue *' <NullToPointer>
+|         | `-ParenExpr 0x5590ecede668 <col:16, col:25> 'void *'
+|         |   `-CStyleCastExpr 0x5590ecede640 <col:17, col:24> 'void *' <NullToPointer>
+|         |     `-IntegerLiteral 0x5590ecede608 <col:24> 'int' 0
+|         `-CallExpr 0x5590ecede930 <./ltm.h:42:38, col:70> 'const TValue *'
+|           |-ImplicitCastExpr 0x5590ecede918 <col:38> 'const TValue *(*)(Table *, TMS, TString *)' <FunctionToPointerDecay>
+|           | `-DeclRefExpr 0x5590ecede688 <col:38> 'const TValue *(Table *, TMS, TString *)' Function 0x5590ece94cd0 'luaT_gettm' 'const TValue *(Table *, TMS, TString *)'
+|           |-ImplicitCastExpr 0x5590ecede970 <lvm.c:116:27, col:30> 'struct Table *' <LValueToRValue>
+|           | `-MemberExpr 0x5590ecede6f0 <col:27, col:30> 'struct Table *' lvalue ->metatable 0x5590ece90e10
+|           |   `-ImplicitCastExpr 0x5590ecede6d8 <col:27> 'Table *' <LValueToRValue>
+|           |     `-DeclRefExpr 0x5590ecede6b0 <col:27> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+|           |-ImplicitCastExpr 0x5590ecede988 <col:41> 'TMS':'TMS' <IntegralCast>
+|           | `-DeclRefExpr 0x5590ecede728 <col:41> 'int' EnumConstant 0x5590ece94340 'TM_INDEX' 'int'
+|           `-ImplicitCastExpr 0x5590ecede9a0 <./ltm.h:42:56, col:69> 'TString *' <LValueToRValue>
+|             `-ArraySubscriptExpr 0x5590ecede898 <col:56, col:69> 'TString *' lvalue
+|               |-ImplicitCastExpr 0x5590ecede880 <col:56, col:61> 'TString **' <ArrayToPointerDecay>
+|               | `-MemberExpr 0x5590ecede820 <col:56, col:61> 'TString *[17]' lvalue ->tmname 0x5590ece9fc88
+|               |   `-ImplicitCastExpr 0x5590ecede808 <col:56, col:58> 'global_State *' <LValueToRValue>
+|               |     `-ParenExpr 0x5590ecede7e8 <col:56, col:58> 'global_State *' lvalue
+|               |       `-ParenExpr 0x5590ecede7c8 <./lstate.h:130:14, col:21> 'global_State *' lvalue
+|               |         `-MemberExpr 0x5590ecede790 <lvm.c:116:24, ./lstate.h:130:18> 'global_State *' lvalue ->l_G 0x5590ecea0118
+|               |           `-ImplicitCastExpr 0x5590ecede778 <lvm.c:116:24> 'lua_State *' <LValueToRValue>
+|               |             `-DeclRefExpr 0x5590ecede750 <col:24> 'lua_State *' lvalue ParmVar 0x5590ecedd1f0 'L' 'lua_State *'
+|               `-DeclRefExpr 0x5590ecede858 <col:41> 'int' EnumConstant 0x5590ece94340 'TM_INDEX' 'int'
+`-ImplicitCastExpr 0x5590ecedeb30 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'const TValue *' <BitCast>
+  `-ParenExpr 0x5590ecedeb10 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x5590ecedeae8 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x5590ecedeab0 <col:24> 'int' 0
+([B9.3]) == [B9.6]
+   T: if [B16.24] || [B9.7]
+   Preds (2): B10 B11
+   Succs (2): B8 B5
+
+ [B10]
+   1: IntegerLiteral 0x5590ecede378 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+   2: CStyleCastExpr 0x5590ecede3b0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x5590ecede378 <col:24> 'int' 0
+(void *)[B10.1] (CStyleCastExpr, NullToPointer, void *)
+   3: ImplicitCastExpr 0x5590ecedea00 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'const TValue *' <NullToPointer>
+`-ParenExpr 0x5590ecede3d8 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x5590ecede3b0 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x5590ecede378 <col:24> 'int' 0
+([B10.2]) (ImplicitCastExpr, NullToPointer, const TValue *)
+   Preds (1): B15
+   Succs (1): B9
+
+ [B11]
+   1: ConditionalOperator 0x5590ecede9d0 <./ltm.h:42:3, col:70> 'const TValue *'
+|-ParenExpr 0x5590ecede5e8 <col:3, col:27> 'unsigned int'
+| `-BinaryOperator 0x5590ecede5c0 <col:4, col:26> 'unsigned int' '&'
+|   |-ImplicitCastExpr 0x5590ecede5a8 <col:4, col:10> 'unsigned int' <IntegralCast>
+|   | `-ImplicitCastExpr 0x5590ecede590 <col:4, col:10> 'lu_byte':'unsigned char' <LValueToRValue>
+|   |   `-MemberExpr 0x5590ecede4a8 <col:4, col:10> 'lu_byte':'unsigned char' lvalue ->flags 0x5590ece90d48
+|   |     `-ImplicitCastExpr 0x5590ecede490 <col:4, col:7> 'struct Table *' <LValueToRValue>
+|   |       `-ParenExpr 0x5590ecede470 <col:4, col:7> 'struct Table *' lvalue
+|   |         `-MemberExpr 0x5590ecede438 <lvm.c:116:27, col:30> 'struct Table *' lvalue ->metatable 0x5590ece90e10
+|   |           `-ImplicitCastExpr 0x5590ecede420 <col:27> 'Table *' <LValueToRValue>
+|   |             `-DeclRefExpr 0x5590ecede3f8 <col:27> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+|   `-ParenExpr 0x5590ecede570 <./ltm.h:42:18, col:26> 'unsigned int'
+|     `-BinaryOperator 0x5590ecede548 <col:19, col:25> 'unsigned int' '<<'
+|       |-IntegerLiteral 0x5590ecede4e0 <col:19> 'unsigned int' 1
+|       `-ParenExpr 0x5590ecede528 <col:23, col:25> 'int'
+|         `-DeclRefExpr 0x5590ecede500 <lvm.c:116:41> 'int' EnumConstant 0x5590ece94340 'TM_INDEX' 'int'
+|-ImplicitCastExpr 0x5590ecede9b8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'const TValue *' <NullToPointer>
+| `-ParenExpr 0x5590ecede668 <col:16, col:25> 'void *'
+|   `-CStyleCastExpr 0x5590ecede640 <col:17, col:24> 'void *' <NullToPointer>
+|     `-IntegerLiteral 0x5590ecede608 <col:24> 'int' 0
+`-CallExpr 0x5590ecede930 <./ltm.h:42:38, col:70> 'const TValue *'
+  |-ImplicitCastExpr 0x5590ecede918 <col:38> 'const TValue *(*)(Table *, TMS, TString *)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x5590ecede688 <col:38> 'const TValue *(Table *, TMS, TString *)' Function 0x5590ece94cd0 'luaT_gettm' 'const TValue *(Table *, TMS, TString *)'
+  |-ImplicitCastExpr 0x5590ecede970 <lvm.c:116:27, col:30> 'struct Table *' <LValueToRValue>
+  | `-MemberExpr 0x5590ecede6f0 <col:27, col:30> 'struct Table *' lvalue ->metatable 0x5590ece90e10
+  |   `-ImplicitCastExpr 0x5590ecede6d8 <col:27> 'Table *' <LValueToRValue>
+  |     `-DeclRefExpr 0x5590ecede6b0 <col:27> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+  |-ImplicitCastExpr 0x5590ecede988 <col:41> 'TMS':'TMS' <IntegralCast>
+  | `-DeclRefExpr 0x5590ecede728 <col:41> 'int' EnumConstant 0x5590ece94340 'TM_INDEX' 'int'
+  `-ImplicitCastExpr 0x5590ecede9a0 <./ltm.h:42:56, col:69> 'TString *' <LValueToRValue>
+    `-ArraySubscriptExpr 0x5590ecede898 <col:56, col:69> 'TString *' lvalue
+      |-ImplicitCastExpr 0x5590ecede880 <col:56, col:61> 'TString **' <ArrayToPointerDecay>
+      | `-MemberExpr 0x5590ecede820 <col:56, col:61> 'TString *[17]' lvalue ->tmname 0x5590ece9fc88
+      |   `-ImplicitCastExpr 0x5590ecede808 <col:56, col:58> 'global_State *' <LValueToRValue>
+      |     `-ParenExpr 0x5590ecede7e8 <col:56, col:58> 'global_State *' lvalue
+      |       `-ParenExpr 0x5590ecede7c8 <./lstate.h:130:14, col:21> 'global_State *' lvalue
+      |         `-MemberExpr 0x5590ecede790 <lvm.c:116:24, ./lstate.h:130:18> 'global_State *' lvalue ->l_G 0x5590ecea0118
+      |           `-ImplicitCastExpr 0x5590ecede778 <lvm.c:116:24> 'lua_State *' <LValueToRValue>
+      |             `-DeclRefExpr 0x5590ecede750 <col:24> 'lua_State *' lvalue ParmVar 0x5590ecedd1f0 'L' 'lua_State *'
+      `-DeclRefExpr 0x5590ecede858 <col:41> 'int' EnumConstant 0x5590ece94340 'TM_INDEX' 'int'
+([B14.11]) ? [B12.3] : [B13.18]
+   Preds (2): B12 B13
+   Succs (1): B9
+
+ [B12]
+   1: IntegerLiteral 0x5590ecede608 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+   2: CStyleCastExpr 0x5590ecede640 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x5590ecede608 <col:24> 'int' 0
+(void *)[B12.1] (CStyleCastExpr, NullToPointer, void *)
+   3: ImplicitCastExpr 0x5590ecede9b8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'const TValue *' <NullToPointer>
+`-ParenExpr 0x5590ecede668 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x5590ecede640 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x5590ecede608 <col:24> 'int' 0
+([B12.2]) (ImplicitCastExpr, NullToPointer, const TValue *)
+   Preds (1): B14
+   Succs (1): B11
+
+ [B13]
+   1: DeclRefExpr 0x5590ecede688 <./ltm.h:42:38> 'const TValue *(Table *, TMS, TString *)' Function 0x5590ece94cd0 'luaT_gettm' 'const TValue *(Table *, TMS, TString *)'
+luaT_gettm
+   2: ImplicitCastExpr 0x5590ecede918 <./ltm.h:42:38> 'const TValue *(*)(Table *, TMS, TString *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5590ecede688 <col:38> 'const TValue *(Table *, TMS, TString *)' Function 0x5590ece94cd0 'luaT_gettm' 'const TValue *(Table *, TMS, TString *)'
+[B13.1] (ImplicitCastExpr, FunctionToPointerDecay, const TValue *(*)(Table *, TMS, TString *))
+   3: DeclRefExpr 0x5590ecede6b0 <lvm.c:116:27> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+h
+   4: ImplicitCastExpr 0x5590ecede6d8 <lvm.c:116:27> 'Table *' <LValueToRValue>
+`-DeclRefExpr 0x5590ecede6b0 <col:27> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+[B13.3] (ImplicitCastExpr, LValueToRValue, Table *)
+   5: MemberExpr 0x5590ecede6f0 <lvm.c:116:27, col:30> 'struct Table *' lvalue ->metatable 0x5590ece90e10
+`-ImplicitCastExpr 0x5590ecede6d8 <col:27> 'Table *' <LValueToRValue>
+  `-DeclRefExpr 0x5590ecede6b0 <col:27> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+[B13.4]->metatable
+   6: ImplicitCastExpr 0x5590ecede970 <lvm.c:116:27, col:30> 'struct Table *' <LValueToRValue>
+`-MemberExpr 0x5590ecede6f0 <col:27, col:30> 'struct Table *' lvalue ->metatable 0x5590ece90e10
+  `-ImplicitCastExpr 0x5590ecede6d8 <col:27> 'Table *' <LValueToRValue>
+    `-DeclRefExpr 0x5590ecede6b0 <col:27> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+[B13.5] (ImplicitCastExpr, LValueToRValue, struct Table *)
+   7: DeclRefExpr 0x5590ecede728 <lvm.c:116:41> 'int' EnumConstant 0x5590ece94340 'TM_INDEX' 'int'
+TM_INDEX
+   8: ImplicitCastExpr 0x5590ecede988 <lvm.c:116:41> 'TMS':'TMS' <IntegralCast>
+`-DeclRefExpr 0x5590ecede728 <col:41> 'int' EnumConstant 0x5590ece94340 'TM_INDEX' 'int'
+[B13.7] (ImplicitCastExpr, IntegralCast, TMS)
+   9: DeclRefExpr 0x5590ecede750 <lvm.c:116:24> 'lua_State *' lvalue ParmVar 0x5590ecedd1f0 'L' 'lua_State *'
+L
+  10: ImplicitCastExpr 0x5590ecede778 <lvm.c:116:24> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x5590ecede750 <col:24> 'lua_State *' lvalue ParmVar 0x5590ecedd1f0 'L' 'lua_State *'
+[B13.9] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  11: MemberExpr 0x5590ecede790 <lvm.c:116:24, ./lstate.h:130:18> 'global_State *' lvalue ->l_G 0x5590ecea0118
+`-ImplicitCastExpr 0x5590ecede778 <lvm.c:116:24> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x5590ecede750 <col:24> 'lua_State *' lvalue ParmVar 0x5590ecedd1f0 'L' 'lua_State *'
+[B13.10]->l_G
+  12: ImplicitCastExpr 0x5590ecede808 <./ltm.h:42:56, col:58> 'global_State *' <LValueToRValue>
+`-ParenExpr 0x5590ecede7e8 <col:56, col:58> 'global_State *' lvalue
+  `-ParenExpr 0x5590ecede7c8 <./lstate.h:130:14, col:21> 'global_State *' lvalue
+    `-MemberExpr 0x5590ecede790 <lvm.c:116:24, ./lstate.h:130:18> 'global_State *' lvalue ->l_G 0x5590ecea0118
+      `-ImplicitCastExpr 0x5590ecede778 <lvm.c:116:24> 'lua_State *' <LValueToRValue>
+        `-DeclRefExpr 0x5590ecede750 <col:24> 'lua_State *' lvalue ParmVar 0x5590ecedd1f0 'L' 'lua_State *'
+(([B13.11])) (ImplicitCastExpr, LValueToRValue, global_State *)
+  13: MemberExpr 0x5590ecede820 <./ltm.h:42:56, col:61> 'TString *[17]' lvalue ->tmname 0x5590ece9fc88
+`-ImplicitCastExpr 0x5590ecede808 <col:56, col:58> 'global_State *' <LValueToRValue>
+  `-ParenExpr 0x5590ecede7e8 <col:56, col:58> 'global_State *' lvalue
+    `-ParenExpr 0x5590ecede7c8 <./lstate.h:130:14, col:21> 'global_State *' lvalue
+      `-MemberExpr 0x5590ecede790 <lvm.c:116:24, ./lstate.h:130:18> 'global_State *' lvalue ->l_G 0x5590ecea0118
+        `-ImplicitCastExpr 0x5590ecede778 <lvm.c:116:24> 'lua_State *' <LValueToRValue>
+          `-DeclRefExpr 0x5590ecede750 <col:24> 'lua_State *' lvalue ParmVar 0x5590ecedd1f0 'L' 'lua_State *'
+[B13.12]->tmname
+  14: ImplicitCastExpr 0x5590ecede880 <./ltm.h:42:56, col:61> 'TString **' <ArrayToPointerDecay>
+`-MemberExpr 0x5590ecede820 <col:56, col:61> 'TString *[17]' lvalue ->tmname 0x5590ece9fc88
+  `-ImplicitCastExpr 0x5590ecede808 <col:56, col:58> 'global_State *' <LValueToRValue>
+    `-ParenExpr 0x5590ecede7e8 <col:56, col:58> 'global_State *' lvalue
+      `-ParenExpr 0x5590ecede7c8 <./lstate.h:130:14, col:21> 'global_State *' lvalue
+        `-MemberExpr 0x5590ecede790 <lvm.c:116:24, ./lstate.h:130:18> 'global_State *' lvalue ->l_G 0x5590ecea0118
+          `-ImplicitCastExpr 0x5590ecede778 <lvm.c:116:24> 'lua_State *' <LValueToRValue>
+            `-DeclRefExpr 0x5590ecede750 <col:24> 'lua_State *' lvalue ParmVar 0x5590ecedd1f0 'L' 'lua_State *'
+[B13.13] (ImplicitCastExpr, ArrayToPointerDecay, TString **)
+  15: DeclRefExpr 0x5590ecede858 <lvm.c:116:41> 'int' EnumConstant 0x5590ece94340 'TM_INDEX' 'int'
+TM_INDEX
+  16: ArraySubscriptExpr 0x5590ecede898 <./ltm.h:42:56, col:69> 'TString *' lvalue
+|-ImplicitCastExpr 0x5590ecede880 <col:56, col:61> 'TString **' <ArrayToPointerDecay>
+| `-MemberExpr 0x5590ecede820 <col:56, col:61> 'TString *[17]' lvalue ->tmname 0x5590ece9fc88
+|   `-ImplicitCastExpr 0x5590ecede808 <col:56, col:58> 'global_State *' <LValueToRValue>
+|     `-ParenExpr 0x5590ecede7e8 <col:56, col:58> 'global_State *' lvalue
+|       `-ParenExpr 0x5590ecede7c8 <./lstate.h:130:14, col:21> 'global_State *' lvalue
+|         `-MemberExpr 0x5590ecede790 <lvm.c:116:24, ./lstate.h:130:18> 'global_State *' lvalue ->l_G 0x5590ecea0118
+|           `-ImplicitCastExpr 0x5590ecede778 <lvm.c:116:24> 'lua_State *' <LValueToRValue>
+|             `-DeclRefExpr 0x5590ecede750 <col:24> 'lua_State *' lvalue ParmVar 0x5590ecedd1f0 'L' 'lua_State *'
+`-DeclRefExpr 0x5590ecede858 <col:41> 'int' EnumConstant 0x5590ece94340 'TM_INDEX' 'int'
+[B13.14][[B13.15]]
+  17: ImplicitCastExpr 0x5590ecede9a0 <./ltm.h:42:56, col:69> 'TString *' <LValueToRValue>
+`-ArraySubscriptExpr 0x5590ecede898 <col:56, col:69> 'TString *' lvalue
+  |-ImplicitCastExpr 0x5590ecede880 <col:56, col:61> 'TString **' <ArrayToPointerDecay>
+  | `-MemberExpr 0x5590ecede820 <col:56, col:61> 'TString *[17]' lvalue ->tmname 0x5590ece9fc88
+  |   `-ImplicitCastExpr 0x5590ecede808 <col:56, col:58> 'global_State *' <LValueToRValue>
+  |     `-ParenExpr 0x5590ecede7e8 <col:56, col:58> 'global_State *' lvalue
+  |       `-ParenExpr 0x5590ecede7c8 <./lstate.h:130:14, col:21> 'global_State *' lvalue
+  |         `-MemberExpr 0x5590ecede790 <lvm.c:116:24, ./lstate.h:130:18> 'global_State *' lvalue ->l_G 0x5590ecea0118
+  |           `-ImplicitCastExpr 0x5590ecede778 <lvm.c:116:24> 'lua_State *' <LValueToRValue>
+  |             `-DeclRefExpr 0x5590ecede750 <col:24> 'lua_State *' lvalue ParmVar 0x5590ecedd1f0 'L' 'lua_State *'
+  `-DeclRefExpr 0x5590ecede858 <col:41> 'int' EnumConstant 0x5590ece94340 'TM_INDEX' 'int'
+[B13.16] (ImplicitCastExpr, LValueToRValue, TString *)
+  18: CallExpr 0x5590ecede930 <./ltm.h:42:38, col:70> 'const TValue *'
+|-ImplicitCastExpr 0x5590ecede918 <col:38> 'const TValue *(*)(Table *, TMS, TString *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5590ecede688 <col:38> 'const TValue *(Table *, TMS, TString *)' Function 0x5590ece94cd0 'luaT_gettm' 'const TValue *(Table *, TMS, TString *)'
+|-ImplicitCastExpr 0x5590ecede970 <lvm.c:116:27, col:30> 'struct Table *' <LValueToRValue>
+| `-MemberExpr 0x5590ecede6f0 <col:27, col:30> 'struct Table *' lvalue ->metatable 0x5590ece90e10
+|   `-ImplicitCastExpr 0x5590ecede6d8 <col:27> 'Table *' <LValueToRValue>
+|     `-DeclRefExpr 0x5590ecede6b0 <col:27> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+|-ImplicitCastExpr 0x5590ecede988 <col:41> 'TMS':'TMS' <IntegralCast>
+| `-DeclRefExpr 0x5590ecede728 <col:41> 'int' EnumConstant 0x5590ece94340 'TM_INDEX' 'int'
+`-ImplicitCastExpr 0x5590ecede9a0 <./ltm.h:42:56, col:69> 'TString *' <LValueToRValue>
+  `-ArraySubscriptExpr 0x5590ecede898 <col:56, col:69> 'TString *' lvalue
+    |-ImplicitCastExpr 0x5590ecede880 <col:56, col:61> 'TString **' <ArrayToPointerDecay>
+    | `-MemberExpr 0x5590ecede820 <col:56, col:61> 'TString *[17]' lvalue ->tmname 0x5590ece9fc88
+    |   `-ImplicitCastExpr 0x5590ecede808 <col:56, col:58> 'global_State *' <LValueToRValue>
+    |     `-ParenExpr 0x5590ecede7e8 <col:56, col:58> 'global_State *' lvalue
+    |       `-ParenExpr 0x5590ecede7c8 <./lstate.h:130:14, col:21> 'global_State *' lvalue
+    |         `-MemberExpr 0x5590ecede790 <lvm.c:116:24, ./lstate.h:130:18> 'global_State *' lvalue ->l_G 0x5590ecea0118
+    |           `-ImplicitCastExpr 0x5590ecede778 <lvm.c:116:24> 'lua_State *' <LValueToRValue>
+    |             `-DeclRefExpr 0x5590ecede750 <col:24> 'lua_State *' lvalue ParmVar 0x5590ecedd1f0 'L' 'lua_State *'
+    `-DeclRefExpr 0x5590ecede858 <col:41> 'int' EnumConstant 0x5590ece94340 'TM_INDEX' 'int'
+[B13.2]([B13.6], [B13.8], [B13.17])
+   Preds (1): B14
+   Succs (1): B11
+
+ [B14]
+   1: DeclRefExpr 0x5590ecede3f8 <lvm.c:116:27> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+h
+   2: ImplicitCastExpr 0x5590ecede420 <lvm.c:116:27> 'Table *' <LValueToRValue>
+`-DeclRefExpr 0x5590ecede3f8 <col:27> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+[B14.1] (ImplicitCastExpr, LValueToRValue, Table *)
+   3: MemberExpr 0x5590ecede438 <lvm.c:116:27, col:30> 'struct Table *' lvalue ->metatable 0x5590ece90e10
+`-ImplicitCastExpr 0x5590ecede420 <col:27> 'Table *' <LValueToRValue>
+  `-DeclRefExpr 0x5590ecede3f8 <col:27> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+[B14.2]->metatable
+   4: ImplicitCastExpr 0x5590ecede490 <./ltm.h:42:4, col:7> 'struct Table *' <LValueToRValue>
+`-ParenExpr 0x5590ecede470 <col:4, col:7> 'struct Table *' lvalue
+  `-MemberExpr 0x5590ecede438 <lvm.c:116:27, col:30> 'struct Table *' lvalue ->metatable 0x5590ece90e10
+    `-ImplicitCastExpr 0x5590ecede420 <col:27> 'Table *' <LValueToRValue>
+      `-DeclRefExpr 0x5590ecede3f8 <col:27> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+([B14.3]) (ImplicitCastExpr, LValueToRValue, struct Table *)
+   5: MemberExpr 0x5590ecede4a8 <./ltm.h:42:4, col:10> 'lu_byte':'unsigned char' lvalue ->flags 0x5590ece90d48
+`-ImplicitCastExpr 0x5590ecede490 <col:4, col:7> 'struct Table *' <LValueToRValue>
+  `-ParenExpr 0x5590ecede470 <col:4, col:7> 'struct Table *' lvalue
+    `-MemberExpr 0x5590ecede438 <lvm.c:116:27, col:30> 'struct Table *' lvalue ->metatable 0x5590ece90e10
+      `-ImplicitCastExpr 0x5590ecede420 <col:27> 'Table *' <LValueToRValue>
+        `-DeclRefExpr 0x5590ecede3f8 <col:27> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+[B14.4]->flags
+   6: ImplicitCastExpr 0x5590ecede590 <./ltm.h:42:4, col:10> 'lu_byte':'unsigned char' <LValueToRValue>
+`-MemberExpr 0x5590ecede4a8 <col:4, col:10> 'lu_byte':'unsigned char' lvalue ->flags 0x5590ece90d48
+  `-ImplicitCastExpr 0x5590ecede490 <col:4, col:7> 'struct Table *' <LValueToRValue>
+    `-ParenExpr 0x5590ecede470 <col:4, col:7> 'struct Table *' lvalue
+      `-MemberExpr 0x5590ecede438 <lvm.c:116:27, col:30> 'struct Table *' lvalue ->metatable 0x5590ece90e10
+        `-ImplicitCastExpr 0x5590ecede420 <col:27> 'Table *' <LValueToRValue>
+          `-DeclRefExpr 0x5590ecede3f8 <col:27> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+[B14.5] (ImplicitCastExpr, LValueToRValue, lu_byte)
+   7: ImplicitCastExpr 0x5590ecede5a8 <./ltm.h:42:4, col:10> 'unsigned int' <IntegralCast>
+`-ImplicitCastExpr 0x5590ecede590 <col:4, col:10> 'lu_byte':'unsigned char' <LValueToRValue>
+  `-MemberExpr 0x5590ecede4a8 <col:4, col:10> 'lu_byte':'unsigned char' lvalue ->flags 0x5590ece90d48
+    `-ImplicitCastExpr 0x5590ecede490 <col:4, col:7> 'struct Table *' <LValueToRValue>
+      `-ParenExpr 0x5590ecede470 <col:4, col:7> 'struct Table *' lvalue
+        `-MemberExpr 0x5590ecede438 <lvm.c:116:27, col:30> 'struct Table *' lvalue ->metatable 0x5590ece90e10
+          `-ImplicitCastExpr 0x5590ecede420 <col:27> 'Table *' <LValueToRValue>
+            `-DeclRefExpr 0x5590ecede3f8 <col:27> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+[B14.6] (ImplicitCastExpr, IntegralCast, unsigned int)
+   8: IntegerLiteral 0x5590ecede4e0 <./ltm.h:42:19> 'unsigned int' 1
+1U
+   9: DeclRefExpr 0x5590ecede500 <lvm.c:116:41> 'int' EnumConstant 0x5590ece94340 'TM_INDEX' 'int'
+TM_INDEX
+  10: BinaryOperator 0x5590ecede548 <./ltm.h:42:19, col:25> 'unsigned int' '<<'
+|-IntegerLiteral 0x5590ecede4e0 <col:19> 'unsigned int' 1
+`-ParenExpr 0x5590ecede528 <col:23, col:25> 'int'
+  `-DeclRefExpr 0x5590ecede500 <lvm.c:116:41> 'int' EnumConstant 0x5590ece94340 'TM_INDEX' 'int'
+[B14.8] << ([B14.9])
+  11: BinaryOperator 0x5590ecede5c0 <./ltm.h:42:4, col:26> 'unsigned int' '&'
+|-ImplicitCastExpr 0x5590ecede5a8 <col:4, col:10> 'unsigned int' <IntegralCast>
+| `-ImplicitCastExpr 0x5590ecede590 <col:4, col:10> 'lu_byte':'unsigned char' <LValueToRValue>
+|   `-MemberExpr 0x5590ecede4a8 <col:4, col:10> 'lu_byte':'unsigned char' lvalue ->flags 0x5590ece90d48
+|     `-ImplicitCastExpr 0x5590ecede490 <col:4, col:7> 'struct Table *' <LValueToRValue>
+|       `-ParenExpr 0x5590ecede470 <col:4, col:7> 'struct Table *' lvalue
+|         `-MemberExpr 0x5590ecede438 <lvm.c:116:27, col:30> 'struct Table *' lvalue ->metatable 0x5590ece90e10
+|           `-ImplicitCastExpr 0x5590ecede420 <col:27> 'Table *' <LValueToRValue>
+|             `-DeclRefExpr 0x5590ecede3f8 <col:27> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+`-ParenExpr 0x5590ecede570 <./ltm.h:42:18, col:26> 'unsigned int'
+  `-BinaryOperator 0x5590ecede548 <col:19, col:25> 'unsigned int' '<<'
+    |-IntegerLiteral 0x5590ecede4e0 <col:19> 'unsigned int' 1
+    `-ParenExpr 0x5590ecede528 <col:23, col:25> 'int'
+      `-DeclRefExpr 0x5590ecede500 <lvm.c:116:41> 'int' EnumConstant 0x5590ece94340 'TM_INDEX' 'int'
+[B14.7] & ([B14.10])
+   T: ([B14.11]) ? ... : ...
+   Preds (1): B15
+   Succs (2): B12 B13
+
+ [B15]
+   1: DeclRefExpr 0x5590ecedddd8 <lvm.c:116:27> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+h
+   2: ImplicitCastExpr 0x5590ecedde00 <lvm.c:116:27> 'Table *' <LValueToRValue>
+`-DeclRefExpr 0x5590ecedddd8 <col:27> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+[B15.1] (ImplicitCastExpr, LValueToRValue, Table *)
+   3: MemberExpr 0x5590ecedde18 <lvm.c:116:27, col:30> 'struct Table *' lvalue ->metatable 0x5590ece90e10
+`-ImplicitCastExpr 0x5590ecedde00 <col:27> 'Table *' <LValueToRValue>
+  `-DeclRefExpr 0x5590ecedddd8 <col:27> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+[B15.2]->metatable
+   4: ImplicitCastExpr 0x5590ecede320 <./ltm.h:41:26, col:29> 'struct Table *' <LValueToRValue>
+`-ParenExpr 0x5590ecede280 <col:26, col:29> 'struct Table *' lvalue
+  `-MemberExpr 0x5590ecedde18 <lvm.c:116:27, col:30> 'struct Table *' lvalue ->metatable 0x5590ece90e10
+    `-ImplicitCastExpr 0x5590ecedde00 <col:27> 'Table *' <LValueToRValue>
+      `-DeclRefExpr 0x5590ecedddd8 <col:27> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+([B15.3]) (ImplicitCastExpr, LValueToRValue, struct Table *)
+   5: IntegerLiteral 0x5590ecede2a0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+   6: CStyleCastExpr 0x5590ecede2d8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x5590ecede2a0 <col:24> 'int' 0
+(void *)[B15.5] (CStyleCastExpr, NullToPointer, void *)
+   7: ImplicitCastExpr 0x5590ecede338 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'struct Table *' <BitCast>
+`-ParenExpr 0x5590ecede300 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x5590ecede2d8 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x5590ecede2a0 <col:24> 'int' 0
+([B15.6]) (ImplicitCastExpr, BitCast, struct Table *)
+   8: BinaryOperator 0x5590ecede350 <./ltm.h:41:26, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25> 'int' '=='
+|-ImplicitCastExpr 0x5590ecede320 <./ltm.h:41:26, col:29> 'struct Table *' <LValueToRValue>
+| `-ParenExpr 0x5590ecede280 <col:26, col:29> 'struct Table *' lvalue
+|   `-MemberExpr 0x5590ecedde18 <lvm.c:116:27, col:30> 'struct Table *' lvalue ->metatable 0x5590ece90e10
+|     `-ImplicitCastExpr 0x5590ecedde00 <col:27> 'Table *' <LValueToRValue>
+|       `-DeclRefExpr 0x5590ecedddd8 <col:27> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+`-ImplicitCastExpr 0x5590ecede338 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'struct Table *' <BitCast>
+  `-ParenExpr 0x5590ecede300 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x5590ecede2d8 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x5590ecede2a0 <col:24> 'int' 0
+[B15.4] == [B15.7]
+   T: [B15.8] ? ... : ...
+   Preds (1): B16
+   Succs (2): B10 B14
+
+ [B16]
+   1: DeclRefExpr 0x5590ecedd8e8 <lvm.c:113:25> 'const TValue *' lvalue ParmVar 0x5590ecedd260 't' 'const TValue *'
+t
+   2: ImplicitCastExpr 0x5590ecedd930 <./lobject.h:99:44, col:46> 'const TValue *' <LValueToRValue>
+`-ParenExpr 0x5590ecedd910 <col:44, col:46> 'const TValue *' lvalue
+  `-DeclRefExpr 0x5590ecedd8e8 <lvm.c:113:25> 'const TValue *' lvalue ParmVar 0x5590ecedd260 't' 'const TValue *'
+([B16.1]) (ImplicitCastExpr, LValueToRValue, const TValue *)
+   3: MemberExpr 0x5590ecedd948 <./lobject.h:99:44, col:49> 'const Value':'const Value' lvalue ->value 0x5590ece76da0
+`-ImplicitCastExpr 0x5590ecedd930 <col:44, col:46> 'const TValue *' <LValueToRValue>
+  `-ParenExpr 0x5590ecedd910 <col:44, col:46> 'const TValue *' lvalue
+    `-DeclRefExpr 0x5590ecedd8e8 <lvm.c:113:25> 'const TValue *' lvalue ParmVar 0x5590ecedd260 't' 'const TValue *'
+[B16.2]->value
+   4: MemberExpr 0x5590ecedd980 <./lobject.h:99:44, col:55> 'GCObject *const' lvalue .gc 0x5590ece76aa0
+`-MemberExpr 0x5590ecedd948 <col:44, col:49> 'const Value':'const Value' lvalue ->value 0x5590ece76da0
+  `-ImplicitCastExpr 0x5590ecedd930 <col:44, col:46> 'const TValue *' <LValueToRValue>
+    `-ParenExpr 0x5590ecedd910 <col:44, col:46> 'const TValue *' lvalue
+      `-DeclRefExpr 0x5590ecedd8e8 <lvm.c:113:25> 'const TValue *' lvalue ParmVar 0x5590ecedd260 't' 'const TValue *'
+[B16.3].gc
+   5: ImplicitCastExpr 0x5590ecedd9b8 <./lobject.h:99:44, col:55> 'GCObject *' <LValueToRValue>
+`-MemberExpr 0x5590ecedd980 <col:44, col:55> 'GCObject *const' lvalue .gc 0x5590ece76aa0
+  `-MemberExpr 0x5590ecedd948 <col:44, col:49> 'const Value':'const Value' lvalue ->value 0x5590ece76da0
+    `-ImplicitCastExpr 0x5590ecedd930 <col:44, col:46> 'const TValue *' <LValueToRValue>
+      `-ParenExpr 0x5590ecedd910 <col:44, col:46> 'const TValue *' lvalue
+        `-DeclRefExpr 0x5590ecedd8e8 <lvm.c:113:25> 'const TValue *' lvalue ParmVar 0x5590ecedd260 't' 'const TValue *'
+[B16.4] (ImplicitCastExpr, LValueToRValue, GCObject *)
+   6: MemberExpr 0x5590ecedd9d0 <./lobject.h:99:44, col:59> 'struct Table':'struct Table' lvalue ->h 0x5590ecea38a0
+`-ImplicitCastExpr 0x5590ecedd9b8 <col:44, col:55> 'GCObject *' <LValueToRValue>
+  `-MemberExpr 0x5590ecedd980 <col:44, col:55> 'GCObject *const' lvalue .gc 0x5590ece76aa0
+    `-MemberExpr 0x5590ecedd948 <col:44, col:49> 'const Value':'const Value' lvalue ->value 0x5590ece76da0
+      `-ImplicitCastExpr 0x5590ecedd930 <col:44, col:46> 'const TValue *' <LValueToRValue>
+        `-ParenExpr 0x5590ecedd910 <col:44, col:46> 'const TValue *' lvalue
+          `-DeclRefExpr 0x5590ecedd8e8 <lvm.c:113:25> 'const TValue *' lvalue ParmVar 0x5590ecedd260 't' 'const TValue *'
+[B16.5]->h
+   7: UnaryOperator 0x5590ecedda08 <./lobject.h:99:43, col:59> 'struct Table *' prefix '&'
+`-MemberExpr 0x5590ecedd9d0 <col:44, col:59> 'struct Table':'struct Table' lvalue ->h 0x5590ecea38a0
+  `-ImplicitCastExpr 0x5590ecedd9b8 <col:44, col:55> 'GCObject *' <LValueToRValue>
+    `-MemberExpr 0x5590ecedd980 <col:44, col:55> 'GCObject *const' lvalue .gc 0x5590ece76aa0
+      `-MemberExpr 0x5590ecedd948 <col:44, col:49> 'const Value':'const Value' lvalue ->value 0x5590ece76da0
+        `-ImplicitCastExpr 0x5590ecedd930 <col:44, col:46> 'const TValue *' <LValueToRValue>
+          `-ParenExpr 0x5590ecedd910 <col:44, col:46> 'const TValue *' lvalue
+            `-DeclRefExpr 0x5590ecedd8e8 <lvm.c:113:25> 'const TValue *' lvalue ParmVar 0x5590ecedd260 't' 'const TValue *'
+&[B16.6]
+   8: DeclStmt 0x5590ecedda48 <lvm.c:113:7, col:27>col:14
+`-VarDecl 0x5590ecedd888 <col:7, ./llimits.h:63:27> lvm.c:113:14 used h 'Table *' cinit
+  `-ParenExpr 0x5590ecedda28 <./llimits.h:63:25, col:27> 'struct Table *'
+    `-UnaryOperator 0x5590ecedda08 <./lobject.h:99:43, col:59> 'struct Table *' prefix '&'
+      `-MemberExpr 0x5590ecedd9d0 <col:44, col:59> 'struct Table':'struct Table' lvalue ->h 0x5590ecea38a0
+        `-ImplicitCastExpr 0x5590ecedd9b8 <col:44, col:55> 'GCObject *' <LValueToRValue>
+          `-MemberExpr 0x5590ecedd980 <col:44, col:55> 'GCObject *const' lvalue .gc 0x5590ece76aa0
+            `-MemberExpr 0x5590ecedd948 <col:44, col:49> 'const Value':'const Value' lvalue ->value 0x5590ece76da0
+              `-ImplicitCastExpr 0x5590ecedd930 <col:44, col:46> 'const TValue *' <LValueToRValue>
+                `-ParenExpr 0x5590ecedd910 <col:44, col:46> 'const TValue *' lvalue
+                  `-DeclRefExpr 0x5590ecedd8e8 <lvm.c:113:25> 'const TValue *' lvalue ParmVar 0x5590ecedd260 't' 'const TValue *'
+Table *h = (&(t)->value.gc->h);
+   9: DeclRefExpr 0x5590eceddad0 <lvm.c:114:27> 'const TValue *(Table *, const TValue *)' Function 0x5590ececc8c0 'luaH_get' 'const TValue *(Table *, const TValue *)'
+luaH_get
+  10: ImplicitCastExpr 0x5590eceddba8 <lvm.c:114:27> 'const TValue *(*)(Table *, const TValue *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5590eceddad0 <col:27> 'const TValue *(Table *, const TValue *)' Function 0x5590ececc8c0 'luaH_get' 'const TValue *(Table *, const TValue *)'
+[B16.9] (ImplicitCastExpr, FunctionToPointerDecay, const TValue *(*)(Table *, const TValue *))
+  11: DeclRefExpr 0x5590eceddaf8 <lvm.c:114:36> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+h
+  12: ImplicitCastExpr 0x5590eceddbf8 <lvm.c:114:36> 'Table *' <LValueToRValue>
+`-DeclRefExpr 0x5590eceddaf8 <col:36> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+[B16.11] (ImplicitCastExpr, LValueToRValue, Table *)
+  13: DeclRefExpr 0x5590eceddb20 <lvm.c:114:39> 'TValue *' lvalue ParmVar 0x5590ecedd2d0 'key' 'TValue *'
+key
+  14: ImplicitCastExpr 0x5590eceddc10 <lvm.c:114:39> 'TValue *' <LValueToRValue>
+`-DeclRefExpr 0x5590eceddb20 <col:39> 'TValue *' lvalue ParmVar 0x5590ecedd2d0 'key' 'TValue *'
+[B16.13] (ImplicitCastExpr, LValueToRValue, TValue *)
+  15: ImplicitCastExpr 0x5590eceddc28 <lvm.c:114:39> 'const TValue *' <BitCast>
+`-ImplicitCastExpr 0x5590eceddc10 <col:39> 'TValue *' <LValueToRValue>
+  `-DeclRefExpr 0x5590eceddb20 <col:39> 'TValue *' lvalue ParmVar 0x5590ecedd2d0 'key' 'TValue *'
+[B16.14] (ImplicitCastExpr, BitCast, const TValue *)
+  16: CallExpr 0x5590eceddbc0 <lvm.c:114:27, col:42> 'const TValue *'
+|-ImplicitCastExpr 0x5590eceddba8 <col:27> 'const TValue *(*)(Table *, const TValue *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5590eceddad0 <col:27> 'const TValue *(Table *, const TValue *)' Function 0x5590ececc8c0 'luaH_get' 'const TValue *(Table *, const TValue *)'
+|-ImplicitCastExpr 0x5590eceddbf8 <col:36> 'Table *' <LValueToRValue>
+| `-DeclRefExpr 0x5590eceddaf8 <col:36> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+`-ImplicitCastExpr 0x5590eceddc28 <col:39> 'const TValue *' <BitCast>
+  `-ImplicitCastExpr 0x5590eceddc10 <col:39> 'TValue *' <LValueToRValue>
+    `-DeclRefExpr 0x5590eceddb20 <col:39> 'TValue *' lvalue ParmVar 0x5590ecedd2d0 'key' 'TValue *'
+[B16.10]([B16.12], [B16.15])
+  17: DeclStmt 0x5590eceddc40 <lvm.c:114:7, col:43>col:21
+`-VarDecl 0x5590ecedda70 <col:7, col:42> col:21 used res 'const TValue *' cinit
+  `-CallExpr 0x5590eceddbc0 <col:27, col:42> 'const TValue *'
+    |-ImplicitCastExpr 0x5590eceddba8 <col:27> 'const TValue *(*)(Table *, const TValue *)' <FunctionToPointerDecay>
+    | `-DeclRefExpr 0x5590eceddad0 <col:27> 'const TValue *(Table *, const TValue *)' Function 0x5590ececc8c0 'luaH_get' 'const TValue *(Table *, const TValue *)'
+    |-ImplicitCastExpr 0x5590eceddbf8 <col:36> 'Table *' <LValueToRValue>
+    | `-DeclRefExpr 0x5590eceddaf8 <col:36> 'Table *' lvalue Var 0x5590ecedd888 'h' 'Table *'
+    `-ImplicitCastExpr 0x5590eceddc28 <col:39> 'const TValue *' <BitCast>
+      `-ImplicitCastExpr 0x5590eceddc10 <col:39> 'TValue *' <LValueToRValue>
+        `-DeclRefExpr 0x5590eceddb20 <col:39> 'TValue *' lvalue ParmVar 0x5590ecedd2d0 'key' 'TValue *'
+const TValue *res = luaH_get(h, key);
+  18: DeclRefExpr 0x5590eceddc58 <lvm.c:115:20> 'const TValue *' lvalue Var 0x5590ecedda70 'res' 'const TValue *'
+res
+  19: ImplicitCastExpr 0x5590eceddca0 <./lobject.h:90:19, col:21> 'const TValue *' <LValueToRValue>
+`-ParenExpr 0x5590eceddc80 <col:19, col:21> 'const TValue *' lvalue
+  `-DeclRefExpr 0x5590eceddc58 <lvm.c:115:20> 'const TValue *' lvalue Var 0x5590ecedda70 'res' 'const TValue *'
+([B16.18]) (ImplicitCastExpr, LValueToRValue, const TValue *)
+  20: MemberExpr 0x5590eceddcb8 <./lobject.h:90:19, col:24> 'const int' lvalue ->tt 0x5590ece76e00
+`-ImplicitCastExpr 0x5590eceddca0 <col:19, col:21> 'const TValue *' <LValueToRValue>
+  `-ParenExpr 0x5590eceddc80 <col:19, col:21> 'const TValue *' lvalue
+    `-DeclRefExpr 0x5590eceddc58 <lvm.c:115:20> 'const TValue *' lvalue Var 0x5590ecedda70 'res' 'const TValue *'
+[B16.19]->tt
+  21: ImplicitCastExpr 0x5590eceddd30 <./lobject.h:90:18, col:26> 'int' <LValueToRValue>
+`-ParenExpr 0x5590eceddcf0 <col:18, col:26> 'const int' lvalue
+  `-MemberExpr 0x5590eceddcb8 <col:19, col:24> 'const int' lvalue ->tt 0x5590ece76e00
+    `-ImplicitCastExpr 0x5590eceddca0 <col:19, col:21> 'const TValue *' <LValueToRValue>
+      `-ParenExpr 0x5590eceddc80 <col:19, col:21> 'const TValue *' lvalue
+        `-DeclRefExpr 0x5590eceddc58 <lvm.c:115:20> 'const TValue *' lvalue Var 0x5590ecedda70 'res' 'const TValue *'
+([B16.20]) (ImplicitCastExpr, LValueToRValue, int)
+  22: IntegerLiteral 0x5590eceddd10 <./lua.h:74:19> 'int' 0
+0
+  23: BinaryOperator 0x5590eceddd48 <./lobject.h:90:18, ./lua.h:74:19> 'int' '=='
+|-ImplicitCastExpr 0x5590eceddd30 <./lobject.h:90:18, col:26> 'int' <LValueToRValue>
+| `-ParenExpr 0x5590eceddcf0 <col:18, col:26> 'const int' lvalue
+|   `-MemberExpr 0x5590eceddcb8 <col:19, col:24> 'const int' lvalue ->tt 0x5590ece76e00
+|     `-ImplicitCastExpr 0x5590eceddca0 <col:19, col:21> 'const TValue *' <LValueToRValue>
+|       `-ParenExpr 0x5590eceddc80 <col:19, col:21> 'const TValue *' lvalue
+|         `-DeclRefExpr 0x5590eceddc58 <lvm.c:115:20> 'const TValue *' lvalue Var 0x5590ecedda70 'res' 'const TValue *'
+`-IntegerLiteral 0x5590eceddd10 <./lua.h:74:19> 'int' 0
+[B16.21] == [B16.22]
+  24: UnaryOperator 0x5590eceddd90 <lvm.c:115:11, ./lobject.h:79:41> 'int' prefix '!'
+`-ParenExpr 0x5590eceddd70 <col:20, col:41> 'int'
+  `-BinaryOperator 0x5590eceddd48 <line:90:18, ./lua.h:74:19> 'int' '=='
+    |-ImplicitCastExpr 0x5590eceddd30 <./lobject.h:90:18, col:26> 'int' <LValueToRValue>
+    | `-ParenExpr 0x5590eceddcf0 <col:18, col:26> 'const int' lvalue
+    |   `-MemberExpr 0x5590eceddcb8 <col:19, col:24> 'const int' lvalue ->tt 0x5590ece76e00
+    |     `-ImplicitCastExpr 0x5590eceddca0 <col:19, col:21> 'const TValue *' <LValueToRValue>
+    |       `-ParenExpr 0x5590eceddc80 <col:19, col:21> 'const TValue *' lvalue
+    |         `-DeclRefExpr 0x5590eceddc58 <lvm.c:115:20> 'const TValue *' lvalue Var 0x5590ecedda70 'res' 'const TValue *'
+    `-IntegerLiteral 0x5590eceddd10 <./lua.h:74:19> 'int' 0
+!([B16.23])
+   T: [B16.24] || ...
+   Preds (1): B17
+   Succs (2): B8 B15
+
+ [B17]
+   1: DeclStmt 0x5590ecedd728 <lvm.c:111:5, col:21>col:19
+`-VarDecl 0x5590ecedd6c8 <col:5, col:19> col:19 used tm 'const TValue *'
+const TValue *tm;
+   2: DeclRefExpr 0x5590ecedd740 <lvm.c:112:19> 'const TValue *' lvalue ParmVar 0x5590ecedd260 't' 'const TValue *'
+t
+   3: ImplicitCastExpr 0x5590ecedd788 <./lobject.h:90:19, col:21> 'const TValue *' <LValueToRValue>
+`-ParenExpr 0x5590ecedd768 <col:19, col:21> 'const TValue *' lvalue
+  `-DeclRefExpr 0x5590ecedd740 <lvm.c:112:19> 'const TValue *' lvalue ParmVar 0x5590ecedd260 't' 'const TValue *'
+([B17.2]) (ImplicitCastExpr, LValueToRValue, const TValue *)
+   4: MemberExpr 0x5590ecedd7a0 <./lobject.h:90:19, col:24> 'const int' lvalue ->tt 0x5590ece76e00
+`-ImplicitCastExpr 0x5590ecedd788 <col:19, col:21> 'const TValue *' <LValueToRValue>
+  `-ParenExpr 0x5590ecedd768 <col:19, col:21> 'const TValue *' lvalue
+    `-DeclRefExpr 0x5590ecedd740 <lvm.c:112:19> 'const TValue *' lvalue ParmVar 0x5590ecedd260 't' 'const TValue *'
+[B17.3]->tt
+   5: ImplicitCastExpr 0x5590ecedd818 <./lobject.h:90:18, col:26> 'int' <LValueToRValue>
+`-ParenExpr 0x5590ecedd7d8 <col:18, col:26> 'const int' lvalue
+  `-MemberExpr 0x5590ecedd7a0 <col:19, col:24> 'const int' lvalue ->tt 0x5590ece76e00
+    `-ImplicitCastExpr 0x5590ecedd788 <col:19, col:21> 'const TValue *' <LValueToRValue>
+      `-ParenExpr 0x5590ecedd768 <col:19, col:21> 'const TValue *' lvalue
+        `-DeclRefExpr 0x5590ecedd740 <lvm.c:112:19> 'const TValue *' lvalue ParmVar 0x5590ecedd260 't' 'const TValue *'
+([B17.4]) (ImplicitCastExpr, LValueToRValue, int)
+   6: IntegerLiteral 0x5590ecedd7f8 <./lua.h:79:21> 'int' 5
+5
+   7: BinaryOperator 0x5590ecedd830 <./lobject.h:90:18, ./lua.h:79:21> 'int' '=='
+|-ImplicitCastExpr 0x5590ecedd818 <./lobject.h:90:18, col:26> 'int' <LValueToRValue>
+| `-ParenExpr 0x5590ecedd7d8 <col:18, col:26> 'const int' lvalue
+|   `-MemberExpr 0x5590ecedd7a0 <col:19, col:24> 'const int' lvalue ->tt 0x5590ece76e00
+|     `-ImplicitCastExpr 0x5590ecedd788 <col:19, col:21> 'const TValue *' <LValueToRValue>
+|       `-ParenExpr 0x5590ecedd768 <col:19, col:21> 'const TValue *' lvalue
+|         `-DeclRefExpr 0x5590ecedd740 <lvm.c:112:19> 'const TValue *' lvalue ParmVar 0x5590ecedd260 't' 'const TValue *'
+`-IntegerLiteral 0x5590ecedd7f8 <./lua.h:79:21> 'int' 5
+[B17.5] == [B17.6]
+   T: if ([B17.7])
+   Preds (1): B18
+   Succs (2): B16 B7
+
+ [B18]
+   1: DeclRefExpr 0x5590ecedd5e8 <lvm.c:110:18> 'int' lvalue Var 0x5590ecedd500 'loop' 'int'
+loop
+   2: ImplicitCastExpr 0x5590ecedd630 <lvm.c:110:18> 'int' <LValueToRValue>
+`-DeclRefExpr 0x5590ecedd5e8 <col:18> 'int' lvalue Var 0x5590ecedd500 'loop' 'int'
+[B18.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: IntegerLiteral 0x5590ecedd610 <lvm.c:32:20> 'int' 100
+100
+   4: BinaryOperator 0x5590ecedd648 <lvm.c:110:18, line:32:20> 'int' '<'
+|-ImplicitCastExpr 0x5590ecedd630 <line:110:18> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x5590ecedd5e8 <col:18> 'int' lvalue Var 0x5590ecedd500 'loop' 'int'
+`-IntegerLiteral 0x5590ecedd610 <line:32:20> 'int' 100
+[B18.2] < [B18.3]
+   T: for (...; [B18.4]; ...)
+   Preds (2): B2 B19
+   Succs (2): B17 B1
+
+ [B19]
+   1: DeclStmt 0x5590ecedd560 <lvm.c:109:3, col:11>col:7
+`-VarDecl 0x5590ecedd500 <col:3, col:7> col:7 used loop 'int'
+int loop;
+   2: IntegerLiteral 0x5590ecedd5a0 <lvm.c:110:15> 'int' 0
+0
+   3: DeclRefExpr 0x5590ecedd578 <lvm.c:110:8> 'int' lvalue Var 0x5590ecedd500 'loop' 'int'
+loop
+   4: BinaryOperator 0x5590ecedd5c0 <lvm.c:110:8, col:15> 'int' '='
+|-DeclRefExpr 0x5590ecedd578 <col:8> 'int' lvalue Var 0x5590ecedd500 'loop' 'int'
+`-IntegerLiteral 0x5590ecedd5a0 <col:15> 'int' 0
+[B19.3] = [B19.2]
+   Preds (1): B20
+   Succs (1): B18
+
+ [B0 (EXIT)]
+   Preds (3): B1 B4 B8

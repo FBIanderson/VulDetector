@@ -1,0 +1,458 @@
+static int str_sub(lua_State *L)
+ [B9 (ENTRY)]
+   Succs (1): B8
+
+ [B1]
+   1: IntegerLiteral 0x55fb421b3a38 <lstrlib.c:53:10> 'int' 1
+1
+   2: ReturnStmt 0x55fb421b3a58 <lstrlib.c:53:3, col:10>
+`-IntegerLiteral 0x55fb421b3a38 <col:10> 'int' 1
+return [B1.1];
+   Preds (2): B2 B3
+   Succs (1): B0
+
+ [B2]
+   1: DeclRefExpr 0x55fb421b37a0 <./lua.h:274:2> 'void (lua_State *, const char *, size_t)':'void (lua_State *, const char *, size_t)' Function 0x55fb42193808 'lua_pushlstring' 'void (lua_State *, const char *, size_t)':'void (lua_State *, const char *, size_t)'
+lua_pushlstring
+   2: ImplicitCastExpr 0x55fb421b3960 <./lua.h:274:2> 'void (*)(lua_State *, const char *, size_t)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55fb421b37a0 <col:2> 'void (lua_State *, const char *, size_t)':'void (lua_State *, const char *, size_t)' Function 0x55fb42193808 'lua_pushlstring' 'void (lua_State *, const char *, size_t)':'void (lua_State *, const char *, size_t)'
+[B2.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(lua_State *, const char *, size_t))
+   3: DeclRefExpr 0x55fb421b37c8 <lstrlib.c:52:24> 'lua_State *' lvalue ParmVar 0x55fb421b2758 'L' 'lua_State *'
+L
+   4: ImplicitCastExpr 0x55fb421b39b8 <lstrlib.c:52:24> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55fb421b37c8 <col:24> 'lua_State *' lvalue ParmVar 0x55fb421b2758 'L' 'lua_State *'
+[B2.3] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   5: StringLiteral 0x55fb421b37f0 <./lua.h:274:21, lstrlib.c:52:27> 'char [1]' lvalue ""
+""
+   6: ImplicitCastExpr 0x55fb421b39d0 <./lua.h:274:21, lstrlib.c:52:27> 'char *' <ArrayToPointerDecay>
+`-StringLiteral 0x55fb421b37f0 <./lua.h:274:21, lstrlib.c:52:27> 'char [1]' lvalue ""
+[B2.5] (ImplicitCastExpr, ArrayToPointerDecay, char *)
+   7: ImplicitCastExpr 0x55fb421b39e8 <./lua.h:274:21, lstrlib.c:52:27> 'const char *' <BitCast>
+`-ImplicitCastExpr 0x55fb421b39d0 <./lua.h:274:21, lstrlib.c:52:27> 'char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x55fb421b37f0 <./lua.h:274:21, lstrlib.c:52:27> 'char [1]' lvalue ""
+[B2.6] (ImplicitCastExpr, BitCast, const char *)
+   8: UnaryExprOrTypeTraitExpr 0x55fb421b3868 <./lua.h:274:28, col:36> 'unsigned long' sizeof
+`-ParenExpr 0x55fb421b3848 <col:34, col:36> 'char [1]' lvalue
+  `-StringLiteral 0x55fb421b3820 <lstrlib.c:52:27> 'char [1]' lvalue ""
+sizeof ("")
+   9: UnaryExprOrTypeTraitExpr 0x55fb421b3898 <./lua.h:274:38, col:49> 'unsigned long' sizeof 'char'
+sizeof(char)
+  10: BinaryOperator 0x55fb421b38b8 <./lua.h:274:28, col:49> 'unsigned long' '/'
+|-UnaryExprOrTypeTraitExpr 0x55fb421b3868 <col:28, col:36> 'unsigned long' sizeof
+| `-ParenExpr 0x55fb421b3848 <col:34, col:36> 'char [1]' lvalue
+|   `-StringLiteral 0x55fb421b3820 <lstrlib.c:52:27> 'char [1]' lvalue ""
+`-UnaryExprOrTypeTraitExpr 0x55fb421b3898 <./lua.h:274:38, col:49> 'unsigned long' sizeof 'char'
+[B2.8] / [B2.9]
+  11: IntegerLiteral 0x55fb421b3900 <./lua.h:274:52> 'int' 1
+1
+  12: ImplicitCastExpr 0x55fb421b3920 <./lua.h:274:52> 'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x55fb421b3900 <col:52> 'int' 1
+[B2.11] (ImplicitCastExpr, IntegralCast, unsigned long)
+  13: BinaryOperator 0x55fb421b3938 <./lua.h:274:27, col:52> 'unsigned long' '-'
+|-ParenExpr 0x55fb421b38e0 <col:27, col:50> 'unsigned long'
+| `-BinaryOperator 0x55fb421b38b8 <col:28, col:49> 'unsigned long' '/'
+|   |-UnaryExprOrTypeTraitExpr 0x55fb421b3868 <col:28, col:36> 'unsigned long' sizeof
+|   | `-ParenExpr 0x55fb421b3848 <col:34, col:36> 'char [1]' lvalue
+|   |   `-StringLiteral 0x55fb421b3820 <lstrlib.c:52:27> 'char [1]' lvalue ""
+|   `-UnaryExprOrTypeTraitExpr 0x55fb421b3898 <./lua.h:274:38, col:49> 'unsigned long' sizeof 'char'
+`-ImplicitCastExpr 0x55fb421b3920 <col:52> 'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x55fb421b3900 <col:52> 'int' 1
+([B2.10]) - [B2.12]
+  14: CallExpr 0x55fb421b3978 <./lua.h:274:2, col:53> 'void'
+|-ImplicitCastExpr 0x55fb421b3960 <col:2> 'void (*)(lua_State *, const char *, size_t)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55fb421b37a0 <col:2> 'void (lua_State *, const char *, size_t)':'void (lua_State *, const char *, size_t)' Function 0x55fb42193808 'lua_pushlstring' 'void (lua_State *, const char *, size_t)':'void (lua_State *, const char *, size_t)'
+|-ImplicitCastExpr 0x55fb421b39b8 <lstrlib.c:52:24> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x55fb421b37c8 <col:24> 'lua_State *' lvalue ParmVar 0x55fb421b2758 'L' 'lua_State *'
+|-ImplicitCastExpr 0x55fb421b39e8 <./lua.h:274:21, lstrlib.c:52:27> 'const char *' <BitCast>
+| `-ImplicitCastExpr 0x55fb421b39d0 <./lua.h:274:21, lstrlib.c:52:27> 'char *' <ArrayToPointerDecay>
+|   `-StringLiteral 0x55fb421b37f0 <./lua.h:274:21, lstrlib.c:52:27> 'char [1]' lvalue ""
+`-BinaryOperator 0x55fb421b3938 <./lua.h:274:27, col:52> 'unsigned long' '-'
+  |-ParenExpr 0x55fb421b38e0 <col:27, col:50> 'unsigned long'
+  | `-BinaryOperator 0x55fb421b38b8 <col:28, col:49> 'unsigned long' '/'
+  |   |-UnaryExprOrTypeTraitExpr 0x55fb421b3868 <col:28, col:36> 'unsigned long' sizeof
+  |   | `-ParenExpr 0x55fb421b3848 <col:34, col:36> 'char [1]' lvalue
+  |   |   `-StringLiteral 0x55fb421b3820 <lstrlib.c:52:27> 'char [1]' lvalue ""
+  |   `-UnaryExprOrTypeTraitExpr 0x55fb421b3898 <./lua.h:274:38, col:49> 'unsigned long' sizeof 'char'
+  `-ImplicitCastExpr 0x55fb421b3920 <col:52> 'unsigned long' <IntegralCast>
+    `-IntegerLiteral 0x55fb421b3900 <col:52> 'int' 1
+[B2.2]([B2.4], [B2.7], [B2.13])
+   Preds (1): B4
+   Succs (1): B1
+
+ [B3]
+   1: DeclRefExpr 0x55fb421b3460 <lstrlib.c:51:5> 'void (lua_State *, const char *, size_t)':'void (lua_State *, const char *, size_t)' Function 0x55fb42193808 'lua_pushlstring' 'void (lua_State *, const char *, size_t)':'void (lua_State *, const char *, size_t)'
+lua_pushlstring
+   2: ImplicitCastExpr 0x55fb421b3718 <lstrlib.c:51:5> 'void (*)(lua_State *, const char *, size_t)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55fb421b3460 <col:5> 'void (lua_State *, const char *, size_t)':'void (lua_State *, const char *, size_t)' Function 0x55fb42193808 'lua_pushlstring' 'void (lua_State *, const char *, size_t)':'void (lua_State *, const char *, size_t)'
+[B3.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(lua_State *, const char *, size_t))
+   3: DeclRefExpr 0x55fb421b3488 <lstrlib.c:51:21> 'lua_State *' lvalue ParmVar 0x55fb421b2758 'L' 'lua_State *'
+L
+   4: ImplicitCastExpr 0x55fb421b3770 <lstrlib.c:51:21> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55fb421b3488 <col:21> 'lua_State *' lvalue ParmVar 0x55fb421b2758 'L' 'lua_State *'
+[B3.3] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   5: DeclRefExpr 0x55fb421b34b0 <lstrlib.c:51:24> 'const char *' lvalue Var 0x55fb421b2930 's' 'const char *'
+s
+   6: ImplicitCastExpr 0x55fb421b3500 <lstrlib.c:51:24> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x55fb421b34b0 <col:24> 'const char *' lvalue Var 0x55fb421b2930 's' 'const char *'
+[B3.5] (ImplicitCastExpr, LValueToRValue, const char *)
+   7: DeclRefExpr 0x55fb421b34d8 <lstrlib.c:51:26> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2ae0 'start' 'ptrdiff_t':'long'
+start
+   8: ImplicitCastExpr 0x55fb421b3518 <lstrlib.c:51:26> 'ptrdiff_t':'long' <LValueToRValue>
+`-DeclRefExpr 0x55fb421b34d8 <col:26> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2ae0 'start' 'ptrdiff_t':'long'
+[B3.7] (ImplicitCastExpr, LValueToRValue, ptrdiff_t)
+   9: BinaryOperator 0x55fb421b3530 <lstrlib.c:51:24, col:26> 'const char *' '+'
+|-ImplicitCastExpr 0x55fb421b3500 <col:24> 'const char *' <LValueToRValue>
+| `-DeclRefExpr 0x55fb421b34b0 <col:24> 'const char *' lvalue Var 0x55fb421b2930 's' 'const char *'
+`-ImplicitCastExpr 0x55fb421b3518 <col:26> 'ptrdiff_t':'long' <LValueToRValue>
+  `-DeclRefExpr 0x55fb421b34d8 <col:26> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2ae0 'start' 'ptrdiff_t':'long'
+[B3.6] + [B3.8]
+  10: IntegerLiteral 0x55fb421b3558 <lstrlib.c:51:32> 'int' 1
+1
+  11: BinaryOperator 0x55fb421b3578 <lstrlib.c:51:24, col:32> 'const char *' '-'
+|-BinaryOperator 0x55fb421b3530 <col:24, col:26> 'const char *' '+'
+| |-ImplicitCastExpr 0x55fb421b3500 <col:24> 'const char *' <LValueToRValue>
+| | `-DeclRefExpr 0x55fb421b34b0 <col:24> 'const char *' lvalue Var 0x55fb421b2930 's' 'const char *'
+| `-ImplicitCastExpr 0x55fb421b3518 <col:26> 'ptrdiff_t':'long' <LValueToRValue>
+|   `-DeclRefExpr 0x55fb421b34d8 <col:26> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2ae0 'start' 'ptrdiff_t':'long'
+`-IntegerLiteral 0x55fb421b3558 <col:32> 'int' 1
+[B3.9] - [B3.10]
+  12: DeclRefExpr 0x55fb421b35a0 <lstrlib.c:51:35> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2db8 'end' 'ptrdiff_t':'long'
+end
+  13: ImplicitCastExpr 0x55fb421b35f0 <lstrlib.c:51:35> 'ptrdiff_t':'long' <LValueToRValue>
+`-DeclRefExpr 0x55fb421b35a0 <col:35> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2db8 'end' 'ptrdiff_t':'long'
+[B3.12] (ImplicitCastExpr, LValueToRValue, ptrdiff_t)
+  14: DeclRefExpr 0x55fb421b35c8 <lstrlib.c:51:39> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2ae0 'start' 'ptrdiff_t':'long'
+start
+  15: ImplicitCastExpr 0x55fb421b3608 <lstrlib.c:51:39> 'ptrdiff_t':'long' <LValueToRValue>
+`-DeclRefExpr 0x55fb421b35c8 <col:39> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2ae0 'start' 'ptrdiff_t':'long'
+[B3.14] (ImplicitCastExpr, LValueToRValue, ptrdiff_t)
+  16: BinaryOperator 0x55fb421b3620 <lstrlib.c:51:35, col:39> 'long' '-'
+|-ImplicitCastExpr 0x55fb421b35f0 <col:35> 'ptrdiff_t':'long' <LValueToRValue>
+| `-DeclRefExpr 0x55fb421b35a0 <col:35> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2db8 'end' 'ptrdiff_t':'long'
+`-ImplicitCastExpr 0x55fb421b3608 <col:39> 'ptrdiff_t':'long' <LValueToRValue>
+  `-DeclRefExpr 0x55fb421b35c8 <col:39> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2ae0 'start' 'ptrdiff_t':'long'
+[B3.13] - [B3.15]
+  17: IntegerLiteral 0x55fb421b3648 <lstrlib.c:51:45> 'int' 1
+1
+  18: ImplicitCastExpr 0x55fb421b3668 <lstrlib.c:51:45> 'long' <IntegralCast>
+`-IntegerLiteral 0x55fb421b3648 <col:45> 'int' 1
+[B3.17] (ImplicitCastExpr, IntegralCast, long)
+  19: BinaryOperator 0x55fb421b3680 <lstrlib.c:51:35, col:45> 'long' '+'
+|-BinaryOperator 0x55fb421b3620 <col:35, col:39> 'long' '-'
+| |-ImplicitCastExpr 0x55fb421b35f0 <col:35> 'ptrdiff_t':'long' <LValueToRValue>
+| | `-DeclRefExpr 0x55fb421b35a0 <col:35> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2db8 'end' 'ptrdiff_t':'long'
+| `-ImplicitCastExpr 0x55fb421b3608 <col:39> 'ptrdiff_t':'long' <LValueToRValue>
+|   `-DeclRefExpr 0x55fb421b35c8 <col:39> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2ae0 'start' 'ptrdiff_t':'long'
+`-ImplicitCastExpr 0x55fb421b3668 <col:45> 'long' <IntegralCast>
+  `-IntegerLiteral 0x55fb421b3648 <col:45> 'int' 1
+[B3.16] + [B3.18]
+  20: ImplicitCastExpr 0x55fb421b3788 <lstrlib.c:51:35, col:45> 'size_t':'unsigned long' <IntegralCast>
+`-BinaryOperator 0x55fb421b3680 <col:35, col:45> 'long' '+'
+  |-BinaryOperator 0x55fb421b3620 <col:35, col:39> 'long' '-'
+  | |-ImplicitCastExpr 0x55fb421b35f0 <col:35> 'ptrdiff_t':'long' <LValueToRValue>
+  | | `-DeclRefExpr 0x55fb421b35a0 <col:35> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2db8 'end' 'ptrdiff_t':'long'
+  | `-ImplicitCastExpr 0x55fb421b3608 <col:39> 'ptrdiff_t':'long' <LValueToRValue>
+  |   `-DeclRefExpr 0x55fb421b35c8 <col:39> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2ae0 'start' 'ptrdiff_t':'long'
+  `-ImplicitCastExpr 0x55fb421b3668 <col:45> 'long' <IntegralCast>
+    `-IntegerLiteral 0x55fb421b3648 <col:45> 'int' 1
+[B3.19] (ImplicitCastExpr, IntegralCast, size_t)
+  21: CallExpr 0x55fb421b3730 <lstrlib.c:51:5, col:46> 'void'
+|-ImplicitCastExpr 0x55fb421b3718 <col:5> 'void (*)(lua_State *, const char *, size_t)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55fb421b3460 <col:5> 'void (lua_State *, const char *, size_t)':'void (lua_State *, const char *, size_t)' Function 0x55fb42193808 'lua_pushlstring' 'void (lua_State *, const char *, size_t)':'void (lua_State *, const char *, size_t)'
+|-ImplicitCastExpr 0x55fb421b3770 <col:21> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x55fb421b3488 <col:21> 'lua_State *' lvalue ParmVar 0x55fb421b2758 'L' 'lua_State *'
+|-BinaryOperator 0x55fb421b3578 <col:24, col:32> 'const char *' '-'
+| |-BinaryOperator 0x55fb421b3530 <col:24, col:26> 'const char *' '+'
+| | |-ImplicitCastExpr 0x55fb421b3500 <col:24> 'const char *' <LValueToRValue>
+| | | `-DeclRefExpr 0x55fb421b34b0 <col:24> 'const char *' lvalue Var 0x55fb421b2930 's' 'const char *'
+| | `-ImplicitCastExpr 0x55fb421b3518 <col:26> 'ptrdiff_t':'long' <LValueToRValue>
+| |   `-DeclRefExpr 0x55fb421b34d8 <col:26> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2ae0 'start' 'ptrdiff_t':'long'
+| `-IntegerLiteral 0x55fb421b3558 <col:32> 'int' 1
+`-ImplicitCastExpr 0x55fb421b3788 <col:35, col:45> 'size_t':'unsigned long' <IntegralCast>
+  `-BinaryOperator 0x55fb421b3680 <col:35, col:45> 'long' '+'
+    |-BinaryOperator 0x55fb421b3620 <col:35, col:39> 'long' '-'
+    | |-ImplicitCastExpr 0x55fb421b35f0 <col:35> 'ptrdiff_t':'long' <LValueToRValue>
+    | | `-DeclRefExpr 0x55fb421b35a0 <col:35> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2db8 'end' 'ptrdiff_t':'long'
+    | `-ImplicitCastExpr 0x55fb421b3608 <col:39> 'ptrdiff_t':'long' <LValueToRValue>
+    |   `-DeclRefExpr 0x55fb421b35c8 <col:39> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2ae0 'start' 'ptrdiff_t':'long'
+    `-ImplicitCastExpr 0x55fb421b3668 <col:45> 'long' <IntegralCast>
+      `-IntegerLiteral 0x55fb421b3648 <col:45> 'int' 1
+[B3.2]([B3.4], [B3.11], [B3.20])
+   Preds (1): B4
+   Succs (1): B1
+
+ [B4]
+   1: DeclRefExpr 0x55fb421b33b8 <lstrlib.c:50:7> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2ae0 'start' 'ptrdiff_t':'long'
+start
+   2: ImplicitCastExpr 0x55fb421b3408 <lstrlib.c:50:7> 'ptrdiff_t':'long' <LValueToRValue>
+`-DeclRefExpr 0x55fb421b33b8 <col:7> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2ae0 'start' 'ptrdiff_t':'long'
+[B4.1] (ImplicitCastExpr, LValueToRValue, ptrdiff_t)
+   3: DeclRefExpr 0x55fb421b33e0 <lstrlib.c:50:16> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2db8 'end' 'ptrdiff_t':'long'
+end
+   4: ImplicitCastExpr 0x55fb421b3420 <lstrlib.c:50:16> 'ptrdiff_t':'long' <LValueToRValue>
+`-DeclRefExpr 0x55fb421b33e0 <col:16> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2db8 'end' 'ptrdiff_t':'long'
+[B4.3] (ImplicitCastExpr, LValueToRValue, ptrdiff_t)
+   5: BinaryOperator 0x55fb421b3438 <lstrlib.c:50:7, col:16> 'int' '<='
+|-ImplicitCastExpr 0x55fb421b3408 <col:7> 'ptrdiff_t':'long' <LValueToRValue>
+| `-DeclRefExpr 0x55fb421b33b8 <col:7> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2ae0 'start' 'ptrdiff_t':'long'
+`-ImplicitCastExpr 0x55fb421b3420 <col:16> 'ptrdiff_t':'long' <LValueToRValue>
+  `-DeclRefExpr 0x55fb421b33e0 <col:16> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2db8 'end' 'ptrdiff_t':'long'
+[B4.2] <= [B4.4]
+   T: if [B4.5]
+   Preds (2): B5 B6
+   Succs (2): B3 B2
+
+ [B5]
+   1: DeclRefExpr 0x55fb421b32e0 <lstrlib.c:49:44> 'size_t':'unsigned long' lvalue Var 0x55fb421b28a0 'l' 'size_t':'unsigned long'
+l
+   2: ImplicitCastExpr 0x55fb421b3318 <lstrlib.c:49:44> 'size_t':'unsigned long' <LValueToRValue>
+`-DeclRefExpr 0x55fb421b32e0 <col:44> 'size_t':'unsigned long' lvalue Var 0x55fb421b28a0 'l' 'size_t':'unsigned long'
+[B5.1] (ImplicitCastExpr, LValueToRValue, size_t)
+   3: CStyleCastExpr 0x55fb421b3330 <lstrlib.c:49:33, col:44> 'ptrdiff_t':'long' <IntegralCast>
+`-ImplicitCastExpr 0x55fb421b3318 <col:44> 'size_t':'unsigned long' <LValueToRValue>
+  `-DeclRefExpr 0x55fb421b32e0 <col:44> 'size_t':'unsigned long' lvalue Var 0x55fb421b28a0 'l' 'size_t':'unsigned long'
+(ptrdiff_t)[B5.2] (CStyleCastExpr, IntegralCast, ptrdiff_t)
+   4: DeclRefExpr 0x55fb421b32b8 <lstrlib.c:49:27> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2db8 'end' 'ptrdiff_t':'long'
+end
+   5: BinaryOperator 0x55fb421b3358 <lstrlib.c:49:27, col:44> 'ptrdiff_t':'long' '='
+|-DeclRefExpr 0x55fb421b32b8 <col:27> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2db8 'end' 'ptrdiff_t':'long'
+`-CStyleCastExpr 0x55fb421b3330 <col:33, col:44> 'ptrdiff_t':'long' <IntegralCast>
+  `-ImplicitCastExpr 0x55fb421b3318 <col:44> 'size_t':'unsigned long' <LValueToRValue>
+    `-DeclRefExpr 0x55fb421b32e0 <col:44> 'size_t':'unsigned long' lvalue Var 0x55fb421b28a0 'l' 'size_t':'unsigned long'
+[B5.4] = [B5.3]
+   Preds (1): B6
+   Succs (1): B4
+
+ [B6]
+   1: DeclRefExpr 0x55fb421b31d8 <lstrlib.c:49:7> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2db8 'end' 'ptrdiff_t':'long'
+end
+   2: ImplicitCastExpr 0x55fb421b3278 <lstrlib.c:49:7> 'ptrdiff_t':'long' <LValueToRValue>
+`-DeclRefExpr 0x55fb421b31d8 <col:7> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2db8 'end' 'ptrdiff_t':'long'
+[B6.1] (ImplicitCastExpr, LValueToRValue, ptrdiff_t)
+   3: DeclRefExpr 0x55fb421b3200 <lstrlib.c:49:24> 'size_t':'unsigned long' lvalue Var 0x55fb421b28a0 'l' 'size_t':'unsigned long'
+l
+   4: ImplicitCastExpr 0x55fb421b3238 <lstrlib.c:49:24> 'size_t':'unsigned long' <LValueToRValue>
+`-DeclRefExpr 0x55fb421b3200 <col:24> 'size_t':'unsigned long' lvalue Var 0x55fb421b28a0 'l' 'size_t':'unsigned long'
+[B6.3] (ImplicitCastExpr, LValueToRValue, size_t)
+   5: CStyleCastExpr 0x55fb421b3250 <lstrlib.c:49:13, col:24> 'ptrdiff_t':'long' <IntegralCast>
+`-ImplicitCastExpr 0x55fb421b3238 <col:24> 'size_t':'unsigned long' <LValueToRValue>
+  `-DeclRefExpr 0x55fb421b3200 <col:24> 'size_t':'unsigned long' lvalue Var 0x55fb421b28a0 'l' 'size_t':'unsigned long'
+(ptrdiff_t)[B6.4] (CStyleCastExpr, IntegralCast, ptrdiff_t)
+   6: BinaryOperator 0x55fb421b3290 <lstrlib.c:49:7, col:24> 'int' '>'
+|-ImplicitCastExpr 0x55fb421b3278 <col:7> 'ptrdiff_t':'long' <LValueToRValue>
+| `-DeclRefExpr 0x55fb421b31d8 <col:7> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2db8 'end' 'ptrdiff_t':'long'
+`-CStyleCastExpr 0x55fb421b3250 <col:13, col:24> 'ptrdiff_t':'long' <IntegralCast>
+  `-ImplicitCastExpr 0x55fb421b3238 <col:24> 'size_t':'unsigned long' <LValueToRValue>
+    `-DeclRefExpr 0x55fb421b3200 <col:24> 'size_t':'unsigned long' lvalue Var 0x55fb421b28a0 'l' 'size_t':'unsigned long'
+[B6.2] > [B6.5]
+   T: if [B6.6]
+   Preds (2): B7 B8
+   Succs (2): B5 B4
+
+ [B7]
+   1: IntegerLiteral 0x55fb421b3140 <lstrlib.c:48:26> 'int' 1
+1
+   2: ImplicitCastExpr 0x55fb421b3160 <lstrlib.c:48:26> 'ptrdiff_t':'long' <IntegralCast>
+`-IntegerLiteral 0x55fb421b3140 <col:26> 'int' 1
+[B7.1] (ImplicitCastExpr, IntegralCast, ptrdiff_t)
+   3: DeclRefExpr 0x55fb421b3118 <lstrlib.c:48:18> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2ae0 'start' 'ptrdiff_t':'long'
+start
+   4: BinaryOperator 0x55fb421b3178 <lstrlib.c:48:18, col:26> 'ptrdiff_t':'long' '='
+|-DeclRefExpr 0x55fb421b3118 <col:18> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2ae0 'start' 'ptrdiff_t':'long'
+`-ImplicitCastExpr 0x55fb421b3160 <col:26> 'ptrdiff_t':'long' <IntegralCast>
+  `-IntegerLiteral 0x55fb421b3140 <col:26> 'int' 1
+[B7.3] = [B7.2]
+   Preds (1): B8
+   Succs (1): B6
+
+ [B8]
+   1: DeclStmt 0x55fb421b2900 <lstrlib.c:44:3, col:11>col:10
+`-VarDecl 0x55fb421b28a0 <col:3, col:10> col:10 used l 'size_t':'unsigned long'
+size_t l;
+   2: DeclRefExpr 0x55fb421b2990 <lstrlib.c:45:19> 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)' Function 0x55fb421a5638 'luaL_checklstring' 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)'
+luaL_checklstring
+   3: ImplicitCastExpr 0x55fb421b2a48 <lstrlib.c:45:19> 'const char *(*)(lua_State *, int, size_t *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55fb421b2990 <col:19> 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)' Function 0x55fb421a5638 'luaL_checklstring' 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)'
+[B8.2] (ImplicitCastExpr, FunctionToPointerDecay, const char *(*)(lua_State *, int, size_t *))
+   4: DeclRefExpr 0x55fb421b29b8 <lstrlib.c:45:37> 'lua_State *' lvalue ParmVar 0x55fb421b2758 'L' 'lua_State *'
+L
+   5: ImplicitCastExpr 0x55fb421b2aa0 <lstrlib.c:45:37> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55fb421b29b8 <col:37> 'lua_State *' lvalue ParmVar 0x55fb421b2758 'L' 'lua_State *'
+[B8.4] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   6: IntegerLiteral 0x55fb421b29e0 <lstrlib.c:45:40> 'int' 1
+1
+   7: DeclRefExpr 0x55fb421b2a00 <lstrlib.c:45:44> 'size_t':'unsigned long' lvalue Var 0x55fb421b28a0 'l' 'size_t':'unsigned long'
+l
+   8: UnaryOperator 0x55fb421b2a28 <lstrlib.c:45:43, col:44> 'size_t *' prefix '&'
+`-DeclRefExpr 0x55fb421b2a00 <col:44> 'size_t':'unsigned long' lvalue Var 0x55fb421b28a0 'l' 'size_t':'unsigned long'
+&[B8.7]
+   9: CallExpr 0x55fb421b2a60 <lstrlib.c:45:19, col:45> 'const char *'
+|-ImplicitCastExpr 0x55fb421b2a48 <col:19> 'const char *(*)(lua_State *, int, size_t *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55fb421b2990 <col:19> 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)' Function 0x55fb421a5638 'luaL_checklstring' 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)'
+|-ImplicitCastExpr 0x55fb421b2aa0 <col:37> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x55fb421b29b8 <col:37> 'lua_State *' lvalue ParmVar 0x55fb421b2758 'L' 'lua_State *'
+|-IntegerLiteral 0x55fb421b29e0 <col:40> 'int' 1
+`-UnaryOperator 0x55fb421b2a28 <col:43, col:44> 'size_t *' prefix '&'
+  `-DeclRefExpr 0x55fb421b2a00 <col:44> 'size_t':'unsigned long' lvalue Var 0x55fb421b28a0 'l' 'size_t':'unsigned long'
+[B8.3]([B8.5], [B8.6], [B8.8])
+  10: DeclStmt 0x55fb421b2ab8 <lstrlib.c:45:3, col:46>col:15
+`-VarDecl 0x55fb421b2930 <col:3, col:45> col:15 used s 'const char *' cinit
+  `-CallExpr 0x55fb421b2a60 <col:19, col:45> 'const char *'
+    |-ImplicitCastExpr 0x55fb421b2a48 <col:19> 'const char *(*)(lua_State *, int, size_t *)' <FunctionToPointerDecay>
+    | `-DeclRefExpr 0x55fb421b2990 <col:19> 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)' Function 0x55fb421a5638 'luaL_checklstring' 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)'
+    |-ImplicitCastExpr 0x55fb421b2aa0 <col:37> 'lua_State *' <LValueToRValue>
+    | `-DeclRefExpr 0x55fb421b29b8 <col:37> 'lua_State *' lvalue ParmVar 0x55fb421b2758 'L' 'lua_State *'
+    |-IntegerLiteral 0x55fb421b29e0 <col:40> 'int' 1
+    `-UnaryOperator 0x55fb421b2a28 <col:43, col:44> 'size_t *' prefix '&'
+      `-DeclRefExpr 0x55fb421b2a00 <col:44> 'size_t':'unsigned long' lvalue Var 0x55fb421b28a0 'l' 'size_t':'unsigned long'
+const char *s = luaL_checklstring(L, 1, &l);
+  11: DeclRefExpr 0x55fb421b2b40 <lstrlib.c:46:21> 'ptrdiff_t (ptrdiff_t, size_t)' Function 0x55fb421b1120 'posrelat' 'ptrdiff_t (ptrdiff_t, size_t)'
+posrelat
+  12: ImplicitCastExpr 0x55fb421b2d28 <lstrlib.c:46:21> 'ptrdiff_t (*)(ptrdiff_t, size_t)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55fb421b2b40 <col:21> 'ptrdiff_t (ptrdiff_t, size_t)' Function 0x55fb421b1120 'posrelat' 'ptrdiff_t (ptrdiff_t, size_t)'
+[B8.11] (ImplicitCastExpr, FunctionToPointerDecay, ptrdiff_t (*)(ptrdiff_t, size_t))
+  13: DeclRefExpr 0x55fb421b2b68 <lstrlib.c:46:30> 'lua_Integer (lua_State *, int)':'lua_Integer (lua_State *, int)' Function 0x55fb421a60a0 'luaL_checkinteger' 'lua_Integer (lua_State *, int)':'lua_Integer (lua_State *, int)'
+luaL_checkinteger
+  14: ImplicitCastExpr 0x55fb421b2c38 <lstrlib.c:46:30> 'lua_Integer (*)(lua_State *, int)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55fb421b2b68 <col:30> 'lua_Integer (lua_State *, int)':'lua_Integer (lua_State *, int)' Function 0x55fb421a60a0 'luaL_checkinteger' 'lua_Integer (lua_State *, int)':'lua_Integer (lua_State *, int)'
+[B8.13] (ImplicitCastExpr, FunctionToPointerDecay, lua_Integer (*)(lua_State *, int))
+  15: DeclRefExpr 0x55fb421b2b90 <lstrlib.c:46:48> 'lua_State *' lvalue ParmVar 0x55fb421b2758 'L' 'lua_State *'
+L
+  16: ImplicitCastExpr 0x55fb421b2c88 <lstrlib.c:46:48> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55fb421b2b90 <col:48> 'lua_State *' lvalue ParmVar 0x55fb421b2758 'L' 'lua_State *'
+[B8.15] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  17: IntegerLiteral 0x55fb421b2bb8 <lstrlib.c:46:51> 'int' 2
+2
+  18: CallExpr 0x55fb421b2c50 <lstrlib.c:46:30, col:52> 'lua_Integer':'long'
+|-ImplicitCastExpr 0x55fb421b2c38 <col:30> 'lua_Integer (*)(lua_State *, int)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55fb421b2b68 <col:30> 'lua_Integer (lua_State *, int)':'lua_Integer (lua_State *, int)' Function 0x55fb421a60a0 'luaL_checkinteger' 'lua_Integer (lua_State *, int)':'lua_Integer (lua_State *, int)'
+|-ImplicitCastExpr 0x55fb421b2c88 <col:48> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x55fb421b2b90 <col:48> 'lua_State *' lvalue ParmVar 0x55fb421b2758 'L' 'lua_State *'
+`-IntegerLiteral 0x55fb421b2bb8 <col:51> 'int' 2
+[B8.14]([B8.16], [B8.17])
+  19: DeclRefExpr 0x55fb421b2ca0 <lstrlib.c:46:55> 'size_t':'unsigned long' lvalue Var 0x55fb421b28a0 'l' 'size_t':'unsigned long'
+l
+  20: ImplicitCastExpr 0x55fb421b2d78 <lstrlib.c:46:55> 'size_t':'unsigned long' <LValueToRValue>
+`-DeclRefExpr 0x55fb421b2ca0 <col:55> 'size_t':'unsigned long' lvalue Var 0x55fb421b28a0 'l' 'size_t':'unsigned long'
+[B8.19] (ImplicitCastExpr, LValueToRValue, size_t)
+  21: CallExpr 0x55fb421b2d40 <lstrlib.c:46:21, col:56> 'ptrdiff_t':'long'
+|-ImplicitCastExpr 0x55fb421b2d28 <col:21> 'ptrdiff_t (*)(ptrdiff_t, size_t)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55fb421b2b40 <col:21> 'ptrdiff_t (ptrdiff_t, size_t)' Function 0x55fb421b1120 'posrelat' 'ptrdiff_t (ptrdiff_t, size_t)'
+|-CallExpr 0x55fb421b2c50 <col:30, col:52> 'lua_Integer':'long'
+| |-ImplicitCastExpr 0x55fb421b2c38 <col:30> 'lua_Integer (*)(lua_State *, int)' <FunctionToPointerDecay>
+| | `-DeclRefExpr 0x55fb421b2b68 <col:30> 'lua_Integer (lua_State *, int)':'lua_Integer (lua_State *, int)' Function 0x55fb421a60a0 'luaL_checkinteger' 'lua_Integer (lua_State *, int)':'lua_Integer (lua_State *, int)'
+| |-ImplicitCastExpr 0x55fb421b2c88 <col:48> 'lua_State *' <LValueToRValue>
+| | `-DeclRefExpr 0x55fb421b2b90 <col:48> 'lua_State *' lvalue ParmVar 0x55fb421b2758 'L' 'lua_State *'
+| `-IntegerLiteral 0x55fb421b2bb8 <col:51> 'int' 2
+`-ImplicitCastExpr 0x55fb421b2d78 <col:55> 'size_t':'unsigned long' <LValueToRValue>
+  `-DeclRefExpr 0x55fb421b2ca0 <col:55> 'size_t':'unsigned long' lvalue Var 0x55fb421b28a0 'l' 'size_t':'unsigned long'
+[B8.12]([B8.18], [B8.20])
+  22: DeclStmt 0x55fb421b2d90 <lstrlib.c:46:3, col:57>col:13
+`-VarDecl 0x55fb421b2ae0 <col:3, col:56> col:13 used start 'ptrdiff_t':'long' cinit
+  `-CallExpr 0x55fb421b2d40 <col:21, col:56> 'ptrdiff_t':'long'
+    |-ImplicitCastExpr 0x55fb421b2d28 <col:21> 'ptrdiff_t (*)(ptrdiff_t, size_t)' <FunctionToPointerDecay>
+    | `-DeclRefExpr 0x55fb421b2b40 <col:21> 'ptrdiff_t (ptrdiff_t, size_t)' Function 0x55fb421b1120 'posrelat' 'ptrdiff_t (ptrdiff_t, size_t)'
+    |-CallExpr 0x55fb421b2c50 <col:30, col:52> 'lua_Integer':'long'
+    | |-ImplicitCastExpr 0x55fb421b2c38 <col:30> 'lua_Integer (*)(lua_State *, int)' <FunctionToPointerDecay>
+    | | `-DeclRefExpr 0x55fb421b2b68 <col:30> 'lua_Integer (lua_State *, int)':'lua_Integer (lua_State *, int)' Function 0x55fb421a60a0 'luaL_checkinteger' 'lua_Integer (lua_State *, int)':'lua_Integer (lua_State *, int)'
+    | |-ImplicitCastExpr 0x55fb421b2c88 <col:48> 'lua_State *' <LValueToRValue>
+    | | `-DeclRefExpr 0x55fb421b2b90 <col:48> 'lua_State *' lvalue ParmVar 0x55fb421b2758 'L' 'lua_State *'
+    | `-IntegerLiteral 0x55fb421b2bb8 <col:51> 'int' 2
+    `-ImplicitCastExpr 0x55fb421b2d78 <col:55> 'size_t':'unsigned long' <LValueToRValue>
+      `-DeclRefExpr 0x55fb421b2ca0 <col:55> 'size_t':'unsigned long' lvalue Var 0x55fb421b28a0 'l' 'size_t':'unsigned long'
+ptrdiff_t start = posrelat(luaL_checkinteger(L, 2), l);
+  23: DeclRefExpr 0x55fb421b2e18 <lstrlib.c:47:19> 'ptrdiff_t (ptrdiff_t, size_t)' Function 0x55fb421b1120 'posrelat' 'ptrdiff_t (ptrdiff_t, size_t)'
+posrelat
+  24: ImplicitCastExpr 0x55fb421b2ff8 <lstrlib.c:47:19> 'ptrdiff_t (*)(ptrdiff_t, size_t)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55fb421b2e18 <col:19> 'ptrdiff_t (ptrdiff_t, size_t)' Function 0x55fb421b1120 'posrelat' 'ptrdiff_t (ptrdiff_t, size_t)'
+[B8.23] (ImplicitCastExpr, FunctionToPointerDecay, ptrdiff_t (*)(ptrdiff_t, size_t))
+  25: DeclRefExpr 0x55fb421b2e40 <lstrlib.c:47:28> 'lua_Integer (lua_State *, int, lua_Integer)':'lua_Integer (lua_State *, int, lua_Integer)' Function 0x55fb421a63b8 'luaL_optinteger' 'lua_Integer (lua_State *, int, lua_Integer)':'lua_Integer (lua_State *, int, lua_Integer)'
+luaL_optinteger
+  26: ImplicitCastExpr 0x55fb421b2f48 <lstrlib.c:47:28> 'lua_Integer (*)(lua_State *, int, lua_Integer)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55fb421b2e40 <col:28> 'lua_Integer (lua_State *, int, lua_Integer)':'lua_Integer (lua_State *, int, lua_Integer)' Function 0x55fb421a63b8 'luaL_optinteger' 'lua_Integer (lua_State *, int, lua_Integer)':'lua_Integer (lua_State *, int, lua_Integer)'
+[B8.25] (ImplicitCastExpr, FunctionToPointerDecay, lua_Integer (*)(lua_State *, int, lua_Integer))
+  27: DeclRefExpr 0x55fb421b2e68 <lstrlib.c:47:44> 'lua_State *' lvalue ParmVar 0x55fb421b2758 'L' 'lua_State *'
+L
+  28: ImplicitCastExpr 0x55fb421b2fa0 <lstrlib.c:47:44> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55fb421b2e68 <col:44> 'lua_State *' lvalue ParmVar 0x55fb421b2758 'L' 'lua_State *'
+[B8.27] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  29: IntegerLiteral 0x55fb421b2e90 <lstrlib.c:47:47> 'int' 3
+3
+  30: IntegerLiteral 0x55fb421b2eb0 <lstrlib.c:47:51> 'int' 1
+1
+  31: UnaryOperator 0x55fb421b2ed0 <lstrlib.c:47:50, col:51> 'int' prefix '-'
+`-IntegerLiteral 0x55fb421b2eb0 <col:51> 'int' 1
+-[B8.30]
+  32: ImplicitCastExpr 0x55fb421b2fb8 <lstrlib.c:47:50, col:51> 'lua_Integer':'long' <IntegralCast>
+`-UnaryOperator 0x55fb421b2ed0 <col:50, col:51> 'int' prefix '-'
+  `-IntegerLiteral 0x55fb421b2eb0 <col:51> 'int' 1
+[B8.31] (ImplicitCastExpr, IntegralCast, lua_Integer)
+  33: CallExpr 0x55fb421b2f60 <lstrlib.c:47:28, col:52> 'lua_Integer':'long'
+|-ImplicitCastExpr 0x55fb421b2f48 <col:28> 'lua_Integer (*)(lua_State *, int, lua_Integer)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55fb421b2e40 <col:28> 'lua_Integer (lua_State *, int, lua_Integer)':'lua_Integer (lua_State *, int, lua_Integer)' Function 0x55fb421a63b8 'luaL_optinteger' 'lua_Integer (lua_State *, int, lua_Integer)':'lua_Integer (lua_State *, int, lua_Integer)'
+|-ImplicitCastExpr 0x55fb421b2fa0 <col:44> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x55fb421b2e68 <col:44> 'lua_State *' lvalue ParmVar 0x55fb421b2758 'L' 'lua_State *'
+|-IntegerLiteral 0x55fb421b2e90 <col:47> 'int' 3
+`-ImplicitCastExpr 0x55fb421b2fb8 <col:50, col:51> 'lua_Integer':'long' <IntegralCast>
+  `-UnaryOperator 0x55fb421b2ed0 <col:50, col:51> 'int' prefix '-'
+    `-IntegerLiteral 0x55fb421b2eb0 <col:51> 'int' 1
+[B8.26]([B8.28], [B8.29], [B8.32])
+  34: DeclRefExpr 0x55fb421b2fd0 <lstrlib.c:47:55> 'size_t':'unsigned long' lvalue Var 0x55fb421b28a0 'l' 'size_t':'unsigned long'
+l
+  35: ImplicitCastExpr 0x55fb421b3048 <lstrlib.c:47:55> 'size_t':'unsigned long' <LValueToRValue>
+`-DeclRefExpr 0x55fb421b2fd0 <col:55> 'size_t':'unsigned long' lvalue Var 0x55fb421b28a0 'l' 'size_t':'unsigned long'
+[B8.34] (ImplicitCastExpr, LValueToRValue, size_t)
+  36: CallExpr 0x55fb421b3010 <lstrlib.c:47:19, col:56> 'ptrdiff_t':'long'
+|-ImplicitCastExpr 0x55fb421b2ff8 <col:19> 'ptrdiff_t (*)(ptrdiff_t, size_t)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55fb421b2e18 <col:19> 'ptrdiff_t (ptrdiff_t, size_t)' Function 0x55fb421b1120 'posrelat' 'ptrdiff_t (ptrdiff_t, size_t)'
+|-CallExpr 0x55fb421b2f60 <col:28, col:52> 'lua_Integer':'long'
+| |-ImplicitCastExpr 0x55fb421b2f48 <col:28> 'lua_Integer (*)(lua_State *, int, lua_Integer)' <FunctionToPointerDecay>
+| | `-DeclRefExpr 0x55fb421b2e40 <col:28> 'lua_Integer (lua_State *, int, lua_Integer)':'lua_Integer (lua_State *, int, lua_Integer)' Function 0x55fb421a63b8 'luaL_optinteger' 'lua_Integer (lua_State *, int, lua_Integer)':'lua_Integer (lua_State *, int, lua_Integer)'
+| |-ImplicitCastExpr 0x55fb421b2fa0 <col:44> 'lua_State *' <LValueToRValue>
+| | `-DeclRefExpr 0x55fb421b2e68 <col:44> 'lua_State *' lvalue ParmVar 0x55fb421b2758 'L' 'lua_State *'
+| |-IntegerLiteral 0x55fb421b2e90 <col:47> 'int' 3
+| `-ImplicitCastExpr 0x55fb421b2fb8 <col:50, col:51> 'lua_Integer':'long' <IntegralCast>
+|   `-UnaryOperator 0x55fb421b2ed0 <col:50, col:51> 'int' prefix '-'
+|     `-IntegerLiteral 0x55fb421b2eb0 <col:51> 'int' 1
+`-ImplicitCastExpr 0x55fb421b3048 <col:55> 'size_t':'unsigned long' <LValueToRValue>
+  `-DeclRefExpr 0x55fb421b2fd0 <col:55> 'size_t':'unsigned long' lvalue Var 0x55fb421b28a0 'l' 'size_t':'unsigned long'
+[B8.24]([B8.33], [B8.35])
+  37: DeclStmt 0x55fb421b3060 <lstrlib.c:47:3, col:57>col:13
+`-VarDecl 0x55fb421b2db8 <col:3, col:56> col:13 used end 'ptrdiff_t':'long' cinit
+  `-CallExpr 0x55fb421b3010 <col:19, col:56> 'ptrdiff_t':'long'
+    |-ImplicitCastExpr 0x55fb421b2ff8 <col:19> 'ptrdiff_t (*)(ptrdiff_t, size_t)' <FunctionToPointerDecay>
+    | `-DeclRefExpr 0x55fb421b2e18 <col:19> 'ptrdiff_t (ptrdiff_t, size_t)' Function 0x55fb421b1120 'posrelat' 'ptrdiff_t (ptrdiff_t, size_t)'
+    |-CallExpr 0x55fb421b2f60 <col:28, col:52> 'lua_Integer':'long'
+    | |-ImplicitCastExpr 0x55fb421b2f48 <col:28> 'lua_Integer (*)(lua_State *, int, lua_Integer)' <FunctionToPointerDecay>
+    | | `-DeclRefExpr 0x55fb421b2e40 <col:28> 'lua_Integer (lua_State *, int, lua_Integer)':'lua_Integer (lua_State *, int, lua_Integer)' Function 0x55fb421a63b8 'luaL_optinteger' 'lua_Integer (lua_State *, int, lua_Integer)':'lua_Integer (lua_State *, int, lua_Integer)'
+    | |-ImplicitCastExpr 0x55fb421b2fa0 <col:44> 'lua_State *' <LValueToRValue>
+    | | `-DeclRefExpr 0x55fb421b2e68 <col:44> 'lua_State *' lvalue ParmVar 0x55fb421b2758 'L' 'lua_State *'
+    | |-IntegerLiteral 0x55fb421b2e90 <col:47> 'int' 3
+    | `-ImplicitCastExpr 0x55fb421b2fb8 <col:50, col:51> 'lua_Integer':'long' <IntegralCast>
+    |   `-UnaryOperator 0x55fb421b2ed0 <col:50, col:51> 'int' prefix '-'
+    |     `-IntegerLiteral 0x55fb421b2eb0 <col:51> 'int' 1
+    `-ImplicitCastExpr 0x55fb421b3048 <col:55> 'size_t':'unsigned long' <LValueToRValue>
+      `-DeclRefExpr 0x55fb421b2fd0 <col:55> 'size_t':'unsigned long' lvalue Var 0x55fb421b28a0 'l' 'size_t':'unsigned long'
+ptrdiff_t end = posrelat(luaL_optinteger(L, 3, -1), l);
+  38: DeclRefExpr 0x55fb421b3078 <lstrlib.c:48:7> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2ae0 'start' 'ptrdiff_t':'long'
+start
+  39: ImplicitCastExpr 0x55fb421b30c0 <lstrlib.c:48:7> 'ptrdiff_t':'long' <LValueToRValue>
+`-DeclRefExpr 0x55fb421b3078 <col:7> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2ae0 'start' 'ptrdiff_t':'long'
+[B8.38] (ImplicitCastExpr, LValueToRValue, ptrdiff_t)
+  40: IntegerLiteral 0x55fb421b30a0 <lstrlib.c:48:15> 'int' 1
+1
+  41: ImplicitCastExpr 0x55fb421b30d8 <lstrlib.c:48:15> 'long' <IntegralCast>
+`-IntegerLiteral 0x55fb421b30a0 <col:15> 'int' 1
+[B8.40] (ImplicitCastExpr, IntegralCast, long)
+  42: BinaryOperator 0x55fb421b30f0 <lstrlib.c:48:7, col:15> 'int' '<'
+|-ImplicitCastExpr 0x55fb421b30c0 <col:7> 'ptrdiff_t':'long' <LValueToRValue>
+| `-DeclRefExpr 0x55fb421b3078 <col:7> 'ptrdiff_t':'long' lvalue Var 0x55fb421b2ae0 'start' 'ptrdiff_t':'long'
+`-ImplicitCastExpr 0x55fb421b30d8 <col:15> 'long' <IntegralCast>
+  `-IntegerLiteral 0x55fb421b30a0 <col:15> 'int' 1
+[B8.39] < [B8.41]
+   T: if [B8.42]
+   Preds (1): B9
+   Succs (2): B7 B6
+
+ [B0 (EXIT)]
+   Preds (1): B1

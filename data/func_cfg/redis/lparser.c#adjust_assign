@@ -1,0 +1,413 @@
+static void adjust_assign(LexState *ls, int nvars, int nexps, expdesc *e)
+ [B11 (ENTRY)]
+   Succs (1): B10
+
+ [B1]
+   1: DeclRefExpr 0x558fa8eff960 <lparser.c:268:17> 'FuncState *' lvalue Var 0x558fa8efeb80 'fs' 'FuncState *'
+fs
+   2: ImplicitCastExpr 0x558fa8eff988 <lparser.c:268:17> 'FuncState *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8eff960 <col:17> 'FuncState *' lvalue Var 0x558fa8efeb80 'fs' 'FuncState *'
+[B1.1] (ImplicitCastExpr, LValueToRValue, FuncState *)
+   3: MemberExpr 0x558fa8eff9a0 <lparser.c:268:17, col:21> 'int' lvalue ->freereg 0x558fa8eb42f0
+`-ImplicitCastExpr 0x558fa8eff988 <col:17> 'FuncState *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8eff960 <col:17> 'FuncState *' lvalue Var 0x558fa8efeb80 'fs' 'FuncState *'
+[B1.2]->freereg
+   4: ImplicitCastExpr 0x558fa8eff9d8 <lparser.c:268:17, col:21> 'int' <LValueToRValue>
+`-MemberExpr 0x558fa8eff9a0 <col:17, col:21> 'int' lvalue ->freereg 0x558fa8eb42f0
+  `-ImplicitCastExpr 0x558fa8eff988 <col:17> 'FuncState *' <LValueToRValue>
+    `-DeclRefExpr 0x558fa8eff960 <col:17> 'FuncState *' lvalue Var 0x558fa8efeb80 'fs' 'FuncState *'
+[B1.3] (ImplicitCastExpr, LValueToRValue, int)
+   5: DeclStmt 0x558fa8eff9f0 <lparser.c:268:7, col:28>col:11
+`-VarDecl 0x558fa8eff900 <col:7, col:21> col:11 used reg 'int' cinit
+  `-ImplicitCastExpr 0x558fa8eff9d8 <col:17, col:21> 'int' <LValueToRValue>
+    `-MemberExpr 0x558fa8eff9a0 <col:17, col:21> 'int' lvalue ->freereg 0x558fa8eb42f0
+      `-ImplicitCastExpr 0x558fa8eff988 <col:17> 'FuncState *' <LValueToRValue>
+        `-DeclRefExpr 0x558fa8eff960 <col:17> 'FuncState *' lvalue Var 0x558fa8efeb80 'fs' 'FuncState *'
+int reg = fs->freereg;
+   6: DeclRefExpr 0x558fa8effa08 <lparser.c:269:7> 'void (FuncState *, int)' Function 0x558fa8eb9d18 'luaK_reserveregs' 'void (FuncState *, int)'
+luaK_reserveregs
+   7: ImplicitCastExpr 0x558fa8effa80 <lparser.c:269:7> 'void (*)(FuncState *, int)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x558fa8effa08 <col:7> 'void (FuncState *, int)' Function 0x558fa8eb9d18 'luaK_reserveregs' 'void (FuncState *, int)'
+[B1.6] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(FuncState *, int))
+   8: DeclRefExpr 0x558fa8effa30 <lparser.c:269:24> 'FuncState *' lvalue Var 0x558fa8efeb80 'fs' 'FuncState *'
+fs
+   9: ImplicitCastExpr 0x558fa8effad0 <lparser.c:269:24> 'FuncState *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8effa30 <col:24> 'FuncState *' lvalue Var 0x558fa8efeb80 'fs' 'FuncState *'
+[B1.8] (ImplicitCastExpr, LValueToRValue, FuncState *)
+  10: DeclRefExpr 0x558fa8effa58 <lparser.c:269:28> 'int' lvalue Var 0x558fa8efeca0 'extra' 'int'
+extra
+  11: ImplicitCastExpr 0x558fa8effae8 <lparser.c:269:28> 'int' <LValueToRValue>
+`-DeclRefExpr 0x558fa8effa58 <col:28> 'int' lvalue Var 0x558fa8efeca0 'extra' 'int'
+[B1.10] (ImplicitCastExpr, LValueToRValue, int)
+  12: CallExpr 0x558fa8effa98 <lparser.c:269:7, col:33> 'void'
+|-ImplicitCastExpr 0x558fa8effa80 <col:7> 'void (*)(FuncState *, int)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x558fa8effa08 <col:7> 'void (FuncState *, int)' Function 0x558fa8eb9d18 'luaK_reserveregs' 'void (FuncState *, int)'
+|-ImplicitCastExpr 0x558fa8effad0 <col:24> 'FuncState *' <LValueToRValue>
+| `-DeclRefExpr 0x558fa8effa30 <col:24> 'FuncState *' lvalue Var 0x558fa8efeb80 'fs' 'FuncState *'
+`-ImplicitCastExpr 0x558fa8effae8 <col:28> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8effa58 <col:28> 'int' lvalue Var 0x558fa8efeca0 'extra' 'int'
+[B1.7]([B1.9], [B1.11])
+  13: DeclRefExpr 0x558fa8effb00 <lparser.c:270:7> 'void (FuncState *, int, int)' Function 0x558fa8eb9ad0 'luaK_nil' 'void (FuncState *, int, int)'
+luaK_nil
+  14: ImplicitCastExpr 0x558fa8effbf8 <lparser.c:270:7> 'void (*)(FuncState *, int, int)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x558fa8effb00 <col:7> 'void (FuncState *, int, int)' Function 0x558fa8eb9ad0 'luaK_nil' 'void (FuncState *, int, int)'
+[B1.13] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(FuncState *, int, int))
+  15: DeclRefExpr 0x558fa8effb28 <lparser.c:270:16> 'FuncState *' lvalue Var 0x558fa8efeb80 'fs' 'FuncState *'
+fs
+  16: ImplicitCastExpr 0x558fa8effc50 <lparser.c:270:16> 'FuncState *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8effb28 <col:16> 'FuncState *' lvalue Var 0x558fa8efeb80 'fs' 'FuncState *'
+[B1.15] (ImplicitCastExpr, LValueToRValue, FuncState *)
+  17: DeclRefExpr 0x558fa8effb50 <lparser.c:270:20> 'int' lvalue Var 0x558fa8eff900 'reg' 'int'
+reg
+  18: ImplicitCastExpr 0x558fa8effc68 <lparser.c:270:20> 'int' <LValueToRValue>
+`-DeclRefExpr 0x558fa8effb50 <col:20> 'int' lvalue Var 0x558fa8eff900 'reg' 'int'
+[B1.17] (ImplicitCastExpr, LValueToRValue, int)
+  19: DeclRefExpr 0x558fa8effb78 <lparser.c:270:25> 'int' lvalue Var 0x558fa8efeca0 'extra' 'int'
+extra
+  20: ImplicitCastExpr 0x558fa8effc80 <lparser.c:270:25> 'int' <LValueToRValue>
+`-DeclRefExpr 0x558fa8effb78 <col:25> 'int' lvalue Var 0x558fa8efeca0 'extra' 'int'
+[B1.19] (ImplicitCastExpr, LValueToRValue, int)
+  21: CallExpr 0x558fa8effc10 <lparser.c:270:7, col:30> 'void'
+|-ImplicitCastExpr 0x558fa8effbf8 <col:7> 'void (*)(FuncState *, int, int)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x558fa8effb00 <col:7> 'void (FuncState *, int, int)' Function 0x558fa8eb9ad0 'luaK_nil' 'void (FuncState *, int, int)'
+|-ImplicitCastExpr 0x558fa8effc50 <col:16> 'FuncState *' <LValueToRValue>
+| `-DeclRefExpr 0x558fa8effb28 <col:16> 'FuncState *' lvalue Var 0x558fa8efeb80 'fs' 'FuncState *'
+|-ImplicitCastExpr 0x558fa8effc68 <col:20> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x558fa8effb50 <col:20> 'int' lvalue Var 0x558fa8eff900 'reg' 'int'
+`-ImplicitCastExpr 0x558fa8effc80 <col:25> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8effb78 <col:25> 'int' lvalue Var 0x558fa8efeca0 'extra' 'int'
+[B1.14]([B1.16], [B1.18], [B1.20])
+   Preds (1): B2
+   Succs (1): B0
+
+ [B2]
+   1: DeclRefExpr 0x558fa8eff860 <lparser.c:267:9> 'int' lvalue Var 0x558fa8efeca0 'extra' 'int'
+extra
+   2: ImplicitCastExpr 0x558fa8eff8a8 <lparser.c:267:9> 'int' <LValueToRValue>
+`-DeclRefExpr 0x558fa8eff860 <col:9> 'int' lvalue Var 0x558fa8efeca0 'extra' 'int'
+[B2.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: IntegerLiteral 0x558fa8eff888 <lparser.c:267:17> 'int' 0
+0
+   4: BinaryOperator 0x558fa8eff8c0 <lparser.c:267:9, col:17> 'int' '>'
+|-ImplicitCastExpr 0x558fa8eff8a8 <col:9> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x558fa8eff860 <col:9> 'int' lvalue Var 0x558fa8efeca0 'extra' 'int'
+`-IntegerLiteral 0x558fa8eff888 <col:17> 'int' 0
+[B2.2] > [B2.3]
+   T: if [B2.4]
+   Preds (2): B3 B4
+   Succs (2): B1 B0
+
+ [B3]
+   1: DeclRefExpr 0x558fa8eff6d0 <lparser.c:266:24> 'void (FuncState *, expdesc *)' Function 0x558fa8ebadc0 'luaK_exp2nextreg' 'void (FuncState *, expdesc *)'
+luaK_exp2nextreg
+   2: ImplicitCastExpr 0x558fa8eff7a8 <lparser.c:266:24> 'void (*)(FuncState *, expdesc *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x558fa8eff6d0 <col:24> 'void (FuncState *, expdesc *)' Function 0x558fa8ebadc0 'luaK_exp2nextreg' 'void (FuncState *, expdesc *)'
+[B3.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(FuncState *, expdesc *))
+   3: DeclRefExpr 0x558fa8eff6f8 <lparser.c:266:41> 'FuncState *' lvalue Var 0x558fa8efeb80 'fs' 'FuncState *'
+fs
+   4: ImplicitCastExpr 0x558fa8eff7f8 <lparser.c:266:41> 'FuncState *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8eff6f8 <col:41> 'FuncState *' lvalue Var 0x558fa8efeb80 'fs' 'FuncState *'
+[B3.3] (ImplicitCastExpr, LValueToRValue, FuncState *)
+   5: DeclRefExpr 0x558fa8eff720 <lparser.c:266:45> 'expdesc *' lvalue ParmVar 0x558fa8efe968 'e' 'expdesc *'
+e
+   6: ImplicitCastExpr 0x558fa8eff810 <lparser.c:266:45> 'expdesc *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8eff720 <col:45> 'expdesc *' lvalue ParmVar 0x558fa8efe968 'e' 'expdesc *'
+[B3.5] (ImplicitCastExpr, LValueToRValue, expdesc *)
+   7: CallExpr 0x558fa8eff7c0 <lparser.c:266:24, col:46> 'void'
+|-ImplicitCastExpr 0x558fa8eff7a8 <col:24> 'void (*)(FuncState *, expdesc *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x558fa8eff6d0 <col:24> 'void (FuncState *, expdesc *)' Function 0x558fa8ebadc0 'luaK_exp2nextreg' 'void (FuncState *, expdesc *)'
+|-ImplicitCastExpr 0x558fa8eff7f8 <col:41> 'FuncState *' <LValueToRValue>
+| `-DeclRefExpr 0x558fa8eff6f8 <col:41> 'FuncState *' lvalue Var 0x558fa8efeb80 'fs' 'FuncState *'
+`-ImplicitCastExpr 0x558fa8eff810 <col:45> 'expdesc *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8eff720 <col:45> 'expdesc *' lvalue ParmVar 0x558fa8efe968 'e' 'expdesc *'
+[B3.2]([B3.4], [B3.6])
+   Preds (1): B4
+   Succs (1): B2
+
+ [B4]
+   1: DeclRefExpr 0x558fa8eff5a8 <lparser.c:266:9> 'expdesc *' lvalue ParmVar 0x558fa8efe968 'e' 'expdesc *'
+e
+   2: ImplicitCastExpr 0x558fa8eff5d0 <lparser.c:266:9> 'expdesc *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8eff5a8 <col:9> 'expdesc *' lvalue ParmVar 0x558fa8efe968 'e' 'expdesc *'
+[B4.1] (ImplicitCastExpr, LValueToRValue, expdesc *)
+   3: MemberExpr 0x558fa8eff5e8 <lparser.c:266:9, col:12> 'expkind':'expkind' lvalue ->k 0x558fa8eb0e70
+`-ImplicitCastExpr 0x558fa8eff5d0 <col:9> 'expdesc *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8eff5a8 <col:9> 'expdesc *' lvalue ParmVar 0x558fa8efe968 'e' 'expdesc *'
+[B4.2]->k
+   4: ImplicitCastExpr 0x558fa8eff660 <lparser.c:266:9, col:12> 'expkind':'expkind' <LValueToRValue>
+`-MemberExpr 0x558fa8eff5e8 <col:9, col:12> 'expkind':'expkind' lvalue ->k 0x558fa8eb0e70
+  `-ImplicitCastExpr 0x558fa8eff5d0 <col:9> 'expdesc *' <LValueToRValue>
+    `-DeclRefExpr 0x558fa8eff5a8 <col:9> 'expdesc *' lvalue ParmVar 0x558fa8efe968 'e' 'expdesc *'
+[B4.3] (ImplicitCastExpr, LValueToRValue, expkind)
+   5: ImplicitCastExpr 0x558fa8eff678 <lparser.c:266:9, col:12> 'unsigned int' <IntegralCast>
+`-ImplicitCastExpr 0x558fa8eff660 <col:9, col:12> 'expkind':'expkind' <LValueToRValue>
+  `-MemberExpr 0x558fa8eff5e8 <col:9, col:12> 'expkind':'expkind' lvalue ->k 0x558fa8eb0e70
+    `-ImplicitCastExpr 0x558fa8eff5d0 <col:9> 'expdesc *' <LValueToRValue>
+      `-DeclRefExpr 0x558fa8eff5a8 <col:9> 'expdesc *' lvalue ParmVar 0x558fa8efe968 'e' 'expdesc *'
+[B4.4] (ImplicitCastExpr, IntegralCast, unsigned int)
+   6: DeclRefExpr 0x558fa8eff620 <lparser.c:266:17> 'int' EnumConstant 0x558fa8eb0890 'VVOID' 'int'
+VVOID
+   7: ImplicitCastExpr 0x558fa8eff690 <lparser.c:266:17> 'unsigned int' <IntegralCast>
+`-DeclRefExpr 0x558fa8eff620 <col:17> 'int' EnumConstant 0x558fa8eb0890 'VVOID' 'int'
+[B4.6] (ImplicitCastExpr, IntegralCast, unsigned int)
+   8: BinaryOperator 0x558fa8eff6a8 <lparser.c:266:9, col:17> 'int' '!='
+|-ImplicitCastExpr 0x558fa8eff678 <col:9, col:12> 'unsigned int' <IntegralCast>
+| `-ImplicitCastExpr 0x558fa8eff660 <col:9, col:12> 'expkind':'expkind' <LValueToRValue>
+|   `-MemberExpr 0x558fa8eff5e8 <col:9, col:12> 'expkind':'expkind' lvalue ->k 0x558fa8eb0e70
+|     `-ImplicitCastExpr 0x558fa8eff5d0 <col:9> 'expdesc *' <LValueToRValue>
+|       `-DeclRefExpr 0x558fa8eff5a8 <col:9> 'expdesc *' lvalue ParmVar 0x558fa8efe968 'e' 'expdesc *'
+`-ImplicitCastExpr 0x558fa8eff690 <col:17> 'unsigned int' <IntegralCast>
+  `-DeclRefExpr 0x558fa8eff620 <col:17> 'int' EnumConstant 0x558fa8eb0890 'VVOID' 'int'
+[B4.5] != [B4.7]
+   T: if [B4.8]
+   Preds (1): B9
+   Succs (2): B3 B2
+
+ [B5]
+   1: DeclRefExpr 0x558fa8eff400 <lparser.c:263:20> 'void (FuncState *, int)' Function 0x558fa8eb9d18 'luaK_reserveregs' 'void (FuncState *, int)'
+luaK_reserveregs
+   2: ImplicitCastExpr 0x558fa8eff4d8 <lparser.c:263:20> 'void (*)(FuncState *, int)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x558fa8eff400 <col:20> 'void (FuncState *, int)' Function 0x558fa8eb9d18 'luaK_reserveregs' 'void (FuncState *, int)'
+[B5.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(FuncState *, int))
+   3: DeclRefExpr 0x558fa8eff428 <lparser.c:263:37> 'FuncState *' lvalue Var 0x558fa8efeb80 'fs' 'FuncState *'
+fs
+   4: ImplicitCastExpr 0x558fa8eff528 <lparser.c:263:37> 'FuncState *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8eff428 <col:37> 'FuncState *' lvalue Var 0x558fa8efeb80 'fs' 'FuncState *'
+[B5.3] (ImplicitCastExpr, LValueToRValue, FuncState *)
+   5: DeclRefExpr 0x558fa8eff450 <lparser.c:263:41> 'int' lvalue Var 0x558fa8efeca0 'extra' 'int'
+extra
+   6: ImplicitCastExpr 0x558fa8eff498 <lparser.c:263:41> 'int' <LValueToRValue>
+`-DeclRefExpr 0x558fa8eff450 <col:41> 'int' lvalue Var 0x558fa8efeca0 'extra' 'int'
+[B5.5] (ImplicitCastExpr, LValueToRValue, int)
+   7: IntegerLiteral 0x558fa8eff478 <lparser.c:263:47> 'int' 1
+1
+   8: BinaryOperator 0x558fa8eff4b0 <lparser.c:263:41, col:47> 'int' '-'
+|-ImplicitCastExpr 0x558fa8eff498 <col:41> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x558fa8eff450 <col:41> 'int' lvalue Var 0x558fa8efeca0 'extra' 'int'
+`-IntegerLiteral 0x558fa8eff478 <col:47> 'int' 1
+[B5.6] - [B5.7]
+   9: CallExpr 0x558fa8eff4f0 <lparser.c:263:20, col:48> 'void'
+|-ImplicitCastExpr 0x558fa8eff4d8 <col:20> 'void (*)(FuncState *, int)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x558fa8eff400 <col:20> 'void (FuncState *, int)' Function 0x558fa8eb9d18 'luaK_reserveregs' 'void (FuncState *, int)'
+|-ImplicitCastExpr 0x558fa8eff528 <col:37> 'FuncState *' <LValueToRValue>
+| `-DeclRefExpr 0x558fa8eff428 <col:37> 'FuncState *' lvalue Var 0x558fa8efeb80 'fs' 'FuncState *'
+`-BinaryOperator 0x558fa8eff4b0 <col:41, col:47> 'int' '-'
+  |-ImplicitCastExpr 0x558fa8eff498 <col:41> 'int' <LValueToRValue>
+  | `-DeclRefExpr 0x558fa8eff450 <col:41> 'int' lvalue Var 0x558fa8efeca0 'extra' 'int'
+  `-IntegerLiteral 0x558fa8eff478 <col:47> 'int' 1
+[B5.2]([B5.4], [B5.8])
+   Preds (1): B6
+   Succs (1): B0
+
+ [B6]
+   1: DeclRefExpr 0x558fa8eff1e0 <lparser.c:262:5> 'void (FuncState *, expdesc *, int)' Function 0x558fa8ebc120 'luaK_setreturns' 'void (FuncState *, expdesc *, int)'
+luaK_setreturns
+   2: ImplicitCastExpr 0x558fa8eff2d8 <lparser.c:262:5> 'void (*)(FuncState *, expdesc *, int)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x558fa8eff1e0 <col:5> 'void (FuncState *, expdesc *, int)' Function 0x558fa8ebc120 'luaK_setreturns' 'void (FuncState *, expdesc *, int)'
+[B6.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(FuncState *, expdesc *, int))
+   3: DeclRefExpr 0x558fa8eff208 <lparser.c:262:21> 'FuncState *' lvalue Var 0x558fa8efeb80 'fs' 'FuncState *'
+fs
+   4: ImplicitCastExpr 0x558fa8eff330 <lparser.c:262:21> 'FuncState *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8eff208 <col:21> 'FuncState *' lvalue Var 0x558fa8efeb80 'fs' 'FuncState *'
+[B6.3] (ImplicitCastExpr, LValueToRValue, FuncState *)
+   5: DeclRefExpr 0x558fa8eff230 <lparser.c:262:25> 'expdesc *' lvalue ParmVar 0x558fa8efe968 'e' 'expdesc *'
+e
+   6: ImplicitCastExpr 0x558fa8eff348 <lparser.c:262:25> 'expdesc *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8eff230 <col:25> 'expdesc *' lvalue ParmVar 0x558fa8efe968 'e' 'expdesc *'
+[B6.5] (ImplicitCastExpr, LValueToRValue, expdesc *)
+   7: DeclRefExpr 0x558fa8eff258 <lparser.c:262:28> 'int' lvalue Var 0x558fa8efeca0 'extra' 'int'
+extra
+   8: ImplicitCastExpr 0x558fa8eff360 <lparser.c:262:28> 'int' <LValueToRValue>
+`-DeclRefExpr 0x558fa8eff258 <col:28> 'int' lvalue Var 0x558fa8efeca0 'extra' 'int'
+[B6.7] (ImplicitCastExpr, LValueToRValue, int)
+   9: CallExpr 0x558fa8eff2f0 <lparser.c:262:5, col:33> 'void'
+|-ImplicitCastExpr 0x558fa8eff2d8 <col:5> 'void (*)(FuncState *, expdesc *, int)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x558fa8eff1e0 <col:5> 'void (FuncState *, expdesc *, int)' Function 0x558fa8ebc120 'luaK_setreturns' 'void (FuncState *, expdesc *, int)'
+|-ImplicitCastExpr 0x558fa8eff330 <col:21> 'FuncState *' <LValueToRValue>
+| `-DeclRefExpr 0x558fa8eff208 <col:21> 'FuncState *' lvalue Var 0x558fa8efeb80 'fs' 'FuncState *'
+|-ImplicitCastExpr 0x558fa8eff348 <col:25> 'expdesc *' <LValueToRValue>
+| `-DeclRefExpr 0x558fa8eff230 <col:25> 'expdesc *' lvalue ParmVar 0x558fa8efe968 'e' 'expdesc *'
+`-ImplicitCastExpr 0x558fa8eff360 <col:28> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8eff258 <col:28> 'int' lvalue Var 0x558fa8efeca0 'extra' 'int'
+[B6.2]([B6.4], [B6.6], [B6.8])
+  10: DeclRefExpr 0x558fa8eff378 <lparser.c:263:9> 'int' lvalue Var 0x558fa8efeca0 'extra' 'int'
+extra
+  11: ImplicitCastExpr 0x558fa8eff3c0 <lparser.c:263:9> 'int' <LValueToRValue>
+`-DeclRefExpr 0x558fa8eff378 <col:9> 'int' lvalue Var 0x558fa8efeca0 'extra' 'int'
+[B6.10] (ImplicitCastExpr, LValueToRValue, int)
+  12: IntegerLiteral 0x558fa8eff3a0 <lparser.c:263:17> 'int' 1
+1
+  13: BinaryOperator 0x558fa8eff3d8 <lparser.c:263:9, col:17> 'int' '>'
+|-ImplicitCastExpr 0x558fa8eff3c0 <col:9> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x558fa8eff378 <col:9> 'int' lvalue Var 0x558fa8efeca0 'extra' 'int'
+`-IntegerLiteral 0x558fa8eff3a0 <col:17> 'int' 1
+[B6.11] > [B6.12]
+   T: if [B6.13]
+   Preds (2): B7 B8
+   Succs (2): B5 B0
+
+ [B7]
+   1: IntegerLiteral 0x558fa8eff160 <lparser.c:261:28> 'int' 0
+0
+   2: DeclRefExpr 0x558fa8eff138 <lparser.c:261:20> 'int' lvalue Var 0x558fa8efeca0 'extra' 'int'
+extra
+   3: BinaryOperator 0x558fa8eff180 <lparser.c:261:20, col:28> 'int' '='
+|-DeclRefExpr 0x558fa8eff138 <col:20> 'int' lvalue Var 0x558fa8efeca0 'extra' 'int'
+`-IntegerLiteral 0x558fa8eff160 <col:28> 'int' 0
+[B7.2] = [B7.1]
+   Preds (1): B8
+   Succs (1): B6
+
+ [B8]
+   1: DeclRefExpr 0x558fa8eff068 <lparser.c:260:5> 'int' lvalue Var 0x558fa8efeca0 'extra' 'int'
+extra
+   2: UnaryOperator 0x558fa8eff090 <lparser.c:260:5, col:10> 'int' postfix '++'
+`-DeclRefExpr 0x558fa8eff068 <col:5> 'int' lvalue Var 0x558fa8efeca0 'extra' 'int'
+[B8.1]++
+   3: DeclRefExpr 0x558fa8eff0b0 <lparser.c:261:9> 'int' lvalue Var 0x558fa8efeca0 'extra' 'int'
+extra
+   4: ImplicitCastExpr 0x558fa8eff0f8 <lparser.c:261:9> 'int' <LValueToRValue>
+`-DeclRefExpr 0x558fa8eff0b0 <col:9> 'int' lvalue Var 0x558fa8efeca0 'extra' 'int'
+[B8.3] (ImplicitCastExpr, LValueToRValue, int)
+   5: IntegerLiteral 0x558fa8eff0d8 <lparser.c:261:17> 'int' 0
+0
+   6: BinaryOperator 0x558fa8eff110 <lparser.c:261:9, col:17> 'int' '<'
+|-ImplicitCastExpr 0x558fa8eff0f8 <col:9> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x558fa8eff0b0 <col:9> 'int' lvalue Var 0x558fa8efeca0 'extra' 'int'
+`-IntegerLiteral 0x558fa8eff0d8 <col:17> 'int' 0
+[B8.4] < [B8.5]
+   T: if [B8.6]
+   Preds (2): B9 B10
+   Succs (2): B7 B6
+
+ [B9]
+   1: DeclRefExpr 0x558fa8efeef0 <lparser.c:259:18> 'expdesc *' lvalue ParmVar 0x558fa8efe968 'e' 'expdesc *'
+e
+   2: ImplicitCastExpr 0x558fa8efef18 <lparser.c:259:18> 'expdesc *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8efeef0 <col:18> 'expdesc *' lvalue ParmVar 0x558fa8efe968 'e' 'expdesc *'
+[B9.1] (ImplicitCastExpr, LValueToRValue, expdesc *)
+   3: MemberExpr 0x558fa8efef30 <lparser.c:259:18, col:21> 'expkind':'expkind' lvalue ->k 0x558fa8eb0e70
+`-ImplicitCastExpr 0x558fa8efef18 <col:18> 'expdesc *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8efeef0 <col:18> 'expdesc *' lvalue ParmVar 0x558fa8efe968 'e' 'expdesc *'
+[B9.2]->k
+   4: ImplicitCastExpr 0x558fa8efefb0 <lparser.c:30:41, col:43> 'expkind':'expkind' <LValueToRValue>
+`-ParenExpr 0x558fa8efef68 <col:41, col:43> 'expkind':'expkind' lvalue
+  `-MemberExpr 0x558fa8efef30 <line:259:18, col:21> 'expkind':'expkind' lvalue ->k 0x558fa8eb0e70
+    `-ImplicitCastExpr 0x558fa8efef18 <col:18> 'expdesc *' <LValueToRValue>
+      `-DeclRefExpr 0x558fa8efeef0 <col:18> 'expdesc *' lvalue ParmVar 0x558fa8efe968 'e' 'expdesc *'
+([B9.3]) (ImplicitCastExpr, LValueToRValue, expkind)
+   5: ImplicitCastExpr 0x558fa8efefc8 <lparser.c:30:41, col:43> 'unsigned int' <IntegralCast>
+`-ImplicitCastExpr 0x558fa8efefb0 <col:41, col:43> 'expkind':'expkind' <LValueToRValue>
+  `-ParenExpr 0x558fa8efef68 <col:41, col:43> 'expkind':'expkind' lvalue
+    `-MemberExpr 0x558fa8efef30 <line:259:18, col:21> 'expkind':'expkind' lvalue ->k 0x558fa8eb0e70
+      `-ImplicitCastExpr 0x558fa8efef18 <col:18> 'expdesc *' <LValueToRValue>
+        `-DeclRefExpr 0x558fa8efeef0 <col:18> 'expdesc *' lvalue ParmVar 0x558fa8efe968 'e' 'expdesc *'
+[B9.4] (ImplicitCastExpr, IntegralCast, unsigned int)
+   6: DeclRefExpr 0x558fa8efef88 <lparser.c:30:48> 'int' EnumConstant 0x558fa8eb0c80 'VVARARG' 'int'
+VVARARG
+   7: ImplicitCastExpr 0x558fa8efefe0 <lparser.c:30:48> 'unsigned int' <IntegralCast>
+`-DeclRefExpr 0x558fa8efef88 <col:48> 'int' EnumConstant 0x558fa8eb0c80 'VVARARG' 'int'
+[B9.6] (ImplicitCastExpr, IntegralCast, unsigned int)
+   8: BinaryOperator 0x558fa8efeff8 <lparser.c:30:41, col:48> 'int' '=='
+|-ImplicitCastExpr 0x558fa8efefc8 <col:41, col:43> 'unsigned int' <IntegralCast>
+| `-ImplicitCastExpr 0x558fa8efefb0 <col:41, col:43> 'expkind':'expkind' <LValueToRValue>
+|   `-ParenExpr 0x558fa8efef68 <col:41, col:43> 'expkind':'expkind' lvalue
+|     `-MemberExpr 0x558fa8efef30 <line:259:18, col:21> 'expkind':'expkind' lvalue ->k 0x558fa8eb0e70
+|       `-ImplicitCastExpr 0x558fa8efef18 <col:18> 'expdesc *' <LValueToRValue>
+|         `-DeclRefExpr 0x558fa8efeef0 <col:18> 'expdesc *' lvalue ParmVar 0x558fa8efe968 'e' 'expdesc *'
+`-ImplicitCastExpr 0x558fa8efefe0 <line:30:48> 'unsigned int' <IntegralCast>
+  `-DeclRefExpr 0x558fa8efef88 <col:48> 'int' EnumConstant 0x558fa8eb0c80 'VVARARG' 'int'
+[B9.5] == [B9.7]
+   T: if ([B10.19] || [B9.8])
+   Preds (1): B10
+   Succs (2): B8 B4
+
+ [B10]
+   1: DeclRefExpr 0x558fa8efebe0 <lparser.c:257:19> 'LexState *' lvalue ParmVar 0x558fa8efe808 'ls' 'LexState *'
+ls
+   2: ImplicitCastExpr 0x558fa8efec08 <lparser.c:257:19> 'LexState *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8efebe0 <col:19> 'LexState *' lvalue ParmVar 0x558fa8efe808 'ls' 'LexState *'
+[B10.1] (ImplicitCastExpr, LValueToRValue, LexState *)
+   3: MemberExpr 0x558fa8efec20 <lparser.c:257:19, col:23> 'struct FuncState *' lvalue ->fs 0x558fa8ea05f0
+`-ImplicitCastExpr 0x558fa8efec08 <col:19> 'LexState *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8efebe0 <col:19> 'LexState *' lvalue ParmVar 0x558fa8efe808 'ls' 'LexState *'
+[B10.2]->fs
+   4: ImplicitCastExpr 0x558fa8efec58 <lparser.c:257:19, col:23> 'struct FuncState *' <LValueToRValue>
+`-MemberExpr 0x558fa8efec20 <col:19, col:23> 'struct FuncState *' lvalue ->fs 0x558fa8ea05f0
+  `-ImplicitCastExpr 0x558fa8efec08 <col:19> 'LexState *' <LValueToRValue>
+    `-DeclRefExpr 0x558fa8efebe0 <col:19> 'LexState *' lvalue ParmVar 0x558fa8efe808 'ls' 'LexState *'
+[B10.3] (ImplicitCastExpr, LValueToRValue, struct FuncState *)
+   5: DeclStmt 0x558fa8efec70 <lparser.c:257:3, col:25>col:14
+`-VarDecl 0x558fa8efeb80 <col:3, col:23> col:14 used fs 'FuncState *' cinit
+  `-ImplicitCastExpr 0x558fa8efec58 <col:19, col:23> 'struct FuncState *' <LValueToRValue>
+    `-MemberExpr 0x558fa8efec20 <col:19, col:23> 'struct FuncState *' lvalue ->fs 0x558fa8ea05f0
+      `-ImplicitCastExpr 0x558fa8efec08 <col:19> 'LexState *' <LValueToRValue>
+        `-DeclRefExpr 0x558fa8efebe0 <col:19> 'LexState *' lvalue ParmVar 0x558fa8efe808 'ls' 'LexState *'
+FuncState *fs = ls->fs;
+   6: DeclRefExpr 0x558fa8efed00 <lparser.c:258:15> 'int' lvalue ParmVar 0x558fa8efe880 'nvars' 'int'
+nvars
+   7: ImplicitCastExpr 0x558fa8efed50 <lparser.c:258:15> 'int' <LValueToRValue>
+`-DeclRefExpr 0x558fa8efed00 <col:15> 'int' lvalue ParmVar 0x558fa8efe880 'nvars' 'int'
+[B10.6] (ImplicitCastExpr, LValueToRValue, int)
+   8: DeclRefExpr 0x558fa8efed28 <lparser.c:258:23> 'int' lvalue ParmVar 0x558fa8efe8f8 'nexps' 'int'
+nexps
+   9: ImplicitCastExpr 0x558fa8efed68 <lparser.c:258:23> 'int' <LValueToRValue>
+`-DeclRefExpr 0x558fa8efed28 <col:23> 'int' lvalue ParmVar 0x558fa8efe8f8 'nexps' 'int'
+[B10.8] (ImplicitCastExpr, LValueToRValue, int)
+  10: BinaryOperator 0x558fa8efed80 <lparser.c:258:15, col:23> 'int' '-'
+|-ImplicitCastExpr 0x558fa8efed50 <col:15> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x558fa8efed00 <col:15> 'int' lvalue ParmVar 0x558fa8efe880 'nvars' 'int'
+`-ImplicitCastExpr 0x558fa8efed68 <col:23> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8efed28 <col:23> 'int' lvalue ParmVar 0x558fa8efe8f8 'nexps' 'int'
+[B10.7] - [B10.9]
+  11: DeclStmt 0x558fa8efeda8 <lparser.c:258:3, col:28>col:7
+`-VarDecl 0x558fa8efeca0 <col:3, col:23> col:7 used extra 'int' cinit
+  `-BinaryOperator 0x558fa8efed80 <col:15, col:23> 'int' '-'
+    |-ImplicitCastExpr 0x558fa8efed50 <col:15> 'int' <LValueToRValue>
+    | `-DeclRefExpr 0x558fa8efed00 <col:15> 'int' lvalue ParmVar 0x558fa8efe880 'nvars' 'int'
+    `-ImplicitCastExpr 0x558fa8efed68 <col:23> 'int' <LValueToRValue>
+      `-DeclRefExpr 0x558fa8efed28 <col:23> 'int' lvalue ParmVar 0x558fa8efe8f8 'nexps' 'int'
+int extra = nvars - nexps;
+  12: DeclRefExpr 0x558fa8efedc0 <lparser.c:259:18> 'expdesc *' lvalue ParmVar 0x558fa8efe968 'e' 'expdesc *'
+e
+  13: ImplicitCastExpr 0x558fa8efede8 <lparser.c:259:18> 'expdesc *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8efedc0 <col:18> 'expdesc *' lvalue ParmVar 0x558fa8efe968 'e' 'expdesc *'
+[B10.12] (ImplicitCastExpr, LValueToRValue, expdesc *)
+  14: MemberExpr 0x558fa8efee00 <lparser.c:259:18, col:21> 'expkind':'expkind' lvalue ->k 0x558fa8eb0e70
+`-ImplicitCastExpr 0x558fa8efede8 <col:18> 'expdesc *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8efedc0 <col:18> 'expdesc *' lvalue ParmVar 0x558fa8efe968 'e' 'expdesc *'
+[B10.13]->k
+  15: ImplicitCastExpr 0x558fa8efee80 <lparser.c:30:25, col:27> 'expkind':'expkind' <LValueToRValue>
+`-ParenExpr 0x558fa8efee38 <col:25, col:27> 'expkind':'expkind' lvalue
+  `-MemberExpr 0x558fa8efee00 <line:259:18, col:21> 'expkind':'expkind' lvalue ->k 0x558fa8eb0e70
+    `-ImplicitCastExpr 0x558fa8efede8 <col:18> 'expdesc *' <LValueToRValue>
+      `-DeclRefExpr 0x558fa8efedc0 <col:18> 'expdesc *' lvalue ParmVar 0x558fa8efe968 'e' 'expdesc *'
+([B10.14]) (ImplicitCastExpr, LValueToRValue, expkind)
+  16: ImplicitCastExpr 0x558fa8efee98 <lparser.c:30:25, col:27> 'unsigned int' <IntegralCast>
+`-ImplicitCastExpr 0x558fa8efee80 <col:25, col:27> 'expkind':'expkind' <LValueToRValue>
+  `-ParenExpr 0x558fa8efee38 <col:25, col:27> 'expkind':'expkind' lvalue
+    `-MemberExpr 0x558fa8efee00 <line:259:18, col:21> 'expkind':'expkind' lvalue ->k 0x558fa8eb0e70
+      `-ImplicitCastExpr 0x558fa8efede8 <col:18> 'expdesc *' <LValueToRValue>
+        `-DeclRefExpr 0x558fa8efedc0 <col:18> 'expdesc *' lvalue ParmVar 0x558fa8efe968 'e' 'expdesc *'
+[B10.15] (ImplicitCastExpr, IntegralCast, unsigned int)
+  17: DeclRefExpr 0x558fa8efee58 <lparser.c:30:32> 'int' EnumConstant 0x558fa8eb0c38 'VCALL' 'int'
+VCALL
+  18: ImplicitCastExpr 0x558fa8efeeb0 <lparser.c:30:32> 'unsigned int' <IntegralCast>
+`-DeclRefExpr 0x558fa8efee58 <col:32> 'int' EnumConstant 0x558fa8eb0c38 'VCALL' 'int'
+[B10.17] (ImplicitCastExpr, IntegralCast, unsigned int)
+  19: BinaryOperator 0x558fa8efeec8 <lparser.c:30:25, col:32> 'int' '=='
+|-ImplicitCastExpr 0x558fa8efee98 <col:25, col:27> 'unsigned int' <IntegralCast>
+| `-ImplicitCastExpr 0x558fa8efee80 <col:25, col:27> 'expkind':'expkind' <LValueToRValue>
+|   `-ParenExpr 0x558fa8efee38 <col:25, col:27> 'expkind':'expkind' lvalue
+|     `-MemberExpr 0x558fa8efee00 <line:259:18, col:21> 'expkind':'expkind' lvalue ->k 0x558fa8eb0e70
+|       `-ImplicitCastExpr 0x558fa8efede8 <col:18> 'expdesc *' <LValueToRValue>
+|         `-DeclRefExpr 0x558fa8efedc0 <col:18> 'expdesc *' lvalue ParmVar 0x558fa8efe968 'e' 'expdesc *'
+`-ImplicitCastExpr 0x558fa8efeeb0 <line:30:32> 'unsigned int' <IntegralCast>
+  `-DeclRefExpr 0x558fa8efee58 <col:32> 'int' EnumConstant 0x558fa8eb0c38 'VCALL' 'int'
+[B10.16] == [B10.18]
+   T: [B10.19] || ...
+   Preds (1): B11
+   Succs (2): B8 B9
+
+ [B0 (EXIT)]
+   Preds (4): B1 B2 B5 B6

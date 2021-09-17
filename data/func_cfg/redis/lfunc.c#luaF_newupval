@@ -1,0 +1,214 @@
+UpVal *luaF_newupval(lua_State *L)
+ [B2 (ENTRY)]
+   Succs (1): B1
+
+ [B1]
+   1: DeclRefExpr 0x558bbfda97a8 <./lmem.h:28:26> 'void *(lua_State *, void *, size_t, size_t)' Function 0x558bbfd91428 'luaM_realloc_' 'void *(lua_State *, void *, size_t, size_t)'
+luaM_realloc_
+   2: ImplicitCastExpr 0x558bbfda98e8 <./lmem.h:28:26> 'void *(*)(lua_State *, void *, size_t, size_t)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x558bbfda97a8 <col:26> 'void *(lua_State *, void *, size_t, size_t)' Function 0x558bbfd91428 'luaM_realloc_' 'void *(lua_State *, void *, size_t, size_t)'
+[B1.1] (ImplicitCastExpr, FunctionToPointerDecay, void *(*)(lua_State *, void *, size_t, size_t))
+   3: DeclRefExpr 0x558bbfda97d0 <lfunc.c:45:24> 'lua_State *' lvalue ParmVar 0x558bbfda89a0 'L' 'lua_State *'
+L
+   4: ImplicitCastExpr 0x558bbfda9948 <lfunc.c:45:24> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x558bbfda97d0 <col:24> 'lua_State *' lvalue ParmVar 0x558bbfda89a0 'L' 'lua_State *'
+[B1.3] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   5: IntegerLiteral 0x558bbfda97f8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+   6: CStyleCastExpr 0x558bbfda9830 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x558bbfda97f8 <col:24> 'int' 0
+(void *)[B1.5] (CStyleCastExpr, NullToPointer, void *)
+   7: IntegerLiteral 0x558bbfda9878 <./lmem.h:28:49> 'int' 0
+0
+   8: ImplicitCastExpr 0x558bbfda9960 <./lmem.h:28:49> 'size_t':'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x558bbfda9878 <col:49> 'int' 0
+[B1.7] (ImplicitCastExpr, IntegralCast, size_t)
+   9: UnaryExprOrTypeTraitExpr 0x558bbfda98a8 <./lmem.h:29:49, col:57> 'unsigned long' sizeof 'UpVal':'struct UpVal'
+sizeof(UpVal)
+  10: CallExpr 0x558bbfda9900 <./lmem.h:28:26, col:55> 'void *'
+|-ImplicitCastExpr 0x558bbfda98e8 <col:26> 'void *(*)(lua_State *, void *, size_t, size_t)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x558bbfda97a8 <col:26> 'void *(lua_State *, void *, size_t, size_t)' Function 0x558bbfd91428 'luaM_realloc_' 'void *(lua_State *, void *, size_t, size_t)'
+|-ImplicitCastExpr 0x558bbfda9948 <lfunc.c:45:24> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x558bbfda97d0 <col:24> 'lua_State *' lvalue ParmVar 0x558bbfda89a0 'L' 'lua_State *'
+|-ParenExpr 0x558bbfda9858 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'void *'
+| `-CStyleCastExpr 0x558bbfda9830 <col:17, col:24> 'void *' <NullToPointer>
+|   `-IntegerLiteral 0x558bbfda97f8 <col:24> 'int' 0
+|-ImplicitCastExpr 0x558bbfda9960 <./lmem.h:28:49> 'size_t':'unsigned long' <IntegralCast>
+| `-IntegerLiteral 0x558bbfda9878 <col:49> 'int' 0
+`-ParenExpr 0x558bbfda98c8 <col:52, col:54> 'unsigned long'
+  `-UnaryExprOrTypeTraitExpr 0x558bbfda98a8 <line:29:49, col:57> 'unsigned long' sizeof 'UpVal':'struct UpVal'
+[B1.2]([B1.4], ([B1.6]), [B1.8], ([B1.9]))
+  11: CStyleCastExpr 0x558bbfda99d8 <./llimits.h:75:23, col:30> 'UpVal *' <BitCast>
+`-ParenExpr 0x558bbfda99b8 <col:26, col:30> 'void *'
+  `-CallExpr 0x558bbfda9900 <./lmem.h:28:26, col:55> 'void *'
+    |-ImplicitCastExpr 0x558bbfda98e8 <col:26> 'void *(*)(lua_State *, void *, size_t, size_t)' <FunctionToPointerDecay>
+    | `-DeclRefExpr 0x558bbfda97a8 <col:26> 'void *(lua_State *, void *, size_t, size_t)' Function 0x558bbfd91428 'luaM_realloc_' 'void *(lua_State *, void *, size_t, size_t)'
+    |-ImplicitCastExpr 0x558bbfda9948 <lfunc.c:45:24> 'lua_State *' <LValueToRValue>
+    | `-DeclRefExpr 0x558bbfda97d0 <col:24> 'lua_State *' lvalue ParmVar 0x558bbfda89a0 'L' 'lua_State *'
+    |-ParenExpr 0x558bbfda9858 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'void *'
+    | `-CStyleCastExpr 0x558bbfda9830 <col:17, col:24> 'void *' <NullToPointer>
+    |   `-IntegerLiteral 0x558bbfda97f8 <col:24> 'int' 0
+    |-ImplicitCastExpr 0x558bbfda9960 <./lmem.h:28:49> 'size_t':'unsigned long' <IntegralCast>
+    | `-IntegerLiteral 0x558bbfda9878 <col:49> 'int' 0
+    `-ParenExpr 0x558bbfda98c8 <col:52, col:54> 'unsigned long'
+      `-UnaryExprOrTypeTraitExpr 0x558bbfda98a8 <line:29:49, col:57> 'unsigned long' sizeof 'UpVal':'struct UpVal'
+(UpVal *)([B1.10]) (CStyleCastExpr, BitCast, UpVal *)
+  12: DeclStmt 0x558bbfda9a20 <lfunc.c:45:3, col:33>col:10
+`-VarDecl 0x558bbfda9748 <col:3, ./llimits.h:75:31> lfunc.c:45:10 used uv 'UpVal *' cinit
+  `-ParenExpr 0x558bbfda9a00 <./llimits.h:75:22, col:31> 'UpVal *'
+    `-CStyleCastExpr 0x558bbfda99d8 <col:23, col:30> 'UpVal *' <BitCast>
+      `-ParenExpr 0x558bbfda99b8 <col:26, col:30> 'void *'
+        `-CallExpr 0x558bbfda9900 <./lmem.h:28:26, col:55> 'void *'
+          |-ImplicitCastExpr 0x558bbfda98e8 <col:26> 'void *(*)(lua_State *, void *, size_t, size_t)' <FunctionToPointerDecay>
+          | `-DeclRefExpr 0x558bbfda97a8 <col:26> 'void *(lua_State *, void *, size_t, size_t)' Function 0x558bbfd91428 'luaM_realloc_' 'void *(lua_State *, void *, size_t, size_t)'
+          |-ImplicitCastExpr 0x558bbfda9948 <lfunc.c:45:24> 'lua_State *' <LValueToRValue>
+          | `-DeclRefExpr 0x558bbfda97d0 <col:24> 'lua_State *' lvalue ParmVar 0x558bbfda89a0 'L' 'lua_State *'
+          |-ParenExpr 0x558bbfda9858 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'void *'
+          | `-CStyleCastExpr 0x558bbfda9830 <col:17, col:24> 'void *' <NullToPointer>
+          |   `-IntegerLiteral 0x558bbfda97f8 <col:24> 'int' 0
+          |-ImplicitCastExpr 0x558bbfda9960 <./lmem.h:28:49> 'size_t':'unsigned long' <IntegralCast>
+          | `-IntegerLiteral 0x558bbfda9878 <col:49> 'int' 0
+          `-ParenExpr 0x558bbfda98c8 <col:52, col:54> 'unsigned long'
+            `-UnaryExprOrTypeTraitExpr 0x558bbfda98a8 <line:29:49, col:57> 'unsigned long' sizeof 'UpVal':'struct UpVal'
+UpVal *uv = ((UpVal *)(luaM_realloc_(L, ((void *)0), 0, (sizeof(UpVal)))));
+  13: DeclRefExpr 0x558bbfda9a38 <lfunc.c:46:3> 'void (lua_State *, GCObject *, lu_byte)' Function 0x558bbfd907c0 'luaC_link' 'void (lua_State *, GCObject *, lu_byte)'
+luaC_link
+  14: ImplicitCastExpr 0x558bbfda9c38 <lfunc.c:46:3> 'void (*)(lua_State *, GCObject *, lu_byte)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x558bbfda9a38 <col:3> 'void (lua_State *, GCObject *, lu_byte)' Function 0x558bbfd907c0 'luaC_link' 'void (lua_State *, GCObject *, lu_byte)'
+[B1.13] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(lua_State *, GCObject *, lu_byte))
+  15: DeclRefExpr 0x558bbfda9a60 <lfunc.c:46:13> 'lua_State *' lvalue ParmVar 0x558bbfda89a0 'L' 'lua_State *'
+L
+  16: ImplicitCastExpr 0x558bbfda9c90 <lfunc.c:46:13> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x558bbfda9a60 <col:13> 'lua_State *' lvalue ParmVar 0x558bbfda89a0 'L' 'lua_State *'
+[B1.15] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  17: DeclRefExpr 0x558bbfda9a88 <lfunc.c:46:24> 'UpVal *' lvalue Var 0x558bbfda9748 'uv' 'UpVal *'
+uv
+  18: ImplicitCastExpr 0x558bbfda9b30 <./llimits.h:75:26, col:30> 'UpVal *' <LValueToRValue>
+`-ParenExpr 0x558bbfda9b10 <col:26, col:30> 'UpVal *' lvalue
+  `-ParenExpr 0x558bbfda9ab0 <./lstate.h:162:38, col:40> 'UpVal *' lvalue
+    `-DeclRefExpr 0x558bbfda9a88 <lfunc.c:46:24> 'UpVal *' lvalue Var 0x558bbfda9748 'uv' 'UpVal *'
+(([B1.17])) (ImplicitCastExpr, LValueToRValue, UpVal *)
+  19: CStyleCastExpr 0x558bbfda9b48 <./llimits.h:75:23, col:30> 'GCObject *' <BitCast>
+`-ImplicitCastExpr 0x558bbfda9b30 <col:26, col:30> 'UpVal *' <LValueToRValue>
+  `-ParenExpr 0x558bbfda9b10 <col:26, col:30> 'UpVal *' lvalue
+    `-ParenExpr 0x558bbfda9ab0 <./lstate.h:162:38, col:40> 'UpVal *' lvalue
+      `-DeclRefExpr 0x558bbfda9a88 <lfunc.c:46:24> 'UpVal *' lvalue Var 0x558bbfda9748 'uv' 'UpVal *'
+(GCObject *)[B1.18] (CStyleCastExpr, BitCast, GCObject *)
+  20: IntegerLiteral 0x558bbfda9bb0 <./lua.h:82:22> 'int' 8
+8
+  21: IntegerLiteral 0x558bbfda9bd0 <./lobject.h:29:30> 'int' 2
+2
+  22: BinaryOperator 0x558bbfda9bf0 <./lua.h:82:22, ./lobject.h:29:30> 'int' '+'
+|-IntegerLiteral 0x558bbfda9bb0 <./lua.h:82:22> 'int' 8
+`-IntegerLiteral 0x558bbfda9bd0 <./lobject.h:29:30> 'int' 2
+[B1.20] + [B1.21]
+  23: ImplicitCastExpr 0x558bbfda9ca8 <./lobject.h:29:20, col:31> 'lu_byte':'unsigned char' <IntegralCast>
+`-ParenExpr 0x558bbfda9c18 <col:20, col:31> 'int'
+  `-BinaryOperator 0x558bbfda9bf0 <./lua.h:82:22, ./lobject.h:29:30> 'int' '+'
+    |-IntegerLiteral 0x558bbfda9bb0 <./lua.h:82:22> 'int' 8
+    `-IntegerLiteral 0x558bbfda9bd0 <./lobject.h:29:30> 'int' 2
+([B1.22]) (ImplicitCastExpr, IntegralCast, lu_byte)
+  24: CallExpr 0x558bbfda9c50 <lfunc.c:46:3, col:39> 'void'
+|-ImplicitCastExpr 0x558bbfda9c38 <col:3> 'void (*)(lua_State *, GCObject *, lu_byte)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x558bbfda9a38 <col:3> 'void (lua_State *, GCObject *, lu_byte)' Function 0x558bbfd907c0 'luaC_link' 'void (lua_State *, GCObject *, lu_byte)'
+|-ImplicitCastExpr 0x558bbfda9c90 <col:13> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x558bbfda9a60 <col:13> 'lua_State *' lvalue ParmVar 0x558bbfda89a0 'L' 'lua_State *'
+|-ParenExpr 0x558bbfda9b90 <./lstate.h:162:20, col:42> 'GCObject *'
+| `-ParenExpr 0x558bbfda9b70 <./llimits.h:75:22, col:31> 'GCObject *'
+|   `-CStyleCastExpr 0x558bbfda9b48 <col:23, col:30> 'GCObject *' <BitCast>
+|     `-ImplicitCastExpr 0x558bbfda9b30 <col:26, col:30> 'UpVal *' <LValueToRValue>
+|       `-ParenExpr 0x558bbfda9b10 <col:26, col:30> 'UpVal *' lvalue
+|         `-ParenExpr 0x558bbfda9ab0 <./lstate.h:162:38, col:40> 'UpVal *' lvalue
+|           `-DeclRefExpr 0x558bbfda9a88 <lfunc.c:46:24> 'UpVal *' lvalue Var 0x558bbfda9748 'uv' 'UpVal *'
+`-ImplicitCastExpr 0x558bbfda9ca8 <./lobject.h:29:20, col:31> 'lu_byte':'unsigned char' <IntegralCast>
+  `-ParenExpr 0x558bbfda9c18 <col:20, col:31> 'int'
+    `-BinaryOperator 0x558bbfda9bf0 <./lua.h:82:22, ./lobject.h:29:30> 'int' '+'
+      |-IntegerLiteral 0x558bbfda9bb0 <./lua.h:82:22> 'int' 8
+      `-IntegerLiteral 0x558bbfda9bd0 <./lobject.h:29:30> 'int' 2
+[B1.14]([B1.16], (([B1.19])), [B1.23])
+  25: DeclRefExpr 0x558bbfda9d38 <lfunc.c:47:12> 'UpVal *' lvalue Var 0x558bbfda9748 'uv' 'UpVal *'
+uv
+  26: ImplicitCastExpr 0x558bbfda9d60 <lfunc.c:47:12> 'UpVal *' <LValueToRValue>
+`-DeclRefExpr 0x558bbfda9d38 <col:12> 'UpVal *' lvalue Var 0x558bbfda9748 'uv' 'UpVal *'
+[B1.25] (ImplicitCastExpr, LValueToRValue, UpVal *)
+  27: MemberExpr 0x558bbfda9d78 <lfunc.c:47:12, col:16> 'union (anonymous union at ./lobject.h:277:3)':'union UpVal::(anonymous at ./lobject.h:277:3)' lvalue ->u 0x558bbfd7f790
+`-ImplicitCastExpr 0x558bbfda9d60 <col:12> 'UpVal *' <LValueToRValue>
+  `-DeclRefExpr 0x558bbfda9d38 <col:12> 'UpVal *' lvalue Var 0x558bbfda9748 'uv' 'UpVal *'
+[B1.26]->u
+  28: MemberExpr 0x558bbfda9db0 <lfunc.c:47:12, col:18> 'TValue':'struct lua_TValue' lvalue .value 0x558bbfd7f3f0
+`-MemberExpr 0x558bbfda9d78 <col:12, col:16> 'union (anonymous union at ./lobject.h:277:3)':'union UpVal::(anonymous at ./lobject.h:277:3)' lvalue ->u 0x558bbfd7f790
+  `-ImplicitCastExpr 0x558bbfda9d60 <col:12> 'UpVal *' <LValueToRValue>
+    `-DeclRefExpr 0x558bbfda9d38 <col:12> 'UpVal *' lvalue Var 0x558bbfda9748 'uv' 'UpVal *'
+[B1.27].value
+  29: UnaryOperator 0x558bbfda9de8 <lfunc.c:47:11, col:18> 'TValue *' prefix '&'
+`-MemberExpr 0x558bbfda9db0 <col:12, col:18> 'TValue':'struct lua_TValue' lvalue .value 0x558bbfd7f3f0
+  `-MemberExpr 0x558bbfda9d78 <col:12, col:16> 'union (anonymous union at ./lobject.h:277:3)':'union UpVal::(anonymous at ./lobject.h:277:3)' lvalue ->u 0x558bbfd7f790
+    `-ImplicitCastExpr 0x558bbfda9d60 <col:12> 'UpVal *' <LValueToRValue>
+      `-DeclRefExpr 0x558bbfda9d38 <col:12> 'UpVal *' lvalue Var 0x558bbfda9748 'uv' 'UpVal *'
+&[B1.28]
+  30: DeclRefExpr 0x558bbfda9cc0 <lfunc.c:47:3> 'UpVal *' lvalue Var 0x558bbfda9748 'uv' 'UpVal *'
+uv
+  31: ImplicitCastExpr 0x558bbfda9ce8 <lfunc.c:47:3> 'UpVal *' <LValueToRValue>
+`-DeclRefExpr 0x558bbfda9cc0 <col:3> 'UpVal *' lvalue Var 0x558bbfda9748 'uv' 'UpVal *'
+[B1.30] (ImplicitCastExpr, LValueToRValue, UpVal *)
+  32: MemberExpr 0x558bbfda9d00 <lfunc.c:47:3, col:7> 'TValue *' lvalue ->v 0x558bbfd7f2e8
+`-ImplicitCastExpr 0x558bbfda9ce8 <col:3> 'UpVal *' <LValueToRValue>
+  `-DeclRefExpr 0x558bbfda9cc0 <col:3> 'UpVal *' lvalue Var 0x558bbfda9748 'uv' 'UpVal *'
+[B1.31]->v
+  33: BinaryOperator 0x558bbfda9e08 <lfunc.c:47:3, col:18> 'TValue *' '='
+|-MemberExpr 0x558bbfda9d00 <col:3, col:7> 'TValue *' lvalue ->v 0x558bbfd7f2e8
+| `-ImplicitCastExpr 0x558bbfda9ce8 <col:3> 'UpVal *' <LValueToRValue>
+|   `-DeclRefExpr 0x558bbfda9cc0 <col:3> 'UpVal *' lvalue Var 0x558bbfda9748 'uv' 'UpVal *'
+`-UnaryOperator 0x558bbfda9de8 <col:11, col:18> 'TValue *' prefix '&'
+  `-MemberExpr 0x558bbfda9db0 <col:12, col:18> 'TValue':'struct lua_TValue' lvalue .value 0x558bbfd7f3f0
+    `-MemberExpr 0x558bbfda9d78 <col:12, col:16> 'union (anonymous union at ./lobject.h:277:3)':'union UpVal::(anonymous at ./lobject.h:277:3)' lvalue ->u 0x558bbfd7f790
+      `-ImplicitCastExpr 0x558bbfda9d60 <col:12> 'UpVal *' <LValueToRValue>
+        `-DeclRefExpr 0x558bbfda9d38 <col:12> 'UpVal *' lvalue Var 0x558bbfda9748 'uv' 'UpVal *'
+[B1.32] = [B1.29]
+  34: IntegerLiteral 0x558bbfda9f18 <./lua.h:74:19> 'int' 0
+0
+  35: DeclRefExpr 0x558bbfda9e30 <lfunc.c:48:15> 'UpVal *' lvalue Var 0x558bbfda9748 'uv' 'UpVal *'
+uv
+  36: ImplicitCastExpr 0x558bbfda9e58 <lfunc.c:48:15> 'UpVal *' <LValueToRValue>
+`-DeclRefExpr 0x558bbfda9e30 <col:15> 'UpVal *' lvalue Var 0x558bbfda9748 'uv' 'UpVal *'
+[B1.35] (ImplicitCastExpr, LValueToRValue, UpVal *)
+  37: MemberExpr 0x558bbfda9e70 <lfunc.c:48:15, col:19> 'TValue *' lvalue ->v 0x558bbfd7f2e8
+`-ImplicitCastExpr 0x558bbfda9e58 <col:15> 'UpVal *' <LValueToRValue>
+  `-DeclRefExpr 0x558bbfda9e30 <col:15> 'UpVal *' lvalue Var 0x558bbfda9748 'uv' 'UpVal *'
+[B1.36]->v
+  38: ImplicitCastExpr 0x558bbfda9ec8 <./lobject.h:117:27, col:31> 'TValue *' <LValueToRValue>
+`-ParenExpr 0x558bbfda9ea8 <col:27, col:31> 'TValue *' lvalue
+  `-MemberExpr 0x558bbfda9e70 <lfunc.c:48:15, col:19> 'TValue *' lvalue ->v 0x558bbfd7f2e8
+    `-ImplicitCastExpr 0x558bbfda9e58 <col:15> 'UpVal *' <LValueToRValue>
+      `-DeclRefExpr 0x558bbfda9e30 <col:15> 'UpVal *' lvalue Var 0x558bbfda9748 'uv' 'UpVal *'
+([B1.37]) (ImplicitCastExpr, LValueToRValue, TValue *)
+  39: MemberExpr 0x558bbfda9ee0 <./lobject.h:117:27, col:34> 'int' lvalue ->tt 0x558bbfd70370
+`-ImplicitCastExpr 0x558bbfda9ec8 <col:27, col:31> 'TValue *' <LValueToRValue>
+  `-ParenExpr 0x558bbfda9ea8 <col:27, col:31> 'TValue *' lvalue
+    `-MemberExpr 0x558bbfda9e70 <lfunc.c:48:15, col:19> 'TValue *' lvalue ->v 0x558bbfd7f2e8
+      `-ImplicitCastExpr 0x558bbfda9e58 <col:15> 'UpVal *' <LValueToRValue>
+        `-DeclRefExpr 0x558bbfda9e30 <col:15> 'UpVal *' lvalue Var 0x558bbfda9748 'uv' 'UpVal *'
+[B1.38]->tt
+  40: BinaryOperator 0x558bbfda9f38 <./lobject.h:117:27, ./lua.h:74:19> 'int' '='
+|-MemberExpr 0x558bbfda9ee0 <./lobject.h:117:27, col:34> 'int' lvalue ->tt 0x558bbfd70370
+| `-ImplicitCastExpr 0x558bbfda9ec8 <col:27, col:31> 'TValue *' <LValueToRValue>
+|   `-ParenExpr 0x558bbfda9ea8 <col:27, col:31> 'TValue *' lvalue
+|     `-MemberExpr 0x558bbfda9e70 <lfunc.c:48:15, col:19> 'TValue *' lvalue ->v 0x558bbfd7f2e8
+|       `-ImplicitCastExpr 0x558bbfda9e58 <col:15> 'UpVal *' <LValueToRValue>
+|         `-DeclRefExpr 0x558bbfda9e30 <col:15> 'UpVal *' lvalue Var 0x558bbfda9748 'uv' 'UpVal *'
+`-IntegerLiteral 0x558bbfda9f18 <./lua.h:74:19> 'int' 0
+[B1.39] = [B1.34]
+  41: DeclRefExpr 0x558bbfda9f80 <lfunc.c:49:10> 'UpVal *' lvalue Var 0x558bbfda9748 'uv' 'UpVal *'
+uv
+  42: ImplicitCastExpr 0x558bbfda9fa8 <lfunc.c:49:10> 'UpVal *' <LValueToRValue>
+`-DeclRefExpr 0x558bbfda9f80 <col:10> 'UpVal *' lvalue Var 0x558bbfda9748 'uv' 'UpVal *'
+[B1.41] (ImplicitCastExpr, LValueToRValue, UpVal *)
+  43: ReturnStmt 0x558bbfda9fc0 <lfunc.c:49:3, col:10>
+`-ImplicitCastExpr 0x558bbfda9fa8 <col:10> 'UpVal *' <LValueToRValue>
+  `-DeclRefExpr 0x558bbfda9f80 <col:10> 'UpVal *' lvalue Var 0x558bbfda9748 'uv' 'UpVal *'
+return [B1.42];
+   Preds (1): B2
+   Succs (1): B0
+
+ [B0 (EXIT)]
+   Preds (1): B1

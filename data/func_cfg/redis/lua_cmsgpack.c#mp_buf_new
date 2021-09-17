@@ -1,0 +1,185 @@
+mp_buf *mp_buf_new(lua_State *L)
+ [B2 (ENTRY)]
+   Succs (1): B1
+
+ [B1]
+   1: IntegerLiteral 0x55c2f99f0028 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+   2: CStyleCastExpr 0x55c2f99f0060 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x55c2f99f0028 <col:24> 'int' 0
+(void *)[B1.1] (CStyleCastExpr, NullToPointer, void *)
+   3: ImplicitCastExpr 0x55c2f99f00a8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'mp_buf *' <NullToPointer>
+`-ParenExpr 0x55c2f99f0088 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x55c2f99f0060 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x55c2f99f0028 <col:24> 'int' 0
+([B1.2]) (ImplicitCastExpr, NullToPointer, mp_buf *)
+   4: DeclStmt 0x55c2f99f00c0 <lua_cmsgpack.c:108:5, col:23>col:13
+`-VarDecl 0x55c2f99effc8 <col:5, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25> lua_cmsgpack.c:108:13 used buf 'mp_buf *' cinit
+  `-ImplicitCastExpr 0x55c2f99f00a8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'mp_buf *' <NullToPointer>
+    `-ParenExpr 0x55c2f99f0088 <col:16, col:25> 'void *'
+      `-CStyleCastExpr 0x55c2f99f0060 <col:17, col:24> 'void *' <NullToPointer>
+        `-IntegerLiteral 0x55c2f99f0028 <col:24> 'int' 0
+mp_buf *buf = ((void *)0);
+   5: DeclRefExpr 0x55c2f99f0100 <lua_cmsgpack.c:111:20> 'void *(lua_State *, void *, size_t, size_t)' Function 0x55c2f99ef578 'mp_realloc' 'void *(lua_State *, void *, size_t, size_t)'
+mp_realloc
+   6: ImplicitCastExpr 0x55c2f99f2d08 <lua_cmsgpack.c:111:20> 'void *(*)(lua_State *, void *, size_t, size_t)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55c2f99f0100 <col:20> 'void *(lua_State *, void *, size_t, size_t)' Function 0x55c2f99ef578 'mp_realloc' 'void *(lua_State *, void *, size_t, size_t)'
+[B1.5] (ImplicitCastExpr, FunctionToPointerDecay, void *(*)(lua_State *, void *, size_t, size_t))
+   7: DeclRefExpr 0x55c2f99f0128 <lua_cmsgpack.c:111:31> 'lua_State *' lvalue ParmVar 0x55c2f99efdb0 'L' 'lua_State *'
+L
+   8: ImplicitCastExpr 0x55c2f99f2d68 <lua_cmsgpack.c:111:31> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55c2f99f0128 <col:31> 'lua_State *' lvalue ParmVar 0x55c2f99efdb0 'L' 'lua_State *'
+[B1.7] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   9: IntegerLiteral 0x55c2f99f0150 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+  10: CStyleCastExpr 0x55c2f99f0188 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x55c2f99f0150 <col:24> 'int' 0
+(void *)[B1.9] (CStyleCastExpr, NullToPointer, void *)
+  11: IntegerLiteral 0x55c2f99f01d0 <lua_cmsgpack.c:111:40> 'int' 0
+0
+  12: ImplicitCastExpr 0x55c2f99f2d80 <lua_cmsgpack.c:111:40> 'size_t':'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x55c2f99f01d0 <col:40> 'int' 0
+[B1.11] (ImplicitCastExpr, IntegralCast, size_t)
+  13: UnaryExprOrTypeTraitExpr 0x55c2f99f2c90 <lua_cmsgpack.c:111:43, col:54> 'unsigned long' sizeof
+`-ParenExpr 0x55c2f99f2c70 <col:49, col:54> 'mp_buf':'struct mp_buf' lvalue
+  `-UnaryOperator 0x55c2f99f2c50 <col:50, col:51> 'mp_buf':'struct mp_buf' lvalue prefix '*'
+    `-ImplicitCastExpr 0x55c2f99f0218 <col:51> 'mp_buf *' <LValueToRValue>
+      `-DeclRefExpr 0x55c2f99f01f0 <col:51> 'mp_buf *' lvalue Var 0x55c2f99effc8 'buf' 'mp_buf *'
+sizeof (*buf)
+  14: CallExpr 0x55c2f99f2d20 <lua_cmsgpack.c:111:20, col:55> 'void *'
+|-ImplicitCastExpr 0x55c2f99f2d08 <col:20> 'void *(*)(lua_State *, void *, size_t, size_t)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55c2f99f0100 <col:20> 'void *(lua_State *, void *, size_t, size_t)' Function 0x55c2f99ef578 'mp_realloc' 'void *(lua_State *, void *, size_t, size_t)'
+|-ImplicitCastExpr 0x55c2f99f2d68 <col:31> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x55c2f99f0128 <col:31> 'lua_State *' lvalue ParmVar 0x55c2f99efdb0 'L' 'lua_State *'
+|-ParenExpr 0x55c2f99f01b0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'void *'
+| `-CStyleCastExpr 0x55c2f99f0188 <col:17, col:24> 'void *' <NullToPointer>
+|   `-IntegerLiteral 0x55c2f99f0150 <col:24> 'int' 0
+|-ImplicitCastExpr 0x55c2f99f2d80 <lua_cmsgpack.c:111:40> 'size_t':'unsigned long' <IntegralCast>
+| `-IntegerLiteral 0x55c2f99f01d0 <col:40> 'int' 0
+`-UnaryExprOrTypeTraitExpr 0x55c2f99f2c90 <col:43, col:54> 'unsigned long' sizeof
+  `-ParenExpr 0x55c2f99f2c70 <col:49, col:54> 'mp_buf':'struct mp_buf' lvalue
+    `-UnaryOperator 0x55c2f99f2c50 <col:50, col:51> 'mp_buf':'struct mp_buf' lvalue prefix '*'
+      `-ImplicitCastExpr 0x55c2f99f0218 <col:51> 'mp_buf *' <LValueToRValue>
+        `-DeclRefExpr 0x55c2f99f01f0 <col:51> 'mp_buf *' lvalue Var 0x55c2f99effc8 'buf' 'mp_buf *'
+[B1.6]([B1.8], ([B1.10]), [B1.12], [B1.13])
+  15: CStyleCastExpr 0x55c2f99f2da8 <lua_cmsgpack.c:111:11, col:55> 'mp_buf *' <BitCast>
+`-CallExpr 0x55c2f99f2d20 <col:20, col:55> 'void *'
+  |-ImplicitCastExpr 0x55c2f99f2d08 <col:20> 'void *(*)(lua_State *, void *, size_t, size_t)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55c2f99f0100 <col:20> 'void *(lua_State *, void *, size_t, size_t)' Function 0x55c2f99ef578 'mp_realloc' 'void *(lua_State *, void *, size_t, size_t)'
+  |-ImplicitCastExpr 0x55c2f99f2d68 <col:31> 'lua_State *' <LValueToRValue>
+  | `-DeclRefExpr 0x55c2f99f0128 <col:31> 'lua_State *' lvalue ParmVar 0x55c2f99efdb0 'L' 'lua_State *'
+  |-ParenExpr 0x55c2f99f01b0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'void *'
+  | `-CStyleCastExpr 0x55c2f99f0188 <col:17, col:24> 'void *' <NullToPointer>
+  |   `-IntegerLiteral 0x55c2f99f0150 <col:24> 'int' 0
+  |-ImplicitCastExpr 0x55c2f99f2d80 <lua_cmsgpack.c:111:40> 'size_t':'unsigned long' <IntegralCast>
+  | `-IntegerLiteral 0x55c2f99f01d0 <col:40> 'int' 0
+  `-UnaryExprOrTypeTraitExpr 0x55c2f99f2c90 <col:43, col:54> 'unsigned long' sizeof
+    `-ParenExpr 0x55c2f99f2c70 <col:49, col:54> 'mp_buf':'struct mp_buf' lvalue
+      `-UnaryOperator 0x55c2f99f2c50 <col:50, col:51> 'mp_buf':'struct mp_buf' lvalue prefix '*'
+        `-ImplicitCastExpr 0x55c2f99f0218 <col:51> 'mp_buf *' <LValueToRValue>
+          `-DeclRefExpr 0x55c2f99f01f0 <col:51> 'mp_buf *' lvalue Var 0x55c2f99effc8 'buf' 'mp_buf *'
+(mp_buf *)[B1.14] (CStyleCastExpr, BitCast, mp_buf *)
+  16: DeclRefExpr 0x55c2f99f00d8 <lua_cmsgpack.c:111:5> 'mp_buf *' lvalue Var 0x55c2f99effc8 'buf' 'mp_buf *'
+buf
+  17: BinaryOperator 0x55c2f99f2dd0 <lua_cmsgpack.c:111:5, col:55> 'mp_buf *' '='
+|-DeclRefExpr 0x55c2f99f00d8 <col:5> 'mp_buf *' lvalue Var 0x55c2f99effc8 'buf' 'mp_buf *'
+`-CStyleCastExpr 0x55c2f99f2da8 <col:11, col:55> 'mp_buf *' <BitCast>
+  `-CallExpr 0x55c2f99f2d20 <col:20, col:55> 'void *'
+    |-ImplicitCastExpr 0x55c2f99f2d08 <col:20> 'void *(*)(lua_State *, void *, size_t, size_t)' <FunctionToPointerDecay>
+    | `-DeclRefExpr 0x55c2f99f0100 <col:20> 'void *(lua_State *, void *, size_t, size_t)' Function 0x55c2f99ef578 'mp_realloc' 'void *(lua_State *, void *, size_t, size_t)'
+    |-ImplicitCastExpr 0x55c2f99f2d68 <col:31> 'lua_State *' <LValueToRValue>
+    | `-DeclRefExpr 0x55c2f99f0128 <col:31> 'lua_State *' lvalue ParmVar 0x55c2f99efdb0 'L' 'lua_State *'
+    |-ParenExpr 0x55c2f99f01b0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'void *'
+    | `-CStyleCastExpr 0x55c2f99f0188 <col:17, col:24> 'void *' <NullToPointer>
+    |   `-IntegerLiteral 0x55c2f99f0150 <col:24> 'int' 0
+    |-ImplicitCastExpr 0x55c2f99f2d80 <lua_cmsgpack.c:111:40> 'size_t':'unsigned long' <IntegralCast>
+    | `-IntegerLiteral 0x55c2f99f01d0 <col:40> 'int' 0
+    `-UnaryExprOrTypeTraitExpr 0x55c2f99f2c90 <col:43, col:54> 'unsigned long' sizeof
+      `-ParenExpr 0x55c2f99f2c70 <col:49, col:54> 'mp_buf':'struct mp_buf' lvalue
+        `-UnaryOperator 0x55c2f99f2c50 <col:50, col:51> 'mp_buf':'struct mp_buf' lvalue prefix '*'
+          `-ImplicitCastExpr 0x55c2f99f0218 <col:51> 'mp_buf *' <LValueToRValue>
+            `-DeclRefExpr 0x55c2f99f01f0 <col:51> 'mp_buf *' lvalue Var 0x55c2f99effc8 'buf' 'mp_buf *'
+[B1.16] = [B1.15]
+  18: IntegerLiteral 0x55c2f99f2e70 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+  19: CStyleCastExpr 0x55c2f99f2ea8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x55c2f99f2e70 <col:24> 'int' 0
+(void *)[B1.18] (CStyleCastExpr, NullToPointer, void *)
+  20: ImplicitCastExpr 0x55c2f99f2ef0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'unsigned char *' <NullToPointer>
+`-ParenExpr 0x55c2f99f2ed0 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x55c2f99f2ea8 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x55c2f99f2e70 <col:24> 'int' 0
+([B1.19]) (ImplicitCastExpr, NullToPointer, unsigned char *)
+  21: DeclRefExpr 0x55c2f99f2df8 <lua_cmsgpack.c:113:5> 'mp_buf *' lvalue Var 0x55c2f99effc8 'buf' 'mp_buf *'
+buf
+  22: ImplicitCastExpr 0x55c2f99f2e20 <lua_cmsgpack.c:113:5> 'mp_buf *' <LValueToRValue>
+`-DeclRefExpr 0x55c2f99f2df8 <col:5> 'mp_buf *' lvalue Var 0x55c2f99effc8 'buf' 'mp_buf *'
+[B1.21] (ImplicitCastExpr, LValueToRValue, mp_buf *)
+  23: MemberExpr 0x55c2f99f2e38 <lua_cmsgpack.c:113:5, col:10> 'unsigned char *' lvalue ->b 0x55c2f99ef108
+`-ImplicitCastExpr 0x55c2f99f2e20 <col:5> 'mp_buf *' <LValueToRValue>
+  `-DeclRefExpr 0x55c2f99f2df8 <col:5> 'mp_buf *' lvalue Var 0x55c2f99effc8 'buf' 'mp_buf *'
+[B1.22]->b
+  24: BinaryOperator 0x55c2f99f2f08 <lua_cmsgpack.c:113:5, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25> 'unsigned char *' '='
+|-MemberExpr 0x55c2f99f2e38 <lua_cmsgpack.c:113:5, col:10> 'unsigned char *' lvalue ->b 0x55c2f99ef108
+| `-ImplicitCastExpr 0x55c2f99f2e20 <col:5> 'mp_buf *' <LValueToRValue>
+|   `-DeclRefExpr 0x55c2f99f2df8 <col:5> 'mp_buf *' lvalue Var 0x55c2f99effc8 'buf' 'mp_buf *'
+`-ImplicitCastExpr 0x55c2f99f2ef0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'unsigned char *' <NullToPointer>
+  `-ParenExpr 0x55c2f99f2ed0 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x55c2f99f2ea8 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x55c2f99f2e70 <col:24> 'int' 0
+[B1.23] = [B1.20]
+  25: IntegerLiteral 0x55c2f99f3020 <lua_cmsgpack.c:114:28> 'int' 0
+0
+  26: ImplicitCastExpr 0x55c2f99f3040 <lua_cmsgpack.c:114:28> 'size_t':'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x55c2f99f3020 <col:28> 'int' 0
+[B1.25] (ImplicitCastExpr, IntegralCast, size_t)
+  27: DeclRefExpr 0x55c2f99f2fa8 <lua_cmsgpack.c:114:16> 'mp_buf *' lvalue Var 0x55c2f99effc8 'buf' 'mp_buf *'
+buf
+  28: ImplicitCastExpr 0x55c2f99f2fd0 <lua_cmsgpack.c:114:16> 'mp_buf *' <LValueToRValue>
+`-DeclRefExpr 0x55c2f99f2fa8 <col:16> 'mp_buf *' lvalue Var 0x55c2f99effc8 'buf' 'mp_buf *'
+[B1.27] (ImplicitCastExpr, LValueToRValue, mp_buf *)
+  29: MemberExpr 0x55c2f99f2fe8 <lua_cmsgpack.c:114:16, col:21> 'size_t':'unsigned long' lvalue ->free 0x55c2f99ef1b8
+`-ImplicitCastExpr 0x55c2f99f2fd0 <col:16> 'mp_buf *' <LValueToRValue>
+  `-DeclRefExpr 0x55c2f99f2fa8 <col:16> 'mp_buf *' lvalue Var 0x55c2f99effc8 'buf' 'mp_buf *'
+[B1.28]->free
+  30: BinaryOperator 0x55c2f99f3058 <lua_cmsgpack.c:114:16, col:28> 'size_t':'unsigned long' '='
+|-MemberExpr 0x55c2f99f2fe8 <col:16, col:21> 'size_t':'unsigned long' lvalue ->free 0x55c2f99ef1b8
+| `-ImplicitCastExpr 0x55c2f99f2fd0 <col:16> 'mp_buf *' <LValueToRValue>
+|   `-DeclRefExpr 0x55c2f99f2fa8 <col:16> 'mp_buf *' lvalue Var 0x55c2f99effc8 'buf' 'mp_buf *'
+`-ImplicitCastExpr 0x55c2f99f3040 <col:28> 'size_t':'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x55c2f99f3020 <col:28> 'int' 0
+[B1.29] = [B1.26]
+  31: DeclRefExpr 0x55c2f99f2f30 <lua_cmsgpack.c:114:5> 'mp_buf *' lvalue Var 0x55c2f99effc8 'buf' 'mp_buf *'
+buf
+  32: ImplicitCastExpr 0x55c2f99f2f58 <lua_cmsgpack.c:114:5> 'mp_buf *' <LValueToRValue>
+`-DeclRefExpr 0x55c2f99f2f30 <col:5> 'mp_buf *' lvalue Var 0x55c2f99effc8 'buf' 'mp_buf *'
+[B1.31] (ImplicitCastExpr, LValueToRValue, mp_buf *)
+  33: MemberExpr 0x55c2f99f2f70 <lua_cmsgpack.c:114:5, col:10> 'size_t':'unsigned long' lvalue ->len 0x55c2f99ef160
+`-ImplicitCastExpr 0x55c2f99f2f58 <col:5> 'mp_buf *' <LValueToRValue>
+  `-DeclRefExpr 0x55c2f99f2f30 <col:5> 'mp_buf *' lvalue Var 0x55c2f99effc8 'buf' 'mp_buf *'
+[B1.32]->len
+  34: BinaryOperator 0x55c2f99f3080 <lua_cmsgpack.c:114:5, col:28> 'size_t':'unsigned long' '='
+|-MemberExpr 0x55c2f99f2f70 <col:5, col:10> 'size_t':'unsigned long' lvalue ->len 0x55c2f99ef160
+| `-ImplicitCastExpr 0x55c2f99f2f58 <col:5> 'mp_buf *' <LValueToRValue>
+|   `-DeclRefExpr 0x55c2f99f2f30 <col:5> 'mp_buf *' lvalue Var 0x55c2f99effc8 'buf' 'mp_buf *'
+`-BinaryOperator 0x55c2f99f3058 <col:16, col:28> 'size_t':'unsigned long' '='
+  |-MemberExpr 0x55c2f99f2fe8 <col:16, col:21> 'size_t':'unsigned long' lvalue ->free 0x55c2f99ef1b8
+  | `-ImplicitCastExpr 0x55c2f99f2fd0 <col:16> 'mp_buf *' <LValueToRValue>
+  |   `-DeclRefExpr 0x55c2f99f2fa8 <col:16> 'mp_buf *' lvalue Var 0x55c2f99effc8 'buf' 'mp_buf *'
+  `-ImplicitCastExpr 0x55c2f99f3040 <col:28> 'size_t':'unsigned long' <IntegralCast>
+    `-IntegerLiteral 0x55c2f99f3020 <col:28> 'int' 0
+[B1.33] = [B1.30]
+  35: DeclRefExpr 0x55c2f99f30a8 <lua_cmsgpack.c:115:12> 'mp_buf *' lvalue Var 0x55c2f99effc8 'buf' 'mp_buf *'
+buf
+  36: ImplicitCastExpr 0x55c2f99f30d0 <lua_cmsgpack.c:115:12> 'mp_buf *' <LValueToRValue>
+`-DeclRefExpr 0x55c2f99f30a8 <col:12> 'mp_buf *' lvalue Var 0x55c2f99effc8 'buf' 'mp_buf *'
+[B1.35] (ImplicitCastExpr, LValueToRValue, mp_buf *)
+  37: ReturnStmt 0x55c2f99f30e8 <lua_cmsgpack.c:115:5, col:12>
+`-ImplicitCastExpr 0x55c2f99f30d0 <col:12> 'mp_buf *' <LValueToRValue>
+  `-DeclRefExpr 0x55c2f99f30a8 <col:12> 'mp_buf *' lvalue Var 0x55c2f99effc8 'buf' 'mp_buf *'
+return [B1.36];
+   Preds (1): B2
+   Succs (1): B0
+
+ [B0 (EXIT)]
+   Preds (1): B1

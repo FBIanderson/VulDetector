@@ -1,0 +1,169 @@
+int __redisAppendCommand(redisContext *c, const char *cmd, size_t len)
+ [B4 (ENTRY)]
+   Succs (1): B3
+
+ [B1]
+   1: DeclRefExpr 0x562807075c28 <hiredis.c:982:15> 'sds':'char *' lvalue Var 0x562807075660 'newbuf' 'sds':'char *'
+newbuf
+   2: ImplicitCastExpr 0x562807075c50 <hiredis.c:982:15> 'sds':'char *' <LValueToRValue>
+`-DeclRefExpr 0x562807075c28 <col:15> 'sds':'char *' lvalue Var 0x562807075660 'newbuf' 'sds':'char *'
+[B1.1] (ImplicitCastExpr, LValueToRValue, sds)
+   3: DeclRefExpr 0x562807075bb0 <hiredis.c:982:5> 'redisContext *' lvalue ParmVar 0x562807075410 'c' 'redisContext *'
+c
+   4: ImplicitCastExpr 0x562807075bd8 <hiredis.c:982:5> 'redisContext *' <LValueToRValue>
+`-DeclRefExpr 0x562807075bb0 <col:5> 'redisContext *' lvalue ParmVar 0x562807075410 'c' 'redisContext *'
+[B1.3] (ImplicitCastExpr, LValueToRValue, redisContext *)
+   5: MemberExpr 0x562807075bf0 <hiredis.c:982:5, col:8> 'char *' lvalue ->obuf 0x56280702fd48
+`-ImplicitCastExpr 0x562807075bd8 <col:5> 'redisContext *' <LValueToRValue>
+  `-DeclRefExpr 0x562807075bb0 <col:5> 'redisContext *' lvalue ParmVar 0x562807075410 'c' 'redisContext *'
+[B1.4]->obuf
+   6: BinaryOperator 0x562807075c68 <hiredis.c:982:5, col:15> 'char *' '='
+|-MemberExpr 0x562807075bf0 <col:5, col:8> 'char *' lvalue ->obuf 0x56280702fd48
+| `-ImplicitCastExpr 0x562807075bd8 <col:5> 'redisContext *' <LValueToRValue>
+|   `-DeclRefExpr 0x562807075bb0 <col:5> 'redisContext *' lvalue ParmVar 0x562807075410 'c' 'redisContext *'
+`-ImplicitCastExpr 0x562807075c50 <col:15> 'sds':'char *' <LValueToRValue>
+  `-DeclRefExpr 0x562807075c28 <col:15> 'sds':'char *' lvalue Var 0x562807075660 'newbuf' 'sds':'char *'
+[B1.5] = [B1.2]
+   7: IntegerLiteral 0x562807075c90 <./read.h:38:18> 'int' 0
+0
+   8: ReturnStmt 0x562807075cb0 <hiredis.c:983:5, ./read.h:38:18>
+`-IntegerLiteral 0x562807075c90 <col:18> 'int' 0
+return [B1.7];
+   Preds (1): B3
+   Succs (1): B0
+
+ [B2]
+   1: DeclRefExpr 0x5628070759d0 <hiredis.c:978:9> 'void (redisContext *, int, const char *)' Function 0x562807064040 '__redisSetError' 'void (redisContext *, int, const char *)'
+__redisSetError
+   2: ImplicitCastExpr 0x562807075a78 <hiredis.c:978:9> 'void (*)(redisContext *, int, const char *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5628070759d0 <col:9> 'void (redisContext *, int, const char *)' Function 0x562807064040 '__redisSetError' 'void (redisContext *, int, const char *)'
+[B2.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(redisContext *, int, const char *))
+   3: DeclRefExpr 0x5628070759f8 <hiredis.c:978:25> 'redisContext *' lvalue ParmVar 0x562807075410 'c' 'redisContext *'
+c
+   4: ImplicitCastExpr 0x562807075ad0 <hiredis.c:978:25> 'redisContext *' <LValueToRValue>
+`-DeclRefExpr 0x5628070759f8 <col:25> 'redisContext *' lvalue ParmVar 0x562807075410 'c' 'redisContext *'
+[B2.3] (ImplicitCastExpr, LValueToRValue, redisContext *)
+   5: IntegerLiteral 0x562807075a20 <./read.h:47:23> 'int' 5
+5
+   6: StringLiteral 0x562807075a40 <hiredis.c:978:41> 'const char [14]' lvalue "Out of memory"
+"Out of memory"
+   7: ImplicitCastExpr 0x562807075ae8 <hiredis.c:978:41> 'const char *' <ArrayToPointerDecay>
+`-StringLiteral 0x562807075a40 <col:41> 'const char [14]' lvalue "Out of memory"
+[B2.6] (ImplicitCastExpr, ArrayToPointerDecay, const char *)
+   8: CallExpr 0x562807075a90 <hiredis.c:978:9, col:56> 'void'
+|-ImplicitCastExpr 0x562807075a78 <col:9> 'void (*)(redisContext *, int, const char *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5628070759d0 <col:9> 'void (redisContext *, int, const char *)' Function 0x562807064040 '__redisSetError' 'void (redisContext *, int, const char *)'
+|-ImplicitCastExpr 0x562807075ad0 <col:25> 'redisContext *' <LValueToRValue>
+| `-DeclRefExpr 0x5628070759f8 <col:25> 'redisContext *' lvalue ParmVar 0x562807075410 'c' 'redisContext *'
+|-IntegerLiteral 0x562807075a20 <./read.h:47:23> 'int' 5
+`-ImplicitCastExpr 0x562807075ae8 <hiredis.c:978:41> 'const char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x562807075a40 <col:41> 'const char [14]' lvalue "Out of memory"
+[B2.2]([B2.4], [B2.5], [B2.7])
+   9: IntegerLiteral 0x562807075b00 <./read.h:37:20> 'int' 1
+1
+  10: UnaryOperator 0x562807075b20 <./read.h:37:19, col:20> 'int' prefix '-'
+`-IntegerLiteral 0x562807075b00 <col:20> 'int' 1
+-[B2.9]
+  11: ReturnStmt 0x562807075b40 <hiredis.c:979:9, ./read.h:37:20>
+`-UnaryOperator 0x562807075b20 <col:19, col:20> 'int' prefix '-'
+  `-IntegerLiteral 0x562807075b00 <col:20> 'int' 1
+return [B2.10];
+   Preds (1): B3
+   Succs (1): B0
+
+ [B3]
+   1: DeclStmt 0x5628070756c0 <hiredis.c:974:5, col:15>col:9
+`-VarDecl 0x562807075660 <col:5, col:9> col:9 used newbuf 'sds':'char *'
+sds newbuf;
+   2: DeclRefExpr 0x562807075700 <hiredis.c:976:14> 'sds (sds, const void *, size_t)' Function 0x562807024210 'sdscatlen' 'sds (sds, const void *, size_t)'
+sdscatlen
+   3: ImplicitCastExpr 0x5628070757f0 <hiredis.c:976:14> 'sds (*)(sds, const void *, size_t)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x562807075700 <col:14> 'sds (sds, const void *, size_t)' Function 0x562807024210 'sdscatlen' 'sds (sds, const void *, size_t)'
+[B3.2] (ImplicitCastExpr, FunctionToPointerDecay, sds (*)(sds, const void *, size_t))
+   4: DeclRefExpr 0x562807075728 <hiredis.c:976:24> 'redisContext *' lvalue ParmVar 0x562807075410 'c' 'redisContext *'
+c
+   5: ImplicitCastExpr 0x562807075750 <hiredis.c:976:24> 'redisContext *' <LValueToRValue>
+`-DeclRefExpr 0x562807075728 <col:24> 'redisContext *' lvalue ParmVar 0x562807075410 'c' 'redisContext *'
+[B3.4] (ImplicitCastExpr, LValueToRValue, redisContext *)
+   6: MemberExpr 0x562807075768 <hiredis.c:976:24, col:27> 'char *' lvalue ->obuf 0x56280702fd48
+`-ImplicitCastExpr 0x562807075750 <col:24> 'redisContext *' <LValueToRValue>
+  `-DeclRefExpr 0x562807075728 <col:24> 'redisContext *' lvalue ParmVar 0x562807075410 'c' 'redisContext *'
+[B3.5]->obuf
+   7: ImplicitCastExpr 0x562807075848 <hiredis.c:976:24, col:27> 'char *' <LValueToRValue>
+`-MemberExpr 0x562807075768 <col:24, col:27> 'char *' lvalue ->obuf 0x56280702fd48
+  `-ImplicitCastExpr 0x562807075750 <col:24> 'redisContext *' <LValueToRValue>
+    `-DeclRefExpr 0x562807075728 <col:24> 'redisContext *' lvalue ParmVar 0x562807075410 'c' 'redisContext *'
+[B3.6] (ImplicitCastExpr, LValueToRValue, char *)
+   8: DeclRefExpr 0x5628070757a0 <hiredis.c:976:32> 'const char *' lvalue ParmVar 0x562807075488 'cmd' 'const char *'
+cmd
+   9: ImplicitCastExpr 0x562807075860 <hiredis.c:976:32> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x5628070757a0 <col:32> 'const char *' lvalue ParmVar 0x562807075488 'cmd' 'const char *'
+[B3.8] (ImplicitCastExpr, LValueToRValue, const char *)
+  10: ImplicitCastExpr 0x562807075878 <hiredis.c:976:32> 'const void *' <BitCast>
+`-ImplicitCastExpr 0x562807075860 <col:32> 'const char *' <LValueToRValue>
+  `-DeclRefExpr 0x5628070757a0 <col:32> 'const char *' lvalue ParmVar 0x562807075488 'cmd' 'const char *'
+[B3.9] (ImplicitCastExpr, BitCast, const void *)
+  11: DeclRefExpr 0x5628070757c8 <hiredis.c:976:36> 'size_t':'unsigned long' lvalue ParmVar 0x5628070754f8 'len' 'size_t':'unsigned long'
+len
+  12: ImplicitCastExpr 0x562807075890 <hiredis.c:976:36> 'size_t':'unsigned long' <LValueToRValue>
+`-DeclRefExpr 0x5628070757c8 <col:36> 'size_t':'unsigned long' lvalue ParmVar 0x5628070754f8 'len' 'size_t':'unsigned long'
+[B3.11] (ImplicitCastExpr, LValueToRValue, size_t)
+  13: CallExpr 0x562807075808 <hiredis.c:976:14, col:39> 'sds':'char *'
+|-ImplicitCastExpr 0x5628070757f0 <col:14> 'sds (*)(sds, const void *, size_t)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x562807075700 <col:14> 'sds (sds, const void *, size_t)' Function 0x562807024210 'sdscatlen' 'sds (sds, const void *, size_t)'
+|-ImplicitCastExpr 0x562807075848 <col:24, col:27> 'char *' <LValueToRValue>
+| `-MemberExpr 0x562807075768 <col:24, col:27> 'char *' lvalue ->obuf 0x56280702fd48
+|   `-ImplicitCastExpr 0x562807075750 <col:24> 'redisContext *' <LValueToRValue>
+|     `-DeclRefExpr 0x562807075728 <col:24> 'redisContext *' lvalue ParmVar 0x562807075410 'c' 'redisContext *'
+|-ImplicitCastExpr 0x562807075878 <col:32> 'const void *' <BitCast>
+| `-ImplicitCastExpr 0x562807075860 <col:32> 'const char *' <LValueToRValue>
+|   `-DeclRefExpr 0x5628070757a0 <col:32> 'const char *' lvalue ParmVar 0x562807075488 'cmd' 'const char *'
+`-ImplicitCastExpr 0x562807075890 <col:36> 'size_t':'unsigned long' <LValueToRValue>
+  `-DeclRefExpr 0x5628070757c8 <col:36> 'size_t':'unsigned long' lvalue ParmVar 0x5628070754f8 'len' 'size_t':'unsigned long'
+[B3.3]([B3.7], [B3.10], [B3.12])
+  14: DeclRefExpr 0x5628070756d8 <hiredis.c:976:5> 'sds':'char *' lvalue Var 0x562807075660 'newbuf' 'sds':'char *'
+newbuf
+  15: BinaryOperator 0x5628070758a8 <hiredis.c:976:5, col:39> 'sds':'char *' '='
+|-DeclRefExpr 0x5628070756d8 <col:5> 'sds':'char *' lvalue Var 0x562807075660 'newbuf' 'sds':'char *'
+`-CallExpr 0x562807075808 <col:14, col:39> 'sds':'char *'
+  |-ImplicitCastExpr 0x5628070757f0 <col:14> 'sds (*)(sds, const void *, size_t)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x562807075700 <col:14> 'sds (sds, const void *, size_t)' Function 0x562807024210 'sdscatlen' 'sds (sds, const void *, size_t)'
+  |-ImplicitCastExpr 0x562807075848 <col:24, col:27> 'char *' <LValueToRValue>
+  | `-MemberExpr 0x562807075768 <col:24, col:27> 'char *' lvalue ->obuf 0x56280702fd48
+  |   `-ImplicitCastExpr 0x562807075750 <col:24> 'redisContext *' <LValueToRValue>
+  |     `-DeclRefExpr 0x562807075728 <col:24> 'redisContext *' lvalue ParmVar 0x562807075410 'c' 'redisContext *'
+  |-ImplicitCastExpr 0x562807075878 <col:32> 'const void *' <BitCast>
+  | `-ImplicitCastExpr 0x562807075860 <col:32> 'const char *' <LValueToRValue>
+  |   `-DeclRefExpr 0x5628070757a0 <col:32> 'const char *' lvalue ParmVar 0x562807075488 'cmd' 'const char *'
+  `-ImplicitCastExpr 0x562807075890 <col:36> 'size_t':'unsigned long' <LValueToRValue>
+    `-DeclRefExpr 0x5628070757c8 <col:36> 'size_t':'unsigned long' lvalue ParmVar 0x5628070754f8 'len' 'size_t':'unsigned long'
+[B3.14] = [B3.13]
+  16: DeclRefExpr 0x5628070758d0 <hiredis.c:977:9> 'sds':'char *' lvalue Var 0x562807075660 'newbuf' 'sds':'char *'
+newbuf
+  17: ImplicitCastExpr 0x562807075978 <hiredis.c:977:9> 'sds':'char *' <LValueToRValue>
+`-DeclRefExpr 0x5628070758d0 <col:9> 'sds':'char *' lvalue Var 0x562807075660 'newbuf' 'sds':'char *'
+[B3.16] (ImplicitCastExpr, LValueToRValue, sds)
+  18: IntegerLiteral 0x5628070758f8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+  19: CStyleCastExpr 0x562807075930 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x5628070758f8 <col:24> 'int' 0
+(void *)[B3.18] (CStyleCastExpr, NullToPointer, void *)
+  20: ImplicitCastExpr 0x562807075990 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'sds':'char *' <BitCast>
+`-ParenExpr 0x562807075958 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x562807075930 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x5628070758f8 <col:24> 'int' 0
+([B3.19]) (ImplicitCastExpr, BitCast, sds)
+  21: BinaryOperator 0x5628070759a8 <hiredis.c:977:9, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25> 'int' '=='
+|-ImplicitCastExpr 0x562807075978 <hiredis.c:977:9> 'sds':'char *' <LValueToRValue>
+| `-DeclRefExpr 0x5628070758d0 <col:9> 'sds':'char *' lvalue Var 0x562807075660 'newbuf' 'sds':'char *'
+`-ImplicitCastExpr 0x562807075990 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'sds':'char *' <BitCast>
+  `-ParenExpr 0x562807075958 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x562807075930 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x5628070758f8 <col:24> 'int' 0
+[B3.17] == [B3.20]
+   T: if [B3.21]
+   Preds (1): B4
+   Succs (2): B2 B1
+
+ [B0 (EXIT)]
+   Preds (2): B1 B2

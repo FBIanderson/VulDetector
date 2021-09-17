@@ -1,0 +1,796 @@
+sds sdscatrepr(sds s, const char *p, size_t len)
+ [B18 (ENTRY)]
+   Succs (1): B17
+
+ [B1]
+   1: DeclRefExpr 0x55e83d122160 <sds.c:889:12> 'sds (sds, const void *, size_t)' Function 0x55e83d10a308 'sdscatlen' 'sds (sds, const void *, size_t)'
+sdscatlen
+   2: ImplicitCastExpr 0x55e83d122200 <sds.c:889:12> 'sds (*)(sds, const void *, size_t)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55e83d122160 <col:12> 'sds (sds, const void *, size_t)' Function 0x55e83d10a308 'sdscatlen' 'sds (sds, const void *, size_t)'
+[B1.1] (ImplicitCastExpr, FunctionToPointerDecay, sds (*)(sds, const void *, size_t))
+   3: DeclRefExpr 0x55e83d122188 <sds.c:889:22> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+s
+   4: ImplicitCastExpr 0x55e83d122258 <sds.c:889:22> 'sds':'char *' <LValueToRValue>
+`-DeclRefExpr 0x55e83d122188 <col:22> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+[B1.3] (ImplicitCastExpr, LValueToRValue, sds)
+   5: StringLiteral 0x55e83d1221b0 <sds.c:889:24> 'const char [2]' lvalue "\""
+"\""
+   6: ImplicitCastExpr 0x55e83d122270 <sds.c:889:24> 'const char *' <ArrayToPointerDecay>
+`-StringLiteral 0x55e83d1221b0 <col:24> 'const char [2]' lvalue "\""
+[B1.5] (ImplicitCastExpr, ArrayToPointerDecay, const char *)
+   7: ImplicitCastExpr 0x55e83d122288 <sds.c:889:24> 'const void *' <BitCast>
+`-ImplicitCastExpr 0x55e83d122270 <col:24> 'const char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x55e83d1221b0 <col:24> 'const char [2]' lvalue "\""
+[B1.6] (ImplicitCastExpr, BitCast, const void *)
+   8: IntegerLiteral 0x55e83d1221e0 <sds.c:889:29> 'int' 1
+1
+   9: ImplicitCastExpr 0x55e83d1222a0 <sds.c:889:29> 'size_t':'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x55e83d1221e0 <col:29> 'int' 1
+[B1.8] (ImplicitCastExpr, IntegralCast, size_t)
+  10: CallExpr 0x55e83d122218 <sds.c:889:12, col:30> 'sds':'char *'
+|-ImplicitCastExpr 0x55e83d122200 <col:12> 'sds (*)(sds, const void *, size_t)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55e83d122160 <col:12> 'sds (sds, const void *, size_t)' Function 0x55e83d10a308 'sdscatlen' 'sds (sds, const void *, size_t)'
+|-ImplicitCastExpr 0x55e83d122258 <col:22> 'sds':'char *' <LValueToRValue>
+| `-DeclRefExpr 0x55e83d122188 <col:22> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+|-ImplicitCastExpr 0x55e83d122288 <col:24> 'const void *' <BitCast>
+| `-ImplicitCastExpr 0x55e83d122270 <col:24> 'const char *' <ArrayToPointerDecay>
+|   `-StringLiteral 0x55e83d1221b0 <col:24> 'const char [2]' lvalue "\""
+`-ImplicitCastExpr 0x55e83d1222a0 <col:29> 'size_t':'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x55e83d1221e0 <col:29> 'int' 1
+[B1.2]([B1.4], [B1.7], [B1.9])
+  11: ReturnStmt 0x55e83d1222b8 <sds.c:889:5, col:30>
+`-CallExpr 0x55e83d122218 <col:12, col:30> 'sds':'char *'
+  |-ImplicitCastExpr 0x55e83d122200 <col:12> 'sds (*)(sds, const void *, size_t)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55e83d122160 <col:12> 'sds (sds, const void *, size_t)' Function 0x55e83d10a308 'sdscatlen' 'sds (sds, const void *, size_t)'
+  |-ImplicitCastExpr 0x55e83d122258 <col:22> 'sds':'char *' <LValueToRValue>
+  | `-DeclRefExpr 0x55e83d122188 <col:22> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+  |-ImplicitCastExpr 0x55e83d122288 <col:24> 'const void *' <BitCast>
+  | `-ImplicitCastExpr 0x55e83d122270 <col:24> 'const char *' <ArrayToPointerDecay>
+  |   `-StringLiteral 0x55e83d1221b0 <col:24> 'const char [2]' lvalue "\""
+  `-ImplicitCastExpr 0x55e83d1222a0 <col:29> 'size_t':'unsigned long' <IntegralCast>
+    `-IntegerLiteral 0x55e83d1221e0 <col:29> 'int' 1
+return [B1.10];
+   Preds (1): B16
+   Succs (1): B0
+
+ [B2]
+   Preds (1): B3
+   Succs (1): B16
+
+ [B3]
+   1: DeclRefExpr 0x55e83d1220d8 <sds.c:887:9> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+p
+   2: UnaryOperator 0x55e83d122100 <sds.c:887:9, col:10> 'const char *' postfix '++'
+`-DeclRefExpr 0x55e83d1220d8 <col:9> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+[B3.1]++
+   Preds (7): B5 B9 B10 B11 B12 B13 B14
+   Succs (1): B2
+
+ [B4]
+   1: DeclRefExpr 0x55e83d1209a0 <sds.c:870:17> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+p
+   2: ImplicitCastExpr 0x55e83d1209c8 <sds.c:870:17> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x55e83d1209a0 <col:17> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+[B4.1] (ImplicitCastExpr, LValueToRValue, const char *)
+   3: UnaryOperator 0x55e83d1209e0 <sds.c:870:16, col:17> 'const char' lvalue prefix '*'
+`-ImplicitCastExpr 0x55e83d1209c8 <col:17> 'const char *' <LValueToRValue>
+  `-DeclRefExpr 0x55e83d1209a0 <col:17> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+*[B4.2]
+   4: ImplicitCastExpr 0x55e83d120a00 <sds.c:870:16, col:17> 'char' <LValueToRValue>
+`-UnaryOperator 0x55e83d1209e0 <col:16, col:17> 'const char' lvalue prefix '*'
+  `-ImplicitCastExpr 0x55e83d1209c8 <col:17> 'const char *' <LValueToRValue>
+    `-DeclRefExpr 0x55e83d1209a0 <col:17> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+[B4.3] (ImplicitCastExpr, LValueToRValue, char)
+   5: ImplicitCastExpr 0x55e83d120a18 <sds.c:870:16, col:17> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x55e83d120a00 <col:16, col:17> 'char' <LValueToRValue>
+  `-UnaryOperator 0x55e83d1209e0 <col:16, col:17> 'const char' lvalue prefix '*'
+    `-ImplicitCastExpr 0x55e83d1209c8 <col:17> 'const char *' <LValueToRValue>
+      `-DeclRefExpr 0x55e83d1209a0 <col:17> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+[B4.4] (ImplicitCastExpr, IntegralCast, int)
+   T: switch [B4.5]
+   Preds (1): B16
+   Succs (8): B9 B10 B11 B12 B13 B15 B14 B8
+
+ [B5]
+   T: break;
+   Preds (2): B6 B7
+   Succs (1): B3
+
+ [B6]
+   1: DeclRefExpr 0x55e83d121d78 <sds.c:884:21> 'sds (sds, const char *, ...)' Function 0x55e83d110e30 'sdscatprintf' 'sds (sds, const char *, ...)'
+sdscatprintf
+   2: ImplicitCastExpr 0x55e83d121f30 <sds.c:884:21> 'sds (*)(sds, const char *, ...)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55e83d121d78 <col:21> 'sds (sds, const char *, ...)' Function 0x55e83d110e30 'sdscatprintf' 'sds (sds, const char *, ...)'
+[B6.1] (ImplicitCastExpr, FunctionToPointerDecay, sds (*)(sds, const char *, ...))
+   3: DeclRefExpr 0x55e83d121da0 <sds.c:884:34> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+s
+   4: ImplicitCastExpr 0x55e83d121f88 <sds.c:884:34> 'sds':'char *' <LValueToRValue>
+`-DeclRefExpr 0x55e83d121da0 <col:34> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+[B6.3] (ImplicitCastExpr, LValueToRValue, sds)
+   5: StringLiteral 0x55e83d121e48 <sds.c:884:36> 'const char [7]' lvalue "\\x%02x"
+"\\x%02x"
+   6: ImplicitCastExpr 0x55e83d121fa0 <sds.c:884:36> 'const char *' <ArrayToPointerDecay>
+`-StringLiteral 0x55e83d121e48 <col:36> 'const char [7]' lvalue "\\x%02x"
+[B6.5] (ImplicitCastExpr, ArrayToPointerDecay, const char *)
+   7: DeclRefExpr 0x55e83d121e78 <sds.c:884:62> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+p
+   8: ImplicitCastExpr 0x55e83d121ea0 <sds.c:884:62> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x55e83d121e78 <col:62> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+[B6.7] (ImplicitCastExpr, LValueToRValue, const char *)
+   9: UnaryOperator 0x55e83d121eb8 <sds.c:884:61, col:62> 'const char' lvalue prefix '*'
+`-ImplicitCastExpr 0x55e83d121ea0 <col:62> 'const char *' <LValueToRValue>
+  `-DeclRefExpr 0x55e83d121e78 <col:62> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+*[B6.8]
+  10: ImplicitCastExpr 0x55e83d121ef0 <sds.c:884:61, col:62> 'char' <LValueToRValue>
+`-UnaryOperator 0x55e83d121eb8 <col:61, col:62> 'const char' lvalue prefix '*'
+  `-ImplicitCastExpr 0x55e83d121ea0 <col:62> 'const char *' <LValueToRValue>
+    `-DeclRefExpr 0x55e83d121e78 <col:62> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+[B6.9] (ImplicitCastExpr, LValueToRValue, char)
+  11: CStyleCastExpr 0x55e83d121f08 <sds.c:884:46, col:62> 'unsigned char' <IntegralCast>
+`-ImplicitCastExpr 0x55e83d121ef0 <col:61, col:62> 'char' <LValueToRValue>
+  `-UnaryOperator 0x55e83d121eb8 <col:61, col:62> 'const char' lvalue prefix '*'
+    `-ImplicitCastExpr 0x55e83d121ea0 <col:62> 'const char *' <LValueToRValue>
+      `-DeclRefExpr 0x55e83d121e78 <col:62> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+(unsigned char)[B6.10] (CStyleCastExpr, IntegralCast, unsigned char)
+  12: ImplicitCastExpr 0x55e83d121fb8 <sds.c:884:46, col:62> 'int' <IntegralCast>
+`-CStyleCastExpr 0x55e83d121f08 <col:46, col:62> 'unsigned char' <IntegralCast>
+  `-ImplicitCastExpr 0x55e83d121ef0 <col:61, col:62> 'char' <LValueToRValue>
+    `-UnaryOperator 0x55e83d121eb8 <col:61, col:62> 'const char' lvalue prefix '*'
+      `-ImplicitCastExpr 0x55e83d121ea0 <col:62> 'const char *' <LValueToRValue>
+        `-DeclRefExpr 0x55e83d121e78 <col:62> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+[B6.11] (ImplicitCastExpr, IntegralCast, int)
+  13: CallExpr 0x55e83d121f48 <sds.c:884:21, col:63> 'sds':'char *'
+|-ImplicitCastExpr 0x55e83d121f30 <col:21> 'sds (*)(sds, const char *, ...)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55e83d121d78 <col:21> 'sds (sds, const char *, ...)' Function 0x55e83d110e30 'sdscatprintf' 'sds (sds, const char *, ...)'
+|-ImplicitCastExpr 0x55e83d121f88 <col:34> 'sds':'char *' <LValueToRValue>
+| `-DeclRefExpr 0x55e83d121da0 <col:34> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+|-ImplicitCastExpr 0x55e83d121fa0 <col:36> 'const char *' <ArrayToPointerDecay>
+| `-StringLiteral 0x55e83d121e48 <col:36> 'const char [7]' lvalue "\\x%02x"
+`-ImplicitCastExpr 0x55e83d121fb8 <col:46, col:62> 'int' <IntegralCast>
+  `-CStyleCastExpr 0x55e83d121f08 <col:46, col:62> 'unsigned char' <IntegralCast>
+    `-ImplicitCastExpr 0x55e83d121ef0 <col:61, col:62> 'char' <LValueToRValue>
+      `-UnaryOperator 0x55e83d121eb8 <col:61, col:62> 'const char' lvalue prefix '*'
+        `-ImplicitCastExpr 0x55e83d121ea0 <col:62> 'const char *' <LValueToRValue>
+          `-DeclRefExpr 0x55e83d121e78 <col:62> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+[B6.2]([B6.4], [B6.6], [B6.12])
+  14: DeclRefExpr 0x55e83d121d50 <sds.c:884:17> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+s
+  15: BinaryOperator 0x55e83d121fd0 <sds.c:884:17, col:63> 'sds':'char *' '='
+|-DeclRefExpr 0x55e83d121d50 <col:17> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+`-CallExpr 0x55e83d121f48 <col:21, col:63> 'sds':'char *'
+  |-ImplicitCastExpr 0x55e83d121f30 <col:21> 'sds (*)(sds, const char *, ...)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55e83d121d78 <col:21> 'sds (sds, const char *, ...)' Function 0x55e83d110e30 'sdscatprintf' 'sds (sds, const char *, ...)'
+  |-ImplicitCastExpr 0x55e83d121f88 <col:34> 'sds':'char *' <LValueToRValue>
+  | `-DeclRefExpr 0x55e83d121da0 <col:34> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+  |-ImplicitCastExpr 0x55e83d121fa0 <col:36> 'const char *' <ArrayToPointerDecay>
+  | `-StringLiteral 0x55e83d121e48 <col:36> 'const char [7]' lvalue "\\x%02x"
+  `-ImplicitCastExpr 0x55e83d121fb8 <col:46, col:62> 'int' <IntegralCast>
+    `-CStyleCastExpr 0x55e83d121f08 <col:46, col:62> 'unsigned char' <IntegralCast>
+      `-ImplicitCastExpr 0x55e83d121ef0 <col:61, col:62> 'char' <LValueToRValue>
+        `-UnaryOperator 0x55e83d121eb8 <col:61, col:62> 'const char' lvalue prefix '*'
+          `-ImplicitCastExpr 0x55e83d121ea0 <col:62> 'const char *' <LValueToRValue>
+            `-DeclRefExpr 0x55e83d121e78 <col:62> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+[B6.14] = [B6.13]
+   Preds (1): B8
+   Succs (1): B5
+
+ [B7]
+   1: DeclRefExpr 0x55e83d121b90 <sds.c:882:21> 'sds (sds, const char *, ...)' Function 0x55e83d110e30 'sdscatprintf' 'sds (sds, const char *, ...)'
+sdscatprintf
+   2: ImplicitCastExpr 0x55e83d121c70 <sds.c:882:21> 'sds (*)(sds, const char *, ...)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55e83d121b90 <col:21> 'sds (sds, const char *, ...)' Function 0x55e83d110e30 'sdscatprintf' 'sds (sds, const char *, ...)'
+[B7.1] (ImplicitCastExpr, FunctionToPointerDecay, sds (*)(sds, const char *, ...))
+   3: DeclRefExpr 0x55e83d121bb8 <sds.c:882:34> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+s
+   4: ImplicitCastExpr 0x55e83d121cc8 <sds.c:882:34> 'sds':'char *' <LValueToRValue>
+`-DeclRefExpr 0x55e83d121bb8 <col:34> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+[B7.3] (ImplicitCastExpr, LValueToRValue, sds)
+   5: StringLiteral 0x55e83d121be0 <sds.c:882:36> 'const char [3]' lvalue "%c"
+"%c"
+   6: ImplicitCastExpr 0x55e83d121ce0 <sds.c:882:36> 'const char *' <ArrayToPointerDecay>
+`-StringLiteral 0x55e83d121be0 <col:36> 'const char [3]' lvalue "%c"
+[B7.5] (ImplicitCastExpr, ArrayToPointerDecay, const char *)
+   7: DeclRefExpr 0x55e83d121c10 <sds.c:882:42> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+p
+   8: ImplicitCastExpr 0x55e83d121c38 <sds.c:882:42> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x55e83d121c10 <col:42> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+[B7.7] (ImplicitCastExpr, LValueToRValue, const char *)
+   9: UnaryOperator 0x55e83d121c50 <sds.c:882:41, col:42> 'const char' lvalue prefix '*'
+`-ImplicitCastExpr 0x55e83d121c38 <col:42> 'const char *' <LValueToRValue>
+  `-DeclRefExpr 0x55e83d121c10 <col:42> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+*[B7.8]
+  10: ImplicitCastExpr 0x55e83d121cf8 <sds.c:882:41, col:42> 'char' <LValueToRValue>
+`-UnaryOperator 0x55e83d121c50 <col:41, col:42> 'const char' lvalue prefix '*'
+  `-ImplicitCastExpr 0x55e83d121c38 <col:42> 'const char *' <LValueToRValue>
+    `-DeclRefExpr 0x55e83d121c10 <col:42> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+[B7.9] (ImplicitCastExpr, LValueToRValue, char)
+  11: ImplicitCastExpr 0x55e83d121d10 <sds.c:882:41, col:42> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x55e83d121cf8 <col:41, col:42> 'char' <LValueToRValue>
+  `-UnaryOperator 0x55e83d121c50 <col:41, col:42> 'const char' lvalue prefix '*'
+    `-ImplicitCastExpr 0x55e83d121c38 <col:42> 'const char *' <LValueToRValue>
+      `-DeclRefExpr 0x55e83d121c10 <col:42> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+[B7.10] (ImplicitCastExpr, IntegralCast, int)
+  12: CallExpr 0x55e83d121c88 <sds.c:882:21, col:43> 'sds':'char *'
+|-ImplicitCastExpr 0x55e83d121c70 <col:21> 'sds (*)(sds, const char *, ...)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55e83d121b90 <col:21> 'sds (sds, const char *, ...)' Function 0x55e83d110e30 'sdscatprintf' 'sds (sds, const char *, ...)'
+|-ImplicitCastExpr 0x55e83d121cc8 <col:34> 'sds':'char *' <LValueToRValue>
+| `-DeclRefExpr 0x55e83d121bb8 <col:34> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+|-ImplicitCastExpr 0x55e83d121ce0 <col:36> 'const char *' <ArrayToPointerDecay>
+| `-StringLiteral 0x55e83d121be0 <col:36> 'const char [3]' lvalue "%c"
+`-ImplicitCastExpr 0x55e83d121d10 <col:41, col:42> 'int' <IntegralCast>
+  `-ImplicitCastExpr 0x55e83d121cf8 <col:41, col:42> 'char' <LValueToRValue>
+    `-UnaryOperator 0x55e83d121c50 <col:41, col:42> 'const char' lvalue prefix '*'
+      `-ImplicitCastExpr 0x55e83d121c38 <col:42> 'const char *' <LValueToRValue>
+        `-DeclRefExpr 0x55e83d121c10 <col:42> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+[B7.2]([B7.4], [B7.6], [B7.11])
+  13: DeclRefExpr 0x55e83d121b68 <sds.c:882:17> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+s
+  14: BinaryOperator 0x55e83d121d28 <sds.c:882:17, col:43> 'sds':'char *' '='
+|-DeclRefExpr 0x55e83d121b68 <col:17> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+`-CallExpr 0x55e83d121c88 <col:21, col:43> 'sds':'char *'
+  |-ImplicitCastExpr 0x55e83d121c70 <col:21> 'sds (*)(sds, const char *, ...)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55e83d121b90 <col:21> 'sds (sds, const char *, ...)' Function 0x55e83d110e30 'sdscatprintf' 'sds (sds, const char *, ...)'
+  |-ImplicitCastExpr 0x55e83d121cc8 <col:34> 'sds':'char *' <LValueToRValue>
+  | `-DeclRefExpr 0x55e83d121bb8 <col:34> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+  |-ImplicitCastExpr 0x55e83d121ce0 <col:36> 'const char *' <ArrayToPointerDecay>
+  | `-StringLiteral 0x55e83d121be0 <col:36> 'const char [3]' lvalue "%c"
+  `-ImplicitCastExpr 0x55e83d121d10 <col:41, col:42> 'int' <IntegralCast>
+    `-ImplicitCastExpr 0x55e83d121cf8 <col:41, col:42> 'char' <LValueToRValue>
+      `-UnaryOperator 0x55e83d121c50 <col:41, col:42> 'const char' lvalue prefix '*'
+        `-ImplicitCastExpr 0x55e83d121c38 <col:42> 'const char *' <LValueToRValue>
+          `-DeclRefExpr 0x55e83d121c10 <col:42> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+[B7.13] = [B7.12]
+   Preds (1): B8
+   Succs (1): B5
+
+ [B8]
+  default:
+   1: DeclRefExpr 0x55e83d121830 </usr/include/ctype.h:89:6> 'const unsigned short **(void)' Function 0x55e83d0b9490 '__ctype_b_loc' 'const unsigned short **(void)'
+__ctype_b_loc
+   2: ImplicitCastExpr 0x55e83d121888 </usr/include/ctype.h:89:6> 'const unsigned short **(*)(void)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55e83d121830 <col:6> 'const unsigned short **(void)' Function 0x55e83d0b9490 '__ctype_b_loc' 'const unsigned short **(void)'
+[B8.1] (ImplicitCastExpr, FunctionToPointerDecay, const unsigned short **(*)(void))
+   3: CallExpr 0x55e83d1218a0 </usr/include/ctype.h:89:6, col:21> 'const unsigned short **'
+`-ImplicitCastExpr 0x55e83d121888 <col:6> 'const unsigned short **(*)(void)' <FunctionToPointerDecay>
+  `-DeclRefExpr 0x55e83d121830 <col:6> 'const unsigned short **(void)' Function 0x55e83d0b9490 '__ctype_b_loc' 'const unsigned short **(void)'
+[B8.2]()
+   4: UnaryOperator 0x55e83d1218c8 </usr/include/ctype.h:89:5, col:21> 'const unsigned short *' lvalue prefix '*'
+`-CallExpr 0x55e83d1218a0 <col:6, col:21> 'const unsigned short **'
+  `-ImplicitCastExpr 0x55e83d121888 <col:6> 'const unsigned short **(*)(void)' <FunctionToPointerDecay>
+    `-DeclRefExpr 0x55e83d121830 <col:6> 'const unsigned short **(void)' Function 0x55e83d0b9490 '__ctype_b_loc' 'const unsigned short **(void)'
+*[B8.3]
+   5: ImplicitCastExpr 0x55e83d121a30 </usr/include/ctype.h:89:4, col:22> 'const unsigned short *' <LValueToRValue>
+`-ParenExpr 0x55e83d1218e8 <col:4, col:22> 'const unsigned short *' lvalue
+  `-UnaryOperator 0x55e83d1218c8 <col:5, col:21> 'const unsigned short *' lvalue prefix '*'
+    `-CallExpr 0x55e83d1218a0 <col:6, col:21> 'const unsigned short **'
+      `-ImplicitCastExpr 0x55e83d121888 <col:6> 'const unsigned short **(*)(void)' <FunctionToPointerDecay>
+        `-DeclRefExpr 0x55e83d121830 <col:6> 'const unsigned short **(void)' Function 0x55e83d0b9490 '__ctype_b_loc' 'const unsigned short **(void)'
+([B8.4]) (ImplicitCastExpr, LValueToRValue, const unsigned short *)
+   6: DeclRefExpr 0x55e83d121908 <sds.c:881:26> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+p
+   7: ImplicitCastExpr 0x55e83d121930 <sds.c:881:26> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x55e83d121908 <col:26> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+[B8.6] (ImplicitCastExpr, LValueToRValue, const char *)
+   8: UnaryOperator 0x55e83d121948 <sds.c:881:25, col:26> 'const char' lvalue prefix '*'
+`-ImplicitCastExpr 0x55e83d121930 <col:26> 'const char *' <LValueToRValue>
+  `-DeclRefExpr 0x55e83d121908 <col:26> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+*[B8.7]
+   9: ImplicitCastExpr 0x55e83d1219f0 </usr/include/ctype.h:89:30, col:32> 'char' <LValueToRValue>
+`-ParenExpr 0x55e83d1219d0 <col:30, col:32> 'const char' lvalue
+  `-ParenExpr 0x55e83d121968 <line:195:31, col:33> 'const char' lvalue
+    `-UnaryOperator 0x55e83d121948 <sds.c:881:25, col:26> 'const char' lvalue prefix '*'
+      `-ImplicitCastExpr 0x55e83d121930 <col:26> 'const char *' <LValueToRValue>
+        `-DeclRefExpr 0x55e83d121908 <col:26> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+(([B8.8])) (ImplicitCastExpr, LValueToRValue, char)
+  10: CStyleCastExpr 0x55e83d121a08 </usr/include/ctype.h:89:24, col:32> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x55e83d1219f0 <col:30, col:32> 'char' <LValueToRValue>
+  `-ParenExpr 0x55e83d1219d0 <col:30, col:32> 'const char' lvalue
+    `-ParenExpr 0x55e83d121968 <line:195:31, col:33> 'const char' lvalue
+      `-UnaryOperator 0x55e83d121948 <sds.c:881:25, col:26> 'const char' lvalue prefix '*'
+        `-ImplicitCastExpr 0x55e83d121930 <col:26> 'const char *' <LValueToRValue>
+          `-DeclRefExpr 0x55e83d121908 <col:26> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+(int)[B8.9] (CStyleCastExpr, IntegralCast, int)
+  11: ArraySubscriptExpr 0x55e83d121a48 </usr/include/ctype.h:89:4, col:33> 'const unsigned short' lvalue
+|-ImplicitCastExpr 0x55e83d121a30 <col:4, col:22> 'const unsigned short *' <LValueToRValue>
+| `-ParenExpr 0x55e83d1218e8 <col:4, col:22> 'const unsigned short *' lvalue
+|   `-UnaryOperator 0x55e83d1218c8 <col:5, col:21> 'const unsigned short *' lvalue prefix '*'
+|     `-CallExpr 0x55e83d1218a0 <col:6, col:21> 'const unsigned short **'
+|       `-ImplicitCastExpr 0x55e83d121888 <col:6> 'const unsigned short **(*)(void)' <FunctionToPointerDecay>
+|         `-DeclRefExpr 0x55e83d121830 <col:6> 'const unsigned short **(void)' Function 0x55e83d0b9490 '__ctype_b_loc' 'const unsigned short **(void)'
+`-CStyleCastExpr 0x55e83d121a08 <col:24, col:32> 'int' <IntegralCast>
+  `-ImplicitCastExpr 0x55e83d1219f0 <col:30, col:32> 'char' <LValueToRValue>
+    `-ParenExpr 0x55e83d1219d0 <col:30, col:32> 'const char' lvalue
+      `-ParenExpr 0x55e83d121968 <line:195:31, col:33> 'const char' lvalue
+        `-UnaryOperator 0x55e83d121948 <sds.c:881:25, col:26> 'const char' lvalue prefix '*'
+          `-ImplicitCastExpr 0x55e83d121930 <col:26> 'const char *' <LValueToRValue>
+            `-DeclRefExpr 0x55e83d121908 <col:26> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+[B8.5][[B8.10]]
+  12: ImplicitCastExpr 0x55e83d121ad8 </usr/include/ctype.h:89:4, col:33> 'unsigned short' <LValueToRValue>
+`-ArraySubscriptExpr 0x55e83d121a48 <col:4, col:33> 'const unsigned short' lvalue
+  |-ImplicitCastExpr 0x55e83d121a30 <col:4, col:22> 'const unsigned short *' <LValueToRValue>
+  | `-ParenExpr 0x55e83d1218e8 <col:4, col:22> 'const unsigned short *' lvalue
+  |   `-UnaryOperator 0x55e83d1218c8 <col:5, col:21> 'const unsigned short *' lvalue prefix '*'
+  |     `-CallExpr 0x55e83d1218a0 <col:6, col:21> 'const unsigned short **'
+  |       `-ImplicitCastExpr 0x55e83d121888 <col:6> 'const unsigned short **(*)(void)' <FunctionToPointerDecay>
+  |         `-DeclRefExpr 0x55e83d121830 <col:6> 'const unsigned short **(void)' Function 0x55e83d0b9490 '__ctype_b_loc' 'const unsigned short **(void)'
+  `-CStyleCastExpr 0x55e83d121a08 <col:24, col:32> 'int' <IntegralCast>
+    `-ImplicitCastExpr 0x55e83d1219f0 <col:30, col:32> 'char' <LValueToRValue>
+      `-ParenExpr 0x55e83d1219d0 <col:30, col:32> 'const char' lvalue
+        `-ParenExpr 0x55e83d121968 <line:195:31, col:33> 'const char' lvalue
+          `-UnaryOperator 0x55e83d121948 <sds.c:881:25, col:26> 'const char' lvalue prefix '*'
+            `-ImplicitCastExpr 0x55e83d121930 <col:26> 'const char *' <LValueToRValue>
+              `-DeclRefExpr 0x55e83d121908 <col:26> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+[B8.11] (ImplicitCastExpr, LValueToRValue, unsigned short)
+  13: ImplicitCastExpr 0x55e83d121af0 </usr/include/ctype.h:89:4, col:33> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x55e83d121ad8 <col:4, col:33> 'unsigned short' <LValueToRValue>
+  `-ArraySubscriptExpr 0x55e83d121a48 <col:4, col:33> 'const unsigned short' lvalue
+    |-ImplicitCastExpr 0x55e83d121a30 <col:4, col:22> 'const unsigned short *' <LValueToRValue>
+    | `-ParenExpr 0x55e83d1218e8 <col:4, col:22> 'const unsigned short *' lvalue
+    |   `-UnaryOperator 0x55e83d1218c8 <col:5, col:21> 'const unsigned short *' lvalue prefix '*'
+    |     `-CallExpr 0x55e83d1218a0 <col:6, col:21> 'const unsigned short **'
+    |       `-ImplicitCastExpr 0x55e83d121888 <col:6> 'const unsigned short **(*)(void)' <FunctionToPointerDecay>
+    |         `-DeclRefExpr 0x55e83d121830 <col:6> 'const unsigned short **(void)' Function 0x55e83d0b9490 '__ctype_b_loc' 'const unsigned short **(void)'
+    `-CStyleCastExpr 0x55e83d121a08 <col:24, col:32> 'int' <IntegralCast>
+      `-ImplicitCastExpr 0x55e83d1219f0 <col:30, col:32> 'char' <LValueToRValue>
+        `-ParenExpr 0x55e83d1219d0 <col:30, col:32> 'const char' lvalue
+          `-ParenExpr 0x55e83d121968 <line:195:31, col:33> 'const char' lvalue
+            `-UnaryOperator 0x55e83d121948 <sds.c:881:25, col:26> 'const char' lvalue prefix '*'
+              `-ImplicitCastExpr 0x55e83d121930 <col:26> 'const char *' <LValueToRValue>
+                `-DeclRefExpr 0x55e83d121908 <col:26> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+[B8.12] (ImplicitCastExpr, IntegralCast, int)
+  14: DeclRefExpr 0x55e83d121a70 </usr/include/ctype.h:195:36> 'int' EnumConstant 0x55e83d0b8298 '_ISprint' 'int'
+_ISprint
+  15: CStyleCastExpr 0x55e83d121ab0 </usr/include/ctype.h:89:37, line:195:36> 'unsigned short' <IntegralCast>
+`-DeclRefExpr 0x55e83d121a70 <col:36> 'int' EnumConstant 0x55e83d0b8298 '_ISprint' 'int'
+(unsigned short)[B8.14] (CStyleCastExpr, IntegralCast, unsigned short)
+  16: ImplicitCastExpr 0x55e83d121b08 </usr/include/ctype.h:89:37, line:195:36> 'int' <IntegralCast>
+`-CStyleCastExpr 0x55e83d121ab0 <line:89:37, line:195:36> 'unsigned short' <IntegralCast>
+  `-DeclRefExpr 0x55e83d121a70 <col:36> 'int' EnumConstant 0x55e83d0b8298 '_ISprint' 'int'
+[B8.15] (ImplicitCastExpr, IntegralCast, int)
+  17: BinaryOperator 0x55e83d121b20 </usr/include/ctype.h:89:4, line:195:36> 'int' '&'
+|-ImplicitCastExpr 0x55e83d121af0 <line:89:4, col:33> 'int' <IntegralCast>
+| `-ImplicitCastExpr 0x55e83d121ad8 <col:4, col:33> 'unsigned short' <LValueToRValue>
+|   `-ArraySubscriptExpr 0x55e83d121a48 <col:4, col:33> 'const unsigned short' lvalue
+|     |-ImplicitCastExpr 0x55e83d121a30 <col:4, col:22> 'const unsigned short *' <LValueToRValue>
+|     | `-ParenExpr 0x55e83d1218e8 <col:4, col:22> 'const unsigned short *' lvalue
+|     |   `-UnaryOperator 0x55e83d1218c8 <col:5, col:21> 'const unsigned short *' lvalue prefix '*'
+|     |     `-CallExpr 0x55e83d1218a0 <col:6, col:21> 'const unsigned short **'
+|     |       `-ImplicitCastExpr 0x55e83d121888 <col:6> 'const unsigned short **(*)(void)' <FunctionToPointerDecay>
+|     |         `-DeclRefExpr 0x55e83d121830 <col:6> 'const unsigned short **(void)' Function 0x55e83d0b9490 '__ctype_b_loc' 'const unsigned short **(void)'
+|     `-CStyleCastExpr 0x55e83d121a08 <col:24, col:32> 'int' <IntegralCast>
+|       `-ImplicitCastExpr 0x55e83d1219f0 <col:30, col:32> 'char' <LValueToRValue>
+|         `-ParenExpr 0x55e83d1219d0 <col:30, col:32> 'const char' lvalue
+|           `-ParenExpr 0x55e83d121968 <line:195:31, col:33> 'const char' lvalue
+|             `-UnaryOperator 0x55e83d121948 <sds.c:881:25, col:26> 'const char' lvalue prefix '*'
+|               `-ImplicitCastExpr 0x55e83d121930 <col:26> 'const char *' <LValueToRValue>
+|                 `-DeclRefExpr 0x55e83d121908 <col:26> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+`-ImplicitCastExpr 0x55e83d121b08 </usr/include/ctype.h:89:37, line:195:36> 'int' <IntegralCast>
+  `-CStyleCastExpr 0x55e83d121ab0 <line:89:37, line:195:36> 'unsigned short' <IntegralCast>
+    `-DeclRefExpr 0x55e83d121a70 <col:36> 'int' EnumConstant 0x55e83d0b8298 '_ISprint' 'int'
+[B8.13] & [B8.16]
+   T: if ([B8.17])
+   Preds (1): B4
+   Succs (2): B7 B6
+
+ [B9]
+  case '\b':
+   1: DeclRefExpr 0x55e83d1216a8 <sds.c:879:24> 'sds (sds, const void *, size_t)' Function 0x55e83d10a308 'sdscatlen' 'sds (sds, const void *, size_t)'
+sdscatlen
+   2: ImplicitCastExpr 0x55e83d121748 <sds.c:879:24> 'sds (*)(sds, const void *, size_t)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55e83d1216a8 <col:24> 'sds (sds, const void *, size_t)' Function 0x55e83d10a308 'sdscatlen' 'sds (sds, const void *, size_t)'
+[B9.1] (ImplicitCastExpr, FunctionToPointerDecay, sds (*)(sds, const void *, size_t))
+   3: DeclRefExpr 0x55e83d1216d0 <sds.c:879:34> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+s
+   4: ImplicitCastExpr 0x55e83d1217a0 <sds.c:879:34> 'sds':'char *' <LValueToRValue>
+`-DeclRefExpr 0x55e83d1216d0 <col:34> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+[B9.3] (ImplicitCastExpr, LValueToRValue, sds)
+   5: StringLiteral 0x55e83d1216f8 <sds.c:879:36> 'const char [3]' lvalue "\\b"
+"\\b"
+   6: ImplicitCastExpr 0x55e83d1217b8 <sds.c:879:36> 'const char *' <ArrayToPointerDecay>
+`-StringLiteral 0x55e83d1216f8 <col:36> 'const char [3]' lvalue "\\b"
+[B9.5] (ImplicitCastExpr, ArrayToPointerDecay, const char *)
+   7: ImplicitCastExpr 0x55e83d1217d0 <sds.c:879:36> 'const void *' <BitCast>
+`-ImplicitCastExpr 0x55e83d1217b8 <col:36> 'const char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x55e83d1216f8 <col:36> 'const char [3]' lvalue "\\b"
+[B9.6] (ImplicitCastExpr, BitCast, const void *)
+   8: IntegerLiteral 0x55e83d121728 <sds.c:879:42> 'int' 2
+2
+   9: ImplicitCastExpr 0x55e83d1217e8 <sds.c:879:42> 'size_t':'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x55e83d121728 <col:42> 'int' 2
+[B9.8] (ImplicitCastExpr, IntegralCast, size_t)
+  10: CallExpr 0x55e83d121760 <sds.c:879:24, col:43> 'sds':'char *'
+|-ImplicitCastExpr 0x55e83d121748 <col:24> 'sds (*)(sds, const void *, size_t)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55e83d1216a8 <col:24> 'sds (sds, const void *, size_t)' Function 0x55e83d10a308 'sdscatlen' 'sds (sds, const void *, size_t)'
+|-ImplicitCastExpr 0x55e83d1217a0 <col:34> 'sds':'char *' <LValueToRValue>
+| `-DeclRefExpr 0x55e83d1216d0 <col:34> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+|-ImplicitCastExpr 0x55e83d1217d0 <col:36> 'const void *' <BitCast>
+| `-ImplicitCastExpr 0x55e83d1217b8 <col:36> 'const char *' <ArrayToPointerDecay>
+|   `-StringLiteral 0x55e83d1216f8 <col:36> 'const char [3]' lvalue "\\b"
+`-ImplicitCastExpr 0x55e83d1217e8 <col:42> 'size_t':'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x55e83d121728 <col:42> 'int' 2
+[B9.2]([B9.4], [B9.7], [B9.9])
+  11: DeclRefExpr 0x55e83d121680 <sds.c:879:20> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+s
+  12: BinaryOperator 0x55e83d121800 <sds.c:879:20, col:43> 'sds':'char *' '='
+|-DeclRefExpr 0x55e83d121680 <col:20> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+`-CallExpr 0x55e83d121760 <col:24, col:43> 'sds':'char *'
+  |-ImplicitCastExpr 0x55e83d121748 <col:24> 'sds (*)(sds, const void *, size_t)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55e83d1216a8 <col:24> 'sds (sds, const void *, size_t)' Function 0x55e83d10a308 'sdscatlen' 'sds (sds, const void *, size_t)'
+  |-ImplicitCastExpr 0x55e83d1217a0 <col:34> 'sds':'char *' <LValueToRValue>
+  | `-DeclRefExpr 0x55e83d1216d0 <col:34> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+  |-ImplicitCastExpr 0x55e83d1217d0 <col:36> 'const void *' <BitCast>
+  | `-ImplicitCastExpr 0x55e83d1217b8 <col:36> 'const char *' <ArrayToPointerDecay>
+  |   `-StringLiteral 0x55e83d1216f8 <col:36> 'const char [3]' lvalue "\\b"
+  `-ImplicitCastExpr 0x55e83d1217e8 <col:42> 'size_t':'unsigned long' <IntegralCast>
+    `-IntegerLiteral 0x55e83d121728 <col:42> 'int' 2
+[B9.11] = [B9.10]
+   T: break;
+   Preds (1): B4
+   Succs (1): B3
+
+ [B10]
+  case '\a':
+   1: DeclRefExpr 0x55e83d121488 <sds.c:878:24> 'sds (sds, const void *, size_t)' Function 0x55e83d10a308 'sdscatlen' 'sds (sds, const void *, size_t)'
+sdscatlen
+   2: ImplicitCastExpr 0x55e83d121528 <sds.c:878:24> 'sds (*)(sds, const void *, size_t)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55e83d121488 <col:24> 'sds (sds, const void *, size_t)' Function 0x55e83d10a308 'sdscatlen' 'sds (sds, const void *, size_t)'
+[B10.1] (ImplicitCastExpr, FunctionToPointerDecay, sds (*)(sds, const void *, size_t))
+   3: DeclRefExpr 0x55e83d1214b0 <sds.c:878:34> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+s
+   4: ImplicitCastExpr 0x55e83d1215a0 <sds.c:878:34> 'sds':'char *' <LValueToRValue>
+`-DeclRefExpr 0x55e83d1214b0 <col:34> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+[B10.3] (ImplicitCastExpr, LValueToRValue, sds)
+   5: StringLiteral 0x55e83d1214d8 <sds.c:878:36> 'const char [3]' lvalue "\\a"
+"\\a"
+   6: ImplicitCastExpr 0x55e83d1215b8 <sds.c:878:36> 'const char *' <ArrayToPointerDecay>
+`-StringLiteral 0x55e83d1214d8 <col:36> 'const char [3]' lvalue "\\a"
+[B10.5] (ImplicitCastExpr, ArrayToPointerDecay, const char *)
+   7: ImplicitCastExpr 0x55e83d1215d0 <sds.c:878:36> 'const void *' <BitCast>
+`-ImplicitCastExpr 0x55e83d1215b8 <col:36> 'const char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x55e83d1214d8 <col:36> 'const char [3]' lvalue "\\a"
+[B10.6] (ImplicitCastExpr, BitCast, const void *)
+   8: IntegerLiteral 0x55e83d121508 <sds.c:878:42> 'int' 2
+2
+   9: ImplicitCastExpr 0x55e83d1215e8 <sds.c:878:42> 'size_t':'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x55e83d121508 <col:42> 'int' 2
+[B10.8] (ImplicitCastExpr, IntegralCast, size_t)
+  10: CallExpr 0x55e83d121540 <sds.c:878:24, col:43> 'sds':'char *'
+|-ImplicitCastExpr 0x55e83d121528 <col:24> 'sds (*)(sds, const void *, size_t)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55e83d121488 <col:24> 'sds (sds, const void *, size_t)' Function 0x55e83d10a308 'sdscatlen' 'sds (sds, const void *, size_t)'
+|-ImplicitCastExpr 0x55e83d1215a0 <col:34> 'sds':'char *' <LValueToRValue>
+| `-DeclRefExpr 0x55e83d1214b0 <col:34> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+|-ImplicitCastExpr 0x55e83d1215d0 <col:36> 'const void *' <BitCast>
+| `-ImplicitCastExpr 0x55e83d1215b8 <col:36> 'const char *' <ArrayToPointerDecay>
+|   `-StringLiteral 0x55e83d1214d8 <col:36> 'const char [3]' lvalue "\\a"
+`-ImplicitCastExpr 0x55e83d1215e8 <col:42> 'size_t':'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x55e83d121508 <col:42> 'int' 2
+[B10.2]([B10.4], [B10.7], [B10.9])
+  11: DeclRefExpr 0x55e83d121460 <sds.c:878:20> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+s
+  12: BinaryOperator 0x55e83d121600 <sds.c:878:20, col:43> 'sds':'char *' '='
+|-DeclRefExpr 0x55e83d121460 <col:20> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+`-CallExpr 0x55e83d121540 <col:24, col:43> 'sds':'char *'
+  |-ImplicitCastExpr 0x55e83d121528 <col:24> 'sds (*)(sds, const void *, size_t)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55e83d121488 <col:24> 'sds (sds, const void *, size_t)' Function 0x55e83d10a308 'sdscatlen' 'sds (sds, const void *, size_t)'
+  |-ImplicitCastExpr 0x55e83d1215a0 <col:34> 'sds':'char *' <LValueToRValue>
+  | `-DeclRefExpr 0x55e83d1214b0 <col:34> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+  |-ImplicitCastExpr 0x55e83d1215d0 <col:36> 'const void *' <BitCast>
+  | `-ImplicitCastExpr 0x55e83d1215b8 <col:36> 'const char *' <ArrayToPointerDecay>
+  |   `-StringLiteral 0x55e83d1214d8 <col:36> 'const char [3]' lvalue "\\a"
+  `-ImplicitCastExpr 0x55e83d1215e8 <col:42> 'size_t':'unsigned long' <IntegralCast>
+    `-IntegerLiteral 0x55e83d121508 <col:42> 'int' 2
+[B10.11] = [B10.10]
+   T: break;
+   Preds (1): B4
+   Succs (1): B3
+
+ [B11]
+  case '\t':
+   1: DeclRefExpr 0x55e83d121288 <sds.c:877:24> 'sds (sds, const void *, size_t)' Function 0x55e83d10a308 'sdscatlen' 'sds (sds, const void *, size_t)'
+sdscatlen
+   2: ImplicitCastExpr 0x55e83d121328 <sds.c:877:24> 'sds (*)(sds, const void *, size_t)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55e83d121288 <col:24> 'sds (sds, const void *, size_t)' Function 0x55e83d10a308 'sdscatlen' 'sds (sds, const void *, size_t)'
+[B11.1] (ImplicitCastExpr, FunctionToPointerDecay, sds (*)(sds, const void *, size_t))
+   3: DeclRefExpr 0x55e83d1212b0 <sds.c:877:34> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+s
+   4: ImplicitCastExpr 0x55e83d121380 <sds.c:877:34> 'sds':'char *' <LValueToRValue>
+`-DeclRefExpr 0x55e83d1212b0 <col:34> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+[B11.3] (ImplicitCastExpr, LValueToRValue, sds)
+   5: StringLiteral 0x55e83d1212d8 <sds.c:877:36> 'const char [3]' lvalue "\\t"
+"\\t"
+   6: ImplicitCastExpr 0x55e83d121398 <sds.c:877:36> 'const char *' <ArrayToPointerDecay>
+`-StringLiteral 0x55e83d1212d8 <col:36> 'const char [3]' lvalue "\\t"
+[B11.5] (ImplicitCastExpr, ArrayToPointerDecay, const char *)
+   7: ImplicitCastExpr 0x55e83d1213b0 <sds.c:877:36> 'const void *' <BitCast>
+`-ImplicitCastExpr 0x55e83d121398 <col:36> 'const char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x55e83d1212d8 <col:36> 'const char [3]' lvalue "\\t"
+[B11.6] (ImplicitCastExpr, BitCast, const void *)
+   8: IntegerLiteral 0x55e83d121308 <sds.c:877:42> 'int' 2
+2
+   9: ImplicitCastExpr 0x55e83d1213c8 <sds.c:877:42> 'size_t':'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x55e83d121308 <col:42> 'int' 2
+[B11.8] (ImplicitCastExpr, IntegralCast, size_t)
+  10: CallExpr 0x55e83d121340 <sds.c:877:24, col:43> 'sds':'char *'
+|-ImplicitCastExpr 0x55e83d121328 <col:24> 'sds (*)(sds, const void *, size_t)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55e83d121288 <col:24> 'sds (sds, const void *, size_t)' Function 0x55e83d10a308 'sdscatlen' 'sds (sds, const void *, size_t)'
+|-ImplicitCastExpr 0x55e83d121380 <col:34> 'sds':'char *' <LValueToRValue>
+| `-DeclRefExpr 0x55e83d1212b0 <col:34> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+|-ImplicitCastExpr 0x55e83d1213b0 <col:36> 'const void *' <BitCast>
+| `-ImplicitCastExpr 0x55e83d121398 <col:36> 'const char *' <ArrayToPointerDecay>
+|   `-StringLiteral 0x55e83d1212d8 <col:36> 'const char [3]' lvalue "\\t"
+`-ImplicitCastExpr 0x55e83d1213c8 <col:42> 'size_t':'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x55e83d121308 <col:42> 'int' 2
+[B11.2]([B11.4], [B11.7], [B11.9])
+  11: DeclRefExpr 0x55e83d121260 <sds.c:877:20> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+s
+  12: BinaryOperator 0x55e83d1213e0 <sds.c:877:20, col:43> 'sds':'char *' '='
+|-DeclRefExpr 0x55e83d121260 <col:20> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+`-CallExpr 0x55e83d121340 <col:24, col:43> 'sds':'char *'
+  |-ImplicitCastExpr 0x55e83d121328 <col:24> 'sds (*)(sds, const void *, size_t)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55e83d121288 <col:24> 'sds (sds, const void *, size_t)' Function 0x55e83d10a308 'sdscatlen' 'sds (sds, const void *, size_t)'
+  |-ImplicitCastExpr 0x55e83d121380 <col:34> 'sds':'char *' <LValueToRValue>
+  | `-DeclRefExpr 0x55e83d1212b0 <col:34> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+  |-ImplicitCastExpr 0x55e83d1213b0 <col:36> 'const void *' <BitCast>
+  | `-ImplicitCastExpr 0x55e83d121398 <col:36> 'const char *' <ArrayToPointerDecay>
+  |   `-StringLiteral 0x55e83d1212d8 <col:36> 'const char [3]' lvalue "\\t"
+  `-ImplicitCastExpr 0x55e83d1213c8 <col:42> 'size_t':'unsigned long' <IntegralCast>
+    `-IntegerLiteral 0x55e83d121308 <col:42> 'int' 2
+[B11.11] = [B11.10]
+   T: break;
+   Preds (1): B4
+   Succs (1): B3
+
+ [B12]
+  case '\r':
+   1: DeclRefExpr 0x55e83d121088 <sds.c:876:24> 'sds (sds, const void *, size_t)' Function 0x55e83d10a308 'sdscatlen' 'sds (sds, const void *, size_t)'
+sdscatlen
+   2: ImplicitCastExpr 0x55e83d121128 <sds.c:876:24> 'sds (*)(sds, const void *, size_t)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55e83d121088 <col:24> 'sds (sds, const void *, size_t)' Function 0x55e83d10a308 'sdscatlen' 'sds (sds, const void *, size_t)'
+[B12.1] (ImplicitCastExpr, FunctionToPointerDecay, sds (*)(sds, const void *, size_t))
+   3: DeclRefExpr 0x55e83d1210b0 <sds.c:876:34> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+s
+   4: ImplicitCastExpr 0x55e83d121180 <sds.c:876:34> 'sds':'char *' <LValueToRValue>
+`-DeclRefExpr 0x55e83d1210b0 <col:34> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+[B12.3] (ImplicitCastExpr, LValueToRValue, sds)
+   5: StringLiteral 0x55e83d1210d8 <sds.c:876:36> 'const char [3]' lvalue "\\r"
+"\\r"
+   6: ImplicitCastExpr 0x55e83d121198 <sds.c:876:36> 'const char *' <ArrayToPointerDecay>
+`-StringLiteral 0x55e83d1210d8 <col:36> 'const char [3]' lvalue "\\r"
+[B12.5] (ImplicitCastExpr, ArrayToPointerDecay, const char *)
+   7: ImplicitCastExpr 0x55e83d1211b0 <sds.c:876:36> 'const void *' <BitCast>
+`-ImplicitCastExpr 0x55e83d121198 <col:36> 'const char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x55e83d1210d8 <col:36> 'const char [3]' lvalue "\\r"
+[B12.6] (ImplicitCastExpr, BitCast, const void *)
+   8: IntegerLiteral 0x55e83d121108 <sds.c:876:42> 'int' 2
+2
+   9: ImplicitCastExpr 0x55e83d1211c8 <sds.c:876:42> 'size_t':'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x55e83d121108 <col:42> 'int' 2
+[B12.8] (ImplicitCastExpr, IntegralCast, size_t)
+  10: CallExpr 0x55e83d121140 <sds.c:876:24, col:43> 'sds':'char *'
+|-ImplicitCastExpr 0x55e83d121128 <col:24> 'sds (*)(sds, const void *, size_t)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55e83d121088 <col:24> 'sds (sds, const void *, size_t)' Function 0x55e83d10a308 'sdscatlen' 'sds (sds, const void *, size_t)'
+|-ImplicitCastExpr 0x55e83d121180 <col:34> 'sds':'char *' <LValueToRValue>
+| `-DeclRefExpr 0x55e83d1210b0 <col:34> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+|-ImplicitCastExpr 0x55e83d1211b0 <col:36> 'const void *' <BitCast>
+| `-ImplicitCastExpr 0x55e83d121198 <col:36> 'const char *' <ArrayToPointerDecay>
+|   `-StringLiteral 0x55e83d1210d8 <col:36> 'const char [3]' lvalue "\\r"
+`-ImplicitCastExpr 0x55e83d1211c8 <col:42> 'size_t':'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x55e83d121108 <col:42> 'int' 2
+[B12.2]([B12.4], [B12.7], [B12.9])
+  11: DeclRefExpr 0x55e83d121060 <sds.c:876:20> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+s
+  12: BinaryOperator 0x55e83d1211e0 <sds.c:876:20, col:43> 'sds':'char *' '='
+|-DeclRefExpr 0x55e83d121060 <col:20> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+`-CallExpr 0x55e83d121140 <col:24, col:43> 'sds':'char *'
+  |-ImplicitCastExpr 0x55e83d121128 <col:24> 'sds (*)(sds, const void *, size_t)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55e83d121088 <col:24> 'sds (sds, const void *, size_t)' Function 0x55e83d10a308 'sdscatlen' 'sds (sds, const void *, size_t)'
+  |-ImplicitCastExpr 0x55e83d121180 <col:34> 'sds':'char *' <LValueToRValue>
+  | `-DeclRefExpr 0x55e83d1210b0 <col:34> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+  |-ImplicitCastExpr 0x55e83d1211b0 <col:36> 'const void *' <BitCast>
+  | `-ImplicitCastExpr 0x55e83d121198 <col:36> 'const char *' <ArrayToPointerDecay>
+  |   `-StringLiteral 0x55e83d1210d8 <col:36> 'const char [3]' lvalue "\\r"
+  `-ImplicitCastExpr 0x55e83d1211c8 <col:42> 'size_t':'unsigned long' <IntegralCast>
+    `-IntegerLiteral 0x55e83d121108 <col:42> 'int' 2
+[B12.11] = [B12.10]
+   T: break;
+   Preds (1): B4
+   Succs (1): B3
+
+ [B13]
+  case '\n':
+   1: DeclRefExpr 0x55e83d120e08 <sds.c:875:24> 'sds (sds, const void *, size_t)' Function 0x55e83d10a308 'sdscatlen' 'sds (sds, const void *, size_t)'
+sdscatlen
+   2: ImplicitCastExpr 0x55e83d120f28 <sds.c:875:24> 'sds (*)(sds, const void *, size_t)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55e83d120e08 <col:24> 'sds (sds, const void *, size_t)' Function 0x55e83d10a308 'sdscatlen' 'sds (sds, const void *, size_t)'
+[B13.1] (ImplicitCastExpr, FunctionToPointerDecay, sds (*)(sds, const void *, size_t))
+   3: DeclRefExpr 0x55e83d120e30 <sds.c:875:34> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+s
+   4: ImplicitCastExpr 0x55e83d120f80 <sds.c:875:34> 'sds':'char *' <LValueToRValue>
+`-DeclRefExpr 0x55e83d120e30 <col:34> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+[B13.3] (ImplicitCastExpr, LValueToRValue, sds)
+   5: StringLiteral 0x55e83d120ed8 <sds.c:875:36> 'const char [3]' lvalue "\\n"
+"\\n"
+   6: ImplicitCastExpr 0x55e83d120f98 <sds.c:875:36> 'const char *' <ArrayToPointerDecay>
+`-StringLiteral 0x55e83d120ed8 <col:36> 'const char [3]' lvalue "\\n"
+[B13.5] (ImplicitCastExpr, ArrayToPointerDecay, const char *)
+   7: ImplicitCastExpr 0x55e83d120fb0 <sds.c:875:36> 'const void *' <BitCast>
+`-ImplicitCastExpr 0x55e83d120f98 <col:36> 'const char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x55e83d120ed8 <col:36> 'const char [3]' lvalue "\\n"
+[B13.6] (ImplicitCastExpr, BitCast, const void *)
+   8: IntegerLiteral 0x55e83d120f08 <sds.c:875:42> 'int' 2
+2
+   9: ImplicitCastExpr 0x55e83d120fc8 <sds.c:875:42> 'size_t':'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x55e83d120f08 <col:42> 'int' 2
+[B13.8] (ImplicitCastExpr, IntegralCast, size_t)
+  10: CallExpr 0x55e83d120f40 <sds.c:875:24, col:43> 'sds':'char *'
+|-ImplicitCastExpr 0x55e83d120f28 <col:24> 'sds (*)(sds, const void *, size_t)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55e83d120e08 <col:24> 'sds (sds, const void *, size_t)' Function 0x55e83d10a308 'sdscatlen' 'sds (sds, const void *, size_t)'
+|-ImplicitCastExpr 0x55e83d120f80 <col:34> 'sds':'char *' <LValueToRValue>
+| `-DeclRefExpr 0x55e83d120e30 <col:34> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+|-ImplicitCastExpr 0x55e83d120fb0 <col:36> 'const void *' <BitCast>
+| `-ImplicitCastExpr 0x55e83d120f98 <col:36> 'const char *' <ArrayToPointerDecay>
+|   `-StringLiteral 0x55e83d120ed8 <col:36> 'const char [3]' lvalue "\\n"
+`-ImplicitCastExpr 0x55e83d120fc8 <col:42> 'size_t':'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x55e83d120f08 <col:42> 'int' 2
+[B13.2]([B13.4], [B13.7], [B13.9])
+  11: DeclRefExpr 0x55e83d120de0 <sds.c:875:20> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+s
+  12: BinaryOperator 0x55e83d120fe0 <sds.c:875:20, col:43> 'sds':'char *' '='
+|-DeclRefExpr 0x55e83d120de0 <col:20> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+`-CallExpr 0x55e83d120f40 <col:24, col:43> 'sds':'char *'
+  |-ImplicitCastExpr 0x55e83d120f28 <col:24> 'sds (*)(sds, const void *, size_t)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55e83d120e08 <col:24> 'sds (sds, const void *, size_t)' Function 0x55e83d10a308 'sdscatlen' 'sds (sds, const void *, size_t)'
+  |-ImplicitCastExpr 0x55e83d120f80 <col:34> 'sds':'char *' <LValueToRValue>
+  | `-DeclRefExpr 0x55e83d120e30 <col:34> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+  |-ImplicitCastExpr 0x55e83d120fb0 <col:36> 'const void *' <BitCast>
+  | `-ImplicitCastExpr 0x55e83d120f98 <col:36> 'const char *' <ArrayToPointerDecay>
+  |   `-StringLiteral 0x55e83d120ed8 <col:36> 'const char [3]' lvalue "\\n"
+  `-ImplicitCastExpr 0x55e83d120fc8 <col:42> 'size_t':'unsigned long' <IntegralCast>
+    `-IntegerLiteral 0x55e83d120f08 <col:42> 'int' 2
+[B13.11] = [B13.10]
+   T: break;
+   Preds (1): B4
+   Succs (1): B3
+
+ [B14]
+  case '"':
+   1: DeclRefExpr 0x55e83d120b28 <sds.c:873:17> 'sds (sds, const char *, ...)' Function 0x55e83d110e30 'sdscatprintf' 'sds (sds, const char *, ...)'
+sdscatprintf
+   2: ImplicitCastExpr 0x55e83d120ca8 <sds.c:873:17> 'sds (*)(sds, const char *, ...)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55e83d120b28 <col:17> 'sds (sds, const char *, ...)' Function 0x55e83d110e30 'sdscatprintf' 'sds (sds, const char *, ...)'
+[B14.1] (ImplicitCastExpr, FunctionToPointerDecay, sds (*)(sds, const char *, ...))
+   3: DeclRefExpr 0x55e83d120b50 <sds.c:873:30> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+s
+   4: ImplicitCastExpr 0x55e83d120d00 <sds.c:873:30> 'sds':'char *' <LValueToRValue>
+`-DeclRefExpr 0x55e83d120b50 <col:30> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+[B14.3] (ImplicitCastExpr, LValueToRValue, sds)
+   5: StringLiteral 0x55e83d120bb8 <sds.c:873:32> 'const char [4]' lvalue "\\%c"
+"\\%c"
+   6: ImplicitCastExpr 0x55e83d120d18 <sds.c:873:32> 'const char *' <ArrayToPointerDecay>
+`-StringLiteral 0x55e83d120bb8 <col:32> 'const char [4]' lvalue "\\%c"
+[B14.5] (ImplicitCastExpr, ArrayToPointerDecay, const char *)
+   7: DeclRefExpr 0x55e83d120be8 <sds.c:873:40> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+p
+   8: ImplicitCastExpr 0x55e83d120c10 <sds.c:873:40> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x55e83d120be8 <col:40> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+[B14.7] (ImplicitCastExpr, LValueToRValue, const char *)
+   9: UnaryOperator 0x55e83d120c28 <sds.c:873:39, col:40> 'const char' lvalue prefix '*'
+`-ImplicitCastExpr 0x55e83d120c10 <col:40> 'const char *' <LValueToRValue>
+  `-DeclRefExpr 0x55e83d120be8 <col:40> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+*[B14.8]
+  10: ImplicitCastExpr 0x55e83d120d30 <sds.c:873:39, col:40> 'char' <LValueToRValue>
+`-UnaryOperator 0x55e83d120c28 <col:39, col:40> 'const char' lvalue prefix '*'
+  `-ImplicitCastExpr 0x55e83d120c10 <col:40> 'const char *' <LValueToRValue>
+    `-DeclRefExpr 0x55e83d120be8 <col:40> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+[B14.9] (ImplicitCastExpr, LValueToRValue, char)
+  11: ImplicitCastExpr 0x55e83d120d48 <sds.c:873:39, col:40> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x55e83d120d30 <col:39, col:40> 'char' <LValueToRValue>
+  `-UnaryOperator 0x55e83d120c28 <col:39, col:40> 'const char' lvalue prefix '*'
+    `-ImplicitCastExpr 0x55e83d120c10 <col:40> 'const char *' <LValueToRValue>
+      `-DeclRefExpr 0x55e83d120be8 <col:40> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+[B14.10] (ImplicitCastExpr, IntegralCast, int)
+  12: CallExpr 0x55e83d120cc0 <sds.c:873:17, col:41> 'sds':'char *'
+|-ImplicitCastExpr 0x55e83d120ca8 <col:17> 'sds (*)(sds, const char *, ...)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55e83d120b28 <col:17> 'sds (sds, const char *, ...)' Function 0x55e83d110e30 'sdscatprintf' 'sds (sds, const char *, ...)'
+|-ImplicitCastExpr 0x55e83d120d00 <col:30> 'sds':'char *' <LValueToRValue>
+| `-DeclRefExpr 0x55e83d120b50 <col:30> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+|-ImplicitCastExpr 0x55e83d120d18 <col:32> 'const char *' <ArrayToPointerDecay>
+| `-StringLiteral 0x55e83d120bb8 <col:32> 'const char [4]' lvalue "\\%c"
+`-ImplicitCastExpr 0x55e83d120d48 <col:39, col:40> 'int' <IntegralCast>
+  `-ImplicitCastExpr 0x55e83d120d30 <col:39, col:40> 'char' <LValueToRValue>
+    `-UnaryOperator 0x55e83d120c28 <col:39, col:40> 'const char' lvalue prefix '*'
+      `-ImplicitCastExpr 0x55e83d120c10 <col:40> 'const char *' <LValueToRValue>
+        `-DeclRefExpr 0x55e83d120be8 <col:40> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+[B14.2]([B14.4], [B14.6], [B14.11])
+  13: DeclRefExpr 0x55e83d120b00 <sds.c:873:13> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+s
+  14: BinaryOperator 0x55e83d120d60 <sds.c:873:13, col:41> 'sds':'char *' '='
+|-DeclRefExpr 0x55e83d120b00 <col:13> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+`-CallExpr 0x55e83d120cc0 <col:17, col:41> 'sds':'char *'
+  |-ImplicitCastExpr 0x55e83d120ca8 <col:17> 'sds (*)(sds, const char *, ...)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55e83d120b28 <col:17> 'sds (sds, const char *, ...)' Function 0x55e83d110e30 'sdscatprintf' 'sds (sds, const char *, ...)'
+  |-ImplicitCastExpr 0x55e83d120d00 <col:30> 'sds':'char *' <LValueToRValue>
+  | `-DeclRefExpr 0x55e83d120b50 <col:30> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+  |-ImplicitCastExpr 0x55e83d120d18 <col:32> 'const char *' <ArrayToPointerDecay>
+  | `-StringLiteral 0x55e83d120bb8 <col:32> 'const char [4]' lvalue "\\%c"
+  `-ImplicitCastExpr 0x55e83d120d48 <col:39, col:40> 'int' <IntegralCast>
+    `-ImplicitCastExpr 0x55e83d120d30 <col:39, col:40> 'char' <LValueToRValue>
+      `-UnaryOperator 0x55e83d120c28 <col:39, col:40> 'const char' lvalue prefix '*'
+        `-ImplicitCastExpr 0x55e83d120c10 <col:40> 'const char *' <LValueToRValue>
+          `-DeclRefExpr 0x55e83d120be8 <col:40> 'const char *' lvalue ParmVar 0x55e83d120570 'p' 'const char *'
+[B14.13] = [B14.12]
+   T: break;
+   Preds (2): B4 B15
+   Succs (1): B3
+
+ [B15]
+  case '\\':
+   Preds (1): B4
+   Succs (1): B14
+
+ [B16]
+   1: DeclRefExpr 0x55e83d120958 <sds.c:869:11> 'size_t':'unsigned long' lvalue ParmVar 0x55e83d1205e0 'len' 'size_t':'unsigned long'
+len
+   2: UnaryOperator 0x55e83d120980 <sds.c:869:11, col:14> 'size_t':'unsigned long' postfix '--'
+`-DeclRefExpr 0x55e83d120958 <col:11> 'size_t':'unsigned long' lvalue ParmVar 0x55e83d1205e0 'len' 'size_t':'unsigned long'
+[B16.1]--
+   T: while [B16.2]
+   Preds (2): B2 B17
+   Succs (2): B4 B1
+
+ [B17]
+   1: DeclRefExpr 0x55e83d120758 <sds.c:868:9> 'sds (sds, const void *, size_t)' Function 0x55e83d10a308 'sdscatlen' 'sds (sds, const void *, size_t)'
+sdscatlen
+   2: ImplicitCastExpr 0x55e83d120878 <sds.c:868:9> 'sds (*)(sds, const void *, size_t)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55e83d120758 <col:9> 'sds (sds, const void *, size_t)' Function 0x55e83d10a308 'sdscatlen' 'sds (sds, const void *, size_t)'
+[B17.1] (ImplicitCastExpr, FunctionToPointerDecay, sds (*)(sds, const void *, size_t))
+   3: DeclRefExpr 0x55e83d120780 <sds.c:868:19> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+s
+   4: ImplicitCastExpr 0x55e83d1208d0 <sds.c:868:19> 'sds':'char *' <LValueToRValue>
+`-DeclRefExpr 0x55e83d120780 <col:19> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+[B17.3] (ImplicitCastExpr, LValueToRValue, sds)
+   5: StringLiteral 0x55e83d120828 <sds.c:868:21> 'const char [2]' lvalue "\""
+"\""
+   6: ImplicitCastExpr 0x55e83d1208e8 <sds.c:868:21> 'const char *' <ArrayToPointerDecay>
+`-StringLiteral 0x55e83d120828 <col:21> 'const char [2]' lvalue "\""
+[B17.5] (ImplicitCastExpr, ArrayToPointerDecay, const char *)
+   7: ImplicitCastExpr 0x55e83d120900 <sds.c:868:21> 'const void *' <BitCast>
+`-ImplicitCastExpr 0x55e83d1208e8 <col:21> 'const char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x55e83d120828 <col:21> 'const char [2]' lvalue "\""
+[B17.6] (ImplicitCastExpr, BitCast, const void *)
+   8: IntegerLiteral 0x55e83d120858 <sds.c:868:26> 'int' 1
+1
+   9: ImplicitCastExpr 0x55e83d120918 <sds.c:868:26> 'size_t':'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x55e83d120858 <col:26> 'int' 1
+[B17.8] (ImplicitCastExpr, IntegralCast, size_t)
+  10: CallExpr 0x55e83d120890 <sds.c:868:9, col:27> 'sds':'char *'
+|-ImplicitCastExpr 0x55e83d120878 <col:9> 'sds (*)(sds, const void *, size_t)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55e83d120758 <col:9> 'sds (sds, const void *, size_t)' Function 0x55e83d10a308 'sdscatlen' 'sds (sds, const void *, size_t)'
+|-ImplicitCastExpr 0x55e83d1208d0 <col:19> 'sds':'char *' <LValueToRValue>
+| `-DeclRefExpr 0x55e83d120780 <col:19> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+|-ImplicitCastExpr 0x55e83d120900 <col:21> 'const void *' <BitCast>
+| `-ImplicitCastExpr 0x55e83d1208e8 <col:21> 'const char *' <ArrayToPointerDecay>
+|   `-StringLiteral 0x55e83d120828 <col:21> 'const char [2]' lvalue "\""
+`-ImplicitCastExpr 0x55e83d120918 <col:26> 'size_t':'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x55e83d120858 <col:26> 'int' 1
+[B17.2]([B17.4], [B17.7], [B17.9])
+  11: DeclRefExpr 0x55e83d120730 <sds.c:868:5> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+s
+  12: BinaryOperator 0x55e83d120930 <sds.c:868:5, col:27> 'sds':'char *' '='
+|-DeclRefExpr 0x55e83d120730 <col:5> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+`-CallExpr 0x55e83d120890 <col:9, col:27> 'sds':'char *'
+  |-ImplicitCastExpr 0x55e83d120878 <col:9> 'sds (*)(sds, const void *, size_t)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55e83d120758 <col:9> 'sds (sds, const void *, size_t)' Function 0x55e83d10a308 'sdscatlen' 'sds (sds, const void *, size_t)'
+  |-ImplicitCastExpr 0x55e83d1208d0 <col:19> 'sds':'char *' <LValueToRValue>
+  | `-DeclRefExpr 0x55e83d120780 <col:19> 'sds':'char *' lvalue ParmVar 0x55e83d120498 's' 'sds':'char *'
+  |-ImplicitCastExpr 0x55e83d120900 <col:21> 'const void *' <BitCast>
+  | `-ImplicitCastExpr 0x55e83d1208e8 <col:21> 'const char *' <ArrayToPointerDecay>
+  |   `-StringLiteral 0x55e83d120828 <col:21> 'const char [2]' lvalue "\""
+  `-ImplicitCastExpr 0x55e83d120918 <col:26> 'size_t':'unsigned long' <IntegralCast>
+    `-IntegerLiteral 0x55e83d120858 <col:26> 'int' 1
+[B17.11] = [B17.10]
+   Preds (1): B18
+   Succs (1): B16
+
+ [B0 (EXIT)]
+   Preds (1): B1

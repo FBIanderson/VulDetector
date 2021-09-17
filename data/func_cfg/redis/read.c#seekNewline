@@ -1,0 +1,315 @@
+static char *seekNewline(char *s, size_t len)
+ [B14 (ENTRY)]
+   Succs (1): B13
+
+ [B1]
+   1: IntegerLiteral 0x557397a136e0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+   2: CStyleCastExpr 0x557397a13718 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x557397a136e0 <col:24> 'int' 0
+(void *)[B1.1] (CStyleCastExpr, NullToPointer, void *)
+   3: ImplicitCastExpr 0x557397a13760 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'char *' <NullToPointer>
+`-ParenExpr 0x557397a13740 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x557397a13718 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x557397a136e0 <col:24> 'int' 0
+([B1.2]) (ImplicitCastExpr, NullToPointer, char *)
+   4: ReturnStmt 0x557397a13778 <read.c:144:5, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25>
+`-ImplicitCastExpr 0x557397a13760 <col:16, col:25> 'char *' <NullToPointer>
+  `-ParenExpr 0x557397a13740 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x557397a13718 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x557397a136e0 <col:24> 'int' 0
+return [B1.3];
+   Preds (1): B12
+   Succs (1): B0
+
+ [B2]
+   Preds (1): B3
+   Succs (1): B12
+
+ [B3]
+   1: DeclRefExpr 0x557397a135b8 <read.c:140:17> 'int' lvalue Var 0x557397a12d38 'pos' 'int'
+pos
+   2: UnaryOperator 0x557397a135e0 <read.c:140:17, col:20> 'int' postfix '++'
+`-DeclRefExpr 0x557397a135b8 <col:17> 'int' lvalue Var 0x557397a12d38 'pos' 'int'
+[B3.1]++
+   Preds (1): B5
+   Succs (1): B2
+
+ [B4]
+   1: DeclRefExpr 0x557397a134e0 <read.c:137:24> 'char *' lvalue ParmVar 0x557397a11b28 's' 'char *'
+s
+   2: ImplicitCastExpr 0x557397a13530 <read.c:137:24> 'char *' <LValueToRValue>
+`-DeclRefExpr 0x557397a134e0 <col:24> 'char *' lvalue ParmVar 0x557397a11b28 's' 'char *'
+[B4.1] (ImplicitCastExpr, LValueToRValue, char *)
+   3: DeclRefExpr 0x557397a13508 <read.c:137:26> 'int' lvalue Var 0x557397a12d38 'pos' 'int'
+pos
+   4: ImplicitCastExpr 0x557397a13548 <read.c:137:26> 'int' <LValueToRValue>
+`-DeclRefExpr 0x557397a13508 <col:26> 'int' lvalue Var 0x557397a12d38 'pos' 'int'
+[B4.3] (ImplicitCastExpr, LValueToRValue, int)
+   5: BinaryOperator 0x557397a13560 <read.c:137:24, col:26> 'char *' '+'
+|-ImplicitCastExpr 0x557397a13530 <col:24> 'char *' <LValueToRValue>
+| `-DeclRefExpr 0x557397a134e0 <col:24> 'char *' lvalue ParmVar 0x557397a11b28 's' 'char *'
+`-ImplicitCastExpr 0x557397a13548 <col:26> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x557397a13508 <col:26> 'int' lvalue Var 0x557397a12d38 'pos' 'int'
+[B4.2] + [B4.4]
+   6: ReturnStmt 0x557397a13588 <read.c:137:17, col:26>
+`-BinaryOperator 0x557397a13560 <col:24, col:26> 'char *' '+'
+  |-ImplicitCastExpr 0x557397a13530 <col:24> 'char *' <LValueToRValue>
+  | `-DeclRefExpr 0x557397a134e0 <col:24> 'char *' lvalue ParmVar 0x557397a11b28 's' 'char *'
+  `-ImplicitCastExpr 0x557397a13548 <col:26> 'int' <LValueToRValue>
+    `-DeclRefExpr 0x557397a13508 <col:26> 'int' lvalue Var 0x557397a12d38 'pos' 'int'
+return [B4.5];
+   Preds (1): B5
+   Succs (1): B0
+
+ [B5]
+   1: DeclRefExpr 0x557397a13380 <read.c:135:17> 'char *' lvalue ParmVar 0x557397a11b28 's' 'char *'
+s
+   2: ImplicitCastExpr 0x557397a13430 <read.c:135:17> 'char *' <LValueToRValue>
+`-DeclRefExpr 0x557397a13380 <col:17> 'char *' lvalue ParmVar 0x557397a11b28 's' 'char *'
+[B5.1] (ImplicitCastExpr, LValueToRValue, char *)
+   3: DeclRefExpr 0x557397a133a8 <read.c:135:19> 'int' lvalue Var 0x557397a12d38 'pos' 'int'
+pos
+   4: ImplicitCastExpr 0x557397a133f0 <read.c:135:19> 'int' <LValueToRValue>
+`-DeclRefExpr 0x557397a133a8 <col:19> 'int' lvalue Var 0x557397a12d38 'pos' 'int'
+[B5.3] (ImplicitCastExpr, LValueToRValue, int)
+   5: IntegerLiteral 0x557397a133d0 <read.c:135:23> 'int' 1
+1
+   6: BinaryOperator 0x557397a13408 <read.c:135:19, col:23> 'int' '+'
+|-ImplicitCastExpr 0x557397a133f0 <col:19> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x557397a133a8 <col:19> 'int' lvalue Var 0x557397a12d38 'pos' 'int'
+`-IntegerLiteral 0x557397a133d0 <col:23> 'int' 1
+[B5.4] + [B5.5]
+   7: ArraySubscriptExpr 0x557397a13448 <read.c:135:17, col:24> 'char' lvalue
+|-ImplicitCastExpr 0x557397a13430 <col:17> 'char *' <LValueToRValue>
+| `-DeclRefExpr 0x557397a13380 <col:17> 'char *' lvalue ParmVar 0x557397a11b28 's' 'char *'
+`-BinaryOperator 0x557397a13408 <col:19, col:23> 'int' '+'
+  |-ImplicitCastExpr 0x557397a133f0 <col:19> 'int' <LValueToRValue>
+  | `-DeclRefExpr 0x557397a133a8 <col:19> 'int' lvalue Var 0x557397a12d38 'pos' 'int'
+  `-IntegerLiteral 0x557397a133d0 <col:23> 'int' 1
+[B5.2][[B5.6]]
+   8: ImplicitCastExpr 0x557397a13488 <read.c:135:17, col:24> 'char' <LValueToRValue>
+`-ArraySubscriptExpr 0x557397a13448 <col:17, col:24> 'char' lvalue
+  |-ImplicitCastExpr 0x557397a13430 <col:17> 'char *' <LValueToRValue>
+  | `-DeclRefExpr 0x557397a13380 <col:17> 'char *' lvalue ParmVar 0x557397a11b28 's' 'char *'
+  `-BinaryOperator 0x557397a13408 <col:19, col:23> 'int' '+'
+    |-ImplicitCastExpr 0x557397a133f0 <col:19> 'int' <LValueToRValue>
+    | `-DeclRefExpr 0x557397a133a8 <col:19> 'int' lvalue Var 0x557397a12d38 'pos' 'int'
+    `-IntegerLiteral 0x557397a133d0 <col:23> 'int' 1
+[B5.7] (ImplicitCastExpr, LValueToRValue, char)
+   9: ImplicitCastExpr 0x557397a134a0 <read.c:135:17, col:24> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x557397a13488 <col:17, col:24> 'char' <LValueToRValue>
+  `-ArraySubscriptExpr 0x557397a13448 <col:17, col:24> 'char' lvalue
+    |-ImplicitCastExpr 0x557397a13430 <col:17> 'char *' <LValueToRValue>
+    | `-DeclRefExpr 0x557397a13380 <col:17> 'char *' lvalue ParmVar 0x557397a11b28 's' 'char *'
+    `-BinaryOperator 0x557397a13408 <col:19, col:23> 'int' '+'
+      |-ImplicitCastExpr 0x557397a133f0 <col:19> 'int' <LValueToRValue>
+      | `-DeclRefExpr 0x557397a133a8 <col:19> 'int' lvalue Var 0x557397a12d38 'pos' 'int'
+      `-IntegerLiteral 0x557397a133d0 <col:23> 'int' 1
+[B5.8] (ImplicitCastExpr, IntegralCast, int)
+  10: CharacterLiteral 0x557397a13470 <read.c:135:29> 'int' 10
+'\n'
+  11: BinaryOperator 0x557397a134b8 <read.c:135:17, col:29> 'int' '=='
+|-ImplicitCastExpr 0x557397a134a0 <col:17, col:24> 'int' <IntegralCast>
+| `-ImplicitCastExpr 0x557397a13488 <col:17, col:24> 'char' <LValueToRValue>
+|   `-ArraySubscriptExpr 0x557397a13448 <col:17, col:24> 'char' lvalue
+|     |-ImplicitCastExpr 0x557397a13430 <col:17> 'char *' <LValueToRValue>
+|     | `-DeclRefExpr 0x557397a13380 <col:17> 'char *' lvalue ParmVar 0x557397a11b28 's' 'char *'
+|     `-BinaryOperator 0x557397a13408 <col:19, col:23> 'int' '+'
+|       |-ImplicitCastExpr 0x557397a133f0 <col:19> 'int' <LValueToRValue>
+|       | `-DeclRefExpr 0x557397a133a8 <col:19> 'int' lvalue Var 0x557397a12d38 'pos' 'int'
+|       `-IntegerLiteral 0x557397a133d0 <col:23> 'int' 1
+`-CharacterLiteral 0x557397a13470 <col:29> 'int' 10
+[B5.9] == [B5.10]
+   T: if [B5.11]
+   Preds (1): B7
+   Succs (2): B4 B3
+
+ [B6]
+   1: IntegerLiteral 0x557397a132b8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+   2: CStyleCastExpr 0x557397a132f0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x557397a132b8 <col:24> 'int' 0
+(void *)[B6.1] (CStyleCastExpr, NullToPointer, void *)
+   3: ImplicitCastExpr 0x557397a13338 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'char *' <NullToPointer>
+`-ParenExpr 0x557397a13318 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x557397a132f0 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x557397a132b8 <col:24> 'int' 0
+([B6.2]) (ImplicitCastExpr, NullToPointer, char *)
+   4: ReturnStmt 0x557397a13350 <read.c:133:13, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25>
+`-ImplicitCastExpr 0x557397a13338 <col:16, col:25> 'char *' <NullToPointer>
+  `-ParenExpr 0x557397a13318 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x557397a132f0 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x557397a132b8 <col:24> 'int' 0
+return [B6.3];
+   Preds (1): B7
+   Succs (1): B0
+
+ [B7]
+   1: DeclRefExpr 0x557397a13210 <read.c:131:13> 'int' lvalue Var 0x557397a12d38 'pos' 'int'
+pos
+   2: ImplicitCastExpr 0x557397a13260 <read.c:131:13> 'int' <LValueToRValue>
+`-DeclRefExpr 0x557397a13210 <col:13> 'int' lvalue Var 0x557397a12d38 'pos' 'int'
+[B7.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: DeclRefExpr 0x557397a13238 <read.c:131:18> 'int' lvalue Var 0x557397a12de8 '_len' 'int'
+_len
+   4: ImplicitCastExpr 0x557397a13278 <read.c:131:18> 'int' <LValueToRValue>
+`-DeclRefExpr 0x557397a13238 <col:18> 'int' lvalue Var 0x557397a12de8 '_len' 'int'
+[B7.3] (ImplicitCastExpr, LValueToRValue, int)
+   5: BinaryOperator 0x557397a13290 <read.c:131:13, col:18> 'int' '=='
+|-ImplicitCastExpr 0x557397a13260 <col:13> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x557397a13210 <col:13> 'int' lvalue Var 0x557397a12d38 'pos' 'int'
+`-ImplicitCastExpr 0x557397a13278 <col:18> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x557397a13238 <col:18> 'int' lvalue Var 0x557397a12de8 '_len' 'int'
+[B7.2] == [B7.4]
+   T: if [B7.5]
+   Preds (2): B10 B11
+   Succs (2): B6 B5
+
+ [B8]
+   Preds (1): B9
+   Succs (1): B11
+
+ [B9]
+   1: DeclRefExpr 0x557397a131a8 <read.c:130:45> 'int' lvalue Var 0x557397a12d38 'pos' 'int'
+pos
+   2: UnaryOperator 0x557397a131d0 <read.c:130:45, col:48> 'int' postfix '++'
+`-DeclRefExpr 0x557397a131a8 <col:45> 'int' lvalue Var 0x557397a12d38 'pos' 'int'
+[B9.1]++
+   Preds (1): B10
+   Succs (1): B8
+
+ [B10]
+   1: DeclRefExpr 0x557397a13068 <read.c:130:29> 'char *' lvalue ParmVar 0x557397a11b28 's' 'char *'
+s
+   2: ImplicitCastExpr 0x557397a130b8 <read.c:130:29> 'char *' <LValueToRValue>
+`-DeclRefExpr 0x557397a13068 <col:29> 'char *' lvalue ParmVar 0x557397a11b28 's' 'char *'
+[B10.1] (ImplicitCastExpr, LValueToRValue, char *)
+   3: DeclRefExpr 0x557397a13090 <read.c:130:31> 'int' lvalue Var 0x557397a12d38 'pos' 'int'
+pos
+   4: ImplicitCastExpr 0x557397a130d0 <read.c:130:31> 'int' <LValueToRValue>
+`-DeclRefExpr 0x557397a13090 <col:31> 'int' lvalue Var 0x557397a12d38 'pos' 'int'
+[B10.3] (ImplicitCastExpr, LValueToRValue, int)
+   5: ArraySubscriptExpr 0x557397a130e8 <read.c:130:29, col:34> 'char' lvalue
+|-ImplicitCastExpr 0x557397a130b8 <col:29> 'char *' <LValueToRValue>
+| `-DeclRefExpr 0x557397a13068 <col:29> 'char *' lvalue ParmVar 0x557397a11b28 's' 'char *'
+`-ImplicitCastExpr 0x557397a130d0 <col:31> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x557397a13090 <col:31> 'int' lvalue Var 0x557397a12d38 'pos' 'int'
+[B10.2][[B10.4]]
+   6: ImplicitCastExpr 0x557397a13128 <read.c:130:29, col:34> 'char' <LValueToRValue>
+`-ArraySubscriptExpr 0x557397a130e8 <col:29, col:34> 'char' lvalue
+  |-ImplicitCastExpr 0x557397a130b8 <col:29> 'char *' <LValueToRValue>
+  | `-DeclRefExpr 0x557397a13068 <col:29> 'char *' lvalue ParmVar 0x557397a11b28 's' 'char *'
+  `-ImplicitCastExpr 0x557397a130d0 <col:31> 'int' <LValueToRValue>
+    `-DeclRefExpr 0x557397a13090 <col:31> 'int' lvalue Var 0x557397a12d38 'pos' 'int'
+[B10.5] (ImplicitCastExpr, LValueToRValue, char)
+   7: ImplicitCastExpr 0x557397a13140 <read.c:130:29, col:34> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x557397a13128 <col:29, col:34> 'char' <LValueToRValue>
+  `-ArraySubscriptExpr 0x557397a130e8 <col:29, col:34> 'char' lvalue
+    |-ImplicitCastExpr 0x557397a130b8 <col:29> 'char *' <LValueToRValue>
+    | `-DeclRefExpr 0x557397a13068 <col:29> 'char *' lvalue ParmVar 0x557397a11b28 's' 'char *'
+    `-ImplicitCastExpr 0x557397a130d0 <col:31> 'int' <LValueToRValue>
+      `-DeclRefExpr 0x557397a13090 <col:31> 'int' lvalue Var 0x557397a12d38 'pos' 'int'
+[B10.6] (ImplicitCastExpr, IntegralCast, int)
+   8: CharacterLiteral 0x557397a13110 <read.c:130:39> 'int' 13
+'\r'
+   9: BinaryOperator 0x557397a13158 <read.c:130:29, col:39> 'int' '!='
+|-ImplicitCastExpr 0x557397a13140 <col:29, col:34> 'int' <IntegralCast>
+| `-ImplicitCastExpr 0x557397a13128 <col:29, col:34> 'char' <LValueToRValue>
+|   `-ArraySubscriptExpr 0x557397a130e8 <col:29, col:34> 'char' lvalue
+|     |-ImplicitCastExpr 0x557397a130b8 <col:29> 'char *' <LValueToRValue>
+|     | `-DeclRefExpr 0x557397a13068 <col:29> 'char *' lvalue ParmVar 0x557397a11b28 's' 'char *'
+|     `-ImplicitCastExpr 0x557397a130d0 <col:31> 'int' <LValueToRValue>
+|       `-DeclRefExpr 0x557397a13090 <col:31> 'int' lvalue Var 0x557397a12d38 'pos' 'int'
+`-CharacterLiteral 0x557397a13110 <col:39> 'int' 13
+[B10.7] != [B10.8]
+   T: while [B11.5] && [B10.9]
+   Preds (1): B11
+   Succs (2): B9 B7
+
+ [B11]
+   1: DeclRefExpr 0x557397a12fc0 <read.c:130:15> 'int' lvalue Var 0x557397a12d38 'pos' 'int'
+pos
+   2: ImplicitCastExpr 0x557397a13010 <read.c:130:15> 'int' <LValueToRValue>
+`-DeclRefExpr 0x557397a12fc0 <col:15> 'int' lvalue Var 0x557397a12d38 'pos' 'int'
+[B11.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: DeclRefExpr 0x557397a12fe8 <read.c:130:21> 'int' lvalue Var 0x557397a12de8 '_len' 'int'
+_len
+   4: ImplicitCastExpr 0x557397a13028 <read.c:130:21> 'int' <LValueToRValue>
+`-DeclRefExpr 0x557397a12fe8 <col:21> 'int' lvalue Var 0x557397a12de8 '_len' 'int'
+[B11.3] (ImplicitCastExpr, LValueToRValue, int)
+   5: BinaryOperator 0x557397a13040 <read.c:130:15, col:21> 'int' '<'
+|-ImplicitCastExpr 0x557397a13010 <col:15> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x557397a12fc0 <col:15> 'int' lvalue Var 0x557397a12d38 'pos' 'int'
+`-ImplicitCastExpr 0x557397a13028 <col:21> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x557397a12fe8 <col:21> 'int' lvalue Var 0x557397a12de8 '_len' 'int'
+[B11.2] < [B11.4]
+   T: [B11.5] && ...
+   Preds (2): B8 B12
+   Succs (2): B10 B7
+
+ [B12]
+   1: DeclRefExpr 0x557397a12f18 <read.c:129:12> 'int' lvalue Var 0x557397a12d38 'pos' 'int'
+pos
+   2: ImplicitCastExpr 0x557397a12f68 <read.c:129:12> 'int' <LValueToRValue>
+`-DeclRefExpr 0x557397a12f18 <col:12> 'int' lvalue Var 0x557397a12d38 'pos' 'int'
+[B12.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: DeclRefExpr 0x557397a12f40 <read.c:129:18> 'int' lvalue Var 0x557397a12de8 '_len' 'int'
+_len
+   4: ImplicitCastExpr 0x557397a12f80 <read.c:129:18> 'int' <LValueToRValue>
+`-DeclRefExpr 0x557397a12f40 <col:18> 'int' lvalue Var 0x557397a12de8 '_len' 'int'
+[B12.3] (ImplicitCastExpr, LValueToRValue, int)
+   5: BinaryOperator 0x557397a12f98 <read.c:129:12, col:18> 'int' '<'
+|-ImplicitCastExpr 0x557397a12f68 <col:12> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x557397a12f18 <col:12> 'int' lvalue Var 0x557397a12d38 'pos' 'int'
+`-ImplicitCastExpr 0x557397a12f80 <col:18> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x557397a12f40 <col:18> 'int' lvalue Var 0x557397a12de8 '_len' 'int'
+[B12.2] < [B12.4]
+   T: while [B12.5]
+   Preds (2): B2 B13
+   Succs (2): B11 B1
+
+ [B13]
+   1: IntegerLiteral 0x557397a12d98 <read.c:122:15> 'int' 0
+0
+   2: DeclStmt 0x557397a12db8 <read.c:122:5, col:16>col:9
+`-VarDecl 0x557397a12d38 <col:5, col:15> col:9 used pos 'int' cinit
+  `-IntegerLiteral 0x557397a12d98 <col:15> 'int' 0
+int pos = 0;
+   3: DeclRefExpr 0x557397a12e48 <read.c:123:16> 'size_t':'unsigned long' lvalue ParmVar 0x557397a11b98 'len' 'size_t':'unsigned long'
+len
+   4: ImplicitCastExpr 0x557397a12e90 <read.c:123:16> 'size_t':'unsigned long' <LValueToRValue>
+`-DeclRefExpr 0x557397a12e48 <col:16> 'size_t':'unsigned long' lvalue ParmVar 0x557397a11b98 'len' 'size_t':'unsigned long'
+[B13.3] (ImplicitCastExpr, LValueToRValue, size_t)
+   5: IntegerLiteral 0x557397a12e70 <read.c:123:20> 'int' 1
+1
+   6: ImplicitCastExpr 0x557397a12ea8 <read.c:123:20> 'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x557397a12e70 <col:20> 'int' 1
+[B13.5] (ImplicitCastExpr, IntegralCast, unsigned long)
+   7: BinaryOperator 0x557397a12ec0 <read.c:123:16, col:20> 'unsigned long' '-'
+|-ImplicitCastExpr 0x557397a12e90 <col:16> 'size_t':'unsigned long' <LValueToRValue>
+| `-DeclRefExpr 0x557397a12e48 <col:16> 'size_t':'unsigned long' lvalue ParmVar 0x557397a11b98 'len' 'size_t':'unsigned long'
+`-ImplicitCastExpr 0x557397a12ea8 <col:20> 'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x557397a12e70 <col:20> 'int' 1
+[B13.4] - [B13.6]
+   8: ImplicitCastExpr 0x557397a12ee8 <read.c:123:16, col:20> 'int' <IntegralCast>
+`-BinaryOperator 0x557397a12ec0 <col:16, col:20> 'unsigned long' '-'
+  |-ImplicitCastExpr 0x557397a12e90 <col:16> 'size_t':'unsigned long' <LValueToRValue>
+  | `-DeclRefExpr 0x557397a12e48 <col:16> 'size_t':'unsigned long' lvalue ParmVar 0x557397a11b98 'len' 'size_t':'unsigned long'
+  `-ImplicitCastExpr 0x557397a12ea8 <col:20> 'unsigned long' <IntegralCast>
+    `-IntegerLiteral 0x557397a12e70 <col:20> 'int' 1
+[B13.7] (ImplicitCastExpr, IntegralCast, int)
+   9: DeclStmt 0x557397a12f00 <read.c:123:5, col:21>col:9
+`-VarDecl 0x557397a12de8 <col:5, col:20> col:9 used _len 'int' cinit
+  `-ImplicitCastExpr 0x557397a12ee8 <col:16, col:20> 'int' <IntegralCast>
+    `-BinaryOperator 0x557397a12ec0 <col:16, col:20> 'unsigned long' '-'
+      |-ImplicitCastExpr 0x557397a12e90 <col:16> 'size_t':'unsigned long' <LValueToRValue>
+      | `-DeclRefExpr 0x557397a12e48 <col:16> 'size_t':'unsigned long' lvalue ParmVar 0x557397a11b98 'len' 'size_t':'unsigned long'
+      `-ImplicitCastExpr 0x557397a12ea8 <col:20> 'unsigned long' <IntegralCast>
+        `-IntegerLiteral 0x557397a12e70 <col:20> 'int' 1
+int _len = len - 1;
+   Preds (1): B14
+   Succs (1): B12
+
+ [B0 (EXIT)]
+   Preds (3): B1 B4 B6

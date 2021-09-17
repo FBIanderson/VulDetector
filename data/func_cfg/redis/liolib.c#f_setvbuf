@@ -1,0 +1,384 @@
+static int f_setvbuf(lua_State *L)
+ [B6 (ENTRY)]
+   Succs (1): B5
+
+ [B1]
+   1: DeclRefExpr 0x5643dfe73410 <liolib.c:461:13> 'FILE *(lua_State *)' Function 0x5643dfe5c1e0 'tofile' 'FILE *(lua_State *)'
+tofile
+   2: ImplicitCastExpr 0x5643dfe73460 <liolib.c:461:13> 'FILE *(*)(lua_State *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5643dfe73410 <col:13> 'FILE *(lua_State *)' Function 0x5643dfe5c1e0 'tofile' 'FILE *(lua_State *)'
+[B1.1] (ImplicitCastExpr, FunctionToPointerDecay, FILE *(*)(lua_State *))
+   3: DeclRefExpr 0x5643dfe73438 <liolib.c:461:20> 'lua_State *' lvalue ParmVar 0x5643dfe72d68 'L' 'lua_State *'
+L
+   4: ImplicitCastExpr 0x5643dfe734a8 <liolib.c:461:20> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x5643dfe73438 <col:20> 'lua_State *' lvalue ParmVar 0x5643dfe72d68 'L' 'lua_State *'
+[B1.3] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   5: CallExpr 0x5643dfe73478 <liolib.c:461:13, col:21> 'FILE *'
+|-ImplicitCastExpr 0x5643dfe73460 <col:13> 'FILE *(*)(lua_State *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5643dfe73410 <col:13> 'FILE *(lua_State *)' Function 0x5643dfe5c1e0 'tofile' 'FILE *(lua_State *)'
+`-ImplicitCastExpr 0x5643dfe734a8 <col:20> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x5643dfe73438 <col:20> 'lua_State *' lvalue ParmVar 0x5643dfe72d68 'L' 'lua_State *'
+[B1.2]([B1.4])
+   6: DeclStmt 0x5643dfe734c0 <liolib.c:461:3, col:22>col:9
+`-VarDecl 0x5643dfe733b0 <col:3, col:21> col:9 used f 'FILE *' cinit
+  `-CallExpr 0x5643dfe73478 <col:13, col:21> 'FILE *'
+    |-ImplicitCastExpr 0x5643dfe73460 <col:13> 'FILE *(*)(lua_State *)' <FunctionToPointerDecay>
+    | `-DeclRefExpr 0x5643dfe73410 <col:13> 'FILE *(lua_State *)' Function 0x5643dfe5c1e0 'tofile' 'FILE *(lua_State *)'
+    `-ImplicitCastExpr 0x5643dfe734a8 <col:20> 'lua_State *' <LValueToRValue>
+      `-DeclRefExpr 0x5643dfe73438 <col:20> 'lua_State *' lvalue ParmVar 0x5643dfe72d68 'L' 'lua_State *'
+FILE *f = tofile(L);
+   7: DeclRefExpr 0x5643dfe73550 <liolib.c:462:12> 'int (lua_State *, int, const char *, const char *const *)':'int (lua_State *, int, const char *, const char *const *)' Function 0x5643dfe4ed88 'luaL_checkoption' 'int (lua_State *, int, const char *, const char *const *)':'int (lua_State *, int, const char *, const char *const *)'
+luaL_checkoption
+   8: ImplicitCastExpr 0x5643dfe73668 <liolib.c:462:12> 'int (*)(lua_State *, int, const char *, const char *const *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5643dfe73550 <col:12> 'int (lua_State *, int, const char *, const char *const *)':'int (lua_State *, int, const char *, const char *const *)' Function 0x5643dfe4ed88 'luaL_checkoption' 'int (lua_State *, int, const char *, const char *const *)':'int (lua_State *, int, const char *, const char *const *)'
+[B1.7] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(lua_State *, int, const char *, const char *const *))
+   9: DeclRefExpr 0x5643dfe73578 <liolib.c:462:29> 'lua_State *' lvalue ParmVar 0x5643dfe72d68 'L' 'lua_State *'
+L
+  10: ImplicitCastExpr 0x5643dfe736c8 <liolib.c:462:29> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x5643dfe73578 <col:29> 'lua_State *' lvalue ParmVar 0x5643dfe72d68 'L' 'lua_State *'
+[B1.9] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  11: IntegerLiteral 0x5643dfe735a0 <liolib.c:462:32> 'int' 2
+2
+  12: IntegerLiteral 0x5643dfe735c0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+  13: CStyleCastExpr 0x5643dfe735f8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x5643dfe735c0 <col:24> 'int' 0
+(void *)[B1.12] (CStyleCastExpr, NullToPointer, void *)
+  14: ImplicitCastExpr 0x5643dfe736e0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'const char *' <NullToPointer>
+`-ParenExpr 0x5643dfe73620 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x5643dfe735f8 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x5643dfe735c0 <col:24> 'int' 0
+([B1.13]) (ImplicitCastExpr, NullToPointer, const char *)
+  15: DeclRefExpr 0x5643dfe73640 <liolib.c:462:41> 'const char *const [4]' lvalue Var 0x5643dfe73098 'modenames' 'const char *const [4]'
+modenames
+  16: ImplicitCastExpr 0x5643dfe736f8 <liolib.c:462:41> 'const char *const *' <ArrayToPointerDecay>
+`-DeclRefExpr 0x5643dfe73640 <col:41> 'const char *const [4]' lvalue Var 0x5643dfe73098 'modenames' 'const char *const [4]'
+[B1.15] (ImplicitCastExpr, ArrayToPointerDecay, const char *const *)
+  17: CallExpr 0x5643dfe73680 <liolib.c:462:12, col:50> 'int'
+|-ImplicitCastExpr 0x5643dfe73668 <col:12> 'int (*)(lua_State *, int, const char *, const char *const *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5643dfe73550 <col:12> 'int (lua_State *, int, const char *, const char *const *)':'int (lua_State *, int, const char *, const char *const *)' Function 0x5643dfe4ed88 'luaL_checkoption' 'int (lua_State *, int, const char *, const char *const *)':'int (lua_State *, int, const char *, const char *const *)'
+|-ImplicitCastExpr 0x5643dfe736c8 <col:29> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x5643dfe73578 <col:29> 'lua_State *' lvalue ParmVar 0x5643dfe72d68 'L' 'lua_State *'
+|-IntegerLiteral 0x5643dfe735a0 <col:32> 'int' 2
+|-ImplicitCastExpr 0x5643dfe736e0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'const char *' <NullToPointer>
+| `-ParenExpr 0x5643dfe73620 <col:16, col:25> 'void *'
+|   `-CStyleCastExpr 0x5643dfe735f8 <col:17, col:24> 'void *' <NullToPointer>
+|     `-IntegerLiteral 0x5643dfe735c0 <col:24> 'int' 0
+`-ImplicitCastExpr 0x5643dfe736f8 <liolib.c:462:41> 'const char *const *' <ArrayToPointerDecay>
+  `-DeclRefExpr 0x5643dfe73640 <col:41> 'const char *const [4]' lvalue Var 0x5643dfe73098 'modenames' 'const char *const [4]'
+[B1.8]([B1.10], [B1.11], [B1.14], [B1.16])
+  18: DeclStmt 0x5643dfe73710 <liolib.c:462:3, col:51>col:7
+`-VarDecl 0x5643dfe734f0 <col:3, col:50> col:7 used op 'int' cinit
+  `-CallExpr 0x5643dfe73680 <col:12, col:50> 'int'
+    |-ImplicitCastExpr 0x5643dfe73668 <col:12> 'int (*)(lua_State *, int, const char *, const char *const *)' <FunctionToPointerDecay>
+    | `-DeclRefExpr 0x5643dfe73550 <col:12> 'int (lua_State *, int, const char *, const char *const *)':'int (lua_State *, int, const char *, const char *const *)' Function 0x5643dfe4ed88 'luaL_checkoption' 'int (lua_State *, int, const char *, const char *const *)':'int (lua_State *, int, const char *, const char *const *)'
+    |-ImplicitCastExpr 0x5643dfe736c8 <col:29> 'lua_State *' <LValueToRValue>
+    | `-DeclRefExpr 0x5643dfe73578 <col:29> 'lua_State *' lvalue ParmVar 0x5643dfe72d68 'L' 'lua_State *'
+    |-IntegerLiteral 0x5643dfe735a0 <col:32> 'int' 2
+    |-ImplicitCastExpr 0x5643dfe736e0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'const char *' <NullToPointer>
+    | `-ParenExpr 0x5643dfe73620 <col:16, col:25> 'void *'
+    |   `-CStyleCastExpr 0x5643dfe735f8 <col:17, col:24> 'void *' <NullToPointer>
+    |     `-IntegerLiteral 0x5643dfe735c0 <col:24> 'int' 0
+    `-ImplicitCastExpr 0x5643dfe736f8 <liolib.c:462:41> 'const char *const *' <ArrayToPointerDecay>
+      `-DeclRefExpr 0x5643dfe73640 <col:41> 'const char *const [4]' lvalue Var 0x5643dfe73098 'modenames' 'const char *const [4]'
+int op = luaL_checkoption(L, 2, ((void *)0), modenames);
+  19: DeclRefExpr 0x5643dfe73798 <liolib.c:463:20> 'lua_Integer (lua_State *, int, lua_Integer)':'lua_Integer (lua_State *, int, lua_Integer)' Function 0x5643dfe4d8a8 'luaL_optinteger' 'lua_Integer (lua_State *, int, lua_Integer)':'lua_Integer (lua_State *, int, lua_Integer)'
+luaL_optinteger
+  20: ImplicitCastExpr 0x5643dfe73828 <liolib.c:463:20> 'lua_Integer (*)(lua_State *, int, lua_Integer)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5643dfe73798 <col:20> 'lua_Integer (lua_State *, int, lua_Integer)':'lua_Integer (lua_State *, int, lua_Integer)' Function 0x5643dfe4d8a8 'luaL_optinteger' 'lua_Integer (lua_State *, int, lua_Integer)':'lua_Integer (lua_State *, int, lua_Integer)'
+[B1.19] (ImplicitCastExpr, FunctionToPointerDecay, lua_Integer (*)(lua_State *, int, lua_Integer))
+  21: DeclRefExpr 0x5643dfe737c0 <liolib.c:463:36> 'lua_State *' lvalue ParmVar 0x5643dfe72d68 'L' 'lua_State *'
+L
+  22: ImplicitCastExpr 0x5643dfe73880 <liolib.c:463:36> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x5643dfe737c0 <col:36> 'lua_State *' lvalue ParmVar 0x5643dfe72d68 'L' 'lua_State *'
+[B1.21] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  23: IntegerLiteral 0x5643dfe737e8 <liolib.c:463:39> 'int' 3
+3
+  24: IntegerLiteral 0x5643dfe73808 </usr/include/stdio.h:99:16> 'int' 8192
+8192
+  25: ImplicitCastExpr 0x5643dfe73898 </usr/include/stdio.h:99:16> 'lua_Integer':'long' <IntegralCast>
+`-IntegerLiteral 0x5643dfe73808 <col:16> 'int' 8192
+[B1.24] (ImplicitCastExpr, IntegralCast, lua_Integer)
+  26: CallExpr 0x5643dfe73840 <liolib.c:463:20, col:57> 'lua_Integer':'long'
+|-ImplicitCastExpr 0x5643dfe73828 <col:20> 'lua_Integer (*)(lua_State *, int, lua_Integer)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5643dfe73798 <col:20> 'lua_Integer (lua_State *, int, lua_Integer)':'lua_Integer (lua_State *, int, lua_Integer)' Function 0x5643dfe4d8a8 'luaL_optinteger' 'lua_Integer (lua_State *, int, lua_Integer)':'lua_Integer (lua_State *, int, lua_Integer)'
+|-ImplicitCastExpr 0x5643dfe73880 <col:36> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x5643dfe737c0 <col:36> 'lua_State *' lvalue ParmVar 0x5643dfe72d68 'L' 'lua_State *'
+|-IntegerLiteral 0x5643dfe737e8 <col:39> 'int' 3
+`-ImplicitCastExpr 0x5643dfe73898 </usr/include/stdio.h:99:16> 'lua_Integer':'long' <IntegralCast>
+  `-IntegerLiteral 0x5643dfe73808 <col:16> 'int' 8192
+[B1.20]([B1.22], [B1.23], [B1.25])
+  27: DeclStmt 0x5643dfe738b0 <liolib.c:463:3, col:58>col:15
+`-VarDecl 0x5643dfe73738 <col:3, col:57> col:15 used sz 'lua_Integer':'long' cinit
+  `-CallExpr 0x5643dfe73840 <col:20, col:57> 'lua_Integer':'long'
+    |-ImplicitCastExpr 0x5643dfe73828 <col:20> 'lua_Integer (*)(lua_State *, int, lua_Integer)' <FunctionToPointerDecay>
+    | `-DeclRefExpr 0x5643dfe73798 <col:20> 'lua_Integer (lua_State *, int, lua_Integer)':'lua_Integer (lua_State *, int, lua_Integer)' Function 0x5643dfe4d8a8 'luaL_optinteger' 'lua_Integer (lua_State *, int, lua_Integer)':'lua_Integer (lua_State *, int, lua_Integer)'
+    |-ImplicitCastExpr 0x5643dfe73880 <col:36> 'lua_State *' <LValueToRValue>
+    | `-DeclRefExpr 0x5643dfe737c0 <col:36> 'lua_State *' lvalue ParmVar 0x5643dfe72d68 'L' 'lua_State *'
+    |-IntegerLiteral 0x5643dfe737e8 <col:39> 'int' 3
+    `-ImplicitCastExpr 0x5643dfe73898 </usr/include/stdio.h:99:16> 'lua_Integer':'long' <IntegralCast>
+      `-IntegerLiteral 0x5643dfe73808 <col:16> 'int' 8192
+lua_Integer sz = luaL_optinteger(L, 3, 8192);
+  28: DeclRefExpr 0x5643dfe73940 <liolib.c:464:13> 'int (FILE *__restrict, char *__restrict, int, size_t)' Function 0x5643dfd84fc8 'setvbuf' 'int (FILE *__restrict, char *__restrict, int, size_t)'
+setvbuf
+  29: ImplicitCastExpr 0x5643dfe73b38 <liolib.c:464:13> 'int (*)(FILE *__restrict, char *__restrict, int, size_t)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5643dfe73940 <col:13> 'int (FILE *__restrict, char *__restrict, int, size_t)' Function 0x5643dfd84fc8 'setvbuf' 'int (FILE *__restrict, char *__restrict, int, size_t)'
+[B1.28] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(FILE *__restrict, char *__restrict, int, size_t))
+  30: DeclRefExpr 0x5643dfe73968 <liolib.c:464:21> 'FILE *' lvalue Var 0x5643dfe733b0 'f' 'FILE *'
+f
+  31: ImplicitCastExpr 0x5643dfe73b98 <liolib.c:464:21> 'FILE *' <LValueToRValue>
+`-DeclRefExpr 0x5643dfe73968 <col:21> 'FILE *' lvalue Var 0x5643dfe733b0 'f' 'FILE *'
+[B1.30] (ImplicitCastExpr, LValueToRValue, FILE *)
+  32: IntegerLiteral 0x5643dfe73990 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+  33: CStyleCastExpr 0x5643dfe739c8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x5643dfe73990 <col:24> 'int' 0
+(void *)[B1.32] (CStyleCastExpr, NullToPointer, void *)
+  34: ImplicitCastExpr 0x5643dfe73bb0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'char *' <NullToPointer>
+`-ParenExpr 0x5643dfe739f0 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x5643dfe739c8 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x5643dfe73990 <col:24> 'int' 0
+([B1.33]) (ImplicitCastExpr, NullToPointer, char *)
+  35: DeclRefExpr 0x5643dfe73a10 <liolib.c:464:30> 'const int [3]' lvalue Var 0x5643dfe72ec8 'mode' 'const int [3]'
+mode
+  36: ImplicitCastExpr 0x5643dfe73a60 <liolib.c:464:30> 'const int *' <ArrayToPointerDecay>
+`-DeclRefExpr 0x5643dfe73a10 <col:30> 'const int [3]' lvalue Var 0x5643dfe72ec8 'mode' 'const int [3]'
+[B1.35] (ImplicitCastExpr, ArrayToPointerDecay, const int *)
+  37: DeclRefExpr 0x5643dfe73a38 <liolib.c:464:35> 'int' lvalue Var 0x5643dfe734f0 'op' 'int'
+op
+  38: ImplicitCastExpr 0x5643dfe73a78 <liolib.c:464:35> 'int' <LValueToRValue>
+`-DeclRefExpr 0x5643dfe73a38 <col:35> 'int' lvalue Var 0x5643dfe734f0 'op' 'int'
+[B1.37] (ImplicitCastExpr, LValueToRValue, int)
+  39: ArraySubscriptExpr 0x5643dfe73a90 <liolib.c:464:30, col:37> 'const int' lvalue
+|-ImplicitCastExpr 0x5643dfe73a60 <col:30> 'const int *' <ArrayToPointerDecay>
+| `-DeclRefExpr 0x5643dfe73a10 <col:30> 'const int [3]' lvalue Var 0x5643dfe72ec8 'mode' 'const int [3]'
+`-ImplicitCastExpr 0x5643dfe73a78 <col:35> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x5643dfe73a38 <col:35> 'int' lvalue Var 0x5643dfe734f0 'op' 'int'
+[B1.36][[B1.38]]
+  40: ImplicitCastExpr 0x5643dfe73bc8 <liolib.c:464:30, col:37> 'int' <LValueToRValue>
+`-ArraySubscriptExpr 0x5643dfe73a90 <col:30, col:37> 'const int' lvalue
+  |-ImplicitCastExpr 0x5643dfe73a60 <col:30> 'const int *' <ArrayToPointerDecay>
+  | `-DeclRefExpr 0x5643dfe73a10 <col:30> 'const int [3]' lvalue Var 0x5643dfe72ec8 'mode' 'const int [3]'
+  `-ImplicitCastExpr 0x5643dfe73a78 <col:35> 'int' <LValueToRValue>
+    `-DeclRefExpr 0x5643dfe73a38 <col:35> 'int' lvalue Var 0x5643dfe734f0 'op' 'int'
+[B1.39] (ImplicitCastExpr, LValueToRValue, int)
+  41: DeclRefExpr 0x5643dfe73ab8 <liolib.c:464:40> 'lua_Integer':'long' lvalue Var 0x5643dfe73738 'sz' 'lua_Integer':'long'
+sz
+  42: ImplicitCastExpr 0x5643dfe73be0 <liolib.c:464:40> 'lua_Integer':'long' <LValueToRValue>
+`-DeclRefExpr 0x5643dfe73ab8 <col:40> 'lua_Integer':'long' lvalue Var 0x5643dfe73738 'sz' 'lua_Integer':'long'
+[B1.41] (ImplicitCastExpr, LValueToRValue, lua_Integer)
+  43: ImplicitCastExpr 0x5643dfe73bf8 <liolib.c:464:40> 'size_t':'unsigned long' <IntegralCast>
+`-ImplicitCastExpr 0x5643dfe73be0 <col:40> 'lua_Integer':'long' <LValueToRValue>
+  `-DeclRefExpr 0x5643dfe73ab8 <col:40> 'lua_Integer':'long' lvalue Var 0x5643dfe73738 'sz' 'lua_Integer':'long'
+[B1.42] (ImplicitCastExpr, IntegralCast, size_t)
+  44: CallExpr 0x5643dfe73b50 <liolib.c:464:13, col:42> 'int'
+|-ImplicitCastExpr 0x5643dfe73b38 <col:13> 'int (*)(FILE *__restrict, char *__restrict, int, size_t)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5643dfe73940 <col:13> 'int (FILE *__restrict, char *__restrict, int, size_t)' Function 0x5643dfd84fc8 'setvbuf' 'int (FILE *__restrict, char *__restrict, int, size_t)'
+|-ImplicitCastExpr 0x5643dfe73b98 <col:21> 'FILE *' <LValueToRValue>
+| `-DeclRefExpr 0x5643dfe73968 <col:21> 'FILE *' lvalue Var 0x5643dfe733b0 'f' 'FILE *'
+|-ImplicitCastExpr 0x5643dfe73bb0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'char *' <NullToPointer>
+| `-ParenExpr 0x5643dfe739f0 <col:16, col:25> 'void *'
+|   `-CStyleCastExpr 0x5643dfe739c8 <col:17, col:24> 'void *' <NullToPointer>
+|     `-IntegerLiteral 0x5643dfe73990 <col:24> 'int' 0
+|-ImplicitCastExpr 0x5643dfe73bc8 <liolib.c:464:30, col:37> 'int' <LValueToRValue>
+| `-ArraySubscriptExpr 0x5643dfe73a90 <col:30, col:37> 'const int' lvalue
+|   |-ImplicitCastExpr 0x5643dfe73a60 <col:30> 'const int *' <ArrayToPointerDecay>
+|   | `-DeclRefExpr 0x5643dfe73a10 <col:30> 'const int [3]' lvalue Var 0x5643dfe72ec8 'mode' 'const int [3]'
+|   `-ImplicitCastExpr 0x5643dfe73a78 <col:35> 'int' <LValueToRValue>
+|     `-DeclRefExpr 0x5643dfe73a38 <col:35> 'int' lvalue Var 0x5643dfe734f0 'op' 'int'
+`-ImplicitCastExpr 0x5643dfe73bf8 <col:40> 'size_t':'unsigned long' <IntegralCast>
+  `-ImplicitCastExpr 0x5643dfe73be0 <col:40> 'lua_Integer':'long' <LValueToRValue>
+    `-DeclRefExpr 0x5643dfe73ab8 <col:40> 'lua_Integer':'long' lvalue Var 0x5643dfe73738 'sz' 'lua_Integer':'long'
+[B1.29]([B1.31], [B1.34], [B1.40], [B1.43])
+  45: DeclStmt 0x5643dfe73c10 <liolib.c:464:3, col:43>col:7
+`-VarDecl 0x5643dfe738e0 <col:3, col:42> col:7 used res 'int' cinit
+  `-CallExpr 0x5643dfe73b50 <col:13, col:42> 'int'
+    |-ImplicitCastExpr 0x5643dfe73b38 <col:13> 'int (*)(FILE *__restrict, char *__restrict, int, size_t)' <FunctionToPointerDecay>
+    | `-DeclRefExpr 0x5643dfe73940 <col:13> 'int (FILE *__restrict, char *__restrict, int, size_t)' Function 0x5643dfd84fc8 'setvbuf' 'int (FILE *__restrict, char *__restrict, int, size_t)'
+    |-ImplicitCastExpr 0x5643dfe73b98 <col:21> 'FILE *' <LValueToRValue>
+    | `-DeclRefExpr 0x5643dfe73968 <col:21> 'FILE *' lvalue Var 0x5643dfe733b0 'f' 'FILE *'
+    |-ImplicitCastExpr 0x5643dfe73bb0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'char *' <NullToPointer>
+    | `-ParenExpr 0x5643dfe739f0 <col:16, col:25> 'void *'
+    |   `-CStyleCastExpr 0x5643dfe739c8 <col:17, col:24> 'void *' <NullToPointer>
+    |     `-IntegerLiteral 0x5643dfe73990 <col:24> 'int' 0
+    |-ImplicitCastExpr 0x5643dfe73bc8 <liolib.c:464:30, col:37> 'int' <LValueToRValue>
+    | `-ArraySubscriptExpr 0x5643dfe73a90 <col:30, col:37> 'const int' lvalue
+    |   |-ImplicitCastExpr 0x5643dfe73a60 <col:30> 'const int *' <ArrayToPointerDecay>
+    |   | `-DeclRefExpr 0x5643dfe73a10 <col:30> 'const int [3]' lvalue Var 0x5643dfe72ec8 'mode' 'const int [3]'
+    |   `-ImplicitCastExpr 0x5643dfe73a78 <col:35> 'int' <LValueToRValue>
+    |     `-DeclRefExpr 0x5643dfe73a38 <col:35> 'int' lvalue Var 0x5643dfe734f0 'op' 'int'
+    `-ImplicitCastExpr 0x5643dfe73bf8 <col:40> 'size_t':'unsigned long' <IntegralCast>
+      `-ImplicitCastExpr 0x5643dfe73be0 <col:40> 'lua_Integer':'long' <LValueToRValue>
+        `-DeclRefExpr 0x5643dfe73ab8 <col:40> 'lua_Integer':'long' lvalue Var 0x5643dfe73738 'sz' 'lua_Integer':'long'
+int res = setvbuf(f, ((void *)0), mode[op], sz);
+  46: DeclRefExpr 0x5643dfe73c28 <liolib.c:465:10> 'int (lua_State *, int, const char *)' Function 0x5643dfe58608 'pushresult' 'int (lua_State *, int, const char *)'
+pushresult
+  47: ImplicitCastExpr 0x5643dfe73da0 <liolib.c:465:10> 'int (*)(lua_State *, int, const char *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5643dfe73c28 <col:10> 'int (lua_State *, int, const char *)' Function 0x5643dfe58608 'pushresult' 'int (lua_State *, int, const char *)'
+[B1.46] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(lua_State *, int, const char *))
+  48: DeclRefExpr 0x5643dfe73c50 <liolib.c:465:21> 'lua_State *' lvalue ParmVar 0x5643dfe72d68 'L' 'lua_State *'
+L
+  49: ImplicitCastExpr 0x5643dfe73df8 <liolib.c:465:21> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x5643dfe73c50 <col:21> 'lua_State *' lvalue ParmVar 0x5643dfe72d68 'L' 'lua_State *'
+[B1.48] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  50: DeclRefExpr 0x5643dfe73c78 <liolib.c:465:24> 'int' lvalue Var 0x5643dfe738e0 'res' 'int'
+res
+  51: ImplicitCastExpr 0x5643dfe73cc0 <liolib.c:465:24> 'int' <LValueToRValue>
+`-DeclRefExpr 0x5643dfe73c78 <col:24> 'int' lvalue Var 0x5643dfe738e0 'res' 'int'
+[B1.50] (ImplicitCastExpr, LValueToRValue, int)
+  52: IntegerLiteral 0x5643dfe73ca0 <liolib.c:465:31> 'int' 0
+0
+  53: BinaryOperator 0x5643dfe73cd8 <liolib.c:465:24, col:31> 'int' '=='
+|-ImplicitCastExpr 0x5643dfe73cc0 <col:24> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x5643dfe73c78 <col:24> 'int' lvalue Var 0x5643dfe738e0 'res' 'int'
+`-IntegerLiteral 0x5643dfe73ca0 <col:31> 'int' 0
+[B1.51] == [B1.52]
+  54: IntegerLiteral 0x5643dfe73d20 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+  55: CStyleCastExpr 0x5643dfe73d58 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x5643dfe73d20 <col:24> 'int' 0
+(void *)[B1.54] (CStyleCastExpr, NullToPointer, void *)
+  56: ImplicitCastExpr 0x5643dfe73e10 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'const char *' <NullToPointer>
+`-ParenExpr 0x5643dfe73d80 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x5643dfe73d58 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x5643dfe73d20 <col:24> 'int' 0
+([B1.55]) (ImplicitCastExpr, NullToPointer, const char *)
+  57: CallExpr 0x5643dfe73db8 <liolib.c:465:10, col:38> 'int'
+|-ImplicitCastExpr 0x5643dfe73da0 <col:10> 'int (*)(lua_State *, int, const char *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5643dfe73c28 <col:10> 'int (lua_State *, int, const char *)' Function 0x5643dfe58608 'pushresult' 'int (lua_State *, int, const char *)'
+|-ImplicitCastExpr 0x5643dfe73df8 <col:21> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x5643dfe73c50 <col:21> 'lua_State *' lvalue ParmVar 0x5643dfe72d68 'L' 'lua_State *'
+|-BinaryOperator 0x5643dfe73cd8 <col:24, col:31> 'int' '=='
+| |-ImplicitCastExpr 0x5643dfe73cc0 <col:24> 'int' <LValueToRValue>
+| | `-DeclRefExpr 0x5643dfe73c78 <col:24> 'int' lvalue Var 0x5643dfe738e0 'res' 'int'
+| `-IntegerLiteral 0x5643dfe73ca0 <col:31> 'int' 0
+`-ImplicitCastExpr 0x5643dfe73e10 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'const char *' <NullToPointer>
+  `-ParenExpr 0x5643dfe73d80 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x5643dfe73d58 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x5643dfe73d20 <col:24> 'int' 0
+[B1.47]([B1.49], [B1.53], [B1.56])
+  58: ReturnStmt 0x5643dfe73e28 <liolib.c:465:3, col:38>
+`-CallExpr 0x5643dfe73db8 <col:10, col:38> 'int'
+  |-ImplicitCastExpr 0x5643dfe73da0 <col:10> 'int (*)(lua_State *, int, const char *)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x5643dfe73c28 <col:10> 'int (lua_State *, int, const char *)' Function 0x5643dfe58608 'pushresult' 'int (lua_State *, int, const char *)'
+  |-ImplicitCastExpr 0x5643dfe73df8 <col:21> 'lua_State *' <LValueToRValue>
+  | `-DeclRefExpr 0x5643dfe73c50 <col:21> 'lua_State *' lvalue ParmVar 0x5643dfe72d68 'L' 'lua_State *'
+  |-BinaryOperator 0x5643dfe73cd8 <col:24, col:31> 'int' '=='
+  | |-ImplicitCastExpr 0x5643dfe73cc0 <col:24> 'int' <LValueToRValue>
+  | | `-DeclRefExpr 0x5643dfe73c78 <col:24> 'int' lvalue Var 0x5643dfe738e0 'res' 'int'
+  | `-IntegerLiteral 0x5643dfe73ca0 <col:31> 'int' 0
+  `-ImplicitCastExpr 0x5643dfe73e10 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'const char *' <NullToPointer>
+    `-ParenExpr 0x5643dfe73d80 <col:16, col:25> 'void *'
+      `-CStyleCastExpr 0x5643dfe73d58 <col:17, col:24> 'void *' <NullToPointer>
+        `-IntegerLiteral 0x5643dfe73d20 <col:24> 'int' 0
+return [B1.57];
+   Preds (2): B2 B3
+   Succs (1): B0
+
+ [B2]
+   1: StringLiteral 0x5643dfe730f8 <liolib.c:460:43> 'char [3]' lvalue "no"
+"no"
+   2: ImplicitCastExpr 0x5643dfe732a8 <liolib.c:460:43> 'char *' <ArrayToPointerDecay>
+`-StringLiteral 0x5643dfe730f8 <col:43> 'char [3]' lvalue "no"
+[B2.1] (ImplicitCastExpr, ArrayToPointerDecay, char *)
+   3: ImplicitCastExpr 0x5643dfe732c0 <liolib.c:460:43> 'const char *' <BitCast>
+`-ImplicitCastExpr 0x5643dfe732a8 <col:43> 'char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x5643dfe730f8 <col:43> 'char [3]' lvalue "no"
+[B2.2] (ImplicitCastExpr, BitCast, const char *)
+   4: StringLiteral 0x5643dfe73128 <liolib.c:460:49> 'char [5]' lvalue "full"
+"full"
+   5: ImplicitCastExpr 0x5643dfe732e0 <liolib.c:460:49> 'char *' <ArrayToPointerDecay>
+`-StringLiteral 0x5643dfe73128 <col:49> 'char [5]' lvalue "full"
+[B2.4] (ImplicitCastExpr, ArrayToPointerDecay, char *)
+   6: ImplicitCastExpr 0x5643dfe732f8 <liolib.c:460:49> 'const char *' <BitCast>
+`-ImplicitCastExpr 0x5643dfe732e0 <col:49> 'char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x5643dfe73128 <col:49> 'char [5]' lvalue "full"
+[B2.5] (ImplicitCastExpr, BitCast, const char *)
+   7: StringLiteral 0x5643dfe73158 <liolib.c:460:57> 'char [5]' lvalue "line"
+"line"
+   8: ImplicitCastExpr 0x5643dfe73320 <liolib.c:460:57> 'char *' <ArrayToPointerDecay>
+`-StringLiteral 0x5643dfe73158 <col:57> 'char [5]' lvalue "line"
+[B2.7] (ImplicitCastExpr, ArrayToPointerDecay, char *)
+   9: ImplicitCastExpr 0x5643dfe73338 <liolib.c:460:57> 'const char *' <BitCast>
+`-ImplicitCastExpr 0x5643dfe73320 <col:57> 'char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x5643dfe73158 <col:57> 'char [5]' lvalue "line"
+[B2.8] (ImplicitCastExpr, BitCast, const char *)
+  10: IntegerLiteral 0x5643dfe73188 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+  11: CStyleCastExpr 0x5643dfe731c0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x5643dfe73188 <col:24> 'int' 0
+(void *)[B2.10] (CStyleCastExpr, NullToPointer, void *)
+  12: ImplicitCastExpr 0x5643dfe73370 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'const char *const' <NullToPointer>
+`-ParenExpr 0x5643dfe731e8 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x5643dfe731c0 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x5643dfe73188 <col:24> 'int' 0
+([B2.11]) (ImplicitCastExpr, NullToPointer, const char *const)
+  13: InitListExpr 0x5643dfe73268 <liolib.c:460:42, col:69> 'const char *const [4]'
+|-ImplicitCastExpr 0x5643dfe732c0 <col:43> 'const char *' <BitCast>
+| `-ImplicitCastExpr 0x5643dfe732a8 <col:43> 'char *' <ArrayToPointerDecay>
+|   `-StringLiteral 0x5643dfe730f8 <col:43> 'char [3]' lvalue "no"
+|-ImplicitCastExpr 0x5643dfe732f8 <col:49> 'const char *' <BitCast>
+| `-ImplicitCastExpr 0x5643dfe732e0 <col:49> 'char *' <ArrayToPointerDecay>
+|   `-StringLiteral 0x5643dfe73128 <col:49> 'char [5]' lvalue "full"
+|-ImplicitCastExpr 0x5643dfe73338 <col:57> 'const char *' <BitCast>
+| `-ImplicitCastExpr 0x5643dfe73320 <col:57> 'char *' <ArrayToPointerDecay>
+|   `-StringLiteral 0x5643dfe73158 <col:57> 'char [5]' lvalue "line"
+`-ImplicitCastExpr 0x5643dfe73370 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'const char *const' <NullToPointer>
+  `-ParenExpr 0x5643dfe731e8 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x5643dfe731c0 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x5643dfe73188 <col:24> 'int' 0
+{[B2.3], [B2.6], [B2.9], [B2.12]}
+  14: DeclStmt 0x5643dfe73388 <liolib.c:460:3, col:70>col:28
+`-VarDecl 0x5643dfe73098 <col:3, col:69> col:28 used modenames 'const char *const [4]' static cinit
+  `-InitListExpr 0x5643dfe73268 <col:42, col:69> 'const char *const [4]'
+    |-ImplicitCastExpr 0x5643dfe732c0 <col:43> 'const char *' <BitCast>
+    | `-ImplicitCastExpr 0x5643dfe732a8 <col:43> 'char *' <ArrayToPointerDecay>
+    |   `-StringLiteral 0x5643dfe730f8 <col:43> 'char [3]' lvalue "no"
+    |-ImplicitCastExpr 0x5643dfe732f8 <col:49> 'const char *' <BitCast>
+    | `-ImplicitCastExpr 0x5643dfe732e0 <col:49> 'char *' <ArrayToPointerDecay>
+    |   `-StringLiteral 0x5643dfe73128 <col:49> 'char [5]' lvalue "full"
+    |-ImplicitCastExpr 0x5643dfe73338 <col:57> 'const char *' <BitCast>
+    | `-ImplicitCastExpr 0x5643dfe73320 <col:57> 'char *' <ArrayToPointerDecay>
+    |   `-StringLiteral 0x5643dfe73158 <col:57> 'char [5]' lvalue "line"
+    `-ImplicitCastExpr 0x5643dfe73370 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'const char *const' <NullToPointer>
+      `-ParenExpr 0x5643dfe731e8 <col:16, col:25> 'void *'
+        `-CStyleCastExpr 0x5643dfe731c0 <col:17, col:24> 'void *' <NullToPointer>
+          `-IntegerLiteral 0x5643dfe73188 <col:24> 'int' 0
+static const char *const modenames[] = {"no", "full", "line", ((void *)0)};
+   Preds (1): B3
+   Succs (1): B1
+
+ [B3]
+   T: static init modenames
+   Preds (2): B4 B5
+   Succs (2): B1 B2
+
+ [B4]
+   1: IntegerLiteral 0x5643dfe72f28 </usr/include/stdio.h:95:16> 'int' 2
+2
+   2: IntegerLiteral 0x5643dfe72f48 </usr/include/stdio.h:93:16> 'int' 0
+0
+   3: IntegerLiteral 0x5643dfe72f68 </usr/include/stdio.h:94:16> 'int' 1
+1
+   4: InitListExpr 0x5643dfe72fe0 <liolib.c:459:29, col:52> 'const int [3]'
+|-IntegerLiteral 0x5643dfe72f28 </usr/include/stdio.h:95:16> 'int' 2
+|-IntegerLiteral 0x5643dfe72f48 <line:93:16> 'int' 0
+`-IntegerLiteral 0x5643dfe72f68 <line:94:16> 'int' 1
+{[B4.1], [B4.2], [B4.3]}
+   5: DeclStmt 0x5643dfe73058 <liolib.c:459:3, col:53>col:20
+`-VarDecl 0x5643dfe72ec8 <col:3, col:52> col:20 used mode 'const int [3]' static cinit
+  `-InitListExpr 0x5643dfe72fe0 <col:29, col:52> 'const int [3]'
+    |-IntegerLiteral 0x5643dfe72f28 </usr/include/stdio.h:95:16> 'int' 2
+    |-IntegerLiteral 0x5643dfe72f48 <line:93:16> 'int' 0
+    `-IntegerLiteral 0x5643dfe72f68 <line:94:16> 'int' 1
+static const int mode[] = {2, 0, 1};
+   Preds (1): B5
+   Succs (1): B3
+
+ [B5]
+   T: static init mode
+   Preds (1): B6
+   Succs (2): B3 B4
+
+ [B0 (EXIT)]
+   Preds (1): B1

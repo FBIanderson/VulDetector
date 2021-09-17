@@ -1,0 +1,4 @@
+
+    s->increment = increment;
+}
+

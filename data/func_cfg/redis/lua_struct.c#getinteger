@@ -1,0 +1,422 @@
+static lua_Number getinteger(const char *buff, int endian, int issigned, int size)
+ [B15 (ENTRY)]
+   Succs (1): B14
+
+ [B1]
+   1: DeclRefExpr 0x559201202710 <lua_struct.c:288:33> 'Uinttype':'unsigned long' lvalue Var 0x559201201770 'l' 'Uinttype':'unsigned long'
+l
+   2: ImplicitCastExpr 0x559201202748 <lua_struct.c:288:33> 'Uinttype':'unsigned long' <LValueToRValue>
+`-DeclRefExpr 0x559201202710 <col:33> 'Uinttype':'unsigned long' lvalue Var 0x559201201770 'l' 'Uinttype':'unsigned long'
+[B1.1] (ImplicitCastExpr, LValueToRValue, Uinttype)
+   3: CStyleCastExpr 0x559201202760 <lua_struct.c:288:24, col:33> 'Inttype':'long' <IntegralCast>
+`-ImplicitCastExpr 0x559201202748 <col:33> 'Uinttype':'unsigned long' <LValueToRValue>
+  `-DeclRefExpr 0x559201202710 <col:33> 'Uinttype':'unsigned long' lvalue Var 0x559201201770 'l' 'Uinttype':'unsigned long'
+(Inttype)[B1.2] (CStyleCastExpr, IntegralCast, Inttype)
+   4: CStyleCastExpr 0x559201202798 <lua_struct.c:288:12, col:33> 'lua_Number':'double' <IntegralToFloating>
+`-CStyleCastExpr 0x559201202760 <col:24, col:33> 'Inttype':'long' <IntegralCast>
+  `-ImplicitCastExpr 0x559201202748 <col:33> 'Uinttype':'unsigned long' <LValueToRValue>
+    `-DeclRefExpr 0x559201202710 <col:33> 'Uinttype':'unsigned long' lvalue Var 0x559201201770 'l' 'Uinttype':'unsigned long'
+(lua_Number)[B1.3] (CStyleCastExpr, IntegralToFloating, lua_Number)
+   5: ReturnStmt 0x5592012027c0 <lua_struct.c:288:5, col:33>
+`-CStyleCastExpr 0x559201202798 <col:12, col:33> 'lua_Number':'double' <IntegralToFloating>
+  `-CStyleCastExpr 0x559201202760 <col:24, col:33> 'Inttype':'long' <IntegralCast>
+    `-ImplicitCastExpr 0x559201202748 <col:33> 'Uinttype':'unsigned long' <LValueToRValue>
+      `-DeclRefExpr 0x559201202710 <col:33> 'Uinttype':'unsigned long' lvalue Var 0x559201201770 'l' 'Uinttype':'unsigned long'
+return [B1.4];
+   Preds (2): B2 B3
+   Succs (1): B0
+
+ [B2]
+   1: DeclRefExpr 0x559201202638 <lua_struct.c:287:7> 'Uinttype':'unsigned long' lvalue Var 0x559201201770 'l' 'Uinttype':'unsigned long'
+l
+   2: DeclRefExpr 0x559201202660 <lua_struct.c:287:12> 'Uinttype':'unsigned long' lvalue Var 0x5592012022e0 'mask' 'Uinttype':'unsigned long'
+mask
+   3: ImplicitCastExpr 0x559201202688 <lua_struct.c:287:12> 'Uinttype':'unsigned long' <LValueToRValue>
+`-DeclRefExpr 0x559201202660 <col:12> 'Uinttype':'unsigned long' lvalue Var 0x5592012022e0 'mask' 'Uinttype':'unsigned long'
+[B2.2] (ImplicitCastExpr, LValueToRValue, Uinttype)
+   4: CompoundAssignOperator 0x5592012026a0 <lua_struct.c:287:7, col:12> 'Uinttype':'unsigned long' '|=' ComputeLHSTy='unsigned long' ComputeResultTy='unsigned long'
+|-DeclRefExpr 0x559201202638 <col:7> 'Uinttype':'unsigned long' lvalue Var 0x559201201770 'l' 'Uinttype':'unsigned long'
+`-ImplicitCastExpr 0x559201202688 <col:12> 'Uinttype':'unsigned long' <LValueToRValue>
+  `-DeclRefExpr 0x559201202660 <col:12> 'Uinttype':'unsigned long' lvalue Var 0x5592012022e0 'mask' 'Uinttype':'unsigned long'
+[B2.1] |= [B2.3]
+   Preds (1): B3
+   Succs (1): B1
+
+ [B3]
+   1: IntegerLiteral 0x559201202340 <lua_struct.c:285:44> 'int' 0
+0
+   2: CStyleCastExpr 0x559201202370 <lua_struct.c:285:34, col:44> 'Uinttype':'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x559201202340 <col:44> 'int' 0
+(Uinttype)[B3.1] (CStyleCastExpr, IntegralCast, Uinttype)
+   3: UnaryOperator 0x5592012023b8 <lua_struct.c:285:32, col:45> 'Uinttype':'unsigned long' prefix '~'
+`-ParenExpr 0x559201202398 <col:33, col:45> 'Uinttype':'unsigned long'
+  `-CStyleCastExpr 0x559201202370 <col:34, col:44> 'Uinttype':'unsigned long' <IntegralCast>
+    `-IntegerLiteral 0x559201202340 <col:44> 'int' 0
+~([B3.2])
+   4: CStyleCastExpr 0x559201202438 <lua_struct.c:285:21, col:46> 'Uinttype':'unsigned long' <NoOp>
+`-ParenExpr 0x559201202418 <col:31, col:46> 'Uinttype':'unsigned long'
+  `-UnaryOperator 0x5592012023b8 <col:32, col:45> 'Uinttype':'unsigned long' prefix '~'
+    `-ParenExpr 0x559201202398 <col:33, col:45> 'Uinttype':'unsigned long'
+      `-CStyleCastExpr 0x559201202370 <col:34, col:44> 'Uinttype':'unsigned long' <IntegralCast>
+        `-IntegerLiteral 0x559201202340 <col:44> 'int' 0
+(Uinttype)([B3.3]) (CStyleCastExpr, NoOp, Uinttype)
+   5: DeclRefExpr 0x559201202460 <lua_struct.c:285:52> 'int' lvalue ParmVar 0x559201201560 'size' 'int'
+size
+   6: ImplicitCastExpr 0x5592012024a8 <lua_struct.c:285:52> 'int' <LValueToRValue>
+`-DeclRefExpr 0x559201202460 <col:52> 'int' lvalue ParmVar 0x559201201560 'size' 'int'
+[B3.5] (ImplicitCastExpr, LValueToRValue, int)
+   7: IntegerLiteral 0x559201202488 <lua_struct.c:285:57> 'int' 8
+8
+   8: BinaryOperator 0x5592012024c0 <lua_struct.c:285:52, col:57> 'int' '*'
+|-ImplicitCastExpr 0x5592012024a8 <col:52> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x559201202460 <col:52> 'int' lvalue ParmVar 0x559201201560 'size' 'int'
+`-IntegerLiteral 0x559201202488 <col:57> 'int' 8
+[B3.6] * [B3.7]
+   9: IntegerLiteral 0x5592012024e8 <lua_struct.c:285:61> 'int' 1
+1
+  10: BinaryOperator 0x559201202508 <lua_struct.c:285:52, col:61> 'int' '-'
+|-BinaryOperator 0x5592012024c0 <col:52, col:57> 'int' '*'
+| |-ImplicitCastExpr 0x5592012024a8 <col:52> 'int' <LValueToRValue>
+| | `-DeclRefExpr 0x559201202460 <col:52> 'int' lvalue ParmVar 0x559201201560 'size' 'int'
+| `-IntegerLiteral 0x559201202488 <col:57> 'int' 8
+`-IntegerLiteral 0x5592012024e8 <col:61> 'int' 1
+[B3.8] - [B3.9]
+  11: BinaryOperator 0x559201202550 <lua_struct.c:285:21, col:62> 'Uinttype':'unsigned long' '<<'
+|-CStyleCastExpr 0x559201202438 <col:21, col:46> 'Uinttype':'unsigned long' <NoOp>
+| `-ParenExpr 0x559201202418 <col:31, col:46> 'Uinttype':'unsigned long'
+|   `-UnaryOperator 0x5592012023b8 <col:32, col:45> 'Uinttype':'unsigned long' prefix '~'
+|     `-ParenExpr 0x559201202398 <col:33, col:45> 'Uinttype':'unsigned long'
+|       `-CStyleCastExpr 0x559201202370 <col:34, col:44> 'Uinttype':'unsigned long' <IntegralCast>
+|         `-IntegerLiteral 0x559201202340 <col:44> 'int' 0
+`-ParenExpr 0x559201202530 <col:51, col:62> 'int'
+  `-BinaryOperator 0x559201202508 <col:52, col:61> 'int' '-'
+    |-BinaryOperator 0x5592012024c0 <col:52, col:57> 'int' '*'
+    | |-ImplicitCastExpr 0x5592012024a8 <col:52> 'int' <LValueToRValue>
+    | | `-DeclRefExpr 0x559201202460 <col:52> 'int' lvalue ParmVar 0x559201201560 'size' 'int'
+    | `-IntegerLiteral 0x559201202488 <col:57> 'int' 8
+    `-IntegerLiteral 0x5592012024e8 <col:61> 'int' 1
+[B3.4] << ([B3.10])
+  12: DeclStmt 0x559201202578 <lua_struct.c:285:5, col:63>col:14
+`-VarDecl 0x5592012022e0 <col:5, col:62> col:14 used mask 'Uinttype':'unsigned long' cinit
+  `-BinaryOperator 0x559201202550 <col:21, col:62> 'Uinttype':'unsigned long' '<<'
+    |-CStyleCastExpr 0x559201202438 <col:21, col:46> 'Uinttype':'unsigned long' <NoOp>
+    | `-ParenExpr 0x559201202418 <col:31, col:46> 'Uinttype':'unsigned long'
+    |   `-UnaryOperator 0x5592012023b8 <col:32, col:45> 'Uinttype':'unsigned long' prefix '~'
+    |     `-ParenExpr 0x559201202398 <col:33, col:45> 'Uinttype':'unsigned long'
+    |       `-CStyleCastExpr 0x559201202370 <col:34, col:44> 'Uinttype':'unsigned long' <IntegralCast>
+    |         `-IntegerLiteral 0x559201202340 <col:44> 'int' 0
+    `-ParenExpr 0x559201202530 <col:51, col:62> 'int'
+      `-BinaryOperator 0x559201202508 <col:52, col:61> 'int' '-'
+        |-BinaryOperator 0x5592012024c0 <col:52, col:57> 'int' '*'
+        | |-ImplicitCastExpr 0x5592012024a8 <col:52> 'int' <LValueToRValue>
+        | | `-DeclRefExpr 0x559201202460 <col:52> 'int' lvalue ParmVar 0x559201201560 'size' 'int'
+        | `-IntegerLiteral 0x559201202488 <col:57> 'int' 8
+        `-IntegerLiteral 0x5592012024e8 <col:61> 'int' 1
+Uinttype mask = (Uinttype)(~((Uinttype)0)) << (size * 8 - 1);
+  13: DeclRefExpr 0x559201202590 <lua_struct.c:286:9> 'Uinttype':'unsigned long' lvalue Var 0x559201201770 'l' 'Uinttype':'unsigned long'
+l
+  14: ImplicitCastExpr 0x5592012025e0 <lua_struct.c:286:9> 'Uinttype':'unsigned long' <LValueToRValue>
+`-DeclRefExpr 0x559201202590 <col:9> 'Uinttype':'unsigned long' lvalue Var 0x559201201770 'l' 'Uinttype':'unsigned long'
+[B3.13] (ImplicitCastExpr, LValueToRValue, Uinttype)
+  15: DeclRefExpr 0x5592012025b8 <lua_struct.c:286:13> 'Uinttype':'unsigned long' lvalue Var 0x5592012022e0 'mask' 'Uinttype':'unsigned long'
+mask
+  16: ImplicitCastExpr 0x5592012025f8 <lua_struct.c:286:13> 'Uinttype':'unsigned long' <LValueToRValue>
+`-DeclRefExpr 0x5592012025b8 <col:13> 'Uinttype':'unsigned long' lvalue Var 0x5592012022e0 'mask' 'Uinttype':'unsigned long'
+[B3.15] (ImplicitCastExpr, LValueToRValue, Uinttype)
+  17: BinaryOperator 0x559201202610 <lua_struct.c:286:9, col:13> 'unsigned long' '&'
+|-ImplicitCastExpr 0x5592012025e0 <col:9> 'Uinttype':'unsigned long' <LValueToRValue>
+| `-DeclRefExpr 0x559201202590 <col:9> 'Uinttype':'unsigned long' lvalue Var 0x559201201770 'l' 'Uinttype':'unsigned long'
+`-ImplicitCastExpr 0x5592012025f8 <col:13> 'Uinttype':'unsigned long' <LValueToRValue>
+  `-DeclRefExpr 0x5592012025b8 <col:13> 'Uinttype':'unsigned long' lvalue Var 0x5592012022e0 'mask' 'Uinttype':'unsigned long'
+[B3.14] & [B3.16]
+   T: if [B3.17]
+   Preds (1): B5
+   Succs (2): B2 B1
+
+ [B4]
+   1: DeclRefExpr 0x559201202218 <lua_struct.c:283:24> 'Uinttype':'unsigned long' lvalue Var 0x559201201770 'l' 'Uinttype':'unsigned long'
+l
+   2: ImplicitCastExpr 0x559201202250 <lua_struct.c:283:24> 'Uinttype':'unsigned long' <LValueToRValue>
+`-DeclRefExpr 0x559201202218 <col:24> 'Uinttype':'unsigned long' lvalue Var 0x559201201770 'l' 'Uinttype':'unsigned long'
+[B4.1] (ImplicitCastExpr, LValueToRValue, Uinttype)
+   3: CStyleCastExpr 0x559201202268 <lua_struct.c:283:12, col:24> 'lua_Number':'double' <IntegralToFloating>
+`-ImplicitCastExpr 0x559201202250 <col:24> 'Uinttype':'unsigned long' <LValueToRValue>
+  `-DeclRefExpr 0x559201202218 <col:24> 'Uinttype':'unsigned long' lvalue Var 0x559201201770 'l' 'Uinttype':'unsigned long'
+(lua_Number)[B4.2] (CStyleCastExpr, IntegralToFloating, lua_Number)
+   4: ReturnStmt 0x559201202290 <lua_struct.c:283:5, col:24>
+`-CStyleCastExpr 0x559201202268 <col:12, col:24> 'lua_Number':'double' <IntegralToFloating>
+  `-ImplicitCastExpr 0x559201202250 <col:24> 'Uinttype':'unsigned long' <LValueToRValue>
+    `-DeclRefExpr 0x559201202218 <col:24> 'Uinttype':'unsigned long' lvalue Var 0x559201201770 'l' 'Uinttype':'unsigned long'
+return [B4.3];
+   Preds (1): B5
+   Succs (1): B0
+
+ [B5]
+   1: DeclRefExpr 0x5592012021b8 <lua_struct.c:282:8> 'int' lvalue ParmVar 0x5592012014e8 'issigned' 'int'
+issigned
+   2: ImplicitCastExpr 0x5592012021e0 <lua_struct.c:282:8> 'int' <LValueToRValue>
+`-DeclRefExpr 0x5592012021b8 <col:8> 'int' lvalue ParmVar 0x5592012014e8 'issigned' 'int'
+[B5.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: UnaryOperator 0x5592012021f8 <lua_struct.c:282:7, col:8> 'int' prefix '!'
+`-ImplicitCastExpr 0x5592012021e0 <col:8> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x5592012021b8 <col:8> 'int' lvalue ParmVar 0x5592012014e8 'issigned' 'int'
+![B5.2]
+   T: if [B5.3]
+   Preds (2): B8 B12
+   Succs (2): B4 B3
+
+ [B6]
+   1: DeclRefExpr 0x559201201e98 <lua_struct.c:277:32> 'int' lvalue Var 0x559201201838 'i' 'int'
+i
+   2: UnaryOperator 0x559201201ec0 <lua_struct.c:277:32, col:33> 'int' postfix '--'
+`-DeclRefExpr 0x559201201e98 <col:32> 'int' lvalue Var 0x559201201838 'i' 'int'
+[B6.1]--
+   Preds (1): B7
+   Succs (1): B8
+
+ [B7]
+   1: DeclRefExpr 0x559201201ee0 <lua_struct.c:278:7> 'Uinttype':'unsigned long' lvalue Var 0x559201201770 'l' 'Uinttype':'unsigned long'
+l
+   2: IntegerLiteral 0x559201201f08 <lua_struct.c:278:13> 'int' 8
+8
+   3: CompoundAssignOperator 0x559201201f40 <lua_struct.c:278:7, col:13> 'Uinttype':'unsigned long' '<<=' ComputeLHSTy='Uinttype':'unsigned long' ComputeResultTy='Uinttype':'unsigned long'
+|-DeclRefExpr 0x559201201ee0 <col:7> 'Uinttype':'unsigned long' lvalue Var 0x559201201770 'l' 'Uinttype':'unsigned long'
+`-IntegerLiteral 0x559201201f08 <col:13> 'int' 8
+[B7.1] <<= [B7.2]
+   4: DeclRefExpr 0x559201201f78 <lua_struct.c:279:7> 'Uinttype':'unsigned long' lvalue Var 0x559201201770 'l' 'Uinttype':'unsigned long'
+l
+   5: DeclRefExpr 0x559201201fa0 <lua_struct.c:279:37> 'const char *' lvalue ParmVar 0x5592012013f8 'buff' 'const char *'
+buff
+   6: ImplicitCastExpr 0x559201201ff0 <lua_struct.c:279:37> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x559201201fa0 <col:37> 'const char *' lvalue ParmVar 0x5592012013f8 'buff' 'const char *'
+[B7.5] (ImplicitCastExpr, LValueToRValue, const char *)
+   7: DeclRefExpr 0x559201201fc8 <lua_struct.c:279:42> 'int' lvalue Var 0x559201201838 'i' 'int'
+i
+   8: ImplicitCastExpr 0x559201202008 <lua_struct.c:279:42> 'int' <LValueToRValue>
+`-DeclRefExpr 0x559201201fc8 <col:42> 'int' lvalue Var 0x559201201838 'i' 'int'
+[B7.7] (ImplicitCastExpr, LValueToRValue, int)
+   9: ArraySubscriptExpr 0x559201202020 <lua_struct.c:279:37, col:43> 'const char' lvalue
+|-ImplicitCastExpr 0x559201201ff0 <col:37> 'const char *' <LValueToRValue>
+| `-DeclRefExpr 0x559201201fa0 <col:37> 'const char *' lvalue ParmVar 0x5592012013f8 'buff' 'const char *'
+`-ImplicitCastExpr 0x559201202008 <col:42> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x559201201fc8 <col:42> 'int' lvalue Var 0x559201201838 'i' 'int'
+[B7.6][[B7.8]]
+  10: ImplicitCastExpr 0x559201202060 <lua_struct.c:279:37, col:43> 'char' <LValueToRValue>
+`-ArraySubscriptExpr 0x559201202020 <col:37, col:43> 'const char' lvalue
+  |-ImplicitCastExpr 0x559201201ff0 <col:37> 'const char *' <LValueToRValue>
+  | `-DeclRefExpr 0x559201201fa0 <col:37> 'const char *' lvalue ParmVar 0x5592012013f8 'buff' 'const char *'
+  `-ImplicitCastExpr 0x559201202008 <col:42> 'int' <LValueToRValue>
+    `-DeclRefExpr 0x559201201fc8 <col:42> 'int' lvalue Var 0x559201201838 'i' 'int'
+[B7.9] (ImplicitCastExpr, LValueToRValue, char)
+  11: CStyleCastExpr 0x559201202078 <lua_struct.c:279:22, col:43> 'unsigned char' <IntegralCast>
+`-ImplicitCastExpr 0x559201202060 <col:37, col:43> 'char' <LValueToRValue>
+  `-ArraySubscriptExpr 0x559201202020 <col:37, col:43> 'const char' lvalue
+    |-ImplicitCastExpr 0x559201201ff0 <col:37> 'const char *' <LValueToRValue>
+    | `-DeclRefExpr 0x559201201fa0 <col:37> 'const char *' lvalue ParmVar 0x5592012013f8 'buff' 'const char *'
+    `-ImplicitCastExpr 0x559201202008 <col:42> 'int' <LValueToRValue>
+      `-DeclRefExpr 0x559201201fc8 <col:42> 'int' lvalue Var 0x559201201838 'i' 'int'
+(unsigned char)[B7.10] (CStyleCastExpr, IntegralCast, unsigned char)
+  12: CStyleCastExpr 0x5592012020b0 <lua_struct.c:279:12, col:43> 'Uinttype':'unsigned long' <IntegralCast>
+`-CStyleCastExpr 0x559201202078 <col:22, col:43> 'unsigned char' <IntegralCast>
+  `-ImplicitCastExpr 0x559201202060 <col:37, col:43> 'char' <LValueToRValue>
+    `-ArraySubscriptExpr 0x559201202020 <col:37, col:43> 'const char' lvalue
+      |-ImplicitCastExpr 0x559201201ff0 <col:37> 'const char *' <LValueToRValue>
+      | `-DeclRefExpr 0x559201201fa0 <col:37> 'const char *' lvalue ParmVar 0x5592012013f8 'buff' 'const char *'
+      `-ImplicitCastExpr 0x559201202008 <col:42> 'int' <LValueToRValue>
+        `-DeclRefExpr 0x559201201fc8 <col:42> 'int' lvalue Var 0x559201201838 'i' 'int'
+(Uinttype)[B7.11] (CStyleCastExpr, IntegralCast, Uinttype)
+  13: CompoundAssignOperator 0x5592012020d8 <lua_struct.c:279:7, col:43> 'Uinttype':'unsigned long' '|=' ComputeLHSTy='unsigned long' ComputeResultTy='unsigned long'
+|-DeclRefExpr 0x559201201f78 <col:7> 'Uinttype':'unsigned long' lvalue Var 0x559201201770 'l' 'Uinttype':'unsigned long'
+`-CStyleCastExpr 0x5592012020b0 <col:12, col:43> 'Uinttype':'unsigned long' <IntegralCast>
+  `-CStyleCastExpr 0x559201202078 <col:22, col:43> 'unsigned char' <IntegralCast>
+    `-ImplicitCastExpr 0x559201202060 <col:37, col:43> 'char' <LValueToRValue>
+      `-ArraySubscriptExpr 0x559201202020 <col:37, col:43> 'const char' lvalue
+        |-ImplicitCastExpr 0x559201201ff0 <col:37> 'const char *' <LValueToRValue>
+        | `-DeclRefExpr 0x559201201fa0 <col:37> 'const char *' lvalue ParmVar 0x5592012013f8 'buff' 'const char *'
+        `-ImplicitCastExpr 0x559201202008 <col:42> 'int' <LValueToRValue>
+          `-DeclRefExpr 0x559201201fc8 <col:42> 'int' lvalue Var 0x559201201838 'i' 'int'
+[B7.4] |= [B7.12]
+   Preds (1): B8
+   Succs (1): B6
+
+ [B8]
+   1: DeclRefExpr 0x559201201e10 <lua_struct.c:277:24> 'int' lvalue Var 0x559201201838 'i' 'int'
+i
+   2: ImplicitCastExpr 0x559201201e58 <lua_struct.c:277:24> 'int' <LValueToRValue>
+`-DeclRefExpr 0x559201201e10 <col:24> 'int' lvalue Var 0x559201201838 'i' 'int'
+[B8.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: IntegerLiteral 0x559201201e38 <lua_struct.c:277:29> 'int' 0
+0
+   4: BinaryOperator 0x559201201e70 <lua_struct.c:277:24, col:29> 'int' '>='
+|-ImplicitCastExpr 0x559201201e58 <col:24> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x559201201e10 <col:24> 'int' lvalue Var 0x559201201838 'i' 'int'
+`-IntegerLiteral 0x559201201e38 <col:29> 'int' 0
+[B8.2] >= [B8.3]
+   T: for (...; [B8.4]; ...)
+   Preds (2): B6 B9
+   Succs (2): B7 B5
+
+ [B9]
+   1: DeclRefExpr 0x559201201d60 <lua_struct.c:277:14> 'int' lvalue ParmVar 0x559201201560 'size' 'int'
+size
+   2: ImplicitCastExpr 0x559201201da8 <lua_struct.c:277:14> 'int' <LValueToRValue>
+`-DeclRefExpr 0x559201201d60 <col:14> 'int' lvalue ParmVar 0x559201201560 'size' 'int'
+[B9.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: IntegerLiteral 0x559201201d88 <lua_struct.c:277:21> 'int' 1
+1
+   4: BinaryOperator 0x559201201dc0 <lua_struct.c:277:14, col:21> 'int' '-'
+|-ImplicitCastExpr 0x559201201da8 <col:14> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x559201201d60 <col:14> 'int' lvalue ParmVar 0x559201201560 'size' 'int'
+`-IntegerLiteral 0x559201201d88 <col:21> 'int' 1
+[B9.2] - [B9.3]
+   5: DeclRefExpr 0x559201201d38 <lua_struct.c:277:10> 'int' lvalue Var 0x559201201838 'i' 'int'
+i
+   6: BinaryOperator 0x559201201de8 <lua_struct.c:277:10, col:21> 'int' '='
+|-DeclRefExpr 0x559201201d38 <col:10> 'int' lvalue Var 0x559201201838 'i' 'int'
+`-BinaryOperator 0x559201201dc0 <col:14, col:21> 'int' '-'
+  |-ImplicitCastExpr 0x559201201da8 <col:14> 'int' <LValueToRValue>
+  | `-DeclRefExpr 0x559201201d60 <col:14> 'int' lvalue ParmVar 0x559201201560 'size' 'int'
+  `-IntegerLiteral 0x559201201d88 <col:21> 'int' 1
+[B9.5] = [B9.4]
+   Preds (1): B14
+   Succs (1): B8
+
+ [B10]
+   1: DeclRefExpr 0x559201201a50 <lua_struct.c:271:27> 'int' lvalue Var 0x559201201838 'i' 'int'
+i
+   2: UnaryOperator 0x559201201a78 <lua_struct.c:271:27, col:28> 'int' postfix '++'
+`-DeclRefExpr 0x559201201a50 <col:27> 'int' lvalue Var 0x559201201838 'i' 'int'
+[B10.1]++
+   Preds (1): B11
+   Succs (1): B12
+
+ [B11]
+   1: DeclRefExpr 0x559201201a98 <lua_struct.c:272:7> 'Uinttype':'unsigned long' lvalue Var 0x559201201770 'l' 'Uinttype':'unsigned long'
+l
+   2: IntegerLiteral 0x559201201ac0 <lua_struct.c:272:13> 'int' 8
+8
+   3: CompoundAssignOperator 0x559201201af8 <lua_struct.c:272:7, col:13> 'Uinttype':'unsigned long' '<<=' ComputeLHSTy='Uinttype':'unsigned long' ComputeResultTy='Uinttype':'unsigned long'
+|-DeclRefExpr 0x559201201a98 <col:7> 'Uinttype':'unsigned long' lvalue Var 0x559201201770 'l' 'Uinttype':'unsigned long'
+`-IntegerLiteral 0x559201201ac0 <col:13> 'int' 8
+[B11.1] <<= [B11.2]
+   4: DeclRefExpr 0x559201201b30 <lua_struct.c:273:7> 'Uinttype':'unsigned long' lvalue Var 0x559201201770 'l' 'Uinttype':'unsigned long'
+l
+   5: DeclRefExpr 0x559201201b58 <lua_struct.c:273:37> 'const char *' lvalue ParmVar 0x5592012013f8 'buff' 'const char *'
+buff
+   6: ImplicitCastExpr 0x559201201ba8 <lua_struct.c:273:37> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x559201201b58 <col:37> 'const char *' lvalue ParmVar 0x5592012013f8 'buff' 'const char *'
+[B11.5] (ImplicitCastExpr, LValueToRValue, const char *)
+   7: DeclRefExpr 0x559201201b80 <lua_struct.c:273:42> 'int' lvalue Var 0x559201201838 'i' 'int'
+i
+   8: ImplicitCastExpr 0x559201201bc0 <lua_struct.c:273:42> 'int' <LValueToRValue>
+`-DeclRefExpr 0x559201201b80 <col:42> 'int' lvalue Var 0x559201201838 'i' 'int'
+[B11.7] (ImplicitCastExpr, LValueToRValue, int)
+   9: ArraySubscriptExpr 0x559201201bd8 <lua_struct.c:273:37, col:43> 'const char' lvalue
+|-ImplicitCastExpr 0x559201201ba8 <col:37> 'const char *' <LValueToRValue>
+| `-DeclRefExpr 0x559201201b58 <col:37> 'const char *' lvalue ParmVar 0x5592012013f8 'buff' 'const char *'
+`-ImplicitCastExpr 0x559201201bc0 <col:42> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x559201201b80 <col:42> 'int' lvalue Var 0x559201201838 'i' 'int'
+[B11.6][[B11.8]]
+  10: ImplicitCastExpr 0x559201201c18 <lua_struct.c:273:37, col:43> 'char' <LValueToRValue>
+`-ArraySubscriptExpr 0x559201201bd8 <col:37, col:43> 'const char' lvalue
+  |-ImplicitCastExpr 0x559201201ba8 <col:37> 'const char *' <LValueToRValue>
+  | `-DeclRefExpr 0x559201201b58 <col:37> 'const char *' lvalue ParmVar 0x5592012013f8 'buff' 'const char *'
+  `-ImplicitCastExpr 0x559201201bc0 <col:42> 'int' <LValueToRValue>
+    `-DeclRefExpr 0x559201201b80 <col:42> 'int' lvalue Var 0x559201201838 'i' 'int'
+[B11.9] (ImplicitCastExpr, LValueToRValue, char)
+  11: CStyleCastExpr 0x559201201c30 <lua_struct.c:273:22, col:43> 'unsigned char' <IntegralCast>
+`-ImplicitCastExpr 0x559201201c18 <col:37, col:43> 'char' <LValueToRValue>
+  `-ArraySubscriptExpr 0x559201201bd8 <col:37, col:43> 'const char' lvalue
+    |-ImplicitCastExpr 0x559201201ba8 <col:37> 'const char *' <LValueToRValue>
+    | `-DeclRefExpr 0x559201201b58 <col:37> 'const char *' lvalue ParmVar 0x5592012013f8 'buff' 'const char *'
+    `-ImplicitCastExpr 0x559201201bc0 <col:42> 'int' <LValueToRValue>
+      `-DeclRefExpr 0x559201201b80 <col:42> 'int' lvalue Var 0x559201201838 'i' 'int'
+(unsigned char)[B11.10] (CStyleCastExpr, IntegralCast, unsigned char)
+  12: CStyleCastExpr 0x559201201c68 <lua_struct.c:273:12, col:43> 'Uinttype':'unsigned long' <IntegralCast>
+`-CStyleCastExpr 0x559201201c30 <col:22, col:43> 'unsigned char' <IntegralCast>
+  `-ImplicitCastExpr 0x559201201c18 <col:37, col:43> 'char' <LValueToRValue>
+    `-ArraySubscriptExpr 0x559201201bd8 <col:37, col:43> 'const char' lvalue
+      |-ImplicitCastExpr 0x559201201ba8 <col:37> 'const char *' <LValueToRValue>
+      | `-DeclRefExpr 0x559201201b58 <col:37> 'const char *' lvalue ParmVar 0x5592012013f8 'buff' 'const char *'
+      `-ImplicitCastExpr 0x559201201bc0 <col:42> 'int' <LValueToRValue>
+        `-DeclRefExpr 0x559201201b80 <col:42> 'int' lvalue Var 0x559201201838 'i' 'int'
+(Uinttype)[B11.11] (CStyleCastExpr, IntegralCast, Uinttype)
+  13: CompoundAssignOperator 0x559201201c90 <lua_struct.c:273:7, col:43> 'Uinttype':'unsigned long' '|=' ComputeLHSTy='unsigned long' ComputeResultTy='unsigned long'
+|-DeclRefExpr 0x559201201b30 <col:7> 'Uinttype':'unsigned long' lvalue Var 0x559201201770 'l' 'Uinttype':'unsigned long'
+`-CStyleCastExpr 0x559201201c68 <col:12, col:43> 'Uinttype':'unsigned long' <IntegralCast>
+  `-CStyleCastExpr 0x559201201c30 <col:22, col:43> 'unsigned char' <IntegralCast>
+    `-ImplicitCastExpr 0x559201201c18 <col:37, col:43> 'char' <LValueToRValue>
+      `-ArraySubscriptExpr 0x559201201bd8 <col:37, col:43> 'const char' lvalue
+        |-ImplicitCastExpr 0x559201201ba8 <col:37> 'const char *' <LValueToRValue>
+        | `-DeclRefExpr 0x559201201b58 <col:37> 'const char *' lvalue ParmVar 0x5592012013f8 'buff' 'const char *'
+        `-ImplicitCastExpr 0x559201201bc0 <col:42> 'int' <LValueToRValue>
+          `-DeclRefExpr 0x559201201b80 <col:42> 'int' lvalue Var 0x559201201838 'i' 'int'
+[B11.4] |= [B11.12]
+   Preds (1): B12
+   Succs (1): B10
+
+ [B12]
+   1: DeclRefExpr 0x5592012019a8 <lua_struct.c:271:17> 'int' lvalue Var 0x559201201838 'i' 'int'
+i
+   2: ImplicitCastExpr 0x5592012019f8 <lua_struct.c:271:17> 'int' <LValueToRValue>
+`-DeclRefExpr 0x5592012019a8 <col:17> 'int' lvalue Var 0x559201201838 'i' 'int'
+[B12.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: DeclRefExpr 0x5592012019d0 <lua_struct.c:271:21> 'int' lvalue ParmVar 0x559201201560 'size' 'int'
+size
+   4: ImplicitCastExpr 0x559201201a10 <lua_struct.c:271:21> 'int' <LValueToRValue>
+`-DeclRefExpr 0x5592012019d0 <col:21> 'int' lvalue ParmVar 0x559201201560 'size' 'int'
+[B12.3] (ImplicitCastExpr, LValueToRValue, int)
+   5: BinaryOperator 0x559201201a28 <lua_struct.c:271:17, col:21> 'int' '<'
+|-ImplicitCastExpr 0x5592012019f8 <col:17> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x5592012019a8 <col:17> 'int' lvalue Var 0x559201201838 'i' 'int'
+`-ImplicitCastExpr 0x559201201a10 <col:21> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x5592012019d0 <col:21> 'int' lvalue ParmVar 0x559201201560 'size' 'int'
+[B12.2] < [B12.4]
+   T: for (...; [B12.5]; ...)
+   Preds (2): B10 B13
+   Succs (2): B11 B5
+
+ [B13]
+   1: IntegerLiteral 0x559201201960 <lua_struct.c:271:14> 'int' 0
+0
+   2: DeclRefExpr 0x559201201938 <lua_struct.c:271:10> 'int' lvalue Var 0x559201201838 'i' 'int'
+i
+   3: BinaryOperator 0x559201201980 <lua_struct.c:271:10, col:14> 'int' '='
+|-DeclRefExpr 0x559201201938 <col:10> 'int' lvalue Var 0x559201201838 'i' 'int'
+`-IntegerLiteral 0x559201201960 <col:14> 'int' 0
+[B13.2] = [B13.1]
+   Preds (1): B14
+   Succs (1): B12
+
+ [B14]
+   1: IntegerLiteral 0x5592012017d0 <lua_struct.c:268:16> 'int' 0
+0
+   2: ImplicitCastExpr 0x5592012017f0 <lua_struct.c:268:16> 'Uinttype':'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x5592012017d0 <col:16> 'int' 0
+[B14.1] (ImplicitCastExpr, IntegralCast, Uinttype)
+   3: DeclStmt 0x559201201808 <lua_struct.c:268:3, col:17>col:12
+`-VarDecl 0x559201201770 <col:3, col:16> col:12 used l 'Uinttype':'unsigned long' cinit
+  `-ImplicitCastExpr 0x5592012017f0 <col:16> 'Uinttype':'unsigned long' <IntegralCast>
+    `-IntegerLiteral 0x5592012017d0 <col:16> 'int' 0
+Uinttype l = 0;
+   4: DeclStmt 0x559201201898 <lua_struct.c:269:3, col:8>col:7
+`-VarDecl 0x559201201838 <col:3, col:7> col:7 used i 'int'
+int i;
+   5: DeclRefExpr 0x5592012018b0 <lua_struct.c:270:7> 'int' lvalue ParmVar 0x559201201470 'endian' 'int'
+endian
+   6: ImplicitCastExpr 0x5592012018f8 <lua_struct.c:270:7> 'int' <LValueToRValue>
+`-DeclRefExpr 0x5592012018b0 <col:7> 'int' lvalue ParmVar 0x559201201470 'endian' 'int'
+[B14.5] (ImplicitCastExpr, LValueToRValue, int)
+   7: IntegerLiteral 0x5592012018d8 <lua_struct.c:76:13> 'int' 0
+0
+   8: BinaryOperator 0x559201201910 <lua_struct.c:270:7, line:76:13> 'int' '=='
+|-ImplicitCastExpr 0x5592012018f8 <line:270:7> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x5592012018b0 <col:7> 'int' lvalue ParmVar 0x559201201470 'endian' 'int'
+`-IntegerLiteral 0x5592012018d8 <line:76:13> 'int' 0
+[B14.6] == [B14.7]
+   T: if [B14.8]
+   Preds (1): B15
+   Succs (2): B13 B9
+
+ [B0 (EXIT)]
+   Preds (2): B1 B4

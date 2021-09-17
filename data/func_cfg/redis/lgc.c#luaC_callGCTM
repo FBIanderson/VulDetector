@@ -1,0 +1,65 @@
+void luaC_callGCTM(lua_State *L)
+ [B4 (ENTRY)]
+   Succs (1): B3
+
+ [B1]
+   Preds (1): B2
+   Succs (1): B3
+
+ [B2]
+   1: DeclRefExpr 0x55ef1b200ea8 <lgc.c:479:5> 'void (lua_State *)' Function 0x55ef1b1fd6d0 'GCTM' 'void (lua_State *)'
+GCTM
+   2: ImplicitCastExpr 0x55ef1b200f58 <lgc.c:479:5> 'void (*)(lua_State *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55ef1b200ea8 <col:5> 'void (lua_State *)' Function 0x55ef1b1fd6d0 'GCTM' 'void (lua_State *)'
+[B2.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(lua_State *))
+   3: DeclRefExpr 0x55ef1b200ed0 <lgc.c:479:10> 'lua_State *' lvalue ParmVar 0x55ef1b200c30 'L' 'lua_State *'
+L
+   4: ImplicitCastExpr 0x55ef1b200fa0 <lgc.c:479:10> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55ef1b200ed0 <col:10> 'lua_State *' lvalue ParmVar 0x55ef1b200c30 'L' 'lua_State *'
+[B2.3] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   5: CallExpr 0x55ef1b200f70 <lgc.c:479:5, col:11> 'void'
+|-ImplicitCastExpr 0x55ef1b200f58 <col:5> 'void (*)(lua_State *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55ef1b200ea8 <col:5> 'void (lua_State *)' Function 0x55ef1b1fd6d0 'GCTM' 'void (lua_State *)'
+`-ImplicitCastExpr 0x55ef1b200fa0 <col:10> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x55ef1b200ed0 <col:10> 'lua_State *' lvalue ParmVar 0x55ef1b200c30 'L' 'lua_State *'
+[B2.2]([B2.4])
+   Preds (1): B3
+   Succs (1): B1
+
+ [B3]
+   1: DeclRefExpr 0x55ef1b200da8 <lgc.c:478:12> 'lua_State *' lvalue ParmVar 0x55ef1b200c30 'L' 'lua_State *'
+L
+   2: ImplicitCastExpr 0x55ef1b200dd0 <lgc.c:478:12> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55ef1b200da8 <col:12> 'lua_State *' lvalue ParmVar 0x55ef1b200c30 'L' 'lua_State *'
+[B3.1] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   3: MemberExpr 0x55ef1b200de8 <lgc.c:478:12, ./lstate.h:130:18> 'global_State *' lvalue ->l_G 0x55ef1b1a1218
+`-ImplicitCastExpr 0x55ef1b200dd0 <lgc.c:478:12> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x55ef1b200da8 <col:12> 'lua_State *' lvalue ParmVar 0x55ef1b200c30 'L' 'lua_State *'
+[B3.2]->l_G
+   4: ImplicitCastExpr 0x55ef1b200e40 <./lstate.h:130:14, col:21> 'global_State *' <LValueToRValue>
+`-ParenExpr 0x55ef1b200e20 <col:14, col:21> 'global_State *' lvalue
+  `-MemberExpr 0x55ef1b200de8 <lgc.c:478:12, ./lstate.h:130:18> 'global_State *' lvalue ->l_G 0x55ef1b1a1218
+    `-ImplicitCastExpr 0x55ef1b200dd0 <lgc.c:478:12> 'lua_State *' <LValueToRValue>
+      `-DeclRefExpr 0x55ef1b200da8 <col:12> 'lua_State *' lvalue ParmVar 0x55ef1b200c30 'L' 'lua_State *'
+([B3.3]) (ImplicitCastExpr, LValueToRValue, global_State *)
+   5: MemberExpr 0x55ef1b200e58 <./lstate.h:130:14, lgc.c:478:16> 'GCObject *' lvalue ->tmudata 0x55ef1b19ee60
+`-ImplicitCastExpr 0x55ef1b200e40 <./lstate.h:130:14, col:21> 'global_State *' <LValueToRValue>
+  `-ParenExpr 0x55ef1b200e20 <col:14, col:21> 'global_State *' lvalue
+    `-MemberExpr 0x55ef1b200de8 <lgc.c:478:12, ./lstate.h:130:18> 'global_State *' lvalue ->l_G 0x55ef1b1a1218
+      `-ImplicitCastExpr 0x55ef1b200dd0 <lgc.c:478:12> 'lua_State *' <LValueToRValue>
+        `-DeclRefExpr 0x55ef1b200da8 <col:12> 'lua_State *' lvalue ParmVar 0x55ef1b200c30 'L' 'lua_State *'
+[B3.4]->tmudata
+   6: ImplicitCastExpr 0x55ef1b200e90 <./lstate.h:130:14, lgc.c:478:16> 'GCObject *' <LValueToRValue>
+`-MemberExpr 0x55ef1b200e58 <./lstate.h:130:14, lgc.c:478:16> 'GCObject *' lvalue ->tmudata 0x55ef1b19ee60
+  `-ImplicitCastExpr 0x55ef1b200e40 <./lstate.h:130:14, col:21> 'global_State *' <LValueToRValue>
+    `-ParenExpr 0x55ef1b200e20 <col:14, col:21> 'global_State *' lvalue
+      `-MemberExpr 0x55ef1b200de8 <lgc.c:478:12, ./lstate.h:130:18> 'global_State *' lvalue ->l_G 0x55ef1b1a1218
+        `-ImplicitCastExpr 0x55ef1b200dd0 <lgc.c:478:12> 'lua_State *' <LValueToRValue>
+          `-DeclRefExpr 0x55ef1b200da8 <col:12> 'lua_State *' lvalue ParmVar 0x55ef1b200c30 'L' 'lua_State *'
+[B3.5] (ImplicitCastExpr, LValueToRValue, GCObject *)
+   T: while [B3.6]
+   Preds (2): B1 B4
+   Succs (2): B2 B0
+
+ [B0 (EXIT)]
+   Preds (1): B3

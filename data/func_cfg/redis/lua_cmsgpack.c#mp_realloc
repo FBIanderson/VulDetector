@@ -1,0 +1,115 @@
+void *mp_realloc(lua_State *L, void *target, size_t osize, size_t nsize)
+ [B2 (ENTRY)]
+   Succs (1): B1
+
+ [B1]
+   1: IntegerLiteral 0x55c2f99ef8c0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+   2: CStyleCastExpr 0x55c2f99ef8f8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x55c2f99ef8c0 <col:24> 'int' 0
+(void *)[B1.1] (CStyleCastExpr, NullToPointer, void *)
+   3: ImplicitCastExpr 0x55c2f99ef940 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'void *(*)(void *, void *, size_t, size_t)' <NullToPointer>
+`-ParenExpr 0x55c2f99ef920 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x55c2f99ef8f8 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x55c2f99ef8c0 <col:24> 'int' 0
+([B1.2]) (ImplicitCastExpr, NullToPointer, void *(*)(void *, void *, size_t, size_t))
+   4: DeclStmt 0x55c2f99ef958 <lua_cmsgpack.c:99:5, col:79>col:13
+`-VarDecl 0x55c2f99ef860 <col:5, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25> lua_cmsgpack.c:99:13 used local_realloc 'void *(*)(void *, void *, size_t, size_t)' cinit
+  `-ImplicitCastExpr 0x55c2f99ef940 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'void *(*)(void *, void *, size_t, size_t)' <NullToPointer>
+    `-ParenExpr 0x55c2f99ef920 <col:16, col:25> 'void *'
+      `-CStyleCastExpr 0x55c2f99ef8f8 <col:17, col:24> 'void *' <NullToPointer>
+        `-IntegerLiteral 0x55c2f99ef8c0 <col:24> 'int' 0
+void *(*local_realloc)(void *, void *, size_t, size_t) = ((void *)0);
+   5: DeclStmt 0x55c2f99ef9e8 <lua_cmsgpack.c:100:5, col:13>col:11
+`-VarDecl 0x55c2f99ef988 <col:5, col:11> col:11 used ud 'void *'
+void *ud;
+   6: DeclRefExpr 0x55c2f99efa28 <lua_cmsgpack.c:102:21> 'lua_Alloc (lua_State *, void **)':'lua_Alloc (lua_State *, void **)' Function 0x55c2f99b50c0 'lua_getallocf' 'lua_Alloc (lua_State *, void **)':'lua_Alloc (lua_State *, void **)'
+lua_getallocf
+   7: ImplicitCastExpr 0x55c2f99efb18 <lua_cmsgpack.c:102:21> 'lua_Alloc (*)(lua_State *, void **)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55c2f99efa28 <col:21> 'lua_Alloc (lua_State *, void **)':'lua_Alloc (lua_State *, void **)' Function 0x55c2f99b50c0 'lua_getallocf' 'lua_Alloc (lua_State *, void **)':'lua_Alloc (lua_State *, void **)'
+[B1.6] (ImplicitCastExpr, FunctionToPointerDecay, lua_Alloc (*)(lua_State *, void **))
+   8: DeclRefExpr 0x55c2f99efa50 <lua_cmsgpack.c:102:35> 'lua_State *' lvalue ParmVar 0x55c2f99ef2d0 'L' 'lua_State *'
+L
+   9: ImplicitCastExpr 0x55c2f99efb68 <lua_cmsgpack.c:102:35> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55c2f99efa50 <col:35> 'lua_State *' lvalue ParmVar 0x55c2f99ef2d0 'L' 'lua_State *'
+[B1.8] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  10: DeclRefExpr 0x55c2f99efa78 <lua_cmsgpack.c:102:39> 'void *' lvalue Var 0x55c2f99ef988 'ud' 'void *'
+ud
+  11: UnaryOperator 0x55c2f99efaa0 <lua_cmsgpack.c:102:38, col:39> 'void **' prefix '&'
+`-DeclRefExpr 0x55c2f99efa78 <col:39> 'void *' lvalue Var 0x55c2f99ef988 'ud' 'void *'
+&[B1.10]
+  12: CallExpr 0x55c2f99efb30 <lua_cmsgpack.c:102:21, col:41> 'lua_Alloc':'void *(*)(void *, void *, size_t, size_t)'
+|-ImplicitCastExpr 0x55c2f99efb18 <col:21> 'lua_Alloc (*)(lua_State *, void **)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55c2f99efa28 <col:21> 'lua_Alloc (lua_State *, void **)':'lua_Alloc (lua_State *, void **)' Function 0x55c2f99b50c0 'lua_getallocf' 'lua_Alloc (lua_State *, void **)':'lua_Alloc (lua_State *, void **)'
+|-ImplicitCastExpr 0x55c2f99efb68 <col:35> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x55c2f99efa50 <col:35> 'lua_State *' lvalue ParmVar 0x55c2f99ef2d0 'L' 'lua_State *'
+`-UnaryOperator 0x55c2f99efaa0 <col:38, col:39> 'void **' prefix '&'
+  `-DeclRefExpr 0x55c2f99efa78 <col:39> 'void *' lvalue Var 0x55c2f99ef988 'ud' 'void *'
+[B1.7]([B1.9], [B1.11])
+  13: DeclRefExpr 0x55c2f99efa00 <lua_cmsgpack.c:102:5> 'void *(*)(void *, void *, size_t, size_t)' lvalue Var 0x55c2f99ef860 'local_realloc' 'void *(*)(void *, void *, size_t, size_t)'
+local_realloc
+  14: BinaryOperator 0x55c2f99efb80 <lua_cmsgpack.c:102:5, col:41> 'void *(*)(void *, void *, size_t, size_t)' '='
+|-DeclRefExpr 0x55c2f99efa00 <col:5> 'void *(*)(void *, void *, size_t, size_t)' lvalue Var 0x55c2f99ef860 'local_realloc' 'void *(*)(void *, void *, size_t, size_t)'
+`-CallExpr 0x55c2f99efb30 <col:21, col:41> 'lua_Alloc':'void *(*)(void *, void *, size_t, size_t)'
+  |-ImplicitCastExpr 0x55c2f99efb18 <col:21> 'lua_Alloc (*)(lua_State *, void **)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55c2f99efa28 <col:21> 'lua_Alloc (lua_State *, void **)':'lua_Alloc (lua_State *, void **)' Function 0x55c2f99b50c0 'lua_getallocf' 'lua_Alloc (lua_State *, void **)':'lua_Alloc (lua_State *, void **)'
+  |-ImplicitCastExpr 0x55c2f99efb68 <col:35> 'lua_State *' <LValueToRValue>
+  | `-DeclRefExpr 0x55c2f99efa50 <col:35> 'lua_State *' lvalue ParmVar 0x55c2f99ef2d0 'L' 'lua_State *'
+  `-UnaryOperator 0x55c2f99efaa0 <col:38, col:39> 'void **' prefix '&'
+    `-DeclRefExpr 0x55c2f99efa78 <col:39> 'void *' lvalue Var 0x55c2f99ef988 'ud' 'void *'
+[B1.13] = [B1.12]
+  15: DeclRefExpr 0x55c2f99efba8 <lua_cmsgpack.c:104:12> 'void *(*)(void *, void *, size_t, size_t)' lvalue Var 0x55c2f99ef860 'local_realloc' 'void *(*)(void *, void *, size_t, size_t)'
+local_realloc
+  16: ImplicitCastExpr 0x55c2f99efc70 <lua_cmsgpack.c:104:12> 'void *(*)(void *, void *, size_t, size_t)' <LValueToRValue>
+`-DeclRefExpr 0x55c2f99efba8 <col:12> 'void *(*)(void *, void *, size_t, size_t)' lvalue Var 0x55c2f99ef860 'local_realloc' 'void *(*)(void *, void *, size_t, size_t)'
+[B1.15] (ImplicitCastExpr, LValueToRValue, void *(*)(void *, void *, size_t, size_t))
+  17: DeclRefExpr 0x55c2f99efbd0 <lua_cmsgpack.c:104:26> 'void *' lvalue Var 0x55c2f99ef988 'ud' 'void *'
+ud
+  18: ImplicitCastExpr 0x55c2f99efcd0 <lua_cmsgpack.c:104:26> 'void *' <LValueToRValue>
+`-DeclRefExpr 0x55c2f99efbd0 <col:26> 'void *' lvalue Var 0x55c2f99ef988 'ud' 'void *'
+[B1.17] (ImplicitCastExpr, LValueToRValue, void *)
+  19: DeclRefExpr 0x55c2f99efbf8 <lua_cmsgpack.c:104:30> 'void *' lvalue ParmVar 0x55c2f99ef348 'target' 'void *'
+target
+  20: ImplicitCastExpr 0x55c2f99efce8 <lua_cmsgpack.c:104:30> 'void *' <LValueToRValue>
+`-DeclRefExpr 0x55c2f99efbf8 <col:30> 'void *' lvalue ParmVar 0x55c2f99ef348 'target' 'void *'
+[B1.19] (ImplicitCastExpr, LValueToRValue, void *)
+  21: DeclRefExpr 0x55c2f99efc20 <lua_cmsgpack.c:104:38> 'size_t':'unsigned long' lvalue ParmVar 0x55c2f99ef3b8 'osize' 'size_t':'unsigned long'
+osize
+  22: ImplicitCastExpr 0x55c2f99efd00 <lua_cmsgpack.c:104:38> 'size_t':'unsigned long' <LValueToRValue>
+`-DeclRefExpr 0x55c2f99efc20 <col:38> 'size_t':'unsigned long' lvalue ParmVar 0x55c2f99ef3b8 'osize' 'size_t':'unsigned long'
+[B1.21] (ImplicitCastExpr, LValueToRValue, size_t)
+  23: DeclRefExpr 0x55c2f99efc48 <lua_cmsgpack.c:104:45> 'size_t':'unsigned long' lvalue ParmVar 0x55c2f99ef428 'nsize' 'size_t':'unsigned long'
+nsize
+  24: ImplicitCastExpr 0x55c2f99efd18 <lua_cmsgpack.c:104:45> 'size_t':'unsigned long' <LValueToRValue>
+`-DeclRefExpr 0x55c2f99efc48 <col:45> 'size_t':'unsigned long' lvalue ParmVar 0x55c2f99ef428 'nsize' 'size_t':'unsigned long'
+[B1.23] (ImplicitCastExpr, LValueToRValue, size_t)
+  25: CallExpr 0x55c2f99efc88 <lua_cmsgpack.c:104:12, col:50> 'void *'
+|-ImplicitCastExpr 0x55c2f99efc70 <col:12> 'void *(*)(void *, void *, size_t, size_t)' <LValueToRValue>
+| `-DeclRefExpr 0x55c2f99efba8 <col:12> 'void *(*)(void *, void *, size_t, size_t)' lvalue Var 0x55c2f99ef860 'local_realloc' 'void *(*)(void *, void *, size_t, size_t)'
+|-ImplicitCastExpr 0x55c2f99efcd0 <col:26> 'void *' <LValueToRValue>
+| `-DeclRefExpr 0x55c2f99efbd0 <col:26> 'void *' lvalue Var 0x55c2f99ef988 'ud' 'void *'
+|-ImplicitCastExpr 0x55c2f99efce8 <col:30> 'void *' <LValueToRValue>
+| `-DeclRefExpr 0x55c2f99efbf8 <col:30> 'void *' lvalue ParmVar 0x55c2f99ef348 'target' 'void *'
+|-ImplicitCastExpr 0x55c2f99efd00 <col:38> 'size_t':'unsigned long' <LValueToRValue>
+| `-DeclRefExpr 0x55c2f99efc20 <col:38> 'size_t':'unsigned long' lvalue ParmVar 0x55c2f99ef3b8 'osize' 'size_t':'unsigned long'
+`-ImplicitCastExpr 0x55c2f99efd18 <col:45> 'size_t':'unsigned long' <LValueToRValue>
+  `-DeclRefExpr 0x55c2f99efc48 <col:45> 'size_t':'unsigned long' lvalue ParmVar 0x55c2f99ef428 'nsize' 'size_t':'unsigned long'
+[B1.16]([B1.18], [B1.20], [B1.22], [B1.24])
+  26: ReturnStmt 0x55c2f99efd30 <lua_cmsgpack.c:104:5, col:50>
+`-CallExpr 0x55c2f99efc88 <col:12, col:50> 'void *'
+  |-ImplicitCastExpr 0x55c2f99efc70 <col:12> 'void *(*)(void *, void *, size_t, size_t)' <LValueToRValue>
+  | `-DeclRefExpr 0x55c2f99efba8 <col:12> 'void *(*)(void *, void *, size_t, size_t)' lvalue Var 0x55c2f99ef860 'local_realloc' 'void *(*)(void *, void *, size_t, size_t)'
+  |-ImplicitCastExpr 0x55c2f99efcd0 <col:26> 'void *' <LValueToRValue>
+  | `-DeclRefExpr 0x55c2f99efbd0 <col:26> 'void *' lvalue Var 0x55c2f99ef988 'ud' 'void *'
+  |-ImplicitCastExpr 0x55c2f99efce8 <col:30> 'void *' <LValueToRValue>
+  | `-DeclRefExpr 0x55c2f99efbf8 <col:30> 'void *' lvalue ParmVar 0x55c2f99ef348 'target' 'void *'
+  |-ImplicitCastExpr 0x55c2f99efd00 <col:38> 'size_t':'unsigned long' <LValueToRValue>
+  | `-DeclRefExpr 0x55c2f99efc20 <col:38> 'size_t':'unsigned long' lvalue ParmVar 0x55c2f99ef3b8 'osize' 'size_t':'unsigned long'
+  `-ImplicitCastExpr 0x55c2f99efd18 <col:45> 'size_t':'unsigned long' <LValueToRValue>
+    `-DeclRefExpr 0x55c2f99efc48 <col:45> 'size_t':'unsigned long' lvalue ParmVar 0x55c2f99ef428 'nsize' 'size_t':'unsigned long'
+return [B1.25];
+   Preds (1): B2
+   Succs (1): B0
+
+ [B0 (EXIT)]
+   Preds (1): B1

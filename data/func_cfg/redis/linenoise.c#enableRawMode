@@ -1,0 +1,504 @@
+static int enableRawMode(int fd)
+ [B11 (ENTRY)]
+   Succs (1): B10
+
+ [B1]
+  fatal:
+   1: IntegerLiteral 0x56555a4948d8 </usr/include/asm-generic/errno-base.h:29:17> 'int' 25
+25
+   2: DeclRefExpr 0x56555a494800 </usr/include/errno.h:38:18> 'int *(void)' Function 0x56555a41a948 '__errno_location' 'int *(void)'
+__errno_location
+   3: ImplicitCastExpr 0x56555a494858 </usr/include/errno.h:38:18> 'int *(*)(void)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x56555a494800 <col:18> 'int *(void)' Function 0x56555a41a948 '__errno_location' 'int *(void)'
+[B1.2] (ImplicitCastExpr, FunctionToPointerDecay, int *(*)(void))
+   4: CallExpr 0x56555a494870 </usr/include/errno.h:38:18, col:36> 'int *'
+`-ImplicitCastExpr 0x56555a494858 <col:18> 'int *(*)(void)' <FunctionToPointerDecay>
+  `-DeclRefExpr 0x56555a494800 <col:18> 'int *(void)' Function 0x56555a41a948 '__errno_location' 'int *(void)'
+[B1.3]()
+   5: UnaryOperator 0x56555a494898 </usr/include/errno.h:38:17, col:36> 'int' lvalue prefix '*'
+`-CallExpr 0x56555a494870 <col:18, col:36> 'int *'
+  `-ImplicitCastExpr 0x56555a494858 <col:18> 'int *(*)(void)' <FunctionToPointerDecay>
+    `-DeclRefExpr 0x56555a494800 <col:18> 'int *(void)' Function 0x56555a41a948 '__errno_location' 'int *(void)'
+*[B1.4]
+   6: BinaryOperator 0x56555a4948f8 </usr/include/errno.h:38:16, /usr/include/asm-generic/errno-base.h:29:17> 'int' '='
+|-ParenExpr 0x56555a4948b8 </usr/include/errno.h:38:16, col:37> 'int' lvalue
+| `-UnaryOperator 0x56555a494898 <col:17, col:36> 'int' lvalue prefix '*'
+|   `-CallExpr 0x56555a494870 <col:18, col:36> 'int *'
+|     `-ImplicitCastExpr 0x56555a494858 <col:18> 'int *(*)(void)' <FunctionToPointerDecay>
+|       `-DeclRefExpr 0x56555a494800 <col:18> 'int *(void)' Function 0x56555a41a948 '__errno_location' 'int *(void)'
+`-IntegerLiteral 0x56555a4948d8 </usr/include/asm-generic/errno-base.h:29:17> 'int' 25
+([B1.5]) = [B1.1]
+   7: IntegerLiteral 0x56555a494938 <linenoise.c:264:13> 'int' 1
+1
+   8: UnaryOperator 0x56555a494958 <linenoise.c:264:12, col:13> 'int' prefix '-'
+`-IntegerLiteral 0x56555a494938 <col:13> 'int' 1
+-[B1.7]
+   9: ReturnStmt 0x56555a494978 <linenoise.c:264:5, col:13>
+`-UnaryOperator 0x56555a494958 <col:12, col:13> 'int' prefix '-'
+  `-IntegerLiteral 0x56555a494938 <col:13> 'int' 1
+return [B1.8];
+   Preds (3): B3 B5 B9
+   Succs (1): B0
+
+ [B2]
+   1: IntegerLiteral 0x56555a494780 <linenoise.c:259:15> 'int' 1
+1
+   2: DeclRefExpr 0x56555a494758 <linenoise.c:259:5> 'int' lvalue Var 0x56555a48d8f0 'rawmode' 'int'
+rawmode
+   3: BinaryOperator 0x56555a4947a0 <linenoise.c:259:5, col:15> 'int' '='
+|-DeclRefExpr 0x56555a494758 <col:5> 'int' lvalue Var 0x56555a48d8f0 'rawmode' 'int'
+`-IntegerLiteral 0x56555a494780 <col:15> 'int' 1
+[B2.2] = [B2.1]
+   4: IntegerLiteral 0x56555a4947c8 <linenoise.c:260:12> 'int' 0
+0
+   5: ReturnStmt 0x56555a4947e8 <linenoise.c:260:5, col:12>
+`-IntegerLiteral 0x56555a4947c8 <col:12> 'int' 0
+return [B2.4];
+   Preds (1): B4
+   Succs (1): B0
+
+ [B3]
+   T: goto fatal;
+   Preds (1): B4
+   Succs (1): B1
+
+ [B4]
+   1: DeclRefExpr 0x56555a4939b0 <linenoise.c:242:11> 'struct termios':'struct termios' lvalue Var 0x56555a48d7e0 'orig_termios' 'struct termios':'struct termios'
+orig_termios
+   2: ImplicitCastExpr 0x56555a4939d8 <linenoise.c:242:11> 'struct termios':'struct termios' <LValueToRValue>
+`-DeclRefExpr 0x56555a4939b0 <col:11> 'struct termios':'struct termios' lvalue Var 0x56555a48d7e0 'orig_termios' 'struct termios':'struct termios'
+[B4.1] (ImplicitCastExpr, LValueToRValue, struct termios)
+   3: DeclRefExpr 0x56555a493988 <linenoise.c:242:5> 'struct termios':'struct termios' lvalue Var 0x56555a493350 'raw' 'struct termios':'struct termios'
+raw
+   4: BinaryOperator 0x56555a4939f0 <linenoise.c:242:5, col:11> 'struct termios':'struct termios' '='
+|-DeclRefExpr 0x56555a493988 <col:5> 'struct termios':'struct termios' lvalue Var 0x56555a493350 'raw' 'struct termios':'struct termios'
+`-ImplicitCastExpr 0x56555a4939d8 <col:11> 'struct termios':'struct termios' <LValueToRValue>
+  `-DeclRefExpr 0x56555a4939b0 <col:11> 'struct termios':'struct termios' lvalue Var 0x56555a48d7e0 'orig_termios' 'struct termios':'struct termios'
+[B4.3] = [B4.2]
+   5: DeclRefExpr 0x56555a493a18 <linenoise.c:245:5> 'struct termios':'struct termios' lvalue Var 0x56555a493350 'raw' 'struct termios':'struct termios'
+raw
+   6: MemberExpr 0x56555a493a40 <linenoise.c:245:5, col:9> 'tcflag_t':'unsigned int' lvalue .c_iflag 0x56555a339370
+`-DeclRefExpr 0x56555a493a18 <col:5> 'struct termios':'struct termios' lvalue Var 0x56555a493350 'raw' 'struct termios':'struct termios'
+[B4.5].c_iflag
+   7: IntegerLiteral 0x56555a493a78 </usr/include/x86_64-linux-gnu/bits/termios-c_iflag.h:25:16> 'int' 2
+2
+   8: IntegerLiteral 0x56555a493a98 </usr/include/x86_64-linux-gnu/bits/termios-c_iflag.h:32:15> 'int' 256
+256
+   9: BinaryOperator 0x56555a493ab8 </usr/include/x86_64-linux-gnu/bits/termios-c_iflag.h:25:16, line:32:15> 'int' '|'
+|-IntegerLiteral 0x56555a493a78 <line:25:16> 'int' 2
+`-IntegerLiteral 0x56555a493a98 <line:32:15> 'int' 256
+[B4.7] | [B4.8]
+  10: IntegerLiteral 0x56555a493ae0 </usr/include/x86_64-linux-gnu/bits/termios-c_iflag.h:28:15> 'int' 16
+16
+  11: BinaryOperator 0x56555a493b00 </usr/include/x86_64-linux-gnu/bits/termios-c_iflag.h:25:16, line:28:15> 'int' '|'
+|-BinaryOperator 0x56555a493ab8 <line:25:16, line:32:15> 'int' '|'
+| |-IntegerLiteral 0x56555a493a78 <line:25:16> 'int' 2
+| `-IntegerLiteral 0x56555a493a98 <line:32:15> 'int' 256
+`-IntegerLiteral 0x56555a493ae0 <line:28:15> 'int' 16
+[B4.9] | [B4.10]
+  12: IntegerLiteral 0x56555a493b28 </usr/include/x86_64-linux-gnu/bits/termios-c_iflag.h:29:16> 'int' 32
+32
+  13: BinaryOperator 0x56555a493b48 </usr/include/x86_64-linux-gnu/bits/termios-c_iflag.h:25:16, line:29:16> 'int' '|'
+|-BinaryOperator 0x56555a493b00 <line:25:16, line:28:15> 'int' '|'
+| |-BinaryOperator 0x56555a493ab8 <line:25:16, line:32:15> 'int' '|'
+| | |-IntegerLiteral 0x56555a493a78 <line:25:16> 'int' 2
+| | `-IntegerLiteral 0x56555a493a98 <line:32:15> 'int' 256
+| `-IntegerLiteral 0x56555a493ae0 <line:28:15> 'int' 16
+`-IntegerLiteral 0x56555a493b28 <line:29:16> 'int' 32
+[B4.11] | [B4.12]
+  14: IntegerLiteral 0x56555a493b70 </usr/include/x86_64-linux-gnu/bits/termios-c_iflag.h:35:14> 'int' 1024
+1024
+  15: BinaryOperator 0x56555a493b90 </usr/include/x86_64-linux-gnu/bits/termios-c_iflag.h:25:16, line:35:14> 'int' '|'
+|-BinaryOperator 0x56555a493b48 <line:25:16, line:29:16> 'int' '|'
+| |-BinaryOperator 0x56555a493b00 <line:25:16, line:28:15> 'int' '|'
+| | |-BinaryOperator 0x56555a493ab8 <line:25:16, line:32:15> 'int' '|'
+| | | |-IntegerLiteral 0x56555a493a78 <line:25:16> 'int' 2
+| | | `-IntegerLiteral 0x56555a493a98 <line:32:15> 'int' 256
+| | `-IntegerLiteral 0x56555a493ae0 <line:28:15> 'int' 16
+| `-IntegerLiteral 0x56555a493b28 <line:29:16> 'int' 32
+`-IntegerLiteral 0x56555a493b70 <line:35:14> 'int' 1024
+[B4.13] | [B4.14]
+  16: UnaryOperator 0x56555a493bd8 <linenoise.c:245:20, col:60> 'int' prefix '~'
+`-ParenExpr 0x56555a493bb8 <col:21, col:60> 'int'
+  `-BinaryOperator 0x56555a493b90 </usr/include/x86_64-linux-gnu/bits/termios-c_iflag.h:25:16, line:35:14> 'int' '|'
+    |-BinaryOperator 0x56555a493b48 <line:25:16, line:29:16> 'int' '|'
+    | |-BinaryOperator 0x56555a493b00 <line:25:16, line:28:15> 'int' '|'
+    | | |-BinaryOperator 0x56555a493ab8 <line:25:16, line:32:15> 'int' '|'
+    | | | |-IntegerLiteral 0x56555a493a78 <line:25:16> 'int' 2
+    | | | `-IntegerLiteral 0x56555a493a98 <line:32:15> 'int' 256
+    | | `-IntegerLiteral 0x56555a493ae0 <line:28:15> 'int' 16
+    | `-IntegerLiteral 0x56555a493b28 <line:29:16> 'int' 32
+    `-IntegerLiteral 0x56555a493b70 <line:35:14> 'int' 1024
+~([B4.15])
+  17: ImplicitCastExpr 0x56555a493bf8 <linenoise.c:245:20, col:60> 'unsigned int' <IntegralCast>
+`-UnaryOperator 0x56555a493bd8 <col:20, col:60> 'int' prefix '~'
+  `-ParenExpr 0x56555a493bb8 <col:21, col:60> 'int'
+    `-BinaryOperator 0x56555a493b90 </usr/include/x86_64-linux-gnu/bits/termios-c_iflag.h:25:16, line:35:14> 'int' '|'
+      |-BinaryOperator 0x56555a493b48 <line:25:16, line:29:16> 'int' '|'
+      | |-BinaryOperator 0x56555a493b00 <line:25:16, line:28:15> 'int' '|'
+      | | |-BinaryOperator 0x56555a493ab8 <line:25:16, line:32:15> 'int' '|'
+      | | | |-IntegerLiteral 0x56555a493a78 <line:25:16> 'int' 2
+      | | | `-IntegerLiteral 0x56555a493a98 <line:32:15> 'int' 256
+      | | `-IntegerLiteral 0x56555a493ae0 <line:28:15> 'int' 16
+      | `-IntegerLiteral 0x56555a493b28 <line:29:16> 'int' 32
+      `-IntegerLiteral 0x56555a493b70 <line:35:14> 'int' 1024
+[B4.16] (ImplicitCastExpr, IntegralCast, unsigned int)
+  18: CompoundAssignOperator 0x56555a493c10 <linenoise.c:245:5, col:60> 'tcflag_t':'unsigned int' '&=' ComputeLHSTy='unsigned int' ComputeResultTy='unsigned int'
+|-MemberExpr 0x56555a493a40 <col:5, col:9> 'tcflag_t':'unsigned int' lvalue .c_iflag 0x56555a339370
+| `-DeclRefExpr 0x56555a493a18 <col:5> 'struct termios':'struct termios' lvalue Var 0x56555a493350 'raw' 'struct termios':'struct termios'
+`-ImplicitCastExpr 0x56555a493bf8 <col:20, col:60> 'unsigned int' <IntegralCast>
+  `-UnaryOperator 0x56555a493bd8 <col:20, col:60> 'int' prefix '~'
+    `-ParenExpr 0x56555a493bb8 <col:21, col:60> 'int'
+      `-BinaryOperator 0x56555a493b90 </usr/include/x86_64-linux-gnu/bits/termios-c_iflag.h:25:16, line:35:14> 'int' '|'
+        |-BinaryOperator 0x56555a493b48 <line:25:16, line:29:16> 'int' '|'
+        | |-BinaryOperator 0x56555a493b00 <line:25:16, line:28:15> 'int' '|'
+        | | |-BinaryOperator 0x56555a493ab8 <line:25:16, line:32:15> 'int' '|'
+        | | | |-IntegerLiteral 0x56555a493a78 <line:25:16> 'int' 2
+        | | | `-IntegerLiteral 0x56555a493a98 <line:32:15> 'int' 256
+        | | `-IntegerLiteral 0x56555a493ae0 <line:28:15> 'int' 16
+        | `-IntegerLiteral 0x56555a493b28 <line:29:16> 'int' 32
+        `-IntegerLiteral 0x56555a493b70 <line:35:14> 'int' 1024
+[B4.6] &= [B4.17]
+  19: DeclRefExpr 0x56555a493cc8 <linenoise.c:247:5> 'struct termios':'struct termios' lvalue Var 0x56555a493350 'raw' 'struct termios':'struct termios'
+raw
+  20: MemberExpr 0x56555a493cf0 <linenoise.c:247:5, col:9> 'tcflag_t':'unsigned int' lvalue .c_oflag 0x56555a3393c8
+`-DeclRefExpr 0x56555a493cc8 <col:5> 'struct termios':'struct termios' lvalue Var 0x56555a493350 'raw' 'struct termios':'struct termios'
+[B4.19].c_oflag
+  21: IntegerLiteral 0x56555a493d28 </usr/include/x86_64-linux-gnu/bits/termios-c_oflag.h:24:15> 'int' 1
+1
+  22: UnaryOperator 0x56555a493d68 <linenoise.c:247:20, col:27> 'int' prefix '~'
+`-ParenExpr 0x56555a493d48 <col:21, col:27> 'int'
+  `-IntegerLiteral 0x56555a493d28 </usr/include/x86_64-linux-gnu/bits/termios-c_oflag.h:24:15> 'int' 1
+~([B4.21])
+  23: ImplicitCastExpr 0x56555a493d88 <linenoise.c:247:20, col:27> 'unsigned int' <IntegralCast>
+`-UnaryOperator 0x56555a493d68 <col:20, col:27> 'int' prefix '~'
+  `-ParenExpr 0x56555a493d48 <col:21, col:27> 'int'
+    `-IntegerLiteral 0x56555a493d28 </usr/include/x86_64-linux-gnu/bits/termios-c_oflag.h:24:15> 'int' 1
+[B4.22] (ImplicitCastExpr, IntegralCast, unsigned int)
+  24: CompoundAssignOperator 0x56555a493da0 <linenoise.c:247:5, col:27> 'tcflag_t':'unsigned int' '&=' ComputeLHSTy='unsigned int' ComputeResultTy='unsigned int'
+|-MemberExpr 0x56555a493cf0 <col:5, col:9> 'tcflag_t':'unsigned int' lvalue .c_oflag 0x56555a3393c8
+| `-DeclRefExpr 0x56555a493cc8 <col:5> 'struct termios':'struct termios' lvalue Var 0x56555a493350 'raw' 'struct termios':'struct termios'
+`-ImplicitCastExpr 0x56555a493d88 <col:20, col:27> 'unsigned int' <IntegralCast>
+  `-UnaryOperator 0x56555a493d68 <col:20, col:27> 'int' prefix '~'
+    `-ParenExpr 0x56555a493d48 <col:21, col:27> 'int'
+      `-IntegerLiteral 0x56555a493d28 </usr/include/x86_64-linux-gnu/bits/termios-c_oflag.h:24:15> 'int' 1
+[B4.20] &= [B4.23]
+  25: DeclRefExpr 0x56555a493dd8 <linenoise.c:249:5> 'struct termios':'struct termios' lvalue Var 0x56555a493350 'raw' 'struct termios':'struct termios'
+raw
+  26: MemberExpr 0x56555a493e00 <linenoise.c:249:5, col:9> 'tcflag_t':'unsigned int' lvalue .c_cflag 0x56555a339420
+`-DeclRefExpr 0x56555a493dd8 <col:5> 'struct termios':'struct termios' lvalue Var 0x56555a493350 'raw' 'struct termios':'struct termios'
+[B4.25].c_cflag
+  27: IntegerLiteral 0x56555a493e38 </usr/include/x86_64-linux-gnu/bits/termios-c_cflag.h:28:15> 'int' 48
+48
+  28: ImplicitCastExpr 0x56555a493e78 <linenoise.c:249:20, col:24> 'unsigned int' <IntegralCast>
+`-ParenExpr 0x56555a493e58 <col:20, col:24> 'int'
+  `-IntegerLiteral 0x56555a493e38 </usr/include/x86_64-linux-gnu/bits/termios-c_cflag.h:28:15> 'int' 48
+([B4.27]) (ImplicitCastExpr, IntegralCast, unsigned int)
+  29: CompoundAssignOperator 0x56555a494070 <linenoise.c:249:5, col:24> 'tcflag_t':'unsigned int' '|=' ComputeLHSTy='unsigned int' ComputeResultTy='unsigned int'
+|-MemberExpr 0x56555a493e00 <col:5, col:9> 'tcflag_t':'unsigned int' lvalue .c_cflag 0x56555a339420
+| `-DeclRefExpr 0x56555a493dd8 <col:5> 'struct termios':'struct termios' lvalue Var 0x56555a493350 'raw' 'struct termios':'struct termios'
+`-ImplicitCastExpr 0x56555a493e78 <col:20, col:24> 'unsigned int' <IntegralCast>
+  `-ParenExpr 0x56555a493e58 <col:20, col:24> 'int'
+    `-IntegerLiteral 0x56555a493e38 </usr/include/x86_64-linux-gnu/bits/termios-c_cflag.h:28:15> 'int' 48
+[B4.26] |= [B4.28]
+  30: DeclRefExpr 0x56555a4940a8 <linenoise.c:252:5> 'struct termios':'struct termios' lvalue Var 0x56555a493350 'raw' 'struct termios':'struct termios'
+raw
+  31: MemberExpr 0x56555a4940d0 <linenoise.c:252:5, col:9> 'tcflag_t':'unsigned int' lvalue .c_lflag 0x56555a339478
+`-DeclRefExpr 0x56555a4940a8 <col:5> 'struct termios':'struct termios' lvalue Var 0x56555a493350 'raw' 'struct termios':'struct termios'
+[B4.30].c_lflag
+  32: IntegerLiteral 0x56555a494108 </usr/include/x86_64-linux-gnu/bits/termios-c_lflag.h:29:14> 'int' 8
+8
+  33: IntegerLiteral 0x56555a494128 </usr/include/x86_64-linux-gnu/bits/termios-c_lflag.h:25:16> 'int' 2
+2
+  34: BinaryOperator 0x56555a494148 </usr/include/x86_64-linux-gnu/bits/termios-c_lflag.h:29:14, line:25:16> 'int' '|'
+|-IntegerLiteral 0x56555a494108 <line:29:14> 'int' 8
+`-IntegerLiteral 0x56555a494128 <line:25:16> 'int' 2
+[B4.32] | [B4.33]
+  35: IntegerLiteral 0x56555a494170 </usr/include/x86_64-linux-gnu/bits/termios-c_lflag.h:54:16> 'int' 32768
+32768
+  36: BinaryOperator 0x56555a494190 </usr/include/x86_64-linux-gnu/bits/termios-c_lflag.h:29:14, line:54:16> 'int' '|'
+|-BinaryOperator 0x56555a494148 <line:29:14, line:25:16> 'int' '|'
+| |-IntegerLiteral 0x56555a494108 <line:29:14> 'int' 8
+| `-IntegerLiteral 0x56555a494128 <line:25:16> 'int' 2
+`-IntegerLiteral 0x56555a494170 <line:54:16> 'int' 32768
+[B4.34] | [B4.35]
+  37: IntegerLiteral 0x56555a4941b8 </usr/include/x86_64-linux-gnu/bits/termios-c_lflag.h:24:14> 'int' 1
+1
+  38: BinaryOperator 0x56555a4941d8 </usr/include/x86_64-linux-gnu/bits/termios-c_lflag.h:29:14, line:24:14> 'int' '|'
+|-BinaryOperator 0x56555a494190 <line:29:14, line:54:16> 'int' '|'
+| |-BinaryOperator 0x56555a494148 <line:29:14, line:25:16> 'int' '|'
+| | |-IntegerLiteral 0x56555a494108 <line:29:14> 'int' 8
+| | `-IntegerLiteral 0x56555a494128 <line:25:16> 'int' 2
+| `-IntegerLiteral 0x56555a494170 <line:54:16> 'int' 32768
+`-IntegerLiteral 0x56555a4941b8 <line:24:14> 'int' 1
+[B4.36] | [B4.37]
+  39: UnaryOperator 0x56555a494220 <linenoise.c:252:20, col:51> 'int' prefix '~'
+`-ParenExpr 0x56555a494200 <col:21, col:51> 'int'
+  `-BinaryOperator 0x56555a4941d8 </usr/include/x86_64-linux-gnu/bits/termios-c_lflag.h:29:14, line:24:14> 'int' '|'
+    |-BinaryOperator 0x56555a494190 <line:29:14, line:54:16> 'int' '|'
+    | |-BinaryOperator 0x56555a494148 <line:29:14, line:25:16> 'int' '|'
+    | | |-IntegerLiteral 0x56555a494108 <line:29:14> 'int' 8
+    | | `-IntegerLiteral 0x56555a494128 <line:25:16> 'int' 2
+    | `-IntegerLiteral 0x56555a494170 <line:54:16> 'int' 32768
+    `-IntegerLiteral 0x56555a4941b8 <line:24:14> 'int' 1
+~([B4.38])
+  40: ImplicitCastExpr 0x56555a494240 <linenoise.c:252:20, col:51> 'unsigned int' <IntegralCast>
+`-UnaryOperator 0x56555a494220 <col:20, col:51> 'int' prefix '~'
+  `-ParenExpr 0x56555a494200 <col:21, col:51> 'int'
+    `-BinaryOperator 0x56555a4941d8 </usr/include/x86_64-linux-gnu/bits/termios-c_lflag.h:29:14, line:24:14> 'int' '|'
+      |-BinaryOperator 0x56555a494190 <line:29:14, line:54:16> 'int' '|'
+      | |-BinaryOperator 0x56555a494148 <line:29:14, line:25:16> 'int' '|'
+      | | |-IntegerLiteral 0x56555a494108 <line:29:14> 'int' 8
+      | | `-IntegerLiteral 0x56555a494128 <line:25:16> 'int' 2
+      | `-IntegerLiteral 0x56555a494170 <line:54:16> 'int' 32768
+      `-IntegerLiteral 0x56555a4941b8 <line:24:14> 'int' 1
+[B4.39] (ImplicitCastExpr, IntegralCast, unsigned int)
+  41: CompoundAssignOperator 0x56555a494258 <linenoise.c:252:5, col:51> 'tcflag_t':'unsigned int' '&=' ComputeLHSTy='unsigned int' ComputeResultTy='unsigned int'
+|-MemberExpr 0x56555a4940d0 <col:5, col:9> 'tcflag_t':'unsigned int' lvalue .c_lflag 0x56555a339478
+| `-DeclRefExpr 0x56555a4940a8 <col:5> 'struct termios':'struct termios' lvalue Var 0x56555a493350 'raw' 'struct termios':'struct termios'
+`-ImplicitCastExpr 0x56555a494240 <col:20, col:51> 'unsigned int' <IntegralCast>
+  `-UnaryOperator 0x56555a494220 <col:20, col:51> 'int' prefix '~'
+    `-ParenExpr 0x56555a494200 <col:21, col:51> 'int'
+      `-BinaryOperator 0x56555a4941d8 </usr/include/x86_64-linux-gnu/bits/termios-c_lflag.h:29:14, line:24:14> 'int' '|'
+        |-BinaryOperator 0x56555a494190 <line:29:14, line:54:16> 'int' '|'
+        | |-BinaryOperator 0x56555a494148 <line:29:14, line:25:16> 'int' '|'
+        | | |-IntegerLiteral 0x56555a494108 <line:29:14> 'int' 8
+        | | `-IntegerLiteral 0x56555a494128 <line:25:16> 'int' 2
+        | `-IntegerLiteral 0x56555a494170 <line:54:16> 'int' 32768
+        `-IntegerLiteral 0x56555a4941b8 <line:24:14> 'int' 1
+[B4.31] &= [B4.40]
+  42: IntegerLiteral 0x56555a4943a8 <linenoise.c:255:22> 'int' 1
+1
+  43: ImplicitCastExpr 0x56555a4943c8 <linenoise.c:255:22> 'cc_t':'unsigned char' <IntegralCast>
+`-IntegerLiteral 0x56555a4943a8 <col:22> 'int' 1
+[B4.42] (ImplicitCastExpr, IntegralCast, cc_t)
+  44: DeclRefExpr 0x56555a494290 <linenoise.c:255:5> 'struct termios':'struct termios' lvalue Var 0x56555a493350 'raw' 'struct termios':'struct termios'
+raw
+  45: MemberExpr 0x56555a4942b8 <linenoise.c:255:5, col:9> 'cc_t [32]' lvalue .c_cc 0x56555a3395f8
+`-DeclRefExpr 0x56555a494290 <col:5> 'struct termios':'struct termios' lvalue Var 0x56555a493350 'raw' 'struct termios':'struct termios'
+[B4.44].c_cc
+  46: ImplicitCastExpr 0x56555a494368 <linenoise.c:255:5, col:9> 'cc_t *' <ArrayToPointerDecay>
+`-MemberExpr 0x56555a4942b8 <col:5, col:9> 'cc_t [32]' lvalue .c_cc 0x56555a3395f8
+  `-DeclRefExpr 0x56555a494290 <col:5> 'struct termios':'struct termios' lvalue Var 0x56555a493350 'raw' 'struct termios':'struct termios'
+[B4.45] (ImplicitCastExpr, ArrayToPointerDecay, cc_t *)
+  47: IntegerLiteral 0x56555a4942f0 </usr/include/x86_64-linux-gnu/bits/termios-c_cc.h:30:14> 'int' 6
+6
+  48: ArraySubscriptExpr 0x56555a494380 <linenoise.c:255:5, col:18> 'cc_t':'unsigned char' lvalue
+|-ImplicitCastExpr 0x56555a494368 <col:5, col:9> 'cc_t *' <ArrayToPointerDecay>
+| `-MemberExpr 0x56555a4942b8 <col:5, col:9> 'cc_t [32]' lvalue .c_cc 0x56555a3395f8
+|   `-DeclRefExpr 0x56555a494290 <col:5> 'struct termios':'struct termios' lvalue Var 0x56555a493350 'raw' 'struct termios':'struct termios'
+`-IntegerLiteral 0x56555a4942f0 </usr/include/x86_64-linux-gnu/bits/termios-c_cc.h:30:14> 'int' 6
+[B4.46][[B4.47]]
+  49: BinaryOperator 0x56555a4943e0 <linenoise.c:255:5, col:22> 'cc_t':'unsigned char' '='
+|-ArraySubscriptExpr 0x56555a494380 <col:5, col:18> 'cc_t':'unsigned char' lvalue
+| |-ImplicitCastExpr 0x56555a494368 <col:5, col:9> 'cc_t *' <ArrayToPointerDecay>
+| | `-MemberExpr 0x56555a4942b8 <col:5, col:9> 'cc_t [32]' lvalue .c_cc 0x56555a3395f8
+| |   `-DeclRefExpr 0x56555a494290 <col:5> 'struct termios':'struct termios' lvalue Var 0x56555a493350 'raw' 'struct termios':'struct termios'
+| `-IntegerLiteral 0x56555a4942f0 </usr/include/x86_64-linux-gnu/bits/termios-c_cc.h:30:14> 'int' 6
+`-ImplicitCastExpr 0x56555a4943c8 <linenoise.c:255:22> 'cc_t':'unsigned char' <IntegralCast>
+  `-IntegerLiteral 0x56555a4943a8 <col:22> 'int' 1
+[B4.48] = [B4.43]
+  50: IntegerLiteral 0x56555a4944c8 <linenoise.c:255:43> 'int' 0
+0
+  51: ImplicitCastExpr 0x56555a4944e8 <linenoise.c:255:43> 'cc_t':'unsigned char' <IntegralCast>
+`-IntegerLiteral 0x56555a4944c8 <col:43> 'int' 0
+[B4.50] (ImplicitCastExpr, IntegralCast, cc_t)
+  52: DeclRefExpr 0x56555a494408 <linenoise.c:255:25> 'struct termios':'struct termios' lvalue Var 0x56555a493350 'raw' 'struct termios':'struct termios'
+raw
+  53: MemberExpr 0x56555a494430 <linenoise.c:255:25, col:29> 'cc_t [32]' lvalue .c_cc 0x56555a3395f8
+`-DeclRefExpr 0x56555a494408 <col:25> 'struct termios':'struct termios' lvalue Var 0x56555a493350 'raw' 'struct termios':'struct termios'
+[B4.52].c_cc
+  54: ImplicitCastExpr 0x56555a494488 <linenoise.c:255:25, col:29> 'cc_t *' <ArrayToPointerDecay>
+`-MemberExpr 0x56555a494430 <col:25, col:29> 'cc_t [32]' lvalue .c_cc 0x56555a3395f8
+  `-DeclRefExpr 0x56555a494408 <col:25> 'struct termios':'struct termios' lvalue Var 0x56555a493350 'raw' 'struct termios':'struct termios'
+[B4.53] (ImplicitCastExpr, ArrayToPointerDecay, cc_t *)
+  55: IntegerLiteral 0x56555a494468 </usr/include/x86_64-linux-gnu/bits/termios-c_cc.h:29:15> 'int' 5
+5
+  56: ArraySubscriptExpr 0x56555a4944a0 <linenoise.c:255:25, col:39> 'cc_t':'unsigned char' lvalue
+|-ImplicitCastExpr 0x56555a494488 <col:25, col:29> 'cc_t *' <ArrayToPointerDecay>
+| `-MemberExpr 0x56555a494430 <col:25, col:29> 'cc_t [32]' lvalue .c_cc 0x56555a3395f8
+|   `-DeclRefExpr 0x56555a494408 <col:25> 'struct termios':'struct termios' lvalue Var 0x56555a493350 'raw' 'struct termios':'struct termios'
+`-IntegerLiteral 0x56555a494468 </usr/include/x86_64-linux-gnu/bits/termios-c_cc.h:29:15> 'int' 5
+[B4.54][[B4.55]]
+  57: BinaryOperator 0x56555a494500 <linenoise.c:255:25, col:43> 'cc_t':'unsigned char' '='
+|-ArraySubscriptExpr 0x56555a4944a0 <col:25, col:39> 'cc_t':'unsigned char' lvalue
+| |-ImplicitCastExpr 0x56555a494488 <col:25, col:29> 'cc_t *' <ArrayToPointerDecay>
+| | `-MemberExpr 0x56555a494430 <col:25, col:29> 'cc_t [32]' lvalue .c_cc 0x56555a3395f8
+| |   `-DeclRefExpr 0x56555a494408 <col:25> 'struct termios':'struct termios' lvalue Var 0x56555a493350 'raw' 'struct termios':'struct termios'
+| `-IntegerLiteral 0x56555a494468 </usr/include/x86_64-linux-gnu/bits/termios-c_cc.h:29:15> 'int' 5
+`-ImplicitCastExpr 0x56555a4944e8 <linenoise.c:255:43> 'cc_t':'unsigned char' <IntegralCast>
+  `-IntegerLiteral 0x56555a4944c8 <col:43> 'int' 0
+[B4.56] = [B4.51]
+  58: DeclRefExpr 0x56555a494528 <linenoise.c:258:9> 'int (int, int, const struct termios *)' Function 0x56555a34d018 'tcsetattr' 'int (int, int, const struct termios *)'
+tcsetattr
+  59: ImplicitCastExpr 0x56555a494638 <linenoise.c:258:9> 'int (*)(int, int, const struct termios *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x56555a494528 <col:9> 'int (int, int, const struct termios *)' Function 0x56555a34d018 'tcsetattr' 'int (int, int, const struct termios *)'
+[B4.58] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(int, int, const struct termios *))
+  60: DeclRefExpr 0x56555a494550 <linenoise.c:258:19> 'int' lvalue ParmVar 0x56555a4931f8 'fd' 'int'
+fd
+  61: ImplicitCastExpr 0x56555a494690 <linenoise.c:258:19> 'int' <LValueToRValue>
+`-DeclRefExpr 0x56555a494550 <col:19> 'int' lvalue ParmVar 0x56555a4931f8 'fd' 'int'
+[B4.60] (ImplicitCastExpr, LValueToRValue, int)
+  62: IntegerLiteral 0x56555a494578 </usr/include/x86_64-linux-gnu/bits/termios-tcflow.h:26:19> 'int' 2
+2
+  63: DeclRefExpr 0x56555a494598 <linenoise.c:258:33> 'struct termios':'struct termios' lvalue Var 0x56555a493350 'raw' 'struct termios':'struct termios'
+raw
+  64: UnaryOperator 0x56555a4945c0 <linenoise.c:258:32, col:33> 'struct termios *' prefix '&'
+`-DeclRefExpr 0x56555a494598 <col:33> 'struct termios':'struct termios' lvalue Var 0x56555a493350 'raw' 'struct termios':'struct termios'
+&[B4.63]
+  65: ImplicitCastExpr 0x56555a4946a8 <linenoise.c:258:32, col:33> 'const struct termios *' <BitCast>
+`-UnaryOperator 0x56555a4945c0 <col:32, col:33> 'struct termios *' prefix '&'
+  `-DeclRefExpr 0x56555a494598 <col:33> 'struct termios':'struct termios' lvalue Var 0x56555a493350 'raw' 'struct termios':'struct termios'
+[B4.64] (ImplicitCastExpr, BitCast, const struct termios *)
+  66: CallExpr 0x56555a494650 <linenoise.c:258:9, col:36> 'int'
+|-ImplicitCastExpr 0x56555a494638 <col:9> 'int (*)(int, int, const struct termios *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x56555a494528 <col:9> 'int (int, int, const struct termios *)' Function 0x56555a34d018 'tcsetattr' 'int (int, int, const struct termios *)'
+|-ImplicitCastExpr 0x56555a494690 <col:19> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x56555a494550 <col:19> 'int' lvalue ParmVar 0x56555a4931f8 'fd' 'int'
+|-IntegerLiteral 0x56555a494578 </usr/include/x86_64-linux-gnu/bits/termios-tcflow.h:26:19> 'int' 2
+`-ImplicitCastExpr 0x56555a4946a8 <linenoise.c:258:32, col:33> 'const struct termios *' <BitCast>
+  `-UnaryOperator 0x56555a4945c0 <col:32, col:33> 'struct termios *' prefix '&'
+    `-DeclRefExpr 0x56555a494598 <col:33> 'struct termios':'struct termios' lvalue Var 0x56555a493350 'raw' 'struct termios':'struct termios'
+[B4.59]([B4.61], [B4.62], [B4.65])
+  67: IntegerLiteral 0x56555a4946c0 <linenoise.c:258:40> 'int' 0
+0
+  68: BinaryOperator 0x56555a4946e0 <linenoise.c:258:9, col:40> 'int' '<'
+|-CallExpr 0x56555a494650 <col:9, col:36> 'int'
+| |-ImplicitCastExpr 0x56555a494638 <col:9> 'int (*)(int, int, const struct termios *)' <FunctionToPointerDecay>
+| | `-DeclRefExpr 0x56555a494528 <col:9> 'int (int, int, const struct termios *)' Function 0x56555a34d018 'tcsetattr' 'int (int, int, const struct termios *)'
+| |-ImplicitCastExpr 0x56555a494690 <col:19> 'int' <LValueToRValue>
+| | `-DeclRefExpr 0x56555a494550 <col:19> 'int' lvalue ParmVar 0x56555a4931f8 'fd' 'int'
+| |-IntegerLiteral 0x56555a494578 </usr/include/x86_64-linux-gnu/bits/termios-tcflow.h:26:19> 'int' 2
+| `-ImplicitCastExpr 0x56555a4946a8 <linenoise.c:258:32, col:33> 'const struct termios *' <BitCast>
+|   `-UnaryOperator 0x56555a4945c0 <col:32, col:33> 'struct termios *' prefix '&'
+|     `-DeclRefExpr 0x56555a494598 <col:33> 'struct termios':'struct termios' lvalue Var 0x56555a493350 'raw' 'struct termios':'struct termios'
+`-IntegerLiteral 0x56555a4946c0 <col:40> 'int' 0
+[B4.66] < [B4.67]
+   T: if [B4.68]
+   Preds (1): B6
+   Succs (2): B3 B2
+
+ [B5]
+   T: goto fatal;
+   Preds (1): B6
+   Succs (1): B1
+
+ [B6]
+   1: DeclRefExpr 0x56555a493770 <linenoise.c:240:9> 'int (int, struct termios *)' Function 0x56555a34ccc8 'tcgetattr' 'int (int, struct termios *)'
+tcgetattr
+   2: ImplicitCastExpr 0x56555a493868 <linenoise.c:240:9> 'int (*)(int, struct termios *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x56555a493770 <col:9> 'int (int, struct termios *)' Function 0x56555a34ccc8 'tcgetattr' 'int (int, struct termios *)'
+[B6.1] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(int, struct termios *))
+   3: DeclRefExpr 0x56555a493798 <linenoise.c:240:19> 'int' lvalue ParmVar 0x56555a4931f8 'fd' 'int'
+fd
+   4: ImplicitCastExpr 0x56555a4938b8 <linenoise.c:240:19> 'int' <LValueToRValue>
+`-DeclRefExpr 0x56555a493798 <col:19> 'int' lvalue ParmVar 0x56555a4931f8 'fd' 'int'
+[B6.3] (ImplicitCastExpr, LValueToRValue, int)
+   5: DeclRefExpr 0x56555a4937c0 <linenoise.c:240:23> 'struct termios':'struct termios' lvalue Var 0x56555a48d7e0 'orig_termios' 'struct termios':'struct termios'
+orig_termios
+   6: UnaryOperator 0x56555a4937e8 <linenoise.c:240:22, col:23> 'struct termios *' prefix '&'
+`-DeclRefExpr 0x56555a4937c0 <col:23> 'struct termios':'struct termios' lvalue Var 0x56555a48d7e0 'orig_termios' 'struct termios':'struct termios'
+&[B6.5]
+   7: CallExpr 0x56555a493880 <linenoise.c:240:9, col:35> 'int'
+|-ImplicitCastExpr 0x56555a493868 <col:9> 'int (*)(int, struct termios *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x56555a493770 <col:9> 'int (int, struct termios *)' Function 0x56555a34ccc8 'tcgetattr' 'int (int, struct termios *)'
+|-ImplicitCastExpr 0x56555a4938b8 <col:19> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x56555a493798 <col:19> 'int' lvalue ParmVar 0x56555a4931f8 'fd' 'int'
+`-UnaryOperator 0x56555a4937e8 <col:22, col:23> 'struct termios *' prefix '&'
+  `-DeclRefExpr 0x56555a4937c0 <col:23> 'struct termios':'struct termios' lvalue Var 0x56555a48d7e0 'orig_termios' 'struct termios':'struct termios'
+[B6.2]([B6.4], [B6.6])
+   8: IntegerLiteral 0x56555a4938d0 <linenoise.c:240:41> 'int' 1
+1
+   9: UnaryOperator 0x56555a4938f0 <linenoise.c:240:40, col:41> 'int' prefix '-'
+`-IntegerLiteral 0x56555a4938d0 <col:41> 'int' 1
+-[B6.8]
+  10: BinaryOperator 0x56555a493910 <linenoise.c:240:9, col:41> 'int' '=='
+|-CallExpr 0x56555a493880 <col:9, col:35> 'int'
+| |-ImplicitCastExpr 0x56555a493868 <col:9> 'int (*)(int, struct termios *)' <FunctionToPointerDecay>
+| | `-DeclRefExpr 0x56555a493770 <col:9> 'int (int, struct termios *)' Function 0x56555a34ccc8 'tcgetattr' 'int (int, struct termios *)'
+| |-ImplicitCastExpr 0x56555a4938b8 <col:19> 'int' <LValueToRValue>
+| | `-DeclRefExpr 0x56555a493798 <col:19> 'int' lvalue ParmVar 0x56555a4931f8 'fd' 'int'
+| `-UnaryOperator 0x56555a4937e8 <col:22, col:23> 'struct termios *' prefix '&'
+|   `-DeclRefExpr 0x56555a4937c0 <col:23> 'struct termios':'struct termios' lvalue Var 0x56555a48d7e0 'orig_termios' 'struct termios':'struct termios'
+`-UnaryOperator 0x56555a4938f0 <col:40, col:41> 'int' prefix '-'
+  `-IntegerLiteral 0x56555a4938d0 <col:41> 'int' 1
+[B6.7] == [B6.9]
+   T: if [B6.10]
+   Preds (2): B7 B8
+   Succs (2): B5 B4
+
+ [B7]
+   1: DeclRefExpr 0x56555a493598 <linenoise.c:237:9> 'int (void (*)(void))' Function 0x56555a3e7928 'atexit' 'int (void (*)(void))'
+atexit
+   2: ImplicitCastExpr 0x56555a493648 <linenoise.c:237:9> 'int (*)(void (*)(void))' <FunctionToPointerDecay>
+`-DeclRefExpr 0x56555a493598 <col:9> 'int (void (*)(void))' Function 0x56555a3e7928 'atexit' 'int (void (*)(void))'
+[B7.1] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(void (*)(void)))
+   3: DeclRefExpr 0x56555a4935c0 <linenoise.c:237:16> 'void (void)' Function 0x56555a491cd0 'linenoiseAtExit' 'void (void)'
+linenoiseAtExit
+   4: ImplicitCastExpr 0x56555a493690 <linenoise.c:237:16> 'void (*)(void)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x56555a4935c0 <col:16> 'void (void)' Function 0x56555a491cd0 'linenoiseAtExit' 'void (void)'
+[B7.3] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(void))
+   5: CallExpr 0x56555a493660 <linenoise.c:237:9, col:31> 'int'
+|-ImplicitCastExpr 0x56555a493648 <col:9> 'int (*)(void (*)(void))' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x56555a493598 <col:9> 'int (void (*)(void))' Function 0x56555a3e7928 'atexit' 'int (void (*)(void))'
+`-ImplicitCastExpr 0x56555a493690 <col:16> 'void (*)(void)' <FunctionToPointerDecay>
+  `-DeclRefExpr 0x56555a4935c0 <col:16> 'void (void)' Function 0x56555a491cd0 'linenoiseAtExit' 'void (void)'
+[B7.2]([B7.4])
+   6: IntegerLiteral 0x56555a4936d0 <linenoise.c:238:29> 'int' 1
+1
+   7: DeclRefExpr 0x56555a4936a8 <linenoise.c:238:9> 'int' lvalue Var 0x56555a48da20 'atexit_registered' 'int'
+atexit_registered
+   8: BinaryOperator 0x56555a4936f0 <linenoise.c:238:9, col:29> 'int' '='
+|-DeclRefExpr 0x56555a4936a8 <col:9> 'int' lvalue Var 0x56555a48da20 'atexit_registered' 'int'
+`-IntegerLiteral 0x56555a4936d0 <col:29> 'int' 1
+[B7.7] = [B7.6]
+   Preds (1): B8
+   Succs (1): B6
+
+ [B8]
+   1: DeclRefExpr 0x56555a493538 <linenoise.c:236:10> 'int' lvalue Var 0x56555a48da20 'atexit_registered' 'int'
+atexit_registered
+   2: ImplicitCastExpr 0x56555a493560 <linenoise.c:236:10> 'int' <LValueToRValue>
+`-DeclRefExpr 0x56555a493538 <col:10> 'int' lvalue Var 0x56555a48da20 'atexit_registered' 'int'
+[B8.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: UnaryOperator 0x56555a493578 <linenoise.c:236:9, col:10> 'int' prefix '!'
+`-ImplicitCastExpr 0x56555a493560 <col:10> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x56555a493538 <col:10> 'int' lvalue Var 0x56555a48da20 'atexit_registered' 'int'
+![B8.2]
+   T: if [B8.3]
+   Preds (1): B10
+   Succs (2): B7 B6
+
+ [B9]
+   T: goto fatal;
+   Preds (1): B10
+   Succs (1): B1
+
+ [B10]
+   1: DeclStmt 0x56555a4933b0 <linenoise.c:233:5, col:23>col:20
+`-VarDecl 0x56555a493350 <col:5, col:20> col:20 used raw 'struct termios':'struct termios'
+struct termios raw;
+   2: DeclRefExpr 0x56555a4933c8 <linenoise.c:235:10> 'int (int)' Function 0x56555a3941d8 'isatty' 'int (int)'
+isatty
+   3: ImplicitCastExpr 0x56555a493438 <linenoise.c:235:10> 'int (*)(int)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x56555a4933c8 <col:10> 'int (int)' Function 0x56555a3941d8 'isatty' 'int (int)'
+[B10.2] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(int))
+   4: IntegerLiteral 0x56555a4933f0 </usr/include/unistd.h:210:22> 'int' 0
+0
+   5: CallExpr 0x56555a493450 <linenoise.c:235:10, col:29> 'int'
+|-ImplicitCastExpr 0x56555a493438 <col:10> 'int (*)(int)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x56555a4933c8 <col:10> 'int (int)' Function 0x56555a3941d8 'isatty' 'int (int)'
+`-IntegerLiteral 0x56555a4933f0 </usr/include/unistd.h:210:22> 'int' 0
+[B10.3]([B10.4])
+   6: UnaryOperator 0x56555a493480 <linenoise.c:235:9, col:29> 'int' prefix '!'
+`-CallExpr 0x56555a493450 <col:10, col:29> 'int'
+  |-ImplicitCastExpr 0x56555a493438 <col:10> 'int (*)(int)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x56555a4933c8 <col:10> 'int (int)' Function 0x56555a3941d8 'isatty' 'int (int)'
+  `-IntegerLiteral 0x56555a4933f0 </usr/include/unistd.h:210:22> 'int' 0
+![B10.5]
+   T: if [B10.6]
+   Preds (1): B11
+   Succs (2): B9 B8
+
+ [B0 (EXIT)]
+   Preds (2): B1 B2

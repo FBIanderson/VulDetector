@@ -1,0 +1,1753 @@
+static int patchtestreg(FuncState *fs, int node, int reg)
+ [B8 (ENTRY)]
+   Succs (1): B7
+
+ [B1]
+   1: IntegerLiteral 0x5637768b88d0 <lcode.c:140:10> 'int' 1
+1
+   2: ReturnStmt 0x5637768b88f0 <lcode.c:140:3, col:10>
+`-IntegerLiteral 0x5637768b88d0 <col:10> 'int' 1
+return [B1.1];
+   Preds (2): B2 B3
+   Succs (1): B0
+
+ [B2]
+   1: DeclRefExpr 0x5637768b7798 <lcode.c:138:21> 'int' EnumConstant 0x563776877198 'OP_TEST' 'int'
+OP_TEST
+   2: CStyleCastExpr 0x5637768b7820 <./llimits.h:75:23, col:30> 'Instruction':'unsigned int' <IntegralCast>
+`-ParenExpr 0x5637768b7800 <col:26, col:30> 'int'
+  `-DeclRefExpr 0x5637768b7798 <lcode.c:138:21> 'int' EnumConstant 0x563776877198 'OP_TEST' 'int'
+(Instruction)([B2.1]) (CStyleCastExpr, IntegralCast, Instruction)
+   3: IntegerLiteral 0x5637768b7868 <./lopcodes.h:44:17> 'int' 0
+0
+   4: BinaryOperator 0x5637768b7888 <./llimits.h:75:22, ./lopcodes.h:44:17> 'Instruction':'unsigned int' '<<'
+|-ParenExpr 0x5637768b7848 <./llimits.h:75:22, col:31> 'Instruction':'unsigned int'
+| `-CStyleCastExpr 0x5637768b7820 <col:23, col:30> 'Instruction':'unsigned int' <IntegralCast>
+|   `-ParenExpr 0x5637768b7800 <col:26, col:30> 'int'
+|     `-DeclRefExpr 0x5637768b7798 <lcode.c:138:21> 'int' EnumConstant 0x563776877198 'OP_TEST' 'int'
+`-IntegerLiteral 0x5637768b7868 <./lopcodes.h:44:17> 'int' 0
+([B2.2]) << [B2.3]
+   5: DeclRefExpr 0x5637768b78d0 <lcode.c:138:40> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+i
+   6: ImplicitCastExpr 0x5637768b78f8 <lcode.c:138:40> 'Instruction *' <LValueToRValue>
+`-DeclRefExpr 0x5637768b78d0 <col:40> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+[B2.5] (ImplicitCastExpr, LValueToRValue, Instruction *)
+   7: UnaryOperator 0x5637768b7910 <lcode.c:138:39, col:40> 'Instruction':'unsigned int' lvalue prefix '*'
+`-ImplicitCastExpr 0x5637768b78f8 <col:40> 'Instruction *' <LValueToRValue>
+  `-DeclRefExpr 0x5637768b78d0 <col:40> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+*[B2.6]
+   8: ImplicitCastExpr 0x5637768b7aa8 <./lopcodes.h:88:33, col:35> 'Instruction':'unsigned int' <LValueToRValue>
+`-ParenExpr 0x5637768b7930 <col:33, col:35> 'Instruction':'unsigned int' lvalue
+  `-UnaryOperator 0x5637768b7910 <lcode.c:138:39, col:40> 'Instruction':'unsigned int' lvalue prefix '*'
+    `-ImplicitCastExpr 0x5637768b78f8 <col:40> 'Instruction *' <LValueToRValue>
+      `-DeclRefExpr 0x5637768b78d0 <col:40> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+([B2.7]) (ImplicitCastExpr, LValueToRValue, Instruction)
+   9: IntegerLiteral 0x5637768b7950 <./lopcodes.h:44:17> 'int' 0
+0
+  10: IntegerLiteral 0x5637768b7970 <./lopcodes.h:42:18> 'int' 6
+6
+  11: BinaryOperator 0x5637768b7990 <./lopcodes.h:44:17, line:42:18> 'int' '+'
+|-IntegerLiteral 0x5637768b7950 <line:44:17> 'int' 0
+`-IntegerLiteral 0x5637768b7970 <line:42:18> 'int' 6
+[B2.9] + [B2.10]
+  12: IntegerLiteral 0x5637768b79d8 <./lopcodes.h:40:17> 'int' 8
+8
+  13: BinaryOperator 0x5637768b79f8 <./lopcodes.h:45:16, line:40:17> 'int' '+'
+|-ParenExpr 0x5637768b79b8 <line:45:16, col:33> 'int'
+| `-BinaryOperator 0x5637768b7990 <line:44:17, line:42:18> 'int' '+'
+|   |-IntegerLiteral 0x5637768b7950 <line:44:17> 'int' 0
+|   `-IntegerLiteral 0x5637768b7970 <line:42:18> 'int' 6
+`-IntegerLiteral 0x5637768b79d8 <line:40:17> 'int' 8
+([B2.11]) + [B2.12]
+  14: IntegerLiteral 0x5637768b7a40 <./lopcodes.h:37:17> 'int' 9
+9
+  15: BinaryOperator 0x5637768b7a60 <./lopcodes.h:46:16, line:37:17> 'int' '+'
+|-ParenExpr 0x5637768b7a20 <line:46:16, col:31> 'int'
+| `-BinaryOperator 0x5637768b79f8 <line:45:16, line:40:17> 'int' '+'
+|   |-ParenExpr 0x5637768b79b8 <line:45:16, col:33> 'int'
+|   | `-BinaryOperator 0x5637768b7990 <line:44:17, line:42:18> 'int' '+'
+|   |   |-IntegerLiteral 0x5637768b7950 <line:44:17> 'int' 0
+|   |   `-IntegerLiteral 0x5637768b7970 <line:42:18> 'int' 6
+|   `-IntegerLiteral 0x5637768b79d8 <line:40:17> 'int' 8
+`-IntegerLiteral 0x5637768b7a40 <line:37:17> 'int' 9
+([B2.13]) + [B2.14]
+  16: BinaryOperator 0x5637768b7ac0 <./lopcodes.h:88:33, line:47:31> 'Instruction':'unsigned int' '>>'
+|-ImplicitCastExpr 0x5637768b7aa8 <line:88:33, col:35> 'Instruction':'unsigned int' <LValueToRValue>
+| `-ParenExpr 0x5637768b7930 <col:33, col:35> 'Instruction':'unsigned int' lvalue
+|   `-UnaryOperator 0x5637768b7910 <lcode.c:138:39, col:40> 'Instruction':'unsigned int' lvalue prefix '*'
+|     `-ImplicitCastExpr 0x5637768b78f8 <col:40> 'Instruction *' <LValueToRValue>
+|       `-DeclRefExpr 0x5637768b78d0 <col:40> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+`-ParenExpr 0x5637768b7a88 <./lopcodes.h:47:16, col:31> 'int'
+  `-BinaryOperator 0x5637768b7a60 <line:46:16, line:37:17> 'int' '+'
+    |-ParenExpr 0x5637768b7a20 <line:46:16, col:31> 'int'
+    | `-BinaryOperator 0x5637768b79f8 <line:45:16, line:40:17> 'int' '+'
+    |   |-ParenExpr 0x5637768b79b8 <line:45:16, col:33> 'int'
+    |   | `-BinaryOperator 0x5637768b7990 <line:44:17, line:42:18> 'int' '+'
+    |   |   |-IntegerLiteral 0x5637768b7950 <line:44:17> 'int' 0
+    |   |   `-IntegerLiteral 0x5637768b7970 <line:42:18> 'int' 6
+    |   `-IntegerLiteral 0x5637768b79d8 <line:40:17> 'int' 8
+    `-IntegerLiteral 0x5637768b7a40 <line:37:17> 'int' 9
+[B2.8] >> ([B2.15])
+  17: IntegerLiteral 0x5637768b7b08 <./lopcodes.h:71:39> 'int' 0
+0
+  18: CStyleCastExpr 0x5637768b7b38 <./lopcodes.h:71:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+`-IntegerLiteral 0x5637768b7b08 <col:39> 'int' 0
+(Instruction)[B2.17] (CStyleCastExpr, IntegralCast, Instruction)
+  19: UnaryOperator 0x5637768b7b60 <./lopcodes.h:71:25, col:39> 'Instruction':'unsigned int' prefix '~'
+`-CStyleCastExpr 0x5637768b7b38 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+  `-IntegerLiteral 0x5637768b7b08 <col:39> 'int' 0
+~[B2.18]
+  20: IntegerLiteral 0x5637768b7ba0 <./lopcodes.h:38:17> 'int' 9
+9
+  21: BinaryOperator 0x5637768b7bc0 <./lopcodes.h:71:24, line:38:17> 'Instruction':'unsigned int' '<<'
+|-ParenExpr 0x5637768b7b80 <line:71:24, col:40> 'Instruction':'unsigned int'
+| `-UnaryOperator 0x5637768b7b60 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+|   `-CStyleCastExpr 0x5637768b7b38 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+|     `-IntegerLiteral 0x5637768b7b08 <col:39> 'int' 0
+`-IntegerLiteral 0x5637768b7ba0 <line:38:17> 'int' 9
+([B2.19]) << [B2.20]
+  22: UnaryOperator 0x5637768b7c08 <./lopcodes.h:71:22, col:44> 'Instruction':'unsigned int' prefix '~'
+`-ParenExpr 0x5637768b7be8 <col:23, col:44> 'Instruction':'unsigned int'
+  `-BinaryOperator 0x5637768b7bc0 <col:24, line:38:17> 'Instruction':'unsigned int' '<<'
+    |-ParenExpr 0x5637768b7b80 <line:71:24, col:40> 'Instruction':'unsigned int'
+    | `-UnaryOperator 0x5637768b7b60 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+    |   `-CStyleCastExpr 0x5637768b7b38 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+    |     `-IntegerLiteral 0x5637768b7b08 <col:39> 'int' 0
+    `-IntegerLiteral 0x5637768b7ba0 <line:38:17> 'int' 9
+~([B2.21])
+  23: IntegerLiteral 0x5637768b7c48 <./lopcodes.h:88:60> 'int' 0
+0
+  24: BinaryOperator 0x5637768b7c68 <./lopcodes.h:71:21, line:88:60> 'Instruction':'unsigned int' '<<'
+|-ParenExpr 0x5637768b7c28 <line:71:21, col:45> 'Instruction':'unsigned int'
+| `-UnaryOperator 0x5637768b7c08 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+|   `-ParenExpr 0x5637768b7be8 <col:23, col:44> 'Instruction':'unsigned int'
+|     `-BinaryOperator 0x5637768b7bc0 <col:24, line:38:17> 'Instruction':'unsigned int' '<<'
+|       |-ParenExpr 0x5637768b7b80 <line:71:24, col:40> 'Instruction':'unsigned int'
+|       | `-UnaryOperator 0x5637768b7b60 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+|       |   `-CStyleCastExpr 0x5637768b7b38 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+|       |     `-IntegerLiteral 0x5637768b7b08 <col:39> 'int' 0
+|       `-IntegerLiteral 0x5637768b7ba0 <line:38:17> 'int' 9
+`-IntegerLiteral 0x5637768b7c48 <line:88:60> 'int' 0
+([B2.22]) << [B2.23]
+  25: BinaryOperator 0x5637768b7cb0 <./lopcodes.h:88:32, line:71:49> 'unsigned int' '&'
+|-ParenExpr 0x5637768b7ae8 <line:88:32, col:43> 'Instruction':'unsigned int'
+| `-BinaryOperator 0x5637768b7ac0 <col:33, line:47:31> 'Instruction':'unsigned int' '>>'
+|   |-ImplicitCastExpr 0x5637768b7aa8 <line:88:33, col:35> 'Instruction':'unsigned int' <LValueToRValue>
+|   | `-ParenExpr 0x5637768b7930 <col:33, col:35> 'Instruction':'unsigned int' lvalue
+|   |   `-UnaryOperator 0x5637768b7910 <lcode.c:138:39, col:40> 'Instruction':'unsigned int' lvalue prefix '*'
+|   |     `-ImplicitCastExpr 0x5637768b78f8 <col:40> 'Instruction *' <LValueToRValue>
+|   |       `-DeclRefExpr 0x5637768b78d0 <col:40> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+|   `-ParenExpr 0x5637768b7a88 <./lopcodes.h:47:16, col:31> 'int'
+|     `-BinaryOperator 0x5637768b7a60 <line:46:16, line:37:17> 'int' '+'
+|       |-ParenExpr 0x5637768b7a20 <line:46:16, col:31> 'int'
+|       | `-BinaryOperator 0x5637768b79f8 <line:45:16, line:40:17> 'int' '+'
+|       |   |-ParenExpr 0x5637768b79b8 <line:45:16, col:33> 'int'
+|       |   | `-BinaryOperator 0x5637768b7990 <line:44:17, line:42:18> 'int' '+'
+|       |   |   |-IntegerLiteral 0x5637768b7950 <line:44:17> 'int' 0
+|       |   |   `-IntegerLiteral 0x5637768b7970 <line:42:18> 'int' 6
+|       |   `-IntegerLiteral 0x5637768b79d8 <line:40:17> 'int' 8
+|       `-IntegerLiteral 0x5637768b7a40 <line:37:17> 'int' 9
+`-ParenExpr 0x5637768b7c90 <line:71:20, col:49> 'Instruction':'unsigned int'
+  `-BinaryOperator 0x5637768b7c68 <col:21, line:88:60> 'Instruction':'unsigned int' '<<'
+    |-ParenExpr 0x5637768b7c28 <line:71:21, col:45> 'Instruction':'unsigned int'
+    | `-UnaryOperator 0x5637768b7c08 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+    |   `-ParenExpr 0x5637768b7be8 <col:23, col:44> 'Instruction':'unsigned int'
+    |     `-BinaryOperator 0x5637768b7bc0 <col:24, line:38:17> 'Instruction':'unsigned int' '<<'
+    |       |-ParenExpr 0x5637768b7b80 <line:71:24, col:40> 'Instruction':'unsigned int'
+    |       | `-UnaryOperator 0x5637768b7b60 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+    |       |   `-CStyleCastExpr 0x5637768b7b38 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+    |       |     `-IntegerLiteral 0x5637768b7b08 <col:39> 'int' 0
+    |       `-IntegerLiteral 0x5637768b7ba0 <line:38:17> 'int' 9
+    `-IntegerLiteral 0x5637768b7c48 <line:88:60> 'int' 0
+([B2.16]) & ([B2.24])
+  26: CStyleCastExpr 0x5637768b7d40 <./llimits.h:75:23, col:30> 'int' <IntegralCast>
+`-ParenExpr 0x5637768b7d20 <col:26, col:30> 'unsigned int'
+  `-BinaryOperator 0x5637768b7cb0 <./lopcodes.h:88:32, line:71:49> 'unsigned int' '&'
+    |-ParenExpr 0x5637768b7ae8 <line:88:32, col:43> 'Instruction':'unsigned int'
+    | `-BinaryOperator 0x5637768b7ac0 <col:33, line:47:31> 'Instruction':'unsigned int' '>>'
+    |   |-ImplicitCastExpr 0x5637768b7aa8 <line:88:33, col:35> 'Instruction':'unsigned int' <LValueToRValue>
+    |   | `-ParenExpr 0x5637768b7930 <col:33, col:35> 'Instruction':'unsigned int' lvalue
+    |   |   `-UnaryOperator 0x5637768b7910 <lcode.c:138:39, col:40> 'Instruction':'unsigned int' lvalue prefix '*'
+    |   |     `-ImplicitCastExpr 0x5637768b78f8 <col:40> 'Instruction *' <LValueToRValue>
+    |   |       `-DeclRefExpr 0x5637768b78d0 <col:40> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+    |   `-ParenExpr 0x5637768b7a88 <./lopcodes.h:47:16, col:31> 'int'
+    |     `-BinaryOperator 0x5637768b7a60 <line:46:16, line:37:17> 'int' '+'
+    |       |-ParenExpr 0x5637768b7a20 <line:46:16, col:31> 'int'
+    |       | `-BinaryOperator 0x5637768b79f8 <line:45:16, line:40:17> 'int' '+'
+    |       |   |-ParenExpr 0x5637768b79b8 <line:45:16, col:33> 'int'
+    |       |   | `-BinaryOperator 0x5637768b7990 <line:44:17, line:42:18> 'int' '+'
+    |       |   |   |-IntegerLiteral 0x5637768b7950 <line:44:17> 'int' 0
+    |       |   |   `-IntegerLiteral 0x5637768b7970 <line:42:18> 'int' 6
+    |       |   `-IntegerLiteral 0x5637768b79d8 <line:40:17> 'int' 8
+    |       `-IntegerLiteral 0x5637768b7a40 <line:37:17> 'int' 9
+    `-ParenExpr 0x5637768b7c90 <line:71:20, col:49> 'Instruction':'unsigned int'
+      `-BinaryOperator 0x5637768b7c68 <col:21, line:88:60> 'Instruction':'unsigned int' '<<'
+        |-ParenExpr 0x5637768b7c28 <line:71:21, col:45> 'Instruction':'unsigned int'
+        | `-UnaryOperator 0x5637768b7c08 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+        |   `-ParenExpr 0x5637768b7be8 <col:23, col:44> 'Instruction':'unsigned int'
+        |     `-BinaryOperator 0x5637768b7bc0 <col:24, line:38:17> 'Instruction':'unsigned int' '<<'
+        |       |-ParenExpr 0x5637768b7b80 <line:71:24, col:40> 'Instruction':'unsigned int'
+        |       | `-UnaryOperator 0x5637768b7b60 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+        |       |   `-CStyleCastExpr 0x5637768b7b38 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+        |       |     `-IntegerLiteral 0x5637768b7b08 <col:39> 'int' 0
+        |       `-IntegerLiteral 0x5637768b7ba0 <line:38:17> 'int' 9
+        `-IntegerLiteral 0x5637768b7c48 <line:88:60> 'int' 0
+(int)([B2.25]) (CStyleCastExpr, IntegralCast, int)
+  27: CStyleCastExpr 0x5637768b7e08 <./llimits.h:75:23, col:30> 'Instruction':'unsigned int' <IntegralCast>
+`-ParenExpr 0x5637768b7de8 <col:26, col:30> 'int'
+  `-ParenExpr 0x5637768b7d88 <./lopcodes.h:88:21, col:63> 'int'
+    `-ParenExpr 0x5637768b7d68 <./llimits.h:75:22, col:31> 'int'
+      `-CStyleCastExpr 0x5637768b7d40 <col:23, col:30> 'int' <IntegralCast>
+        `-ParenExpr 0x5637768b7d20 <col:26, col:30> 'unsigned int'
+          `-BinaryOperator 0x5637768b7cb0 <./lopcodes.h:88:32, line:71:49> 'unsigned int' '&'
+            |-ParenExpr 0x5637768b7ae8 <line:88:32, col:43> 'Instruction':'unsigned int'
+            | `-BinaryOperator 0x5637768b7ac0 <col:33, line:47:31> 'Instruction':'unsigned int' '>>'
+            |   |-ImplicitCastExpr 0x5637768b7aa8 <line:88:33, col:35> 'Instruction':'unsigned int' <LValueToRValue>
+            |   | `-ParenExpr 0x5637768b7930 <col:33, col:35> 'Instruction':'unsigned int' lvalue
+            |   |   `-UnaryOperator 0x5637768b7910 <lcode.c:138:39, col:40> 'Instruction':'unsigned int' lvalue prefix '*'
+            |   |     `-ImplicitCastExpr 0x5637768b78f8 <col:40> 'Instruction *' <LValueToRValue>
+            |   |       `-DeclRefExpr 0x5637768b78d0 <col:40> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+            |   `-ParenExpr 0x5637768b7a88 <./lopcodes.h:47:16, col:31> 'int'
+            |     `-BinaryOperator 0x5637768b7a60 <line:46:16, line:37:17> 'int' '+'
+            |       |-ParenExpr 0x5637768b7a20 <line:46:16, col:31> 'int'
+            |       | `-BinaryOperator 0x5637768b79f8 <line:45:16, line:40:17> 'int' '+'
+            |       |   |-ParenExpr 0x5637768b79b8 <line:45:16, col:33> 'int'
+            |       |   | `-BinaryOperator 0x5637768b7990 <line:44:17, line:42:18> 'int' '+'
+            |       |   |   |-IntegerLiteral 0x5637768b7950 <line:44:17> 'int' 0
+            |       |   |   `-IntegerLiteral 0x5637768b7970 <line:42:18> 'int' 6
+            |       |   `-IntegerLiteral 0x5637768b79d8 <line:40:17> 'int' 8
+            |       `-IntegerLiteral 0x5637768b7a40 <line:37:17> 'int' 9
+            `-ParenExpr 0x5637768b7c90 <line:71:20, col:49> 'Instruction':'unsigned int'
+              `-BinaryOperator 0x5637768b7c68 <col:21, line:88:60> 'Instruction':'unsigned int' '<<'
+                |-ParenExpr 0x5637768b7c28 <line:71:21, col:45> 'Instruction':'unsigned int'
+                | `-UnaryOperator 0x5637768b7c08 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+                |   `-ParenExpr 0x5637768b7be8 <col:23, col:44> 'Instruction':'unsigned int'
+                |     `-BinaryOperator 0x5637768b7bc0 <col:24, line:38:17> 'Instruction':'unsigned int' '<<'
+                |       |-ParenExpr 0x5637768b7b80 <line:71:24, col:40> 'Instruction':'unsigned int'
+                |       | `-UnaryOperator 0x5637768b7b60 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+                |       |   `-CStyleCastExpr 0x5637768b7b38 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+                |       |     `-IntegerLiteral 0x5637768b7b08 <col:39> 'int' 0
+                |       `-IntegerLiteral 0x5637768b7ba0 <line:38:17> 'int' 9
+                `-IntegerLiteral 0x5637768b7c48 <line:88:60> 'int' 0
+(Instruction)((([B2.26]))) (CStyleCastExpr, IntegralCast, Instruction)
+  28: IntegerLiteral 0x5637768b7e50 <./lopcodes.h:44:17> 'int' 0
+0
+  29: IntegerLiteral 0x5637768b7e70 <./lopcodes.h:42:18> 'int' 6
+6
+  30: BinaryOperator 0x5637768b7e90 <./lopcodes.h:44:17, line:42:18> 'int' '+'
+|-IntegerLiteral 0x5637768b7e50 <line:44:17> 'int' 0
+`-IntegerLiteral 0x5637768b7e70 <line:42:18> 'int' 6
+[B2.28] + [B2.29]
+  31: BinaryOperator 0x5637768b7ed8 <./llimits.h:75:22, ./lopcodes.h:45:33> 'Instruction':'unsigned int' '<<'
+|-ParenExpr 0x5637768b7e30 <./llimits.h:75:22, col:31> 'Instruction':'unsigned int'
+| `-CStyleCastExpr 0x5637768b7e08 <col:23, col:30> 'Instruction':'unsigned int' <IntegralCast>
+|   `-ParenExpr 0x5637768b7de8 <col:26, col:30> 'int'
+|     `-ParenExpr 0x5637768b7d88 <./lopcodes.h:88:21, col:63> 'int'
+|       `-ParenExpr 0x5637768b7d68 <./llimits.h:75:22, col:31> 'int'
+|         `-CStyleCastExpr 0x5637768b7d40 <col:23, col:30> 'int' <IntegralCast>
+|           `-ParenExpr 0x5637768b7d20 <col:26, col:30> 'unsigned int'
+|             `-BinaryOperator 0x5637768b7cb0 <./lopcodes.h:88:32, line:71:49> 'unsigned int' '&'
+|               |-ParenExpr 0x5637768b7ae8 <line:88:32, col:43> 'Instruction':'unsigned int'
+|               | `-BinaryOperator 0x5637768b7ac0 <col:33, line:47:31> 'Instruction':'unsigned int' '>>'
+|               |   |-ImplicitCastExpr 0x5637768b7aa8 <line:88:33, col:35> 'Instruction':'unsigned int' <LValueToRValue>
+|               |   | `-ParenExpr 0x5637768b7930 <col:33, col:35> 'Instruction':'unsigned int' lvalue
+|               |   |   `-UnaryOperator 0x5637768b7910 <lcode.c:138:39, col:40> 'Instruction':'unsigned int' lvalue prefix '*'
+|               |   |     `-ImplicitCastExpr 0x5637768b78f8 <col:40> 'Instruction *' <LValueToRValue>
+|               |   |       `-DeclRefExpr 0x5637768b78d0 <col:40> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+|               |   `-ParenExpr 0x5637768b7a88 <./lopcodes.h:47:16, col:31> 'int'
+|               |     `-BinaryOperator 0x5637768b7a60 <line:46:16, line:37:17> 'int' '+'
+|               |       |-ParenExpr 0x5637768b7a20 <line:46:16, col:31> 'int'
+|               |       | `-BinaryOperator 0x5637768b79f8 <line:45:16, line:40:17> 'int' '+'
+|               |       |   |-ParenExpr 0x5637768b79b8 <line:45:16, col:33> 'int'
+|               |       |   | `-BinaryOperator 0x5637768b7990 <line:44:17, line:42:18> 'int' '+'
+|               |       |   |   |-IntegerLiteral 0x5637768b7950 <line:44:17> 'int' 0
+|               |       |   |   `-IntegerLiteral 0x5637768b7970 <line:42:18> 'int' 6
+|               |       |   `-IntegerLiteral 0x5637768b79d8 <line:40:17> 'int' 8
+|               |       `-IntegerLiteral 0x5637768b7a40 <line:37:17> 'int' 9
+|               `-ParenExpr 0x5637768b7c90 <line:71:20, col:49> 'Instruction':'unsigned int'
+|                 `-BinaryOperator 0x5637768b7c68 <col:21, line:88:60> 'Instruction':'unsigned int' '<<'
+|                   |-ParenExpr 0x5637768b7c28 <line:71:21, col:45> 'Instruction':'unsigned int'
+|                   | `-UnaryOperator 0x5637768b7c08 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+|                   |   `-ParenExpr 0x5637768b7be8 <col:23, col:44> 'Instruction':'unsigned int'
+|                   |     `-BinaryOperator 0x5637768b7bc0 <col:24, line:38:17> 'Instruction':'unsigned int' '<<'
+|                   |       |-ParenExpr 0x5637768b7b80 <line:71:24, col:40> 'Instruction':'unsigned int'
+|                   |       | `-UnaryOperator 0x5637768b7b60 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+|                   |       |   `-CStyleCastExpr 0x5637768b7b38 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+|                   |       |     `-IntegerLiteral 0x5637768b7b08 <col:39> 'int' 0
+|                   |       `-IntegerLiteral 0x5637768b7ba0 <line:38:17> 'int' 9
+|                   `-IntegerLiteral 0x5637768b7c48 <line:88:60> 'int' 0
+`-ParenExpr 0x5637768b7eb8 <line:45:16, col:33> 'int'
+  `-BinaryOperator 0x5637768b7e90 <line:44:17, line:42:18> 'int' '+'
+    |-IntegerLiteral 0x5637768b7e50 <line:44:17> 'int' 0
+    `-IntegerLiteral 0x5637768b7e70 <line:42:18> 'int' 6
+([B2.27]) << ([B2.30])
+  32: BinaryOperator 0x5637768b7f20 <./lopcodes.h:104:30, line:105:34> 'unsigned int' '|'
+|-ParenExpr 0x5637768b78b0 <line:104:30, col:59> 'Instruction':'unsigned int'
+| `-BinaryOperator 0x5637768b7888 <./llimits.h:75:22, ./lopcodes.h:44:17> 'Instruction':'unsigned int' '<<'
+|   |-ParenExpr 0x5637768b7848 <./llimits.h:75:22, col:31> 'Instruction':'unsigned int'
+|   | `-CStyleCastExpr 0x5637768b7820 <col:23, col:30> 'Instruction':'unsigned int' <IntegralCast>
+|   |   `-ParenExpr 0x5637768b7800 <col:26, col:30> 'int'
+|   |     `-DeclRefExpr 0x5637768b7798 <lcode.c:138:21> 'int' EnumConstant 0x563776877198 'OP_TEST' 'int'
+|   `-IntegerLiteral 0x5637768b7868 <./lopcodes.h:44:17> 'int' 0
+`-ParenExpr 0x5637768b7f00 <line:105:6, col:34> 'Instruction':'unsigned int'
+  `-BinaryOperator 0x5637768b7ed8 <./llimits.h:75:22, ./lopcodes.h:45:33> 'Instruction':'unsigned int' '<<'
+    |-ParenExpr 0x5637768b7e30 <./llimits.h:75:22, col:31> 'Instruction':'unsigned int'
+    | `-CStyleCastExpr 0x5637768b7e08 <col:23, col:30> 'Instruction':'unsigned int' <IntegralCast>
+    |   `-ParenExpr 0x5637768b7de8 <col:26, col:30> 'int'
+    |     `-ParenExpr 0x5637768b7d88 <./lopcodes.h:88:21, col:63> 'int'
+    |       `-ParenExpr 0x5637768b7d68 <./llimits.h:75:22, col:31> 'int'
+    |         `-CStyleCastExpr 0x5637768b7d40 <col:23, col:30> 'int' <IntegralCast>
+    |           `-ParenExpr 0x5637768b7d20 <col:26, col:30> 'unsigned int'
+    |             `-BinaryOperator 0x5637768b7cb0 <./lopcodes.h:88:32, line:71:49> 'unsigned int' '&'
+    |               |-ParenExpr 0x5637768b7ae8 <line:88:32, col:43> 'Instruction':'unsigned int'
+    |               | `-BinaryOperator 0x5637768b7ac0 <col:33, line:47:31> 'Instruction':'unsigned int' '>>'
+    |               |   |-ImplicitCastExpr 0x5637768b7aa8 <line:88:33, col:35> 'Instruction':'unsigned int' <LValueToRValue>
+    |               |   | `-ParenExpr 0x5637768b7930 <col:33, col:35> 'Instruction':'unsigned int' lvalue
+    |               |   |   `-UnaryOperator 0x5637768b7910 <lcode.c:138:39, col:40> 'Instruction':'unsigned int' lvalue prefix '*'
+    |               |   |     `-ImplicitCastExpr 0x5637768b78f8 <col:40> 'Instruction *' <LValueToRValue>
+    |               |   |       `-DeclRefExpr 0x5637768b78d0 <col:40> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+    |               |   `-ParenExpr 0x5637768b7a88 <./lopcodes.h:47:16, col:31> 'int'
+    |               |     `-BinaryOperator 0x5637768b7a60 <line:46:16, line:37:17> 'int' '+'
+    |               |       |-ParenExpr 0x5637768b7a20 <line:46:16, col:31> 'int'
+    |               |       | `-BinaryOperator 0x5637768b79f8 <line:45:16, line:40:17> 'int' '+'
+    |               |       |   |-ParenExpr 0x5637768b79b8 <line:45:16, col:33> 'int'
+    |               |       |   | `-BinaryOperator 0x5637768b7990 <line:44:17, line:42:18> 'int' '+'
+    |               |       |   |   |-IntegerLiteral 0x5637768b7950 <line:44:17> 'int' 0
+    |               |       |   |   `-IntegerLiteral 0x5637768b7970 <line:42:18> 'int' 6
+    |               |       |   `-IntegerLiteral 0x5637768b79d8 <line:40:17> 'int' 8
+    |               |       `-IntegerLiteral 0x5637768b7a40 <line:37:17> 'int' 9
+    |               `-ParenExpr 0x5637768b7c90 <line:71:20, col:49> 'Instruction':'unsigned int'
+    |                 `-BinaryOperator 0x5637768b7c68 <col:21, line:88:60> 'Instruction':'unsigned int' '<<'
+    |                   |-ParenExpr 0x5637768b7c28 <line:71:21, col:45> 'Instruction':'unsigned int'
+    |                   | `-UnaryOperator 0x5637768b7c08 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+    |                   |   `-ParenExpr 0x5637768b7be8 <col:23, col:44> 'Instruction':'unsigned int'
+    |                   |     `-BinaryOperator 0x5637768b7bc0 <col:24, line:38:17> 'Instruction':'unsigned int' '<<'
+    |                   |       |-ParenExpr 0x5637768b7b80 <line:71:24, col:40> 'Instruction':'unsigned int'
+    |                   |       | `-UnaryOperator 0x5637768b7b60 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+    |                   |       |   `-CStyleCastExpr 0x5637768b7b38 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+    |                   |       |     `-IntegerLiteral 0x5637768b7b08 <col:39> 'int' 0
+    |                   |       `-IntegerLiteral 0x5637768b7ba0 <line:38:17> 'int' 9
+    |                   `-IntegerLiteral 0x5637768b7c48 <line:88:60> 'int' 0
+    `-ParenExpr 0x5637768b7eb8 <line:45:16, col:33> 'int'
+      `-BinaryOperator 0x5637768b7e90 <line:44:17, line:42:18> 'int' '+'
+        |-IntegerLiteral 0x5637768b7e50 <line:44:17> 'int' 0
+        `-IntegerLiteral 0x5637768b7e70 <line:42:18> 'int' 6
+([B2.4]) | ([B2.31])
+  33: IntegerLiteral 0x5637768b7f48 <lcode.c:138:44> 'int' 0
+0
+  34: CStyleCastExpr 0x5637768b7fc8 <./llimits.h:75:23, col:30> 'Instruction':'unsigned int' <IntegralCast>
+`-ParenExpr 0x5637768b7fa8 <col:26, col:30> 'int'
+  `-IntegerLiteral 0x5637768b7f48 <lcode.c:138:44> 'int' 0
+(Instruction)([B2.33]) (CStyleCastExpr, IntegralCast, Instruction)
+  35: IntegerLiteral 0x5637768b8010 <./lopcodes.h:44:17> 'int' 0
+0
+  36: IntegerLiteral 0x5637768b8030 <./lopcodes.h:42:18> 'int' 6
+6
+  37: BinaryOperator 0x5637768b8050 <./lopcodes.h:44:17, line:42:18> 'int' '+'
+|-IntegerLiteral 0x5637768b8010 <line:44:17> 'int' 0
+`-IntegerLiteral 0x5637768b8030 <line:42:18> 'int' 6
+[B2.35] + [B2.36]
+  38: IntegerLiteral 0x5637768b8098 <./lopcodes.h:40:17> 'int' 8
+8
+  39: BinaryOperator 0x5637768b80b8 <./lopcodes.h:45:16, line:40:17> 'int' '+'
+|-ParenExpr 0x5637768b8078 <line:45:16, col:33> 'int'
+| `-BinaryOperator 0x5637768b8050 <line:44:17, line:42:18> 'int' '+'
+|   |-IntegerLiteral 0x5637768b8010 <line:44:17> 'int' 0
+|   `-IntegerLiteral 0x5637768b8030 <line:42:18> 'int' 6
+`-IntegerLiteral 0x5637768b8098 <line:40:17> 'int' 8
+([B2.37]) + [B2.38]
+  40: IntegerLiteral 0x5637768b8100 <./lopcodes.h:37:17> 'int' 9
+9
+  41: BinaryOperator 0x5637768b8120 <./lopcodes.h:46:16, line:37:17> 'int' '+'
+|-ParenExpr 0x5637768b80e0 <line:46:16, col:31> 'int'
+| `-BinaryOperator 0x5637768b80b8 <line:45:16, line:40:17> 'int' '+'
+|   |-ParenExpr 0x5637768b8078 <line:45:16, col:33> 'int'
+|   | `-BinaryOperator 0x5637768b8050 <line:44:17, line:42:18> 'int' '+'
+|   |   |-IntegerLiteral 0x5637768b8010 <line:44:17> 'int' 0
+|   |   `-IntegerLiteral 0x5637768b8030 <line:42:18> 'int' 6
+|   `-IntegerLiteral 0x5637768b8098 <line:40:17> 'int' 8
+`-IntegerLiteral 0x5637768b8100 <line:37:17> 'int' 9
+([B2.39]) + [B2.40]
+  42: BinaryOperator 0x5637768b8168 <./llimits.h:75:22, ./lopcodes.h:47:31> 'Instruction':'unsigned int' '<<'
+|-ParenExpr 0x5637768b7ff0 <./llimits.h:75:22, col:31> 'Instruction':'unsigned int'
+| `-CStyleCastExpr 0x5637768b7fc8 <col:23, col:30> 'Instruction':'unsigned int' <IntegralCast>
+|   `-ParenExpr 0x5637768b7fa8 <col:26, col:30> 'int'
+|     `-IntegerLiteral 0x5637768b7f48 <lcode.c:138:44> 'int' 0
+`-ParenExpr 0x5637768b8148 <./lopcodes.h:47:16, col:31> 'int'
+  `-BinaryOperator 0x5637768b8120 <line:46:16, line:37:17> 'int' '+'
+    |-ParenExpr 0x5637768b80e0 <line:46:16, col:31> 'int'
+    | `-BinaryOperator 0x5637768b80b8 <line:45:16, line:40:17> 'int' '+'
+    |   |-ParenExpr 0x5637768b8078 <line:45:16, col:33> 'int'
+    |   | `-BinaryOperator 0x5637768b8050 <line:44:17, line:42:18> 'int' '+'
+    |   |   |-IntegerLiteral 0x5637768b8010 <line:44:17> 'int' 0
+    |   |   `-IntegerLiteral 0x5637768b8030 <line:42:18> 'int' 6
+    |   `-IntegerLiteral 0x5637768b8098 <line:40:17> 'int' 8
+    `-IntegerLiteral 0x5637768b8100 <line:37:17> 'int' 9
+([B2.34]) << ([B2.41])
+  43: BinaryOperator 0x5637768b81b0 <./lopcodes.h:104:30, line:106:34> 'unsigned int' '|'
+|-BinaryOperator 0x5637768b7f20 <line:104:30, line:105:34> 'unsigned int' '|'
+| |-ParenExpr 0x5637768b78b0 <line:104:30, col:59> 'Instruction':'unsigned int'
+| | `-BinaryOperator 0x5637768b7888 <./llimits.h:75:22, ./lopcodes.h:44:17> 'Instruction':'unsigned int' '<<'
+| |   |-ParenExpr 0x5637768b7848 <./llimits.h:75:22, col:31> 'Instruction':'unsigned int'
+| |   | `-CStyleCastExpr 0x5637768b7820 <col:23, col:30> 'Instruction':'unsigned int' <IntegralCast>
+| |   |   `-ParenExpr 0x5637768b7800 <col:26, col:30> 'int'
+| |   |     `-DeclRefExpr 0x5637768b7798 <lcode.c:138:21> 'int' EnumConstant 0x563776877198 'OP_TEST' 'int'
+| |   `-IntegerLiteral 0x5637768b7868 <./lopcodes.h:44:17> 'int' 0
+| `-ParenExpr 0x5637768b7f00 <line:105:6, col:34> 'Instruction':'unsigned int'
+|   `-BinaryOperator 0x5637768b7ed8 <./llimits.h:75:22, ./lopcodes.h:45:33> 'Instruction':'unsigned int' '<<'
+|     |-ParenExpr 0x5637768b7e30 <./llimits.h:75:22, col:31> 'Instruction':'unsigned int'
+|     | `-CStyleCastExpr 0x5637768b7e08 <col:23, col:30> 'Instruction':'unsigned int' <IntegralCast>
+|     |   `-ParenExpr 0x5637768b7de8 <col:26, col:30> 'int'
+|     |     `-ParenExpr 0x5637768b7d88 <./lopcodes.h:88:21, col:63> 'int'
+|     |       `-ParenExpr 0x5637768b7d68 <./llimits.h:75:22, col:31> 'int'
+|     |         `-CStyleCastExpr 0x5637768b7d40 <col:23, col:30> 'int' <IntegralCast>
+|     |           `-ParenExpr 0x5637768b7d20 <col:26, col:30> 'unsigned int'
+|     |             `-BinaryOperator 0x5637768b7cb0 <./lopcodes.h:88:32, line:71:49> 'unsigned int' '&'
+|     |               |-ParenExpr 0x5637768b7ae8 <line:88:32, col:43> 'Instruction':'unsigned int'
+|     |               | `-BinaryOperator 0x5637768b7ac0 <col:33, line:47:31> 'Instruction':'unsigned int' '>>'
+|     |               |   |-ImplicitCastExpr 0x5637768b7aa8 <line:88:33, col:35> 'Instruction':'unsigned int' <LValueToRValue>
+|     |               |   | `-ParenExpr 0x5637768b7930 <col:33, col:35> 'Instruction':'unsigned int' lvalue
+|     |               |   |   `-UnaryOperator 0x5637768b7910 <lcode.c:138:39, col:40> 'Instruction':'unsigned int' lvalue prefix '*'
+|     |               |   |     `-ImplicitCastExpr 0x5637768b78f8 <col:40> 'Instruction *' <LValueToRValue>
+|     |               |   |       `-DeclRefExpr 0x5637768b78d0 <col:40> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+|     |               |   `-ParenExpr 0x5637768b7a88 <./lopcodes.h:47:16, col:31> 'int'
+|     |               |     `-BinaryOperator 0x5637768b7a60 <line:46:16, line:37:17> 'int' '+'
+|     |               |       |-ParenExpr 0x5637768b7a20 <line:46:16, col:31> 'int'
+|     |               |       | `-BinaryOperator 0x5637768b79f8 <line:45:16, line:40:17> 'int' '+'
+|     |               |       |   |-ParenExpr 0x5637768b79b8 <line:45:16, col:33> 'int'
+|     |               |       |   | `-BinaryOperator 0x5637768b7990 <line:44:17, line:42:18> 'int' '+'
+|     |               |       |   |   |-IntegerLiteral 0x5637768b7950 <line:44:17> 'int' 0
+|     |               |       |   |   `-IntegerLiteral 0x5637768b7970 <line:42:18> 'int' 6
+|     |               |       |   `-IntegerLiteral 0x5637768b79d8 <line:40:17> 'int' 8
+|     |               |       `-IntegerLiteral 0x5637768b7a40 <line:37:17> 'int' 9
+|     |               `-ParenExpr 0x5637768b7c90 <line:71:20, col:49> 'Instruction':'unsigned int'
+|     |                 `-BinaryOperator 0x5637768b7c68 <col:21, line:88:60> 'Instruction':'unsigned int' '<<'
+|     |                   |-ParenExpr 0x5637768b7c28 <line:71:21, col:45> 'Instruction':'unsigned int'
+|     |                   | `-UnaryOperator 0x5637768b7c08 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+|     |                   |   `-ParenExpr 0x5637768b7be8 <col:23, col:44> 'Instruction':'unsigned int'
+|     |                   |     `-BinaryOperator 0x5637768b7bc0 <col:24, line:38:17> 'Instruction':'unsigned int' '<<'
+|     |                   |       |-ParenExpr 0x5637768b7b80 <line:71:24, col:40> 'Instruction':'unsigned int'
+|     |                   |       | `-UnaryOperator 0x5637768b7b60 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+|     |                   |       |   `-CStyleCastExpr 0x5637768b7b38 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+|     |                   |       |     `-IntegerLiteral 0x5637768b7b08 <col:39> 'int' 0
+|     |                   |       `-IntegerLiteral 0x5637768b7ba0 <line:38:17> 'int' 9
+|     |                   `-IntegerLiteral 0x5637768b7c48 <line:88:60> 'int' 0
+|     `-ParenExpr 0x5637768b7eb8 <line:45:16, col:33> 'int'
+|       `-BinaryOperator 0x5637768b7e90 <line:44:17, line:42:18> 'int' '+'
+|         |-IntegerLiteral 0x5637768b7e50 <line:44:17> 'int' 0
+|         `-IntegerLiteral 0x5637768b7e70 <line:42:18> 'int' 6
+`-ParenExpr 0x5637768b8190 <line:106:6, col:34> 'Instruction':'unsigned int'
+  `-BinaryOperator 0x5637768b8168 <./llimits.h:75:22, ./lopcodes.h:47:31> 'Instruction':'unsigned int' '<<'
+    |-ParenExpr 0x5637768b7ff0 <./llimits.h:75:22, col:31> 'Instruction':'unsigned int'
+    | `-CStyleCastExpr 0x5637768b7fc8 <col:23, col:30> 'Instruction':'unsigned int' <IntegralCast>
+    |   `-ParenExpr 0x5637768b7fa8 <col:26, col:30> 'int'
+    |     `-IntegerLiteral 0x5637768b7f48 <lcode.c:138:44> 'int' 0
+    `-ParenExpr 0x5637768b8148 <./lopcodes.h:47:16, col:31> 'int'
+      `-BinaryOperator 0x5637768b8120 <line:46:16, line:37:17> 'int' '+'
+        |-ParenExpr 0x5637768b80e0 <line:46:16, col:31> 'int'
+        | `-BinaryOperator 0x5637768b80b8 <line:45:16, line:40:17> 'int' '+'
+        |   |-ParenExpr 0x5637768b8078 <line:45:16, col:33> 'int'
+        |   | `-BinaryOperator 0x5637768b8050 <line:44:17, line:42:18> 'int' '+'
+        |   |   |-IntegerLiteral 0x5637768b8010 <line:44:17> 'int' 0
+        |   |   `-IntegerLiteral 0x5637768b8030 <line:42:18> 'int' 6
+        |   `-IntegerLiteral 0x5637768b8098 <line:40:17> 'int' 8
+        `-IntegerLiteral 0x5637768b8100 <line:37:17> 'int' 9
+[B2.32] | ([B2.42])
+  44: DeclRefExpr 0x5637768b81d8 <lcode.c:138:57> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+i
+  45: ImplicitCastExpr 0x5637768b8200 <lcode.c:138:57> 'Instruction *' <LValueToRValue>
+`-DeclRefExpr 0x5637768b81d8 <col:57> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+[B2.44] (ImplicitCastExpr, LValueToRValue, Instruction *)
+  46: UnaryOperator 0x5637768b8218 <lcode.c:138:56, col:57> 'Instruction':'unsigned int' lvalue prefix '*'
+`-ImplicitCastExpr 0x5637768b8200 <col:57> 'Instruction *' <LValueToRValue>
+  `-DeclRefExpr 0x5637768b81d8 <col:57> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+*[B2.45]
+  47: ImplicitCastExpr 0x5637768b8348 <./lopcodes.h:92:33, col:35> 'Instruction':'unsigned int' <LValueToRValue>
+`-ParenExpr 0x5637768b8238 <col:33, col:35> 'Instruction':'unsigned int' lvalue
+  `-UnaryOperator 0x5637768b8218 <lcode.c:138:56, col:57> 'Instruction':'unsigned int' lvalue prefix '*'
+    `-ImplicitCastExpr 0x5637768b8200 <col:57> 'Instruction *' <LValueToRValue>
+      `-DeclRefExpr 0x5637768b81d8 <col:57> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+([B2.46]) (ImplicitCastExpr, LValueToRValue, Instruction)
+  48: IntegerLiteral 0x5637768b8258 <./lopcodes.h:44:17> 'int' 0
+0
+  49: IntegerLiteral 0x5637768b8278 <./lopcodes.h:42:18> 'int' 6
+6
+  50: BinaryOperator 0x5637768b8298 <./lopcodes.h:44:17, line:42:18> 'int' '+'
+|-IntegerLiteral 0x5637768b8258 <line:44:17> 'int' 0
+`-IntegerLiteral 0x5637768b8278 <line:42:18> 'int' 6
+[B2.48] + [B2.49]
+  51: IntegerLiteral 0x5637768b82e0 <./lopcodes.h:40:17> 'int' 8
+8
+  52: BinaryOperator 0x5637768b8300 <./lopcodes.h:45:16, line:40:17> 'int' '+'
+|-ParenExpr 0x5637768b82c0 <line:45:16, col:33> 'int'
+| `-BinaryOperator 0x5637768b8298 <line:44:17, line:42:18> 'int' '+'
+|   |-IntegerLiteral 0x5637768b8258 <line:44:17> 'int' 0
+|   `-IntegerLiteral 0x5637768b8278 <line:42:18> 'int' 6
+`-IntegerLiteral 0x5637768b82e0 <line:40:17> 'int' 8
+([B2.50]) + [B2.51]
+  53: BinaryOperator 0x5637768b8360 <./lopcodes.h:92:33, line:46:31> 'Instruction':'unsigned int' '>>'
+|-ImplicitCastExpr 0x5637768b8348 <line:92:33, col:35> 'Instruction':'unsigned int' <LValueToRValue>
+| `-ParenExpr 0x5637768b8238 <col:33, col:35> 'Instruction':'unsigned int' lvalue
+|   `-UnaryOperator 0x5637768b8218 <lcode.c:138:56, col:57> 'Instruction':'unsigned int' lvalue prefix '*'
+|     `-ImplicitCastExpr 0x5637768b8200 <col:57> 'Instruction *' <LValueToRValue>
+|       `-DeclRefExpr 0x5637768b81d8 <col:57> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+`-ParenExpr 0x5637768b8328 <./lopcodes.h:46:16, col:31> 'int'
+  `-BinaryOperator 0x5637768b8300 <line:45:16, line:40:17> 'int' '+'
+    |-ParenExpr 0x5637768b82c0 <line:45:16, col:33> 'int'
+    | `-BinaryOperator 0x5637768b8298 <line:44:17, line:42:18> 'int' '+'
+    |   |-IntegerLiteral 0x5637768b8258 <line:44:17> 'int' 0
+    |   `-IntegerLiteral 0x5637768b8278 <line:42:18> 'int' 6
+    `-IntegerLiteral 0x5637768b82e0 <line:40:17> 'int' 8
+[B2.47] >> ([B2.52])
+  54: IntegerLiteral 0x5637768b83a8 <./lopcodes.h:71:39> 'int' 0
+0
+  55: CStyleCastExpr 0x5637768b83d8 <./lopcodes.h:71:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+`-IntegerLiteral 0x5637768b83a8 <col:39> 'int' 0
+(Instruction)[B2.54] (CStyleCastExpr, IntegralCast, Instruction)
+  56: UnaryOperator 0x5637768b8400 <./lopcodes.h:71:25, col:39> 'Instruction':'unsigned int' prefix '~'
+`-CStyleCastExpr 0x5637768b83d8 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+  `-IntegerLiteral 0x5637768b83a8 <col:39> 'int' 0
+~[B2.55]
+  57: IntegerLiteral 0x5637768b8440 <./lopcodes.h:37:17> 'int' 9
+9
+  58: BinaryOperator 0x5637768b8460 <./lopcodes.h:71:24, line:37:17> 'Instruction':'unsigned int' '<<'
+|-ParenExpr 0x5637768b8420 <line:71:24, col:40> 'Instruction':'unsigned int'
+| `-UnaryOperator 0x5637768b8400 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+|   `-CStyleCastExpr 0x5637768b83d8 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+|     `-IntegerLiteral 0x5637768b83a8 <col:39> 'int' 0
+`-IntegerLiteral 0x5637768b8440 <line:37:17> 'int' 9
+([B2.56]) << [B2.57]
+  59: UnaryOperator 0x5637768b84a8 <./lopcodes.h:71:22, col:44> 'Instruction':'unsigned int' prefix '~'
+`-ParenExpr 0x5637768b8488 <col:23, col:44> 'Instruction':'unsigned int'
+  `-BinaryOperator 0x5637768b8460 <col:24, line:37:17> 'Instruction':'unsigned int' '<<'
+    |-ParenExpr 0x5637768b8420 <line:71:24, col:40> 'Instruction':'unsigned int'
+    | `-UnaryOperator 0x5637768b8400 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+    |   `-CStyleCastExpr 0x5637768b83d8 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+    |     `-IntegerLiteral 0x5637768b83a8 <col:39> 'int' 0
+    `-IntegerLiteral 0x5637768b8440 <line:37:17> 'int' 9
+~([B2.58])
+  60: IntegerLiteral 0x5637768b84e8 <./lopcodes.h:92:60> 'int' 0
+0
+  61: BinaryOperator 0x5637768b8508 <./lopcodes.h:71:21, line:92:60> 'Instruction':'unsigned int' '<<'
+|-ParenExpr 0x5637768b84c8 <line:71:21, col:45> 'Instruction':'unsigned int'
+| `-UnaryOperator 0x5637768b84a8 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+|   `-ParenExpr 0x5637768b8488 <col:23, col:44> 'Instruction':'unsigned int'
+|     `-BinaryOperator 0x5637768b8460 <col:24, line:37:17> 'Instruction':'unsigned int' '<<'
+|       |-ParenExpr 0x5637768b8420 <line:71:24, col:40> 'Instruction':'unsigned int'
+|       | `-UnaryOperator 0x5637768b8400 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+|       |   `-CStyleCastExpr 0x5637768b83d8 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+|       |     `-IntegerLiteral 0x5637768b83a8 <col:39> 'int' 0
+|       `-IntegerLiteral 0x5637768b8440 <line:37:17> 'int' 9
+`-IntegerLiteral 0x5637768b84e8 <line:92:60> 'int' 0
+([B2.59]) << [B2.60]
+  62: BinaryOperator 0x5637768b8550 <./lopcodes.h:92:32, line:71:49> 'unsigned int' '&'
+|-ParenExpr 0x5637768b8388 <line:92:32, col:43> 'Instruction':'unsigned int'
+| `-BinaryOperator 0x5637768b8360 <col:33, line:46:31> 'Instruction':'unsigned int' '>>'
+|   |-ImplicitCastExpr 0x5637768b8348 <line:92:33, col:35> 'Instruction':'unsigned int' <LValueToRValue>
+|   | `-ParenExpr 0x5637768b8238 <col:33, col:35> 'Instruction':'unsigned int' lvalue
+|   |   `-UnaryOperator 0x5637768b8218 <lcode.c:138:56, col:57> 'Instruction':'unsigned int' lvalue prefix '*'
+|   |     `-ImplicitCastExpr 0x5637768b8200 <col:57> 'Instruction *' <LValueToRValue>
+|   |       `-DeclRefExpr 0x5637768b81d8 <col:57> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+|   `-ParenExpr 0x5637768b8328 <./lopcodes.h:46:16, col:31> 'int'
+|     `-BinaryOperator 0x5637768b8300 <line:45:16, line:40:17> 'int' '+'
+|       |-ParenExpr 0x5637768b82c0 <line:45:16, col:33> 'int'
+|       | `-BinaryOperator 0x5637768b8298 <line:44:17, line:42:18> 'int' '+'
+|       |   |-IntegerLiteral 0x5637768b8258 <line:44:17> 'int' 0
+|       |   `-IntegerLiteral 0x5637768b8278 <line:42:18> 'int' 6
+|       `-IntegerLiteral 0x5637768b82e0 <line:40:17> 'int' 8
+`-ParenExpr 0x5637768b8530 <line:71:20, col:49> 'Instruction':'unsigned int'
+  `-BinaryOperator 0x5637768b8508 <col:21, line:92:60> 'Instruction':'unsigned int' '<<'
+    |-ParenExpr 0x5637768b84c8 <line:71:21, col:45> 'Instruction':'unsigned int'
+    | `-UnaryOperator 0x5637768b84a8 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+    |   `-ParenExpr 0x5637768b8488 <col:23, col:44> 'Instruction':'unsigned int'
+    |     `-BinaryOperator 0x5637768b8460 <col:24, line:37:17> 'Instruction':'unsigned int' '<<'
+    |       |-ParenExpr 0x5637768b8420 <line:71:24, col:40> 'Instruction':'unsigned int'
+    |       | `-UnaryOperator 0x5637768b8400 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+    |       |   `-CStyleCastExpr 0x5637768b83d8 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+    |       |     `-IntegerLiteral 0x5637768b83a8 <col:39> 'int' 0
+    |       `-IntegerLiteral 0x5637768b8440 <line:37:17> 'int' 9
+    `-IntegerLiteral 0x5637768b84e8 <line:92:60> 'int' 0
+([B2.53]) & ([B2.61])
+  63: CStyleCastExpr 0x5637768b85e0 <./llimits.h:75:23, col:30> 'int' <IntegralCast>
+`-ParenExpr 0x5637768b85c0 <col:26, col:30> 'unsigned int'
+  `-BinaryOperator 0x5637768b8550 <./lopcodes.h:92:32, line:71:49> 'unsigned int' '&'
+    |-ParenExpr 0x5637768b8388 <line:92:32, col:43> 'Instruction':'unsigned int'
+    | `-BinaryOperator 0x5637768b8360 <col:33, line:46:31> 'Instruction':'unsigned int' '>>'
+    |   |-ImplicitCastExpr 0x5637768b8348 <line:92:33, col:35> 'Instruction':'unsigned int' <LValueToRValue>
+    |   | `-ParenExpr 0x5637768b8238 <col:33, col:35> 'Instruction':'unsigned int' lvalue
+    |   |   `-UnaryOperator 0x5637768b8218 <lcode.c:138:56, col:57> 'Instruction':'unsigned int' lvalue prefix '*'
+    |   |     `-ImplicitCastExpr 0x5637768b8200 <col:57> 'Instruction *' <LValueToRValue>
+    |   |       `-DeclRefExpr 0x5637768b81d8 <col:57> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+    |   `-ParenExpr 0x5637768b8328 <./lopcodes.h:46:16, col:31> 'int'
+    |     `-BinaryOperator 0x5637768b8300 <line:45:16, line:40:17> 'int' '+'
+    |       |-ParenExpr 0x5637768b82c0 <line:45:16, col:33> 'int'
+    |       | `-BinaryOperator 0x5637768b8298 <line:44:17, line:42:18> 'int' '+'
+    |       |   |-IntegerLiteral 0x5637768b8258 <line:44:17> 'int' 0
+    |       |   `-IntegerLiteral 0x5637768b8278 <line:42:18> 'int' 6
+    |       `-IntegerLiteral 0x5637768b82e0 <line:40:17> 'int' 8
+    `-ParenExpr 0x5637768b8530 <line:71:20, col:49> 'Instruction':'unsigned int'
+      `-BinaryOperator 0x5637768b8508 <col:21, line:92:60> 'Instruction':'unsigned int' '<<'
+        |-ParenExpr 0x5637768b84c8 <line:71:21, col:45> 'Instruction':'unsigned int'
+        | `-UnaryOperator 0x5637768b84a8 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+        |   `-ParenExpr 0x5637768b8488 <col:23, col:44> 'Instruction':'unsigned int'
+        |     `-BinaryOperator 0x5637768b8460 <col:24, line:37:17> 'Instruction':'unsigned int' '<<'
+        |       |-ParenExpr 0x5637768b8420 <line:71:24, col:40> 'Instruction':'unsigned int'
+        |       | `-UnaryOperator 0x5637768b8400 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+        |       |   `-CStyleCastExpr 0x5637768b83d8 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+        |       |     `-IntegerLiteral 0x5637768b83a8 <col:39> 'int' 0
+        |       `-IntegerLiteral 0x5637768b8440 <line:37:17> 'int' 9
+        `-IntegerLiteral 0x5637768b84e8 <line:92:60> 'int' 0
+(int)([B2.62]) (CStyleCastExpr, IntegralCast, int)
+  64: CStyleCastExpr 0x5637768b86a8 <./llimits.h:75:23, col:30> 'Instruction':'unsigned int' <IntegralCast>
+`-ParenExpr 0x5637768b8688 <col:26, col:30> 'int'
+  `-ParenExpr 0x5637768b8628 <./lopcodes.h:92:21, col:63> 'int'
+    `-ParenExpr 0x5637768b8608 <./llimits.h:75:22, col:31> 'int'
+      `-CStyleCastExpr 0x5637768b85e0 <col:23, col:30> 'int' <IntegralCast>
+        `-ParenExpr 0x5637768b85c0 <col:26, col:30> 'unsigned int'
+          `-BinaryOperator 0x5637768b8550 <./lopcodes.h:92:32, line:71:49> 'unsigned int' '&'
+            |-ParenExpr 0x5637768b8388 <line:92:32, col:43> 'Instruction':'unsigned int'
+            | `-BinaryOperator 0x5637768b8360 <col:33, line:46:31> 'Instruction':'unsigned int' '>>'
+            |   |-ImplicitCastExpr 0x5637768b8348 <line:92:33, col:35> 'Instruction':'unsigned int' <LValueToRValue>
+            |   | `-ParenExpr 0x5637768b8238 <col:33, col:35> 'Instruction':'unsigned int' lvalue
+            |   |   `-UnaryOperator 0x5637768b8218 <lcode.c:138:56, col:57> 'Instruction':'unsigned int' lvalue prefix '*'
+            |   |     `-ImplicitCastExpr 0x5637768b8200 <col:57> 'Instruction *' <LValueToRValue>
+            |   |       `-DeclRefExpr 0x5637768b81d8 <col:57> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+            |   `-ParenExpr 0x5637768b8328 <./lopcodes.h:46:16, col:31> 'int'
+            |     `-BinaryOperator 0x5637768b8300 <line:45:16, line:40:17> 'int' '+'
+            |       |-ParenExpr 0x5637768b82c0 <line:45:16, col:33> 'int'
+            |       | `-BinaryOperator 0x5637768b8298 <line:44:17, line:42:18> 'int' '+'
+            |       |   |-IntegerLiteral 0x5637768b8258 <line:44:17> 'int' 0
+            |       |   `-IntegerLiteral 0x5637768b8278 <line:42:18> 'int' 6
+            |       `-IntegerLiteral 0x5637768b82e0 <line:40:17> 'int' 8
+            `-ParenExpr 0x5637768b8530 <line:71:20, col:49> 'Instruction':'unsigned int'
+              `-BinaryOperator 0x5637768b8508 <col:21, line:92:60> 'Instruction':'unsigned int' '<<'
+                |-ParenExpr 0x5637768b84c8 <line:71:21, col:45> 'Instruction':'unsigned int'
+                | `-UnaryOperator 0x5637768b84a8 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+                |   `-ParenExpr 0x5637768b8488 <col:23, col:44> 'Instruction':'unsigned int'
+                |     `-BinaryOperator 0x5637768b8460 <col:24, line:37:17> 'Instruction':'unsigned int' '<<'
+                |       |-ParenExpr 0x5637768b8420 <line:71:24, col:40> 'Instruction':'unsigned int'
+                |       | `-UnaryOperator 0x5637768b8400 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+                |       |   `-CStyleCastExpr 0x5637768b83d8 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+                |       |     `-IntegerLiteral 0x5637768b83a8 <col:39> 'int' 0
+                |       `-IntegerLiteral 0x5637768b8440 <line:37:17> 'int' 9
+                `-IntegerLiteral 0x5637768b84e8 <line:92:60> 'int' 0
+(Instruction)((([B2.63]))) (CStyleCastExpr, IntegralCast, Instruction)
+  65: IntegerLiteral 0x5637768b86f0 <./lopcodes.h:44:17> 'int' 0
+0
+  66: IntegerLiteral 0x5637768b8710 <./lopcodes.h:42:18> 'int' 6
+6
+  67: BinaryOperator 0x5637768b8730 <./lopcodes.h:44:17, line:42:18> 'int' '+'
+|-IntegerLiteral 0x5637768b86f0 <line:44:17> 'int' 0
+`-IntegerLiteral 0x5637768b8710 <line:42:18> 'int' 6
+[B2.65] + [B2.66]
+  68: IntegerLiteral 0x5637768b8778 <./lopcodes.h:40:17> 'int' 8
+8
+  69: BinaryOperator 0x5637768b8798 <./lopcodes.h:45:16, line:40:17> 'int' '+'
+|-ParenExpr 0x5637768b8758 <line:45:16, col:33> 'int'
+| `-BinaryOperator 0x5637768b8730 <line:44:17, line:42:18> 'int' '+'
+|   |-IntegerLiteral 0x5637768b86f0 <line:44:17> 'int' 0
+|   `-IntegerLiteral 0x5637768b8710 <line:42:18> 'int' 6
+`-IntegerLiteral 0x5637768b8778 <line:40:17> 'int' 8
+([B2.67]) + [B2.68]
+  70: BinaryOperator 0x5637768b87e0 <./llimits.h:75:22, ./lopcodes.h:46:31> 'Instruction':'unsigned int' '<<'
+|-ParenExpr 0x5637768b86d0 <./llimits.h:75:22, col:31> 'Instruction':'unsigned int'
+| `-CStyleCastExpr 0x5637768b86a8 <col:23, col:30> 'Instruction':'unsigned int' <IntegralCast>
+|   `-ParenExpr 0x5637768b8688 <col:26, col:30> 'int'
+|     `-ParenExpr 0x5637768b8628 <./lopcodes.h:92:21, col:63> 'int'
+|       `-ParenExpr 0x5637768b8608 <./llimits.h:75:22, col:31> 'int'
+|         `-CStyleCastExpr 0x5637768b85e0 <col:23, col:30> 'int' <IntegralCast>
+|           `-ParenExpr 0x5637768b85c0 <col:26, col:30> 'unsigned int'
+|             `-BinaryOperator 0x5637768b8550 <./lopcodes.h:92:32, line:71:49> 'unsigned int' '&'
+|               |-ParenExpr 0x5637768b8388 <line:92:32, col:43> 'Instruction':'unsigned int'
+|               | `-BinaryOperator 0x5637768b8360 <col:33, line:46:31> 'Instruction':'unsigned int' '>>'
+|               |   |-ImplicitCastExpr 0x5637768b8348 <line:92:33, col:35> 'Instruction':'unsigned int' <LValueToRValue>
+|               |   | `-ParenExpr 0x5637768b8238 <col:33, col:35> 'Instruction':'unsigned int' lvalue
+|               |   |   `-UnaryOperator 0x5637768b8218 <lcode.c:138:56, col:57> 'Instruction':'unsigned int' lvalue prefix '*'
+|               |   |     `-ImplicitCastExpr 0x5637768b8200 <col:57> 'Instruction *' <LValueToRValue>
+|               |   |       `-DeclRefExpr 0x5637768b81d8 <col:57> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+|               |   `-ParenExpr 0x5637768b8328 <./lopcodes.h:46:16, col:31> 'int'
+|               |     `-BinaryOperator 0x5637768b8300 <line:45:16, line:40:17> 'int' '+'
+|               |       |-ParenExpr 0x5637768b82c0 <line:45:16, col:33> 'int'
+|               |       | `-BinaryOperator 0x5637768b8298 <line:44:17, line:42:18> 'int' '+'
+|               |       |   |-IntegerLiteral 0x5637768b8258 <line:44:17> 'int' 0
+|               |       |   `-IntegerLiteral 0x5637768b8278 <line:42:18> 'int' 6
+|               |       `-IntegerLiteral 0x5637768b82e0 <line:40:17> 'int' 8
+|               `-ParenExpr 0x5637768b8530 <line:71:20, col:49> 'Instruction':'unsigned int'
+|                 `-BinaryOperator 0x5637768b8508 <col:21, line:92:60> 'Instruction':'unsigned int' '<<'
+|                   |-ParenExpr 0x5637768b84c8 <line:71:21, col:45> 'Instruction':'unsigned int'
+|                   | `-UnaryOperator 0x5637768b84a8 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+|                   |   `-ParenExpr 0x5637768b8488 <col:23, col:44> 'Instruction':'unsigned int'
+|                   |     `-BinaryOperator 0x5637768b8460 <col:24, line:37:17> 'Instruction':'unsigned int' '<<'
+|                   |       |-ParenExpr 0x5637768b8420 <line:71:24, col:40> 'Instruction':'unsigned int'
+|                   |       | `-UnaryOperator 0x5637768b8400 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+|                   |       |   `-CStyleCastExpr 0x5637768b83d8 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+|                   |       |     `-IntegerLiteral 0x5637768b83a8 <col:39> 'int' 0
+|                   |       `-IntegerLiteral 0x5637768b8440 <line:37:17> 'int' 9
+|                   `-IntegerLiteral 0x5637768b84e8 <line:92:60> 'int' 0
+`-ParenExpr 0x5637768b87c0 <line:46:16, col:31> 'int'
+  `-BinaryOperator 0x5637768b8798 <line:45:16, line:40:17> 'int' '+'
+    |-ParenExpr 0x5637768b8758 <line:45:16, col:33> 'int'
+    | `-BinaryOperator 0x5637768b8730 <line:44:17, line:42:18> 'int' '+'
+    |   |-IntegerLiteral 0x5637768b86f0 <line:44:17> 'int' 0
+    |   `-IntegerLiteral 0x5637768b8710 <line:42:18> 'int' 6
+    `-IntegerLiteral 0x5637768b8778 <line:40:17> 'int' 8
+([B2.64]) << ([B2.69])
+  71: BinaryOperator 0x5637768b8828 <./lopcodes.h:104:30, line:107:34> 'unsigned int' '|'
+|-BinaryOperator 0x5637768b81b0 <line:104:30, line:106:34> 'unsigned int' '|'
+| |-BinaryOperator 0x5637768b7f20 <line:104:30, line:105:34> 'unsigned int' '|'
+| | |-ParenExpr 0x5637768b78b0 <line:104:30, col:59> 'Instruction':'unsigned int'
+| | | `-BinaryOperator 0x5637768b7888 <./llimits.h:75:22, ./lopcodes.h:44:17> 'Instruction':'unsigned int' '<<'
+| | |   |-ParenExpr 0x5637768b7848 <./llimits.h:75:22, col:31> 'Instruction':'unsigned int'
+| | |   | `-CStyleCastExpr 0x5637768b7820 <col:23, col:30> 'Instruction':'unsigned int' <IntegralCast>
+| | |   |   `-ParenExpr 0x5637768b7800 <col:26, col:30> 'int'
+| | |   |     `-DeclRefExpr 0x5637768b7798 <lcode.c:138:21> 'int' EnumConstant 0x563776877198 'OP_TEST' 'int'
+| | |   `-IntegerLiteral 0x5637768b7868 <./lopcodes.h:44:17> 'int' 0
+| | `-ParenExpr 0x5637768b7f00 <line:105:6, col:34> 'Instruction':'unsigned int'
+| |   `-BinaryOperator 0x5637768b7ed8 <./llimits.h:75:22, ./lopcodes.h:45:33> 'Instruction':'unsigned int' '<<'
+| |     |-ParenExpr 0x5637768b7e30 <./llimits.h:75:22, col:31> 'Instruction':'unsigned int'
+| |     | `-CStyleCastExpr 0x5637768b7e08 <col:23, col:30> 'Instruction':'unsigned int' <IntegralCast>
+| |     |   `-ParenExpr 0x5637768b7de8 <col:26, col:30> 'int'
+| |     |     `-ParenExpr 0x5637768b7d88 <./lopcodes.h:88:21, col:63> 'int'
+| |     |       `-ParenExpr 0x5637768b7d68 <./llimits.h:75:22, col:31> 'int'
+| |     |         `-CStyleCastExpr 0x5637768b7d40 <col:23, col:30> 'int' <IntegralCast>
+| |     |           `-ParenExpr 0x5637768b7d20 <col:26, col:30> 'unsigned int'
+| |     |             `-BinaryOperator 0x5637768b7cb0 <./lopcodes.h:88:32, line:71:49> 'unsigned int' '&'
+| |     |               |-ParenExpr 0x5637768b7ae8 <line:88:32, col:43> 'Instruction':'unsigned int'
+| |     |               | `-BinaryOperator 0x5637768b7ac0 <col:33, line:47:31> 'Instruction':'unsigned int' '>>'
+| |     |               |   |-ImplicitCastExpr 0x5637768b7aa8 <line:88:33, col:35> 'Instruction':'unsigned int' <LValueToRValue>
+| |     |               |   | `-ParenExpr 0x5637768b7930 <col:33, col:35> 'Instruction':'unsigned int' lvalue
+| |     |               |   |   `-UnaryOperator 0x5637768b7910 <lcode.c:138:39, col:40> 'Instruction':'unsigned int' lvalue prefix '*'
+| |     |               |   |     `-ImplicitCastExpr 0x5637768b78f8 <col:40> 'Instruction *' <LValueToRValue>
+| |     |               |   |       `-DeclRefExpr 0x5637768b78d0 <col:40> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+| |     |               |   `-ParenExpr 0x5637768b7a88 <./lopcodes.h:47:16, col:31> 'int'
+| |     |               |     `-BinaryOperator 0x5637768b7a60 <line:46:16, line:37:17> 'int' '+'
+| |     |               |       |-ParenExpr 0x5637768b7a20 <line:46:16, col:31> 'int'
+| |     |               |       | `-BinaryOperator 0x5637768b79f8 <line:45:16, line:40:17> 'int' '+'
+| |     |               |       |   |-ParenExpr 0x5637768b79b8 <line:45:16, col:33> 'int'
+| |     |               |       |   | `-BinaryOperator 0x5637768b7990 <line:44:17, line:42:18> 'int' '+'
+| |     |               |       |   |   |-IntegerLiteral 0x5637768b7950 <line:44:17> 'int' 0
+| |     |               |       |   |   `-IntegerLiteral 0x5637768b7970 <line:42:18> 'int' 6
+| |     |               |       |   `-IntegerLiteral 0x5637768b79d8 <line:40:17> 'int' 8
+| |     |               |       `-IntegerLiteral 0x5637768b7a40 <line:37:17> 'int' 9
+| |     |               `-ParenExpr 0x5637768b7c90 <line:71:20, col:49> 'Instruction':'unsigned int'
+| |     |                 `-BinaryOperator 0x5637768b7c68 <col:21, line:88:60> 'Instruction':'unsigned int' '<<'
+| |     |                   |-ParenExpr 0x5637768b7c28 <line:71:21, col:45> 'Instruction':'unsigned int'
+| |     |                   | `-UnaryOperator 0x5637768b7c08 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+| |     |                   |   `-ParenExpr 0x5637768b7be8 <col:23, col:44> 'Instruction':'unsigned int'
+| |     |                   |     `-BinaryOperator 0x5637768b7bc0 <col:24, line:38:17> 'Instruction':'unsigned int' '<<'
+| |     |                   |       |-ParenExpr 0x5637768b7b80 <line:71:24, col:40> 'Instruction':'unsigned int'
+| |     |                   |       | `-UnaryOperator 0x5637768b7b60 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+| |     |                   |       |   `-CStyleCastExpr 0x5637768b7b38 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+| |     |                   |       |     `-IntegerLiteral 0x5637768b7b08 <col:39> 'int' 0
+| |     |                   |       `-IntegerLiteral 0x5637768b7ba0 <line:38:17> 'int' 9
+| |     |                   `-IntegerLiteral 0x5637768b7c48 <line:88:60> 'int' 0
+| |     `-ParenExpr 0x5637768b7eb8 <line:45:16, col:33> 'int'
+| |       `-BinaryOperator 0x5637768b7e90 <line:44:17, line:42:18> 'int' '+'
+| |         |-IntegerLiteral 0x5637768b7e50 <line:44:17> 'int' 0
+| |         `-IntegerLiteral 0x5637768b7e70 <line:42:18> 'int' 6
+| `-ParenExpr 0x5637768b8190 <line:106:6, col:34> 'Instruction':'unsigned int'
+|   `-BinaryOperator 0x5637768b8168 <./llimits.h:75:22, ./lopcodes.h:47:31> 'Instruction':'unsigned int' '<<'
+|     |-ParenExpr 0x5637768b7ff0 <./llimits.h:75:22, col:31> 'Instruction':'unsigned int'
+|     | `-CStyleCastExpr 0x5637768b7fc8 <col:23, col:30> 'Instruction':'unsigned int' <IntegralCast>
+|     |   `-ParenExpr 0x5637768b7fa8 <col:26, col:30> 'int'
+|     |     `-IntegerLiteral 0x5637768b7f48 <lcode.c:138:44> 'int' 0
+|     `-ParenExpr 0x5637768b8148 <./lopcodes.h:47:16, col:31> 'int'
+|       `-BinaryOperator 0x5637768b8120 <line:46:16, line:37:17> 'int' '+'
+|         |-ParenExpr 0x5637768b80e0 <line:46:16, col:31> 'int'
+|         | `-BinaryOperator 0x5637768b80b8 <line:45:16, line:40:17> 'int' '+'
+|         |   |-ParenExpr 0x5637768b8078 <line:45:16, col:33> 'int'
+|         |   | `-BinaryOperator 0x5637768b8050 <line:44:17, line:42:18> 'int' '+'
+|         |   |   |-IntegerLiteral 0x5637768b8010 <line:44:17> 'int' 0
+|         |   |   `-IntegerLiteral 0x5637768b8030 <line:42:18> 'int' 6
+|         |   `-IntegerLiteral 0x5637768b8098 <line:40:17> 'int' 8
+|         `-IntegerLiteral 0x5637768b8100 <line:37:17> 'int' 9
+`-ParenExpr 0x5637768b8808 <line:107:6, col:34> 'Instruction':'unsigned int'
+  `-BinaryOperator 0x5637768b87e0 <./llimits.h:75:22, ./lopcodes.h:46:31> 'Instruction':'unsigned int' '<<'
+    |-ParenExpr 0x5637768b86d0 <./llimits.h:75:22, col:31> 'Instruction':'unsigned int'
+    | `-CStyleCastExpr 0x5637768b86a8 <col:23, col:30> 'Instruction':'unsigned int' <IntegralCast>
+    |   `-ParenExpr 0x5637768b8688 <col:26, col:30> 'int'
+    |     `-ParenExpr 0x5637768b8628 <./lopcodes.h:92:21, col:63> 'int'
+    |       `-ParenExpr 0x5637768b8608 <./llimits.h:75:22, col:31> 'int'
+    |         `-CStyleCastExpr 0x5637768b85e0 <col:23, col:30> 'int' <IntegralCast>
+    |           `-ParenExpr 0x5637768b85c0 <col:26, col:30> 'unsigned int'
+    |             `-BinaryOperator 0x5637768b8550 <./lopcodes.h:92:32, line:71:49> 'unsigned int' '&'
+    |               |-ParenExpr 0x5637768b8388 <line:92:32, col:43> 'Instruction':'unsigned int'
+    |               | `-BinaryOperator 0x5637768b8360 <col:33, line:46:31> 'Instruction':'unsigned int' '>>'
+    |               |   |-ImplicitCastExpr 0x5637768b8348 <line:92:33, col:35> 'Instruction':'unsigned int' <LValueToRValue>
+    |               |   | `-ParenExpr 0x5637768b8238 <col:33, col:35> 'Instruction':'unsigned int' lvalue
+    |               |   |   `-UnaryOperator 0x5637768b8218 <lcode.c:138:56, col:57> 'Instruction':'unsigned int' lvalue prefix '*'
+    |               |   |     `-ImplicitCastExpr 0x5637768b8200 <col:57> 'Instruction *' <LValueToRValue>
+    |               |   |       `-DeclRefExpr 0x5637768b81d8 <col:57> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+    |               |   `-ParenExpr 0x5637768b8328 <./lopcodes.h:46:16, col:31> 'int'
+    |               |     `-BinaryOperator 0x5637768b8300 <line:45:16, line:40:17> 'int' '+'
+    |               |       |-ParenExpr 0x5637768b82c0 <line:45:16, col:33> 'int'
+    |               |       | `-BinaryOperator 0x5637768b8298 <line:44:17, line:42:18> 'int' '+'
+    |               |       |   |-IntegerLiteral 0x5637768b8258 <line:44:17> 'int' 0
+    |               |       |   `-IntegerLiteral 0x5637768b8278 <line:42:18> 'int' 6
+    |               |       `-IntegerLiteral 0x5637768b82e0 <line:40:17> 'int' 8
+    |               `-ParenExpr 0x5637768b8530 <line:71:20, col:49> 'Instruction':'unsigned int'
+    |                 `-BinaryOperator 0x5637768b8508 <col:21, line:92:60> 'Instruction':'unsigned int' '<<'
+    |                   |-ParenExpr 0x5637768b84c8 <line:71:21, col:45> 'Instruction':'unsigned int'
+    |                   | `-UnaryOperator 0x5637768b84a8 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+    |                   |   `-ParenExpr 0x5637768b8488 <col:23, col:44> 'Instruction':'unsigned int'
+    |                   |     `-BinaryOperator 0x5637768b8460 <col:24, line:37:17> 'Instruction':'unsigned int' '<<'
+    |                   |       |-ParenExpr 0x5637768b8420 <line:71:24, col:40> 'Instruction':'unsigned int'
+    |                   |       | `-UnaryOperator 0x5637768b8400 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+    |                   |       |   `-CStyleCastExpr 0x5637768b83d8 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+    |                   |       |     `-IntegerLiteral 0x5637768b83a8 <col:39> 'int' 0
+    |                   |       `-IntegerLiteral 0x5637768b8440 <line:37:17> 'int' 9
+    |                   `-IntegerLiteral 0x5637768b84e8 <line:92:60> 'int' 0
+    `-ParenExpr 0x5637768b87c0 <line:46:16, col:31> 'int'
+      `-BinaryOperator 0x5637768b8798 <line:45:16, line:40:17> 'int' '+'
+        |-ParenExpr 0x5637768b8758 <line:45:16, col:33> 'int'
+        | `-BinaryOperator 0x5637768b8730 <line:44:17, line:42:18> 'int' '+'
+        |   |-IntegerLiteral 0x5637768b86f0 <line:44:17> 'int' 0
+        |   `-IntegerLiteral 0x5637768b8710 <line:42:18> 'int' 6
+        `-IntegerLiteral 0x5637768b8778 <line:40:17> 'int' 8
+[B2.43] | ([B2.70])
+  72: DeclRefExpr 0x5637768b7738 <lcode.c:138:6> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+i
+  73: ImplicitCastExpr 0x5637768b7760 <lcode.c:138:6> 'Instruction *' <LValueToRValue>
+`-DeclRefExpr 0x5637768b7738 <col:6> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+[B2.72] (ImplicitCastExpr, LValueToRValue, Instruction *)
+  74: UnaryOperator 0x5637768b7778 <lcode.c:138:5, col:6> 'Instruction':'unsigned int' lvalue prefix '*'
+`-ImplicitCastExpr 0x5637768b7760 <col:6> 'Instruction *' <LValueToRValue>
+  `-DeclRefExpr 0x5637768b7738 <col:6> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+*[B2.73]
+  75: BinaryOperator 0x5637768b8870 <lcode.c:138:5, ./lopcodes.h:107:35> 'Instruction':'unsigned int' '='
+|-UnaryOperator 0x5637768b7778 <lcode.c:138:5, col:6> 'Instruction':'unsigned int' lvalue prefix '*'
+| `-ImplicitCastExpr 0x5637768b7760 <col:6> 'Instruction *' <LValueToRValue>
+|   `-DeclRefExpr 0x5637768b7738 <col:6> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+`-ParenExpr 0x5637768b8850 <./lopcodes.h:104:29, line:107:35> 'unsigned int'
+  `-BinaryOperator 0x5637768b8828 <line:104:30, line:107:34> 'unsigned int' '|'
+    |-BinaryOperator 0x5637768b81b0 <line:104:30, line:106:34> 'unsigned int' '|'
+    | |-BinaryOperator 0x5637768b7f20 <line:104:30, line:105:34> 'unsigned int' '|'
+    | | |-ParenExpr 0x5637768b78b0 <line:104:30, col:59> 'Instruction':'unsigned int'
+    | | | `-BinaryOperator 0x5637768b7888 <./llimits.h:75:22, ./lopcodes.h:44:17> 'Instruction':'unsigned int' '<<'
+    | | |   |-ParenExpr 0x5637768b7848 <./llimits.h:75:22, col:31> 'Instruction':'unsigned int'
+    | | |   | `-CStyleCastExpr 0x5637768b7820 <col:23, col:30> 'Instruction':'unsigned int' <IntegralCast>
+    | | |   |   `-ParenExpr 0x5637768b7800 <col:26, col:30> 'int'
+    | | |   |     `-DeclRefExpr 0x5637768b7798 <lcode.c:138:21> 'int' EnumConstant 0x563776877198 'OP_TEST' 'int'
+    | | |   `-IntegerLiteral 0x5637768b7868 <./lopcodes.h:44:17> 'int' 0
+    | | `-ParenExpr 0x5637768b7f00 <line:105:6, col:34> 'Instruction':'unsigned int'
+    | |   `-BinaryOperator 0x5637768b7ed8 <./llimits.h:75:22, ./lopcodes.h:45:33> 'Instruction':'unsigned int' '<<'
+    | |     |-ParenExpr 0x5637768b7e30 <./llimits.h:75:22, col:31> 'Instruction':'unsigned int'
+    | |     | `-CStyleCastExpr 0x5637768b7e08 <col:23, col:30> 'Instruction':'unsigned int' <IntegralCast>
+    | |     |   `-ParenExpr 0x5637768b7de8 <col:26, col:30> 'int'
+    | |     |     `-ParenExpr 0x5637768b7d88 <./lopcodes.h:88:21, col:63> 'int'
+    | |     |       `-ParenExpr 0x5637768b7d68 <./llimits.h:75:22, col:31> 'int'
+    | |     |         `-CStyleCastExpr 0x5637768b7d40 <col:23, col:30> 'int' <IntegralCast>
+    | |     |           `-ParenExpr 0x5637768b7d20 <col:26, col:30> 'unsigned int'
+    | |     |             `-BinaryOperator 0x5637768b7cb0 <./lopcodes.h:88:32, line:71:49> 'unsigned int' '&'
+    | |     |               |-ParenExpr 0x5637768b7ae8 <line:88:32, col:43> 'Instruction':'unsigned int'
+    | |     |               | `-BinaryOperator 0x5637768b7ac0 <col:33, line:47:31> 'Instruction':'unsigned int' '>>'
+    | |     |               |   |-ImplicitCastExpr 0x5637768b7aa8 <line:88:33, col:35> 'Instruction':'unsigned int' <LValueToRValue>
+    | |     |               |   | `-ParenExpr 0x5637768b7930 <col:33, col:35> 'Instruction':'unsigned int' lvalue
+    | |     |               |   |   `-UnaryOperator 0x5637768b7910 <lcode.c:138:39, col:40> 'Instruction':'unsigned int' lvalue prefix '*'
+    | |     |               |   |     `-ImplicitCastExpr 0x5637768b78f8 <col:40> 'Instruction *' <LValueToRValue>
+    | |     |               |   |       `-DeclRefExpr 0x5637768b78d0 <col:40> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+    | |     |               |   `-ParenExpr 0x5637768b7a88 <./lopcodes.h:47:16, col:31> 'int'
+    | |     |               |     `-BinaryOperator 0x5637768b7a60 <line:46:16, line:37:17> 'int' '+'
+    | |     |               |       |-ParenExpr 0x5637768b7a20 <line:46:16, col:31> 'int'
+    | |     |               |       | `-BinaryOperator 0x5637768b79f8 <line:45:16, line:40:17> 'int' '+'
+    | |     |               |       |   |-ParenExpr 0x5637768b79b8 <line:45:16, col:33> 'int'
+    | |     |               |       |   | `-BinaryOperator 0x5637768b7990 <line:44:17, line:42:18> 'int' '+'
+    | |     |               |       |   |   |-IntegerLiteral 0x5637768b7950 <line:44:17> 'int' 0
+    | |     |               |       |   |   `-IntegerLiteral 0x5637768b7970 <line:42:18> 'int' 6
+    | |     |               |       |   `-IntegerLiteral 0x5637768b79d8 <line:40:17> 'int' 8
+    | |     |               |       `-IntegerLiteral 0x5637768b7a40 <line:37:17> 'int' 9
+    | |     |               `-ParenExpr 0x5637768b7c90 <line:71:20, col:49> 'Instruction':'unsigned int'
+    | |     |                 `-BinaryOperator 0x5637768b7c68 <col:21, line:88:60> 'Instruction':'unsigned int' '<<'
+    | |     |                   |-ParenExpr 0x5637768b7c28 <line:71:21, col:45> 'Instruction':'unsigned int'
+    | |     |                   | `-UnaryOperator 0x5637768b7c08 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+    | |     |                   |   `-ParenExpr 0x5637768b7be8 <col:23, col:44> 'Instruction':'unsigned int'
+    | |     |                   |     `-BinaryOperator 0x5637768b7bc0 <col:24, line:38:17> 'Instruction':'unsigned int' '<<'
+    | |     |                   |       |-ParenExpr 0x5637768b7b80 <line:71:24, col:40> 'Instruction':'unsigned int'
+    | |     |                   |       | `-UnaryOperator 0x5637768b7b60 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+    | |     |                   |       |   `-CStyleCastExpr 0x5637768b7b38 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+    | |     |                   |       |     `-IntegerLiteral 0x5637768b7b08 <col:39> 'int' 0
+    | |     |                   |       `-IntegerLiteral 0x5637768b7ba0 <line:38:17> 'int' 9
+    | |     |                   `-IntegerLiteral 0x5637768b7c48 <line:88:60> 'int' 0
+    | |     `-ParenExpr 0x5637768b7eb8 <line:45:16, col:33> 'int'
+    | |       `-BinaryOperator 0x5637768b7e90 <line:44:17, line:42:18> 'int' '+'
+    | |         |-IntegerLiteral 0x5637768b7e50 <line:44:17> 'int' 0
+    | |         `-IntegerLiteral 0x5637768b7e70 <line:42:18> 'int' 6
+    | `-ParenExpr 0x5637768b8190 <line:106:6, col:34> 'Instruction':'unsigned int'
+    |   `-BinaryOperator 0x5637768b8168 <./llimits.h:75:22, ./lopcodes.h:47:31> 'Instruction':'unsigned int' '<<'
+    |     |-ParenExpr 0x5637768b7ff0 <./llimits.h:75:22, col:31> 'Instruction':'unsigned int'
+    |     | `-CStyleCastExpr 0x5637768b7fc8 <col:23, col:30> 'Instruction':'unsigned int' <IntegralCast>
+    |     |   `-ParenExpr 0x5637768b7fa8 <col:26, col:30> 'int'
+    |     |     `-IntegerLiteral 0x5637768b7f48 <lcode.c:138:44> 'int' 0
+    |     `-ParenExpr 0x5637768b8148 <./lopcodes.h:47:16, col:31> 'int'
+    |       `-BinaryOperator 0x5637768b8120 <line:46:16, line:37:17> 'int' '+'
+    |         |-ParenExpr 0x5637768b80e0 <line:46:16, col:31> 'int'
+    |         | `-BinaryOperator 0x5637768b80b8 <line:45:16, line:40:17> 'int' '+'
+    |         |   |-ParenExpr 0x5637768b8078 <line:45:16, col:33> 'int'
+    |         |   | `-BinaryOperator 0x5637768b8050 <line:44:17, line:42:18> 'int' '+'
+    |         |   |   |-IntegerLiteral 0x5637768b8010 <line:44:17> 'int' 0
+    |         |   |   `-IntegerLiteral 0x5637768b8030 <line:42:18> 'int' 6
+    |         |   `-IntegerLiteral 0x5637768b8098 <line:40:17> 'int' 8
+    |         `-IntegerLiteral 0x5637768b8100 <line:37:17> 'int' 9
+    `-ParenExpr 0x5637768b8808 <line:107:6, col:34> 'Instruction':'unsigned int'
+      `-BinaryOperator 0x5637768b87e0 <./llimits.h:75:22, ./lopcodes.h:46:31> 'Instruction':'unsigned int' '<<'
+        |-ParenExpr 0x5637768b86d0 <./llimits.h:75:22, col:31> 'Instruction':'unsigned int'
+        | `-CStyleCastExpr 0x5637768b86a8 <col:23, col:30> 'Instruction':'unsigned int' <IntegralCast>
+        |   `-ParenExpr 0x5637768b8688 <col:26, col:30> 'int'
+        |     `-ParenExpr 0x5637768b8628 <./lopcodes.h:92:21, col:63> 'int'
+        |       `-ParenExpr 0x5637768b8608 <./llimits.h:75:22, col:31> 'int'
+        |         `-CStyleCastExpr 0x5637768b85e0 <col:23, col:30> 'int' <IntegralCast>
+        |           `-ParenExpr 0x5637768b85c0 <col:26, col:30> 'unsigned int'
+        |             `-BinaryOperator 0x5637768b8550 <./lopcodes.h:92:32, line:71:49> 'unsigned int' '&'
+        |               |-ParenExpr 0x5637768b8388 <line:92:32, col:43> 'Instruction':'unsigned int'
+        |               | `-BinaryOperator 0x5637768b8360 <col:33, line:46:31> 'Instruction':'unsigned int' '>>'
+        |               |   |-ImplicitCastExpr 0x5637768b8348 <line:92:33, col:35> 'Instruction':'unsigned int' <LValueToRValue>
+        |               |   | `-ParenExpr 0x5637768b8238 <col:33, col:35> 'Instruction':'unsigned int' lvalue
+        |               |   |   `-UnaryOperator 0x5637768b8218 <lcode.c:138:56, col:57> 'Instruction':'unsigned int' lvalue prefix '*'
+        |               |   |     `-ImplicitCastExpr 0x5637768b8200 <col:57> 'Instruction *' <LValueToRValue>
+        |               |   |       `-DeclRefExpr 0x5637768b81d8 <col:57> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+        |               |   `-ParenExpr 0x5637768b8328 <./lopcodes.h:46:16, col:31> 'int'
+        |               |     `-BinaryOperator 0x5637768b8300 <line:45:16, line:40:17> 'int' '+'
+        |               |       |-ParenExpr 0x5637768b82c0 <line:45:16, col:33> 'int'
+        |               |       | `-BinaryOperator 0x5637768b8298 <line:44:17, line:42:18> 'int' '+'
+        |               |       |   |-IntegerLiteral 0x5637768b8258 <line:44:17> 'int' 0
+        |               |       |   `-IntegerLiteral 0x5637768b8278 <line:42:18> 'int' 6
+        |               |       `-IntegerLiteral 0x5637768b82e0 <line:40:17> 'int' 8
+        |               `-ParenExpr 0x5637768b8530 <line:71:20, col:49> 'Instruction':'unsigned int'
+        |                 `-BinaryOperator 0x5637768b8508 <col:21, line:92:60> 'Instruction':'unsigned int' '<<'
+        |                   |-ParenExpr 0x5637768b84c8 <line:71:21, col:45> 'Instruction':'unsigned int'
+        |                   | `-UnaryOperator 0x5637768b84a8 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+        |                   |   `-ParenExpr 0x5637768b8488 <col:23, col:44> 'Instruction':'unsigned int'
+        |                   |     `-BinaryOperator 0x5637768b8460 <col:24, line:37:17> 'Instruction':'unsigned int' '<<'
+        |                   |       |-ParenExpr 0x5637768b8420 <line:71:24, col:40> 'Instruction':'unsigned int'
+        |                   |       | `-UnaryOperator 0x5637768b8400 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+        |                   |       |   `-CStyleCastExpr 0x5637768b83d8 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+        |                   |       |     `-IntegerLiteral 0x5637768b83a8 <col:39> 'int' 0
+        |                   |       `-IntegerLiteral 0x5637768b8440 <line:37:17> 'int' 9
+        |                   `-IntegerLiteral 0x5637768b84e8 <line:92:60> 'int' 0
+        `-ParenExpr 0x5637768b87c0 <line:46:16, col:31> 'int'
+          `-BinaryOperator 0x5637768b8798 <line:45:16, line:40:17> 'int' '+'
+            |-ParenExpr 0x5637768b8758 <line:45:16, col:33> 'int'
+            | `-BinaryOperator 0x5637768b8730 <line:44:17, line:42:18> 'int' '+'
+            |   |-IntegerLiteral 0x5637768b86f0 <line:44:17> 'int' 0
+            |   `-IntegerLiteral 0x5637768b8710 <line:42:18> 'int' 6
+            `-IntegerLiteral 0x5637768b8778 <line:40:17> 'int' 8
+[B2.74] = ([B2.71])
+   Preds (2): B4 B5
+   Succs (1): B1
+
+ [B3]
+   1: DeclRefExpr 0x5637768b6f38 <lcode.c:136:15> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+i
+   2: ImplicitCastExpr 0x5637768b6f60 <lcode.c:136:15> 'Instruction *' <LValueToRValue>
+`-DeclRefExpr 0x5637768b6f38 <col:15> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+[B3.1] (ImplicitCastExpr, LValueToRValue, Instruction *)
+   3: UnaryOperator 0x5637768b6f78 <lcode.c:136:14, col:15> 'Instruction':'unsigned int' lvalue prefix '*'
+`-ImplicitCastExpr 0x5637768b6f60 <col:15> 'Instruction *' <LValueToRValue>
+  `-DeclRefExpr 0x5637768b6f38 <col:15> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+*[B3.2]
+   4: ImplicitCastExpr 0x5637768b7208 <./lopcodes.h:85:32, col:34> 'Instruction':'unsigned int' <LValueToRValue>
+`-ParenExpr 0x5637768b6f98 <col:32, col:34> 'Instruction':'unsigned int' lvalue
+  `-UnaryOperator 0x5637768b6f78 <lcode.c:136:14, col:15> 'Instruction':'unsigned int' lvalue prefix '*'
+    `-ImplicitCastExpr 0x5637768b6f60 <col:15> 'Instruction *' <LValueToRValue>
+      `-DeclRefExpr 0x5637768b6f38 <col:15> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+([B3.3]) (ImplicitCastExpr, LValueToRValue, Instruction)
+   5: IntegerLiteral 0x5637768b6fb8 <./lopcodes.h:71:39> 'int' 0
+0
+   6: CStyleCastExpr 0x5637768b6fe8 <./lopcodes.h:71:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+`-IntegerLiteral 0x5637768b6fb8 <col:39> 'int' 0
+(Instruction)[B3.5] (CStyleCastExpr, IntegralCast, Instruction)
+   7: UnaryOperator 0x5637768b7010 <./lopcodes.h:71:25, col:39> 'Instruction':'unsigned int' prefix '~'
+`-CStyleCastExpr 0x5637768b6fe8 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+  `-IntegerLiteral 0x5637768b6fb8 <col:39> 'int' 0
+~[B3.6]
+   8: IntegerLiteral 0x5637768b7050 <./lopcodes.h:40:17> 'int' 8
+8
+   9: BinaryOperator 0x5637768b7070 <./lopcodes.h:71:24, line:40:17> 'Instruction':'unsigned int' '<<'
+|-ParenExpr 0x5637768b7030 <line:71:24, col:40> 'Instruction':'unsigned int'
+| `-UnaryOperator 0x5637768b7010 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+|   `-CStyleCastExpr 0x5637768b6fe8 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+|     `-IntegerLiteral 0x5637768b6fb8 <col:39> 'int' 0
+`-IntegerLiteral 0x5637768b7050 <line:40:17> 'int' 8
+([B3.7]) << [B3.8]
+  10: UnaryOperator 0x5637768b70b8 <./lopcodes.h:71:22, col:44> 'Instruction':'unsigned int' prefix '~'
+`-ParenExpr 0x5637768b7098 <col:23, col:44> 'Instruction':'unsigned int'
+  `-BinaryOperator 0x5637768b7070 <col:24, line:40:17> 'Instruction':'unsigned int' '<<'
+    |-ParenExpr 0x5637768b7030 <line:71:24, col:40> 'Instruction':'unsigned int'
+    | `-UnaryOperator 0x5637768b7010 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+    |   `-CStyleCastExpr 0x5637768b6fe8 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+    |     `-IntegerLiteral 0x5637768b6fb8 <col:39> 'int' 0
+    `-IntegerLiteral 0x5637768b7050 <line:40:17> 'int' 8
+~([B3.9])
+  11: IntegerLiteral 0x5637768b70f8 <./lopcodes.h:44:17> 'int' 0
+0
+  12: IntegerLiteral 0x5637768b7118 <./lopcodes.h:42:18> 'int' 6
+6
+  13: BinaryOperator 0x5637768b7138 <./lopcodes.h:44:17, line:42:18> 'int' '+'
+|-IntegerLiteral 0x5637768b70f8 <line:44:17> 'int' 0
+`-IntegerLiteral 0x5637768b7118 <line:42:18> 'int' 6
+[B3.11] + [B3.12]
+  14: BinaryOperator 0x5637768b7180 <./lopcodes.h:71:21, line:45:33> 'Instruction':'unsigned int' '<<'
+|-ParenExpr 0x5637768b70d8 <line:71:21, col:45> 'Instruction':'unsigned int'
+| `-UnaryOperator 0x5637768b70b8 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+|   `-ParenExpr 0x5637768b7098 <col:23, col:44> 'Instruction':'unsigned int'
+|     `-BinaryOperator 0x5637768b7070 <col:24, line:40:17> 'Instruction':'unsigned int' '<<'
+|       |-ParenExpr 0x5637768b7030 <line:71:24, col:40> 'Instruction':'unsigned int'
+|       | `-UnaryOperator 0x5637768b7010 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+|       |   `-CStyleCastExpr 0x5637768b6fe8 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+|       |     `-IntegerLiteral 0x5637768b6fb8 <col:39> 'int' 0
+|       `-IntegerLiteral 0x5637768b7050 <line:40:17> 'int' 8
+`-ParenExpr 0x5637768b7160 <line:45:16, col:33> 'int'
+  `-BinaryOperator 0x5637768b7138 <line:44:17, line:42:18> 'int' '+'
+    |-IntegerLiteral 0x5637768b70f8 <line:44:17> 'int' 0
+    `-IntegerLiteral 0x5637768b7118 <line:42:18> 'int' 6
+([B3.10]) << ([B3.13])
+  15: UnaryOperator 0x5637768b71c8 <./lopcodes.h:74:21, line:71:49> 'Instruction':'unsigned int' prefix '~'
+`-ParenExpr 0x5637768b71a8 <col:20, col:49> 'Instruction':'unsigned int'
+  `-BinaryOperator 0x5637768b7180 <col:21, line:45:33> 'Instruction':'unsigned int' '<<'
+    |-ParenExpr 0x5637768b70d8 <line:71:21, col:45> 'Instruction':'unsigned int'
+    | `-UnaryOperator 0x5637768b70b8 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+    |   `-ParenExpr 0x5637768b7098 <col:23, col:44> 'Instruction':'unsigned int'
+    |     `-BinaryOperator 0x5637768b7070 <col:24, line:40:17> 'Instruction':'unsigned int' '<<'
+    |       |-ParenExpr 0x5637768b7030 <line:71:24, col:40> 'Instruction':'unsigned int'
+    |       | `-UnaryOperator 0x5637768b7010 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+    |       |   `-CStyleCastExpr 0x5637768b6fe8 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+    |       |     `-IntegerLiteral 0x5637768b6fb8 <col:39> 'int' 0
+    |       `-IntegerLiteral 0x5637768b7050 <line:40:17> 'int' 8
+    `-ParenExpr 0x5637768b7160 <line:45:16, col:33> 'int'
+      `-BinaryOperator 0x5637768b7138 <line:44:17, line:42:18> 'int' '+'
+        |-IntegerLiteral 0x5637768b70f8 <line:44:17> 'int' 0
+        `-IntegerLiteral 0x5637768b7118 <line:42:18> 'int' 6
+~([B3.14])
+  16: BinaryOperator 0x5637768b7220 <./lopcodes.h:85:32, line:74:32> 'unsigned int' '&'
+|-ImplicitCastExpr 0x5637768b7208 <line:85:32, col:34> 'Instruction':'unsigned int' <LValueToRValue>
+| `-ParenExpr 0x5637768b6f98 <col:32, col:34> 'Instruction':'unsigned int' lvalue
+|   `-UnaryOperator 0x5637768b6f78 <lcode.c:136:14, col:15> 'Instruction':'unsigned int' lvalue prefix '*'
+|     `-ImplicitCastExpr 0x5637768b6f60 <col:15> 'Instruction *' <LValueToRValue>
+|       `-DeclRefExpr 0x5637768b6f38 <col:15> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+`-ParenExpr 0x5637768b71e8 <./lopcodes.h:74:20, col:32> 'Instruction':'unsigned int'
+  `-UnaryOperator 0x5637768b71c8 <col:21, line:71:49> 'Instruction':'unsigned int' prefix '~'
+    `-ParenExpr 0x5637768b71a8 <col:20, col:49> 'Instruction':'unsigned int'
+      `-BinaryOperator 0x5637768b7180 <col:21, line:45:33> 'Instruction':'unsigned int' '<<'
+        |-ParenExpr 0x5637768b70d8 <line:71:21, col:45> 'Instruction':'unsigned int'
+        | `-UnaryOperator 0x5637768b70b8 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+        |   `-ParenExpr 0x5637768b7098 <col:23, col:44> 'Instruction':'unsigned int'
+        |     `-BinaryOperator 0x5637768b7070 <col:24, line:40:17> 'Instruction':'unsigned int' '<<'
+        |       |-ParenExpr 0x5637768b7030 <line:71:24, col:40> 'Instruction':'unsigned int'
+        |       | `-UnaryOperator 0x5637768b7010 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+        |       |   `-CStyleCastExpr 0x5637768b6fe8 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+        |       |     `-IntegerLiteral 0x5637768b6fb8 <col:39> 'int' 0
+        |       `-IntegerLiteral 0x5637768b7050 <line:40:17> 'int' 8
+        `-ParenExpr 0x5637768b7160 <line:45:16, col:33> 'int'
+          `-BinaryOperator 0x5637768b7138 <line:44:17, line:42:18> 'int' '+'
+            |-IntegerLiteral 0x5637768b70f8 <line:44:17> 'int' 0
+            `-IntegerLiteral 0x5637768b7118 <line:42:18> 'int' 6
+[B3.4] & ([B3.15])
+  17: DeclRefExpr 0x5637768b7268 <lcode.c:136:18> 'int' lvalue ParmVar 0x5637768b5ff8 'reg' 'int'
+reg
+  18: ImplicitCastExpr 0x5637768b72f0 <./llimits.h:75:26, col:30> 'int' <LValueToRValue>
+`-ParenExpr 0x5637768b72d0 <col:26, col:30> 'int' lvalue
+  `-DeclRefExpr 0x5637768b7268 <lcode.c:136:18> 'int' lvalue ParmVar 0x5637768b5ff8 'reg' 'int'
+([B3.17]) (ImplicitCastExpr, LValueToRValue, int)
+  19: CStyleCastExpr 0x5637768b7308 <./llimits.h:75:23, col:30> 'Instruction':'unsigned int' <IntegralCast>
+`-ImplicitCastExpr 0x5637768b72f0 <col:26, col:30> 'int' <LValueToRValue>
+  `-ParenExpr 0x5637768b72d0 <col:26, col:30> 'int' lvalue
+    `-DeclRefExpr 0x5637768b7268 <lcode.c:136:18> 'int' lvalue ParmVar 0x5637768b5ff8 'reg' 'int'
+(Instruction)[B3.18] (CStyleCastExpr, IntegralCast, Instruction)
+  20: IntegerLiteral 0x5637768b7350 <./lopcodes.h:44:17> 'int' 0
+0
+  21: IntegerLiteral 0x5637768b7370 <./lopcodes.h:42:18> 'int' 6
+6
+  22: BinaryOperator 0x5637768b7390 <./lopcodes.h:44:17, line:42:18> 'int' '+'
+|-IntegerLiteral 0x5637768b7350 <line:44:17> 'int' 0
+`-IntegerLiteral 0x5637768b7370 <line:42:18> 'int' 6
+[B3.20] + [B3.21]
+  23: BinaryOperator 0x5637768b73d8 <./llimits.h:75:22, ./lopcodes.h:45:33> 'Instruction':'unsigned int' '<<'
+|-ParenExpr 0x5637768b7330 <./llimits.h:75:22, col:31> 'Instruction':'unsigned int'
+| `-CStyleCastExpr 0x5637768b7308 <col:23, col:30> 'Instruction':'unsigned int' <IntegralCast>
+|   `-ImplicitCastExpr 0x5637768b72f0 <col:26, col:30> 'int' <LValueToRValue>
+|     `-ParenExpr 0x5637768b72d0 <col:26, col:30> 'int' lvalue
+|       `-DeclRefExpr 0x5637768b7268 <lcode.c:136:18> 'int' lvalue ParmVar 0x5637768b5ff8 'reg' 'int'
+`-ParenExpr 0x5637768b73b8 <./lopcodes.h:45:16, col:33> 'int'
+  `-BinaryOperator 0x5637768b7390 <line:44:17, line:42:18> 'int' '+'
+    |-IntegerLiteral 0x5637768b7350 <line:44:17> 'int' 0
+    `-IntegerLiteral 0x5637768b7370 <line:42:18> 'int' 6
+([B3.19]) << ([B3.22])
+  24: IntegerLiteral 0x5637768b7420 <./lopcodes.h:71:39> 'int' 0
+0
+  25: CStyleCastExpr 0x5637768b7450 <./lopcodes.h:71:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+`-IntegerLiteral 0x5637768b7420 <col:39> 'int' 0
+(Instruction)[B3.24] (CStyleCastExpr, IntegralCast, Instruction)
+  26: UnaryOperator 0x5637768b7478 <./lopcodes.h:71:25, col:39> 'Instruction':'unsigned int' prefix '~'
+`-CStyleCastExpr 0x5637768b7450 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+  `-IntegerLiteral 0x5637768b7420 <col:39> 'int' 0
+~[B3.25]
+  27: IntegerLiteral 0x5637768b74b8 <./lopcodes.h:40:17> 'int' 8
+8
+  28: BinaryOperator 0x5637768b74d8 <./lopcodes.h:71:24, line:40:17> 'Instruction':'unsigned int' '<<'
+|-ParenExpr 0x5637768b7498 <line:71:24, col:40> 'Instruction':'unsigned int'
+| `-UnaryOperator 0x5637768b7478 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+|   `-CStyleCastExpr 0x5637768b7450 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+|     `-IntegerLiteral 0x5637768b7420 <col:39> 'int' 0
+`-IntegerLiteral 0x5637768b74b8 <line:40:17> 'int' 8
+([B3.26]) << [B3.27]
+  29: UnaryOperator 0x5637768b7520 <./lopcodes.h:71:22, col:44> 'Instruction':'unsigned int' prefix '~'
+`-ParenExpr 0x5637768b7500 <col:23, col:44> 'Instruction':'unsigned int'
+  `-BinaryOperator 0x5637768b74d8 <col:24, line:40:17> 'Instruction':'unsigned int' '<<'
+    |-ParenExpr 0x5637768b7498 <line:71:24, col:40> 'Instruction':'unsigned int'
+    | `-UnaryOperator 0x5637768b7478 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+    |   `-CStyleCastExpr 0x5637768b7450 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+    |     `-IntegerLiteral 0x5637768b7420 <col:39> 'int' 0
+    `-IntegerLiteral 0x5637768b74b8 <line:40:17> 'int' 8
+~([B3.28])
+  30: IntegerLiteral 0x5637768b7560 <./lopcodes.h:44:17> 'int' 0
+0
+  31: IntegerLiteral 0x5637768b7580 <./lopcodes.h:42:18> 'int' 6
+6
+  32: BinaryOperator 0x5637768b75d0 <./lopcodes.h:44:17, line:42:18> 'int' '+'
+|-IntegerLiteral 0x5637768b7560 <line:44:17> 'int' 0
+`-IntegerLiteral 0x5637768b7580 <line:42:18> 'int' 6
+[B3.30] + [B3.31]
+  33: BinaryOperator 0x5637768b7618 <./lopcodes.h:71:21, line:45:33> 'Instruction':'unsigned int' '<<'
+|-ParenExpr 0x5637768b7540 <line:71:21, col:45> 'Instruction':'unsigned int'
+| `-UnaryOperator 0x5637768b7520 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+|   `-ParenExpr 0x5637768b7500 <col:23, col:44> 'Instruction':'unsigned int'
+|     `-BinaryOperator 0x5637768b74d8 <col:24, line:40:17> 'Instruction':'unsigned int' '<<'
+|       |-ParenExpr 0x5637768b7498 <line:71:24, col:40> 'Instruction':'unsigned int'
+|       | `-UnaryOperator 0x5637768b7478 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+|       |   `-CStyleCastExpr 0x5637768b7450 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+|       |     `-IntegerLiteral 0x5637768b7420 <col:39> 'int' 0
+|       `-IntegerLiteral 0x5637768b74b8 <line:40:17> 'int' 8
+`-ParenExpr 0x5637768b75f8 <line:45:16, col:33> 'int'
+  `-BinaryOperator 0x5637768b75d0 <line:44:17, line:42:18> 'int' '+'
+    |-IntegerLiteral 0x5637768b7560 <line:44:17> 'int' 0
+    `-IntegerLiteral 0x5637768b7580 <line:42:18> 'int' 6
+([B3.29]) << ([B3.32])
+  34: BinaryOperator 0x5637768b7660 <./lopcodes.h:86:4, line:71:49> 'unsigned int' '&'
+|-ParenExpr 0x5637768b7400 <line:86:4, col:32> 'Instruction':'unsigned int'
+| `-BinaryOperator 0x5637768b73d8 <./llimits.h:75:22, ./lopcodes.h:45:33> 'Instruction':'unsigned int' '<<'
+|   |-ParenExpr 0x5637768b7330 <./llimits.h:75:22, col:31> 'Instruction':'unsigned int'
+|   | `-CStyleCastExpr 0x5637768b7308 <col:23, col:30> 'Instruction':'unsigned int' <IntegralCast>
+|   |   `-ImplicitCastExpr 0x5637768b72f0 <col:26, col:30> 'int' <LValueToRValue>
+|   |     `-ParenExpr 0x5637768b72d0 <col:26, col:30> 'int' lvalue
+|   |       `-DeclRefExpr 0x5637768b7268 <lcode.c:136:18> 'int' lvalue ParmVar 0x5637768b5ff8 'reg' 'int'
+|   `-ParenExpr 0x5637768b73b8 <./lopcodes.h:45:16, col:33> 'int'
+|     `-BinaryOperator 0x5637768b7390 <line:44:17, line:42:18> 'int' '+'
+|       |-IntegerLiteral 0x5637768b7350 <line:44:17> 'int' 0
+|       `-IntegerLiteral 0x5637768b7370 <line:42:18> 'int' 6
+`-ParenExpr 0x5637768b7640 <line:71:20, col:49> 'Instruction':'unsigned int'
+  `-BinaryOperator 0x5637768b7618 <col:21, line:45:33> 'Instruction':'unsigned int' '<<'
+    |-ParenExpr 0x5637768b7540 <line:71:21, col:45> 'Instruction':'unsigned int'
+    | `-UnaryOperator 0x5637768b7520 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+    |   `-ParenExpr 0x5637768b7500 <col:23, col:44> 'Instruction':'unsigned int'
+    |     `-BinaryOperator 0x5637768b74d8 <col:24, line:40:17> 'Instruction':'unsigned int' '<<'
+    |       |-ParenExpr 0x5637768b7498 <line:71:24, col:40> 'Instruction':'unsigned int'
+    |       | `-UnaryOperator 0x5637768b7478 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+    |       |   `-CStyleCastExpr 0x5637768b7450 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+    |       |     `-IntegerLiteral 0x5637768b7420 <col:39> 'int' 0
+    |       `-IntegerLiteral 0x5637768b74b8 <line:40:17> 'int' 8
+    `-ParenExpr 0x5637768b75f8 <line:45:16, col:33> 'int'
+      `-BinaryOperator 0x5637768b75d0 <line:44:17, line:42:18> 'int' '+'
+        |-IntegerLiteral 0x5637768b7560 <line:44:17> 'int' 0
+        `-IntegerLiteral 0x5637768b7580 <line:42:18> 'int' 6
+([B3.23]) & ([B3.33])
+  35: BinaryOperator 0x5637768b76a8 <./lopcodes.h:85:31, line:86:53> 'unsigned int' '|'
+|-ParenExpr 0x5637768b7248 <line:85:31, col:55> 'unsigned int'
+| `-BinaryOperator 0x5637768b7220 <col:32, line:74:32> 'unsigned int' '&'
+|   |-ImplicitCastExpr 0x5637768b7208 <line:85:32, col:34> 'Instruction':'unsigned int' <LValueToRValue>
+|   | `-ParenExpr 0x5637768b6f98 <col:32, col:34> 'Instruction':'unsigned int' lvalue
+|   |   `-UnaryOperator 0x5637768b6f78 <lcode.c:136:14, col:15> 'Instruction':'unsigned int' lvalue prefix '*'
+|   |     `-ImplicitCastExpr 0x5637768b6f60 <col:15> 'Instruction *' <LValueToRValue>
+|   |       `-DeclRefExpr 0x5637768b6f38 <col:15> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+|   `-ParenExpr 0x5637768b71e8 <./lopcodes.h:74:20, col:32> 'Instruction':'unsigned int'
+|     `-UnaryOperator 0x5637768b71c8 <col:21, line:71:49> 'Instruction':'unsigned int' prefix '~'
+|       `-ParenExpr 0x5637768b71a8 <col:20, col:49> 'Instruction':'unsigned int'
+|         `-BinaryOperator 0x5637768b7180 <col:21, line:45:33> 'Instruction':'unsigned int' '<<'
+|           |-ParenExpr 0x5637768b70d8 <line:71:21, col:45> 'Instruction':'unsigned int'
+|           | `-UnaryOperator 0x5637768b70b8 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+|           |   `-ParenExpr 0x5637768b7098 <col:23, col:44> 'Instruction':'unsigned int'
+|           |     `-BinaryOperator 0x5637768b7070 <col:24, line:40:17> 'Instruction':'unsigned int' '<<'
+|           |       |-ParenExpr 0x5637768b7030 <line:71:24, col:40> 'Instruction':'unsigned int'
+|           |       | `-UnaryOperator 0x5637768b7010 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+|           |       |   `-CStyleCastExpr 0x5637768b6fe8 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+|           |       |     `-IntegerLiteral 0x5637768b6fb8 <col:39> 'int' 0
+|           |       `-IntegerLiteral 0x5637768b7050 <line:40:17> 'int' 8
+|           `-ParenExpr 0x5637768b7160 <line:45:16, col:33> 'int'
+|             `-BinaryOperator 0x5637768b7138 <line:44:17, line:42:18> 'int' '+'
+|               |-IntegerLiteral 0x5637768b70f8 <line:44:17> 'int' 0
+|               `-IntegerLiteral 0x5637768b7118 <line:42:18> 'int' 6
+`-ParenExpr 0x5637768b7688 <line:86:3, col:53> 'unsigned int'
+  `-BinaryOperator 0x5637768b7660 <col:4, line:71:49> 'unsigned int' '&'
+    |-ParenExpr 0x5637768b7400 <line:86:4, col:32> 'Instruction':'unsigned int'
+    | `-BinaryOperator 0x5637768b73d8 <./llimits.h:75:22, ./lopcodes.h:45:33> 'Instruction':'unsigned int' '<<'
+    |   |-ParenExpr 0x5637768b7330 <./llimits.h:75:22, col:31> 'Instruction':'unsigned int'
+    |   | `-CStyleCastExpr 0x5637768b7308 <col:23, col:30> 'Instruction':'unsigned int' <IntegralCast>
+    |   |   `-ImplicitCastExpr 0x5637768b72f0 <col:26, col:30> 'int' <LValueToRValue>
+    |   |     `-ParenExpr 0x5637768b72d0 <col:26, col:30> 'int' lvalue
+    |   |       `-DeclRefExpr 0x5637768b7268 <lcode.c:136:18> 'int' lvalue ParmVar 0x5637768b5ff8 'reg' 'int'
+    |   `-ParenExpr 0x5637768b73b8 <./lopcodes.h:45:16, col:33> 'int'
+    |     `-BinaryOperator 0x5637768b7390 <line:44:17, line:42:18> 'int' '+'
+    |       |-IntegerLiteral 0x5637768b7350 <line:44:17> 'int' 0
+    |       `-IntegerLiteral 0x5637768b7370 <line:42:18> 'int' 6
+    `-ParenExpr 0x5637768b7640 <line:71:20, col:49> 'Instruction':'unsigned int'
+      `-BinaryOperator 0x5637768b7618 <col:21, line:45:33> 'Instruction':'unsigned int' '<<'
+        |-ParenExpr 0x5637768b7540 <line:71:21, col:45> 'Instruction':'unsigned int'
+        | `-UnaryOperator 0x5637768b7520 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+        |   `-ParenExpr 0x5637768b7500 <col:23, col:44> 'Instruction':'unsigned int'
+        |     `-BinaryOperator 0x5637768b74d8 <col:24, line:40:17> 'Instruction':'unsigned int' '<<'
+        |       |-ParenExpr 0x5637768b7498 <line:71:24, col:40> 'Instruction':'unsigned int'
+        |       | `-UnaryOperator 0x5637768b7478 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+        |       |   `-CStyleCastExpr 0x5637768b7450 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+        |       |     `-IntegerLiteral 0x5637768b7420 <col:39> 'int' 0
+        |       `-IntegerLiteral 0x5637768b74b8 <line:40:17> 'int' 8
+        `-ParenExpr 0x5637768b75f8 <line:45:16, col:33> 'int'
+          `-BinaryOperator 0x5637768b75d0 <line:44:17, line:42:18> 'int' '+'
+            |-IntegerLiteral 0x5637768b7560 <line:44:17> 'int' 0
+            `-IntegerLiteral 0x5637768b7580 <line:42:18> 'int' 6
+([B3.16]) | ([B3.34])
+  36: DeclRefExpr 0x5637768b6eb8 <lcode.c:136:15> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+i
+  37: ImplicitCastExpr 0x5637768b6ee0 <lcode.c:136:15> 'Instruction *' <LValueToRValue>
+`-DeclRefExpr 0x5637768b6eb8 <col:15> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+[B3.36] (ImplicitCastExpr, LValueToRValue, Instruction *)
+  38: UnaryOperator 0x5637768b6ef8 <lcode.c:136:14, col:15> 'Instruction':'unsigned int' lvalue prefix '*'
+`-ImplicitCastExpr 0x5637768b6ee0 <col:15> 'Instruction *' <LValueToRValue>
+  `-DeclRefExpr 0x5637768b6eb8 <col:15> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+*[B3.37]
+  39: BinaryOperator 0x5637768b76f0 <./lopcodes.h:85:24, line:86:54> 'Instruction':'unsigned int' '='
+|-ParenExpr 0x5637768b6f18 <line:85:24, col:26> 'Instruction':'unsigned int' lvalue
+| `-UnaryOperator 0x5637768b6ef8 <lcode.c:136:14, col:15> 'Instruction':'unsigned int' lvalue prefix '*'
+|   `-ImplicitCastExpr 0x5637768b6ee0 <col:15> 'Instruction *' <LValueToRValue>
+|     `-DeclRefExpr 0x5637768b6eb8 <col:15> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+`-ParenExpr 0x5637768b76d0 <./lopcodes.h:85:30, line:86:54> 'unsigned int'
+  `-BinaryOperator 0x5637768b76a8 <line:85:31, line:86:53> 'unsigned int' '|'
+    |-ParenExpr 0x5637768b7248 <line:85:31, col:55> 'unsigned int'
+    | `-BinaryOperator 0x5637768b7220 <col:32, line:74:32> 'unsigned int' '&'
+    |   |-ImplicitCastExpr 0x5637768b7208 <line:85:32, col:34> 'Instruction':'unsigned int' <LValueToRValue>
+    |   | `-ParenExpr 0x5637768b6f98 <col:32, col:34> 'Instruction':'unsigned int' lvalue
+    |   |   `-UnaryOperator 0x5637768b6f78 <lcode.c:136:14, col:15> 'Instruction':'unsigned int' lvalue prefix '*'
+    |   |     `-ImplicitCastExpr 0x5637768b6f60 <col:15> 'Instruction *' <LValueToRValue>
+    |   |       `-DeclRefExpr 0x5637768b6f38 <col:15> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+    |   `-ParenExpr 0x5637768b71e8 <./lopcodes.h:74:20, col:32> 'Instruction':'unsigned int'
+    |     `-UnaryOperator 0x5637768b71c8 <col:21, line:71:49> 'Instruction':'unsigned int' prefix '~'
+    |       `-ParenExpr 0x5637768b71a8 <col:20, col:49> 'Instruction':'unsigned int'
+    |         `-BinaryOperator 0x5637768b7180 <col:21, line:45:33> 'Instruction':'unsigned int' '<<'
+    |           |-ParenExpr 0x5637768b70d8 <line:71:21, col:45> 'Instruction':'unsigned int'
+    |           | `-UnaryOperator 0x5637768b70b8 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+    |           |   `-ParenExpr 0x5637768b7098 <col:23, col:44> 'Instruction':'unsigned int'
+    |           |     `-BinaryOperator 0x5637768b7070 <col:24, line:40:17> 'Instruction':'unsigned int' '<<'
+    |           |       |-ParenExpr 0x5637768b7030 <line:71:24, col:40> 'Instruction':'unsigned int'
+    |           |       | `-UnaryOperator 0x5637768b7010 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+    |           |       |   `-CStyleCastExpr 0x5637768b6fe8 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+    |           |       |     `-IntegerLiteral 0x5637768b6fb8 <col:39> 'int' 0
+    |           |       `-IntegerLiteral 0x5637768b7050 <line:40:17> 'int' 8
+    |           `-ParenExpr 0x5637768b7160 <line:45:16, col:33> 'int'
+    |             `-BinaryOperator 0x5637768b7138 <line:44:17, line:42:18> 'int' '+'
+    |               |-IntegerLiteral 0x5637768b70f8 <line:44:17> 'int' 0
+    |               `-IntegerLiteral 0x5637768b7118 <line:42:18> 'int' 6
+    `-ParenExpr 0x5637768b7688 <line:86:3, col:53> 'unsigned int'
+      `-BinaryOperator 0x5637768b7660 <col:4, line:71:49> 'unsigned int' '&'
+        |-ParenExpr 0x5637768b7400 <line:86:4, col:32> 'Instruction':'unsigned int'
+        | `-BinaryOperator 0x5637768b73d8 <./llimits.h:75:22, ./lopcodes.h:45:33> 'Instruction':'unsigned int' '<<'
+        |   |-ParenExpr 0x5637768b7330 <./llimits.h:75:22, col:31> 'Instruction':'unsigned int'
+        |   | `-CStyleCastExpr 0x5637768b7308 <col:23, col:30> 'Instruction':'unsigned int' <IntegralCast>
+        |   |   `-ImplicitCastExpr 0x5637768b72f0 <col:26, col:30> 'int' <LValueToRValue>
+        |   |     `-ParenExpr 0x5637768b72d0 <col:26, col:30> 'int' lvalue
+        |   |       `-DeclRefExpr 0x5637768b7268 <lcode.c:136:18> 'int' lvalue ParmVar 0x5637768b5ff8 'reg' 'int'
+        |   `-ParenExpr 0x5637768b73b8 <./lopcodes.h:45:16, col:33> 'int'
+        |     `-BinaryOperator 0x5637768b7390 <line:44:17, line:42:18> 'int' '+'
+        |       |-IntegerLiteral 0x5637768b7350 <line:44:17> 'int' 0
+        |       `-IntegerLiteral 0x5637768b7370 <line:42:18> 'int' 6
+        `-ParenExpr 0x5637768b7640 <line:71:20, col:49> 'Instruction':'unsigned int'
+          `-BinaryOperator 0x5637768b7618 <col:21, line:45:33> 'Instruction':'unsigned int' '<<'
+            |-ParenExpr 0x5637768b7540 <line:71:21, col:45> 'Instruction':'unsigned int'
+            | `-UnaryOperator 0x5637768b7520 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+            |   `-ParenExpr 0x5637768b7500 <col:23, col:44> 'Instruction':'unsigned int'
+            |     `-BinaryOperator 0x5637768b74d8 <col:24, line:40:17> 'Instruction':'unsigned int' '<<'
+            |       |-ParenExpr 0x5637768b7498 <line:71:24, col:40> 'Instruction':'unsigned int'
+            |       | `-UnaryOperator 0x5637768b7478 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+            |       |   `-CStyleCastExpr 0x5637768b7450 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+            |       |     `-IntegerLiteral 0x5637768b7420 <col:39> 'int' 0
+            |       `-IntegerLiteral 0x5637768b74b8 <line:40:17> 'int' 8
+            `-ParenExpr 0x5637768b75f8 <line:45:16, col:33> 'int'
+              `-BinaryOperator 0x5637768b75d0 <line:44:17, line:42:18> 'int' '+'
+                |-IntegerLiteral 0x5637768b7560 <line:44:17> 'int' 0
+                `-IntegerLiteral 0x5637768b7580 <line:42:18> 'int' 6
+([B3.38]) = ([B3.35])
+   Preds (1): B4
+   Succs (1): B1
+
+ [B4]
+   1: DeclRefExpr 0x5637768b6950 <lcode.c:135:24> 'int' lvalue ParmVar 0x5637768b5ff8 'reg' 'int'
+reg
+   2: ImplicitCastExpr 0x5637768b6e50 <lcode.c:135:24> 'int' <LValueToRValue>
+`-DeclRefExpr 0x5637768b6950 <col:24> 'int' lvalue ParmVar 0x5637768b5ff8 'reg' 'int'
+[B4.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: DeclRefExpr 0x5637768b6978 <lcode.c:135:41> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+i
+   4: ImplicitCastExpr 0x5637768b69a0 <lcode.c:135:41> 'Instruction *' <LValueToRValue>
+`-DeclRefExpr 0x5637768b6978 <col:41> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+[B4.3] (ImplicitCastExpr, LValueToRValue, Instruction *)
+   5: UnaryOperator 0x5637768b69b8 <lcode.c:135:40, col:41> 'Instruction':'unsigned int' lvalue prefix '*'
+`-ImplicitCastExpr 0x5637768b69a0 <col:41> 'Instruction *' <LValueToRValue>
+  `-DeclRefExpr 0x5637768b6978 <col:41> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+*[B4.4]
+   6: ImplicitCastExpr 0x5637768b6b50 <./lopcodes.h:88:33, col:35> 'Instruction':'unsigned int' <LValueToRValue>
+`-ParenExpr 0x5637768b69d8 <col:33, col:35> 'Instruction':'unsigned int' lvalue
+  `-UnaryOperator 0x5637768b69b8 <lcode.c:135:40, col:41> 'Instruction':'unsigned int' lvalue prefix '*'
+    `-ImplicitCastExpr 0x5637768b69a0 <col:41> 'Instruction *' <LValueToRValue>
+      `-DeclRefExpr 0x5637768b6978 <col:41> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+([B4.5]) (ImplicitCastExpr, LValueToRValue, Instruction)
+   7: IntegerLiteral 0x5637768b69f8 <./lopcodes.h:44:17> 'int' 0
+0
+   8: IntegerLiteral 0x5637768b6a18 <./lopcodes.h:42:18> 'int' 6
+6
+   9: BinaryOperator 0x5637768b6a38 <./lopcodes.h:44:17, line:42:18> 'int' '+'
+|-IntegerLiteral 0x5637768b69f8 <line:44:17> 'int' 0
+`-IntegerLiteral 0x5637768b6a18 <line:42:18> 'int' 6
+[B4.7] + [B4.8]
+  10: IntegerLiteral 0x5637768b6a80 <./lopcodes.h:40:17> 'int' 8
+8
+  11: BinaryOperator 0x5637768b6aa0 <./lopcodes.h:45:16, line:40:17> 'int' '+'
+|-ParenExpr 0x5637768b6a60 <line:45:16, col:33> 'int'
+| `-BinaryOperator 0x5637768b6a38 <line:44:17, line:42:18> 'int' '+'
+|   |-IntegerLiteral 0x5637768b69f8 <line:44:17> 'int' 0
+|   `-IntegerLiteral 0x5637768b6a18 <line:42:18> 'int' 6
+`-IntegerLiteral 0x5637768b6a80 <line:40:17> 'int' 8
+([B4.9]) + [B4.10]
+  12: IntegerLiteral 0x5637768b6ae8 <./lopcodes.h:37:17> 'int' 9
+9
+  13: BinaryOperator 0x5637768b6b08 <./lopcodes.h:46:16, line:37:17> 'int' '+'
+|-ParenExpr 0x5637768b6ac8 <line:46:16, col:31> 'int'
+| `-BinaryOperator 0x5637768b6aa0 <line:45:16, line:40:17> 'int' '+'
+|   |-ParenExpr 0x5637768b6a60 <line:45:16, col:33> 'int'
+|   | `-BinaryOperator 0x5637768b6a38 <line:44:17, line:42:18> 'int' '+'
+|   |   |-IntegerLiteral 0x5637768b69f8 <line:44:17> 'int' 0
+|   |   `-IntegerLiteral 0x5637768b6a18 <line:42:18> 'int' 6
+|   `-IntegerLiteral 0x5637768b6a80 <line:40:17> 'int' 8
+`-IntegerLiteral 0x5637768b6ae8 <line:37:17> 'int' 9
+([B4.11]) + [B4.12]
+  14: BinaryOperator 0x5637768b6b68 <./lopcodes.h:88:33, line:47:31> 'Instruction':'unsigned int' '>>'
+|-ImplicitCastExpr 0x5637768b6b50 <line:88:33, col:35> 'Instruction':'unsigned int' <LValueToRValue>
+| `-ParenExpr 0x5637768b69d8 <col:33, col:35> 'Instruction':'unsigned int' lvalue
+|   `-UnaryOperator 0x5637768b69b8 <lcode.c:135:40, col:41> 'Instruction':'unsigned int' lvalue prefix '*'
+|     `-ImplicitCastExpr 0x5637768b69a0 <col:41> 'Instruction *' <LValueToRValue>
+|       `-DeclRefExpr 0x5637768b6978 <col:41> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+`-ParenExpr 0x5637768b6b30 <./lopcodes.h:47:16, col:31> 'int'
+  `-BinaryOperator 0x5637768b6b08 <line:46:16, line:37:17> 'int' '+'
+    |-ParenExpr 0x5637768b6ac8 <line:46:16, col:31> 'int'
+    | `-BinaryOperator 0x5637768b6aa0 <line:45:16, line:40:17> 'int' '+'
+    |   |-ParenExpr 0x5637768b6a60 <line:45:16, col:33> 'int'
+    |   | `-BinaryOperator 0x5637768b6a38 <line:44:17, line:42:18> 'int' '+'
+    |   |   |-IntegerLiteral 0x5637768b69f8 <line:44:17> 'int' 0
+    |   |   `-IntegerLiteral 0x5637768b6a18 <line:42:18> 'int' 6
+    |   `-IntegerLiteral 0x5637768b6a80 <line:40:17> 'int' 8
+    `-IntegerLiteral 0x5637768b6ae8 <line:37:17> 'int' 9
+[B4.6] >> ([B4.13])
+  15: IntegerLiteral 0x5637768b6bb0 <./lopcodes.h:71:39> 'int' 0
+0
+  16: CStyleCastExpr 0x5637768b6be0 <./lopcodes.h:71:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+`-IntegerLiteral 0x5637768b6bb0 <col:39> 'int' 0
+(Instruction)[B4.15] (CStyleCastExpr, IntegralCast, Instruction)
+  17: UnaryOperator 0x5637768b6c08 <./lopcodes.h:71:25, col:39> 'Instruction':'unsigned int' prefix '~'
+`-CStyleCastExpr 0x5637768b6be0 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+  `-IntegerLiteral 0x5637768b6bb0 <col:39> 'int' 0
+~[B4.16]
+  18: IntegerLiteral 0x5637768b6c48 <./lopcodes.h:38:17> 'int' 9
+9
+  19: BinaryOperator 0x5637768b6c68 <./lopcodes.h:71:24, line:38:17> 'Instruction':'unsigned int' '<<'
+|-ParenExpr 0x5637768b6c28 <line:71:24, col:40> 'Instruction':'unsigned int'
+| `-UnaryOperator 0x5637768b6c08 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+|   `-CStyleCastExpr 0x5637768b6be0 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+|     `-IntegerLiteral 0x5637768b6bb0 <col:39> 'int' 0
+`-IntegerLiteral 0x5637768b6c48 <line:38:17> 'int' 9
+([B4.17]) << [B4.18]
+  20: UnaryOperator 0x5637768b6cb0 <./lopcodes.h:71:22, col:44> 'Instruction':'unsigned int' prefix '~'
+`-ParenExpr 0x5637768b6c90 <col:23, col:44> 'Instruction':'unsigned int'
+  `-BinaryOperator 0x5637768b6c68 <col:24, line:38:17> 'Instruction':'unsigned int' '<<'
+    |-ParenExpr 0x5637768b6c28 <line:71:24, col:40> 'Instruction':'unsigned int'
+    | `-UnaryOperator 0x5637768b6c08 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+    |   `-CStyleCastExpr 0x5637768b6be0 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+    |     `-IntegerLiteral 0x5637768b6bb0 <col:39> 'int' 0
+    `-IntegerLiteral 0x5637768b6c48 <line:38:17> 'int' 9
+~([B4.19])
+  21: IntegerLiteral 0x5637768b6cf0 <./lopcodes.h:88:60> 'int' 0
+0
+  22: BinaryOperator 0x5637768b6d10 <./lopcodes.h:71:21, line:88:60> 'Instruction':'unsigned int' '<<'
+|-ParenExpr 0x5637768b6cd0 <line:71:21, col:45> 'Instruction':'unsigned int'
+| `-UnaryOperator 0x5637768b6cb0 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+|   `-ParenExpr 0x5637768b6c90 <col:23, col:44> 'Instruction':'unsigned int'
+|     `-BinaryOperator 0x5637768b6c68 <col:24, line:38:17> 'Instruction':'unsigned int' '<<'
+|       |-ParenExpr 0x5637768b6c28 <line:71:24, col:40> 'Instruction':'unsigned int'
+|       | `-UnaryOperator 0x5637768b6c08 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+|       |   `-CStyleCastExpr 0x5637768b6be0 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+|       |     `-IntegerLiteral 0x5637768b6bb0 <col:39> 'int' 0
+|       `-IntegerLiteral 0x5637768b6c48 <line:38:17> 'int' 9
+`-IntegerLiteral 0x5637768b6cf0 <line:88:60> 'int' 0
+([B4.20]) << [B4.21]
+  23: BinaryOperator 0x5637768b6d58 <./lopcodes.h:88:32, line:71:49> 'unsigned int' '&'
+|-ParenExpr 0x5637768b6b90 <line:88:32, col:43> 'Instruction':'unsigned int'
+| `-BinaryOperator 0x5637768b6b68 <col:33, line:47:31> 'Instruction':'unsigned int' '>>'
+|   |-ImplicitCastExpr 0x5637768b6b50 <line:88:33, col:35> 'Instruction':'unsigned int' <LValueToRValue>
+|   | `-ParenExpr 0x5637768b69d8 <col:33, col:35> 'Instruction':'unsigned int' lvalue
+|   |   `-UnaryOperator 0x5637768b69b8 <lcode.c:135:40, col:41> 'Instruction':'unsigned int' lvalue prefix '*'
+|   |     `-ImplicitCastExpr 0x5637768b69a0 <col:41> 'Instruction *' <LValueToRValue>
+|   |       `-DeclRefExpr 0x5637768b6978 <col:41> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+|   `-ParenExpr 0x5637768b6b30 <./lopcodes.h:47:16, col:31> 'int'
+|     `-BinaryOperator 0x5637768b6b08 <line:46:16, line:37:17> 'int' '+'
+|       |-ParenExpr 0x5637768b6ac8 <line:46:16, col:31> 'int'
+|       | `-BinaryOperator 0x5637768b6aa0 <line:45:16, line:40:17> 'int' '+'
+|       |   |-ParenExpr 0x5637768b6a60 <line:45:16, col:33> 'int'
+|       |   | `-BinaryOperator 0x5637768b6a38 <line:44:17, line:42:18> 'int' '+'
+|       |   |   |-IntegerLiteral 0x5637768b69f8 <line:44:17> 'int' 0
+|       |   |   `-IntegerLiteral 0x5637768b6a18 <line:42:18> 'int' 6
+|       |   `-IntegerLiteral 0x5637768b6a80 <line:40:17> 'int' 8
+|       `-IntegerLiteral 0x5637768b6ae8 <line:37:17> 'int' 9
+`-ParenExpr 0x5637768b6d38 <line:71:20, col:49> 'Instruction':'unsigned int'
+  `-BinaryOperator 0x5637768b6d10 <col:21, line:88:60> 'Instruction':'unsigned int' '<<'
+    |-ParenExpr 0x5637768b6cd0 <line:71:21, col:45> 'Instruction':'unsigned int'
+    | `-UnaryOperator 0x5637768b6cb0 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+    |   `-ParenExpr 0x5637768b6c90 <col:23, col:44> 'Instruction':'unsigned int'
+    |     `-BinaryOperator 0x5637768b6c68 <col:24, line:38:17> 'Instruction':'unsigned int' '<<'
+    |       |-ParenExpr 0x5637768b6c28 <line:71:24, col:40> 'Instruction':'unsigned int'
+    |       | `-UnaryOperator 0x5637768b6c08 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+    |       |   `-CStyleCastExpr 0x5637768b6be0 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+    |       |     `-IntegerLiteral 0x5637768b6bb0 <col:39> 'int' 0
+    |       `-IntegerLiteral 0x5637768b6c48 <line:38:17> 'int' 9
+    `-IntegerLiteral 0x5637768b6cf0 <line:88:60> 'int' 0
+([B4.14]) & ([B4.22])
+  24: CStyleCastExpr 0x5637768b6de8 <./llimits.h:75:23, col:30> 'int' <IntegralCast>
+`-ParenExpr 0x5637768b6dc8 <col:26, col:30> 'unsigned int'
+  `-BinaryOperator 0x5637768b6d58 <./lopcodes.h:88:32, line:71:49> 'unsigned int' '&'
+    |-ParenExpr 0x5637768b6b90 <line:88:32, col:43> 'Instruction':'unsigned int'
+    | `-BinaryOperator 0x5637768b6b68 <col:33, line:47:31> 'Instruction':'unsigned int' '>>'
+    |   |-ImplicitCastExpr 0x5637768b6b50 <line:88:33, col:35> 'Instruction':'unsigned int' <LValueToRValue>
+    |   | `-ParenExpr 0x5637768b69d8 <col:33, col:35> 'Instruction':'unsigned int' lvalue
+    |   |   `-UnaryOperator 0x5637768b69b8 <lcode.c:135:40, col:41> 'Instruction':'unsigned int' lvalue prefix '*'
+    |   |     `-ImplicitCastExpr 0x5637768b69a0 <col:41> 'Instruction *' <LValueToRValue>
+    |   |       `-DeclRefExpr 0x5637768b6978 <col:41> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+    |   `-ParenExpr 0x5637768b6b30 <./lopcodes.h:47:16, col:31> 'int'
+    |     `-BinaryOperator 0x5637768b6b08 <line:46:16, line:37:17> 'int' '+'
+    |       |-ParenExpr 0x5637768b6ac8 <line:46:16, col:31> 'int'
+    |       | `-BinaryOperator 0x5637768b6aa0 <line:45:16, line:40:17> 'int' '+'
+    |       |   |-ParenExpr 0x5637768b6a60 <line:45:16, col:33> 'int'
+    |       |   | `-BinaryOperator 0x5637768b6a38 <line:44:17, line:42:18> 'int' '+'
+    |       |   |   |-IntegerLiteral 0x5637768b69f8 <line:44:17> 'int' 0
+    |       |   |   `-IntegerLiteral 0x5637768b6a18 <line:42:18> 'int' 6
+    |       |   `-IntegerLiteral 0x5637768b6a80 <line:40:17> 'int' 8
+    |       `-IntegerLiteral 0x5637768b6ae8 <line:37:17> 'int' 9
+    `-ParenExpr 0x5637768b6d38 <line:71:20, col:49> 'Instruction':'unsigned int'
+      `-BinaryOperator 0x5637768b6d10 <col:21, line:88:60> 'Instruction':'unsigned int' '<<'
+        |-ParenExpr 0x5637768b6cd0 <line:71:21, col:45> 'Instruction':'unsigned int'
+        | `-UnaryOperator 0x5637768b6cb0 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+        |   `-ParenExpr 0x5637768b6c90 <col:23, col:44> 'Instruction':'unsigned int'
+        |     `-BinaryOperator 0x5637768b6c68 <col:24, line:38:17> 'Instruction':'unsigned int' '<<'
+        |       |-ParenExpr 0x5637768b6c28 <line:71:24, col:40> 'Instruction':'unsigned int'
+        |       | `-UnaryOperator 0x5637768b6c08 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+        |       |   `-CStyleCastExpr 0x5637768b6be0 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+        |       |     `-IntegerLiteral 0x5637768b6bb0 <col:39> 'int' 0
+        |       `-IntegerLiteral 0x5637768b6c48 <line:38:17> 'int' 9
+        `-IntegerLiteral 0x5637768b6cf0 <line:88:60> 'int' 0
+(int)([B4.23]) (CStyleCastExpr, IntegralCast, int)
+  25: BinaryOperator 0x5637768b6e68 <lcode.c:135:24, ./lopcodes.h:88:63> 'int' '!='
+|-ImplicitCastExpr 0x5637768b6e50 <lcode.c:135:24> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x5637768b6950 <col:24> 'int' lvalue ParmVar 0x5637768b5ff8 'reg' 'int'
+`-ParenExpr 0x5637768b6e30 <./lopcodes.h:88:21, col:63> 'int'
+  `-ParenExpr 0x5637768b6e10 <./llimits.h:75:22, col:31> 'int'
+    `-CStyleCastExpr 0x5637768b6de8 <col:23, col:30> 'int' <IntegralCast>
+      `-ParenExpr 0x5637768b6dc8 <col:26, col:30> 'unsigned int'
+        `-BinaryOperator 0x5637768b6d58 <./lopcodes.h:88:32, line:71:49> 'unsigned int' '&'
+          |-ParenExpr 0x5637768b6b90 <line:88:32, col:43> 'Instruction':'unsigned int'
+          | `-BinaryOperator 0x5637768b6b68 <col:33, line:47:31> 'Instruction':'unsigned int' '>>'
+          |   |-ImplicitCastExpr 0x5637768b6b50 <line:88:33, col:35> 'Instruction':'unsigned int' <LValueToRValue>
+          |   | `-ParenExpr 0x5637768b69d8 <col:33, col:35> 'Instruction':'unsigned int' lvalue
+          |   |   `-UnaryOperator 0x5637768b69b8 <lcode.c:135:40, col:41> 'Instruction':'unsigned int' lvalue prefix '*'
+          |   |     `-ImplicitCastExpr 0x5637768b69a0 <col:41> 'Instruction *' <LValueToRValue>
+          |   |       `-DeclRefExpr 0x5637768b6978 <col:41> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+          |   `-ParenExpr 0x5637768b6b30 <./lopcodes.h:47:16, col:31> 'int'
+          |     `-BinaryOperator 0x5637768b6b08 <line:46:16, line:37:17> 'int' '+'
+          |       |-ParenExpr 0x5637768b6ac8 <line:46:16, col:31> 'int'
+          |       | `-BinaryOperator 0x5637768b6aa0 <line:45:16, line:40:17> 'int' '+'
+          |       |   |-ParenExpr 0x5637768b6a60 <line:45:16, col:33> 'int'
+          |       |   | `-BinaryOperator 0x5637768b6a38 <line:44:17, line:42:18> 'int' '+'
+          |       |   |   |-IntegerLiteral 0x5637768b69f8 <line:44:17> 'int' 0
+          |       |   |   `-IntegerLiteral 0x5637768b6a18 <line:42:18> 'int' 6
+          |       |   `-IntegerLiteral 0x5637768b6a80 <line:40:17> 'int' 8
+          |       `-IntegerLiteral 0x5637768b6ae8 <line:37:17> 'int' 9
+          `-ParenExpr 0x5637768b6d38 <line:71:20, col:49> 'Instruction':'unsigned int'
+            `-BinaryOperator 0x5637768b6d10 <col:21, line:88:60> 'Instruction':'unsigned int' '<<'
+              |-ParenExpr 0x5637768b6cd0 <line:71:21, col:45> 'Instruction':'unsigned int'
+              | `-UnaryOperator 0x5637768b6cb0 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+              |   `-ParenExpr 0x5637768b6c90 <col:23, col:44> 'Instruction':'unsigned int'
+              |     `-BinaryOperator 0x5637768b6c68 <col:24, line:38:17> 'Instruction':'unsigned int' '<<'
+              |       |-ParenExpr 0x5637768b6c28 <line:71:24, col:40> 'Instruction':'unsigned int'
+              |       | `-UnaryOperator 0x5637768b6c08 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+              |       |   `-CStyleCastExpr 0x5637768b6be0 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+              |       |     `-IntegerLiteral 0x5637768b6bb0 <col:39> 'int' 0
+              |       `-IntegerLiteral 0x5637768b6c48 <line:38:17> 'int' 9
+              `-IntegerLiteral 0x5637768b6cf0 <line:88:60> 'int' 0
+[B4.2] != (([B4.24]))
+   T: if [B5.8] && [B4.25]
+   Preds (1): B5
+   Succs (2): B3 B2
+
+ [B5]
+   1: DeclRefExpr 0x5637768b67f8 <lcode.c:135:7> 'int' lvalue ParmVar 0x5637768b5ff8 'reg' 'int'
+reg
+   2: ImplicitCastExpr 0x5637768b6910 <lcode.c:135:7> 'int' <LValueToRValue>
+`-DeclRefExpr 0x5637768b67f8 <col:7> 'int' lvalue ParmVar 0x5637768b5ff8 'reg' 'int'
+[B5.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: IntegerLiteral 0x5637768b6820 <./lopcodes.h:65:27> 'int' 1
+1
+   4: IntegerLiteral 0x5637768b6840 <./lopcodes.h:40:17> 'int' 8
+8
+   5: BinaryOperator 0x5637768b6860 <./lopcodes.h:65:27, line:40:17> 'int' '<<'
+|-IntegerLiteral 0x5637768b6820 <line:65:27> 'int' 1
+`-IntegerLiteral 0x5637768b6840 <line:40:17> 'int' 8
+[B5.3] << [B5.4]
+   6: IntegerLiteral 0x5637768b68a8 <./lopcodes.h:65:38> 'int' 1
+1
+   7: BinaryOperator 0x5637768b68c8 <./lopcodes.h:65:26, col:38> 'int' '-'
+|-ParenExpr 0x5637768b6888 <col:26, col:36> 'int'
+| `-BinaryOperator 0x5637768b6860 <col:27, line:40:17> 'int' '<<'
+|   |-IntegerLiteral 0x5637768b6820 <line:65:27> 'int' 1
+|   `-IntegerLiteral 0x5637768b6840 <line:40:17> 'int' 8
+`-IntegerLiteral 0x5637768b68a8 <line:65:38> 'int' 1
+([B5.5]) - [B5.6]
+   8: BinaryOperator 0x5637768b6928 <lcode.c:135:7, ./lopcodes.h:65:39> 'int' '!='
+|-ImplicitCastExpr 0x5637768b6910 <lcode.c:135:7> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x5637768b67f8 <col:7> 'int' lvalue ParmVar 0x5637768b5ff8 'reg' 'int'
+`-ParenExpr 0x5637768b68f0 <./lopcodes.h:65:25, col:39> 'int'
+  `-BinaryOperator 0x5637768b68c8 <col:26, col:38> 'int' '-'
+    |-ParenExpr 0x5637768b6888 <col:26, col:36> 'int'
+    | `-BinaryOperator 0x5637768b6860 <col:27, line:40:17> 'int' '<<'
+    |   |-IntegerLiteral 0x5637768b6820 <line:65:27> 'int' 1
+    |   `-IntegerLiteral 0x5637768b6840 <line:40:17> 'int' 8
+    `-IntegerLiteral 0x5637768b68a8 <line:65:38> 'int' 1
+[B5.2] != ([B5.7])
+   T: [B5.8] && ...
+   Preds (1): B7
+   Succs (2): B4 B2
+
+ [B6]
+   1: IntegerLiteral 0x5637768b6788 <lcode.c:134:12> 'int' 0
+0
+   2: ReturnStmt 0x5637768b67a8 <lcode.c:134:5, col:12>
+`-IntegerLiteral 0x5637768b6788 <col:12> 'int' 0
+return [B6.1];
+   Preds (1): B7
+   Succs (1): B0
+
+ [B7]
+   1: DeclRefExpr 0x5637768b6260 <lcode.c:132:20> 'Instruction *(FuncState *, int)' Function 0x5637768b3d10 'getjumpcontrol' 'Instruction *(FuncState *, int)'
+getjumpcontrol
+   2: ImplicitCastExpr 0x5637768b62d8 <lcode.c:132:20> 'Instruction *(*)(FuncState *, int)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5637768b6260 <col:20> 'Instruction *(FuncState *, int)' Function 0x5637768b3d10 'getjumpcontrol' 'Instruction *(FuncState *, int)'
+[B7.1] (ImplicitCastExpr, FunctionToPointerDecay, Instruction *(*)(FuncState *, int))
+   3: DeclRefExpr 0x5637768b6288 <lcode.c:132:35> 'FuncState *' lvalue ParmVar 0x5637768b5f08 'fs' 'FuncState *'
+fs
+   4: ImplicitCastExpr 0x5637768b6328 <lcode.c:132:35> 'FuncState *' <LValueToRValue>
+`-DeclRefExpr 0x5637768b6288 <col:35> 'FuncState *' lvalue ParmVar 0x5637768b5f08 'fs' 'FuncState *'
+[B7.3] (ImplicitCastExpr, LValueToRValue, FuncState *)
+   5: DeclRefExpr 0x5637768b62b0 <lcode.c:132:39> 'int' lvalue ParmVar 0x5637768b5f80 'node' 'int'
+node
+   6: ImplicitCastExpr 0x5637768b6340 <lcode.c:132:39> 'int' <LValueToRValue>
+`-DeclRefExpr 0x5637768b62b0 <col:39> 'int' lvalue ParmVar 0x5637768b5f80 'node' 'int'
+[B7.5] (ImplicitCastExpr, LValueToRValue, int)
+   7: CallExpr 0x5637768b62f0 <lcode.c:132:20, col:43> 'Instruction *'
+|-ImplicitCastExpr 0x5637768b62d8 <col:20> 'Instruction *(*)(FuncState *, int)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5637768b6260 <col:20> 'Instruction *(FuncState *, int)' Function 0x5637768b3d10 'getjumpcontrol' 'Instruction *(FuncState *, int)'
+|-ImplicitCastExpr 0x5637768b6328 <col:35> 'FuncState *' <LValueToRValue>
+| `-DeclRefExpr 0x5637768b6288 <col:35> 'FuncState *' lvalue ParmVar 0x5637768b5f08 'fs' 'FuncState *'
+`-ImplicitCastExpr 0x5637768b6340 <col:39> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x5637768b62b0 <col:39> 'int' lvalue ParmVar 0x5637768b5f80 'node' 'int'
+[B7.2]([B7.4], [B7.6])
+   8: DeclStmt 0x5637768b6358 <lcode.c:132:3, col:44>col:16
+`-VarDecl 0x5637768b6200 <col:3, col:43> col:16 used i 'Instruction *' cinit
+  `-CallExpr 0x5637768b62f0 <col:20, col:43> 'Instruction *'
+    |-ImplicitCastExpr 0x5637768b62d8 <col:20> 'Instruction *(*)(FuncState *, int)' <FunctionToPointerDecay>
+    | `-DeclRefExpr 0x5637768b6260 <col:20> 'Instruction *(FuncState *, int)' Function 0x5637768b3d10 'getjumpcontrol' 'Instruction *(FuncState *, int)'
+    |-ImplicitCastExpr 0x5637768b6328 <col:35> 'FuncState *' <LValueToRValue>
+    | `-DeclRefExpr 0x5637768b6288 <col:35> 'FuncState *' lvalue ParmVar 0x5637768b5f08 'fs' 'FuncState *'
+    `-ImplicitCastExpr 0x5637768b6340 <col:39> 'int' <LValueToRValue>
+      `-DeclRefExpr 0x5637768b62b0 <col:39> 'int' lvalue ParmVar 0x5637768b5f80 'node' 'int'
+Instruction *i = getjumpcontrol(fs, node);
+   9: DeclRefExpr 0x5637768b6370 <lcode.c:133:19> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+i
+  10: ImplicitCastExpr 0x5637768b6398 <lcode.c:133:19> 'Instruction *' <LValueToRValue>
+`-DeclRefExpr 0x5637768b6370 <col:19> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+[B7.9] (ImplicitCastExpr, LValueToRValue, Instruction *)
+  11: UnaryOperator 0x5637768b63b0 <lcode.c:133:18, col:19> 'Instruction':'unsigned int' lvalue prefix '*'
+`-ImplicitCastExpr 0x5637768b6398 <col:19> 'Instruction *' <LValueToRValue>
+  `-DeclRefExpr 0x5637768b6370 <col:19> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+*[B7.10]
+  12: ImplicitCastExpr 0x5637768b6410 <./lopcodes.h:80:38, col:40> 'Instruction':'unsigned int' <LValueToRValue>
+`-ParenExpr 0x5637768b63d0 <col:38, col:40> 'Instruction':'unsigned int' lvalue
+  `-UnaryOperator 0x5637768b63b0 <lcode.c:133:18, col:19> 'Instruction':'unsigned int' lvalue prefix '*'
+    `-ImplicitCastExpr 0x5637768b6398 <col:19> 'Instruction *' <LValueToRValue>
+      `-DeclRefExpr 0x5637768b6370 <col:19> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+([B7.11]) (ImplicitCastExpr, LValueToRValue, Instruction)
+  13: IntegerLiteral 0x5637768b63f0 <./lopcodes.h:44:17> 'int' 0
+0
+  14: BinaryOperator 0x5637768b6428 <./lopcodes.h:80:38, line:44:17> 'Instruction':'unsigned int' '>>'
+|-ImplicitCastExpr 0x5637768b6410 <line:80:38, col:40> 'Instruction':'unsigned int' <LValueToRValue>
+| `-ParenExpr 0x5637768b63d0 <col:38, col:40> 'Instruction':'unsigned int' lvalue
+|   `-UnaryOperator 0x5637768b63b0 <lcode.c:133:18, col:19> 'Instruction':'unsigned int' lvalue prefix '*'
+|     `-ImplicitCastExpr 0x5637768b6398 <col:19> 'Instruction *' <LValueToRValue>
+|       `-DeclRefExpr 0x5637768b6370 <col:19> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+`-IntegerLiteral 0x5637768b63f0 <./lopcodes.h:44:17> 'int' 0
+[B7.12] >> [B7.13]
+  15: IntegerLiteral 0x5637768b6470 <./lopcodes.h:71:39> 'int' 0
+0
+  16: CStyleCastExpr 0x5637768b64a0 <./lopcodes.h:71:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+`-IntegerLiteral 0x5637768b6470 <col:39> 'int' 0
+(Instruction)[B7.15] (CStyleCastExpr, IntegralCast, Instruction)
+  17: UnaryOperator 0x5637768b64c8 <./lopcodes.h:71:25, col:39> 'Instruction':'unsigned int' prefix '~'
+`-CStyleCastExpr 0x5637768b64a0 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+  `-IntegerLiteral 0x5637768b6470 <col:39> 'int' 0
+~[B7.16]
+  18: IntegerLiteral 0x5637768b6508 <./lopcodes.h:42:18> 'int' 6
+6
+  19: BinaryOperator 0x5637768b6528 <./lopcodes.h:71:24, line:42:18> 'Instruction':'unsigned int' '<<'
+|-ParenExpr 0x5637768b64e8 <line:71:24, col:40> 'Instruction':'unsigned int'
+| `-UnaryOperator 0x5637768b64c8 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+|   `-CStyleCastExpr 0x5637768b64a0 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+|     `-IntegerLiteral 0x5637768b6470 <col:39> 'int' 0
+`-IntegerLiteral 0x5637768b6508 <line:42:18> 'int' 6
+([B7.17]) << [B7.18]
+  20: UnaryOperator 0x5637768b6570 <./lopcodes.h:71:22, col:44> 'Instruction':'unsigned int' prefix '~'
+`-ParenExpr 0x5637768b6550 <col:23, col:44> 'Instruction':'unsigned int'
+  `-BinaryOperator 0x5637768b6528 <col:24, line:42:18> 'Instruction':'unsigned int' '<<'
+    |-ParenExpr 0x5637768b64e8 <line:71:24, col:40> 'Instruction':'unsigned int'
+    | `-UnaryOperator 0x5637768b64c8 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+    |   `-CStyleCastExpr 0x5637768b64a0 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+    |     `-IntegerLiteral 0x5637768b6470 <col:39> 'int' 0
+    `-IntegerLiteral 0x5637768b6508 <line:42:18> 'int' 6
+~([B7.19])
+  21: IntegerLiteral 0x5637768b65b0 <./lopcodes.h:80:67> 'int' 0
+0
+  22: BinaryOperator 0x5637768b65d0 <./lopcodes.h:71:21, line:80:67> 'Instruction':'unsigned int' '<<'
+|-ParenExpr 0x5637768b6590 <line:71:21, col:45> 'Instruction':'unsigned int'
+| `-UnaryOperator 0x5637768b6570 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+|   `-ParenExpr 0x5637768b6550 <col:23, col:44> 'Instruction':'unsigned int'
+|     `-BinaryOperator 0x5637768b6528 <col:24, line:42:18> 'Instruction':'unsigned int' '<<'
+|       |-ParenExpr 0x5637768b64e8 <line:71:24, col:40> 'Instruction':'unsigned int'
+|       | `-UnaryOperator 0x5637768b64c8 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+|       |   `-CStyleCastExpr 0x5637768b64a0 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+|       |     `-IntegerLiteral 0x5637768b6470 <col:39> 'int' 0
+|       `-IntegerLiteral 0x5637768b6508 <line:42:18> 'int' 6
+`-IntegerLiteral 0x5637768b65b0 <line:80:67> 'int' 0
+([B7.20]) << [B7.21]
+  23: BinaryOperator 0x5637768b6618 <./lopcodes.h:80:37, line:71:49> 'unsigned int' '&'
+|-ParenExpr 0x5637768b6450 <line:80:37, col:49> 'Instruction':'unsigned int'
+| `-BinaryOperator 0x5637768b6428 <col:38, line:44:17> 'Instruction':'unsigned int' '>>'
+|   |-ImplicitCastExpr 0x5637768b6410 <line:80:38, col:40> 'Instruction':'unsigned int' <LValueToRValue>
+|   | `-ParenExpr 0x5637768b63d0 <col:38, col:40> 'Instruction':'unsigned int' lvalue
+|   |   `-UnaryOperator 0x5637768b63b0 <lcode.c:133:18, col:19> 'Instruction':'unsigned int' lvalue prefix '*'
+|   |     `-ImplicitCastExpr 0x5637768b6398 <col:19> 'Instruction *' <LValueToRValue>
+|   |       `-DeclRefExpr 0x5637768b6370 <col:19> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+|   `-IntegerLiteral 0x5637768b63f0 <./lopcodes.h:44:17> 'int' 0
+`-ParenExpr 0x5637768b65f8 <line:71:20, col:49> 'Instruction':'unsigned int'
+  `-BinaryOperator 0x5637768b65d0 <col:21, line:80:67> 'Instruction':'unsigned int' '<<'
+    |-ParenExpr 0x5637768b6590 <line:71:21, col:45> 'Instruction':'unsigned int'
+    | `-UnaryOperator 0x5637768b6570 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+    |   `-ParenExpr 0x5637768b6550 <col:23, col:44> 'Instruction':'unsigned int'
+    |     `-BinaryOperator 0x5637768b6528 <col:24, line:42:18> 'Instruction':'unsigned int' '<<'
+    |       |-ParenExpr 0x5637768b64e8 <line:71:24, col:40> 'Instruction':'unsigned int'
+    |       | `-UnaryOperator 0x5637768b64c8 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+    |       |   `-CStyleCastExpr 0x5637768b64a0 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+    |       |     `-IntegerLiteral 0x5637768b6470 <col:39> 'int' 0
+    |       `-IntegerLiteral 0x5637768b6508 <line:42:18> 'int' 6
+    `-IntegerLiteral 0x5637768b65b0 <line:80:67> 'int' 0
+([B7.14]) & ([B7.22])
+  24: CStyleCastExpr 0x5637768b66a0 <./llimits.h:75:23, col:30> 'OpCode':'OpCode' <IntegralCast>
+`-ParenExpr 0x5637768b6680 <col:26, col:30> 'unsigned int'
+  `-BinaryOperator 0x5637768b6618 <./lopcodes.h:80:37, line:71:49> 'unsigned int' '&'
+    |-ParenExpr 0x5637768b6450 <line:80:37, col:49> 'Instruction':'unsigned int'
+    | `-BinaryOperator 0x5637768b6428 <col:38, line:44:17> 'Instruction':'unsigned int' '>>'
+    |   |-ImplicitCastExpr 0x5637768b6410 <line:80:38, col:40> 'Instruction':'unsigned int' <LValueToRValue>
+    |   | `-ParenExpr 0x5637768b63d0 <col:38, col:40> 'Instruction':'unsigned int' lvalue
+    |   |   `-UnaryOperator 0x5637768b63b0 <lcode.c:133:18, col:19> 'Instruction':'unsigned int' lvalue prefix '*'
+    |   |     `-ImplicitCastExpr 0x5637768b6398 <col:19> 'Instruction *' <LValueToRValue>
+    |   |       `-DeclRefExpr 0x5637768b6370 <col:19> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+    |   `-IntegerLiteral 0x5637768b63f0 <./lopcodes.h:44:17> 'int' 0
+    `-ParenExpr 0x5637768b65f8 <line:71:20, col:49> 'Instruction':'unsigned int'
+      `-BinaryOperator 0x5637768b65d0 <col:21, line:80:67> 'Instruction':'unsigned int' '<<'
+        |-ParenExpr 0x5637768b6590 <line:71:21, col:45> 'Instruction':'unsigned int'
+        | `-UnaryOperator 0x5637768b6570 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+        |   `-ParenExpr 0x5637768b6550 <col:23, col:44> 'Instruction':'unsigned int'
+        |     `-BinaryOperator 0x5637768b6528 <col:24, line:42:18> 'Instruction':'unsigned int' '<<'
+        |       |-ParenExpr 0x5637768b64e8 <line:71:24, col:40> 'Instruction':'unsigned int'
+        |       | `-UnaryOperator 0x5637768b64c8 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+        |       |   `-CStyleCastExpr 0x5637768b64a0 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+        |       |     `-IntegerLiteral 0x5637768b6470 <col:39> 'int' 0
+        |       `-IntegerLiteral 0x5637768b6508 <line:42:18> 'int' 6
+        `-IntegerLiteral 0x5637768b65b0 <line:80:67> 'int' 0
+(OpCode)([B7.23]) (CStyleCastExpr, IntegralCast, OpCode)
+  25: ImplicitCastExpr 0x5637768b6730 <./lopcodes.h:80:23, col:70> 'unsigned int' <IntegralCast>
+`-ParenExpr 0x5637768b66e8 <col:23, col:70> 'OpCode':'OpCode'
+  `-ParenExpr 0x5637768b66c8 <./llimits.h:75:22, col:31> 'OpCode':'OpCode'
+    `-CStyleCastExpr 0x5637768b66a0 <col:23, col:30> 'OpCode':'OpCode' <IntegralCast>
+      `-ParenExpr 0x5637768b6680 <col:26, col:30> 'unsigned int'
+        `-BinaryOperator 0x5637768b6618 <./lopcodes.h:80:37, line:71:49> 'unsigned int' '&'
+          |-ParenExpr 0x5637768b6450 <line:80:37, col:49> 'Instruction':'unsigned int'
+          | `-BinaryOperator 0x5637768b6428 <col:38, line:44:17> 'Instruction':'unsigned int' '>>'
+          |   |-ImplicitCastExpr 0x5637768b6410 <line:80:38, col:40> 'Instruction':'unsigned int' <LValueToRValue>
+          |   | `-ParenExpr 0x5637768b63d0 <col:38, col:40> 'Instruction':'unsigned int' lvalue
+          |   |   `-UnaryOperator 0x5637768b63b0 <lcode.c:133:18, col:19> 'Instruction':'unsigned int' lvalue prefix '*'
+          |   |     `-ImplicitCastExpr 0x5637768b6398 <col:19> 'Instruction *' <LValueToRValue>
+          |   |       `-DeclRefExpr 0x5637768b6370 <col:19> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+          |   `-IntegerLiteral 0x5637768b63f0 <./lopcodes.h:44:17> 'int' 0
+          `-ParenExpr 0x5637768b65f8 <line:71:20, col:49> 'Instruction':'unsigned int'
+            `-BinaryOperator 0x5637768b65d0 <col:21, line:80:67> 'Instruction':'unsigned int' '<<'
+              |-ParenExpr 0x5637768b6590 <line:71:21, col:45> 'Instruction':'unsigned int'
+              | `-UnaryOperator 0x5637768b6570 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+              |   `-ParenExpr 0x5637768b6550 <col:23, col:44> 'Instruction':'unsigned int'
+              |     `-BinaryOperator 0x5637768b6528 <col:24, line:42:18> 'Instruction':'unsigned int' '<<'
+              |       |-ParenExpr 0x5637768b64e8 <line:71:24, col:40> 'Instruction':'unsigned int'
+              |       | `-UnaryOperator 0x5637768b64c8 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+              |       |   `-CStyleCastExpr 0x5637768b64a0 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+              |       |     `-IntegerLiteral 0x5637768b6470 <col:39> 'int' 0
+              |       `-IntegerLiteral 0x5637768b6508 <line:42:18> 'int' 6
+              `-IntegerLiteral 0x5637768b65b0 <line:80:67> 'int' 0
+(([B7.24])) (ImplicitCastExpr, IntegralCast, unsigned int)
+  26: DeclRefExpr 0x5637768b6708 <lcode.c:133:25> 'int' EnumConstant 0x5637768771e0 'OP_TESTSET' 'int'
+OP_TESTSET
+  27: ImplicitCastExpr 0x5637768b6748 <lcode.c:133:25> 'unsigned int' <IntegralCast>
+`-DeclRefExpr 0x5637768b6708 <col:25> 'int' EnumConstant 0x5637768771e0 'OP_TESTSET' 'int'
+[B7.26] (ImplicitCastExpr, IntegralCast, unsigned int)
+  28: BinaryOperator 0x5637768b6760 <./lopcodes.h:80:23, lcode.c:133:25> 'int' '!='
+|-ImplicitCastExpr 0x5637768b6730 <./lopcodes.h:80:23, col:70> 'unsigned int' <IntegralCast>
+| `-ParenExpr 0x5637768b66e8 <col:23, col:70> 'OpCode':'OpCode'
+|   `-ParenExpr 0x5637768b66c8 <./llimits.h:75:22, col:31> 'OpCode':'OpCode'
+|     `-CStyleCastExpr 0x5637768b66a0 <col:23, col:30> 'OpCode':'OpCode' <IntegralCast>
+|       `-ParenExpr 0x5637768b6680 <col:26, col:30> 'unsigned int'
+|         `-BinaryOperator 0x5637768b6618 <./lopcodes.h:80:37, line:71:49> 'unsigned int' '&'
+|           |-ParenExpr 0x5637768b6450 <line:80:37, col:49> 'Instruction':'unsigned int'
+|           | `-BinaryOperator 0x5637768b6428 <col:38, line:44:17> 'Instruction':'unsigned int' '>>'
+|           |   |-ImplicitCastExpr 0x5637768b6410 <line:80:38, col:40> 'Instruction':'unsigned int' <LValueToRValue>
+|           |   | `-ParenExpr 0x5637768b63d0 <col:38, col:40> 'Instruction':'unsigned int' lvalue
+|           |   |   `-UnaryOperator 0x5637768b63b0 <lcode.c:133:18, col:19> 'Instruction':'unsigned int' lvalue prefix '*'
+|           |   |     `-ImplicitCastExpr 0x5637768b6398 <col:19> 'Instruction *' <LValueToRValue>
+|           |   |       `-DeclRefExpr 0x5637768b6370 <col:19> 'Instruction *' lvalue Var 0x5637768b6200 'i' 'Instruction *'
+|           |   `-IntegerLiteral 0x5637768b63f0 <./lopcodes.h:44:17> 'int' 0
+|           `-ParenExpr 0x5637768b65f8 <line:71:20, col:49> 'Instruction':'unsigned int'
+|             `-BinaryOperator 0x5637768b65d0 <col:21, line:80:67> 'Instruction':'unsigned int' '<<'
+|               |-ParenExpr 0x5637768b6590 <line:71:21, col:45> 'Instruction':'unsigned int'
+|               | `-UnaryOperator 0x5637768b6570 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+|               |   `-ParenExpr 0x5637768b6550 <col:23, col:44> 'Instruction':'unsigned int'
+|               |     `-BinaryOperator 0x5637768b6528 <col:24, line:42:18> 'Instruction':'unsigned int' '<<'
+|               |       |-ParenExpr 0x5637768b64e8 <line:71:24, col:40> 'Instruction':'unsigned int'
+|               |       | `-UnaryOperator 0x5637768b64c8 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+|               |       |   `-CStyleCastExpr 0x5637768b64a0 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+|               |       |     `-IntegerLiteral 0x5637768b6470 <col:39> 'int' 0
+|               |       `-IntegerLiteral 0x5637768b6508 <line:42:18> 'int' 6
+|               `-IntegerLiteral 0x5637768b65b0 <line:80:67> 'int' 0
+`-ImplicitCastExpr 0x5637768b6748 <lcode.c:133:25> 'unsigned int' <IntegralCast>
+  `-DeclRefExpr 0x5637768b6708 <col:25> 'int' EnumConstant 0x5637768771e0 'OP_TESTSET' 'int'
+[B7.25] != [B7.27]
+   T: if [B7.28]
+   Preds (1): B8
+   Succs (2): B6 B5
+
+ [B0 (EXIT)]
+   Preds (2): B1 B6

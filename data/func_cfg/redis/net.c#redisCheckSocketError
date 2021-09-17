@@ -1,0 +1,303 @@
+int redisCheckSocketError(redisContext *c)
+ [B8 (ENTRY)]
+   Succs (1): B7
+
+ [B1]
+   1: IntegerLiteral 0x55f752fdb0f8 <./read.h:38:18> 'int' 0
+0
+   2: ReturnStmt 0x55f752fdb118 <net.c:313:5, ./read.h:38:18>
+`-IntegerLiteral 0x55f752fdb0f8 <col:18> 'int' 0
+return [B1.1];
+   Preds (1): B3
+   Succs (1): B0
+
+ [B2]
+   1: DeclRefExpr 0x55f752fdae60 <net.c:308:17> 'int' lvalue Var 0x55f752fda3d0 'err' 'int'
+err
+   2: ImplicitCastExpr 0x55f752fdae88 <net.c:308:17> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55f752fdae60 <col:17> 'int' lvalue Var 0x55f752fda3d0 'err' 'int'
+[B2.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: DeclRefExpr 0x55f752fdad98 </usr/include/errno.h:38:18> 'int *(void)' Function 0x55f752e6a738 '__errno_location' 'int *(void)'
+__errno_location
+   4: ImplicitCastExpr 0x55f752fdadc0 </usr/include/errno.h:38:18> 'int *(*)(void)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55f752fdad98 <col:18> 'int *(void)' Function 0x55f752e6a738 '__errno_location' 'int *(void)'
+[B2.3] (ImplicitCastExpr, FunctionToPointerDecay, int *(*)(void))
+   5: CallExpr 0x55f752fdadd8 </usr/include/errno.h:38:18, col:36> 'int *'
+`-ImplicitCastExpr 0x55f752fdadc0 <col:18> 'int *(*)(void)' <FunctionToPointerDecay>
+  `-DeclRefExpr 0x55f752fdad98 <col:18> 'int *(void)' Function 0x55f752e6a738 '__errno_location' 'int *(void)'
+[B2.4]()
+   6: UnaryOperator 0x55f752fdae20 </usr/include/errno.h:38:17, col:36> 'int' lvalue prefix '*'
+`-CallExpr 0x55f752fdadd8 <col:18, col:36> 'int *'
+  `-ImplicitCastExpr 0x55f752fdadc0 <col:18> 'int *(*)(void)' <FunctionToPointerDecay>
+    `-DeclRefExpr 0x55f752fdad98 <col:18> 'int *(void)' Function 0x55f752e6a738 '__errno_location' 'int *(void)'
+*[B2.5]
+   7: BinaryOperator 0x55f752fdaea0 </usr/include/errno.h:38:16, net.c:308:17> 'int' '='
+|-ParenExpr 0x55f752fdae40 </usr/include/errno.h:38:16, col:37> 'int' lvalue
+| `-UnaryOperator 0x55f752fdae20 <col:17, col:36> 'int' lvalue prefix '*'
+|   `-CallExpr 0x55f752fdadd8 <col:18, col:36> 'int *'
+|     `-ImplicitCastExpr 0x55f752fdadc0 <col:18> 'int *(*)(void)' <FunctionToPointerDecay>
+|       `-DeclRefExpr 0x55f752fdad98 <col:18> 'int *(void)' Function 0x55f752e6a738 '__errno_location' 'int *(void)'
+`-ImplicitCastExpr 0x55f752fdae88 <net.c:308:17> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x55f752fdae60 <col:17> 'int' lvalue Var 0x55f752fda3d0 'err' 'int'
+([B2.6]) = [B2.2]
+   8: DeclRefExpr 0x55f752fdaec8 <net.c:309:9> 'void (redisContext *, int, const char *)' Function 0x55f752fd14e0 '__redisSetErrorFromErrno' 'void (redisContext *, int, const char *)'
+__redisSetErrorFromErrno
+   9: ImplicitCastExpr 0x55f752fdafb8 <net.c:309:9> 'void (*)(redisContext *, int, const char *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55f752fdaec8 <col:9> 'void (redisContext *, int, const char *)' Function 0x55f752fd14e0 '__redisSetErrorFromErrno' 'void (redisContext *, int, const char *)'
+[B2.8] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(redisContext *, int, const char *))
+  10: DeclRefExpr 0x55f752fdaef0 <net.c:309:34> 'redisContext *' lvalue ParmVar 0x55f752fda280 'c' 'redisContext *'
+c
+  11: ImplicitCastExpr 0x55f752fdb010 <net.c:309:34> 'redisContext *' <LValueToRValue>
+`-DeclRefExpr 0x55f752fdaef0 <col:34> 'redisContext *' lvalue ParmVar 0x55f752fda280 'c' 'redisContext *'
+[B2.10] (ImplicitCastExpr, LValueToRValue, redisContext *)
+  12: IntegerLiteral 0x55f752fdaf18 <./read.h:44:22> 'int' 1
+1
+  13: IntegerLiteral 0x55f752fdaf38 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+  14: CStyleCastExpr 0x55f752fdaf70 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x55f752fdaf38 <col:24> 'int' 0
+(void *)[B2.13] (CStyleCastExpr, NullToPointer, void *)
+  15: ImplicitCastExpr 0x55f752fdb028 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'const char *' <NullToPointer>
+`-ParenExpr 0x55f752fdaf98 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x55f752fdaf70 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x55f752fdaf38 <col:24> 'int' 0
+([B2.14]) (ImplicitCastExpr, NullToPointer, const char *)
+  16: CallExpr 0x55f752fdafd0 <net.c:309:9, col:53> 'void'
+|-ImplicitCastExpr 0x55f752fdafb8 <col:9> 'void (*)(redisContext *, int, const char *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55f752fdaec8 <col:9> 'void (redisContext *, int, const char *)' Function 0x55f752fd14e0 '__redisSetErrorFromErrno' 'void (redisContext *, int, const char *)'
+|-ImplicitCastExpr 0x55f752fdb010 <col:34> 'redisContext *' <LValueToRValue>
+| `-DeclRefExpr 0x55f752fdaef0 <col:34> 'redisContext *' lvalue ParmVar 0x55f752fda280 'c' 'redisContext *'
+|-IntegerLiteral 0x55f752fdaf18 <./read.h:44:22> 'int' 1
+`-ImplicitCastExpr 0x55f752fdb028 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'const char *' <NullToPointer>
+  `-ParenExpr 0x55f752fdaf98 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x55f752fdaf70 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x55f752fdaf38 <col:24> 'int' 0
+[B2.9]([B2.11], [B2.12], [B2.15])
+  17: IntegerLiteral 0x55f752fdb040 <./read.h:37:20> 'int' 1
+1
+  18: UnaryOperator 0x55f752fdb060 <./read.h:37:19, col:20> 'int' prefix '-'
+`-IntegerLiteral 0x55f752fdb040 <col:20> 'int' 1
+-[B2.17]
+  19: ReturnStmt 0x55f752fdb080 <net.c:310:9, ./read.h:37:20>
+`-UnaryOperator 0x55f752fdb060 <col:19, col:20> 'int' prefix '-'
+  `-IntegerLiteral 0x55f752fdb040 <col:20> 'int' 1
+return [B2.18];
+   Preds (1): B3
+   Succs (1): B0
+
+ [B3]
+   1: DeclRefExpr 0x55f752fdad58 <net.c:307:9> 'int' lvalue Var 0x55f752fda3d0 'err' 'int'
+err
+   2: ImplicitCastExpr 0x55f752fdad80 <net.c:307:9> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55f752fdad58 <col:9> 'int' lvalue Var 0x55f752fda3d0 'err' 'int'
+[B3.1] (ImplicitCastExpr, LValueToRValue, int)
+   T: if [B3.2]
+   Preds (2): B4 B5
+   Succs (2): B2 B1
+
+ [B4]
+   1: DeclRefExpr 0x55f752fdaca0 <net.c:304:15> 'int' lvalue Var 0x55f752fda468 'errno_saved' 'int'
+errno_saved
+   2: ImplicitCastExpr 0x55f752fdacc8 <net.c:304:15> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55f752fdaca0 <col:15> 'int' lvalue Var 0x55f752fda468 'errno_saved' 'int'
+[B4.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: DeclRefExpr 0x55f752fdac78 <net.c:304:9> 'int' lvalue Var 0x55f752fda3d0 'err' 'int'
+err
+   4: BinaryOperator 0x55f752fdace0 <net.c:304:9, col:15> 'int' '='
+|-DeclRefExpr 0x55f752fdac78 <col:9> 'int' lvalue Var 0x55f752fda3d0 'err' 'int'
+`-ImplicitCastExpr 0x55f752fdacc8 <col:15> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x55f752fdaca0 <col:15> 'int' lvalue Var 0x55f752fda468 'errno_saved' 'int'
+[B4.3] = [B4.2]
+   Preds (1): B5
+   Succs (1): B3
+
+ [B5]
+   1: DeclRefExpr 0x55f752fdabf0 <net.c:303:9> 'int' lvalue Var 0x55f752fda3d0 'err' 'int'
+err
+   2: ImplicitCastExpr 0x55f752fdac38 <net.c:303:9> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55f752fdabf0 <col:9> 'int' lvalue Var 0x55f752fda3d0 'err' 'int'
+[B5.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: IntegerLiteral 0x55f752fdac18 <net.c:303:16> 'int' 0
+0
+   4: BinaryOperator 0x55f752fdac50 <net.c:303:9, col:16> 'int' '=='
+|-ImplicitCastExpr 0x55f752fdac38 <col:9> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x55f752fdabf0 <col:9> 'int' lvalue Var 0x55f752fda3d0 'err' 'int'
+`-IntegerLiteral 0x55f752fdac18 <col:16> 'int' 0
+[B5.2] == [B5.3]
+   T: if [B5.4]
+   Preds (1): B7
+   Succs (2): B4 B3
+
+ [B6]
+   1: DeclRefExpr 0x55f752fda988 <net.c:299:9> 'void (redisContext *, int, const char *)' Function 0x55f752fd14e0 '__redisSetErrorFromErrno' 'void (redisContext *, int, const char *)'
+__redisSetErrorFromErrno
+   2: ImplicitCastExpr 0x55f752fdaab8 <net.c:299:9> 'void (*)(redisContext *, int, const char *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55f752fda988 <col:9> 'void (redisContext *, int, const char *)' Function 0x55f752fd14e0 '__redisSetErrorFromErrno' 'void (redisContext *, int, const char *)'
+[B6.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(redisContext *, int, const char *))
+   3: DeclRefExpr 0x55f752fda9b0 <net.c:299:34> 'redisContext *' lvalue ParmVar 0x55f752fda280 'c' 'redisContext *'
+c
+   4: ImplicitCastExpr 0x55f752fdab10 <net.c:299:34> 'redisContext *' <LValueToRValue>
+`-DeclRefExpr 0x55f752fda9b0 <col:34> 'redisContext *' lvalue ParmVar 0x55f752fda280 'c' 'redisContext *'
+[B6.3] (ImplicitCastExpr, LValueToRValue, redisContext *)
+   5: IntegerLiteral 0x55f752fda9d8 <./read.h:44:22> 'int' 1
+1
+   6: StringLiteral 0x55f752fdaa78 <net.c:299:49> 'const char [21]' lvalue "getsockopt(SO_ERROR)"
+"getsockopt(SO_ERROR)"
+   7: ImplicitCastExpr 0x55f752fdab28 <net.c:299:49> 'const char *' <ArrayToPointerDecay>
+`-StringLiteral 0x55f752fdaa78 <col:49> 'const char [21]' lvalue "getsockopt(SO_ERROR)"
+[B6.6] (ImplicitCastExpr, ArrayToPointerDecay, const char *)
+   8: CallExpr 0x55f752fdaad0 <net.c:299:9, col:71> 'void'
+|-ImplicitCastExpr 0x55f752fdaab8 <col:9> 'void (*)(redisContext *, int, const char *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55f752fda988 <col:9> 'void (redisContext *, int, const char *)' Function 0x55f752fd14e0 '__redisSetErrorFromErrno' 'void (redisContext *, int, const char *)'
+|-ImplicitCastExpr 0x55f752fdab10 <col:34> 'redisContext *' <LValueToRValue>
+| `-DeclRefExpr 0x55f752fda9b0 <col:34> 'redisContext *' lvalue ParmVar 0x55f752fda280 'c' 'redisContext *'
+|-IntegerLiteral 0x55f752fda9d8 <./read.h:44:22> 'int' 1
+`-ImplicitCastExpr 0x55f752fdab28 <net.c:299:49> 'const char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x55f752fdaa78 <col:49> 'const char [21]' lvalue "getsockopt(SO_ERROR)"
+[B6.2]([B6.4], [B6.5], [B6.7])
+   9: IntegerLiteral 0x55f752fdab40 <./read.h:37:20> 'int' 1
+1
+  10: UnaryOperator 0x55f752fdab60 <./read.h:37:19, col:20> 'int' prefix '-'
+`-IntegerLiteral 0x55f752fdab40 <col:20> 'int' 1
+-[B6.9]
+  11: ReturnStmt 0x55f752fdab80 <net.c:300:9, ./read.h:37:20>
+`-UnaryOperator 0x55f752fdab60 <col:19, col:20> 'int' prefix '-'
+  `-IntegerLiteral 0x55f752fdab40 <col:20> 'int' 1
+return [B6.10];
+   Preds (1): B7
+   Succs (1): B0
+
+ [B7]
+   1: IntegerLiteral 0x55f752fda430 <net.c:295:15> 'int' 0
+0
+   2: DeclStmt 0x55f753005688 <net.c:295:9, col:15>col:9
+`-VarDecl 0x55f752fda3d0 <col:5, col:15> col:9 used err 'int' cinit
+  `-IntegerLiteral 0x55f752fda430 <col:15> 'int' 0
+int err = 0;
+   3: DeclRefExpr 0x55f752fda4c8 </usr/include/errno.h:38:18> 'int *(void)' Function 0x55f752e6a738 '__errno_location' 'int *(void)'
+__errno_location
+   4: ImplicitCastExpr 0x55f752fda4f0 </usr/include/errno.h:38:18> 'int *(*)(void)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55f752fda4c8 <col:18> 'int *(void)' Function 0x55f752e6a738 '__errno_location' 'int *(void)'
+[B7.3] (ImplicitCastExpr, FunctionToPointerDecay, int *(*)(void))
+   5: CallExpr 0x55f752fda508 </usr/include/errno.h:38:18, col:36> 'int *'
+`-ImplicitCastExpr 0x55f752fda4f0 <col:18> 'int *(*)(void)' <FunctionToPointerDecay>
+  `-DeclRefExpr 0x55f752fda4c8 <col:18> 'int *(void)' Function 0x55f752e6a738 '__errno_location' 'int *(void)'
+[B7.4]()
+   6: UnaryOperator 0x55f752fda530 </usr/include/errno.h:38:17, col:36> 'int' lvalue prefix '*'
+`-CallExpr 0x55f752fda508 <col:18, col:36> 'int *'
+  `-ImplicitCastExpr 0x55f752fda4f0 <col:18> 'int *(*)(void)' <FunctionToPointerDecay>
+    `-DeclRefExpr 0x55f752fda4c8 <col:18> 'int *(void)' Function 0x55f752e6a738 '__errno_location' 'int *(void)'
+*[B7.5]
+   7: ImplicitCastExpr 0x55f752fda570 </usr/include/errno.h:38:16, col:37> 'int' <LValueToRValue>
+`-ParenExpr 0x55f752fda550 <col:16, col:37> 'int' lvalue
+  `-UnaryOperator 0x55f752fda530 <col:17, col:36> 'int' lvalue prefix '*'
+    `-CallExpr 0x55f752fda508 <col:18, col:36> 'int *'
+      `-ImplicitCastExpr 0x55f752fda4f0 <col:18> 'int *(*)(void)' <FunctionToPointerDecay>
+        `-DeclRefExpr 0x55f752fda4c8 <col:18> 'int *(void)' Function 0x55f752e6a738 '__errno_location' 'int *(void)'
+([B7.6]) (ImplicitCastExpr, LValueToRValue, int)
+   8: DeclStmt 0x55f753005670 <net.c:295:18, /usr/include/errno.h:38:37>net.c:295:18
+`-VarDecl 0x55f752fda468 <col:5, /usr/include/errno.h:38:37> net.c:295:18 used errno_saved 'int' cinit
+  `-ImplicitCastExpr 0x55f752fda570 </usr/include/errno.h:38:16, col:37> 'int' <LValueToRValue>
+    `-ParenExpr 0x55f752fda550 <col:16, col:37> 'int' lvalue
+      `-UnaryOperator 0x55f752fda530 <col:17, col:36> 'int' lvalue prefix '*'
+        `-CallExpr 0x55f752fda508 <col:18, col:36> 'int *'
+          `-ImplicitCastExpr 0x55f752fda4f0 <col:18> 'int *(*)(void)' <FunctionToPointerDecay>
+            `-DeclRefExpr 0x55f752fda4c8 <col:18> 'int *(void)' Function 0x55f752e6a738 '__errno_location' 'int *(void)'
+int errno_saved = (*__errno_location());
+   9: UnaryExprOrTypeTraitExpr 0x55f752fda670 <net.c:296:24, col:34> 'unsigned long' sizeof
+`-ParenExpr 0x55f752fda650 <col:30, col:34> 'int' lvalue
+  `-DeclRefExpr 0x55f752fda628 <col:31> 'int' lvalue Var 0x55f752fda3d0 'err' 'int'
+sizeof (err)
+  10: ImplicitCastExpr 0x55f752fda690 <net.c:296:24, col:34> 'socklen_t':'unsigned int' <IntegralCast>
+`-UnaryExprOrTypeTraitExpr 0x55f752fda670 <col:24, col:34> 'unsigned long' sizeof
+  `-ParenExpr 0x55f752fda650 <col:30, col:34> 'int' lvalue
+    `-DeclRefExpr 0x55f752fda628 <col:31> 'int' lvalue Var 0x55f752fda3d0 'err' 'int'
+[B7.9] (ImplicitCastExpr, IntegralCast, socklen_t)
+  11: DeclStmt 0x55f752fda6a8 <net.c:296:5, col:35>col:15
+`-VarDecl 0x55f752fda5c8 <col:5, col:34> col:15 used errlen 'socklen_t':'unsigned int' cinit
+  `-ImplicitCastExpr 0x55f752fda690 <col:24, col:34> 'socklen_t':'unsigned int' <IntegralCast>
+    `-UnaryExprOrTypeTraitExpr 0x55f752fda670 <col:24, col:34> 'unsigned long' sizeof
+      `-ParenExpr 0x55f752fda650 <col:30, col:34> 'int' lvalue
+        `-DeclRefExpr 0x55f752fda628 <col:31> 'int' lvalue Var 0x55f752fda3d0 'err' 'int'
+socklen_t errlen = sizeof (err);
+  12: DeclRefExpr 0x55f752fda6c0 <net.c:298:9> 'int (int, int, int, void *__restrict, socklen_t *__restrict)' Function 0x55f752f8f568 'getsockopt' 'int (int, int, int, void *__restrict, socklen_t *__restrict)'
+getsockopt
+  13: ImplicitCastExpr 0x55f752fda888 <net.c:298:9> 'int (*)(int, int, int, void *__restrict, socklen_t *__restrict)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55f752fda6c0 <col:9> 'int (int, int, int, void *__restrict, socklen_t *__restrict)' Function 0x55f752f8f568 'getsockopt' 'int (int, int, int, void *__restrict, socklen_t *__restrict)'
+[B7.12] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(int, int, int, void *__restrict, socklen_t *__restrict))
+  14: DeclRefExpr 0x55f752fda6e8 <net.c:298:20> 'redisContext *' lvalue ParmVar 0x55f752fda280 'c' 'redisContext *'
+c
+  15: ImplicitCastExpr 0x55f752fda710 <net.c:298:20> 'redisContext *' <LValueToRValue>
+`-DeclRefExpr 0x55f752fda6e8 <col:20> 'redisContext *' lvalue ParmVar 0x55f752fda280 'c' 'redisContext *'
+[B7.14] (ImplicitCastExpr, LValueToRValue, redisContext *)
+  16: MemberExpr 0x55f752fda728 <net.c:298:20, col:23> 'redisFD':'int' lvalue ->fd 0x55f752f1fe58
+`-ImplicitCastExpr 0x55f752fda710 <col:20> 'redisContext *' <LValueToRValue>
+  `-DeclRefExpr 0x55f752fda6e8 <col:20> 'redisContext *' lvalue ParmVar 0x55f752fda280 'c' 'redisContext *'
+[B7.15]->fd
+  17: ImplicitCastExpr 0x55f752fda8f0 <net.c:298:20, col:23> 'redisFD':'int' <LValueToRValue>
+`-MemberExpr 0x55f752fda728 <col:20, col:23> 'redisFD':'int' lvalue ->fd 0x55f752f1fe58
+  `-ImplicitCastExpr 0x55f752fda710 <col:20> 'redisContext *' <LValueToRValue>
+    `-DeclRefExpr 0x55f752fda6e8 <col:20> 'redisContext *' lvalue ParmVar 0x55f752fda280 'c' 'redisContext *'
+[B7.16] (ImplicitCastExpr, LValueToRValue, redisFD)
+  18: IntegerLiteral 0x55f752fda760 </usr/include/x86_64-linux-gnu/bits/socket-constants.h:23:20> 'int' 1
+1
+  19: IntegerLiteral 0x55f752fda780 </usr/include/x86_64-linux-gnu/bits/socket-constants.h:27:18> 'int' 4
+4
+  20: DeclRefExpr 0x55f752fda7a0 <net.c:298:50> 'int' lvalue Var 0x55f752fda3d0 'err' 'int'
+err
+  21: UnaryOperator 0x55f752fda7c8 <net.c:298:49, col:50> 'int *' prefix '&'
+`-DeclRefExpr 0x55f752fda7a0 <col:50> 'int' lvalue Var 0x55f752fda3d0 'err' 'int'
+&[B7.20]
+  22: ImplicitCastExpr 0x55f752fda908 <net.c:298:49, col:50> 'void *' <BitCast>
+`-UnaryOperator 0x55f752fda7c8 <col:49, col:50> 'int *' prefix '&'
+  `-DeclRefExpr 0x55f752fda7a0 <col:50> 'int' lvalue Var 0x55f752fda3d0 'err' 'int'
+[B7.21] (ImplicitCastExpr, BitCast, void *)
+  23: DeclRefExpr 0x55f752fda7e8 <net.c:298:56> 'socklen_t':'unsigned int' lvalue Var 0x55f752fda5c8 'errlen' 'socklen_t':'unsigned int'
+errlen
+  24: UnaryOperator 0x55f752fda810 <net.c:298:55, col:56> 'socklen_t *' prefix '&'
+`-DeclRefExpr 0x55f752fda7e8 <col:56> 'socklen_t':'unsigned int' lvalue Var 0x55f752fda5c8 'errlen' 'socklen_t':'unsigned int'
+&[B7.23]
+  25: CallExpr 0x55f752fda8a0 <net.c:298:9, col:62> 'int'
+|-ImplicitCastExpr 0x55f752fda888 <col:9> 'int (*)(int, int, int, void *__restrict, socklen_t *__restrict)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55f752fda6c0 <col:9> 'int (int, int, int, void *__restrict, socklen_t *__restrict)' Function 0x55f752f8f568 'getsockopt' 'int (int, int, int, void *__restrict, socklen_t *__restrict)'
+|-ImplicitCastExpr 0x55f752fda8f0 <col:20, col:23> 'redisFD':'int' <LValueToRValue>
+| `-MemberExpr 0x55f752fda728 <col:20, col:23> 'redisFD':'int' lvalue ->fd 0x55f752f1fe58
+|   `-ImplicitCastExpr 0x55f752fda710 <col:20> 'redisContext *' <LValueToRValue>
+|     `-DeclRefExpr 0x55f752fda6e8 <col:20> 'redisContext *' lvalue ParmVar 0x55f752fda280 'c' 'redisContext *'
+|-IntegerLiteral 0x55f752fda760 </usr/include/x86_64-linux-gnu/bits/socket-constants.h:23:20> 'int' 1
+|-IntegerLiteral 0x55f752fda780 <line:27:18> 'int' 4
+|-ImplicitCastExpr 0x55f752fda908 <net.c:298:49, col:50> 'void *' <BitCast>
+| `-UnaryOperator 0x55f752fda7c8 <col:49, col:50> 'int *' prefix '&'
+|   `-DeclRefExpr 0x55f752fda7a0 <col:50> 'int' lvalue Var 0x55f752fda3d0 'err' 'int'
+`-UnaryOperator 0x55f752fda810 <col:55, col:56> 'socklen_t *' prefix '&'
+  `-DeclRefExpr 0x55f752fda7e8 <col:56> 'socklen_t':'unsigned int' lvalue Var 0x55f752fda5c8 'errlen' 'socklen_t':'unsigned int'
+[B7.13]([B7.17], [B7.18], [B7.19], [B7.22], [B7.24])
+  26: IntegerLiteral 0x55f752fda920 <net.c:298:68> 'int' 1
+1
+  27: UnaryOperator 0x55f752fda940 <net.c:298:67, col:68> 'int' prefix '-'
+`-IntegerLiteral 0x55f752fda920 <col:68> 'int' 1
+-[B7.26]
+  28: BinaryOperator 0x55f752fda960 <net.c:298:9, col:68> 'int' '=='
+|-CallExpr 0x55f752fda8a0 <col:9, col:62> 'int'
+| |-ImplicitCastExpr 0x55f752fda888 <col:9> 'int (*)(int, int, int, void *__restrict, socklen_t *__restrict)' <FunctionToPointerDecay>
+| | `-DeclRefExpr 0x55f752fda6c0 <col:9> 'int (int, int, int, void *__restrict, socklen_t *__restrict)' Function 0x55f752f8f568 'getsockopt' 'int (int, int, int, void *__restrict, socklen_t *__restrict)'
+| |-ImplicitCastExpr 0x55f752fda8f0 <col:20, col:23> 'redisFD':'int' <LValueToRValue>
+| | `-MemberExpr 0x55f752fda728 <col:20, col:23> 'redisFD':'int' lvalue ->fd 0x55f752f1fe58
+| |   `-ImplicitCastExpr 0x55f752fda710 <col:20> 'redisContext *' <LValueToRValue>
+| |     `-DeclRefExpr 0x55f752fda6e8 <col:20> 'redisContext *' lvalue ParmVar 0x55f752fda280 'c' 'redisContext *'
+| |-IntegerLiteral 0x55f752fda760 </usr/include/x86_64-linux-gnu/bits/socket-constants.h:23:20> 'int' 1
+| |-IntegerLiteral 0x55f752fda780 <line:27:18> 'int' 4
+| |-ImplicitCastExpr 0x55f752fda908 <net.c:298:49, col:50> 'void *' <BitCast>
+| | `-UnaryOperator 0x55f752fda7c8 <col:49, col:50> 'int *' prefix '&'
+| |   `-DeclRefExpr 0x55f752fda7a0 <col:50> 'int' lvalue Var 0x55f752fda3d0 'err' 'int'
+| `-UnaryOperator 0x55f752fda810 <col:55, col:56> 'socklen_t *' prefix '&'
+|   `-DeclRefExpr 0x55f752fda7e8 <col:56> 'socklen_t':'unsigned int' lvalue Var 0x55f752fda5c8 'errlen' 'socklen_t':'unsigned int'
+`-UnaryOperator 0x55f752fda940 <col:67, col:68> 'int' prefix '-'
+  `-IntegerLiteral 0x55f752fda920 <col:68> 'int' 1
+[B7.25] == [B7.27]
+   T: if [B7.28]
+   Preds (1): B8
+   Succs (2): B6 B5
+
+ [B0 (EXIT)]
+   Preds (3): B1 B2 B6

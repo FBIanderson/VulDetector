@@ -1,0 +1,95 @@
+static TString *str_checkname(LexState *ls)
+ [B2 (ENTRY)]
+   Succs (1): B1
+
+ [B1]
+   1: DeclStmt 0x558fa8eef398 <lparser.c:118:3, col:14>col:12
+`-VarDecl 0x558fa8eef338 <col:3, col:12> col:12 used ts 'TString *'
+TString *ts;
+   2: DeclRefExpr 0x558fa8eef3b0 <lparser.c:119:3> 'void (LexState *, int)' Function 0x558fa8eed810 'check' 'void (LexState *, int)'
+check
+   3: ImplicitCastExpr 0x558fa8eef428 <lparser.c:119:3> 'void (*)(LexState *, int)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x558fa8eef3b0 <col:3> 'void (LexState *, int)' Function 0x558fa8eed810 'check' 'void (LexState *, int)'
+[B1.2] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(LexState *, int))
+   4: DeclRefExpr 0x558fa8eef3d8 <lparser.c:119:9> 'LexState *' lvalue ParmVar 0x558fa8eef180 'ls' 'LexState *'
+ls
+   5: ImplicitCastExpr 0x558fa8eef478 <lparser.c:119:9> 'LexState *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8eef3d8 <col:9> 'LexState *' lvalue ParmVar 0x558fa8eef180 'ls' 'LexState *'
+[B1.4] (ImplicitCastExpr, LValueToRValue, LexState *)
+   6: DeclRefExpr 0x558fa8eef400 <lparser.c:119:13> 'int' EnumConstant 0x558fa8e9e770 'TK_NAME' 'int'
+TK_NAME
+   7: CallExpr 0x558fa8eef440 <lparser.c:119:3, col:20> 'void'
+|-ImplicitCastExpr 0x558fa8eef428 <col:3> 'void (*)(LexState *, int)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x558fa8eef3b0 <col:3> 'void (LexState *, int)' Function 0x558fa8eed810 'check' 'void (LexState *, int)'
+|-ImplicitCastExpr 0x558fa8eef478 <col:9> 'LexState *' <LValueToRValue>
+| `-DeclRefExpr 0x558fa8eef3d8 <col:9> 'LexState *' lvalue ParmVar 0x558fa8eef180 'ls' 'LexState *'
+`-DeclRefExpr 0x558fa8eef400 <col:13> 'int' EnumConstant 0x558fa8e9e770 'TK_NAME' 'int'
+[B1.3]([B1.5], [B1.6])
+   8: DeclRefExpr 0x558fa8eef4b8 <lparser.c:120:8> 'LexState *' lvalue ParmVar 0x558fa8eef180 'ls' 'LexState *'
+ls
+   9: ImplicitCastExpr 0x558fa8eef4e0 <lparser.c:120:8> 'LexState *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8eef4b8 <col:8> 'LexState *' lvalue ParmVar 0x558fa8eef180 'ls' 'LexState *'
+[B1.8] (ImplicitCastExpr, LValueToRValue, LexState *)
+  10: MemberExpr 0x558fa8eef4f8 <lparser.c:120:8, col:12> 'Token':'struct Token' lvalue ->t 0x558fa8ea03e0
+`-ImplicitCastExpr 0x558fa8eef4e0 <col:8> 'LexState *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8eef4b8 <col:8> 'LexState *' lvalue ParmVar 0x558fa8eef180 'ls' 'LexState *'
+[B1.9]->t
+  11: MemberExpr 0x558fa8eef530 <lparser.c:120:8, col:14> 'SemInfo':'SemInfo' lvalue .seminfo 0x558fa8e9ed00
+`-MemberExpr 0x558fa8eef4f8 <col:8, col:12> 'Token':'struct Token' lvalue ->t 0x558fa8ea03e0
+  `-ImplicitCastExpr 0x558fa8eef4e0 <col:8> 'LexState *' <LValueToRValue>
+    `-DeclRefExpr 0x558fa8eef4b8 <col:8> 'LexState *' lvalue ParmVar 0x558fa8eef180 'ls' 'LexState *'
+[B1.10].seminfo
+  12: MemberExpr 0x558fa8eef568 <lparser.c:120:8, col:22> 'TString *' lvalue .ts 0x558fa8e9eab8
+`-MemberExpr 0x558fa8eef530 <col:8, col:14> 'SemInfo':'SemInfo' lvalue .seminfo 0x558fa8e9ed00
+  `-MemberExpr 0x558fa8eef4f8 <col:8, col:12> 'Token':'struct Token' lvalue ->t 0x558fa8ea03e0
+    `-ImplicitCastExpr 0x558fa8eef4e0 <col:8> 'LexState *' <LValueToRValue>
+      `-DeclRefExpr 0x558fa8eef4b8 <col:8> 'LexState *' lvalue ParmVar 0x558fa8eef180 'ls' 'LexState *'
+[B1.11].ts
+  13: ImplicitCastExpr 0x558fa8eef5a0 <lparser.c:120:8, col:22> 'TString *' <LValueToRValue>
+`-MemberExpr 0x558fa8eef568 <col:8, col:22> 'TString *' lvalue .ts 0x558fa8e9eab8
+  `-MemberExpr 0x558fa8eef530 <col:8, col:14> 'SemInfo':'SemInfo' lvalue .seminfo 0x558fa8e9ed00
+    `-MemberExpr 0x558fa8eef4f8 <col:8, col:12> 'Token':'struct Token' lvalue ->t 0x558fa8ea03e0
+      `-ImplicitCastExpr 0x558fa8eef4e0 <col:8> 'LexState *' <LValueToRValue>
+        `-DeclRefExpr 0x558fa8eef4b8 <col:8> 'LexState *' lvalue ParmVar 0x558fa8eef180 'ls' 'LexState *'
+[B1.12] (ImplicitCastExpr, LValueToRValue, TString *)
+  14: DeclRefExpr 0x558fa8eef490 <lparser.c:120:3> 'TString *' lvalue Var 0x558fa8eef338 'ts' 'TString *'
+ts
+  15: BinaryOperator 0x558fa8eef5b8 <lparser.c:120:3, col:22> 'TString *' '='
+|-DeclRefExpr 0x558fa8eef490 <col:3> 'TString *' lvalue Var 0x558fa8eef338 'ts' 'TString *'
+`-ImplicitCastExpr 0x558fa8eef5a0 <col:8, col:22> 'TString *' <LValueToRValue>
+  `-MemberExpr 0x558fa8eef568 <col:8, col:22> 'TString *' lvalue .ts 0x558fa8e9eab8
+    `-MemberExpr 0x558fa8eef530 <col:8, col:14> 'SemInfo':'SemInfo' lvalue .seminfo 0x558fa8e9ed00
+      `-MemberExpr 0x558fa8eef4f8 <col:8, col:12> 'Token':'struct Token' lvalue ->t 0x558fa8ea03e0
+        `-ImplicitCastExpr 0x558fa8eef4e0 <col:8> 'LexState *' <LValueToRValue>
+          `-DeclRefExpr 0x558fa8eef4b8 <col:8> 'LexState *' lvalue ParmVar 0x558fa8eef180 'ls' 'LexState *'
+[B1.14] = [B1.13]
+  16: DeclRefExpr 0x558fa8eef5e0 <lparser.c:121:3> 'void (LexState *)' Function 0x558fa8ea1430 'luaX_next' 'void (LexState *)'
+luaX_next
+  17: ImplicitCastExpr 0x558fa8eef630 <lparser.c:121:3> 'void (*)(LexState *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x558fa8eef5e0 <col:3> 'void (LexState *)' Function 0x558fa8ea1430 'luaX_next' 'void (LexState *)'
+[B1.16] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(LexState *))
+  18: DeclRefExpr 0x558fa8eef608 <lparser.c:121:13> 'LexState *' lvalue ParmVar 0x558fa8eef180 'ls' 'LexState *'
+ls
+  19: ImplicitCastExpr 0x558fa8eef678 <lparser.c:121:13> 'LexState *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8eef608 <col:13> 'LexState *' lvalue ParmVar 0x558fa8eef180 'ls' 'LexState *'
+[B1.18] (ImplicitCastExpr, LValueToRValue, LexState *)
+  20: CallExpr 0x558fa8eef648 <lparser.c:121:3, col:15> 'void'
+|-ImplicitCastExpr 0x558fa8eef630 <col:3> 'void (*)(LexState *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x558fa8eef5e0 <col:3> 'void (LexState *)' Function 0x558fa8ea1430 'luaX_next' 'void (LexState *)'
+`-ImplicitCastExpr 0x558fa8eef678 <col:13> 'LexState *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8eef608 <col:13> 'LexState *' lvalue ParmVar 0x558fa8eef180 'ls' 'LexState *'
+[B1.17]([B1.19])
+  21: DeclRefExpr 0x558fa8eef690 <lparser.c:122:10> 'TString *' lvalue Var 0x558fa8eef338 'ts' 'TString *'
+ts
+  22: ImplicitCastExpr 0x558fa8eef6b8 <lparser.c:122:10> 'TString *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8eef690 <col:10> 'TString *' lvalue Var 0x558fa8eef338 'ts' 'TString *'
+[B1.21] (ImplicitCastExpr, LValueToRValue, TString *)
+  23: ReturnStmt 0x558fa8eef6d0 <lparser.c:122:3, col:10>
+`-ImplicitCastExpr 0x558fa8eef6b8 <col:10> 'TString *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8eef690 <col:10> 'TString *' lvalue Var 0x558fa8eef338 'ts' 'TString *'
+return [B1.22];
+   Preds (1): B2
+   Succs (1): B0
+
+ [B0 (EXIT)]
+   Preds (1): B1

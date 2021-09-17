@@ -1,0 +1,83 @@
+int redisSetTimeout(redisContext *c, const struct timeval tv)
+ [B4 (ENTRY)]
+   Succs (1): B3
+
+ [B1]
+   1: IntegerLiteral 0x5628070714e0 <./read.h:37:20> 'int' 1
+1
+   2: UnaryOperator 0x562807071500 <./read.h:37:19, col:20> 'int' prefix '-'
+`-IntegerLiteral 0x5628070714e0 <col:20> 'int' 1
+-[B1.1]
+   3: ReturnStmt 0x562807071520 <hiredis.c:858:5, ./read.h:37:20>
+`-UnaryOperator 0x562807071500 <col:19, col:20> 'int' prefix '-'
+  `-IntegerLiteral 0x5628070714e0 <col:20> 'int' 1
+return [B1.2];
+   Preds (1): B3
+   Succs (1): B0
+
+ [B2]
+   1: DeclRefExpr 0x562807071398 <hiredis.c:857:16> 'int (redisContext *, const struct timeval)' Function 0x562807034948 'redisContextSetTimeout' 'int (redisContext *, const struct timeval)'
+redisContextSetTimeout
+   2: ImplicitCastExpr 0x562807071410 <hiredis.c:857:16> 'int (*)(redisContext *, const struct timeval)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x562807071398 <col:16> 'int (redisContext *, const struct timeval)' Function 0x562807034948 'redisContextSetTimeout' 'int (redisContext *, const struct timeval)'
+[B2.1] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(redisContext *, const struct timeval))
+   3: DeclRefExpr 0x5628070713c0 <hiredis.c:857:39> 'redisContext *' lvalue ParmVar 0x5628070710f8 'c' 'redisContext *'
+c
+   4: ImplicitCastExpr 0x562807071460 <hiredis.c:857:39> 'redisContext *' <LValueToRValue>
+`-DeclRefExpr 0x5628070713c0 <col:39> 'redisContext *' lvalue ParmVar 0x5628070710f8 'c' 'redisContext *'
+[B2.3] (ImplicitCastExpr, LValueToRValue, redisContext *)
+   5: DeclRefExpr 0x5628070713e8 <hiredis.c:857:41> 'const struct timeval':'const struct timeval' lvalue ParmVar 0x562807071178 'tv' 'const struct timeval':'const struct timeval'
+tv
+   6: ImplicitCastExpr 0x562807071478 <hiredis.c:857:41> 'struct timeval':'struct timeval' <LValueToRValue>
+`-DeclRefExpr 0x5628070713e8 <col:41> 'const struct timeval':'const struct timeval' lvalue ParmVar 0x562807071178 'tv' 'const struct timeval':'const struct timeval'
+[B2.5] (ImplicitCastExpr, LValueToRValue, struct timeval)
+   7: CallExpr 0x562807071428 <hiredis.c:857:16, col:43> 'int'
+|-ImplicitCastExpr 0x562807071410 <col:16> 'int (*)(redisContext *, const struct timeval)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x562807071398 <col:16> 'int (redisContext *, const struct timeval)' Function 0x562807034948 'redisContextSetTimeout' 'int (redisContext *, const struct timeval)'
+|-ImplicitCastExpr 0x562807071460 <col:39> 'redisContext *' <LValueToRValue>
+| `-DeclRefExpr 0x5628070713c0 <col:39> 'redisContext *' lvalue ParmVar 0x5628070710f8 'c' 'redisContext *'
+`-ImplicitCastExpr 0x562807071478 <col:41> 'struct timeval':'struct timeval' <LValueToRValue>
+  `-DeclRefExpr 0x5628070713e8 <col:41> 'const struct timeval':'const struct timeval' lvalue ParmVar 0x562807071178 'tv' 'const struct timeval':'const struct timeval'
+[B2.2]([B2.4], [B2.6])
+   8: ReturnStmt 0x562807071490 <hiredis.c:857:9, col:43>
+`-CallExpr 0x562807071428 <col:16, col:43> 'int'
+  |-ImplicitCastExpr 0x562807071410 <col:16> 'int (*)(redisContext *, const struct timeval)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x562807071398 <col:16> 'int (redisContext *, const struct timeval)' Function 0x562807034948 'redisContextSetTimeout' 'int (redisContext *, const struct timeval)'
+  |-ImplicitCastExpr 0x562807071460 <col:39> 'redisContext *' <LValueToRValue>
+  | `-DeclRefExpr 0x5628070713c0 <col:39> 'redisContext *' lvalue ParmVar 0x5628070710f8 'c' 'redisContext *'
+  `-ImplicitCastExpr 0x562807071478 <col:41> 'struct timeval':'struct timeval' <LValueToRValue>
+    `-DeclRefExpr 0x5628070713e8 <col:41> 'const struct timeval':'const struct timeval' lvalue ParmVar 0x562807071178 'tv' 'const struct timeval':'const struct timeval'
+return [B2.7];
+   Preds (1): B3
+   Succs (1): B0
+
+ [B3]
+   1: DeclRefExpr 0x5628070712c0 <hiredis.c:856:9> 'redisContext *' lvalue ParmVar 0x5628070710f8 'c' 'redisContext *'
+c
+   2: ImplicitCastExpr 0x5628070712e8 <hiredis.c:856:9> 'redisContext *' <LValueToRValue>
+`-DeclRefExpr 0x5628070712c0 <col:9> 'redisContext *' lvalue ParmVar 0x5628070710f8 'c' 'redisContext *'
+[B3.1] (ImplicitCastExpr, LValueToRValue, redisContext *)
+   3: MemberExpr 0x562807071300 <hiredis.c:856:9, col:12> 'int' lvalue ->flags 0x56280702fce8
+`-ImplicitCastExpr 0x5628070712e8 <col:9> 'redisContext *' <LValueToRValue>
+  `-DeclRefExpr 0x5628070712c0 <col:9> 'redisContext *' lvalue ParmVar 0x5628070710f8 'c' 'redisContext *'
+[B3.2]->flags
+   4: ImplicitCastExpr 0x562807071358 <hiredis.c:856:9, col:12> 'int' <LValueToRValue>
+`-MemberExpr 0x562807071300 <col:9, col:12> 'int' lvalue ->flags 0x56280702fce8
+  `-ImplicitCastExpr 0x5628070712e8 <col:9> 'redisContext *' <LValueToRValue>
+    `-DeclRefExpr 0x5628070712c0 <col:9> 'redisContext *' lvalue ParmVar 0x5628070710f8 'c' 'redisContext *'
+[B3.3] (ImplicitCastExpr, LValueToRValue, int)
+   5: IntegerLiteral 0x562807071338 <./hiredis.h:53:21> 'int' 1
+1
+   6: BinaryOperator 0x562807071370 <hiredis.c:856:9, ./hiredis.h:53:21> 'int' '&'
+|-ImplicitCastExpr 0x562807071358 <hiredis.c:856:9, col:12> 'int' <LValueToRValue>
+| `-MemberExpr 0x562807071300 <col:9, col:12> 'int' lvalue ->flags 0x56280702fce8
+|   `-ImplicitCastExpr 0x5628070712e8 <col:9> 'redisContext *' <LValueToRValue>
+|     `-DeclRefExpr 0x5628070712c0 <col:9> 'redisContext *' lvalue ParmVar 0x5628070710f8 'c' 'redisContext *'
+`-IntegerLiteral 0x562807071338 <./hiredis.h:53:21> 'int' 1
+[B3.4] & [B3.5]
+   T: if [B3.6]
+   Preds (1): B4
+   Succs (2): B2 B1
+
+ [B0 (EXIT)]
+   Preds (2): B1 B2

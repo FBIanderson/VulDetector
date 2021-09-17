@@ -1,0 +1,82 @@
+static void disableRawMode(int fd)
+ [B4 (ENTRY)]
+   Succs (1): B3
+
+ [B1]
+   1: IntegerLiteral 0x56555a494da0 <linenoise.c:270:19> 'int' 0
+0
+   2: DeclRefExpr 0x56555a494d78 <linenoise.c:270:9> 'int' lvalue Var 0x56555a48d8f0 'rawmode' 'int'
+rawmode
+   3: BinaryOperator 0x56555a494dc0 <linenoise.c:270:9, col:19> 'int' '='
+|-DeclRefExpr 0x56555a494d78 <col:9> 'int' lvalue Var 0x56555a48d8f0 'rawmode' 'int'
+`-IntegerLiteral 0x56555a494da0 <col:19> 'int' 0
+[B1.2] = [B1.1]
+   Preds (1): B2
+   Succs (1): B0
+
+ [B2]
+   1: DeclRefExpr 0x56555a494b90 <linenoise.c:269:20> 'int (int, int, const struct termios *)' Function 0x56555a34d018 'tcsetattr' 'int (int, int, const struct termios *)'
+tcsetattr
+   2: ImplicitCastExpr 0x56555a494c48 <linenoise.c:269:20> 'int (*)(int, int, const struct termios *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x56555a494b90 <col:20> 'int (int, int, const struct termios *)' Function 0x56555a34d018 'tcsetattr' 'int (int, int, const struct termios *)'
+[B2.1] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(int, int, const struct termios *))
+   3: DeclRefExpr 0x56555a494bb8 <linenoise.c:269:30> 'int' lvalue ParmVar 0x56555a494a38 'fd' 'int'
+fd
+   4: ImplicitCastExpr 0x56555a494ca0 <linenoise.c:269:30> 'int' <LValueToRValue>
+`-DeclRefExpr 0x56555a494bb8 <col:30> 'int' lvalue ParmVar 0x56555a494a38 'fd' 'int'
+[B2.3] (ImplicitCastExpr, LValueToRValue, int)
+   5: IntegerLiteral 0x56555a494be0 </usr/include/x86_64-linux-gnu/bits/termios-tcflow.h:26:19> 'int' 2
+2
+   6: DeclRefExpr 0x56555a494c00 <linenoise.c:269:44> 'struct termios':'struct termios' lvalue Var 0x56555a48d7e0 'orig_termios' 'struct termios':'struct termios'
+orig_termios
+   7: UnaryOperator 0x56555a494c28 <linenoise.c:269:43, col:44> 'struct termios *' prefix '&'
+`-DeclRefExpr 0x56555a494c00 <col:44> 'struct termios':'struct termios' lvalue Var 0x56555a48d7e0 'orig_termios' 'struct termios':'struct termios'
+&[B2.6]
+   8: ImplicitCastExpr 0x56555a494cb8 <linenoise.c:269:43, col:44> 'const struct termios *' <BitCast>
+`-UnaryOperator 0x56555a494c28 <col:43, col:44> 'struct termios *' prefix '&'
+  `-DeclRefExpr 0x56555a494c00 <col:44> 'struct termios':'struct termios' lvalue Var 0x56555a48d7e0 'orig_termios' 'struct termios':'struct termios'
+[B2.7] (ImplicitCastExpr, BitCast, const struct termios *)
+   9: CallExpr 0x56555a494c60 <linenoise.c:269:20, col:56> 'int'
+|-ImplicitCastExpr 0x56555a494c48 <col:20> 'int (*)(int, int, const struct termios *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x56555a494b90 <col:20> 'int (int, int, const struct termios *)' Function 0x56555a34d018 'tcsetattr' 'int (int, int, const struct termios *)'
+|-ImplicitCastExpr 0x56555a494ca0 <col:30> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x56555a494bb8 <col:30> 'int' lvalue ParmVar 0x56555a494a38 'fd' 'int'
+|-IntegerLiteral 0x56555a494be0 </usr/include/x86_64-linux-gnu/bits/termios-tcflow.h:26:19> 'int' 2
+`-ImplicitCastExpr 0x56555a494cb8 <linenoise.c:269:43, col:44> 'const struct termios *' <BitCast>
+  `-UnaryOperator 0x56555a494c28 <col:43, col:44> 'struct termios *' prefix '&'
+    `-DeclRefExpr 0x56555a494c00 <col:44> 'struct termios':'struct termios' lvalue Var 0x56555a48d7e0 'orig_termios' 'struct termios':'struct termios'
+[B2.2]([B2.4], [B2.5], [B2.8])
+  10: IntegerLiteral 0x56555a494cd0 <linenoise.c:269:62> 'int' 1
+1
+  11: UnaryOperator 0x56555a494cf0 <linenoise.c:269:61, col:62> 'int' prefix '-'
+`-IntegerLiteral 0x56555a494cd0 <col:62> 'int' 1
+-[B2.10]
+  12: BinaryOperator 0x56555a494d10 <linenoise.c:269:20, col:62> 'int' '!='
+|-CallExpr 0x56555a494c60 <col:20, col:56> 'int'
+| |-ImplicitCastExpr 0x56555a494c48 <col:20> 'int (*)(int, int, const struct termios *)' <FunctionToPointerDecay>
+| | `-DeclRefExpr 0x56555a494b90 <col:20> 'int (int, int, const struct termios *)' Function 0x56555a34d018 'tcsetattr' 'int (int, int, const struct termios *)'
+| |-ImplicitCastExpr 0x56555a494ca0 <col:30> 'int' <LValueToRValue>
+| | `-DeclRefExpr 0x56555a494bb8 <col:30> 'int' lvalue ParmVar 0x56555a494a38 'fd' 'int'
+| |-IntegerLiteral 0x56555a494be0 </usr/include/x86_64-linux-gnu/bits/termios-tcflow.h:26:19> 'int' 2
+| `-ImplicitCastExpr 0x56555a494cb8 <linenoise.c:269:43, col:44> 'const struct termios *' <BitCast>
+|   `-UnaryOperator 0x56555a494c28 <col:43, col:44> 'struct termios *' prefix '&'
+|     `-DeclRefExpr 0x56555a494c00 <col:44> 'struct termios':'struct termios' lvalue Var 0x56555a48d7e0 'orig_termios' 'struct termios':'struct termios'
+`-UnaryOperator 0x56555a494cf0 <col:61, col:62> 'int' prefix '-'
+  `-IntegerLiteral 0x56555a494cd0 <col:62> 'int' 1
+[B2.9] != [B2.11]
+   T: if [B3.2] && [B2.12]
+   Preds (1): B3
+   Succs (2): B1 B0
+
+ [B3]
+   1: DeclRefExpr 0x56555a494b68 <linenoise.c:269:9> 'int' lvalue Var 0x56555a48d8f0 'rawmode' 'int'
+rawmode
+   2: ImplicitCastExpr 0x56555a494d38 <linenoise.c:269:9> 'int' <LValueToRValue>
+`-DeclRefExpr 0x56555a494b68 <col:9> 'int' lvalue Var 0x56555a48d8f0 'rawmode' 'int'
+[B3.1] (ImplicitCastExpr, LValueToRValue, int)
+   T: [B3.2] && ...
+   Preds (1): B4
+   Succs (2): B2 B0
+
+ [B0 (EXIT)]
+   Preds (3): B1 B2 B3

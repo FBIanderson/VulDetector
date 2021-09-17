@@ -1,0 +1,82 @@
+static int LoadChar(LoadState *S)
+ [B2 (ENTRY)]
+   Succs (1): B1
+
+ [B1]
+   1: DeclStmt 0x56282186a768 <lundump.c:56:2, col:8>col:7
+`-VarDecl 0x56282186a708 <col:2, col:7> col:7 used x 'char'
+char x;
+   2: DeclRefExpr 0x56282186a780 <lundump.c:43:29> 'void (LoadState *, void *, size_t)' Function 0x562821869a00 'LoadBlock' 'void (LoadState *, void *, size_t)'
+LoadBlock
+   3: ImplicitCastExpr 0x56282186a978 <lundump.c:43:29> 'void (*)(LoadState *, void *, size_t)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x56282186a780 <col:29> 'void (LoadState *, void *, size_t)' Function 0x562821869a00 'LoadBlock' 'void (LoadState *, void *, size_t)'
+[B1.2] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(LoadState *, void *, size_t))
+   4: DeclRefExpr 0x56282186a7a8 <lundump.c:57:10> 'LoadState *' lvalue ParmVar 0x562821869fe8 'S' 'LoadState *'
+S
+   5: ImplicitCastExpr 0x56282186a9d0 <lundump.c:57:10> 'LoadState *' <LValueToRValue>
+`-DeclRefExpr 0x56282186a7a8 <col:10> 'LoadState *' lvalue ParmVar 0x562821869fe8 'S' 'LoadState *'
+[B1.4] (ImplicitCastExpr, LValueToRValue, LoadState *)
+   6: DeclRefExpr 0x56282186a7d0 <lundump.c:57:12> 'char' lvalue Var 0x56282186a708 'x' 'char'
+x
+   7: UnaryOperator 0x56282186a7f8 <lundump.c:45:33, line:57:12> 'char *' prefix '&'
+`-DeclRefExpr 0x56282186a7d0 <col:12> 'char' lvalue Var 0x56282186a708 'x' 'char'
+&[B1.6]
+   8: ImplicitCastExpr 0x56282186a9e8 <lundump.c:45:33, line:57:12> 'void *' <BitCast>
+`-UnaryOperator 0x56282186a7f8 <line:45:33, line:57:12> 'char *' prefix '&'
+  `-DeclRefExpr 0x56282186a7d0 <col:12> 'char' lvalue Var 0x56282186a708 'x' 'char'
+[B1.7] (ImplicitCastExpr, BitCast, void *)
+   9: IntegerLiteral 0x56282186a818 <lundump.c:45:36> 'int' 1
+1
+  10: ImplicitCastExpr 0x56282186a8e0 <lundump.c:43:43, col:45> 'unsigned long' <IntegralCast>
+`-ParenExpr 0x56282186a838 <col:43, col:45> 'int'
+  `-IntegerLiteral 0x56282186a818 <line:45:36> 'int' 1
+([B1.9]) (ImplicitCastExpr, IntegralCast, unsigned long)
+  11: UnaryExprOrTypeTraitExpr 0x56282186a8a0 <lundump.c:45:38, col:46> 'unsigned long' sizeof
+`-ParenExpr 0x56282186a880 <col:44, col:46> 'char' lvalue
+  `-DeclRefExpr 0x56282186a858 <line:57:12> 'char' lvalue Var 0x56282186a708 'x' 'char'
+sizeof (x)
+  12: BinaryOperator 0x56282186a8f8 <lundump.c:43:43, col:52> 'unsigned long' '*'
+|-ImplicitCastExpr 0x56282186a8e0 <col:43, col:45> 'unsigned long' <IntegralCast>
+| `-ParenExpr 0x56282186a838 <col:43, col:45> 'int'
+|   `-IntegerLiteral 0x56282186a818 <line:45:36> 'int' 1
+`-ParenExpr 0x56282186a8c0 <line:43:47, col:52> 'unsigned long'
+  `-UnaryExprOrTypeTraitExpr 0x56282186a8a0 <line:45:38, col:46> 'unsigned long' sizeof
+    `-ParenExpr 0x56282186a880 <col:44, col:46> 'char' lvalue
+      `-DeclRefExpr 0x56282186a858 <line:57:12> 'char' lvalue Var 0x56282186a708 'x' 'char'
+[B1.10] * ([B1.11])
+  13: CallExpr 0x56282186a990 <lundump.c:43:29, col:53> 'void'
+|-ImplicitCastExpr 0x56282186a978 <col:29> 'void (*)(LoadState *, void *, size_t)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x56282186a780 <col:29> 'void (LoadState *, void *, size_t)' Function 0x562821869a00 'LoadBlock' 'void (LoadState *, void *, size_t)'
+|-ImplicitCastExpr 0x56282186a9d0 <line:57:10> 'LoadState *' <LValueToRValue>
+| `-DeclRefExpr 0x56282186a7a8 <col:10> 'LoadState *' lvalue ParmVar 0x562821869fe8 'S' 'LoadState *'
+|-ImplicitCastExpr 0x56282186a9e8 <line:45:33, line:57:12> 'void *' <BitCast>
+| `-UnaryOperator 0x56282186a7f8 <line:45:33, line:57:12> 'char *' prefix '&'
+|   `-DeclRefExpr 0x56282186a7d0 <col:12> 'char' lvalue Var 0x56282186a708 'x' 'char'
+`-BinaryOperator 0x56282186a8f8 <line:43:43, col:52> 'unsigned long' '*'
+  |-ImplicitCastExpr 0x56282186a8e0 <col:43, col:45> 'unsigned long' <IntegralCast>
+  | `-ParenExpr 0x56282186a838 <col:43, col:45> 'int'
+  |   `-IntegerLiteral 0x56282186a818 <line:45:36> 'int' 1
+  `-ParenExpr 0x56282186a8c0 <line:43:47, col:52> 'unsigned long'
+    `-UnaryExprOrTypeTraitExpr 0x56282186a8a0 <line:45:38, col:46> 'unsigned long' sizeof
+      `-ParenExpr 0x56282186a880 <col:44, col:46> 'char' lvalue
+        `-DeclRefExpr 0x56282186a858 <line:57:12> 'char' lvalue Var 0x56282186a708 'x' 'char'
+[B1.3]([B1.5], [B1.8], [B1.12])
+  14: DeclRefExpr 0x56282186aa00 <lundump.c:58:9> 'char' lvalue Var 0x56282186a708 'x' 'char'
+x
+  15: ImplicitCastExpr 0x56282186aa28 <lundump.c:58:9> 'char' <LValueToRValue>
+`-DeclRefExpr 0x56282186aa00 <col:9> 'char' lvalue Var 0x56282186a708 'x' 'char'
+[B1.14] (ImplicitCastExpr, LValueToRValue, char)
+  16: ImplicitCastExpr 0x56282186aa40 <lundump.c:58:9> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x56282186aa28 <col:9> 'char' <LValueToRValue>
+  `-DeclRefExpr 0x56282186aa00 <col:9> 'char' lvalue Var 0x56282186a708 'x' 'char'
+[B1.15] (ImplicitCastExpr, IntegralCast, int)
+  17: ReturnStmt 0x56282186aa58 <lundump.c:58:2, col:9>
+`-ImplicitCastExpr 0x56282186aa40 <col:9> 'int' <IntegralCast>
+  `-ImplicitCastExpr 0x56282186aa28 <col:9> 'char' <LValueToRValue>
+    `-DeclRefExpr 0x56282186aa00 <col:9> 'char' lvalue Var 0x56282186a708 'x' 'char'
+return [B1.16];
+   Preds (1): B2
+   Succs (1): B0
+
+ [B0 (EXIT)]
+   Preds (1): B1

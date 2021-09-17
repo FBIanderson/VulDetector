@@ -1,0 +1,332 @@
+void strbuf_resize(strbuf_t *s, int len)
+ [B6 (ENTRY)]
+   Succs (1): B5
+
+ [B1]
+   1: DeclRefExpr 0x55c95beee078 <strbuf.c:179:5> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+s
+   2: ImplicitCastExpr 0x55c95beee0a0 <strbuf.c:179:5> 'strbuf_t *' <LValueToRValue>
+`-DeclRefExpr 0x55c95beee078 <col:5> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+[B1.1] (ImplicitCastExpr, LValueToRValue, strbuf_t *)
+   3: MemberExpr 0x55c95beee0b8 <strbuf.c:179:5, col:8> 'int' lvalue ->reallocs 0x55c95bee0c58
+`-ImplicitCastExpr 0x55c95beee0a0 <col:5> 'strbuf_t *' <LValueToRValue>
+  `-DeclRefExpr 0x55c95beee078 <col:5> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+[B1.2]->reallocs
+   4: UnaryOperator 0x55c95beee0f0 <strbuf.c:179:5, col:16> 'int' postfix '++'
+`-MemberExpr 0x55c95beee0b8 <col:5, col:8> 'int' lvalue ->reallocs 0x55c95bee0c58
+  `-ImplicitCastExpr 0x55c95beee0a0 <col:5> 'strbuf_t *' <LValueToRValue>
+    `-DeclRefExpr 0x55c95beee078 <col:5> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+[B1.3]++
+   Preds (2): B2 B3
+   Succs (1): B0
+
+ [B2]
+   1: DeclRefExpr 0x55c95beedf68 <strbuf.c:178:9> 'void (const char *, ...)' Function 0x55c95bee8758 'die' 'void (const char *, ...)'
+die
+   2: ImplicitCastExpr 0x55c95beedfc8 <strbuf.c:178:9> 'void (*)(const char *, ...)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55c95beedf68 <col:9> 'void (const char *, ...)' Function 0x55c95bee8758 'die' 'void (const char *, ...)'
+[B2.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(const char *, ...))
+   3: StringLiteral 0x55c95beedf90 <strbuf.c:178:13> 'char [14]' lvalue "Out of memory"
+"Out of memory"
+   4: ImplicitCastExpr 0x55c95beee010 <strbuf.c:178:13> 'char *' <ArrayToPointerDecay>
+`-StringLiteral 0x55c95beedf90 <col:13> 'char [14]' lvalue "Out of memory"
+[B2.3] (ImplicitCastExpr, ArrayToPointerDecay, char *)
+   5: ImplicitCastExpr 0x55c95beee028 <strbuf.c:178:13> 'const char *' <BitCast>
+`-ImplicitCastExpr 0x55c95beee010 <col:13> 'char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x55c95beedf90 <col:13> 'char [14]' lvalue "Out of memory"
+[B2.4] (ImplicitCastExpr, BitCast, const char *)
+   6: CallExpr 0x55c95beedfe0 <strbuf.c:178:9, col:28> 'void'
+|-ImplicitCastExpr 0x55c95beedfc8 <col:9> 'void (*)(const char *, ...)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55c95beedf68 <col:9> 'void (const char *, ...)' Function 0x55c95bee8758 'die' 'void (const char *, ...)'
+`-ImplicitCastExpr 0x55c95beee028 <col:13> 'const char *' <BitCast>
+  `-ImplicitCastExpr 0x55c95beee010 <col:13> 'char *' <ArrayToPointerDecay>
+    `-StringLiteral 0x55c95beedf90 <col:13> 'char [14]' lvalue "Out of memory"
+[B2.2]([B2.5])
+   Preds (1): B3
+   Succs (1): B1
+
+ [B3]
+   1: DeclRefExpr 0x55c95beedb78 <strbuf.c:175:15> 'int' lvalue Var 0x55c95beed4f0 'newsize' 'int'
+newsize
+   2: ImplicitCastExpr 0x55c95beedba0 <strbuf.c:175:15> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55c95beedb78 <col:15> 'int' lvalue Var 0x55c95beed4f0 'newsize' 'int'
+[B3.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: DeclRefExpr 0x55c95beedb00 <strbuf.c:175:5> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+s
+   4: ImplicitCastExpr 0x55c95beedb28 <strbuf.c:175:5> 'strbuf_t *' <LValueToRValue>
+`-DeclRefExpr 0x55c95beedb00 <col:5> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+[B3.3] (ImplicitCastExpr, LValueToRValue, strbuf_t *)
+   5: MemberExpr 0x55c95beedb40 <strbuf.c:175:5, col:8> 'int' lvalue ->size 0x55c95bee0ad8
+`-ImplicitCastExpr 0x55c95beedb28 <col:5> 'strbuf_t *' <LValueToRValue>
+  `-DeclRefExpr 0x55c95beedb00 <col:5> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+[B3.4]->size
+   6: BinaryOperator 0x55c95beedbb8 <strbuf.c:175:5, col:15> 'int' '='
+|-MemberExpr 0x55c95beedb40 <col:5, col:8> 'int' lvalue ->size 0x55c95bee0ad8
+| `-ImplicitCastExpr 0x55c95beedb28 <col:5> 'strbuf_t *' <LValueToRValue>
+|   `-DeclRefExpr 0x55c95beedb00 <col:5> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+`-ImplicitCastExpr 0x55c95beedba0 <col:15> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x55c95beedb78 <col:15> 'int' lvalue Var 0x55c95beed4f0 'newsize' 'int'
+[B3.5] = [B3.2]
+   7: DeclRefExpr 0x55c95beedc58 <strbuf.c:176:14> 'void *(void *, unsigned long)' Function 0x55c95be66058 'realloc' 'void *(void *, unsigned long)'
+realloc
+   8: ImplicitCastExpr 0x55c95beeddc8 <strbuf.c:176:14> 'void *(*)(void *, unsigned long)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55c95beedc58 <col:14> 'void *(void *, unsigned long)' Function 0x55c95be66058 'realloc' 'void *(void *, unsigned long)'
+[B3.7] (ImplicitCastExpr, FunctionToPointerDecay, void *(*)(void *, unsigned long))
+   9: DeclRefExpr 0x55c95beedc80 <strbuf.c:176:22> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+s
+  10: ImplicitCastExpr 0x55c95beedca8 <strbuf.c:176:22> 'strbuf_t *' <LValueToRValue>
+`-DeclRefExpr 0x55c95beedc80 <col:22> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+[B3.9] (ImplicitCastExpr, LValueToRValue, strbuf_t *)
+  11: MemberExpr 0x55c95beedcc0 <strbuf.c:176:22, col:25> 'char *' lvalue ->buf 0x55c95bee0a78
+`-ImplicitCastExpr 0x55c95beedca8 <col:22> 'strbuf_t *' <LValueToRValue>
+  `-DeclRefExpr 0x55c95beedc80 <col:22> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+[B3.10]->buf
+  12: ImplicitCastExpr 0x55c95beede18 <strbuf.c:176:22, col:25> 'char *' <LValueToRValue>
+`-MemberExpr 0x55c95beedcc0 <col:22, col:25> 'char *' lvalue ->buf 0x55c95bee0a78
+  `-ImplicitCastExpr 0x55c95beedca8 <col:22> 'strbuf_t *' <LValueToRValue>
+    `-DeclRefExpr 0x55c95beedc80 <col:22> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+[B3.11] (ImplicitCastExpr, LValueToRValue, char *)
+  13: ImplicitCastExpr 0x55c95beede30 <strbuf.c:176:22, col:25> 'void *' <BitCast>
+`-ImplicitCastExpr 0x55c95beede18 <col:22, col:25> 'char *' <LValueToRValue>
+  `-MemberExpr 0x55c95beedcc0 <col:22, col:25> 'char *' lvalue ->buf 0x55c95bee0a78
+    `-ImplicitCastExpr 0x55c95beedca8 <col:22> 'strbuf_t *' <LValueToRValue>
+      `-DeclRefExpr 0x55c95beedc80 <col:22> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+[B3.12] (ImplicitCastExpr, BitCast, void *)
+  14: DeclRefExpr 0x55c95beedcf8 <strbuf.c:176:30> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+s
+  15: ImplicitCastExpr 0x55c95beedd20 <strbuf.c:176:30> 'strbuf_t *' <LValueToRValue>
+`-DeclRefExpr 0x55c95beedcf8 <col:30> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+[B3.14] (ImplicitCastExpr, LValueToRValue, strbuf_t *)
+  16: MemberExpr 0x55c95beedd38 <strbuf.c:176:30, col:33> 'int' lvalue ->size 0x55c95bee0ad8
+`-ImplicitCastExpr 0x55c95beedd20 <col:30> 'strbuf_t *' <LValueToRValue>
+  `-DeclRefExpr 0x55c95beedcf8 <col:30> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+[B3.15]->size
+  17: ImplicitCastExpr 0x55c95beede48 <strbuf.c:176:30, col:33> 'int' <LValueToRValue>
+`-MemberExpr 0x55c95beedd38 <col:30, col:33> 'int' lvalue ->size 0x55c95bee0ad8
+  `-ImplicitCastExpr 0x55c95beedd20 <col:30> 'strbuf_t *' <LValueToRValue>
+    `-DeclRefExpr 0x55c95beedcf8 <col:30> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+[B3.16] (ImplicitCastExpr, LValueToRValue, int)
+  18: ImplicitCastExpr 0x55c95beede60 <strbuf.c:176:30, col:33> 'unsigned long' <IntegralCast>
+`-ImplicitCastExpr 0x55c95beede48 <col:30, col:33> 'int' <LValueToRValue>
+  `-MemberExpr 0x55c95beedd38 <col:30, col:33> 'int' lvalue ->size 0x55c95bee0ad8
+    `-ImplicitCastExpr 0x55c95beedd20 <col:30> 'strbuf_t *' <LValueToRValue>
+      `-DeclRefExpr 0x55c95beedcf8 <col:30> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+[B3.17] (ImplicitCastExpr, IntegralCast, unsigned long)
+  19: CallExpr 0x55c95beedde0 <strbuf.c:176:14, col:37> 'void *'
+|-ImplicitCastExpr 0x55c95beeddc8 <col:14> 'void *(*)(void *, unsigned long)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55c95beedc58 <col:14> 'void *(void *, unsigned long)' Function 0x55c95be66058 'realloc' 'void *(void *, unsigned long)'
+|-ImplicitCastExpr 0x55c95beede30 <col:22, col:25> 'void *' <BitCast>
+| `-ImplicitCastExpr 0x55c95beede18 <col:22, col:25> 'char *' <LValueToRValue>
+|   `-MemberExpr 0x55c95beedcc0 <col:22, col:25> 'char *' lvalue ->buf 0x55c95bee0a78
+|     `-ImplicitCastExpr 0x55c95beedca8 <col:22> 'strbuf_t *' <LValueToRValue>
+|       `-DeclRefExpr 0x55c95beedc80 <col:22> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+`-ImplicitCastExpr 0x55c95beede60 <col:30, col:33> 'unsigned long' <IntegralCast>
+  `-ImplicitCastExpr 0x55c95beede48 <col:30, col:33> 'int' <LValueToRValue>
+    `-MemberExpr 0x55c95beedd38 <col:30, col:33> 'int' lvalue ->size 0x55c95bee0ad8
+      `-ImplicitCastExpr 0x55c95beedd20 <col:30> 'strbuf_t *' <LValueToRValue>
+        `-DeclRefExpr 0x55c95beedcf8 <col:30> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+[B3.8]([B3.13], [B3.18])
+  20: ImplicitCastExpr 0x55c95beede78 <strbuf.c:176:14, col:37> 'char *' <BitCast>
+`-CallExpr 0x55c95beedde0 <col:14, col:37> 'void *'
+  |-ImplicitCastExpr 0x55c95beeddc8 <col:14> 'void *(*)(void *, unsigned long)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55c95beedc58 <col:14> 'void *(void *, unsigned long)' Function 0x55c95be66058 'realloc' 'void *(void *, unsigned long)'
+  |-ImplicitCastExpr 0x55c95beede30 <col:22, col:25> 'void *' <BitCast>
+  | `-ImplicitCastExpr 0x55c95beede18 <col:22, col:25> 'char *' <LValueToRValue>
+  |   `-MemberExpr 0x55c95beedcc0 <col:22, col:25> 'char *' lvalue ->buf 0x55c95bee0a78
+  |     `-ImplicitCastExpr 0x55c95beedca8 <col:22> 'strbuf_t *' <LValueToRValue>
+  |       `-DeclRefExpr 0x55c95beedc80 <col:22> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+  `-ImplicitCastExpr 0x55c95beede60 <col:30, col:33> 'unsigned long' <IntegralCast>
+    `-ImplicitCastExpr 0x55c95beede48 <col:30, col:33> 'int' <LValueToRValue>
+      `-MemberExpr 0x55c95beedd38 <col:30, col:33> 'int' lvalue ->size 0x55c95bee0ad8
+        `-ImplicitCastExpr 0x55c95beedd20 <col:30> 'strbuf_t *' <LValueToRValue>
+          `-DeclRefExpr 0x55c95beedcf8 <col:30> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+[B3.19] (ImplicitCastExpr, BitCast, char *)
+  21: DeclRefExpr 0x55c95beedbe0 <strbuf.c:176:5> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+s
+  22: ImplicitCastExpr 0x55c95beedc08 <strbuf.c:176:5> 'strbuf_t *' <LValueToRValue>
+`-DeclRefExpr 0x55c95beedbe0 <col:5> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+[B3.21] (ImplicitCastExpr, LValueToRValue, strbuf_t *)
+  23: MemberExpr 0x55c95beedc20 <strbuf.c:176:5, col:8> 'char *' lvalue ->buf 0x55c95bee0a78
+`-ImplicitCastExpr 0x55c95beedc08 <col:5> 'strbuf_t *' <LValueToRValue>
+  `-DeclRefExpr 0x55c95beedbe0 <col:5> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+[B3.22]->buf
+  24: BinaryOperator 0x55c95beede90 <strbuf.c:176:5, col:37> 'char *' '='
+|-MemberExpr 0x55c95beedc20 <col:5, col:8> 'char *' lvalue ->buf 0x55c95bee0a78
+| `-ImplicitCastExpr 0x55c95beedc08 <col:5> 'strbuf_t *' <LValueToRValue>
+|   `-DeclRefExpr 0x55c95beedbe0 <col:5> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+`-ImplicitCastExpr 0x55c95beede78 <col:14, col:37> 'char *' <BitCast>
+  `-CallExpr 0x55c95beedde0 <col:14, col:37> 'void *'
+    |-ImplicitCastExpr 0x55c95beeddc8 <col:14> 'void *(*)(void *, unsigned long)' <FunctionToPointerDecay>
+    | `-DeclRefExpr 0x55c95beedc58 <col:14> 'void *(void *, unsigned long)' Function 0x55c95be66058 'realloc' 'void *(void *, unsigned long)'
+    |-ImplicitCastExpr 0x55c95beede30 <col:22, col:25> 'void *' <BitCast>
+    | `-ImplicitCastExpr 0x55c95beede18 <col:22, col:25> 'char *' <LValueToRValue>
+    |   `-MemberExpr 0x55c95beedcc0 <col:22, col:25> 'char *' lvalue ->buf 0x55c95bee0a78
+    |     `-ImplicitCastExpr 0x55c95beedca8 <col:22> 'strbuf_t *' <LValueToRValue>
+    |       `-DeclRefExpr 0x55c95beedc80 <col:22> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+    `-ImplicitCastExpr 0x55c95beede60 <col:30, col:33> 'unsigned long' <IntegralCast>
+      `-ImplicitCastExpr 0x55c95beede48 <col:30, col:33> 'int' <LValueToRValue>
+        `-MemberExpr 0x55c95beedd38 <col:30, col:33> 'int' lvalue ->size 0x55c95bee0ad8
+          `-ImplicitCastExpr 0x55c95beedd20 <col:30> 'strbuf_t *' <LValueToRValue>
+            `-DeclRefExpr 0x55c95beedcf8 <col:30> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+[B3.23] = [B3.20]
+  25: DeclRefExpr 0x55c95beedeb8 <strbuf.c:177:10> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+s
+  26: ImplicitCastExpr 0x55c95beedee0 <strbuf.c:177:10> 'strbuf_t *' <LValueToRValue>
+`-DeclRefExpr 0x55c95beedeb8 <col:10> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+[B3.25] (ImplicitCastExpr, LValueToRValue, strbuf_t *)
+  27: MemberExpr 0x55c95beedef8 <strbuf.c:177:10, col:13> 'char *' lvalue ->buf 0x55c95bee0a78
+`-ImplicitCastExpr 0x55c95beedee0 <col:10> 'strbuf_t *' <LValueToRValue>
+  `-DeclRefExpr 0x55c95beedeb8 <col:10> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+[B3.26]->buf
+  28: ImplicitCastExpr 0x55c95beedf30 <strbuf.c:177:10, col:13> 'char *' <LValueToRValue>
+`-MemberExpr 0x55c95beedef8 <col:10, col:13> 'char *' lvalue ->buf 0x55c95bee0a78
+  `-ImplicitCastExpr 0x55c95beedee0 <col:10> 'strbuf_t *' <LValueToRValue>
+    `-DeclRefExpr 0x55c95beedeb8 <col:10> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+[B3.27] (ImplicitCastExpr, LValueToRValue, char *)
+  29: UnaryOperator 0x55c95beedf48 <strbuf.c:177:9, col:13> 'int' prefix '!'
+`-ImplicitCastExpr 0x55c95beedf30 <col:10, col:13> 'char *' <LValueToRValue>
+  `-MemberExpr 0x55c95beedef8 <col:10, col:13> 'char *' lvalue ->buf 0x55c95bee0a78
+    `-ImplicitCastExpr 0x55c95beedee0 <col:10> 'strbuf_t *' <LValueToRValue>
+      `-DeclRefExpr 0x55c95beedeb8 <col:10> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+![B3.28]
+   T: if [B3.29]
+   Preds (2): B4 B5
+   Succs (2): B2 B1
+
+ [B4]
+   1: DeclRefExpr 0x55c95beed818 <strbuf.c:171:9> 'int (FILE *, const char *, ...)' Function 0x55c95be528f8 'fprintf' 'int (FILE *, const char *, ...)'
+fprintf
+   2: ImplicitCastExpr 0x55c95beed9d0 <strbuf.c:171:9> 'int (*)(FILE *, const char *, ...)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55c95beed818 <col:9> 'int (FILE *, const char *, ...)' Function 0x55c95be528f8 'fprintf' 'int (FILE *, const char *, ...)'
+[B4.1] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(FILE *, const char *, ...))
+   3: DeclRefExpr 0x55c95beed840 </usr/include/stdio.h:143:16> 'FILE *' lvalue Var 0x55c95be4ce10 'stderr' 'FILE *'
+stderr
+   4: ImplicitCastExpr 0x55c95beeda38 </usr/include/stdio.h:143:16> 'FILE *' <LValueToRValue>
+`-DeclRefExpr 0x55c95beed840 <col:16> 'FILE *' lvalue Var 0x55c95be4ce10 'stderr' 'FILE *'
+[B4.3] (ImplicitCastExpr, LValueToRValue, FILE *)
+   5: StringLiteral 0x55c95beed868 <strbuf.c:171:25> 'char [30]' lvalue "strbuf(%lx) resize: %d => %d\n"
+"strbuf(%lx) resize: %d => %d\n"
+   6: ImplicitCastExpr 0x55c95beeda50 <strbuf.c:171:25> 'char *' <ArrayToPointerDecay>
+`-StringLiteral 0x55c95beed868 <col:25> 'char [30]' lvalue "strbuf(%lx) resize: %d => %d\n"
+[B4.5] (ImplicitCastExpr, ArrayToPointerDecay, char *)
+   7: ImplicitCastExpr 0x55c95beeda68 <strbuf.c:171:25> 'const char *' <BitCast>
+`-ImplicitCastExpr 0x55c95beeda50 <col:25> 'char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x55c95beed868 <col:25> 'char [30]' lvalue "strbuf(%lx) resize: %d => %d\n"
+[B4.6] (ImplicitCastExpr, BitCast, const char *)
+   8: DeclRefExpr 0x55c95beed8b0 <strbuf.c:172:23> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+s
+   9: ImplicitCastExpr 0x55c95beed8f0 <strbuf.c:172:23> 'strbuf_t *' <LValueToRValue>
+`-DeclRefExpr 0x55c95beed8b0 <col:23> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+[B4.8] (ImplicitCastExpr, LValueToRValue, strbuf_t *)
+  10: CStyleCastExpr 0x55c95beed908 <strbuf.c:172:17, col:23> 'long' <PointerToIntegral>
+`-ImplicitCastExpr 0x55c95beed8f0 <col:23> 'strbuf_t *' <LValueToRValue>
+  `-DeclRefExpr 0x55c95beed8b0 <col:23> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+(long)[B4.9] (CStyleCastExpr, PointerToIntegral, long)
+  11: DeclRefExpr 0x55c95beed930 <strbuf.c:172:26> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+s
+  12: ImplicitCastExpr 0x55c95beed958 <strbuf.c:172:26> 'strbuf_t *' <LValueToRValue>
+`-DeclRefExpr 0x55c95beed930 <col:26> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+[B4.11] (ImplicitCastExpr, LValueToRValue, strbuf_t *)
+  13: MemberExpr 0x55c95beed970 <strbuf.c:172:26, col:29> 'int' lvalue ->size 0x55c95bee0ad8
+`-ImplicitCastExpr 0x55c95beed958 <col:26> 'strbuf_t *' <LValueToRValue>
+  `-DeclRefExpr 0x55c95beed930 <col:26> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+[B4.12]->size
+  14: ImplicitCastExpr 0x55c95beeda80 <strbuf.c:172:26, col:29> 'int' <LValueToRValue>
+`-MemberExpr 0x55c95beed970 <col:26, col:29> 'int' lvalue ->size 0x55c95bee0ad8
+  `-ImplicitCastExpr 0x55c95beed958 <col:26> 'strbuf_t *' <LValueToRValue>
+    `-DeclRefExpr 0x55c95beed930 <col:26> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+[B4.13] (ImplicitCastExpr, LValueToRValue, int)
+  15: DeclRefExpr 0x55c95beed9a8 <strbuf.c:172:35> 'int' lvalue Var 0x55c95beed4f0 'newsize' 'int'
+newsize
+  16: ImplicitCastExpr 0x55c95beeda98 <strbuf.c:172:35> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55c95beed9a8 <col:35> 'int' lvalue Var 0x55c95beed4f0 'newsize' 'int'
+[B4.15] (ImplicitCastExpr, LValueToRValue, int)
+  17: CallExpr 0x55c95beed9e8 <strbuf.c:171:9, line:172:42> 'int'
+|-ImplicitCastExpr 0x55c95beed9d0 <line:171:9> 'int (*)(FILE *, const char *, ...)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55c95beed818 <col:9> 'int (FILE *, const char *, ...)' Function 0x55c95be528f8 'fprintf' 'int (FILE *, const char *, ...)'
+|-ImplicitCastExpr 0x55c95beeda38 </usr/include/stdio.h:143:16> 'FILE *' <LValueToRValue>
+| `-DeclRefExpr 0x55c95beed840 <col:16> 'FILE *' lvalue Var 0x55c95be4ce10 'stderr' 'FILE *'
+|-ImplicitCastExpr 0x55c95beeda68 <strbuf.c:171:25> 'const char *' <BitCast>
+| `-ImplicitCastExpr 0x55c95beeda50 <col:25> 'char *' <ArrayToPointerDecay>
+|   `-StringLiteral 0x55c95beed868 <col:25> 'char [30]' lvalue "strbuf(%lx) resize: %d => %d\n"
+|-CStyleCastExpr 0x55c95beed908 <line:172:17, col:23> 'long' <PointerToIntegral>
+| `-ImplicitCastExpr 0x55c95beed8f0 <col:23> 'strbuf_t *' <LValueToRValue>
+|   `-DeclRefExpr 0x55c95beed8b0 <col:23> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+|-ImplicitCastExpr 0x55c95beeda80 <col:26, col:29> 'int' <LValueToRValue>
+| `-MemberExpr 0x55c95beed970 <col:26, col:29> 'int' lvalue ->size 0x55c95bee0ad8
+|   `-ImplicitCastExpr 0x55c95beed958 <col:26> 'strbuf_t *' <LValueToRValue>
+|     `-DeclRefExpr 0x55c95beed930 <col:26> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+`-ImplicitCastExpr 0x55c95beeda98 <col:35> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x55c95beed9a8 <col:35> 'int' lvalue Var 0x55c95beed4f0 'newsize' 'int'
+[B4.2]([B4.4], [B4.7], [B4.10], [B4.14], [B4.16])
+   Preds (1): B5
+   Succs (1): B3
+
+ [B5]
+   1: DeclStmt 0x55c95beed550 <strbuf.c:166:5, col:16>col:9
+`-VarDecl 0x55c95beed4f0 <col:5, col:9> col:9 used newsize 'int'
+int newsize;
+   2: DeclRefExpr 0x55c95beed590 <strbuf.c:168:15> 'int (strbuf_t *, int)' Function 0x55c95beec508 'calculate_new_size' 'int (strbuf_t *, int)'
+calculate_new_size
+   3: ImplicitCastExpr 0x55c95beed668 <strbuf.c:168:15> 'int (*)(strbuf_t *, int)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55c95beed590 <col:15> 'int (strbuf_t *, int)' Function 0x55c95beec508 'calculate_new_size' 'int (strbuf_t *, int)'
+[B5.2] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(strbuf_t *, int))
+   4: DeclRefExpr 0x55c95beed5b8 <strbuf.c:168:34> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+s
+   5: ImplicitCastExpr 0x55c95beed6b8 <strbuf.c:168:34> 'strbuf_t *' <LValueToRValue>
+`-DeclRefExpr 0x55c95beed5b8 <col:34> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+[B5.4] (ImplicitCastExpr, LValueToRValue, strbuf_t *)
+   6: DeclRefExpr 0x55c95beed5e0 <strbuf.c:168:37> 'int' lvalue ParmVar 0x55c95beed398 'len' 'int'
+len
+   7: ImplicitCastExpr 0x55c95beed6d0 <strbuf.c:168:37> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55c95beed5e0 <col:37> 'int' lvalue ParmVar 0x55c95beed398 'len' 'int'
+[B5.6] (ImplicitCastExpr, LValueToRValue, int)
+   8: CallExpr 0x55c95beed680 <strbuf.c:168:15, col:40> 'int'
+|-ImplicitCastExpr 0x55c95beed668 <col:15> 'int (*)(strbuf_t *, int)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55c95beed590 <col:15> 'int (strbuf_t *, int)' Function 0x55c95beec508 'calculate_new_size' 'int (strbuf_t *, int)'
+|-ImplicitCastExpr 0x55c95beed6b8 <col:34> 'strbuf_t *' <LValueToRValue>
+| `-DeclRefExpr 0x55c95beed5b8 <col:34> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+`-ImplicitCastExpr 0x55c95beed6d0 <col:37> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x55c95beed5e0 <col:37> 'int' lvalue ParmVar 0x55c95beed398 'len' 'int'
+[B5.3]([B5.5], [B5.7])
+   9: DeclRefExpr 0x55c95beed568 <strbuf.c:168:5> 'int' lvalue Var 0x55c95beed4f0 'newsize' 'int'
+newsize
+  10: BinaryOperator 0x55c95beed6e8 <strbuf.c:168:5, col:40> 'int' '='
+|-DeclRefExpr 0x55c95beed568 <col:5> 'int' lvalue Var 0x55c95beed4f0 'newsize' 'int'
+`-CallExpr 0x55c95beed680 <col:15, col:40> 'int'
+  |-ImplicitCastExpr 0x55c95beed668 <col:15> 'int (*)(strbuf_t *, int)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55c95beed590 <col:15> 'int (strbuf_t *, int)' Function 0x55c95beec508 'calculate_new_size' 'int (strbuf_t *, int)'
+  |-ImplicitCastExpr 0x55c95beed6b8 <col:34> 'strbuf_t *' <LValueToRValue>
+  | `-DeclRefExpr 0x55c95beed5b8 <col:34> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+  `-ImplicitCastExpr 0x55c95beed6d0 <col:37> 'int' <LValueToRValue>
+    `-DeclRefExpr 0x55c95beed5e0 <col:37> 'int' lvalue ParmVar 0x55c95beed398 'len' 'int'
+[B5.9] = [B5.8]
+  11: DeclRefExpr 0x55c95beed710 <strbuf.c:170:9> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+s
+  12: ImplicitCastExpr 0x55c95beed738 <strbuf.c:170:9> 'strbuf_t *' <LValueToRValue>
+`-DeclRefExpr 0x55c95beed710 <col:9> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+[B5.11] (ImplicitCastExpr, LValueToRValue, strbuf_t *)
+  13: MemberExpr 0x55c95beed780 <strbuf.c:170:9, col:12> 'int' lvalue ->debug 0x55c95bee0cb8
+`-ImplicitCastExpr 0x55c95beed738 <col:9> 'strbuf_t *' <LValueToRValue>
+  `-DeclRefExpr 0x55c95beed710 <col:9> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+[B5.12]->debug
+  14: ImplicitCastExpr 0x55c95beed7d8 <strbuf.c:170:9, col:12> 'int' <LValueToRValue>
+`-MemberExpr 0x55c95beed780 <col:9, col:12> 'int' lvalue ->debug 0x55c95bee0cb8
+  `-ImplicitCastExpr 0x55c95beed738 <col:9> 'strbuf_t *' <LValueToRValue>
+    `-DeclRefExpr 0x55c95beed710 <col:9> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+[B5.13] (ImplicitCastExpr, LValueToRValue, int)
+  15: IntegerLiteral 0x55c95beed7b8 <strbuf.c:170:20> 'int' 1
+1
+  16: BinaryOperator 0x55c95beed7f0 <strbuf.c:170:9, col:20> 'int' '>'
+|-ImplicitCastExpr 0x55c95beed7d8 <col:9, col:12> 'int' <LValueToRValue>
+| `-MemberExpr 0x55c95beed780 <col:9, col:12> 'int' lvalue ->debug 0x55c95bee0cb8
+|   `-ImplicitCastExpr 0x55c95beed738 <col:9> 'strbuf_t *' <LValueToRValue>
+|     `-DeclRefExpr 0x55c95beed710 <col:9> 'strbuf_t *' lvalue ParmVar 0x55c95beed320 's' 'strbuf_t *'
+`-IntegerLiteral 0x55c95beed7b8 <col:20> 'int' 1
+[B5.14] > [B5.15]
+   T: if [B5.16]
+   Preds (1): B6
+   Succs (2): B4 B3
+
+ [B0 (EXIT)]
+   Preds (1): B1

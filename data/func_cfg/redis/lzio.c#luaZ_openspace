@@ -1,0 +1,630 @@
+char *luaZ_openspace(lua_State *L, Mbuffer *buff, size_t n)
+ [B9 (ENTRY)]
+   Succs (1): B8
+
+ [B1]
+   1: DeclRefExpr 0x55936bcd2418 <lzio.c:79:10> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+buff
+   2: ImplicitCastExpr 0x55936bcd2440 <lzio.c:79:10> 'Mbuffer *' <LValueToRValue>
+`-DeclRefExpr 0x55936bcd2418 <col:10> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+[B1.1] (ImplicitCastExpr, LValueToRValue, Mbuffer *)
+   3: MemberExpr 0x55936bcd2458 <lzio.c:79:10, col:16> 'char *' lvalue ->buffer 0x55936bcbd1b8
+`-ImplicitCastExpr 0x55936bcd2440 <col:10> 'Mbuffer *' <LValueToRValue>
+  `-DeclRefExpr 0x55936bcd2418 <col:10> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+[B1.2]->buffer
+   4: ImplicitCastExpr 0x55936bcd2490 <lzio.c:79:10, col:16> 'char *' <LValueToRValue>
+`-MemberExpr 0x55936bcd2458 <col:10, col:16> 'char *' lvalue ->buffer 0x55936bcbd1b8
+  `-ImplicitCastExpr 0x55936bcd2440 <col:10> 'Mbuffer *' <LValueToRValue>
+    `-DeclRefExpr 0x55936bcd2418 <col:10> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+[B1.3] (ImplicitCastExpr, LValueToRValue, char *)
+   5: ReturnStmt 0x55936bcd24a8 <lzio.c:79:3, col:16>
+`-ImplicitCastExpr 0x55936bcd2490 <col:10, col:16> 'char *' <LValueToRValue>
+  `-MemberExpr 0x55936bcd2458 <col:10, col:16> 'char *' lvalue ->buffer 0x55936bcbd1b8
+    `-ImplicitCastExpr 0x55936bcd2440 <col:10> 'Mbuffer *' <LValueToRValue>
+      `-DeclRefExpr 0x55936bcd2418 <col:10> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+return [B1.4];
+   Preds (2): B2 B8
+   Succs (1): B0
+
+ [B2]
+   1: ConditionalOperator 0x55936bcd2130 <./lmem.h:20:3, line:22:16> 'void *'
+|-ParenExpr 0x55936bcd1b10 <line:20:3, col:40> 'int'
+| `-BinaryOperator 0x55936bcd1ae8 <./llimits.h:75:22, ./lmem.h:20:39> 'int' '<='
+|   |-ParenExpr 0x55936bccec48 <./llimits.h:75:22, col:31> 'size_t':'unsigned long'
+|   | `-CStyleCastExpr 0x55936bccec20 <col:23, col:30> 'size_t':'unsigned long' <NoOp>
+|   |   `-ParenExpr 0x55936bccec00 <col:26, col:30> 'unsigned long'
+|   |     `-BinaryOperator 0x55936bcceb98 <./lmem.h:20:17, col:21> 'unsigned long' '+'
+|   |       |-ImplicitCastExpr 0x55936bcceb68 <col:17, col:19> 'size_t':'unsigned long' <LValueToRValue>
+|   |       | `-ParenExpr 0x55936bcceb28 <col:17, col:19> 'size_t':'unsigned long' lvalue
+|   |       |   `-DeclRefExpr 0x55936bcceb00 <lzio.c:77:32> 'size_t':'unsigned long' lvalue ParmVar 0x55936bcce650 'n' 'size_t':'unsigned long'
+|   |       `-ImplicitCastExpr 0x55936bcceb80 <./lmem.h:20:21> 'unsigned long' <IntegralCast>
+|   |         `-IntegerLiteral 0x55936bcceb48 <col:21> 'int' 1
+|   `-BinaryOperator 0x55936bcd1ac0 <./llimits.h:30:19, ./lmem.h:20:39> 'unsigned long' '/'
+|     |-ParenExpr 0x55936bcd1a50 <./llimits.h:30:19, col:42> 'unsigned long'
+|     | `-BinaryOperator 0x55936bcd1a28 <col:20, col:41> 'unsigned long' '-'
+|     |   |-CStyleCastExpr 0x55936bcced40 <col:20, col:39> 'size_t':'unsigned long' <NoOp>
+|     |   | `-ParenExpr 0x55936bcced20 <col:28, col:39> 'size_t':'unsigned long'
+|     |   |   `-UnaryOperator 0x55936bccecc0 <col:29, col:38> 'size_t':'unsigned long' prefix '~'
+|     |   |     `-CStyleCastExpr 0x55936bccec98 <col:30, col:38> 'size_t':'unsigned long' <IntegralCast>
+|     |   |       `-IntegerLiteral 0x55936bccec68 <col:38> 'int' 0
+|     |   `-ImplicitCastExpr 0x55936bcd1a10 <col:41> 'unsigned long' <IntegralCast>
+|     |     `-IntegerLiteral 0x55936bcced68 <col:41> 'int' 2
+|     `-ParenExpr 0x55936bcd1aa0 <./lmem.h:20:37, col:39> 'unsigned long'
+|       `-UnaryExprOrTypeTraitExpr 0x55936bcd1a80 <line:38:48, col:56> 'unsigned long' sizeof 'char'
+|-CallExpr 0x55936bcd1ed0 <line:21:3, col:42> 'void *'
+| |-ImplicitCastExpr 0x55936bcd1eb8 <col:3> 'void *(*)(lua_State *, void *, size_t, size_t)' <FunctionToPointerDecay>
+| | `-DeclRefExpr 0x55936bcd1b30 <col:3> 'void *(lua_State *, void *, size_t, size_t)' Function 0x55936bc9e1f8 'luaM_realloc_' 'void *(lua_State *, void *, size_t, size_t)'
+| |-ImplicitCastExpr 0x55936bcd1f18 <lzio.c:77:23> 'lua_State *' <LValueToRValue>
+| | `-DeclRefExpr 0x55936bcd1b58 <col:23> 'lua_State *' lvalue ParmVar 0x55936bcce570 'L' 'lua_State *'
+| |-ImplicitCastExpr 0x55936bcd1f48 <./lmem.h:21:20, col:22> 'void *' <BitCast>
+| | `-ImplicitCastExpr 0x55936bcd1f30 <col:20, col:22> 'char *' <LValueToRValue>
+| |   `-ParenExpr 0x55936bcd1c18 <col:20, col:22> 'char *' lvalue
+| |     `-MemberExpr 0x55936bcd1be0 <./lzio.h:40:25, col:33> 'char *' lvalue ->buffer 0x55936bcbd1b8
+| |       `-ImplicitCastExpr 0x55936bcd1bc8 <col:25, col:30> 'Mbuffer *' <LValueToRValue>
+| |         `-ParenExpr 0x55936bcd1ba8 <col:25, col:30> 'Mbuffer *' lvalue
+| |           `-DeclRefExpr 0x55936bcd1b80 <lzio.c:77:26> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+| |-BinaryOperator 0x55936bcd1d58 <./lmem.h:21:25, col:32> 'unsigned long' '*'
+| | |-ImplicitCastExpr 0x55936bcd1d40 <col:25, col:28> 'size_t':'unsigned long' <LValueToRValue>
+| | | `-ParenExpr 0x55936bcd1cd0 <col:25, col:28> 'size_t':'unsigned long' lvalue
+| | |   `-MemberExpr 0x55936bcd1c98 <./lzio.h:40:41, col:49> 'size_t':'unsigned long' lvalue ->buffsize 0x55936bcbd268
+| | |     `-ImplicitCastExpr 0x55936bcd1c80 <col:41, col:46> 'Mbuffer *' <LValueToRValue>
+| | |       `-ParenExpr 0x55936bcd1c60 <col:41, col:46> 'Mbuffer *' lvalue
+| | |         `-DeclRefExpr 0x55936bcd1c38 <lzio.c:77:26> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+| | `-ParenExpr 0x55936bcd1d20 <./lmem.h:21:30, col:32> 'unsigned long'
+| |   `-UnaryExprOrTypeTraitExpr 0x55936bcd1d00 <line:38:48, col:56> 'unsigned long' sizeof 'char'
+| `-BinaryOperator 0x55936bcd1e30 <line:21:35, col:41> 'unsigned long' '*'
+|   |-ImplicitCastExpr 0x55936bcd1e18 <col:35, col:37> 'size_t':'unsigned long' <LValueToRValue>
+|   | `-ParenExpr 0x55936bcd1da8 <col:35, col:37> 'size_t':'unsigned long' lvalue
+|   |   `-DeclRefExpr 0x55936bcd1d80 <lzio.c:77:32> 'size_t':'unsigned long' lvalue ParmVar 0x55936bcce650 'n' 'size_t':'unsigned long'
+|   `-ParenExpr 0x55936bcd1df8 <./lmem.h:21:39, col:41> 'unsigned long'
+|     `-UnaryExprOrTypeTraitExpr 0x55936bcd1dd8 <line:38:48, col:56> 'unsigned long' sizeof 'char'
+`-CallExpr 0x55936bcd2020 <line:22:3, col:16> 'void *'
+  |-ImplicitCastExpr 0x55936bcd2008 <col:3> 'void *(*)(lua_State *)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55936bcd1f60 <col:3> 'void *(lua_State *)' Function 0x55936bc9e448 'luaM_toobig' 'void *(lua_State *)'
+  `-ImplicitCastExpr 0x55936bcd2050 <lzio.c:77:23> 'lua_State *' <LValueToRValue>
+    `-DeclRefExpr 0x55936bcd1f88 <col:23> 'lua_State *' lvalue ParmVar 0x55936bcce570 'L' 'lua_State *'
+([B5.16]) ? [B3.20] : [B4.5]
+   2: CStyleCastExpr 0x55936bcd21e8 <./llimits.h:75:23, col:30> 'char *' <BitCast>
+`-ParenExpr 0x55936bcd21c8 <col:26, col:30> 'void *'
+  `-ParenExpr 0x55936bcd2160 <./lmem.h:20:2, line:22:17> 'void *'
+    `-ConditionalOperator 0x55936bcd2130 <line:20:3, line:22:16> 'void *'
+      |-ParenExpr 0x55936bcd1b10 <line:20:3, col:40> 'int'
+      | `-BinaryOperator 0x55936bcd1ae8 <./llimits.h:75:22, ./lmem.h:20:39> 'int' '<='
+      |   |-ParenExpr 0x55936bccec48 <./llimits.h:75:22, col:31> 'size_t':'unsigned long'
+      |   | `-CStyleCastExpr 0x55936bccec20 <col:23, col:30> 'size_t':'unsigned long' <NoOp>
+      |   |   `-ParenExpr 0x55936bccec00 <col:26, col:30> 'unsigned long'
+      |   |     `-BinaryOperator 0x55936bcceb98 <./lmem.h:20:17, col:21> 'unsigned long' '+'
+      |   |       |-ImplicitCastExpr 0x55936bcceb68 <col:17, col:19> 'size_t':'unsigned long' <LValueToRValue>
+      |   |       | `-ParenExpr 0x55936bcceb28 <col:17, col:19> 'size_t':'unsigned long' lvalue
+      |   |       |   `-DeclRefExpr 0x55936bcceb00 <lzio.c:77:32> 'size_t':'unsigned long' lvalue ParmVar 0x55936bcce650 'n' 'size_t':'unsigned long'
+      |   |       `-ImplicitCastExpr 0x55936bcceb80 <./lmem.h:20:21> 'unsigned long' <IntegralCast>
+      |   |         `-IntegerLiteral 0x55936bcceb48 <col:21> 'int' 1
+      |   `-BinaryOperator 0x55936bcd1ac0 <./llimits.h:30:19, ./lmem.h:20:39> 'unsigned long' '/'
+      |     |-ParenExpr 0x55936bcd1a50 <./llimits.h:30:19, col:42> 'unsigned long'
+      |     | `-BinaryOperator 0x55936bcd1a28 <col:20, col:41> 'unsigned long' '-'
+      |     |   |-CStyleCastExpr 0x55936bcced40 <col:20, col:39> 'size_t':'unsigned long' <NoOp>
+      |     |   | `-ParenExpr 0x55936bcced20 <col:28, col:39> 'size_t':'unsigned long'
+      |     |   |   `-UnaryOperator 0x55936bccecc0 <col:29, col:38> 'size_t':'unsigned long' prefix '~'
+      |     |   |     `-CStyleCastExpr 0x55936bccec98 <col:30, col:38> 'size_t':'unsigned long' <IntegralCast>
+      |     |   |       `-IntegerLiteral 0x55936bccec68 <col:38> 'int' 0
+      |     |   `-ImplicitCastExpr 0x55936bcd1a10 <col:41> 'unsigned long' <IntegralCast>
+      |     |     `-IntegerLiteral 0x55936bcced68 <col:41> 'int' 2
+      |     `-ParenExpr 0x55936bcd1aa0 <./lmem.h:20:37, col:39> 'unsigned long'
+      |       `-UnaryExprOrTypeTraitExpr 0x55936bcd1a80 <line:38:48, col:56> 'unsigned long' sizeof 'char'
+      |-CallExpr 0x55936bcd1ed0 <line:21:3, col:42> 'void *'
+      | |-ImplicitCastExpr 0x55936bcd1eb8 <col:3> 'void *(*)(lua_State *, void *, size_t, size_t)' <FunctionToPointerDecay>
+      | | `-DeclRefExpr 0x55936bcd1b30 <col:3> 'void *(lua_State *, void *, size_t, size_t)' Function 0x55936bc9e1f8 'luaM_realloc_' 'void *(lua_State *, void *, size_t, size_t)'
+      | |-ImplicitCastExpr 0x55936bcd1f18 <lzio.c:77:23> 'lua_State *' <LValueToRValue>
+      | | `-DeclRefExpr 0x55936bcd1b58 <col:23> 'lua_State *' lvalue ParmVar 0x55936bcce570 'L' 'lua_State *'
+      | |-ImplicitCastExpr 0x55936bcd1f48 <./lmem.h:21:20, col:22> 'void *' <BitCast>
+      | | `-ImplicitCastExpr 0x55936bcd1f30 <col:20, col:22> 'char *' <LValueToRValue>
+      | |   `-ParenExpr 0x55936bcd1c18 <col:20, col:22> 'char *' lvalue
+      | |     `-MemberExpr 0x55936bcd1be0 <./lzio.h:40:25, col:33> 'char *' lvalue ->buffer 0x55936bcbd1b8
+      | |       `-ImplicitCastExpr 0x55936bcd1bc8 <col:25, col:30> 'Mbuffer *' <LValueToRValue>
+      | |         `-ParenExpr 0x55936bcd1ba8 <col:25, col:30> 'Mbuffer *' lvalue
+      | |           `-DeclRefExpr 0x55936bcd1b80 <lzio.c:77:26> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+      | |-BinaryOperator 0x55936bcd1d58 <./lmem.h:21:25, col:32> 'unsigned long' '*'
+      | | |-ImplicitCastExpr 0x55936bcd1d40 <col:25, col:28> 'size_t':'unsigned long' <LValueToRValue>
+      | | | `-ParenExpr 0x55936bcd1cd0 <col:25, col:28> 'size_t':'unsigned long' lvalue
+      | | |   `-MemberExpr 0x55936bcd1c98 <./lzio.h:40:41, col:49> 'size_t':'unsigned long' lvalue ->buffsize 0x55936bcbd268
+      | | |     `-ImplicitCastExpr 0x55936bcd1c80 <col:41, col:46> 'Mbuffer *' <LValueToRValue>
+      | | |       `-ParenExpr 0x55936bcd1c60 <col:41, col:46> 'Mbuffer *' lvalue
+      | | |         `-DeclRefExpr 0x55936bcd1c38 <lzio.c:77:26> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+      | | `-ParenExpr 0x55936bcd1d20 <./lmem.h:21:30, col:32> 'unsigned long'
+      | |   `-UnaryExprOrTypeTraitExpr 0x55936bcd1d00 <line:38:48, col:56> 'unsigned long' sizeof 'char'
+      | `-BinaryOperator 0x55936bcd1e30 <line:21:35, col:41> 'unsigned long' '*'
+      |   |-ImplicitCastExpr 0x55936bcd1e18 <col:35, col:37> 'size_t':'unsigned long' <LValueToRValue>
+      |   | `-ParenExpr 0x55936bcd1da8 <col:35, col:37> 'size_t':'unsigned long' lvalue
+      |   |   `-DeclRefExpr 0x55936bcd1d80 <lzio.c:77:32> 'size_t':'unsigned long' lvalue ParmVar 0x55936bcce650 'n' 'size_t':'unsigned long'
+      |   `-ParenExpr 0x55936bcd1df8 <./lmem.h:21:39, col:41> 'unsigned long'
+      |     `-UnaryExprOrTypeTraitExpr 0x55936bcd1dd8 <line:38:48, col:56> 'unsigned long' sizeof 'char'
+      `-CallExpr 0x55936bcd2020 <line:22:3, col:16> 'void *'
+        |-ImplicitCastExpr 0x55936bcd2008 <col:3> 'void *(*)(lua_State *)' <FunctionToPointerDecay>
+        | `-DeclRefExpr 0x55936bcd1f60 <col:3> 'void *(lua_State *)' Function 0x55936bc9e448 'luaM_toobig' 'void *(lua_State *)'
+        `-ImplicitCastExpr 0x55936bcd2050 <lzio.c:77:23> 'lua_State *' <LValueToRValue>
+          `-DeclRefExpr 0x55936bcd1f88 <col:23> 'lua_State *' lvalue ParmVar 0x55936bcce570 'L' 'lua_State *'
+(char *)(([B2.1])) (CStyleCastExpr, BitCast, char *)
+   3: DeclRefExpr 0x55936bccea48 <lzio.c:77:26> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+buff
+   4: ImplicitCastExpr 0x55936bccea90 <./lzio.h:40:25, col:30> 'Mbuffer *' <LValueToRValue>
+`-ParenExpr 0x55936bccea70 <col:25, col:30> 'Mbuffer *' lvalue
+  `-DeclRefExpr 0x55936bccea48 <lzio.c:77:26> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+([B2.3]) (ImplicitCastExpr, LValueToRValue, Mbuffer *)
+   5: MemberExpr 0x55936bcceaa8 <./lzio.h:40:25, col:33> 'char *' lvalue ->buffer 0x55936bcbd1b8
+`-ImplicitCastExpr 0x55936bccea90 <col:25, col:30> 'Mbuffer *' <LValueToRValue>
+  `-ParenExpr 0x55936bccea70 <col:25, col:30> 'Mbuffer *' lvalue
+    `-DeclRefExpr 0x55936bccea48 <lzio.c:77:26> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+[B2.4]->buffer
+   6: BinaryOperator 0x55936bcd2230 <./lmem.h:38:5, ./llimits.h:75:31> 'char *' '='
+|-ParenExpr 0x55936bcceae0 <./lmem.h:38:5, col:7> 'char *' lvalue
+| `-MemberExpr 0x55936bcceaa8 <./lzio.h:40:25, col:33> 'char *' lvalue ->buffer 0x55936bcbd1b8
+|   `-ImplicitCastExpr 0x55936bccea90 <col:25, col:30> 'Mbuffer *' <LValueToRValue>
+|     `-ParenExpr 0x55936bccea70 <col:25, col:30> 'Mbuffer *' lvalue
+|       `-DeclRefExpr 0x55936bccea48 <lzio.c:77:26> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+`-ParenExpr 0x55936bcd2210 <./llimits.h:75:22, col:31> 'char *'
+  `-CStyleCastExpr 0x55936bcd21e8 <col:23, col:30> 'char *' <BitCast>
+    `-ParenExpr 0x55936bcd21c8 <col:26, col:30> 'void *'
+      `-ParenExpr 0x55936bcd2160 <./lmem.h:20:2, line:22:17> 'void *'
+        `-ConditionalOperator 0x55936bcd2130 <line:20:3, line:22:16> 'void *'
+          |-ParenExpr 0x55936bcd1b10 <line:20:3, col:40> 'int'
+          | `-BinaryOperator 0x55936bcd1ae8 <./llimits.h:75:22, ./lmem.h:20:39> 'int' '<='
+          |   |-ParenExpr 0x55936bccec48 <./llimits.h:75:22, col:31> 'size_t':'unsigned long'
+          |   | `-CStyleCastExpr 0x55936bccec20 <col:23, col:30> 'size_t':'unsigned long' <NoOp>
+          |   |   `-ParenExpr 0x55936bccec00 <col:26, col:30> 'unsigned long'
+          |   |     `-BinaryOperator 0x55936bcceb98 <./lmem.h:20:17, col:21> 'unsigned long' '+'
+          |   |       |-ImplicitCastExpr 0x55936bcceb68 <col:17, col:19> 'size_t':'unsigned long' <LValueToRValue>
+          |   |       | `-ParenExpr 0x55936bcceb28 <col:17, col:19> 'size_t':'unsigned long' lvalue
+          |   |       |   `-DeclRefExpr 0x55936bcceb00 <lzio.c:77:32> 'size_t':'unsigned long' lvalue ParmVar 0x55936bcce650 'n' 'size_t':'unsigned long'
+          |   |       `-ImplicitCastExpr 0x55936bcceb80 <./lmem.h:20:21> 'unsigned long' <IntegralCast>
+          |   |         `-IntegerLiteral 0x55936bcceb48 <col:21> 'int' 1
+          |   `-BinaryOperator 0x55936bcd1ac0 <./llimits.h:30:19, ./lmem.h:20:39> 'unsigned long' '/'
+          |     |-ParenExpr 0x55936bcd1a50 <./llimits.h:30:19, col:42> 'unsigned long'
+          |     | `-BinaryOperator 0x55936bcd1a28 <col:20, col:41> 'unsigned long' '-'
+          |     |   |-CStyleCastExpr 0x55936bcced40 <col:20, col:39> 'size_t':'unsigned long' <NoOp>
+          |     |   | `-ParenExpr 0x55936bcced20 <col:28, col:39> 'size_t':'unsigned long'
+          |     |   |   `-UnaryOperator 0x55936bccecc0 <col:29, col:38> 'size_t':'unsigned long' prefix '~'
+          |     |   |     `-CStyleCastExpr 0x55936bccec98 <col:30, col:38> 'size_t':'unsigned long' <IntegralCast>
+          |     |   |       `-IntegerLiteral 0x55936bccec68 <col:38> 'int' 0
+          |     |   `-ImplicitCastExpr 0x55936bcd1a10 <col:41> 'unsigned long' <IntegralCast>
+          |     |     `-IntegerLiteral 0x55936bcced68 <col:41> 'int' 2
+          |     `-ParenExpr 0x55936bcd1aa0 <./lmem.h:20:37, col:39> 'unsigned long'
+          |       `-UnaryExprOrTypeTraitExpr 0x55936bcd1a80 <line:38:48, col:56> 'unsigned long' sizeof 'char'
+          |-CallExpr 0x55936bcd1ed0 <line:21:3, col:42> 'void *'
+          | |-ImplicitCastExpr 0x55936bcd1eb8 <col:3> 'void *(*)(lua_State *, void *, size_t, size_t)' <FunctionToPointerDecay>
+          | | `-DeclRefExpr 0x55936bcd1b30 <col:3> 'void *(lua_State *, void *, size_t, size_t)' Function 0x55936bc9e1f8 'luaM_realloc_' 'void *(lua_State *, void *, size_t, size_t)'
+          | |-ImplicitCastExpr 0x55936bcd1f18 <lzio.c:77:23> 'lua_State *' <LValueToRValue>
+          | | `-DeclRefExpr 0x55936bcd1b58 <col:23> 'lua_State *' lvalue ParmVar 0x55936bcce570 'L' 'lua_State *'
+          | |-ImplicitCastExpr 0x55936bcd1f48 <./lmem.h:21:20, col:22> 'void *' <BitCast>
+          | | `-ImplicitCastExpr 0x55936bcd1f30 <col:20, col:22> 'char *' <LValueToRValue>
+          | |   `-ParenExpr 0x55936bcd1c18 <col:20, col:22> 'char *' lvalue
+          | |     `-MemberExpr 0x55936bcd1be0 <./lzio.h:40:25, col:33> 'char *' lvalue ->buffer 0x55936bcbd1b8
+          | |       `-ImplicitCastExpr 0x55936bcd1bc8 <col:25, col:30> 'Mbuffer *' <LValueToRValue>
+          | |         `-ParenExpr 0x55936bcd1ba8 <col:25, col:30> 'Mbuffer *' lvalue
+          | |           `-DeclRefExpr 0x55936bcd1b80 <lzio.c:77:26> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+          | |-BinaryOperator 0x55936bcd1d58 <./lmem.h:21:25, col:32> 'unsigned long' '*'
+          | | |-ImplicitCastExpr 0x55936bcd1d40 <col:25, col:28> 'size_t':'unsigned long' <LValueToRValue>
+          | | | `-ParenExpr 0x55936bcd1cd0 <col:25, col:28> 'size_t':'unsigned long' lvalue
+          | | |   `-MemberExpr 0x55936bcd1c98 <./lzio.h:40:41, col:49> 'size_t':'unsigned long' lvalue ->buffsize 0x55936bcbd268
+          | | |     `-ImplicitCastExpr 0x55936bcd1c80 <col:41, col:46> 'Mbuffer *' <LValueToRValue>
+          | | |       `-ParenExpr 0x55936bcd1c60 <col:41, col:46> 'Mbuffer *' lvalue
+          | | |         `-DeclRefExpr 0x55936bcd1c38 <lzio.c:77:26> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+          | | `-ParenExpr 0x55936bcd1d20 <./lmem.h:21:30, col:32> 'unsigned long'
+          | |   `-UnaryExprOrTypeTraitExpr 0x55936bcd1d00 <line:38:48, col:56> 'unsigned long' sizeof 'char'
+          | `-BinaryOperator 0x55936bcd1e30 <line:21:35, col:41> 'unsigned long' '*'
+          |   |-ImplicitCastExpr 0x55936bcd1e18 <col:35, col:37> 'size_t':'unsigned long' <LValueToRValue>
+          |   | `-ParenExpr 0x55936bcd1da8 <col:35, col:37> 'size_t':'unsigned long' lvalue
+          |   |   `-DeclRefExpr 0x55936bcd1d80 <lzio.c:77:32> 'size_t':'unsigned long' lvalue ParmVar 0x55936bcce650 'n' 'size_t':'unsigned long'
+          |   `-ParenExpr 0x55936bcd1df8 <./lmem.h:21:39, col:41> 'unsigned long'
+          |     `-UnaryExprOrTypeTraitExpr 0x55936bcd1dd8 <line:38:48, col:56> 'unsigned long' sizeof 'char'
+          `-CallExpr 0x55936bcd2020 <line:22:3, col:16> 'void *'
+            |-ImplicitCastExpr 0x55936bcd2008 <col:3> 'void *(*)(lua_State *)' <FunctionToPointerDecay>
+            | `-DeclRefExpr 0x55936bcd1f60 <col:3> 'void *(lua_State *)' Function 0x55936bc9e448 'luaM_toobig' 'void *(lua_State *)'
+            `-ImplicitCastExpr 0x55936bcd2050 <lzio.c:77:23> 'lua_State *' <LValueToRValue>
+              `-DeclRefExpr 0x55936bcd1f88 <col:23> 'lua_State *' lvalue ParmVar 0x55936bcce570 'L' 'lua_State *'
+([B2.5]) = ([B2.2])
+   7: DeclRefExpr 0x55936bcd2310 <lzio.c:77:32> 'size_t':'unsigned long' lvalue ParmVar 0x55936bcce650 'n' 'size_t':'unsigned long'
+n
+   8: ImplicitCastExpr 0x55936bcd2338 <lzio.c:77:32> 'size_t':'unsigned long' <LValueToRValue>
+`-DeclRefExpr 0x55936bcd2310 <col:32> 'size_t':'unsigned long' lvalue ParmVar 0x55936bcce650 'n' 'size_t':'unsigned long'
+[B2.7] (ImplicitCastExpr, LValueToRValue, size_t)
+   9: DeclRefExpr 0x55936bcd2278 <lzio.c:77:26> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+buff
+  10: ImplicitCastExpr 0x55936bcd22c0 <./lzio.h:41:2, col:7> 'Mbuffer *' <LValueToRValue>
+`-ParenExpr 0x55936bcd22a0 <col:2, col:7> 'Mbuffer *' lvalue
+  `-DeclRefExpr 0x55936bcd2278 <lzio.c:77:26> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+([B2.9]) (ImplicitCastExpr, LValueToRValue, Mbuffer *)
+  11: MemberExpr 0x55936bcd22d8 <./lzio.h:41:2, col:10> 'size_t':'unsigned long' lvalue ->buffsize 0x55936bcbd268
+`-ImplicitCastExpr 0x55936bcd22c0 <col:2, col:7> 'Mbuffer *' <LValueToRValue>
+  `-ParenExpr 0x55936bcd22a0 <col:2, col:7> 'Mbuffer *' lvalue
+    `-DeclRefExpr 0x55936bcd2278 <lzio.c:77:26> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+[B2.10]->buffsize
+  12: BinaryOperator 0x55936bcd2350 <./lzio.h:41:2, lzio.c:77:32> 'size_t':'unsigned long' '='
+|-MemberExpr 0x55936bcd22d8 <./lzio.h:41:2, col:10> 'size_t':'unsigned long' lvalue ->buffsize 0x55936bcbd268
+| `-ImplicitCastExpr 0x55936bcd22c0 <col:2, col:7> 'Mbuffer *' <LValueToRValue>
+|   `-ParenExpr 0x55936bcd22a0 <col:2, col:7> 'Mbuffer *' lvalue
+|     `-DeclRefExpr 0x55936bcd2278 <lzio.c:77:26> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+`-ImplicitCastExpr 0x55936bcd2338 <col:32> 'size_t':'unsigned long' <LValueToRValue>
+  `-DeclRefExpr 0x55936bcd2310 <col:32> 'size_t':'unsigned long' lvalue ParmVar 0x55936bcce650 'n' 'size_t':'unsigned long'
+[B2.11] = [B2.8]
+  13: BinaryOperator 0x55936bcd2378 <./lmem.h:38:4, lzio.c:77:32> 'size_t':'unsigned long' ','
+|-ParenExpr 0x55936bcd2258 <./lmem.h:38:4, col:59> 'char *'
+| `-BinaryOperator 0x55936bcd2230 <col:5, ./llimits.h:75:31> 'char *' '='
+|   |-ParenExpr 0x55936bcceae0 <./lmem.h:38:5, col:7> 'char *' lvalue
+|   | `-MemberExpr 0x55936bcceaa8 <./lzio.h:40:25, col:33> 'char *' lvalue ->buffer 0x55936bcbd1b8
+|   |   `-ImplicitCastExpr 0x55936bccea90 <col:25, col:30> 'Mbuffer *' <LValueToRValue>
+|   |     `-ParenExpr 0x55936bccea70 <col:25, col:30> 'Mbuffer *' lvalue
+|   |       `-DeclRefExpr 0x55936bccea48 <lzio.c:77:26> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+|   `-ParenExpr 0x55936bcd2210 <./llimits.h:75:22, col:31> 'char *'
+|     `-CStyleCastExpr 0x55936bcd21e8 <col:23, col:30> 'char *' <BitCast>
+|       `-ParenExpr 0x55936bcd21c8 <col:26, col:30> 'void *'
+|         `-ParenExpr 0x55936bcd2160 <./lmem.h:20:2, line:22:17> 'void *'
+|           `-ConditionalOperator 0x55936bcd2130 <line:20:3, line:22:16> 'void *'
+|             |-ParenExpr 0x55936bcd1b10 <line:20:3, col:40> 'int'
+|             | `-BinaryOperator 0x55936bcd1ae8 <./llimits.h:75:22, ./lmem.h:20:39> 'int' '<='
+|             |   |-ParenExpr 0x55936bccec48 <./llimits.h:75:22, col:31> 'size_t':'unsigned long'
+|             |   | `-CStyleCastExpr 0x55936bccec20 <col:23, col:30> 'size_t':'unsigned long' <NoOp>
+|             |   |   `-ParenExpr 0x55936bccec00 <col:26, col:30> 'unsigned long'
+|             |   |     `-BinaryOperator 0x55936bcceb98 <./lmem.h:20:17, col:21> 'unsigned long' '+'
+|             |   |       |-ImplicitCastExpr 0x55936bcceb68 <col:17, col:19> 'size_t':'unsigned long' <LValueToRValue>
+|             |   |       | `-ParenExpr 0x55936bcceb28 <col:17, col:19> 'size_t':'unsigned long' lvalue
+|             |   |       |   `-DeclRefExpr 0x55936bcceb00 <lzio.c:77:32> 'size_t':'unsigned long' lvalue ParmVar 0x55936bcce650 'n' 'size_t':'unsigned long'
+|             |   |       `-ImplicitCastExpr 0x55936bcceb80 <./lmem.h:20:21> 'unsigned long' <IntegralCast>
+|             |   |         `-IntegerLiteral 0x55936bcceb48 <col:21> 'int' 1
+|             |   `-BinaryOperator 0x55936bcd1ac0 <./llimits.h:30:19, ./lmem.h:20:39> 'unsigned long' '/'
+|             |     |-ParenExpr 0x55936bcd1a50 <./llimits.h:30:19, col:42> 'unsigned long'
+|             |     | `-BinaryOperator 0x55936bcd1a28 <col:20, col:41> 'unsigned long' '-'
+|             |     |   |-CStyleCastExpr 0x55936bcced40 <col:20, col:39> 'size_t':'unsigned long' <NoOp>
+|             |     |   | `-ParenExpr 0x55936bcced20 <col:28, col:39> 'size_t':'unsigned long'
+|             |     |   |   `-UnaryOperator 0x55936bccecc0 <col:29, col:38> 'size_t':'unsigned long' prefix '~'
+|             |     |   |     `-CStyleCastExpr 0x55936bccec98 <col:30, col:38> 'size_t':'unsigned long' <IntegralCast>
+|             |     |   |       `-IntegerLiteral 0x55936bccec68 <col:38> 'int' 0
+|             |     |   `-ImplicitCastExpr 0x55936bcd1a10 <col:41> 'unsigned long' <IntegralCast>
+|             |     |     `-IntegerLiteral 0x55936bcced68 <col:41> 'int' 2
+|             |     `-ParenExpr 0x55936bcd1aa0 <./lmem.h:20:37, col:39> 'unsigned long'
+|             |       `-UnaryExprOrTypeTraitExpr 0x55936bcd1a80 <line:38:48, col:56> 'unsigned long' sizeof 'char'
+|             |-CallExpr 0x55936bcd1ed0 <line:21:3, col:42> 'void *'
+|             | |-ImplicitCastExpr 0x55936bcd1eb8 <col:3> 'void *(*)(lua_State *, void *, size_t, size_t)' <FunctionToPointerDecay>
+|             | | `-DeclRefExpr 0x55936bcd1b30 <col:3> 'void *(lua_State *, void *, size_t, size_t)' Function 0x55936bc9e1f8 'luaM_realloc_' 'void *(lua_State *, void *, size_t, size_t)'
+|             | |-ImplicitCastExpr 0x55936bcd1f18 <lzio.c:77:23> 'lua_State *' <LValueToRValue>
+|             | | `-DeclRefExpr 0x55936bcd1b58 <col:23> 'lua_State *' lvalue ParmVar 0x55936bcce570 'L' 'lua_State *'
+|             | |-ImplicitCastExpr 0x55936bcd1f48 <./lmem.h:21:20, col:22> 'void *' <BitCast>
+|             | | `-ImplicitCastExpr 0x55936bcd1f30 <col:20, col:22> 'char *' <LValueToRValue>
+|             | |   `-ParenExpr 0x55936bcd1c18 <col:20, col:22> 'char *' lvalue
+|             | |     `-MemberExpr 0x55936bcd1be0 <./lzio.h:40:25, col:33> 'char *' lvalue ->buffer 0x55936bcbd1b8
+|             | |       `-ImplicitCastExpr 0x55936bcd1bc8 <col:25, col:30> 'Mbuffer *' <LValueToRValue>
+|             | |         `-ParenExpr 0x55936bcd1ba8 <col:25, col:30> 'Mbuffer *' lvalue
+|             | |           `-DeclRefExpr 0x55936bcd1b80 <lzio.c:77:26> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+|             | |-BinaryOperator 0x55936bcd1d58 <./lmem.h:21:25, col:32> 'unsigned long' '*'
+|             | | |-ImplicitCastExpr 0x55936bcd1d40 <col:25, col:28> 'size_t':'unsigned long' <LValueToRValue>
+|             | | | `-ParenExpr 0x55936bcd1cd0 <col:25, col:28> 'size_t':'unsigned long' lvalue
+|             | | |   `-MemberExpr 0x55936bcd1c98 <./lzio.h:40:41, col:49> 'size_t':'unsigned long' lvalue ->buffsize 0x55936bcbd268
+|             | | |     `-ImplicitCastExpr 0x55936bcd1c80 <col:41, col:46> 'Mbuffer *' <LValueToRValue>
+|             | | |       `-ParenExpr 0x55936bcd1c60 <col:41, col:46> 'Mbuffer *' lvalue
+|             | | |         `-DeclRefExpr 0x55936bcd1c38 <lzio.c:77:26> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+|             | | `-ParenExpr 0x55936bcd1d20 <./lmem.h:21:30, col:32> 'unsigned long'
+|             | |   `-UnaryExprOrTypeTraitExpr 0x55936bcd1d00 <line:38:48, col:56> 'unsigned long' sizeof 'char'
+|             | `-BinaryOperator 0x55936bcd1e30 <line:21:35, col:41> 'unsigned long' '*'
+|             |   |-ImplicitCastExpr 0x55936bcd1e18 <col:35, col:37> 'size_t':'unsigned long' <LValueToRValue>
+|             |   | `-ParenExpr 0x55936bcd1da8 <col:35, col:37> 'size_t':'unsigned long' lvalue
+|             |   |   `-DeclRefExpr 0x55936bcd1d80 <lzio.c:77:32> 'size_t':'unsigned long' lvalue ParmVar 0x55936bcce650 'n' 'size_t':'unsigned long'
+|             |   `-ParenExpr 0x55936bcd1df8 <./lmem.h:21:39, col:41> 'unsigned long'
+|             |     `-UnaryExprOrTypeTraitExpr 0x55936bcd1dd8 <line:38:48, col:56> 'unsigned long' sizeof 'char'
+|             `-CallExpr 0x55936bcd2020 <line:22:3, col:16> 'void *'
+|               |-ImplicitCastExpr 0x55936bcd2008 <col:3> 'void *(*)(lua_State *)' <FunctionToPointerDecay>
+|               | `-DeclRefExpr 0x55936bcd1f60 <col:3> 'void *(lua_State *)' Function 0x55936bc9e448 'luaM_toobig' 'void *(lua_State *)'
+|               `-ImplicitCastExpr 0x55936bcd2050 <lzio.c:77:23> 'lua_State *' <LValueToRValue>
+|                 `-DeclRefExpr 0x55936bcd1f88 <col:23> 'lua_State *' lvalue ParmVar 0x55936bcce570 'L' 'lua_State *'
+`-BinaryOperator 0x55936bcd2350 <./lzio.h:41:2, lzio.c:77:32> 'size_t':'unsigned long' '='
+  |-MemberExpr 0x55936bcd22d8 <./lzio.h:41:2, col:10> 'size_t':'unsigned long' lvalue ->buffsize 0x55936bcbd268
+  | `-ImplicitCastExpr 0x55936bcd22c0 <col:2, col:7> 'Mbuffer *' <LValueToRValue>
+  |   `-ParenExpr 0x55936bcd22a0 <col:2, col:7> 'Mbuffer *' lvalue
+  |     `-DeclRefExpr 0x55936bcd2278 <lzio.c:77:26> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+  `-ImplicitCastExpr 0x55936bcd2338 <col:32> 'size_t':'unsigned long' <LValueToRValue>
+    `-DeclRefExpr 0x55936bcd2310 <col:32> 'size_t':'unsigned long' lvalue ParmVar 0x55936bcce650 'n' 'size_t':'unsigned long'
+... , [B2.12]
+   Preds (2): B3 B4
+   Succs (1): B1
+
+ [B3]
+   1: DeclRefExpr 0x55936bcd1b30 <./lmem.h:21:3> 'void *(lua_State *, void *, size_t, size_t)' Function 0x55936bc9e1f8 'luaM_realloc_' 'void *(lua_State *, void *, size_t, size_t)'
+luaM_realloc_
+   2: ImplicitCastExpr 0x55936bcd1eb8 <./lmem.h:21:3> 'void *(*)(lua_State *, void *, size_t, size_t)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55936bcd1b30 <col:3> 'void *(lua_State *, void *, size_t, size_t)' Function 0x55936bc9e1f8 'luaM_realloc_' 'void *(lua_State *, void *, size_t, size_t)'
+[B3.1] (ImplicitCastExpr, FunctionToPointerDecay, void *(*)(lua_State *, void *, size_t, size_t))
+   3: DeclRefExpr 0x55936bcd1b58 <lzio.c:77:23> 'lua_State *' lvalue ParmVar 0x55936bcce570 'L' 'lua_State *'
+L
+   4: ImplicitCastExpr 0x55936bcd1f18 <lzio.c:77:23> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55936bcd1b58 <col:23> 'lua_State *' lvalue ParmVar 0x55936bcce570 'L' 'lua_State *'
+[B3.3] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   5: DeclRefExpr 0x55936bcd1b80 <lzio.c:77:26> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+buff
+   6: ImplicitCastExpr 0x55936bcd1bc8 <./lzio.h:40:25, col:30> 'Mbuffer *' <LValueToRValue>
+`-ParenExpr 0x55936bcd1ba8 <col:25, col:30> 'Mbuffer *' lvalue
+  `-DeclRefExpr 0x55936bcd1b80 <lzio.c:77:26> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+([B3.5]) (ImplicitCastExpr, LValueToRValue, Mbuffer *)
+   7: MemberExpr 0x55936bcd1be0 <./lzio.h:40:25, col:33> 'char *' lvalue ->buffer 0x55936bcbd1b8
+`-ImplicitCastExpr 0x55936bcd1bc8 <col:25, col:30> 'Mbuffer *' <LValueToRValue>
+  `-ParenExpr 0x55936bcd1ba8 <col:25, col:30> 'Mbuffer *' lvalue
+    `-DeclRefExpr 0x55936bcd1b80 <lzio.c:77:26> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+[B3.6]->buffer
+   8: ImplicitCastExpr 0x55936bcd1f30 <./lmem.h:21:20, col:22> 'char *' <LValueToRValue>
+`-ParenExpr 0x55936bcd1c18 <col:20, col:22> 'char *' lvalue
+  `-MemberExpr 0x55936bcd1be0 <./lzio.h:40:25, col:33> 'char *' lvalue ->buffer 0x55936bcbd1b8
+    `-ImplicitCastExpr 0x55936bcd1bc8 <col:25, col:30> 'Mbuffer *' <LValueToRValue>
+      `-ParenExpr 0x55936bcd1ba8 <col:25, col:30> 'Mbuffer *' lvalue
+        `-DeclRefExpr 0x55936bcd1b80 <lzio.c:77:26> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+([B3.7]) (ImplicitCastExpr, LValueToRValue, char *)
+   9: ImplicitCastExpr 0x55936bcd1f48 <./lmem.h:21:20, col:22> 'void *' <BitCast>
+`-ImplicitCastExpr 0x55936bcd1f30 <col:20, col:22> 'char *' <LValueToRValue>
+  `-ParenExpr 0x55936bcd1c18 <col:20, col:22> 'char *' lvalue
+    `-MemberExpr 0x55936bcd1be0 <./lzio.h:40:25, col:33> 'char *' lvalue ->buffer 0x55936bcbd1b8
+      `-ImplicitCastExpr 0x55936bcd1bc8 <col:25, col:30> 'Mbuffer *' <LValueToRValue>
+        `-ParenExpr 0x55936bcd1ba8 <col:25, col:30> 'Mbuffer *' lvalue
+          `-DeclRefExpr 0x55936bcd1b80 <lzio.c:77:26> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+[B3.8] (ImplicitCastExpr, BitCast, void *)
+  10: DeclRefExpr 0x55936bcd1c38 <lzio.c:77:26> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+buff
+  11: ImplicitCastExpr 0x55936bcd1c80 <./lzio.h:40:41, col:46> 'Mbuffer *' <LValueToRValue>
+`-ParenExpr 0x55936bcd1c60 <col:41, col:46> 'Mbuffer *' lvalue
+  `-DeclRefExpr 0x55936bcd1c38 <lzio.c:77:26> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+([B3.10]) (ImplicitCastExpr, LValueToRValue, Mbuffer *)
+  12: MemberExpr 0x55936bcd1c98 <./lzio.h:40:41, col:49> 'size_t':'unsigned long' lvalue ->buffsize 0x55936bcbd268
+`-ImplicitCastExpr 0x55936bcd1c80 <col:41, col:46> 'Mbuffer *' <LValueToRValue>
+  `-ParenExpr 0x55936bcd1c60 <col:41, col:46> 'Mbuffer *' lvalue
+    `-DeclRefExpr 0x55936bcd1c38 <lzio.c:77:26> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+[B3.11]->buffsize
+  13: ImplicitCastExpr 0x55936bcd1d40 <./lmem.h:21:25, col:28> 'size_t':'unsigned long' <LValueToRValue>
+`-ParenExpr 0x55936bcd1cd0 <col:25, col:28> 'size_t':'unsigned long' lvalue
+  `-MemberExpr 0x55936bcd1c98 <./lzio.h:40:41, col:49> 'size_t':'unsigned long' lvalue ->buffsize 0x55936bcbd268
+    `-ImplicitCastExpr 0x55936bcd1c80 <col:41, col:46> 'Mbuffer *' <LValueToRValue>
+      `-ParenExpr 0x55936bcd1c60 <col:41, col:46> 'Mbuffer *' lvalue
+        `-DeclRefExpr 0x55936bcd1c38 <lzio.c:77:26> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+([B3.12]) (ImplicitCastExpr, LValueToRValue, size_t)
+  14: UnaryExprOrTypeTraitExpr 0x55936bcd1d00 <./lmem.h:38:48, col:56> 'unsigned long' sizeof 'char'
+sizeof(char)
+  15: BinaryOperator 0x55936bcd1d58 <./lmem.h:21:25, col:32> 'unsigned long' '*'
+|-ImplicitCastExpr 0x55936bcd1d40 <col:25, col:28> 'size_t':'unsigned long' <LValueToRValue>
+| `-ParenExpr 0x55936bcd1cd0 <col:25, col:28> 'size_t':'unsigned long' lvalue
+|   `-MemberExpr 0x55936bcd1c98 <./lzio.h:40:41, col:49> 'size_t':'unsigned long' lvalue ->buffsize 0x55936bcbd268
+|     `-ImplicitCastExpr 0x55936bcd1c80 <col:41, col:46> 'Mbuffer *' <LValueToRValue>
+|       `-ParenExpr 0x55936bcd1c60 <col:41, col:46> 'Mbuffer *' lvalue
+|         `-DeclRefExpr 0x55936bcd1c38 <lzio.c:77:26> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+`-ParenExpr 0x55936bcd1d20 <./lmem.h:21:30, col:32> 'unsigned long'
+  `-UnaryExprOrTypeTraitExpr 0x55936bcd1d00 <line:38:48, col:56> 'unsigned long' sizeof 'char'
+[B3.13] * ([B3.14])
+  16: DeclRefExpr 0x55936bcd1d80 <lzio.c:77:32> 'size_t':'unsigned long' lvalue ParmVar 0x55936bcce650 'n' 'size_t':'unsigned long'
+n
+  17: ImplicitCastExpr 0x55936bcd1e18 <./lmem.h:21:35, col:37> 'size_t':'unsigned long' <LValueToRValue>
+`-ParenExpr 0x55936bcd1da8 <col:35, col:37> 'size_t':'unsigned long' lvalue
+  `-DeclRefExpr 0x55936bcd1d80 <lzio.c:77:32> 'size_t':'unsigned long' lvalue ParmVar 0x55936bcce650 'n' 'size_t':'unsigned long'
+([B3.16]) (ImplicitCastExpr, LValueToRValue, size_t)
+  18: UnaryExprOrTypeTraitExpr 0x55936bcd1dd8 <./lmem.h:38:48, col:56> 'unsigned long' sizeof 'char'
+sizeof(char)
+  19: BinaryOperator 0x55936bcd1e30 <./lmem.h:21:35, col:41> 'unsigned long' '*'
+|-ImplicitCastExpr 0x55936bcd1e18 <col:35, col:37> 'size_t':'unsigned long' <LValueToRValue>
+| `-ParenExpr 0x55936bcd1da8 <col:35, col:37> 'size_t':'unsigned long' lvalue
+|   `-DeclRefExpr 0x55936bcd1d80 <lzio.c:77:32> 'size_t':'unsigned long' lvalue ParmVar 0x55936bcce650 'n' 'size_t':'unsigned long'
+`-ParenExpr 0x55936bcd1df8 <./lmem.h:21:39, col:41> 'unsigned long'
+  `-UnaryExprOrTypeTraitExpr 0x55936bcd1dd8 <line:38:48, col:56> 'unsigned long' sizeof 'char'
+[B3.17] * ([B3.18])
+  20: CallExpr 0x55936bcd1ed0 <./lmem.h:21:3, col:42> 'void *'
+|-ImplicitCastExpr 0x55936bcd1eb8 <col:3> 'void *(*)(lua_State *, void *, size_t, size_t)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55936bcd1b30 <col:3> 'void *(lua_State *, void *, size_t, size_t)' Function 0x55936bc9e1f8 'luaM_realloc_' 'void *(lua_State *, void *, size_t, size_t)'
+|-ImplicitCastExpr 0x55936bcd1f18 <lzio.c:77:23> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x55936bcd1b58 <col:23> 'lua_State *' lvalue ParmVar 0x55936bcce570 'L' 'lua_State *'
+|-ImplicitCastExpr 0x55936bcd1f48 <./lmem.h:21:20, col:22> 'void *' <BitCast>
+| `-ImplicitCastExpr 0x55936bcd1f30 <col:20, col:22> 'char *' <LValueToRValue>
+|   `-ParenExpr 0x55936bcd1c18 <col:20, col:22> 'char *' lvalue
+|     `-MemberExpr 0x55936bcd1be0 <./lzio.h:40:25, col:33> 'char *' lvalue ->buffer 0x55936bcbd1b8
+|       `-ImplicitCastExpr 0x55936bcd1bc8 <col:25, col:30> 'Mbuffer *' <LValueToRValue>
+|         `-ParenExpr 0x55936bcd1ba8 <col:25, col:30> 'Mbuffer *' lvalue
+|           `-DeclRefExpr 0x55936bcd1b80 <lzio.c:77:26> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+|-BinaryOperator 0x55936bcd1d58 <./lmem.h:21:25, col:32> 'unsigned long' '*'
+| |-ImplicitCastExpr 0x55936bcd1d40 <col:25, col:28> 'size_t':'unsigned long' <LValueToRValue>
+| | `-ParenExpr 0x55936bcd1cd0 <col:25, col:28> 'size_t':'unsigned long' lvalue
+| |   `-MemberExpr 0x55936bcd1c98 <./lzio.h:40:41, col:49> 'size_t':'unsigned long' lvalue ->buffsize 0x55936bcbd268
+| |     `-ImplicitCastExpr 0x55936bcd1c80 <col:41, col:46> 'Mbuffer *' <LValueToRValue>
+| |       `-ParenExpr 0x55936bcd1c60 <col:41, col:46> 'Mbuffer *' lvalue
+| |         `-DeclRefExpr 0x55936bcd1c38 <lzio.c:77:26> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+| `-ParenExpr 0x55936bcd1d20 <./lmem.h:21:30, col:32> 'unsigned long'
+|   `-UnaryExprOrTypeTraitExpr 0x55936bcd1d00 <line:38:48, col:56> 'unsigned long' sizeof 'char'
+`-BinaryOperator 0x55936bcd1e30 <line:21:35, col:41> 'unsigned long' '*'
+  |-ImplicitCastExpr 0x55936bcd1e18 <col:35, col:37> 'size_t':'unsigned long' <LValueToRValue>
+  | `-ParenExpr 0x55936bcd1da8 <col:35, col:37> 'size_t':'unsigned long' lvalue
+  |   `-DeclRefExpr 0x55936bcd1d80 <lzio.c:77:32> 'size_t':'unsigned long' lvalue ParmVar 0x55936bcce650 'n' 'size_t':'unsigned long'
+  `-ParenExpr 0x55936bcd1df8 <./lmem.h:21:39, col:41> 'unsigned long'
+    `-UnaryExprOrTypeTraitExpr 0x55936bcd1dd8 <line:38:48, col:56> 'unsigned long' sizeof 'char'
+[B3.2]([B3.4], [B3.9], [B3.15], [B3.19])
+   Preds (1): B5
+   Succs (1): B2
+
+ [B4]
+   1: DeclRefExpr 0x55936bcd1f60 <./lmem.h:22:3> 'void *(lua_State *)' Function 0x55936bc9e448 'luaM_toobig' 'void *(lua_State *)'
+luaM_toobig
+   2: ImplicitCastExpr 0x55936bcd2008 <./lmem.h:22:3> 'void *(*)(lua_State *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55936bcd1f60 <col:3> 'void *(lua_State *)' Function 0x55936bc9e448 'luaM_toobig' 'void *(lua_State *)'
+[B4.1] (ImplicitCastExpr, FunctionToPointerDecay, void *(*)(lua_State *))
+   3: DeclRefExpr 0x55936bcd1f88 <lzio.c:77:23> 'lua_State *' lvalue ParmVar 0x55936bcce570 'L' 'lua_State *'
+L
+   4: ImplicitCastExpr 0x55936bcd2050 <lzio.c:77:23> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55936bcd1f88 <col:23> 'lua_State *' lvalue ParmVar 0x55936bcce570 'L' 'lua_State *'
+[B4.3] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   5: CallExpr 0x55936bcd2020 <./lmem.h:22:3, col:16> 'void *'
+|-ImplicitCastExpr 0x55936bcd2008 <col:3> 'void *(*)(lua_State *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55936bcd1f60 <col:3> 'void *(lua_State *)' Function 0x55936bc9e448 'luaM_toobig' 'void *(lua_State *)'
+`-ImplicitCastExpr 0x55936bcd2050 <lzio.c:77:23> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x55936bcd1f88 <col:23> 'lua_State *' lvalue ParmVar 0x55936bcce570 'L' 'lua_State *'
+[B4.2]([B4.4])
+   Preds (1): B5
+   Succs (1): B2
+
+ [B5]
+   1: DeclRefExpr 0x55936bcceb00 <lzio.c:77:32> 'size_t':'unsigned long' lvalue ParmVar 0x55936bcce650 'n' 'size_t':'unsigned long'
+n
+   2: ImplicitCastExpr 0x55936bcceb68 <./lmem.h:20:17, col:19> 'size_t':'unsigned long' <LValueToRValue>
+`-ParenExpr 0x55936bcceb28 <col:17, col:19> 'size_t':'unsigned long' lvalue
+  `-DeclRefExpr 0x55936bcceb00 <lzio.c:77:32> 'size_t':'unsigned long' lvalue ParmVar 0x55936bcce650 'n' 'size_t':'unsigned long'
+([B5.1]) (ImplicitCastExpr, LValueToRValue, size_t)
+   3: IntegerLiteral 0x55936bcceb48 <./lmem.h:20:21> 'int' 1
+1
+   4: ImplicitCastExpr 0x55936bcceb80 <./lmem.h:20:21> 'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x55936bcceb48 <col:21> 'int' 1
+[B5.3] (ImplicitCastExpr, IntegralCast, unsigned long)
+   5: BinaryOperator 0x55936bcceb98 <./lmem.h:20:17, col:21> 'unsigned long' '+'
+|-ImplicitCastExpr 0x55936bcceb68 <col:17, col:19> 'size_t':'unsigned long' <LValueToRValue>
+| `-ParenExpr 0x55936bcceb28 <col:17, col:19> 'size_t':'unsigned long' lvalue
+|   `-DeclRefExpr 0x55936bcceb00 <lzio.c:77:32> 'size_t':'unsigned long' lvalue ParmVar 0x55936bcce650 'n' 'size_t':'unsigned long'
+`-ImplicitCastExpr 0x55936bcceb80 <./lmem.h:20:21> 'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x55936bcceb48 <col:21> 'int' 1
+[B5.2] + [B5.4]
+   6: CStyleCastExpr 0x55936bccec20 <./llimits.h:75:23, col:30> 'size_t':'unsigned long' <NoOp>
+`-ParenExpr 0x55936bccec00 <col:26, col:30> 'unsigned long'
+  `-BinaryOperator 0x55936bcceb98 <./lmem.h:20:17, col:21> 'unsigned long' '+'
+    |-ImplicitCastExpr 0x55936bcceb68 <col:17, col:19> 'size_t':'unsigned long' <LValueToRValue>
+    | `-ParenExpr 0x55936bcceb28 <col:17, col:19> 'size_t':'unsigned long' lvalue
+    |   `-DeclRefExpr 0x55936bcceb00 <lzio.c:77:32> 'size_t':'unsigned long' lvalue ParmVar 0x55936bcce650 'n' 'size_t':'unsigned long'
+    `-ImplicitCastExpr 0x55936bcceb80 <./lmem.h:20:21> 'unsigned long' <IntegralCast>
+      `-IntegerLiteral 0x55936bcceb48 <col:21> 'int' 1
+(size_t)([B5.5]) (CStyleCastExpr, NoOp, size_t)
+   7: IntegerLiteral 0x55936bccec68 <./llimits.h:30:38> 'int' 0
+0
+   8: CStyleCastExpr 0x55936bccec98 <./llimits.h:30:30, col:38> 'size_t':'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x55936bccec68 <col:38> 'int' 0
+(size_t)[B5.7] (CStyleCastExpr, IntegralCast, size_t)
+   9: UnaryOperator 0x55936bccecc0 <./llimits.h:30:29, col:38> 'size_t':'unsigned long' prefix '~'
+`-CStyleCastExpr 0x55936bccec98 <col:30, col:38> 'size_t':'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x55936bccec68 <col:38> 'int' 0
+~[B5.8]
+  10: CStyleCastExpr 0x55936bcced40 <./llimits.h:30:20, col:39> 'size_t':'unsigned long' <NoOp>
+`-ParenExpr 0x55936bcced20 <col:28, col:39> 'size_t':'unsigned long'
+  `-UnaryOperator 0x55936bccecc0 <col:29, col:38> 'size_t':'unsigned long' prefix '~'
+    `-CStyleCastExpr 0x55936bccec98 <col:30, col:38> 'size_t':'unsigned long' <IntegralCast>
+      `-IntegerLiteral 0x55936bccec68 <col:38> 'int' 0
+(size_t)([B5.9]) (CStyleCastExpr, NoOp, size_t)
+  11: IntegerLiteral 0x55936bcced68 <./llimits.h:30:41> 'int' 2
+2
+  12: ImplicitCastExpr 0x55936bcd1a10 <./llimits.h:30:41> 'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x55936bcced68 <col:41> 'int' 2
+[B5.11] (ImplicitCastExpr, IntegralCast, unsigned long)
+  13: BinaryOperator 0x55936bcd1a28 <./llimits.h:30:20, col:41> 'unsigned long' '-'
+|-CStyleCastExpr 0x55936bcced40 <col:20, col:39> 'size_t':'unsigned long' <NoOp>
+| `-ParenExpr 0x55936bcced20 <col:28, col:39> 'size_t':'unsigned long'
+|   `-UnaryOperator 0x55936bccecc0 <col:29, col:38> 'size_t':'unsigned long' prefix '~'
+|     `-CStyleCastExpr 0x55936bccec98 <col:30, col:38> 'size_t':'unsigned long' <IntegralCast>
+|       `-IntegerLiteral 0x55936bccec68 <col:38> 'int' 0
+`-ImplicitCastExpr 0x55936bcd1a10 <col:41> 'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x55936bcced68 <col:41> 'int' 2
+[B5.10] - [B5.12]
+  14: UnaryExprOrTypeTraitExpr 0x55936bcd1a80 <./lmem.h:38:48, col:56> 'unsigned long' sizeof 'char'
+sizeof(char)
+  15: BinaryOperator 0x55936bcd1ac0 <./llimits.h:30:19, ./lmem.h:20:39> 'unsigned long' '/'
+|-ParenExpr 0x55936bcd1a50 <./llimits.h:30:19, col:42> 'unsigned long'
+| `-BinaryOperator 0x55936bcd1a28 <col:20, col:41> 'unsigned long' '-'
+|   |-CStyleCastExpr 0x55936bcced40 <col:20, col:39> 'size_t':'unsigned long' <NoOp>
+|   | `-ParenExpr 0x55936bcced20 <col:28, col:39> 'size_t':'unsigned long'
+|   |   `-UnaryOperator 0x55936bccecc0 <col:29, col:38> 'size_t':'unsigned long' prefix '~'
+|   |     `-CStyleCastExpr 0x55936bccec98 <col:30, col:38> 'size_t':'unsigned long' <IntegralCast>
+|   |       `-IntegerLiteral 0x55936bccec68 <col:38> 'int' 0
+|   `-ImplicitCastExpr 0x55936bcd1a10 <col:41> 'unsigned long' <IntegralCast>
+|     `-IntegerLiteral 0x55936bcced68 <col:41> 'int' 2
+`-ParenExpr 0x55936bcd1aa0 <./lmem.h:20:37, col:39> 'unsigned long'
+  `-UnaryExprOrTypeTraitExpr 0x55936bcd1a80 <line:38:48, col:56> 'unsigned long' sizeof 'char'
+([B5.13]) / ([B5.14])
+  16: BinaryOperator 0x55936bcd1ae8 <./llimits.h:75:22, ./lmem.h:20:39> 'int' '<='
+|-ParenExpr 0x55936bccec48 <./llimits.h:75:22, col:31> 'size_t':'unsigned long'
+| `-CStyleCastExpr 0x55936bccec20 <col:23, col:30> 'size_t':'unsigned long' <NoOp>
+|   `-ParenExpr 0x55936bccec00 <col:26, col:30> 'unsigned long'
+|     `-BinaryOperator 0x55936bcceb98 <./lmem.h:20:17, col:21> 'unsigned long' '+'
+|       |-ImplicitCastExpr 0x55936bcceb68 <col:17, col:19> 'size_t':'unsigned long' <LValueToRValue>
+|       | `-ParenExpr 0x55936bcceb28 <col:17, col:19> 'size_t':'unsigned long' lvalue
+|       |   `-DeclRefExpr 0x55936bcceb00 <lzio.c:77:32> 'size_t':'unsigned long' lvalue ParmVar 0x55936bcce650 'n' 'size_t':'unsigned long'
+|       `-ImplicitCastExpr 0x55936bcceb80 <./lmem.h:20:21> 'unsigned long' <IntegralCast>
+|         `-IntegerLiteral 0x55936bcceb48 <col:21> 'int' 1
+`-BinaryOperator 0x55936bcd1ac0 <./llimits.h:30:19, ./lmem.h:20:39> 'unsigned long' '/'
+  |-ParenExpr 0x55936bcd1a50 <./llimits.h:30:19, col:42> 'unsigned long'
+  | `-BinaryOperator 0x55936bcd1a28 <col:20, col:41> 'unsigned long' '-'
+  |   |-CStyleCastExpr 0x55936bcced40 <col:20, col:39> 'size_t':'unsigned long' <NoOp>
+  |   | `-ParenExpr 0x55936bcced20 <col:28, col:39> 'size_t':'unsigned long'
+  |   |   `-UnaryOperator 0x55936bccecc0 <col:29, col:38> 'size_t':'unsigned long' prefix '~'
+  |   |     `-CStyleCastExpr 0x55936bccec98 <col:30, col:38> 'size_t':'unsigned long' <IntegralCast>
+  |   |       `-IntegerLiteral 0x55936bccec68 <col:38> 'int' 0
+  |   `-ImplicitCastExpr 0x55936bcd1a10 <col:41> 'unsigned long' <IntegralCast>
+  |     `-IntegerLiteral 0x55936bcced68 <col:41> 'int' 2
+  `-ParenExpr 0x55936bcd1aa0 <./lmem.h:20:37, col:39> 'unsigned long'
+    `-UnaryExprOrTypeTraitExpr 0x55936bcd1a80 <line:38:48, col:56> 'unsigned long' sizeof 'char'
+([B5.6]) <= [B5.15]
+   T: ([B5.16]) ? ... : ...
+   Preds (2): B6 B7
+   Succs (2): B3 B4
+
+ [B6]
+   1: IntegerLiteral 0x55936bcce9b0 <./llimits.h:105:23> 'int' 32
+32
+   2: ImplicitCastExpr 0x55936bcce9d0 <./llimits.h:105:23> 'size_t':'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x55936bcce9b0 <col:23> 'int' 32
+[B6.1] (ImplicitCastExpr, IntegralCast, size_t)
+   3: DeclRefExpr 0x55936bcce988 <lzio.c:76:28> 'size_t':'unsigned long' lvalue ParmVar 0x55936bcce650 'n' 'size_t':'unsigned long'
+n
+   4: BinaryOperator 0x55936bcce9e8 <lzio.c:76:28, ./llimits.h:105:23> 'size_t':'unsigned long' '='
+|-DeclRefExpr 0x55936bcce988 <lzio.c:76:28> 'size_t':'unsigned long' lvalue ParmVar 0x55936bcce650 'n' 'size_t':'unsigned long'
+`-ImplicitCastExpr 0x55936bcce9d0 <./llimits.h:105:23> 'size_t':'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x55936bcce9b0 <col:23> 'int' 32
+[B6.3] = [B6.2]
+   Preds (1): B7
+   Succs (1): B5
+
+ [B7]
+   1: DeclRefExpr 0x55936bcce8e8 <lzio.c:76:9> 'size_t':'unsigned long' lvalue ParmVar 0x55936bcce650 'n' 'size_t':'unsigned long'
+n
+   2: ImplicitCastExpr 0x55936bcce930 <lzio.c:76:9> 'size_t':'unsigned long' <LValueToRValue>
+`-DeclRefExpr 0x55936bcce8e8 <col:9> 'size_t':'unsigned long' lvalue ParmVar 0x55936bcce650 'n' 'size_t':'unsigned long'
+[B7.1] (ImplicitCastExpr, LValueToRValue, size_t)
+   3: IntegerLiteral 0x55936bcce910 <./llimits.h:105:23> 'int' 32
+32
+   4: ImplicitCastExpr 0x55936bcce948 <./llimits.h:105:23> 'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x55936bcce910 <col:23> 'int' 32
+[B7.3] (ImplicitCastExpr, IntegralCast, unsigned long)
+   5: BinaryOperator 0x55936bcce960 <lzio.c:76:9, ./llimits.h:105:23> 'int' '<'
+|-ImplicitCastExpr 0x55936bcce930 <lzio.c:76:9> 'size_t':'unsigned long' <LValueToRValue>
+| `-DeclRefExpr 0x55936bcce8e8 <col:9> 'size_t':'unsigned long' lvalue ParmVar 0x55936bcce650 'n' 'size_t':'unsigned long'
+`-ImplicitCastExpr 0x55936bcce948 <./llimits.h:105:23> 'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x55936bcce910 <col:23> 'int' 32
+[B7.2] < [B7.4]
+   T: if [B7.5]
+   Preds (1): B8
+   Succs (2): B6 B5
+
+ [B8]
+   1: DeclRefExpr 0x55936bcce7f0 <lzio.c:75:7> 'size_t':'unsigned long' lvalue ParmVar 0x55936bcce650 'n' 'size_t':'unsigned long'
+n
+   2: ImplicitCastExpr 0x55936bcce890 <lzio.c:75:7> 'size_t':'unsigned long' <LValueToRValue>
+`-DeclRefExpr 0x55936bcce7f0 <col:7> 'size_t':'unsigned long' lvalue ParmVar 0x55936bcce650 'n' 'size_t':'unsigned long'
+[B8.1] (ImplicitCastExpr, LValueToRValue, size_t)
+   3: DeclRefExpr 0x55936bcce818 <lzio.c:75:11> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+buff
+   4: ImplicitCastExpr 0x55936bcce840 <lzio.c:75:11> 'Mbuffer *' <LValueToRValue>
+`-DeclRefExpr 0x55936bcce818 <col:11> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+[B8.3] (ImplicitCastExpr, LValueToRValue, Mbuffer *)
+   5: MemberExpr 0x55936bcce858 <lzio.c:75:11, col:17> 'size_t':'unsigned long' lvalue ->buffsize 0x55936bcbd268
+`-ImplicitCastExpr 0x55936bcce840 <col:11> 'Mbuffer *' <LValueToRValue>
+  `-DeclRefExpr 0x55936bcce818 <col:11> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+[B8.4]->buffsize
+   6: ImplicitCastExpr 0x55936bcce8a8 <lzio.c:75:11, col:17> 'size_t':'unsigned long' <LValueToRValue>
+`-MemberExpr 0x55936bcce858 <col:11, col:17> 'size_t':'unsigned long' lvalue ->buffsize 0x55936bcbd268
+  `-ImplicitCastExpr 0x55936bcce840 <col:11> 'Mbuffer *' <LValueToRValue>
+    `-DeclRefExpr 0x55936bcce818 <col:11> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+[B8.5] (ImplicitCastExpr, LValueToRValue, size_t)
+   7: BinaryOperator 0x55936bcce8c0 <lzio.c:75:7, col:17> 'int' '>'
+|-ImplicitCastExpr 0x55936bcce890 <col:7> 'size_t':'unsigned long' <LValueToRValue>
+| `-DeclRefExpr 0x55936bcce7f0 <col:7> 'size_t':'unsigned long' lvalue ParmVar 0x55936bcce650 'n' 'size_t':'unsigned long'
+`-ImplicitCastExpr 0x55936bcce8a8 <col:11, col:17> 'size_t':'unsigned long' <LValueToRValue>
+  `-MemberExpr 0x55936bcce858 <col:11, col:17> 'size_t':'unsigned long' lvalue ->buffsize 0x55936bcbd268
+    `-ImplicitCastExpr 0x55936bcce840 <col:11> 'Mbuffer *' <LValueToRValue>
+      `-DeclRefExpr 0x55936bcce818 <col:11> 'Mbuffer *' lvalue ParmVar 0x55936bcce5e0 'buff' 'Mbuffer *'
+[B8.2] > [B8.6]
+   T: if [B8.7]
+   Preds (1): B9
+   Succs (2): B7 B1
+
+ [B0 (EXIT)]
+   Preds (1): B1

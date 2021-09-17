@@ -1,0 +1,64 @@
+static int writer(lua_State *L, const void *b, size_t size, void *B)
+ [B2 (ENTRY)]
+   Succs (1): B1
+
+ [B1]
+   1: DeclRefExpr 0x55fb421c2820 <lstrlib.c:141:9> 'lua_State *' lvalue ParmVar 0x55fb421c2558 'L' 'lua_State *'
+L
+   2: ImplicitCastExpr 0x55fb421c2858 <lstrlib.c:141:9> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55fb421c2820 <col:9> 'lua_State *' lvalue ParmVar 0x55fb421c2558 'L' 'lua_State *'
+[B1.1] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   3: CStyleCastExpr 0x55fb421c2870 <lstrlib.c:141:3, col:9> 'void' <ToVoid>
+`-ImplicitCastExpr 0x55fb421c2858 <col:9> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x55fb421c2820 <col:9> 'lua_State *' lvalue ParmVar 0x55fb421c2558 'L' 'lua_State *'
+(void)[B1.2] (CStyleCastExpr, ToVoid, void)
+   4: DeclRefExpr 0x55fb421c2898 <lstrlib.c:142:3> 'void (luaL_Buffer *, const char *, size_t)':'void (luaL_Buffer *, const char *, size_t)' Function 0x55fb421adbe8 'luaL_addlstring' 'void (luaL_Buffer *, const char *, size_t)':'void (luaL_Buffer *, const char *, size_t)'
+luaL_addlstring
+   5: ImplicitCastExpr 0x55fb421c29e0 <lstrlib.c:142:3> 'void (*)(luaL_Buffer *, const char *, size_t)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55fb421c2898 <col:3> 'void (luaL_Buffer *, const char *, size_t)':'void (luaL_Buffer *, const char *, size_t)' Function 0x55fb421adbe8 'luaL_addlstring' 'void (luaL_Buffer *, const char *, size_t)':'void (luaL_Buffer *, const char *, size_t)'
+[B1.4] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(luaL_Buffer *, const char *, size_t))
+   6: DeclRefExpr 0x55fb421c28c0 <lstrlib.c:142:34> 'void *' lvalue ParmVar 0x55fb421c26b8 'B' 'void *'
+B
+   7: ImplicitCastExpr 0x55fb421c28f8 <lstrlib.c:142:34> 'void *' <LValueToRValue>
+`-DeclRefExpr 0x55fb421c28c0 <col:34> 'void *' lvalue ParmVar 0x55fb421c26b8 'B' 'void *'
+[B1.6] (ImplicitCastExpr, LValueToRValue, void *)
+   8: CStyleCastExpr 0x55fb421c2910 <lstrlib.c:142:19, col:34> 'luaL_Buffer *' <BitCast>
+`-ImplicitCastExpr 0x55fb421c28f8 <col:34> 'void *' <LValueToRValue>
+  `-DeclRefExpr 0x55fb421c28c0 <col:34> 'void *' lvalue ParmVar 0x55fb421c26b8 'B' 'void *'
+(luaL_Buffer *)[B1.7] (CStyleCastExpr, BitCast, luaL_Buffer *)
+   9: DeclRefExpr 0x55fb421c2938 <lstrlib.c:142:51> 'const void *' lvalue ParmVar 0x55fb421c25d0 'b' 'const void *'
+b
+  10: ImplicitCastExpr 0x55fb421c2978 <lstrlib.c:142:51> 'const void *' <LValueToRValue>
+`-DeclRefExpr 0x55fb421c2938 <col:51> 'const void *' lvalue ParmVar 0x55fb421c25d0 'b' 'const void *'
+[B1.9] (ImplicitCastExpr, LValueToRValue, const void *)
+  11: CStyleCastExpr 0x55fb421c2990 <lstrlib.c:142:37, col:51> 'const char *' <BitCast>
+`-ImplicitCastExpr 0x55fb421c2978 <col:51> 'const void *' <LValueToRValue>
+  `-DeclRefExpr 0x55fb421c2938 <col:51> 'const void *' lvalue ParmVar 0x55fb421c25d0 'b' 'const void *'
+(const char *)[B1.10] (CStyleCastExpr, BitCast, const char *)
+  12: DeclRefExpr 0x55fb421c29b8 <lstrlib.c:142:54> 'size_t':'unsigned long' lvalue ParmVar 0x55fb421c2640 'size' 'size_t':'unsigned long'
+size
+  13: ImplicitCastExpr 0x55fb421c2a38 <lstrlib.c:142:54> 'size_t':'unsigned long' <LValueToRValue>
+`-DeclRefExpr 0x55fb421c29b8 <col:54> 'size_t':'unsigned long' lvalue ParmVar 0x55fb421c2640 'size' 'size_t':'unsigned long'
+[B1.12] (ImplicitCastExpr, LValueToRValue, size_t)
+  14: CallExpr 0x55fb421c29f8 <lstrlib.c:142:3, col:58> 'void'
+|-ImplicitCastExpr 0x55fb421c29e0 <col:3> 'void (*)(luaL_Buffer *, const char *, size_t)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55fb421c2898 <col:3> 'void (luaL_Buffer *, const char *, size_t)':'void (luaL_Buffer *, const char *, size_t)' Function 0x55fb421adbe8 'luaL_addlstring' 'void (luaL_Buffer *, const char *, size_t)':'void (luaL_Buffer *, const char *, size_t)'
+|-CStyleCastExpr 0x55fb421c2910 <col:19, col:34> 'luaL_Buffer *' <BitCast>
+| `-ImplicitCastExpr 0x55fb421c28f8 <col:34> 'void *' <LValueToRValue>
+|   `-DeclRefExpr 0x55fb421c28c0 <col:34> 'void *' lvalue ParmVar 0x55fb421c26b8 'B' 'void *'
+|-CStyleCastExpr 0x55fb421c2990 <col:37, col:51> 'const char *' <BitCast>
+| `-ImplicitCastExpr 0x55fb421c2978 <col:51> 'const void *' <LValueToRValue>
+|   `-DeclRefExpr 0x55fb421c2938 <col:51> 'const void *' lvalue ParmVar 0x55fb421c25d0 'b' 'const void *'
+`-ImplicitCastExpr 0x55fb421c2a38 <col:54> 'size_t':'unsigned long' <LValueToRValue>
+  `-DeclRefExpr 0x55fb421c29b8 <col:54> 'size_t':'unsigned long' lvalue ParmVar 0x55fb421c2640 'size' 'size_t':'unsigned long'
+[B1.5]([B1.8], [B1.11], [B1.13])
+  15: IntegerLiteral 0x55fb421c2a60 <lstrlib.c:143:10> 'int' 0
+0
+  16: ReturnStmt 0x55fb421c2a80 <lstrlib.c:143:3, col:10>
+`-IntegerLiteral 0x55fb421c2a60 <col:10> 'int' 0
+return [B1.15];
+   Preds (1): B2
+   Succs (1): B0
+
+ [B0 (EXIT)]
+   Preds (1): B1

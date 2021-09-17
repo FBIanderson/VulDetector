@@ -1,0 +1,119 @@
+void luaG_runerror(lua_State *L, const char *fmt, ...)
+ [B2 (ENTRY)]
+   Succs (1): B1
+
+ [B1]
+   1: DeclStmt 0x555e97273620 <ldebug.c:632:3, col:15>col:11
+`-VarDecl 0x555e972735c0 <col:3, col:11> col:11 used argp 'va_list':'struct __va_list_tag [1]'
+va_list argp;
+   2: DeclRefExpr 0x555e972737c8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stdarg.h:33:29> '<builtin fn type>' Function 0x555e97273678 '__builtin_va_start' 'void (struct __va_list_tag *, ...)'
+__builtin_va_start
+   3: ImplicitCastExpr 0x555e97273868 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stdarg.h:33:29> 'void (*)(struct __va_list_tag *, ...)' <BuiltinFnToFnPtr>
+`-DeclRefExpr 0x555e972737c8 <col:29> '<builtin fn type>' Function 0x555e97273678 '__builtin_va_start' 'void (struct __va_list_tag *, ...)'
+[B1.2] (ImplicitCastExpr, BuiltinFnToFnPtr, void (*)(struct __va_list_tag *, ...))
+   4: DeclRefExpr 0x555e972737f0 <ldebug.c:633:12> 'va_list':'struct __va_list_tag [1]' lvalue Var 0x555e972735c0 'argp' 'va_list':'struct __va_list_tag [1]'
+argp
+   5: ImplicitCastExpr 0x555e972738b8 <ldebug.c:633:12> 'struct __va_list_tag *' <ArrayToPointerDecay>
+`-DeclRefExpr 0x555e972737f0 <col:12> 'va_list':'struct __va_list_tag [1]' lvalue Var 0x555e972735c0 'argp' 'va_list':'struct __va_list_tag [1]'
+[B1.4] (ImplicitCastExpr, ArrayToPointerDecay, struct __va_list_tag *)
+   6: DeclRefExpr 0x555e97273818 <ldebug.c:633:18> 'const char *' lvalue ParmVar 0x555e97273428 'fmt' 'const char *'
+fmt
+   7: CallExpr 0x555e97273880 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stdarg.h:33:29, col:57> 'void'
+|-ImplicitCastExpr 0x555e97273868 <col:29> 'void (*)(struct __va_list_tag *, ...)' <BuiltinFnToFnPtr>
+| `-DeclRefExpr 0x555e972737c8 <col:29> '<builtin fn type>' Function 0x555e97273678 '__builtin_va_start' 'void (struct __va_list_tag *, ...)'
+|-ImplicitCastExpr 0x555e972738b8 <ldebug.c:633:12> 'struct __va_list_tag *' <ArrayToPointerDecay>
+| `-DeclRefExpr 0x555e972737f0 <col:12> 'va_list':'struct __va_list_tag [1]' lvalue Var 0x555e972735c0 'argp' 'va_list':'struct __va_list_tag [1]'
+`-DeclRefExpr 0x555e97273818 <col:18> 'const char *' lvalue ParmVar 0x555e97273428 'fmt' 'const char *'
+[B1.3]([B1.5], [B1.6])
+   8: DeclRefExpr 0x555e972738d0 <ldebug.c:634:3> 'void (lua_State *, const char *)' Function 0x555e97270890 'addinfo' 'void (lua_State *, const char *)'
+addinfo
+   9: ImplicitCastExpr 0x555e97273b18 <ldebug.c:634:3> 'void (*)(lua_State *, const char *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x555e972738d0 <col:3> 'void (lua_State *, const char *)' Function 0x555e97270890 'addinfo' 'void (lua_State *, const char *)'
+[B1.8] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(lua_State *, const char *))
+  10: DeclRefExpr 0x555e972738f8 <ldebug.c:634:11> 'lua_State *' lvalue ParmVar 0x555e972733b0 'L' 'lua_State *'
+L
+  11: ImplicitCastExpr 0x555e97273b68 <ldebug.c:634:11> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x555e972738f8 <col:11> 'lua_State *' lvalue ParmVar 0x555e972733b0 'L' 'lua_State *'
+[B1.10] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  12: DeclRefExpr 0x555e97273920 <ldebug.c:634:14> 'const char *(lua_State *, const char *, struct __va_list_tag *)' Function 0x555e971e05e8 'luaO_pushvfstring' 'const char *(lua_State *, const char *, struct __va_list_tag *)'
+luaO_pushvfstring
+  13: ImplicitCastExpr 0x555e97273a18 <ldebug.c:634:14> 'const char *(*)(lua_State *, const char *, struct __va_list_tag *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x555e97273920 <col:14> 'const char *(lua_State *, const char *, struct __va_list_tag *)' Function 0x555e971e05e8 'luaO_pushvfstring' 'const char *(lua_State *, const char *, struct __va_list_tag *)'
+[B1.12] (ImplicitCastExpr, FunctionToPointerDecay, const char *(*)(lua_State *, const char *, struct __va_list_tag *))
+  14: DeclRefExpr 0x555e97273948 <ldebug.c:634:32> 'lua_State *' lvalue ParmVar 0x555e972733b0 'L' 'lua_State *'
+L
+  15: ImplicitCastExpr 0x555e97273a70 <ldebug.c:634:32> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x555e97273948 <col:32> 'lua_State *' lvalue ParmVar 0x555e972733b0 'L' 'lua_State *'
+[B1.14] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  16: DeclRefExpr 0x555e97273970 <ldebug.c:634:35> 'const char *' lvalue ParmVar 0x555e97273428 'fmt' 'const char *'
+fmt
+  17: ImplicitCastExpr 0x555e97273a88 <ldebug.c:634:35> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x555e97273970 <col:35> 'const char *' lvalue ParmVar 0x555e97273428 'fmt' 'const char *'
+[B1.16] (ImplicitCastExpr, LValueToRValue, const char *)
+  18: DeclRefExpr 0x555e97273998 <ldebug.c:634:40> 'va_list':'struct __va_list_tag [1]' lvalue Var 0x555e972735c0 'argp' 'va_list':'struct __va_list_tag [1]'
+argp
+  19: ImplicitCastExpr 0x555e97273aa0 <ldebug.c:634:40> 'struct __va_list_tag *' <ArrayToPointerDecay>
+`-DeclRefExpr 0x555e97273998 <col:40> 'va_list':'struct __va_list_tag [1]' lvalue Var 0x555e972735c0 'argp' 'va_list':'struct __va_list_tag [1]'
+[B1.18] (ImplicitCastExpr, ArrayToPointerDecay, struct __va_list_tag *)
+  20: CallExpr 0x555e97273a30 <ldebug.c:634:14, col:44> 'const char *'
+|-ImplicitCastExpr 0x555e97273a18 <col:14> 'const char *(*)(lua_State *, const char *, struct __va_list_tag *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x555e97273920 <col:14> 'const char *(lua_State *, const char *, struct __va_list_tag *)' Function 0x555e971e05e8 'luaO_pushvfstring' 'const char *(lua_State *, const char *, struct __va_list_tag *)'
+|-ImplicitCastExpr 0x555e97273a70 <col:32> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x555e97273948 <col:32> 'lua_State *' lvalue ParmVar 0x555e972733b0 'L' 'lua_State *'
+|-ImplicitCastExpr 0x555e97273a88 <col:35> 'const char *' <LValueToRValue>
+| `-DeclRefExpr 0x555e97273970 <col:35> 'const char *' lvalue ParmVar 0x555e97273428 'fmt' 'const char *'
+`-ImplicitCastExpr 0x555e97273aa0 <col:40> 'struct __va_list_tag *' <ArrayToPointerDecay>
+  `-DeclRefExpr 0x555e97273998 <col:40> 'va_list':'struct __va_list_tag [1]' lvalue Var 0x555e972735c0 'argp' 'va_list':'struct __va_list_tag [1]'
+[B1.13]([B1.15], [B1.17], [B1.19])
+  21: CallExpr 0x555e97273b30 <ldebug.c:634:3, col:45> 'void'
+|-ImplicitCastExpr 0x555e97273b18 <col:3> 'void (*)(lua_State *, const char *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x555e972738d0 <col:3> 'void (lua_State *, const char *)' Function 0x555e97270890 'addinfo' 'void (lua_State *, const char *)'
+|-ImplicitCastExpr 0x555e97273b68 <col:11> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x555e972738f8 <col:11> 'lua_State *' lvalue ParmVar 0x555e972733b0 'L' 'lua_State *'
+`-CallExpr 0x555e97273a30 <col:14, col:44> 'const char *'
+  |-ImplicitCastExpr 0x555e97273a18 <col:14> 'const char *(*)(lua_State *, const char *, struct __va_list_tag *)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x555e97273920 <col:14> 'const char *(lua_State *, const char *, struct __va_list_tag *)' Function 0x555e971e05e8 'luaO_pushvfstring' 'const char *(lua_State *, const char *, struct __va_list_tag *)'
+  |-ImplicitCastExpr 0x555e97273a70 <col:32> 'lua_State *' <LValueToRValue>
+  | `-DeclRefExpr 0x555e97273948 <col:32> 'lua_State *' lvalue ParmVar 0x555e972733b0 'L' 'lua_State *'
+  |-ImplicitCastExpr 0x555e97273a88 <col:35> 'const char *' <LValueToRValue>
+  | `-DeclRefExpr 0x555e97273970 <col:35> 'const char *' lvalue ParmVar 0x555e97273428 'fmt' 'const char *'
+  `-ImplicitCastExpr 0x555e97273aa0 <col:40> 'struct __va_list_tag *' <ArrayToPointerDecay>
+    `-DeclRefExpr 0x555e97273998 <col:40> 'va_list':'struct __va_list_tag [1]' lvalue Var 0x555e972735c0 'argp' 'va_list':'struct __va_list_tag [1]'
+[B1.9]([B1.11], [B1.20])
+  22: DeclRefExpr 0x555e97273d08 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stdarg.h:34:29> '<builtin fn type>' Function 0x555e97273bb8 '__builtin_va_end' 'void (struct __va_list_tag *)'
+__builtin_va_end
+  23: ImplicitCastExpr 0x555e97273d88 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stdarg.h:34:29> 'void (*)(struct __va_list_tag *)' <BuiltinFnToFnPtr>
+`-DeclRefExpr 0x555e97273d08 <col:29> '<builtin fn type>' Function 0x555e97273bb8 '__builtin_va_end' 'void (struct __va_list_tag *)'
+[B1.22] (ImplicitCastExpr, BuiltinFnToFnPtr, void (*)(struct __va_list_tag *))
+  24: DeclRefExpr 0x555e97273d30 <ldebug.c:635:10> 'va_list':'struct __va_list_tag [1]' lvalue Var 0x555e972735c0 'argp' 'va_list':'struct __va_list_tag [1]'
+argp
+  25: ImplicitCastExpr 0x555e97274df0 <ldebug.c:635:10> 'struct __va_list_tag *' <ArrayToPointerDecay>
+`-DeclRefExpr 0x555e97273d30 <col:10> 'va_list':'struct __va_list_tag [1]' lvalue Var 0x555e972735c0 'argp' 'va_list':'struct __va_list_tag [1]'
+[B1.24] (ImplicitCastExpr, ArrayToPointerDecay, struct __va_list_tag *)
+  26: CallExpr 0x555e97274dc0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stdarg.h:34:29, col:48> 'void'
+|-ImplicitCastExpr 0x555e97273d88 <col:29> 'void (*)(struct __va_list_tag *)' <BuiltinFnToFnPtr>
+| `-DeclRefExpr 0x555e97273d08 <col:29> '<builtin fn type>' Function 0x555e97273bb8 '__builtin_va_end' 'void (struct __va_list_tag *)'
+`-ImplicitCastExpr 0x555e97274df0 <ldebug.c:635:10> 'struct __va_list_tag *' <ArrayToPointerDecay>
+  `-DeclRefExpr 0x555e97273d30 <col:10> 'va_list':'struct __va_list_tag [1]' lvalue Var 0x555e972735c0 'argp' 'va_list':'struct __va_list_tag [1]'
+[B1.23]([B1.25])
+  27: DeclRefExpr 0x555e97274e08 <ldebug.c:636:3> 'void (lua_State *)' Function 0x555e97271800 'luaG_errormsg' 'void (lua_State *)'
+luaG_errormsg
+  28: ImplicitCastExpr 0x555e97274eb8 <ldebug.c:636:3> 'void (*)(lua_State *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x555e97274e08 <col:3> 'void (lua_State *)' Function 0x555e97271800 'luaG_errormsg' 'void (lua_State *)'
+[B1.27] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(lua_State *))
+  29: DeclRefExpr 0x555e97274e30 <ldebug.c:636:17> 'lua_State *' lvalue ParmVar 0x555e972733b0 'L' 'lua_State *'
+L
+  30: ImplicitCastExpr 0x555e97274f00 <ldebug.c:636:17> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x555e97274e30 <col:17> 'lua_State *' lvalue ParmVar 0x555e972733b0 'L' 'lua_State *'
+[B1.29] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  31: CallExpr 0x555e97274ed0 <ldebug.c:636:3, col:18> 'void'
+|-ImplicitCastExpr 0x555e97274eb8 <col:3> 'void (*)(lua_State *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x555e97274e08 <col:3> 'void (lua_State *)' Function 0x555e97271800 'luaG_errormsg' 'void (lua_State *)'
+`-ImplicitCastExpr 0x555e97274f00 <col:17> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x555e97274e30 <col:17> 'lua_State *' lvalue ParmVar 0x555e972733b0 'L' 'lua_State *'
+[B1.28]([B1.30])
+   Preds (1): B2
+   Succs (1): B0
+
+ [B0 (EXIT)]
+   Preds (1): B1

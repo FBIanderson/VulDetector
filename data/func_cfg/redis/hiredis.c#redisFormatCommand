@@ -1,0 +1,137 @@
+int redisFormatCommand(char **target, const char *format, ...)
+ [B4 (ENTRY)]
+   Succs (1): B3
+
+ [B1]
+   1: DeclRefExpr 0x56280705d930 <hiredis.c:550:12> 'int' lvalue Var 0x56280705d238 'len' 'int'
+len
+   2: ImplicitCastExpr 0x56280705d958 <hiredis.c:550:12> 'int' <LValueToRValue>
+`-DeclRefExpr 0x56280705d930 <col:12> 'int' lvalue Var 0x56280705d238 'len' 'int'
+[B1.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: ReturnStmt 0x56280705d970 <hiredis.c:550:5, col:12>
+`-ImplicitCastExpr 0x56280705d958 <col:12> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x56280705d930 <col:12> 'int' lvalue Var 0x56280705d238 'len' 'int'
+return [B1.2];
+   Preds (2): B2 B3
+   Succs (1): B0
+
+ [B2]
+   1: IntegerLiteral 0x56280705d890 <hiredis.c:548:16> 'int' 1
+1
+   2: UnaryOperator 0x56280705d8b0 <hiredis.c:548:15, col:16> 'int' prefix '-'
+`-IntegerLiteral 0x56280705d890 <col:16> 'int' 1
+-[B2.1]
+   3: DeclRefExpr 0x56280705d868 <hiredis.c:548:9> 'int' lvalue Var 0x56280705d238 'len' 'int'
+len
+   4: BinaryOperator 0x56280705d8d0 <hiredis.c:548:9, col:16> 'int' '='
+|-DeclRefExpr 0x56280705d868 <col:9> 'int' lvalue Var 0x56280705d238 'len' 'int'
+`-UnaryOperator 0x56280705d8b0 <col:15, col:16> 'int' prefix '-'
+  `-IntegerLiteral 0x56280705d890 <col:16> 'int' 1
+[B2.3] = [B2.2]
+   Preds (1): B3
+   Succs (1): B1
+
+ [B3]
+   1: DeclStmt 0x56280705d208 <hiredis.c:539:5, col:15>col:13
+`-VarDecl 0x56280705d1a8 <col:5, col:13> col:13 used ap 'va_list':'struct __va_list_tag [1]'
+va_list ap;
+   2: DeclStmt 0x56280705d298 <hiredis.c:540:5, col:12>col:9
+`-VarDecl 0x56280705d238 <col:5, col:9> col:9 used len 'int'
+int len;
+   3: DeclRefExpr 0x56280705d438 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stdarg.h:33:29> '<builtin fn type>' Function 0x56280705d2e8 '__builtin_va_start' 'void (struct __va_list_tag *, ...)'
+__builtin_va_start
+   4: ImplicitCastExpr 0x56280705d4d8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stdarg.h:33:29> 'void (*)(struct __va_list_tag *, ...)' <BuiltinFnToFnPtr>
+`-DeclRefExpr 0x56280705d438 <col:29> '<builtin fn type>' Function 0x56280705d2e8 '__builtin_va_start' 'void (struct __va_list_tag *, ...)'
+[B3.3] (ImplicitCastExpr, BuiltinFnToFnPtr, void (*)(struct __va_list_tag *, ...))
+   5: DeclRefExpr 0x56280705d460 <hiredis.c:541:14> 'va_list':'struct __va_list_tag [1]' lvalue Var 0x56280705d1a8 'ap' 'va_list':'struct __va_list_tag [1]'
+ap
+   6: ImplicitCastExpr 0x56280705d528 <hiredis.c:541:14> 'struct __va_list_tag *' <ArrayToPointerDecay>
+`-DeclRefExpr 0x56280705d460 <col:14> 'va_list':'struct __va_list_tag [1]' lvalue Var 0x56280705d1a8 'ap' 'va_list':'struct __va_list_tag [1]'
+[B3.5] (ImplicitCastExpr, ArrayToPointerDecay, struct __va_list_tag *)
+   7: DeclRefExpr 0x56280705d488 <hiredis.c:541:17> 'const char *' lvalue ParmVar 0x56280705d050 'format' 'const char *'
+format
+   8: CallExpr 0x56280705d4f0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stdarg.h:33:29, col:57> 'void'
+|-ImplicitCastExpr 0x56280705d4d8 <col:29> 'void (*)(struct __va_list_tag *, ...)' <BuiltinFnToFnPtr>
+| `-DeclRefExpr 0x56280705d438 <col:29> '<builtin fn type>' Function 0x56280705d2e8 '__builtin_va_start' 'void (struct __va_list_tag *, ...)'
+|-ImplicitCastExpr 0x56280705d528 <hiredis.c:541:14> 'struct __va_list_tag *' <ArrayToPointerDecay>
+| `-DeclRefExpr 0x56280705d460 <col:14> 'va_list':'struct __va_list_tag [1]' lvalue Var 0x56280705d1a8 'ap' 'va_list':'struct __va_list_tag [1]'
+`-DeclRefExpr 0x56280705d488 <col:17> 'const char *' lvalue ParmVar 0x56280705d050 'format' 'const char *'
+[B3.4]([B3.6], [B3.7])
+   9: DeclRefExpr 0x56280705d568 <hiredis.c:542:11> 'int (char **, const char *, struct __va_list_tag *)' Function 0x56280704fcc8 'redisvFormatCommand' 'int (char **, const char *, struct __va_list_tag *)'
+redisvFormatCommand
+  10: ImplicitCastExpr 0x56280705d668 <hiredis.c:542:11> 'int (*)(char **, const char *, struct __va_list_tag *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x56280705d568 <col:11> 'int (char **, const char *, struct __va_list_tag *)' Function 0x56280704fcc8 'redisvFormatCommand' 'int (char **, const char *, struct __va_list_tag *)'
+[B3.9] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(char **, const char *, struct __va_list_tag *))
+  11: DeclRefExpr 0x56280705d590 <hiredis.c:542:31> 'char **' lvalue ParmVar 0x56280705cfd8 'target' 'char **'
+target
+  12: ImplicitCastExpr 0x56280705d6c0 <hiredis.c:542:31> 'char **' <LValueToRValue>
+`-DeclRefExpr 0x56280705d590 <col:31> 'char **' lvalue ParmVar 0x56280705cfd8 'target' 'char **'
+[B3.11] (ImplicitCastExpr, LValueToRValue, char **)
+  13: DeclRefExpr 0x56280705d5b8 <hiredis.c:542:38> 'const char *' lvalue ParmVar 0x56280705d050 'format' 'const char *'
+format
+  14: ImplicitCastExpr 0x56280705d6d8 <hiredis.c:542:38> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x56280705d5b8 <col:38> 'const char *' lvalue ParmVar 0x56280705d050 'format' 'const char *'
+[B3.13] (ImplicitCastExpr, LValueToRValue, const char *)
+  15: DeclRefExpr 0x56280705d5e0 <hiredis.c:542:45> 'va_list':'struct __va_list_tag [1]' lvalue Var 0x56280705d1a8 'ap' 'va_list':'struct __va_list_tag [1]'
+ap
+  16: ImplicitCastExpr 0x56280705d6f0 <hiredis.c:542:45> 'struct __va_list_tag *' <ArrayToPointerDecay>
+`-DeclRefExpr 0x56280705d5e0 <col:45> 'va_list':'struct __va_list_tag [1]' lvalue Var 0x56280705d1a8 'ap' 'va_list':'struct __va_list_tag [1]'
+[B3.15] (ImplicitCastExpr, ArrayToPointerDecay, struct __va_list_tag *)
+  17: CallExpr 0x56280705d680 <hiredis.c:542:11, col:47> 'int'
+|-ImplicitCastExpr 0x56280705d668 <col:11> 'int (*)(char **, const char *, struct __va_list_tag *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x56280705d568 <col:11> 'int (char **, const char *, struct __va_list_tag *)' Function 0x56280704fcc8 'redisvFormatCommand' 'int (char **, const char *, struct __va_list_tag *)'
+|-ImplicitCastExpr 0x56280705d6c0 <col:31> 'char **' <LValueToRValue>
+| `-DeclRefExpr 0x56280705d590 <col:31> 'char **' lvalue ParmVar 0x56280705cfd8 'target' 'char **'
+|-ImplicitCastExpr 0x56280705d6d8 <col:38> 'const char *' <LValueToRValue>
+| `-DeclRefExpr 0x56280705d5b8 <col:38> 'const char *' lvalue ParmVar 0x56280705d050 'format' 'const char *'
+`-ImplicitCastExpr 0x56280705d6f0 <col:45> 'struct __va_list_tag *' <ArrayToPointerDecay>
+  `-DeclRefExpr 0x56280705d5e0 <col:45> 'va_list':'struct __va_list_tag [1]' lvalue Var 0x56280705d1a8 'ap' 'va_list':'struct __va_list_tag [1]'
+[B3.10]([B3.12], [B3.14], [B3.16])
+  18: DeclRefExpr 0x56280705d540 <hiredis.c:542:5> 'int' lvalue Var 0x56280705d238 'len' 'int'
+len
+  19: BinaryOperator 0x56280705d708 <hiredis.c:542:5, col:47> 'int' '='
+|-DeclRefExpr 0x56280705d540 <col:5> 'int' lvalue Var 0x56280705d238 'len' 'int'
+`-CallExpr 0x56280705d680 <col:11, col:47> 'int'
+  |-ImplicitCastExpr 0x56280705d668 <col:11> 'int (*)(char **, const char *, struct __va_list_tag *)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x56280705d568 <col:11> 'int (char **, const char *, struct __va_list_tag *)' Function 0x56280704fcc8 'redisvFormatCommand' 'int (char **, const char *, struct __va_list_tag *)'
+  |-ImplicitCastExpr 0x56280705d6c0 <col:31> 'char **' <LValueToRValue>
+  | `-DeclRefExpr 0x56280705d590 <col:31> 'char **' lvalue ParmVar 0x56280705cfd8 'target' 'char **'
+  |-ImplicitCastExpr 0x56280705d6d8 <col:38> 'const char *' <LValueToRValue>
+  | `-DeclRefExpr 0x56280705d5b8 <col:38> 'const char *' lvalue ParmVar 0x56280705d050 'format' 'const char *'
+  `-ImplicitCastExpr 0x56280705d6f0 <col:45> 'struct __va_list_tag *' <ArrayToPointerDecay>
+    `-DeclRefExpr 0x56280705d5e0 <col:45> 'va_list':'struct __va_list_tag [1]' lvalue Var 0x56280705d1a8 'ap' 'va_list':'struct __va_list_tag [1]'
+[B3.18] = [B3.17]
+  20: DeclRefExpr 0x56280705d730 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stdarg.h:34:29> '<builtin fn type>' Function 0x5628070590b8 '__builtin_va_end' 'void (struct __va_list_tag *)'
+__builtin_va_end
+  21: ImplicitCastExpr 0x56280705d780 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stdarg.h:34:29> 'void (*)(struct __va_list_tag *)' <BuiltinFnToFnPtr>
+`-DeclRefExpr 0x56280705d730 <col:29> '<builtin fn type>' Function 0x5628070590b8 '__builtin_va_end' 'void (struct __va_list_tag *)'
+[B3.20] (ImplicitCastExpr, BuiltinFnToFnPtr, void (*)(struct __va_list_tag *))
+  22: DeclRefExpr 0x56280705d758 <hiredis.c:543:12> 'va_list':'struct __va_list_tag [1]' lvalue Var 0x56280705d1a8 'ap' 'va_list':'struct __va_list_tag [1]'
+ap
+  23: ImplicitCastExpr 0x56280705d7c8 <hiredis.c:543:12> 'struct __va_list_tag *' <ArrayToPointerDecay>
+`-DeclRefExpr 0x56280705d758 <col:12> 'va_list':'struct __va_list_tag [1]' lvalue Var 0x56280705d1a8 'ap' 'va_list':'struct __va_list_tag [1]'
+[B3.22] (ImplicitCastExpr, ArrayToPointerDecay, struct __va_list_tag *)
+  24: CallExpr 0x56280705d798 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stdarg.h:34:29, col:48> 'void'
+|-ImplicitCastExpr 0x56280705d780 <col:29> 'void (*)(struct __va_list_tag *)' <BuiltinFnToFnPtr>
+| `-DeclRefExpr 0x56280705d730 <col:29> '<builtin fn type>' Function 0x5628070590b8 '__builtin_va_end' 'void (struct __va_list_tag *)'
+`-ImplicitCastExpr 0x56280705d7c8 <hiredis.c:543:12> 'struct __va_list_tag *' <ArrayToPointerDecay>
+  `-DeclRefExpr 0x56280705d758 <col:12> 'va_list':'struct __va_list_tag [1]' lvalue Var 0x56280705d1a8 'ap' 'va_list':'struct __va_list_tag [1]'
+[B3.21]([B3.23])
+  25: DeclRefExpr 0x56280705d7e0 <hiredis.c:547:9> 'int' lvalue Var 0x56280705d238 'len' 'int'
+len
+  26: ImplicitCastExpr 0x56280705d828 <hiredis.c:547:9> 'int' <LValueToRValue>
+`-DeclRefExpr 0x56280705d7e0 <col:9> 'int' lvalue Var 0x56280705d238 'len' 'int'
+[B3.25] (ImplicitCastExpr, LValueToRValue, int)
+  27: IntegerLiteral 0x56280705d808 <hiredis.c:547:15> 'int' 0
+0
+  28: BinaryOperator 0x56280705d840 <hiredis.c:547:9, col:15> 'int' '<'
+|-ImplicitCastExpr 0x56280705d828 <col:9> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x56280705d7e0 <col:9> 'int' lvalue Var 0x56280705d238 'len' 'int'
+`-IntegerLiteral 0x56280705d808 <col:15> 'int' 0
+[B3.26] < [B3.27]
+   T: if [B3.28]
+   Preds (1): B4
+   Succs (2): B2 B1
+
+ [B0 (EXIT)]
+   Preds (1): B1

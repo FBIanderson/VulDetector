@@ -1,0 +1,309 @@
+static const char *end_capture(MatchState *ms, const char *s, const char *p)
+ [B4 (ENTRY)]
+   Succs (1): B3
+
+ [B1]
+   1: DeclRefExpr 0x55fb42118128 <lstrlib.c:350:10> 'const char *' lvalue Var 0x55fb42117918 'res' 'const char *'
+res
+   2: ImplicitCastExpr 0x55fb42118150 <lstrlib.c:350:10> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x55fb42118128 <col:10> 'const char *' lvalue Var 0x55fb42117918 'res' 'const char *'
+[B1.1] (ImplicitCastExpr, LValueToRValue, const char *)
+   3: ReturnStmt 0x55fb42118168 <lstrlib.c:350:3, col:10>
+`-ImplicitCastExpr 0x55fb42118150 <col:10> 'const char *' <LValueToRValue>
+  `-DeclRefExpr 0x55fb42118128 <col:10> 'const char *' lvalue Var 0x55fb42117918 'res' 'const char *'
+return [B1.2];
+   Preds (2): B2 B3
+   Succs (1): B0
+
+ [B2]
+   1: IntegerLiteral 0x55fb42118050 <lstrlib.c:167:26> 'int' 1
+1
+   2: UnaryOperator 0x55fb42118070 <lstrlib.c:167:25, col:26> 'int' prefix '-'
+`-IntegerLiteral 0x55fb42118050 <col:26> 'int' 1
+-[B2.1]
+   3: ImplicitCastExpr 0x55fb421180b0 <lstrlib.c:167:24, col:27> 'ptrdiff_t':'long' <IntegralCast>
+`-ParenExpr 0x55fb42118090 <col:24, col:27> 'int'
+  `-UnaryOperator 0x55fb42118070 <col:25, col:26> 'int' prefix '-'
+    `-IntegerLiteral 0x55fb42118050 <col:26> 'int' 1
+([B2.2]) (ImplicitCastExpr, IntegralCast, ptrdiff_t)
+   4: DeclRefExpr 0x55fb42117f20 <lstrlib.c:349:5> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+ms
+   5: ImplicitCastExpr 0x55fb42117f48 <lstrlib.c:349:5> 'MatchState *' <LValueToRValue>
+`-DeclRefExpr 0x55fb42117f20 <col:5> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+[B2.4] (ImplicitCastExpr, LValueToRValue, MatchState *)
+   6: MemberExpr 0x55fb42117f60 <lstrlib.c:349:5, col:9> 'struct (anonymous struct at lstrlib.c:175:3) [32]' lvalue ->capture 0x55fb421c39f8
+`-ImplicitCastExpr 0x55fb42117f48 <col:5> 'MatchState *' <LValueToRValue>
+  `-DeclRefExpr 0x55fb42117f20 <col:5> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+[B2.5]->capture
+   7: ImplicitCastExpr 0x55fb42117fc0 <lstrlib.c:349:5, col:9> 'struct (anonymous struct at lstrlib.c:175:3) *' <ArrayToPointerDecay>
+`-MemberExpr 0x55fb42117f60 <col:5, col:9> 'struct (anonymous struct at lstrlib.c:175:3) [32]' lvalue ->capture 0x55fb421c39f8
+  `-ImplicitCastExpr 0x55fb42117f48 <col:5> 'MatchState *' <LValueToRValue>
+    `-DeclRefExpr 0x55fb42117f20 <col:5> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+[B2.6] (ImplicitCastExpr, ArrayToPointerDecay, struct (anonymous struct at lstrlib.c:175:3) *)
+   8: DeclRefExpr 0x55fb42117f98 <lstrlib.c:349:17> 'int' lvalue Var 0x55fb42117778 'l' 'int'
+l
+   9: ImplicitCastExpr 0x55fb42117fd8 <lstrlib.c:349:17> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55fb42117f98 <col:17> 'int' lvalue Var 0x55fb42117778 'l' 'int'
+[B2.8] (ImplicitCastExpr, LValueToRValue, int)
+  10: ArraySubscriptExpr 0x55fb42117ff0 <lstrlib.c:349:5, col:18> 'struct (anonymous struct at lstrlib.c:175:3)':'struct MatchState::(anonymous at lstrlib.c:175:3)' lvalue
+|-ImplicitCastExpr 0x55fb42117fc0 <col:5, col:9> 'struct (anonymous struct at lstrlib.c:175:3) *' <ArrayToPointerDecay>
+| `-MemberExpr 0x55fb42117f60 <col:5, col:9> 'struct (anonymous struct at lstrlib.c:175:3) [32]' lvalue ->capture 0x55fb421c39f8
+|   `-ImplicitCastExpr 0x55fb42117f48 <col:5> 'MatchState *' <LValueToRValue>
+|     `-DeclRefExpr 0x55fb42117f20 <col:5> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+`-ImplicitCastExpr 0x55fb42117fd8 <col:17> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x55fb42117f98 <col:17> 'int' lvalue Var 0x55fb42117778 'l' 'int'
+[B2.7][[B2.9]]
+  11: MemberExpr 0x55fb42118018 <lstrlib.c:349:5, col:20> 'ptrdiff_t':'long' lvalue .len 0x55fb421c3860
+`-ArraySubscriptExpr 0x55fb42117ff0 <col:5, col:18> 'struct (anonymous struct at lstrlib.c:175:3)':'struct MatchState::(anonymous at lstrlib.c:175:3)' lvalue
+  |-ImplicitCastExpr 0x55fb42117fc0 <col:5, col:9> 'struct (anonymous struct at lstrlib.c:175:3) *' <ArrayToPointerDecay>
+  | `-MemberExpr 0x55fb42117f60 <col:5, col:9> 'struct (anonymous struct at lstrlib.c:175:3) [32]' lvalue ->capture 0x55fb421c39f8
+  |   `-ImplicitCastExpr 0x55fb42117f48 <col:5> 'MatchState *' <LValueToRValue>
+  |     `-DeclRefExpr 0x55fb42117f20 <col:5> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+  `-ImplicitCastExpr 0x55fb42117fd8 <col:17> 'int' <LValueToRValue>
+    `-DeclRefExpr 0x55fb42117f98 <col:17> 'int' lvalue Var 0x55fb42117778 'l' 'int'
+[B2.10].len
+  12: BinaryOperator 0x55fb421180c8 <lstrlib.c:349:5, line:167:27> 'ptrdiff_t':'long' '='
+|-MemberExpr 0x55fb42118018 <line:349:5, col:20> 'ptrdiff_t':'long' lvalue .len 0x55fb421c3860
+| `-ArraySubscriptExpr 0x55fb42117ff0 <col:5, col:18> 'struct (anonymous struct at lstrlib.c:175:3)':'struct MatchState::(anonymous at lstrlib.c:175:3)' lvalue
+|   |-ImplicitCastExpr 0x55fb42117fc0 <col:5, col:9> 'struct (anonymous struct at lstrlib.c:175:3) *' <ArrayToPointerDecay>
+|   | `-MemberExpr 0x55fb42117f60 <col:5, col:9> 'struct (anonymous struct at lstrlib.c:175:3) [32]' lvalue ->capture 0x55fb421c39f8
+|   |   `-ImplicitCastExpr 0x55fb42117f48 <col:5> 'MatchState *' <LValueToRValue>
+|   |     `-DeclRefExpr 0x55fb42117f20 <col:5> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+|   `-ImplicitCastExpr 0x55fb42117fd8 <col:17> 'int' <LValueToRValue>
+|     `-DeclRefExpr 0x55fb42117f98 <col:17> 'int' lvalue Var 0x55fb42117778 'l' 'int'
+`-ImplicitCastExpr 0x55fb421180b0 <line:167:24, col:27> 'ptrdiff_t':'long' <IntegralCast>
+  `-ParenExpr 0x55fb42118090 <col:24, col:27> 'int'
+    `-UnaryOperator 0x55fb42118070 <col:25, col:26> 'int' prefix '-'
+      `-IntegerLiteral 0x55fb42118050 <col:26> 'int' 1
+[B2.11] = [B2.3]
+   Preds (1): B3
+   Succs (1): B1
+
+ [B3]
+   1: DeclRefExpr 0x55fb421177d8 <lstrlib.c:345:11> 'int (MatchState *)' Function 0x55fb421c55f8 'capture_to_close' 'int (MatchState *)'
+capture_to_close
+   2: ImplicitCastExpr 0x55fb42117888 <lstrlib.c:345:11> 'int (*)(MatchState *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55fb421177d8 <col:11> 'int (MatchState *)' Function 0x55fb421c55f8 'capture_to_close' 'int (MatchState *)'
+[B3.1] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(MatchState *))
+   3: DeclRefExpr 0x55fb42117800 <lstrlib.c:345:28> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+ms
+   4: ImplicitCastExpr 0x55fb421178d0 <lstrlib.c:345:28> 'MatchState *' <LValueToRValue>
+`-DeclRefExpr 0x55fb42117800 <col:28> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+[B3.3] (ImplicitCastExpr, LValueToRValue, MatchState *)
+   5: CallExpr 0x55fb421178a0 <lstrlib.c:345:11, col:30> 'int'
+|-ImplicitCastExpr 0x55fb42117888 <col:11> 'int (*)(MatchState *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55fb421177d8 <col:11> 'int (MatchState *)' Function 0x55fb421c55f8 'capture_to_close' 'int (MatchState *)'
+`-ImplicitCastExpr 0x55fb421178d0 <col:28> 'MatchState *' <LValueToRValue>
+  `-DeclRefExpr 0x55fb42117800 <col:28> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+[B3.2]([B3.4])
+   6: DeclStmt 0x55fb421178e8 <lstrlib.c:345:3, col:31>col:7
+`-VarDecl 0x55fb42117778 <col:3, col:30> col:7 used l 'int' cinit
+  `-CallExpr 0x55fb421178a0 <col:11, col:30> 'int'
+    |-ImplicitCastExpr 0x55fb42117888 <col:11> 'int (*)(MatchState *)' <FunctionToPointerDecay>
+    | `-DeclRefExpr 0x55fb421177d8 <col:11> 'int (MatchState *)' Function 0x55fb421c55f8 'capture_to_close' 'int (MatchState *)'
+    `-ImplicitCastExpr 0x55fb421178d0 <col:28> 'MatchState *' <LValueToRValue>
+      `-DeclRefExpr 0x55fb42117800 <col:28> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+int l = capture_to_close(ms);
+   7: DeclStmt 0x55fb42117978 <lstrlib.c:346:3, col:18>col:15
+`-VarDecl 0x55fb42117918 <col:3, col:15> col:15 used res 'const char *'
+const char *res;
+   8: DeclRefExpr 0x55fb42117ac0 <lstrlib.c:347:24> 'const char *' lvalue ParmVar 0x55fb42117590 's' 'const char *'
+s
+   9: ImplicitCastExpr 0x55fb42117c18 <lstrlib.c:347:24> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x55fb42117ac0 <col:24> 'const char *' lvalue ParmVar 0x55fb42117590 's' 'const char *'
+[B3.8] (ImplicitCastExpr, LValueToRValue, const char *)
+  10: DeclRefExpr 0x55fb42117ae8 <lstrlib.c:347:28> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+ms
+  11: ImplicitCastExpr 0x55fb42117b10 <lstrlib.c:347:28> 'MatchState *' <LValueToRValue>
+`-DeclRefExpr 0x55fb42117ae8 <col:28> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+[B3.10] (ImplicitCastExpr, LValueToRValue, MatchState *)
+  12: MemberExpr 0x55fb42117b28 <lstrlib.c:347:28, col:32> 'struct (anonymous struct at lstrlib.c:175:3) [32]' lvalue ->capture 0x55fb421c39f8
+`-ImplicitCastExpr 0x55fb42117b10 <col:28> 'MatchState *' <LValueToRValue>
+  `-DeclRefExpr 0x55fb42117ae8 <col:28> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+[B3.11]->capture
+  13: ImplicitCastExpr 0x55fb42117b88 <lstrlib.c:347:28, col:32> 'struct (anonymous struct at lstrlib.c:175:3) *' <ArrayToPointerDecay>
+`-MemberExpr 0x55fb42117b28 <col:28, col:32> 'struct (anonymous struct at lstrlib.c:175:3) [32]' lvalue ->capture 0x55fb421c39f8
+  `-ImplicitCastExpr 0x55fb42117b10 <col:28> 'MatchState *' <LValueToRValue>
+    `-DeclRefExpr 0x55fb42117ae8 <col:28> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+[B3.12] (ImplicitCastExpr, ArrayToPointerDecay, struct (anonymous struct at lstrlib.c:175:3) *)
+  14: DeclRefExpr 0x55fb42117b60 <lstrlib.c:347:40> 'int' lvalue Var 0x55fb42117778 'l' 'int'
+l
+  15: ImplicitCastExpr 0x55fb42117ba0 <lstrlib.c:347:40> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55fb42117b60 <col:40> 'int' lvalue Var 0x55fb42117778 'l' 'int'
+[B3.14] (ImplicitCastExpr, LValueToRValue, int)
+  16: ArraySubscriptExpr 0x55fb42117bb8 <lstrlib.c:347:28, col:41> 'struct (anonymous struct at lstrlib.c:175:3)':'struct MatchState::(anonymous at lstrlib.c:175:3)' lvalue
+|-ImplicitCastExpr 0x55fb42117b88 <col:28, col:32> 'struct (anonymous struct at lstrlib.c:175:3) *' <ArrayToPointerDecay>
+| `-MemberExpr 0x55fb42117b28 <col:28, col:32> 'struct (anonymous struct at lstrlib.c:175:3) [32]' lvalue ->capture 0x55fb421c39f8
+|   `-ImplicitCastExpr 0x55fb42117b10 <col:28> 'MatchState *' <LValueToRValue>
+|     `-DeclRefExpr 0x55fb42117ae8 <col:28> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+`-ImplicitCastExpr 0x55fb42117ba0 <col:40> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x55fb42117b60 <col:40> 'int' lvalue Var 0x55fb42117778 'l' 'int'
+[B3.13][[B3.15]]
+  17: MemberExpr 0x55fb42117be0 <lstrlib.c:347:28, col:43> 'const char *' lvalue .init 0x55fb421c3808
+`-ArraySubscriptExpr 0x55fb42117bb8 <col:28, col:41> 'struct (anonymous struct at lstrlib.c:175:3)':'struct MatchState::(anonymous at lstrlib.c:175:3)' lvalue
+  |-ImplicitCastExpr 0x55fb42117b88 <col:28, col:32> 'struct (anonymous struct at lstrlib.c:175:3) *' <ArrayToPointerDecay>
+  | `-MemberExpr 0x55fb42117b28 <col:28, col:32> 'struct (anonymous struct at lstrlib.c:175:3) [32]' lvalue ->capture 0x55fb421c39f8
+  |   `-ImplicitCastExpr 0x55fb42117b10 <col:28> 'MatchState *' <LValueToRValue>
+  |     `-DeclRefExpr 0x55fb42117ae8 <col:28> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+  `-ImplicitCastExpr 0x55fb42117ba0 <col:40> 'int' <LValueToRValue>
+    `-DeclRefExpr 0x55fb42117b60 <col:40> 'int' lvalue Var 0x55fb42117778 'l' 'int'
+[B3.16].init
+  18: ImplicitCastExpr 0x55fb42117c30 <lstrlib.c:347:28, col:43> 'const char *' <LValueToRValue>
+`-MemberExpr 0x55fb42117be0 <col:28, col:43> 'const char *' lvalue .init 0x55fb421c3808
+  `-ArraySubscriptExpr 0x55fb42117bb8 <col:28, col:41> 'struct (anonymous struct at lstrlib.c:175:3)':'struct MatchState::(anonymous at lstrlib.c:175:3)' lvalue
+    |-ImplicitCastExpr 0x55fb42117b88 <col:28, col:32> 'struct (anonymous struct at lstrlib.c:175:3) *' <ArrayToPointerDecay>
+    | `-MemberExpr 0x55fb42117b28 <col:28, col:32> 'struct (anonymous struct at lstrlib.c:175:3) [32]' lvalue ->capture 0x55fb421c39f8
+    |   `-ImplicitCastExpr 0x55fb42117b10 <col:28> 'MatchState *' <LValueToRValue>
+    |     `-DeclRefExpr 0x55fb42117ae8 <col:28> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+    `-ImplicitCastExpr 0x55fb42117ba0 <col:40> 'int' <LValueToRValue>
+      `-DeclRefExpr 0x55fb42117b60 <col:40> 'int' lvalue Var 0x55fb42117778 'l' 'int'
+[B3.17] (ImplicitCastExpr, LValueToRValue, const char *)
+  19: BinaryOperator 0x55fb42117c48 <lstrlib.c:347:24, col:43> 'long' '-'
+|-ImplicitCastExpr 0x55fb42117c18 <col:24> 'const char *' <LValueToRValue>
+| `-DeclRefExpr 0x55fb42117ac0 <col:24> 'const char *' lvalue ParmVar 0x55fb42117590 's' 'const char *'
+`-ImplicitCastExpr 0x55fb42117c30 <col:28, col:43> 'const char *' <LValueToRValue>
+  `-MemberExpr 0x55fb42117be0 <col:28, col:43> 'const char *' lvalue .init 0x55fb421c3808
+    `-ArraySubscriptExpr 0x55fb42117bb8 <col:28, col:41> 'struct (anonymous struct at lstrlib.c:175:3)':'struct MatchState::(anonymous at lstrlib.c:175:3)' lvalue
+      |-ImplicitCastExpr 0x55fb42117b88 <col:28, col:32> 'struct (anonymous struct at lstrlib.c:175:3) *' <ArrayToPointerDecay>
+      | `-MemberExpr 0x55fb42117b28 <col:28, col:32> 'struct (anonymous struct at lstrlib.c:175:3) [32]' lvalue ->capture 0x55fb421c39f8
+      |   `-ImplicitCastExpr 0x55fb42117b10 <col:28> 'MatchState *' <LValueToRValue>
+      |     `-DeclRefExpr 0x55fb42117ae8 <col:28> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+      `-ImplicitCastExpr 0x55fb42117ba0 <col:40> 'int' <LValueToRValue>
+        `-DeclRefExpr 0x55fb42117b60 <col:40> 'int' lvalue Var 0x55fb42117778 'l' 'int'
+[B3.9] - [B3.18]
+  20: DeclRefExpr 0x55fb42117990 <lstrlib.c:347:3> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+ms
+  21: ImplicitCastExpr 0x55fb421179b8 <lstrlib.c:347:3> 'MatchState *' <LValueToRValue>
+`-DeclRefExpr 0x55fb42117990 <col:3> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+[B3.20] (ImplicitCastExpr, LValueToRValue, MatchState *)
+  22: MemberExpr 0x55fb421179d0 <lstrlib.c:347:3, col:7> 'struct (anonymous struct at lstrlib.c:175:3) [32]' lvalue ->capture 0x55fb421c39f8
+`-ImplicitCastExpr 0x55fb421179b8 <col:3> 'MatchState *' <LValueToRValue>
+  `-DeclRefExpr 0x55fb42117990 <col:3> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+[B3.21]->capture
+  23: ImplicitCastExpr 0x55fb42117a30 <lstrlib.c:347:3, col:7> 'struct (anonymous struct at lstrlib.c:175:3) *' <ArrayToPointerDecay>
+`-MemberExpr 0x55fb421179d0 <col:3, col:7> 'struct (anonymous struct at lstrlib.c:175:3) [32]' lvalue ->capture 0x55fb421c39f8
+  `-ImplicitCastExpr 0x55fb421179b8 <col:3> 'MatchState *' <LValueToRValue>
+    `-DeclRefExpr 0x55fb42117990 <col:3> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+[B3.22] (ImplicitCastExpr, ArrayToPointerDecay, struct (anonymous struct at lstrlib.c:175:3) *)
+  24: DeclRefExpr 0x55fb42117a08 <lstrlib.c:347:15> 'int' lvalue Var 0x55fb42117778 'l' 'int'
+l
+  25: ImplicitCastExpr 0x55fb42117a48 <lstrlib.c:347:15> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55fb42117a08 <col:15> 'int' lvalue Var 0x55fb42117778 'l' 'int'
+[B3.24] (ImplicitCastExpr, LValueToRValue, int)
+  26: ArraySubscriptExpr 0x55fb42117a60 <lstrlib.c:347:3, col:16> 'struct (anonymous struct at lstrlib.c:175:3)':'struct MatchState::(anonymous at lstrlib.c:175:3)' lvalue
+|-ImplicitCastExpr 0x55fb42117a30 <col:3, col:7> 'struct (anonymous struct at lstrlib.c:175:3) *' <ArrayToPointerDecay>
+| `-MemberExpr 0x55fb421179d0 <col:3, col:7> 'struct (anonymous struct at lstrlib.c:175:3) [32]' lvalue ->capture 0x55fb421c39f8
+|   `-ImplicitCastExpr 0x55fb421179b8 <col:3> 'MatchState *' <LValueToRValue>
+|     `-DeclRefExpr 0x55fb42117990 <col:3> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+`-ImplicitCastExpr 0x55fb42117a48 <col:15> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x55fb42117a08 <col:15> 'int' lvalue Var 0x55fb42117778 'l' 'int'
+[B3.23][[B3.25]]
+  27: MemberExpr 0x55fb42117a88 <lstrlib.c:347:3, col:18> 'ptrdiff_t':'long' lvalue .len 0x55fb421c3860
+`-ArraySubscriptExpr 0x55fb42117a60 <col:3, col:16> 'struct (anonymous struct at lstrlib.c:175:3)':'struct MatchState::(anonymous at lstrlib.c:175:3)' lvalue
+  |-ImplicitCastExpr 0x55fb42117a30 <col:3, col:7> 'struct (anonymous struct at lstrlib.c:175:3) *' <ArrayToPointerDecay>
+  | `-MemberExpr 0x55fb421179d0 <col:3, col:7> 'struct (anonymous struct at lstrlib.c:175:3) [32]' lvalue ->capture 0x55fb421c39f8
+  |   `-ImplicitCastExpr 0x55fb421179b8 <col:3> 'MatchState *' <LValueToRValue>
+  |     `-DeclRefExpr 0x55fb42117990 <col:3> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+  `-ImplicitCastExpr 0x55fb42117a48 <col:15> 'int' <LValueToRValue>
+    `-DeclRefExpr 0x55fb42117a08 <col:15> 'int' lvalue Var 0x55fb42117778 'l' 'int'
+[B3.26].len
+  28: BinaryOperator 0x55fb42117c70 <lstrlib.c:347:3, col:43> 'ptrdiff_t':'long' '='
+|-MemberExpr 0x55fb42117a88 <col:3, col:18> 'ptrdiff_t':'long' lvalue .len 0x55fb421c3860
+| `-ArraySubscriptExpr 0x55fb42117a60 <col:3, col:16> 'struct (anonymous struct at lstrlib.c:175:3)':'struct MatchState::(anonymous at lstrlib.c:175:3)' lvalue
+|   |-ImplicitCastExpr 0x55fb42117a30 <col:3, col:7> 'struct (anonymous struct at lstrlib.c:175:3) *' <ArrayToPointerDecay>
+|   | `-MemberExpr 0x55fb421179d0 <col:3, col:7> 'struct (anonymous struct at lstrlib.c:175:3) [32]' lvalue ->capture 0x55fb421c39f8
+|   |   `-ImplicitCastExpr 0x55fb421179b8 <col:3> 'MatchState *' <LValueToRValue>
+|   |     `-DeclRefExpr 0x55fb42117990 <col:3> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+|   `-ImplicitCastExpr 0x55fb42117a48 <col:15> 'int' <LValueToRValue>
+|     `-DeclRefExpr 0x55fb42117a08 <col:15> 'int' lvalue Var 0x55fb42117778 'l' 'int'
+`-BinaryOperator 0x55fb42117c48 <col:24, col:43> 'long' '-'
+  |-ImplicitCastExpr 0x55fb42117c18 <col:24> 'const char *' <LValueToRValue>
+  | `-DeclRefExpr 0x55fb42117ac0 <col:24> 'const char *' lvalue ParmVar 0x55fb42117590 's' 'const char *'
+  `-ImplicitCastExpr 0x55fb42117c30 <col:28, col:43> 'const char *' <LValueToRValue>
+    `-MemberExpr 0x55fb42117be0 <col:28, col:43> 'const char *' lvalue .init 0x55fb421c3808
+      `-ArraySubscriptExpr 0x55fb42117bb8 <col:28, col:41> 'struct (anonymous struct at lstrlib.c:175:3)':'struct MatchState::(anonymous at lstrlib.c:175:3)' lvalue
+        |-ImplicitCastExpr 0x55fb42117b88 <col:28, col:32> 'struct (anonymous struct at lstrlib.c:175:3) *' <ArrayToPointerDecay>
+        | `-MemberExpr 0x55fb42117b28 <col:28, col:32> 'struct (anonymous struct at lstrlib.c:175:3) [32]' lvalue ->capture 0x55fb421c39f8
+        |   `-ImplicitCastExpr 0x55fb42117b10 <col:28> 'MatchState *' <LValueToRValue>
+        |     `-DeclRefExpr 0x55fb42117ae8 <col:28> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+        `-ImplicitCastExpr 0x55fb42117ba0 <col:40> 'int' <LValueToRValue>
+          `-DeclRefExpr 0x55fb42117b60 <col:40> 'int' lvalue Var 0x55fb42117778 'l' 'int'
+[B3.27] = [B3.19]
+  29: DeclRefExpr 0x55fb42117cc0 <lstrlib.c:348:14> 'const char *(MatchState *, const char *, const char *)' Function 0x55fb421136e8 'match' 'const char *(MatchState *, const char *, const char *)'
+match
+  30: ImplicitCastExpr 0x55fb42117d78 <lstrlib.c:348:14> 'const char *(*)(MatchState *, const char *, const char *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55fb42117cc0 <col:14> 'const char *(MatchState *, const char *, const char *)' Function 0x55fb421136e8 'match' 'const char *(MatchState *, const char *, const char *)'
+[B3.29] (ImplicitCastExpr, FunctionToPointerDecay, const char *(*)(MatchState *, const char *, const char *))
+  31: DeclRefExpr 0x55fb42117d00 <lstrlib.c:348:20> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+ms
+  32: ImplicitCastExpr 0x55fb42117dd0 <lstrlib.c:348:20> 'MatchState *' <LValueToRValue>
+`-DeclRefExpr 0x55fb42117d00 <col:20> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+[B3.31] (ImplicitCastExpr, LValueToRValue, MatchState *)
+  33: DeclRefExpr 0x55fb42117d28 <lstrlib.c:348:24> 'const char *' lvalue ParmVar 0x55fb42117590 's' 'const char *'
+s
+  34: ImplicitCastExpr 0x55fb42117de8 <lstrlib.c:348:24> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x55fb42117d28 <col:24> 'const char *' lvalue ParmVar 0x55fb42117590 's' 'const char *'
+[B3.33] (ImplicitCastExpr, LValueToRValue, const char *)
+  35: DeclRefExpr 0x55fb42117d50 <lstrlib.c:348:27> 'const char *' lvalue ParmVar 0x55fb42117608 'p' 'const char *'
+p
+  36: ImplicitCastExpr 0x55fb42117e00 <lstrlib.c:348:27> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x55fb42117d50 <col:27> 'const char *' lvalue ParmVar 0x55fb42117608 'p' 'const char *'
+[B3.35] (ImplicitCastExpr, LValueToRValue, const char *)
+  37: CallExpr 0x55fb42117d90 <lstrlib.c:348:14, col:28> 'const char *'
+|-ImplicitCastExpr 0x55fb42117d78 <col:14> 'const char *(*)(MatchState *, const char *, const char *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55fb42117cc0 <col:14> 'const char *(MatchState *, const char *, const char *)' Function 0x55fb421136e8 'match' 'const char *(MatchState *, const char *, const char *)'
+|-ImplicitCastExpr 0x55fb42117dd0 <col:20> 'MatchState *' <LValueToRValue>
+| `-DeclRefExpr 0x55fb42117d00 <col:20> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+|-ImplicitCastExpr 0x55fb42117de8 <col:24> 'const char *' <LValueToRValue>
+| `-DeclRefExpr 0x55fb42117d28 <col:24> 'const char *' lvalue ParmVar 0x55fb42117590 's' 'const char *'
+`-ImplicitCastExpr 0x55fb42117e00 <col:27> 'const char *' <LValueToRValue>
+  `-DeclRefExpr 0x55fb42117d50 <col:27> 'const char *' lvalue ParmVar 0x55fb42117608 'p' 'const char *'
+[B3.30]([B3.32], [B3.34], [B3.36])
+  38: DeclRefExpr 0x55fb42117c98 <lstrlib.c:348:8> 'const char *' lvalue Var 0x55fb42117918 'res' 'const char *'
+res
+  39: BinaryOperator 0x55fb42117e18 <lstrlib.c:348:8, col:28> 'const char *' '='
+|-DeclRefExpr 0x55fb42117c98 <col:8> 'const char *' lvalue Var 0x55fb42117918 'res' 'const char *'
+`-CallExpr 0x55fb42117d90 <col:14, col:28> 'const char *'
+  |-ImplicitCastExpr 0x55fb42117d78 <col:14> 'const char *(*)(MatchState *, const char *, const char *)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55fb42117cc0 <col:14> 'const char *(MatchState *, const char *, const char *)' Function 0x55fb421136e8 'match' 'const char *(MatchState *, const char *, const char *)'
+  |-ImplicitCastExpr 0x55fb42117dd0 <col:20> 'MatchState *' <LValueToRValue>
+  | `-DeclRefExpr 0x55fb42117d00 <col:20> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+  |-ImplicitCastExpr 0x55fb42117de8 <col:24> 'const char *' <LValueToRValue>
+  | `-DeclRefExpr 0x55fb42117d28 <col:24> 'const char *' lvalue ParmVar 0x55fb42117590 's' 'const char *'
+  `-ImplicitCastExpr 0x55fb42117e00 <col:27> 'const char *' <LValueToRValue>
+    `-DeclRefExpr 0x55fb42117d50 <col:27> 'const char *' lvalue ParmVar 0x55fb42117608 'p' 'const char *'
+[B3.38] = [B3.37]
+  40: IntegerLiteral 0x55fb42117e60 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+  41: CStyleCastExpr 0x55fb42117e98 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x55fb42117e60 <col:24> 'int' 0
+(void *)[B3.40] (CStyleCastExpr, NullToPointer, void *)
+  42: ImplicitCastExpr 0x55fb42117ee0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'const char *' <BitCast>
+`-ParenExpr 0x55fb42117ec0 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x55fb42117e98 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x55fb42117e60 <col:24> 'int' 0
+([B3.41]) (ImplicitCastExpr, BitCast, const char *)
+  43: BinaryOperator 0x55fb42117ef8 <lstrlib.c:348:7, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25> 'int' '=='
+|-ParenExpr 0x55fb42117e40 <lstrlib.c:348:7, col:29> 'const char *'
+| `-BinaryOperator 0x55fb42117e18 <col:8, col:28> 'const char *' '='
+|   |-DeclRefExpr 0x55fb42117c98 <col:8> 'const char *' lvalue Var 0x55fb42117918 'res' 'const char *'
+|   `-CallExpr 0x55fb42117d90 <col:14, col:28> 'const char *'
+|     |-ImplicitCastExpr 0x55fb42117d78 <col:14> 'const char *(*)(MatchState *, const char *, const char *)' <FunctionToPointerDecay>
+|     | `-DeclRefExpr 0x55fb42117cc0 <col:14> 'const char *(MatchState *, const char *, const char *)' Function 0x55fb421136e8 'match' 'const char *(MatchState *, const char *, const char *)'
+|     |-ImplicitCastExpr 0x55fb42117dd0 <col:20> 'MatchState *' <LValueToRValue>
+|     | `-DeclRefExpr 0x55fb42117d00 <col:20> 'MatchState *' lvalue ParmVar 0x55fb42117518 'ms' 'MatchState *'
+|     |-ImplicitCastExpr 0x55fb42117de8 <col:24> 'const char *' <LValueToRValue>
+|     | `-DeclRefExpr 0x55fb42117d28 <col:24> 'const char *' lvalue ParmVar 0x55fb42117590 's' 'const char *'
+|     `-ImplicitCastExpr 0x55fb42117e00 <col:27> 'const char *' <LValueToRValue>
+|       `-DeclRefExpr 0x55fb42117d50 <col:27> 'const char *' lvalue ParmVar 0x55fb42117608 'p' 'const char *'
+`-ImplicitCastExpr 0x55fb42117ee0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'const char *' <BitCast>
+  `-ParenExpr 0x55fb42117ec0 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x55fb42117e98 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x55fb42117e60 <col:24> 'int' 0
+([B3.39]) == [B3.42]
+   T: if [B3.43]
+   Preds (1): B4
+   Succs (2): B2 B1
+
+ [B0 (EXIT)]
+   Preds (1): B1

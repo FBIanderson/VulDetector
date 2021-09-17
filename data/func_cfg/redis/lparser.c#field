@@ -1,0 +1,126 @@
+static void field(LexState *ls, expdesc *v)
+ [B2 (ENTRY)]
+   Succs (1): B1
+
+ [B1]
+   1: DeclRefExpr 0x558fa8f12cc0 <lparser.c:409:19> 'LexState *' lvalue ParmVar 0x558fa8f12aa0 'ls' 'LexState *'
+ls
+   2: ImplicitCastExpr 0x558fa8f12ce8 <lparser.c:409:19> 'LexState *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8f12cc0 <col:19> 'LexState *' lvalue ParmVar 0x558fa8f12aa0 'ls' 'LexState *'
+[B1.1] (ImplicitCastExpr, LValueToRValue, LexState *)
+   3: MemberExpr 0x558fa8f12d30 <lparser.c:409:19, col:23> 'struct FuncState *' lvalue ->fs 0x558fa8ea05f0
+`-ImplicitCastExpr 0x558fa8f12ce8 <col:19> 'LexState *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8f12cc0 <col:19> 'LexState *' lvalue ParmVar 0x558fa8f12aa0 'ls' 'LexState *'
+[B1.2]->fs
+   4: ImplicitCastExpr 0x558fa8f12d68 <lparser.c:409:19, col:23> 'struct FuncState *' <LValueToRValue>
+`-MemberExpr 0x558fa8f12d30 <col:19, col:23> 'struct FuncState *' lvalue ->fs 0x558fa8ea05f0
+  `-ImplicitCastExpr 0x558fa8f12ce8 <col:19> 'LexState *' <LValueToRValue>
+    `-DeclRefExpr 0x558fa8f12cc0 <col:19> 'LexState *' lvalue ParmVar 0x558fa8f12aa0 'ls' 'LexState *'
+[B1.3] (ImplicitCastExpr, LValueToRValue, struct FuncState *)
+   5: DeclStmt 0x558fa8f12d80 <lparser.c:409:3, col:25>col:14
+`-VarDecl 0x558fa8f12c60 <col:3, col:23> col:14 used fs 'FuncState *' cinit
+  `-ImplicitCastExpr 0x558fa8f12d68 <col:19, col:23> 'struct FuncState *' <LValueToRValue>
+    `-MemberExpr 0x558fa8f12d30 <col:19, col:23> 'struct FuncState *' lvalue ->fs 0x558fa8ea05f0
+      `-ImplicitCastExpr 0x558fa8f12ce8 <col:19> 'LexState *' <LValueToRValue>
+        `-DeclRefExpr 0x558fa8f12cc0 <col:19> 'LexState *' lvalue ParmVar 0x558fa8f12aa0 'ls' 'LexState *'
+FuncState *fs = ls->fs;
+   6: DeclStmt 0x558fa8f12e08 <lparser.c:410:3, col:14>col:11
+`-VarDecl 0x558fa8f12da8 <col:3, col:11> col:11 used key 'expdesc':'struct expdesc'
+expdesc key;
+   7: DeclRefExpr 0x558fa8f12e20 <lparser.c:411:3> 'int (FuncState *, expdesc *)' Function 0x558fa8ebab88 'luaK_exp2anyreg' 'int (FuncState *, expdesc *)'
+luaK_exp2anyreg
+   8: ImplicitCastExpr 0x558fa8f12ef8 <lparser.c:411:3> 'int (*)(FuncState *, expdesc *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x558fa8f12e20 <col:3> 'int (FuncState *, expdesc *)' Function 0x558fa8ebab88 'luaK_exp2anyreg' 'int (FuncState *, expdesc *)'
+[B1.7] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(FuncState *, expdesc *))
+   9: DeclRefExpr 0x558fa8f12e48 <lparser.c:411:19> 'FuncState *' lvalue Var 0x558fa8f12c60 'fs' 'FuncState *'
+fs
+  10: ImplicitCastExpr 0x558fa8f12f48 <lparser.c:411:19> 'FuncState *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8f12e48 <col:19> 'FuncState *' lvalue Var 0x558fa8f12c60 'fs' 'FuncState *'
+[B1.9] (ImplicitCastExpr, LValueToRValue, FuncState *)
+  11: DeclRefExpr 0x558fa8f12e70 <lparser.c:411:23> 'expdesc *' lvalue ParmVar 0x558fa8f12b10 'v' 'expdesc *'
+v
+  12: ImplicitCastExpr 0x558fa8f12f60 <lparser.c:411:23> 'expdesc *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8f12e70 <col:23> 'expdesc *' lvalue ParmVar 0x558fa8f12b10 'v' 'expdesc *'
+[B1.11] (ImplicitCastExpr, LValueToRValue, expdesc *)
+  13: CallExpr 0x558fa8f12f10 <lparser.c:411:3, col:24> 'int'
+|-ImplicitCastExpr 0x558fa8f12ef8 <col:3> 'int (*)(FuncState *, expdesc *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x558fa8f12e20 <col:3> 'int (FuncState *, expdesc *)' Function 0x558fa8ebab88 'luaK_exp2anyreg' 'int (FuncState *, expdesc *)'
+|-ImplicitCastExpr 0x558fa8f12f48 <col:19> 'FuncState *' <LValueToRValue>
+| `-DeclRefExpr 0x558fa8f12e48 <col:19> 'FuncState *' lvalue Var 0x558fa8f12c60 'fs' 'FuncState *'
+`-ImplicitCastExpr 0x558fa8f12f60 <col:23> 'expdesc *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8f12e70 <col:23> 'expdesc *' lvalue ParmVar 0x558fa8f12b10 'v' 'expdesc *'
+[B1.8]([B1.10], [B1.12])
+  14: DeclRefExpr 0x558fa8f12f78 <lparser.c:412:3> 'void (LexState *)' Function 0x558fa8ea1430 'luaX_next' 'void (LexState *)'
+luaX_next
+  15: ImplicitCastExpr 0x558fa8f12fc8 <lparser.c:412:3> 'void (*)(LexState *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x558fa8f12f78 <col:3> 'void (LexState *)' Function 0x558fa8ea1430 'luaX_next' 'void (LexState *)'
+[B1.14] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(LexState *))
+  16: DeclRefExpr 0x558fa8f12fa0 <lparser.c:412:13> 'LexState *' lvalue ParmVar 0x558fa8f12aa0 'ls' 'LexState *'
+ls
+  17: ImplicitCastExpr 0x558fa8f13010 <lparser.c:412:13> 'LexState *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8f12fa0 <col:13> 'LexState *' lvalue ParmVar 0x558fa8f12aa0 'ls' 'LexState *'
+[B1.16] (ImplicitCastExpr, LValueToRValue, LexState *)
+  18: CallExpr 0x558fa8f12fe0 <lparser.c:412:3, col:15> 'void'
+|-ImplicitCastExpr 0x558fa8f12fc8 <col:3> 'void (*)(LexState *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x558fa8f12f78 <col:3> 'void (LexState *)' Function 0x558fa8ea1430 'luaX_next' 'void (LexState *)'
+`-ImplicitCastExpr 0x558fa8f13010 <col:13> 'LexState *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8f12fa0 <col:13> 'LexState *' lvalue ParmVar 0x558fa8f12aa0 'ls' 'LexState *'
+[B1.15]([B1.17])
+  19: DeclRefExpr 0x558fa8f13028 <lparser.c:413:3> 'void (LexState *, expdesc *)' Function 0x558fa8ef0508 'checkname' 'void (LexState *, expdesc *)'
+checkname
+  20: ImplicitCastExpr 0x558fa8f13118 <lparser.c:413:3> 'void (*)(LexState *, expdesc *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x558fa8f13028 <col:3> 'void (LexState *, expdesc *)' Function 0x558fa8ef0508 'checkname' 'void (LexState *, expdesc *)'
+[B1.19] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(LexState *, expdesc *))
+  21: DeclRefExpr 0x558fa8f13050 <lparser.c:413:13> 'LexState *' lvalue ParmVar 0x558fa8f12aa0 'ls' 'LexState *'
+ls
+  22: ImplicitCastExpr 0x558fa8f13168 <lparser.c:413:13> 'LexState *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8f13050 <col:13> 'LexState *' lvalue ParmVar 0x558fa8f12aa0 'ls' 'LexState *'
+[B1.21] (ImplicitCastExpr, LValueToRValue, LexState *)
+  23: DeclRefExpr 0x558fa8f13078 <lparser.c:413:18> 'expdesc':'struct expdesc' lvalue Var 0x558fa8f12da8 'key' 'expdesc':'struct expdesc'
+key
+  24: UnaryOperator 0x558fa8f130a0 <lparser.c:413:17, col:18> 'expdesc *' prefix '&'
+`-DeclRefExpr 0x558fa8f13078 <col:18> 'expdesc':'struct expdesc' lvalue Var 0x558fa8f12da8 'key' 'expdesc':'struct expdesc'
+&[B1.23]
+  25: CallExpr 0x558fa8f13130 <lparser.c:413:3, col:21> 'void'
+|-ImplicitCastExpr 0x558fa8f13118 <col:3> 'void (*)(LexState *, expdesc *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x558fa8f13028 <col:3> 'void (LexState *, expdesc *)' Function 0x558fa8ef0508 'checkname' 'void (LexState *, expdesc *)'
+|-ImplicitCastExpr 0x558fa8f13168 <col:13> 'LexState *' <LValueToRValue>
+| `-DeclRefExpr 0x558fa8f13050 <col:13> 'LexState *' lvalue ParmVar 0x558fa8f12aa0 'ls' 'LexState *'
+`-UnaryOperator 0x558fa8f130a0 <col:17, col:18> 'expdesc *' prefix '&'
+  `-DeclRefExpr 0x558fa8f13078 <col:18> 'expdesc':'struct expdesc' lvalue Var 0x558fa8f12da8 'key' 'expdesc':'struct expdesc'
+[B1.20]([B1.22], [B1.24])
+  26: DeclRefExpr 0x558fa8f13180 <lparser.c:414:3> 'void (FuncState *, expdesc *, expdesc *)' Function 0x558fa8ebb8d8 'luaK_indexed' 'void (FuncState *, expdesc *, expdesc *)'
+luaK_indexed
+  27: ImplicitCastExpr 0x558fa8f13298 <lparser.c:414:3> 'void (*)(FuncState *, expdesc *, expdesc *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x558fa8f13180 <col:3> 'void (FuncState *, expdesc *, expdesc *)' Function 0x558fa8ebb8d8 'luaK_indexed' 'void (FuncState *, expdesc *, expdesc *)'
+[B1.26] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(FuncState *, expdesc *, expdesc *))
+  28: DeclRefExpr 0x558fa8f131a8 <lparser.c:414:16> 'FuncState *' lvalue Var 0x558fa8f12c60 'fs' 'FuncState *'
+fs
+  29: ImplicitCastExpr 0x558fa8f132f0 <lparser.c:414:16> 'FuncState *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8f131a8 <col:16> 'FuncState *' lvalue Var 0x558fa8f12c60 'fs' 'FuncState *'
+[B1.28] (ImplicitCastExpr, LValueToRValue, FuncState *)
+  30: DeclRefExpr 0x558fa8f131d0 <lparser.c:414:20> 'expdesc *' lvalue ParmVar 0x558fa8f12b10 'v' 'expdesc *'
+v
+  31: ImplicitCastExpr 0x558fa8f13308 <lparser.c:414:20> 'expdesc *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8f131d0 <col:20> 'expdesc *' lvalue ParmVar 0x558fa8f12b10 'v' 'expdesc *'
+[B1.30] (ImplicitCastExpr, LValueToRValue, expdesc *)
+  32: DeclRefExpr 0x558fa8f131f8 <lparser.c:414:24> 'expdesc':'struct expdesc' lvalue Var 0x558fa8f12da8 'key' 'expdesc':'struct expdesc'
+key
+  33: UnaryOperator 0x558fa8f13220 <lparser.c:414:23, col:24> 'expdesc *' prefix '&'
+`-DeclRefExpr 0x558fa8f131f8 <col:24> 'expdesc':'struct expdesc' lvalue Var 0x558fa8f12da8 'key' 'expdesc':'struct expdesc'
+&[B1.32]
+  34: CallExpr 0x558fa8f132b0 <lparser.c:414:3, col:27> 'void'
+|-ImplicitCastExpr 0x558fa8f13298 <col:3> 'void (*)(FuncState *, expdesc *, expdesc *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x558fa8f13180 <col:3> 'void (FuncState *, expdesc *, expdesc *)' Function 0x558fa8ebb8d8 'luaK_indexed' 'void (FuncState *, expdesc *, expdesc *)'
+|-ImplicitCastExpr 0x558fa8f132f0 <col:16> 'FuncState *' <LValueToRValue>
+| `-DeclRefExpr 0x558fa8f131a8 <col:16> 'FuncState *' lvalue Var 0x558fa8f12c60 'fs' 'FuncState *'
+|-ImplicitCastExpr 0x558fa8f13308 <col:20> 'expdesc *' <LValueToRValue>
+| `-DeclRefExpr 0x558fa8f131d0 <col:20> 'expdesc *' lvalue ParmVar 0x558fa8f12b10 'v' 'expdesc *'
+`-UnaryOperator 0x558fa8f13220 <col:23, col:24> 'expdesc *' prefix '&'
+  `-DeclRefExpr 0x558fa8f131f8 <col:24> 'expdesc':'struct expdesc' lvalue Var 0x558fa8f12da8 'key' 'expdesc':'struct expdesc'
+[B1.27]([B1.29], [B1.31], [B1.33])
+   Preds (1): B2
+   Succs (1): B0
+
+ [B0 (EXIT)]
+   Preds (1): B1

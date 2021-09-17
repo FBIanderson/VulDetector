@@ -1,0 +1,893 @@
+static int collectargs(char **argv, int *pi, int *pv, int *pe)
+ [B27 (ENTRY)]
+   Succs (1): B26
+
+ [B1]
+   1: IntegerLiteral 0x55cfe6370288 <lua.c:290:10> 'int' 0
+0
+   2: ReturnStmt 0x55cfe63702a8 <lua.c:290:3, col:10>
+`-IntegerLiteral 0x55cfe6370288 <col:10> 'int' 0
+return [B1.1];
+   Preds (1): B25
+   Succs (1): B0
+
+ [B2]
+   1: DeclRefExpr 0x55cfe636eb28 <lua.c:263:32> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+i
+   2: UnaryOperator 0x55cfe636eb50 <lua.c:263:32, col:33> 'int' postfix '++'
+`-DeclRefExpr 0x55cfe636eb28 <col:32> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+[B2.1]++
+   Preds (2): B5 B10
+   Succs (1): B25
+
+ [B3]
+   1: DeclRefExpr 0x55cfe636ed78 <lua.c:266:13> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+argv
+   2: ImplicitCastExpr 0x55cfe636edc8 <lua.c:266:13> 'char **' <LValueToRValue>
+`-DeclRefExpr 0x55cfe636ed78 <col:13> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+[B3.1] (ImplicitCastExpr, LValueToRValue, char **)
+   3: DeclRefExpr 0x55cfe636eda0 <lua.c:266:18> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+i
+   4: ImplicitCastExpr 0x55cfe636ede0 <lua.c:266:18> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55cfe636eda0 <col:18> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+[B3.3] (ImplicitCastExpr, LValueToRValue, int)
+   5: ArraySubscriptExpr 0x55cfe636edf8 <lua.c:266:13, col:19> 'char *' lvalue
+|-ImplicitCastExpr 0x55cfe636edc8 <col:13> 'char **' <LValueToRValue>
+| `-DeclRefExpr 0x55cfe636ed78 <col:13> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+`-ImplicitCastExpr 0x55cfe636ede0 <col:18> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x55cfe636eda0 <col:18> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+[B3.2][[B3.4]]
+   6: ImplicitCastExpr 0x55cfe636ee40 <lua.c:266:13, col:19> 'char *' <LValueToRValue>
+`-ArraySubscriptExpr 0x55cfe636edf8 <col:13, col:19> 'char *' lvalue
+  |-ImplicitCastExpr 0x55cfe636edc8 <col:13> 'char **' <LValueToRValue>
+  | `-DeclRefExpr 0x55cfe636ed78 <col:13> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+  `-ImplicitCastExpr 0x55cfe636ede0 <col:18> 'int' <LValueToRValue>
+    `-DeclRefExpr 0x55cfe636eda0 <col:18> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+[B3.5] (ImplicitCastExpr, LValueToRValue, char *)
+   7: IntegerLiteral 0x55cfe636ee20 <lua.c:266:21> 'int' 1
+1
+   8: ArraySubscriptExpr 0x55cfe636ee58 <lua.c:266:13, col:22> 'char' lvalue
+|-ImplicitCastExpr 0x55cfe636ee40 <col:13, col:19> 'char *' <LValueToRValue>
+| `-ArraySubscriptExpr 0x55cfe636edf8 <col:13, col:19> 'char *' lvalue
+|   |-ImplicitCastExpr 0x55cfe636edc8 <col:13> 'char **' <LValueToRValue>
+|   | `-DeclRefExpr 0x55cfe636ed78 <col:13> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+|   `-ImplicitCastExpr 0x55cfe636ede0 <col:18> 'int' <LValueToRValue>
+|     `-DeclRefExpr 0x55cfe636eda0 <col:18> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+`-IntegerLiteral 0x55cfe636ee20 <col:21> 'int' 1
+[B3.6][[B3.7]]
+   9: ImplicitCastExpr 0x55cfe636ee80 <lua.c:266:13, col:22> 'char' <LValueToRValue>
+`-ArraySubscriptExpr 0x55cfe636ee58 <col:13, col:22> 'char' lvalue
+  |-ImplicitCastExpr 0x55cfe636ee40 <col:13, col:19> 'char *' <LValueToRValue>
+  | `-ArraySubscriptExpr 0x55cfe636edf8 <col:13, col:19> 'char *' lvalue
+  |   |-ImplicitCastExpr 0x55cfe636edc8 <col:13> 'char **' <LValueToRValue>
+  |   | `-DeclRefExpr 0x55cfe636ed78 <col:13> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+  |   `-ImplicitCastExpr 0x55cfe636ede0 <col:18> 'int' <LValueToRValue>
+  |     `-DeclRefExpr 0x55cfe636eda0 <col:18> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+  `-IntegerLiteral 0x55cfe636ee20 <col:21> 'int' 1
+[B3.8] (ImplicitCastExpr, LValueToRValue, char)
+  10: ImplicitCastExpr 0x55cfe636ee98 <lua.c:266:13, col:22> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x55cfe636ee80 <col:13, col:22> 'char' <LValueToRValue>
+  `-ArraySubscriptExpr 0x55cfe636ee58 <col:13, col:22> 'char' lvalue
+    |-ImplicitCastExpr 0x55cfe636ee40 <col:13, col:19> 'char *' <LValueToRValue>
+    | `-ArraySubscriptExpr 0x55cfe636edf8 <col:13, col:19> 'char *' lvalue
+    |   |-ImplicitCastExpr 0x55cfe636edc8 <col:13> 'char **' <LValueToRValue>
+    |   | `-DeclRefExpr 0x55cfe636ed78 <col:13> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+    |   `-ImplicitCastExpr 0x55cfe636ede0 <col:18> 'int' <LValueToRValue>
+    |     `-DeclRefExpr 0x55cfe636eda0 <col:18> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+    `-IntegerLiteral 0x55cfe636ee20 <col:21> 'int' 1
+[B3.9] (ImplicitCastExpr, IntegralCast, int)
+   T: switch [B3.10]
+   Preds (1): B24
+   Succs (7): B8 B9 B12 B15 B16 B22 B4
+
+ [B4]
+  default:
+   1: IntegerLiteral 0x55cfe6370130 <lua.c:287:24> 'int' 1
+1
+   2: UnaryOperator 0x55cfe6370150 <lua.c:287:23, col:24> 'int' prefix '-'
+`-IntegerLiteral 0x55cfe6370130 <col:24> 'int' 1
+-[B4.1]
+   3: ReturnStmt 0x55cfe6370170 <lua.c:287:16, col:24>
+`-UnaryOperator 0x55cfe6370150 <col:23, col:24> 'int' prefix '-'
+  `-IntegerLiteral 0x55cfe6370130 <col:24> 'int' 1
+return [B4.2];
+   Preds (1): B3
+   Succs (1): B0
+
+ [B5]
+   T: break;
+   Preds (2): B7 B8
+   Succs (1): B2
+
+ [B6]
+   1: IntegerLiteral 0x55cfe6370040 <lua.c:284:40> 'int' 1
+1
+   2: UnaryOperator 0x55cfe6370060 <lua.c:284:39, col:40> 'int' prefix '-'
+`-IntegerLiteral 0x55cfe6370040 <col:40> 'int' 1
+-[B6.1]
+   3: ReturnStmt 0x55cfe6370080 <lua.c:284:32, col:40>
+`-UnaryOperator 0x55cfe6370060 <col:39, col:40> 'int' prefix '-'
+  `-IntegerLiteral 0x55cfe6370040 <col:40> 'int' 1
+return [B6.2];
+   Preds (1): B7
+   Succs (1): B0
+
+ [B7]
+   1: DeclRefExpr 0x55cfe636fe78 <lua.c:283:11> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+i
+   2: UnaryOperator 0x55cfe636fea0 <lua.c:283:11, col:12> 'int' postfix '++'
+`-DeclRefExpr 0x55cfe636fe78 <col:11> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+[B7.1]++
+   3: DeclRefExpr 0x55cfe636fec0 <lua.c:284:15> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+argv
+   4: ImplicitCastExpr 0x55cfe636ff10 <lua.c:284:15> 'char **' <LValueToRValue>
+`-DeclRefExpr 0x55cfe636fec0 <col:15> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+[B7.3] (ImplicitCastExpr, LValueToRValue, char **)
+   5: DeclRefExpr 0x55cfe636fee8 <lua.c:284:20> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+i
+   6: ImplicitCastExpr 0x55cfe636ff28 <lua.c:284:20> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55cfe636fee8 <col:20> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+[B7.5] (ImplicitCastExpr, LValueToRValue, int)
+   7: ArraySubscriptExpr 0x55cfe636ff40 <lua.c:284:15, col:21> 'char *' lvalue
+|-ImplicitCastExpr 0x55cfe636ff10 <col:15> 'char **' <LValueToRValue>
+| `-DeclRefExpr 0x55cfe636fec0 <col:15> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+`-ImplicitCastExpr 0x55cfe636ff28 <col:20> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x55cfe636fee8 <col:20> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+[B7.4][[B7.6]]
+   8: ImplicitCastExpr 0x55cfe636ffe8 <lua.c:284:15, col:21> 'char *' <LValueToRValue>
+`-ArraySubscriptExpr 0x55cfe636ff40 <col:15, col:21> 'char *' lvalue
+  |-ImplicitCastExpr 0x55cfe636ff10 <col:15> 'char **' <LValueToRValue>
+  | `-DeclRefExpr 0x55cfe636fec0 <col:15> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+  `-ImplicitCastExpr 0x55cfe636ff28 <col:20> 'int' <LValueToRValue>
+    `-DeclRefExpr 0x55cfe636fee8 <col:20> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+[B7.7] (ImplicitCastExpr, LValueToRValue, char *)
+   9: IntegerLiteral 0x55cfe636ff68 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+  10: CStyleCastExpr 0x55cfe636ffa0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x55cfe636ff68 <col:24> 'int' 0
+(void *)[B7.9] (CStyleCastExpr, NullToPointer, void *)
+  11: ImplicitCastExpr 0x55cfe6370000 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'char *' <BitCast>
+`-ParenExpr 0x55cfe636ffc8 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x55cfe636ffa0 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x55cfe636ff68 <col:24> 'int' 0
+([B7.10]) (ImplicitCastExpr, BitCast, char *)
+  12: BinaryOperator 0x55cfe6370018 <lua.c:284:15, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25> 'int' '=='
+|-ImplicitCastExpr 0x55cfe636ffe8 <lua.c:284:15, col:21> 'char *' <LValueToRValue>
+| `-ArraySubscriptExpr 0x55cfe636ff40 <col:15, col:21> 'char *' lvalue
+|   |-ImplicitCastExpr 0x55cfe636ff10 <col:15> 'char **' <LValueToRValue>
+|   | `-DeclRefExpr 0x55cfe636fec0 <col:15> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+|   `-ImplicitCastExpr 0x55cfe636ff28 <col:20> 'int' <LValueToRValue>
+|     `-DeclRefExpr 0x55cfe636fee8 <col:20> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+`-ImplicitCastExpr 0x55cfe6370000 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'char *' <BitCast>
+  `-ParenExpr 0x55cfe636ffc8 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x55cfe636ffa0 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x55cfe636ff68 <col:24> 'int' 0
+[B7.8] == [B7.11]
+   T: if [B7.12]
+   Preds (1): B8
+   Succs (2): B6 B5
+
+ [B8]
+  case 'l':
+   1: DeclRefExpr 0x55cfe636fd00 <lua.c:282:13> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+argv
+   2: ImplicitCastExpr 0x55cfe636fd50 <lua.c:282:13> 'char **' <LValueToRValue>
+`-DeclRefExpr 0x55cfe636fd00 <col:13> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+[B8.1] (ImplicitCastExpr, LValueToRValue, char **)
+   3: DeclRefExpr 0x55cfe636fd28 <lua.c:282:18> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+i
+   4: ImplicitCastExpr 0x55cfe636fd68 <lua.c:282:18> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55cfe636fd28 <col:18> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+[B8.3] (ImplicitCastExpr, LValueToRValue, int)
+   5: ArraySubscriptExpr 0x55cfe636fd80 <lua.c:282:13, col:19> 'char *' lvalue
+|-ImplicitCastExpr 0x55cfe636fd50 <col:13> 'char **' <LValueToRValue>
+| `-DeclRefExpr 0x55cfe636fd00 <col:13> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+`-ImplicitCastExpr 0x55cfe636fd68 <col:18> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x55cfe636fd28 <col:18> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+[B8.2][[B8.4]]
+   6: ImplicitCastExpr 0x55cfe636fdc8 <lua.c:282:13, col:19> 'char *' <LValueToRValue>
+`-ArraySubscriptExpr 0x55cfe636fd80 <col:13, col:19> 'char *' lvalue
+  |-ImplicitCastExpr 0x55cfe636fd50 <col:13> 'char **' <LValueToRValue>
+  | `-DeclRefExpr 0x55cfe636fd00 <col:13> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+  `-ImplicitCastExpr 0x55cfe636fd68 <col:18> 'int' <LValueToRValue>
+    `-DeclRefExpr 0x55cfe636fd28 <col:18> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+[B8.5] (ImplicitCastExpr, LValueToRValue, char *)
+   7: IntegerLiteral 0x55cfe636fda8 <lua.c:282:21> 'int' 2
+2
+   8: ArraySubscriptExpr 0x55cfe636fde0 <lua.c:282:13, col:22> 'char' lvalue
+|-ImplicitCastExpr 0x55cfe636fdc8 <col:13, col:19> 'char *' <LValueToRValue>
+| `-ArraySubscriptExpr 0x55cfe636fd80 <col:13, col:19> 'char *' lvalue
+|   |-ImplicitCastExpr 0x55cfe636fd50 <col:13> 'char **' <LValueToRValue>
+|   | `-DeclRefExpr 0x55cfe636fd00 <col:13> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+|   `-ImplicitCastExpr 0x55cfe636fd68 <col:18> 'int' <LValueToRValue>
+|     `-DeclRefExpr 0x55cfe636fd28 <col:18> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+`-IntegerLiteral 0x55cfe636fda8 <col:21> 'int' 2
+[B8.6][[B8.7]]
+   9: ImplicitCastExpr 0x55cfe636fe20 <lua.c:282:13, col:22> 'char' <LValueToRValue>
+`-ArraySubscriptExpr 0x55cfe636fde0 <col:13, col:22> 'char' lvalue
+  |-ImplicitCastExpr 0x55cfe636fdc8 <col:13, col:19> 'char *' <LValueToRValue>
+  | `-ArraySubscriptExpr 0x55cfe636fd80 <col:13, col:19> 'char *' lvalue
+  |   |-ImplicitCastExpr 0x55cfe636fd50 <col:13> 'char **' <LValueToRValue>
+  |   | `-DeclRefExpr 0x55cfe636fd00 <col:13> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+  |   `-ImplicitCastExpr 0x55cfe636fd68 <col:18> 'int' <LValueToRValue>
+  |     `-DeclRefExpr 0x55cfe636fd28 <col:18> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+  `-IntegerLiteral 0x55cfe636fda8 <col:21> 'int' 2
+[B8.8] (ImplicitCastExpr, LValueToRValue, char)
+  10: ImplicitCastExpr 0x55cfe636fe38 <lua.c:282:13, col:22> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x55cfe636fe20 <col:13, col:22> 'char' <LValueToRValue>
+  `-ArraySubscriptExpr 0x55cfe636fde0 <col:13, col:22> 'char' lvalue
+    |-ImplicitCastExpr 0x55cfe636fdc8 <col:13, col:19> 'char *' <LValueToRValue>
+    | `-ArraySubscriptExpr 0x55cfe636fd80 <col:13, col:19> 'char *' lvalue
+    |   |-ImplicitCastExpr 0x55cfe636fd50 <col:13> 'char **' <LValueToRValue>
+    |   | `-DeclRefExpr 0x55cfe636fd00 <col:13> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+    |   `-ImplicitCastExpr 0x55cfe636fd68 <col:18> 'int' <LValueToRValue>
+    |     `-DeclRefExpr 0x55cfe636fd28 <col:18> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+    `-IntegerLiteral 0x55cfe636fda8 <col:21> 'int' 2
+[B8.9] (ImplicitCastExpr, IntegralCast, int)
+  11: CharacterLiteral 0x55cfe636fe08 <lua.c:282:27> 'int' 0
+'\x00'
+  12: BinaryOperator 0x55cfe636fe50 <lua.c:282:13, col:27> 'int' '=='
+|-ImplicitCastExpr 0x55cfe636fe38 <col:13, col:22> 'int' <IntegralCast>
+| `-ImplicitCastExpr 0x55cfe636fe20 <col:13, col:22> 'char' <LValueToRValue>
+|   `-ArraySubscriptExpr 0x55cfe636fde0 <col:13, col:22> 'char' lvalue
+|     |-ImplicitCastExpr 0x55cfe636fdc8 <col:13, col:19> 'char *' <LValueToRValue>
+|     | `-ArraySubscriptExpr 0x55cfe636fd80 <col:13, col:19> 'char *' lvalue
+|     |   |-ImplicitCastExpr 0x55cfe636fd50 <col:13> 'char **' <LValueToRValue>
+|     |   | `-DeclRefExpr 0x55cfe636fd00 <col:13> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+|     |   `-ImplicitCastExpr 0x55cfe636fd68 <col:18> 'int' <LValueToRValue>
+|     |     `-DeclRefExpr 0x55cfe636fd28 <col:18> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+|     `-IntegerLiteral 0x55cfe636fda8 <col:21> 'int' 2
+`-CharacterLiteral 0x55cfe636fe08 <col:27> 'int' 0
+[B8.10] == [B8.11]
+   T: if [B8.12]
+   Preds (2): B3 B9
+   Succs (2): B7 B5
+
+ [B9]
+  case 'e':
+   1: IntegerLiteral 0x55cfe636fc68 <lua.c:280:15> 'int' 1
+1
+   2: DeclRefExpr 0x55cfe636fc08 <lua.c:280:10> 'int *' lvalue ParmVar 0x55cfe636e6f0 'pe' 'int *'
+pe
+   3: ImplicitCastExpr 0x55cfe636fc30 <lua.c:280:10> 'int *' <LValueToRValue>
+`-DeclRefExpr 0x55cfe636fc08 <col:10> 'int *' lvalue ParmVar 0x55cfe636e6f0 'pe' 'int *'
+[B9.2] (ImplicitCastExpr, LValueToRValue, int *)
+   4: UnaryOperator 0x55cfe636fc48 <lua.c:280:9, col:10> 'int' lvalue prefix '*'
+`-ImplicitCastExpr 0x55cfe636fc30 <col:10> 'int *' <LValueToRValue>
+  `-DeclRefExpr 0x55cfe636fc08 <col:10> 'int *' lvalue ParmVar 0x55cfe636e6f0 'pe' 'int *'
+*[B9.3]
+   5: BinaryOperator 0x55cfe636fc88 <lua.c:280:9, col:15> 'int' '='
+|-UnaryOperator 0x55cfe636fc48 <col:9, col:10> 'int' lvalue prefix '*'
+| `-ImplicitCastExpr 0x55cfe636fc30 <col:10> 'int *' <LValueToRValue>
+|   `-DeclRefExpr 0x55cfe636fc08 <col:10> 'int *' lvalue ParmVar 0x55cfe636e6f0 'pe' 'int *'
+`-IntegerLiteral 0x55cfe636fc68 <col:15> 'int' 1
+[B9.4] = [B9.1]
+   Preds (1): B3
+   Succs (1): B8
+
+ [B10]
+   1: IntegerLiteral 0x55cfe636fb68 <lua.c:277:15> 'int' 1
+1
+   2: DeclRefExpr 0x55cfe636fb08 <lua.c:277:10> 'int *' lvalue ParmVar 0x55cfe636e678 'pv' 'int *'
+pv
+   3: ImplicitCastExpr 0x55cfe636fb30 <lua.c:277:10> 'int *' <LValueToRValue>
+`-DeclRefExpr 0x55cfe636fb08 <col:10> 'int *' lvalue ParmVar 0x55cfe636e678 'pv' 'int *'
+[B10.2] (ImplicitCastExpr, LValueToRValue, int *)
+   4: UnaryOperator 0x55cfe636fb48 <lua.c:277:9, col:10> 'int' lvalue prefix '*'
+`-ImplicitCastExpr 0x55cfe636fb30 <col:10> 'int *' <LValueToRValue>
+  `-DeclRefExpr 0x55cfe636fb08 <col:10> 'int *' lvalue ParmVar 0x55cfe636e678 'pv' 'int *'
+*[B10.3]
+   5: BinaryOperator 0x55cfe636fb88 <lua.c:277:9, col:15> 'int' '='
+|-UnaryOperator 0x55cfe636fb48 <col:9, col:10> 'int' lvalue prefix '*'
+| `-ImplicitCastExpr 0x55cfe636fb30 <col:10> 'int *' <LValueToRValue>
+|   `-DeclRefExpr 0x55cfe636fb08 <col:10> 'int *' lvalue ParmVar 0x55cfe636e678 'pv' 'int *'
+`-IntegerLiteral 0x55cfe636fb68 <col:15> 'int' 1
+[B10.4] = [B10.1]
+   T: break;
+   Preds (1): B12
+   Succs (1): B2
+
+ [B11]
+   1: IntegerLiteral 0x55cfe636fa50 <lua.c:258:48> 'int' 1
+1
+   2: UnaryOperator 0x55cfe636fa70 <lua.c:258:47, col:48> 'int' prefix '-'
+`-IntegerLiteral 0x55cfe636fa50 <col:48> 'int' 1
+-[B11.1]
+   3: ReturnStmt 0x55cfe636fa90 <lua.c:258:40, col:48>
+`-UnaryOperator 0x55cfe636fa70 <col:47, col:48> 'int' prefix '-'
+  `-IntegerLiteral 0x55cfe636fa50 <col:48> 'int' 1
+return [B11.2];
+   Preds (1): B12
+   Succs (1): B0
+
+ [B12]
+  case 'v':
+   1: DeclRefExpr 0x55cfe636f8b8 <lua.c:276:16> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+argv
+   2: ImplicitCastExpr 0x55cfe636f908 <lua.c:276:16> 'char **' <LValueToRValue>
+`-DeclRefExpr 0x55cfe636f8b8 <col:16> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+[B12.1] (ImplicitCastExpr, LValueToRValue, char **)
+   3: DeclRefExpr 0x55cfe636f8e0 <lua.c:276:21> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+i
+   4: ImplicitCastExpr 0x55cfe636f920 <lua.c:276:21> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55cfe636f8e0 <col:21> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+[B12.3] (ImplicitCastExpr, LValueToRValue, int)
+   5: ArraySubscriptExpr 0x55cfe636f938 <lua.c:276:16, col:22> 'char *' lvalue
+|-ImplicitCastExpr 0x55cfe636f908 <col:16> 'char **' <LValueToRValue>
+| `-DeclRefExpr 0x55cfe636f8b8 <col:16> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+`-ImplicitCastExpr 0x55cfe636f920 <col:21> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x55cfe636f8e0 <col:21> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+[B12.2][[B12.4]]
+   6: ImplicitCastExpr 0x55cfe636f9a0 <lua.c:258:24, col:26> 'char *' <LValueToRValue>
+`-ParenExpr 0x55cfe636f960 <col:24, col:26> 'char *' lvalue
+  `-ArraySubscriptExpr 0x55cfe636f938 <line:276:16, col:22> 'char *' lvalue
+    |-ImplicitCastExpr 0x55cfe636f908 <col:16> 'char **' <LValueToRValue>
+    | `-DeclRefExpr 0x55cfe636f8b8 <col:16> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+    `-ImplicitCastExpr 0x55cfe636f920 <col:21> 'int' <LValueToRValue>
+      `-DeclRefExpr 0x55cfe636f8e0 <col:21> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+([B12.5]) (ImplicitCastExpr, LValueToRValue, char *)
+   7: IntegerLiteral 0x55cfe636f980 <lua.c:258:28> 'int' 2
+2
+   8: ArraySubscriptExpr 0x55cfe636f9b8 <lua.c:258:24, col:29> 'char' lvalue
+|-ImplicitCastExpr 0x55cfe636f9a0 <col:24, col:26> 'char *' <LValueToRValue>
+| `-ParenExpr 0x55cfe636f960 <col:24, col:26> 'char *' lvalue
+|   `-ArraySubscriptExpr 0x55cfe636f938 <line:276:16, col:22> 'char *' lvalue
+|     |-ImplicitCastExpr 0x55cfe636f908 <col:16> 'char **' <LValueToRValue>
+|     | `-DeclRefExpr 0x55cfe636f8b8 <col:16> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+|     `-ImplicitCastExpr 0x55cfe636f920 <col:21> 'int' <LValueToRValue>
+|       `-DeclRefExpr 0x55cfe636f8e0 <col:21> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+`-IntegerLiteral 0x55cfe636f980 <line:258:28> 'int' 2
+[B12.6][[B12.7]]
+   9: ImplicitCastExpr 0x55cfe636f9f8 <lua.c:258:24, col:29> 'char' <LValueToRValue>
+`-ArraySubscriptExpr 0x55cfe636f9b8 <col:24, col:29> 'char' lvalue
+  |-ImplicitCastExpr 0x55cfe636f9a0 <col:24, col:26> 'char *' <LValueToRValue>
+  | `-ParenExpr 0x55cfe636f960 <col:24, col:26> 'char *' lvalue
+  |   `-ArraySubscriptExpr 0x55cfe636f938 <line:276:16, col:22> 'char *' lvalue
+  |     |-ImplicitCastExpr 0x55cfe636f908 <col:16> 'char **' <LValueToRValue>
+  |     | `-DeclRefExpr 0x55cfe636f8b8 <col:16> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+  |     `-ImplicitCastExpr 0x55cfe636f920 <col:21> 'int' <LValueToRValue>
+  |       `-DeclRefExpr 0x55cfe636f8e0 <col:21> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+  `-IntegerLiteral 0x55cfe636f980 <line:258:28> 'int' 2
+[B12.8] (ImplicitCastExpr, LValueToRValue, char)
+  10: ImplicitCastExpr 0x55cfe636fa10 <lua.c:258:24, col:29> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x55cfe636f9f8 <col:24, col:29> 'char' <LValueToRValue>
+  `-ArraySubscriptExpr 0x55cfe636f9b8 <col:24, col:29> 'char' lvalue
+    |-ImplicitCastExpr 0x55cfe636f9a0 <col:24, col:26> 'char *' <LValueToRValue>
+    | `-ParenExpr 0x55cfe636f960 <col:24, col:26> 'char *' lvalue
+    |   `-ArraySubscriptExpr 0x55cfe636f938 <line:276:16, col:22> 'char *' lvalue
+    |     |-ImplicitCastExpr 0x55cfe636f908 <col:16> 'char **' <LValueToRValue>
+    |     | `-DeclRefExpr 0x55cfe636f8b8 <col:16> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+    |     `-ImplicitCastExpr 0x55cfe636f920 <col:21> 'int' <LValueToRValue>
+    |       `-DeclRefExpr 0x55cfe636f8e0 <col:21> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+    `-IntegerLiteral 0x55cfe636f980 <line:258:28> 'int' 2
+[B12.9] (ImplicitCastExpr, IntegralCast, int)
+  11: CharacterLiteral 0x55cfe636f9e0 <lua.c:258:34> 'int' 0
+'\x00'
+  12: BinaryOperator 0x55cfe636fa28 <lua.c:258:24, col:34> 'int' '!='
+|-ImplicitCastExpr 0x55cfe636fa10 <col:24, col:29> 'int' <IntegralCast>
+| `-ImplicitCastExpr 0x55cfe636f9f8 <col:24, col:29> 'char' <LValueToRValue>
+|   `-ArraySubscriptExpr 0x55cfe636f9b8 <col:24, col:29> 'char' lvalue
+|     |-ImplicitCastExpr 0x55cfe636f9a0 <col:24, col:26> 'char *' <LValueToRValue>
+|     | `-ParenExpr 0x55cfe636f960 <col:24, col:26> 'char *' lvalue
+|     |   `-ArraySubscriptExpr 0x55cfe636f938 <line:276:16, col:22> 'char *' lvalue
+|     |     |-ImplicitCastExpr 0x55cfe636f908 <col:16> 'char **' <LValueToRValue>
+|     |     | `-DeclRefExpr 0x55cfe636f8b8 <col:16> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+|     |     `-ImplicitCastExpr 0x55cfe636f920 <col:21> 'int' <LValueToRValue>
+|     |       `-DeclRefExpr 0x55cfe636f8e0 <col:21> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+|     `-IntegerLiteral 0x55cfe636f980 <line:258:28> 'int' 2
+`-CharacterLiteral 0x55cfe636f9e0 <col:34> 'int' 0
+[B12.10] != [B12.11]
+   T: if [B12.12]
+   Preds (2): B3 B13
+   Succs (2): B11 B10
+
+ [B13]
+   1: IntegerLiteral 0x55cfe636f820 <lua.c:274:15> 'int' 1
+1
+   2: DeclRefExpr 0x55cfe636f7c0 <lua.c:274:10> 'int *' lvalue ParmVar 0x55cfe636e5e8 'pi' 'int *'
+pi
+   3: ImplicitCastExpr 0x55cfe636f7e8 <lua.c:274:10> 'int *' <LValueToRValue>
+`-DeclRefExpr 0x55cfe636f7c0 <col:10> 'int *' lvalue ParmVar 0x55cfe636e5e8 'pi' 'int *'
+[B13.2] (ImplicitCastExpr, LValueToRValue, int *)
+   4: UnaryOperator 0x55cfe636f800 <lua.c:274:9, col:10> 'int' lvalue prefix '*'
+`-ImplicitCastExpr 0x55cfe636f7e8 <col:10> 'int *' <LValueToRValue>
+  `-DeclRefExpr 0x55cfe636f7c0 <col:10> 'int *' lvalue ParmVar 0x55cfe636e5e8 'pi' 'int *'
+*[B13.3]
+   5: BinaryOperator 0x55cfe636f840 <lua.c:274:9, col:15> 'int' '='
+|-UnaryOperator 0x55cfe636f800 <col:9, col:10> 'int' lvalue prefix '*'
+| `-ImplicitCastExpr 0x55cfe636f7e8 <col:10> 'int *' <LValueToRValue>
+|   `-DeclRefExpr 0x55cfe636f7c0 <col:10> 'int *' lvalue ParmVar 0x55cfe636e5e8 'pi' 'int *'
+`-IntegerLiteral 0x55cfe636f820 <col:15> 'int' 1
+[B13.4] = [B13.1]
+   Preds (1): B15
+   Succs (1): B12
+
+ [B14]
+   1: IntegerLiteral 0x55cfe636f708 <lua.c:258:48> 'int' 1
+1
+   2: UnaryOperator 0x55cfe636f728 <lua.c:258:47, col:48> 'int' prefix '-'
+`-IntegerLiteral 0x55cfe636f708 <col:48> 'int' 1
+-[B14.1]
+   3: ReturnStmt 0x55cfe636f748 <lua.c:258:40, col:48>
+`-UnaryOperator 0x55cfe636f728 <col:47, col:48> 'int' prefix '-'
+  `-IntegerLiteral 0x55cfe636f708 <col:48> 'int' 1
+return [B14.2];
+   Preds (1): B15
+   Succs (1): B0
+
+ [B15]
+  case 'i':
+   1: DeclRefExpr 0x55cfe636f550 <lua.c:273:16> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+argv
+   2: ImplicitCastExpr 0x55cfe636f5a0 <lua.c:273:16> 'char **' <LValueToRValue>
+`-DeclRefExpr 0x55cfe636f550 <col:16> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+[B15.1] (ImplicitCastExpr, LValueToRValue, char **)
+   3: DeclRefExpr 0x55cfe636f578 <lua.c:273:21> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+i
+   4: ImplicitCastExpr 0x55cfe636f5b8 <lua.c:273:21> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55cfe636f578 <col:21> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+[B15.3] (ImplicitCastExpr, LValueToRValue, int)
+   5: ArraySubscriptExpr 0x55cfe636f5d0 <lua.c:273:16, col:22> 'char *' lvalue
+|-ImplicitCastExpr 0x55cfe636f5a0 <col:16> 'char **' <LValueToRValue>
+| `-DeclRefExpr 0x55cfe636f550 <col:16> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+`-ImplicitCastExpr 0x55cfe636f5b8 <col:21> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x55cfe636f578 <col:21> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+[B15.2][[B15.4]]
+   6: ImplicitCastExpr 0x55cfe636f638 <lua.c:258:24, col:26> 'char *' <LValueToRValue>
+`-ParenExpr 0x55cfe636f5f8 <col:24, col:26> 'char *' lvalue
+  `-ArraySubscriptExpr 0x55cfe636f5d0 <line:273:16, col:22> 'char *' lvalue
+    |-ImplicitCastExpr 0x55cfe636f5a0 <col:16> 'char **' <LValueToRValue>
+    | `-DeclRefExpr 0x55cfe636f550 <col:16> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+    `-ImplicitCastExpr 0x55cfe636f5b8 <col:21> 'int' <LValueToRValue>
+      `-DeclRefExpr 0x55cfe636f578 <col:21> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+([B15.5]) (ImplicitCastExpr, LValueToRValue, char *)
+   7: IntegerLiteral 0x55cfe636f618 <lua.c:258:28> 'int' 2
+2
+   8: ArraySubscriptExpr 0x55cfe636f670 <lua.c:258:24, col:29> 'char' lvalue
+|-ImplicitCastExpr 0x55cfe636f638 <col:24, col:26> 'char *' <LValueToRValue>
+| `-ParenExpr 0x55cfe636f5f8 <col:24, col:26> 'char *' lvalue
+|   `-ArraySubscriptExpr 0x55cfe636f5d0 <line:273:16, col:22> 'char *' lvalue
+|     |-ImplicitCastExpr 0x55cfe636f5a0 <col:16> 'char **' <LValueToRValue>
+|     | `-DeclRefExpr 0x55cfe636f550 <col:16> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+|     `-ImplicitCastExpr 0x55cfe636f5b8 <col:21> 'int' <LValueToRValue>
+|       `-DeclRefExpr 0x55cfe636f578 <col:21> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+`-IntegerLiteral 0x55cfe636f618 <line:258:28> 'int' 2
+[B15.6][[B15.7]]
+   9: ImplicitCastExpr 0x55cfe636f6b0 <lua.c:258:24, col:29> 'char' <LValueToRValue>
+`-ArraySubscriptExpr 0x55cfe636f670 <col:24, col:29> 'char' lvalue
+  |-ImplicitCastExpr 0x55cfe636f638 <col:24, col:26> 'char *' <LValueToRValue>
+  | `-ParenExpr 0x55cfe636f5f8 <col:24, col:26> 'char *' lvalue
+  |   `-ArraySubscriptExpr 0x55cfe636f5d0 <line:273:16, col:22> 'char *' lvalue
+  |     |-ImplicitCastExpr 0x55cfe636f5a0 <col:16> 'char **' <LValueToRValue>
+  |     | `-DeclRefExpr 0x55cfe636f550 <col:16> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+  |     `-ImplicitCastExpr 0x55cfe636f5b8 <col:21> 'int' <LValueToRValue>
+  |       `-DeclRefExpr 0x55cfe636f578 <col:21> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+  `-IntegerLiteral 0x55cfe636f618 <line:258:28> 'int' 2
+[B15.8] (ImplicitCastExpr, LValueToRValue, char)
+  10: ImplicitCastExpr 0x55cfe636f6c8 <lua.c:258:24, col:29> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x55cfe636f6b0 <col:24, col:29> 'char' <LValueToRValue>
+  `-ArraySubscriptExpr 0x55cfe636f670 <col:24, col:29> 'char' lvalue
+    |-ImplicitCastExpr 0x55cfe636f638 <col:24, col:26> 'char *' <LValueToRValue>
+    | `-ParenExpr 0x55cfe636f5f8 <col:24, col:26> 'char *' lvalue
+    |   `-ArraySubscriptExpr 0x55cfe636f5d0 <line:273:16, col:22> 'char *' lvalue
+    |     |-ImplicitCastExpr 0x55cfe636f5a0 <col:16> 'char **' <LValueToRValue>
+    |     | `-DeclRefExpr 0x55cfe636f550 <col:16> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+    |     `-ImplicitCastExpr 0x55cfe636f5b8 <col:21> 'int' <LValueToRValue>
+    |       `-DeclRefExpr 0x55cfe636f578 <col:21> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+    `-IntegerLiteral 0x55cfe636f618 <line:258:28> 'int' 2
+[B15.9] (ImplicitCastExpr, IntegralCast, int)
+  11: CharacterLiteral 0x55cfe636f698 <lua.c:258:34> 'int' 0
+'\x00'
+  12: BinaryOperator 0x55cfe636f6e0 <lua.c:258:24, col:34> 'int' '!='
+|-ImplicitCastExpr 0x55cfe636f6c8 <col:24, col:29> 'int' <IntegralCast>
+| `-ImplicitCastExpr 0x55cfe636f6b0 <col:24, col:29> 'char' <LValueToRValue>
+|   `-ArraySubscriptExpr 0x55cfe636f670 <col:24, col:29> 'char' lvalue
+|     |-ImplicitCastExpr 0x55cfe636f638 <col:24, col:26> 'char *' <LValueToRValue>
+|     | `-ParenExpr 0x55cfe636f5f8 <col:24, col:26> 'char *' lvalue
+|     |   `-ArraySubscriptExpr 0x55cfe636f5d0 <line:273:16, col:22> 'char *' lvalue
+|     |     |-ImplicitCastExpr 0x55cfe636f5a0 <col:16> 'char **' <LValueToRValue>
+|     |     | `-DeclRefExpr 0x55cfe636f550 <col:16> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+|     |     `-ImplicitCastExpr 0x55cfe636f5b8 <col:21> 'int' <LValueToRValue>
+|     |       `-DeclRefExpr 0x55cfe636f578 <col:21> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+|     `-IntegerLiteral 0x55cfe636f618 <line:258:28> 'int' 2
+`-CharacterLiteral 0x55cfe636f698 <col:34> 'int' 0
+[B15.10] != [B15.11]
+   T: if [B15.12]
+   Preds (1): B3
+   Succs (2): B14 B13
+
+ [B16]
+  case '\x00':
+   1: DeclRefExpr 0x55cfe636f4a8 <lua.c:271:16> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+i
+   2: ImplicitCastExpr 0x55cfe636f4d0 <lua.c:271:16> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55cfe636f4a8 <col:16> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+[B16.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: ReturnStmt 0x55cfe636f4e8 <lua.c:271:9, col:16>
+`-ImplicitCastExpr 0x55cfe636f4d0 <col:16> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x55cfe636f4a8 <col:16> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+return [B16.2];
+   Preds (1): B3
+   Succs (1): B0
+
+ [B17]
+   1: ConditionalOperator 0x55cfe636f3f0 <lua.c:269:17, col:43> 'int'
+|-BinaryOperator 0x55cfe636f320 <col:17, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25> 'int' '!='
+| |-ImplicitCastExpr 0x55cfe636f2f0 <lua.c:269:17, col:25> 'char *' <LValueToRValue>
+| | `-ArraySubscriptExpr 0x55cfe636f248 <col:17, col:25> 'char *' lvalue
+| |   |-ImplicitCastExpr 0x55cfe636f230 <col:17> 'char **' <LValueToRValue>
+| |   | `-DeclRefExpr 0x55cfe636f180 <col:17> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+| |   `-BinaryOperator 0x55cfe636f208 <col:22, col:24> 'int' '+'
+| |     |-ImplicitCastExpr 0x55cfe636f1f0 <col:22> 'int' <LValueToRValue>
+| |     | `-DeclRefExpr 0x55cfe636f1a8 <col:22> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+| |     `-IntegerLiteral 0x55cfe636f1d0 <col:24> 'int' 1
+| `-ImplicitCastExpr 0x55cfe636f308 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'char *' <BitCast>
+|   `-ParenExpr 0x55cfe636f2d0 <col:16, col:25> 'void *'
+|     `-CStyleCastExpr 0x55cfe636f2a8 <col:17, col:24> 'void *' <NullToPointer>
+|       `-IntegerLiteral 0x55cfe636f270 <col:24> 'int' 0
+|-BinaryOperator 0x55cfe636f3a8 <lua.c:269:37, col:39> 'int' '+'
+| |-ImplicitCastExpr 0x55cfe636f390 <col:37> 'int' <LValueToRValue>
+| | `-DeclRefExpr 0x55cfe636f348 <col:37> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+| `-IntegerLiteral 0x55cfe636f370 <col:39> 'int' 1
+`-IntegerLiteral 0x55cfe636f3d0 <col:43> 'int' 0
+[B20.12] ? [B18.4] : [B19.1]
+   2: ReturnStmt 0x55cfe636f440 <lua.c:269:9, col:44>
+`-ParenExpr 0x55cfe636f420 <col:16, col:44> 'int'
+  `-ConditionalOperator 0x55cfe636f3f0 <col:17, col:43> 'int'
+    |-BinaryOperator 0x55cfe636f320 <col:17, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25> 'int' '!='
+    | |-ImplicitCastExpr 0x55cfe636f2f0 <lua.c:269:17, col:25> 'char *' <LValueToRValue>
+    | | `-ArraySubscriptExpr 0x55cfe636f248 <col:17, col:25> 'char *' lvalue
+    | |   |-ImplicitCastExpr 0x55cfe636f230 <col:17> 'char **' <LValueToRValue>
+    | |   | `-DeclRefExpr 0x55cfe636f180 <col:17> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+    | |   `-BinaryOperator 0x55cfe636f208 <col:22, col:24> 'int' '+'
+    | |     |-ImplicitCastExpr 0x55cfe636f1f0 <col:22> 'int' <LValueToRValue>
+    | |     | `-DeclRefExpr 0x55cfe636f1a8 <col:22> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+    | |     `-IntegerLiteral 0x55cfe636f1d0 <col:24> 'int' 1
+    | `-ImplicitCastExpr 0x55cfe636f308 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'char *' <BitCast>
+    |   `-ParenExpr 0x55cfe636f2d0 <col:16, col:25> 'void *'
+    |     `-CStyleCastExpr 0x55cfe636f2a8 <col:17, col:24> 'void *' <NullToPointer>
+    |       `-IntegerLiteral 0x55cfe636f270 <col:24> 'int' 0
+    |-BinaryOperator 0x55cfe636f3a8 <lua.c:269:37, col:39> 'int' '+'
+    | |-ImplicitCastExpr 0x55cfe636f390 <col:37> 'int' <LValueToRValue>
+    | | `-DeclRefExpr 0x55cfe636f348 <col:37> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+    | `-IntegerLiteral 0x55cfe636f370 <col:39> 'int' 1
+    `-IntegerLiteral 0x55cfe636f3d0 <col:43> 'int' 0
+return ([B17.1]);
+   Preds (2): B18 B19
+   Succs (1): B0
+
+ [B18]
+   1: DeclRefExpr 0x55cfe636f348 <lua.c:269:37> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+i
+   2: ImplicitCastExpr 0x55cfe636f390 <lua.c:269:37> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55cfe636f348 <col:37> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+[B18.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: IntegerLiteral 0x55cfe636f370 <lua.c:269:39> 'int' 1
+1
+   4: BinaryOperator 0x55cfe636f3a8 <lua.c:269:37, col:39> 'int' '+'
+|-ImplicitCastExpr 0x55cfe636f390 <col:37> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x55cfe636f348 <col:37> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+`-IntegerLiteral 0x55cfe636f370 <col:39> 'int' 1
+[B18.2] + [B18.3]
+   Preds (1): B20
+   Succs (1): B17
+
+ [B19]
+   1: IntegerLiteral 0x55cfe636f3d0 <lua.c:269:43> 'int' 0
+0
+   Preds (1): B20
+   Succs (1): B17
+
+ [B20]
+   1: DeclRefExpr 0x55cfe636f180 <lua.c:269:17> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+argv
+   2: ImplicitCastExpr 0x55cfe636f230 <lua.c:269:17> 'char **' <LValueToRValue>
+`-DeclRefExpr 0x55cfe636f180 <col:17> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+[B20.1] (ImplicitCastExpr, LValueToRValue, char **)
+   3: DeclRefExpr 0x55cfe636f1a8 <lua.c:269:22> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+i
+   4: ImplicitCastExpr 0x55cfe636f1f0 <lua.c:269:22> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55cfe636f1a8 <col:22> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+[B20.3] (ImplicitCastExpr, LValueToRValue, int)
+   5: IntegerLiteral 0x55cfe636f1d0 <lua.c:269:24> 'int' 1
+1
+   6: BinaryOperator 0x55cfe636f208 <lua.c:269:22, col:24> 'int' '+'
+|-ImplicitCastExpr 0x55cfe636f1f0 <col:22> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x55cfe636f1a8 <col:22> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+`-IntegerLiteral 0x55cfe636f1d0 <col:24> 'int' 1
+[B20.4] + [B20.5]
+   7: ArraySubscriptExpr 0x55cfe636f248 <lua.c:269:17, col:25> 'char *' lvalue
+|-ImplicitCastExpr 0x55cfe636f230 <col:17> 'char **' <LValueToRValue>
+| `-DeclRefExpr 0x55cfe636f180 <col:17> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+`-BinaryOperator 0x55cfe636f208 <col:22, col:24> 'int' '+'
+  |-ImplicitCastExpr 0x55cfe636f1f0 <col:22> 'int' <LValueToRValue>
+  | `-DeclRefExpr 0x55cfe636f1a8 <col:22> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+  `-IntegerLiteral 0x55cfe636f1d0 <col:24> 'int' 1
+[B20.2][[B20.6]]
+   8: ImplicitCastExpr 0x55cfe636f2f0 <lua.c:269:17, col:25> 'char *' <LValueToRValue>
+`-ArraySubscriptExpr 0x55cfe636f248 <col:17, col:25> 'char *' lvalue
+  |-ImplicitCastExpr 0x55cfe636f230 <col:17> 'char **' <LValueToRValue>
+  | `-DeclRefExpr 0x55cfe636f180 <col:17> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+  `-BinaryOperator 0x55cfe636f208 <col:22, col:24> 'int' '+'
+    |-ImplicitCastExpr 0x55cfe636f1f0 <col:22> 'int' <LValueToRValue>
+    | `-DeclRefExpr 0x55cfe636f1a8 <col:22> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+    `-IntegerLiteral 0x55cfe636f1d0 <col:24> 'int' 1
+[B20.7] (ImplicitCastExpr, LValueToRValue, char *)
+   9: IntegerLiteral 0x55cfe636f270 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+  10: CStyleCastExpr 0x55cfe636f2a8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x55cfe636f270 <col:24> 'int' 0
+(void *)[B20.9] (CStyleCastExpr, NullToPointer, void *)
+  11: ImplicitCastExpr 0x55cfe636f308 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'char *' <BitCast>
+`-ParenExpr 0x55cfe636f2d0 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x55cfe636f2a8 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x55cfe636f270 <col:24> 'int' 0
+([B20.10]) (ImplicitCastExpr, BitCast, char *)
+  12: BinaryOperator 0x55cfe636f320 <lua.c:269:17, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25> 'int' '!='
+|-ImplicitCastExpr 0x55cfe636f2f0 <lua.c:269:17, col:25> 'char *' <LValueToRValue>
+| `-ArraySubscriptExpr 0x55cfe636f248 <col:17, col:25> 'char *' lvalue
+|   |-ImplicitCastExpr 0x55cfe636f230 <col:17> 'char **' <LValueToRValue>
+|   | `-DeclRefExpr 0x55cfe636f180 <col:17> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+|   `-BinaryOperator 0x55cfe636f208 <col:22, col:24> 'int' '+'
+|     |-ImplicitCastExpr 0x55cfe636f1f0 <col:22> 'int' <LValueToRValue>
+|     | `-DeclRefExpr 0x55cfe636f1a8 <col:22> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+|     `-IntegerLiteral 0x55cfe636f1d0 <col:24> 'int' 1
+`-ImplicitCastExpr 0x55cfe636f308 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'char *' <BitCast>
+  `-ParenExpr 0x55cfe636f2d0 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x55cfe636f2a8 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x55cfe636f270 <col:24> 'int' 0
+[B20.8] != [B20.11]
+   T: [B20.12] ? ... : ...
+   Preds (1): B22
+   Succs (2): B18 B19
+
+ [B21]
+   1: IntegerLiteral 0x55cfe636f0c8 <lua.c:258:48> 'int' 1
+1
+   2: UnaryOperator 0x55cfe636f0e8 <lua.c:258:47, col:48> 'int' prefix '-'
+`-IntegerLiteral 0x55cfe636f0c8 <col:48> 'int' 1
+-[B21.1]
+   3: ReturnStmt 0x55cfe636f108 <lua.c:258:40, col:48>
+`-UnaryOperator 0x55cfe636f0e8 <col:47, col:48> 'int' prefix '-'
+  `-IntegerLiteral 0x55cfe636f0c8 <col:48> 'int' 1
+return [B21.2];
+   Preds (1): B22
+   Succs (1): B0
+
+ [B22]
+  case '-':
+   1: DeclRefExpr 0x55cfe636ef30 <lua.c:268:16> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+argv
+   2: ImplicitCastExpr 0x55cfe636ef80 <lua.c:268:16> 'char **' <LValueToRValue>
+`-DeclRefExpr 0x55cfe636ef30 <col:16> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+[B22.1] (ImplicitCastExpr, LValueToRValue, char **)
+   3: DeclRefExpr 0x55cfe636ef58 <lua.c:268:21> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+i
+   4: ImplicitCastExpr 0x55cfe636ef98 <lua.c:268:21> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55cfe636ef58 <col:21> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+[B22.3] (ImplicitCastExpr, LValueToRValue, int)
+   5: ArraySubscriptExpr 0x55cfe636efb0 <lua.c:268:16, col:22> 'char *' lvalue
+|-ImplicitCastExpr 0x55cfe636ef80 <col:16> 'char **' <LValueToRValue>
+| `-DeclRefExpr 0x55cfe636ef30 <col:16> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+`-ImplicitCastExpr 0x55cfe636ef98 <col:21> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x55cfe636ef58 <col:21> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+[B22.2][[B22.4]]
+   6: ImplicitCastExpr 0x55cfe636f018 <lua.c:258:24, col:26> 'char *' <LValueToRValue>
+`-ParenExpr 0x55cfe636efd8 <col:24, col:26> 'char *' lvalue
+  `-ArraySubscriptExpr 0x55cfe636efb0 <line:268:16, col:22> 'char *' lvalue
+    |-ImplicitCastExpr 0x55cfe636ef80 <col:16> 'char **' <LValueToRValue>
+    | `-DeclRefExpr 0x55cfe636ef30 <col:16> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+    `-ImplicitCastExpr 0x55cfe636ef98 <col:21> 'int' <LValueToRValue>
+      `-DeclRefExpr 0x55cfe636ef58 <col:21> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+([B22.5]) (ImplicitCastExpr, LValueToRValue, char *)
+   7: IntegerLiteral 0x55cfe636eff8 <lua.c:258:28> 'int' 2
+2
+   8: ArraySubscriptExpr 0x55cfe636f030 <lua.c:258:24, col:29> 'char' lvalue
+|-ImplicitCastExpr 0x55cfe636f018 <col:24, col:26> 'char *' <LValueToRValue>
+| `-ParenExpr 0x55cfe636efd8 <col:24, col:26> 'char *' lvalue
+|   `-ArraySubscriptExpr 0x55cfe636efb0 <line:268:16, col:22> 'char *' lvalue
+|     |-ImplicitCastExpr 0x55cfe636ef80 <col:16> 'char **' <LValueToRValue>
+|     | `-DeclRefExpr 0x55cfe636ef30 <col:16> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+|     `-ImplicitCastExpr 0x55cfe636ef98 <col:21> 'int' <LValueToRValue>
+|       `-DeclRefExpr 0x55cfe636ef58 <col:21> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+`-IntegerLiteral 0x55cfe636eff8 <line:258:28> 'int' 2
+[B22.6][[B22.7]]
+   9: ImplicitCastExpr 0x55cfe636f070 <lua.c:258:24, col:29> 'char' <LValueToRValue>
+`-ArraySubscriptExpr 0x55cfe636f030 <col:24, col:29> 'char' lvalue
+  |-ImplicitCastExpr 0x55cfe636f018 <col:24, col:26> 'char *' <LValueToRValue>
+  | `-ParenExpr 0x55cfe636efd8 <col:24, col:26> 'char *' lvalue
+  |   `-ArraySubscriptExpr 0x55cfe636efb0 <line:268:16, col:22> 'char *' lvalue
+  |     |-ImplicitCastExpr 0x55cfe636ef80 <col:16> 'char **' <LValueToRValue>
+  |     | `-DeclRefExpr 0x55cfe636ef30 <col:16> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+  |     `-ImplicitCastExpr 0x55cfe636ef98 <col:21> 'int' <LValueToRValue>
+  |       `-DeclRefExpr 0x55cfe636ef58 <col:21> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+  `-IntegerLiteral 0x55cfe636eff8 <line:258:28> 'int' 2
+[B22.8] (ImplicitCastExpr, LValueToRValue, char)
+  10: ImplicitCastExpr 0x55cfe636f088 <lua.c:258:24, col:29> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x55cfe636f070 <col:24, col:29> 'char' <LValueToRValue>
+  `-ArraySubscriptExpr 0x55cfe636f030 <col:24, col:29> 'char' lvalue
+    |-ImplicitCastExpr 0x55cfe636f018 <col:24, col:26> 'char *' <LValueToRValue>
+    | `-ParenExpr 0x55cfe636efd8 <col:24, col:26> 'char *' lvalue
+    |   `-ArraySubscriptExpr 0x55cfe636efb0 <line:268:16, col:22> 'char *' lvalue
+    |     |-ImplicitCastExpr 0x55cfe636ef80 <col:16> 'char **' <LValueToRValue>
+    |     | `-DeclRefExpr 0x55cfe636ef30 <col:16> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+    |     `-ImplicitCastExpr 0x55cfe636ef98 <col:21> 'int' <LValueToRValue>
+    |       `-DeclRefExpr 0x55cfe636ef58 <col:21> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+    `-IntegerLiteral 0x55cfe636eff8 <line:258:28> 'int' 2
+[B22.9] (ImplicitCastExpr, IntegralCast, int)
+  11: CharacterLiteral 0x55cfe636f058 <lua.c:258:34> 'int' 0
+'\x00'
+  12: BinaryOperator 0x55cfe636f0a0 <lua.c:258:24, col:34> 'int' '!='
+|-ImplicitCastExpr 0x55cfe636f088 <col:24, col:29> 'int' <IntegralCast>
+| `-ImplicitCastExpr 0x55cfe636f070 <col:24, col:29> 'char' <LValueToRValue>
+|   `-ArraySubscriptExpr 0x55cfe636f030 <col:24, col:29> 'char' lvalue
+|     |-ImplicitCastExpr 0x55cfe636f018 <col:24, col:26> 'char *' <LValueToRValue>
+|     | `-ParenExpr 0x55cfe636efd8 <col:24, col:26> 'char *' lvalue
+|     |   `-ArraySubscriptExpr 0x55cfe636efb0 <line:268:16, col:22> 'char *' lvalue
+|     |     |-ImplicitCastExpr 0x55cfe636ef80 <col:16> 'char **' <LValueToRValue>
+|     |     | `-DeclRefExpr 0x55cfe636ef30 <col:16> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+|     |     `-ImplicitCastExpr 0x55cfe636ef98 <col:21> 'int' <LValueToRValue>
+|     |       `-DeclRefExpr 0x55cfe636ef58 <col:21> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+|     `-IntegerLiteral 0x55cfe636eff8 <line:258:28> 'int' 2
+`-CharacterLiteral 0x55cfe636f058 <col:34> 'int' 0
+[B22.10] != [B22.11]
+   T: if [B22.12]
+   Preds (1): B3
+   Succs (2): B21 B20
+
+ [B23]
+   1: DeclRefExpr 0x55cfe636ece8 <lua.c:265:16> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+i
+   2: ImplicitCastExpr 0x55cfe636ed10 <lua.c:265:16> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55cfe636ece8 <col:16> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+[B23.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: ReturnStmt 0x55cfe636ed28 <lua.c:265:9, col:16>
+`-ImplicitCastExpr 0x55cfe636ed10 <col:16> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x55cfe636ece8 <col:16> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+return [B23.2];
+   Preds (1): B24
+   Succs (1): B0
+
+ [B24]
+   1: DeclRefExpr 0x55cfe636eb70 <lua.c:264:9> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+argv
+   2: ImplicitCastExpr 0x55cfe636ebc0 <lua.c:264:9> 'char **' <LValueToRValue>
+`-DeclRefExpr 0x55cfe636eb70 <col:9> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+[B24.1] (ImplicitCastExpr, LValueToRValue, char **)
+   3: DeclRefExpr 0x55cfe636eb98 <lua.c:264:14> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+i
+   4: ImplicitCastExpr 0x55cfe636ebd8 <lua.c:264:14> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55cfe636eb98 <col:14> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+[B24.3] (ImplicitCastExpr, LValueToRValue, int)
+   5: ArraySubscriptExpr 0x55cfe636ebf0 <lua.c:264:9, col:15> 'char *' lvalue
+|-ImplicitCastExpr 0x55cfe636ebc0 <col:9> 'char **' <LValueToRValue>
+| `-DeclRefExpr 0x55cfe636eb70 <col:9> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+`-ImplicitCastExpr 0x55cfe636ebd8 <col:14> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x55cfe636eb98 <col:14> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+[B24.2][[B24.4]]
+   6: ImplicitCastExpr 0x55cfe636ec38 <lua.c:264:9, col:15> 'char *' <LValueToRValue>
+`-ArraySubscriptExpr 0x55cfe636ebf0 <col:9, col:15> 'char *' lvalue
+  |-ImplicitCastExpr 0x55cfe636ebc0 <col:9> 'char **' <LValueToRValue>
+  | `-DeclRefExpr 0x55cfe636eb70 <col:9> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+  `-ImplicitCastExpr 0x55cfe636ebd8 <col:14> 'int' <LValueToRValue>
+    `-DeclRefExpr 0x55cfe636eb98 <col:14> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+[B24.5] (ImplicitCastExpr, LValueToRValue, char *)
+   7: IntegerLiteral 0x55cfe636ec18 <lua.c:264:17> 'int' 0
+0
+   8: ArraySubscriptExpr 0x55cfe636ec50 <lua.c:264:9, col:18> 'char' lvalue
+|-ImplicitCastExpr 0x55cfe636ec38 <col:9, col:15> 'char *' <LValueToRValue>
+| `-ArraySubscriptExpr 0x55cfe636ebf0 <col:9, col:15> 'char *' lvalue
+|   |-ImplicitCastExpr 0x55cfe636ebc0 <col:9> 'char **' <LValueToRValue>
+|   | `-DeclRefExpr 0x55cfe636eb70 <col:9> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+|   `-ImplicitCastExpr 0x55cfe636ebd8 <col:14> 'int' <LValueToRValue>
+|     `-DeclRefExpr 0x55cfe636eb98 <col:14> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+`-IntegerLiteral 0x55cfe636ec18 <col:17> 'int' 0
+[B24.6][[B24.7]]
+   9: ImplicitCastExpr 0x55cfe636ec90 <lua.c:264:9, col:18> 'char' <LValueToRValue>
+`-ArraySubscriptExpr 0x55cfe636ec50 <col:9, col:18> 'char' lvalue
+  |-ImplicitCastExpr 0x55cfe636ec38 <col:9, col:15> 'char *' <LValueToRValue>
+  | `-ArraySubscriptExpr 0x55cfe636ebf0 <col:9, col:15> 'char *' lvalue
+  |   |-ImplicitCastExpr 0x55cfe636ebc0 <col:9> 'char **' <LValueToRValue>
+  |   | `-DeclRefExpr 0x55cfe636eb70 <col:9> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+  |   `-ImplicitCastExpr 0x55cfe636ebd8 <col:14> 'int' <LValueToRValue>
+  |     `-DeclRefExpr 0x55cfe636eb98 <col:14> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+  `-IntegerLiteral 0x55cfe636ec18 <col:17> 'int' 0
+[B24.8] (ImplicitCastExpr, LValueToRValue, char)
+  10: ImplicitCastExpr 0x55cfe636eca8 <lua.c:264:9, col:18> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x55cfe636ec90 <col:9, col:18> 'char' <LValueToRValue>
+  `-ArraySubscriptExpr 0x55cfe636ec50 <col:9, col:18> 'char' lvalue
+    |-ImplicitCastExpr 0x55cfe636ec38 <col:9, col:15> 'char *' <LValueToRValue>
+    | `-ArraySubscriptExpr 0x55cfe636ebf0 <col:9, col:15> 'char *' lvalue
+    |   |-ImplicitCastExpr 0x55cfe636ebc0 <col:9> 'char **' <LValueToRValue>
+    |   | `-DeclRefExpr 0x55cfe636eb70 <col:9> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+    |   `-ImplicitCastExpr 0x55cfe636ebd8 <col:14> 'int' <LValueToRValue>
+    |     `-DeclRefExpr 0x55cfe636eb98 <col:14> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+    `-IntegerLiteral 0x55cfe636ec18 <col:17> 'int' 0
+[B24.9] (ImplicitCastExpr, IntegralCast, int)
+  11: CharacterLiteral 0x55cfe636ec78 <lua.c:264:23> 'int' 45
+'-'
+  12: BinaryOperator 0x55cfe636ecc0 <lua.c:264:9, col:23> 'int' '!='
+|-ImplicitCastExpr 0x55cfe636eca8 <col:9, col:18> 'int' <IntegralCast>
+| `-ImplicitCastExpr 0x55cfe636ec90 <col:9, col:18> 'char' <LValueToRValue>
+|   `-ArraySubscriptExpr 0x55cfe636ec50 <col:9, col:18> 'char' lvalue
+|     |-ImplicitCastExpr 0x55cfe636ec38 <col:9, col:15> 'char *' <LValueToRValue>
+|     | `-ArraySubscriptExpr 0x55cfe636ebf0 <col:9, col:15> 'char *' lvalue
+|     |   |-ImplicitCastExpr 0x55cfe636ebc0 <col:9> 'char **' <LValueToRValue>
+|     |   | `-DeclRefExpr 0x55cfe636eb70 <col:9> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+|     |   `-ImplicitCastExpr 0x55cfe636ebd8 <col:14> 'int' <LValueToRValue>
+|     |     `-DeclRefExpr 0x55cfe636eb98 <col:14> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+|     `-IntegerLiteral 0x55cfe636ec18 <col:17> 'int' 0
+`-CharacterLiteral 0x55cfe636ec78 <col:23> 'int' 45
+[B24.10] != [B24.11]
+   T: if [B24.12]
+   Preds (1): B25
+   Succs (2): B23 B3
+
+ [B25]
+   1: DeclRefExpr 0x55cfe636e9a8 <lua.c:263:15> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+argv
+   2: ImplicitCastExpr 0x55cfe636e9f8 <lua.c:263:15> 'char **' <LValueToRValue>
+`-DeclRefExpr 0x55cfe636e9a8 <col:15> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+[B25.1] (ImplicitCastExpr, LValueToRValue, char **)
+   3: DeclRefExpr 0x55cfe636e9d0 <lua.c:263:20> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+i
+   4: ImplicitCastExpr 0x55cfe636ea10 <lua.c:263:20> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55cfe636e9d0 <col:20> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+[B25.3] (ImplicitCastExpr, LValueToRValue, int)
+   5: ArraySubscriptExpr 0x55cfe636ea28 <lua.c:263:15, col:21> 'char *' lvalue
+|-ImplicitCastExpr 0x55cfe636e9f8 <col:15> 'char **' <LValueToRValue>
+| `-DeclRefExpr 0x55cfe636e9a8 <col:15> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+`-ImplicitCastExpr 0x55cfe636ea10 <col:20> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x55cfe636e9d0 <col:20> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+[B25.2][[B25.4]]
+   6: ImplicitCastExpr 0x55cfe636ead0 <lua.c:263:15, col:21> 'char *' <LValueToRValue>
+`-ArraySubscriptExpr 0x55cfe636ea28 <col:15, col:21> 'char *' lvalue
+  |-ImplicitCastExpr 0x55cfe636e9f8 <col:15> 'char **' <LValueToRValue>
+  | `-DeclRefExpr 0x55cfe636e9a8 <col:15> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+  `-ImplicitCastExpr 0x55cfe636ea10 <col:20> 'int' <LValueToRValue>
+    `-DeclRefExpr 0x55cfe636e9d0 <col:20> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+[B25.5] (ImplicitCastExpr, LValueToRValue, char *)
+   7: IntegerLiteral 0x55cfe636ea50 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+   8: CStyleCastExpr 0x55cfe636ea88 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x55cfe636ea50 <col:24> 'int' 0
+(void *)[B25.7] (CStyleCastExpr, NullToPointer, void *)
+   9: ImplicitCastExpr 0x55cfe636eae8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'char *' <BitCast>
+`-ParenExpr 0x55cfe636eab0 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x55cfe636ea88 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x55cfe636ea50 <col:24> 'int' 0
+([B25.8]) (ImplicitCastExpr, BitCast, char *)
+  10: BinaryOperator 0x55cfe636eb00 <lua.c:263:15, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25> 'int' '!='
+|-ImplicitCastExpr 0x55cfe636ead0 <lua.c:263:15, col:21> 'char *' <LValueToRValue>
+| `-ArraySubscriptExpr 0x55cfe636ea28 <col:15, col:21> 'char *' lvalue
+|   |-ImplicitCastExpr 0x55cfe636e9f8 <col:15> 'char **' <LValueToRValue>
+|   | `-DeclRefExpr 0x55cfe636e9a8 <col:15> 'char **' lvalue ParmVar 0x55cfe636e570 'argv' 'char **'
+|   `-ImplicitCastExpr 0x55cfe636ea10 <col:20> 'int' <LValueToRValue>
+|     `-DeclRefExpr 0x55cfe636e9d0 <col:20> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+`-ImplicitCastExpr 0x55cfe636eae8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'char *' <BitCast>
+  `-ParenExpr 0x55cfe636eab0 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x55cfe636ea88 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x55cfe636ea50 <col:24> 'int' 0
+[B25.6] != [B25.9]
+   T: for (...; [B25.10]; ...)
+   Preds (2): B2 B26
+   Succs (2): B24 B1
+
+ [B26]
+   1: DeclStmt 0x55cfe636e920 <lua.c:262:3, col:8>col:7
+`-VarDecl 0x55cfe636e8c0 <col:3, col:7> col:7 used i 'int'
+int i;
+   2: IntegerLiteral 0x55cfe636e960 <lua.c:263:12> 'int' 1
+1
+   3: DeclRefExpr 0x55cfe636e938 <lua.c:263:8> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+i
+   4: BinaryOperator 0x55cfe636e980 <lua.c:263:8, col:12> 'int' '='
+|-DeclRefExpr 0x55cfe636e938 <col:8> 'int' lvalue Var 0x55cfe636e8c0 'i' 'int'
+`-IntegerLiteral 0x55cfe636e960 <col:12> 'int' 1
+[B26.3] = [B26.2]
+   Preds (1): B27
+   Succs (1): B25
+
+ [B0 (EXIT)]
+   Preds (9): B1 B4 B6 B11 B14 B16 B17 B21
+      B23

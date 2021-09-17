@@ -1,0 +1,671 @@
+static int constfolding(OpCode op, expdesc *e1, expdesc *e2)
+ [B21 (ENTRY)]
+   Succs (1): B20
+
+ [B1]
+   1: DeclRefExpr 0x5637768e1020 <lcode.c:648:16> 'lua_Number':'double' lvalue Var 0x5637768df2e0 'r' 'lua_Number':'double'
+r
+   2: ImplicitCastExpr 0x5637768e1048 <lcode.c:648:16> 'lua_Number':'double' <LValueToRValue>
+`-DeclRefExpr 0x5637768e1020 <col:16> 'lua_Number':'double' lvalue Var 0x5637768df2e0 'r' 'lua_Number':'double'
+[B1.1] (ImplicitCastExpr, LValueToRValue, lua_Number)
+   3: DeclRefExpr 0x5637768e0f70 <lcode.c:648:3> 'expdesc *' lvalue ParmVar 0x5637768def90 'e1' 'expdesc *'
+e1
+   4: ImplicitCastExpr 0x5637768e0f98 <lcode.c:648:3> 'expdesc *' <LValueToRValue>
+`-DeclRefExpr 0x5637768e0f70 <col:3> 'expdesc *' lvalue ParmVar 0x5637768def90 'e1' 'expdesc *'
+[B1.3] (ImplicitCastExpr, LValueToRValue, expdesc *)
+   5: MemberExpr 0x5637768e0fb0 <lcode.c:648:3, col:7> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue ->u 0x56377687d830
+`-ImplicitCastExpr 0x5637768e0f98 <col:3> 'expdesc *' <LValueToRValue>
+  `-DeclRefExpr 0x5637768e0f70 <col:3> 'expdesc *' lvalue ParmVar 0x5637768def90 'e1' 'expdesc *'
+[B1.4]->u
+   6: MemberExpr 0x5637768e0fe8 <lcode.c:648:3, col:9> 'lua_Number':'double' lvalue .nval 0x56377687d748
+`-MemberExpr 0x5637768e0fb0 <col:3, col:7> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue ->u 0x56377687d830
+  `-ImplicitCastExpr 0x5637768e0f98 <col:3> 'expdesc *' <LValueToRValue>
+    `-DeclRefExpr 0x5637768e0f70 <col:3> 'expdesc *' lvalue ParmVar 0x5637768def90 'e1' 'expdesc *'
+[B1.5].nval
+   7: BinaryOperator 0x5637768e1060 <lcode.c:648:3, col:16> 'lua_Number':'double' '='
+|-MemberExpr 0x5637768e0fe8 <col:3, col:9> 'lua_Number':'double' lvalue .nval 0x56377687d748
+| `-MemberExpr 0x5637768e0fb0 <col:3, col:7> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue ->u 0x56377687d830
+|   `-ImplicitCastExpr 0x5637768e0f98 <col:3> 'expdesc *' <LValueToRValue>
+|     `-DeclRefExpr 0x5637768e0f70 <col:3> 'expdesc *' lvalue ParmVar 0x5637768def90 'e1' 'expdesc *'
+`-ImplicitCastExpr 0x5637768e1048 <col:16> 'lua_Number':'double' <LValueToRValue>
+  `-DeclRefExpr 0x5637768e1020 <col:16> 'lua_Number':'double' lvalue Var 0x5637768df2e0 'r' 'lua_Number':'double'
+[B1.6] = [B1.2]
+   8: IntegerLiteral 0x5637768e1088 <lcode.c:649:10> 'int' 1
+1
+   9: ReturnStmt 0x5637768e10a8 <lcode.c:649:3, col:10>
+`-IntegerLiteral 0x5637768e1088 <col:10> 'int' 1
+return [B1.8];
+   Preds (1): B3
+   Succs (1): B0
+
+ [B2]
+   1: IntegerLiteral 0x5637768e0f00 <lcode.c:647:32> 'int' 0
+0
+   2: ReturnStmt 0x5637768e0f20 <lcode.c:647:25, col:32>
+`-IntegerLiteral 0x5637768e0f00 <col:32> 'int' 0
+return [B2.1];
+   Preds (1): B3
+   Succs (1): B0
+
+ [B3]
+   1: DeclRefExpr 0x5637768e0d78 <lcode.c:647:21> 'lua_Number':'double' lvalue Var 0x5637768df2e0 'r' 'lua_Number':'double'
+r
+   2: ImplicitCastExpr 0x5637768e0e48 <./luaconf.h:540:27, col:29> 'lua_Number':'double' <LValueToRValue>
+`-ParenExpr 0x5637768e0dc0 <col:27, col:29> 'lua_Number':'double' lvalue
+  `-ParenExpr 0x5637768e0da0 <line:543:39, col:41> 'lua_Number':'double' lvalue
+    `-DeclRefExpr 0x5637768e0d78 <lcode.c:647:21> 'lua_Number':'double' lvalue Var 0x5637768df2e0 'r' 'lua_Number':'double'
+(([B3.1])) (ImplicitCastExpr, LValueToRValue, lua_Number)
+   3: DeclRefExpr 0x5637768e0de0 <lcode.c:647:21> 'lua_Number':'double' lvalue Var 0x5637768df2e0 'r' 'lua_Number':'double'
+r
+   4: ImplicitCastExpr 0x5637768e0e60 <./luaconf.h:540:32, col:34> 'lua_Number':'double' <LValueToRValue>
+`-ParenExpr 0x5637768e0e28 <col:32, col:34> 'lua_Number':'double' lvalue
+  `-ParenExpr 0x5637768e0e08 <line:543:44, col:46> 'lua_Number':'double' lvalue
+    `-DeclRefExpr 0x5637768e0de0 <lcode.c:647:21> 'lua_Number':'double' lvalue Var 0x5637768df2e0 'r' 'lua_Number':'double'
+(([B3.3])) (ImplicitCastExpr, LValueToRValue, lua_Number)
+   5: BinaryOperator 0x5637768e0e78 <./luaconf.h:540:27, col:34> 'int' '=='
+|-ImplicitCastExpr 0x5637768e0e48 <col:27, col:29> 'lua_Number':'double' <LValueToRValue>
+| `-ParenExpr 0x5637768e0dc0 <col:27, col:29> 'lua_Number':'double' lvalue
+|   `-ParenExpr 0x5637768e0da0 <line:543:39, col:41> 'lua_Number':'double' lvalue
+|     `-DeclRefExpr 0x5637768e0d78 <lcode.c:647:21> 'lua_Number':'double' lvalue Var 0x5637768df2e0 'r' 'lua_Number':'double'
+`-ImplicitCastExpr 0x5637768e0e60 <./luaconf.h:540:32, col:34> 'lua_Number':'double' <LValueToRValue>
+  `-ParenExpr 0x5637768e0e28 <col:32, col:34> 'lua_Number':'double' lvalue
+    `-ParenExpr 0x5637768e0e08 <line:543:44, col:46> 'lua_Number':'double' lvalue
+      `-DeclRefExpr 0x5637768e0de0 <lcode.c:647:21> 'lua_Number':'double' lvalue Var 0x5637768df2e0 'r' 'lua_Number':'double'
+[B3.2] == [B3.4]
+   6: UnaryOperator 0x5637768e0ec0 <./luaconf.h:543:27, line:540:35> 'int' prefix '!'
+`-ParenExpr 0x5637768e0ea0 <col:26, col:35> 'int'
+  `-BinaryOperator 0x5637768e0e78 <col:27, col:34> 'int' '=='
+    |-ImplicitCastExpr 0x5637768e0e48 <col:27, col:29> 'lua_Number':'double' <LValueToRValue>
+    | `-ParenExpr 0x5637768e0dc0 <col:27, col:29> 'lua_Number':'double' lvalue
+    |   `-ParenExpr 0x5637768e0da0 <line:543:39, col:41> 'lua_Number':'double' lvalue
+    |     `-DeclRefExpr 0x5637768e0d78 <lcode.c:647:21> 'lua_Number':'double' lvalue Var 0x5637768df2e0 'r' 'lua_Number':'double'
+    `-ImplicitCastExpr 0x5637768e0e60 <./luaconf.h:540:32, col:34> 'lua_Number':'double' <LValueToRValue>
+      `-ParenExpr 0x5637768e0e28 <col:32, col:34> 'lua_Number':'double' lvalue
+        `-ParenExpr 0x5637768e0e08 <line:543:44, col:46> 'lua_Number':'double' lvalue
+          `-DeclRefExpr 0x5637768e0de0 <lcode.c:647:21> 'lua_Number':'double' lvalue Var 0x5637768df2e0 'r' 'lua_Number':'double'
+!([B3.5])
+   T: if ([B3.6])
+   Preds (8): B5 B7 B8 B9 B12 B15 B16 B17
+   Succs (2): B2 B1
+
+ [B4]
+   1: DeclRefExpr 0x5637768df638 <lcode.c:630:8> 'expdesc *' lvalue ParmVar 0x5637768def90 'e1' 'expdesc *'
+e1
+   2: ImplicitCastExpr 0x5637768df660 <lcode.c:630:8> 'expdesc *' <LValueToRValue>
+`-DeclRefExpr 0x5637768df638 <col:8> 'expdesc *' lvalue ParmVar 0x5637768def90 'e1' 'expdesc *'
+[B4.1] (ImplicitCastExpr, LValueToRValue, expdesc *)
+   3: MemberExpr 0x5637768df678 <lcode.c:630:8, col:12> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue ->u 0x56377687d830
+`-ImplicitCastExpr 0x5637768df660 <col:8> 'expdesc *' <LValueToRValue>
+  `-DeclRefExpr 0x5637768df638 <col:8> 'expdesc *' lvalue ParmVar 0x5637768def90 'e1' 'expdesc *'
+[B4.2]->u
+   4: MemberExpr 0x5637768df6b0 <lcode.c:630:8, col:14> 'lua_Number':'double' lvalue .nval 0x56377687d748
+`-MemberExpr 0x5637768df678 <col:8, col:12> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue ->u 0x56377687d830
+  `-ImplicitCastExpr 0x5637768df660 <col:8> 'expdesc *' <LValueToRValue>
+    `-DeclRefExpr 0x5637768df638 <col:8> 'expdesc *' lvalue ParmVar 0x5637768def90 'e1' 'expdesc *'
+[B4.3].nval
+   5: ImplicitCastExpr 0x5637768df6e8 <lcode.c:630:8, col:14> 'lua_Number':'double' <LValueToRValue>
+`-MemberExpr 0x5637768df6b0 <col:8, col:14> 'lua_Number':'double' lvalue .nval 0x56377687d748
+  `-MemberExpr 0x5637768df678 <col:8, col:12> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue ->u 0x56377687d830
+    `-ImplicitCastExpr 0x5637768df660 <col:8> 'expdesc *' <LValueToRValue>
+      `-DeclRefExpr 0x5637768df638 <col:8> 'expdesc *' lvalue ParmVar 0x5637768def90 'e1' 'expdesc *'
+[B4.4] (ImplicitCastExpr, LValueToRValue, lua_Number)
+   6: DeclRefExpr 0x5637768df610 <lcode.c:630:3> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+v1
+   7: BinaryOperator 0x5637768df700 <lcode.c:630:3, col:14> 'lua_Number':'double' '='
+|-DeclRefExpr 0x5637768df610 <col:3> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+`-ImplicitCastExpr 0x5637768df6e8 <col:8, col:14> 'lua_Number':'double' <LValueToRValue>
+  `-MemberExpr 0x5637768df6b0 <col:8, col:14> 'lua_Number':'double' lvalue .nval 0x56377687d748
+    `-MemberExpr 0x5637768df678 <col:8, col:12> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue ->u 0x56377687d830
+      `-ImplicitCastExpr 0x5637768df660 <col:8> 'expdesc *' <LValueToRValue>
+        `-DeclRefExpr 0x5637768df638 <col:8> 'expdesc *' lvalue ParmVar 0x5637768def90 'e1' 'expdesc *'
+[B4.6] = [B4.5]
+   8: DeclRefExpr 0x5637768df750 <lcode.c:631:8> 'expdesc *' lvalue ParmVar 0x5637768df000 'e2' 'expdesc *'
+e2
+   9: ImplicitCastExpr 0x5637768df778 <lcode.c:631:8> 'expdesc *' <LValueToRValue>
+`-DeclRefExpr 0x5637768df750 <col:8> 'expdesc *' lvalue ParmVar 0x5637768df000 'e2' 'expdesc *'
+[B4.8] (ImplicitCastExpr, LValueToRValue, expdesc *)
+  10: MemberExpr 0x5637768df790 <lcode.c:631:8, col:12> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue ->u 0x56377687d830
+`-ImplicitCastExpr 0x5637768df778 <col:8> 'expdesc *' <LValueToRValue>
+  `-DeclRefExpr 0x5637768df750 <col:8> 'expdesc *' lvalue ParmVar 0x5637768df000 'e2' 'expdesc *'
+[B4.9]->u
+  11: MemberExpr 0x5637768df7c8 <lcode.c:631:8, col:14> 'lua_Number':'double' lvalue .nval 0x56377687d748
+`-MemberExpr 0x5637768df790 <col:8, col:12> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue ->u 0x56377687d830
+  `-ImplicitCastExpr 0x5637768df778 <col:8> 'expdesc *' <LValueToRValue>
+    `-DeclRefExpr 0x5637768df750 <col:8> 'expdesc *' lvalue ParmVar 0x5637768df000 'e2' 'expdesc *'
+[B4.10].nval
+  12: ImplicitCastExpr 0x5637768df800 <lcode.c:631:8, col:14> 'lua_Number':'double' <LValueToRValue>
+`-MemberExpr 0x5637768df7c8 <col:8, col:14> 'lua_Number':'double' lvalue .nval 0x56377687d748
+  `-MemberExpr 0x5637768df790 <col:8, col:12> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue ->u 0x56377687d830
+    `-ImplicitCastExpr 0x5637768df778 <col:8> 'expdesc *' <LValueToRValue>
+      `-DeclRefExpr 0x5637768df750 <col:8> 'expdesc *' lvalue ParmVar 0x5637768df000 'e2' 'expdesc *'
+[B4.11] (ImplicitCastExpr, LValueToRValue, lua_Number)
+  13: DeclRefExpr 0x5637768df728 <lcode.c:631:3> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+v2
+  14: BinaryOperator 0x5637768df818 <lcode.c:631:3, col:14> 'lua_Number':'double' '='
+|-DeclRefExpr 0x5637768df728 <col:3> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+`-ImplicitCastExpr 0x5637768df800 <col:8, col:14> 'lua_Number':'double' <LValueToRValue>
+  `-MemberExpr 0x5637768df7c8 <col:8, col:14> 'lua_Number':'double' lvalue .nval 0x56377687d748
+    `-MemberExpr 0x5637768df790 <col:8, col:12> 'union (anonymous union at ./lparser.h:39:3)':'union expdesc::(anonymous at ./lparser.h:39:3)' lvalue ->u 0x56377687d830
+      `-ImplicitCastExpr 0x5637768df778 <col:8> 'expdesc *' <LValueToRValue>
+        `-DeclRefExpr 0x5637768df750 <col:8> 'expdesc *' lvalue ParmVar 0x5637768df000 'e2' 'expdesc *'
+[B4.13] = [B4.12]
+  15: DeclRefExpr 0x5637768df840 <lcode.c:632:11> 'OpCode':'OpCode' lvalue ParmVar 0x5637768def20 'op' 'OpCode':'OpCode'
+op
+  16: ImplicitCastExpr 0x5637768df868 <lcode.c:632:11> 'OpCode':'OpCode' <LValueToRValue>
+`-DeclRefExpr 0x5637768df840 <col:11> 'OpCode':'OpCode' lvalue ParmVar 0x5637768def20 'op' 'OpCode':'OpCode'
+[B4.15] (ImplicitCastExpr, LValueToRValue, OpCode)
+  17: ImplicitCastExpr 0x5637768df880 <lcode.c:632:11> 'unsigned int' <IntegralCast>
+`-ImplicitCastExpr 0x5637768df868 <col:11> 'OpCode':'OpCode' <LValueToRValue>
+  `-DeclRefExpr 0x5637768df840 <col:11> 'OpCode':'OpCode' lvalue ParmVar 0x5637768def20 'op' 'OpCode':'OpCode'
+[B4.16] (ImplicitCastExpr, IntegralCast, unsigned int)
+   T: switch [B4.17]
+   Preds (1): B19
+   Succs (9): B6 B7 B8 B11 B14 B15 B16 B17
+     B5
+
+ [B5]
+  default:
+   1: IntegerLiteral 0x5637768e0ae0 <./llimits.h:62:31> 'int' 0
+0
+   2: CStyleCastExpr 0x5637768e0b10 <./llimits.h:62:25, col:31> 'void' <ToVoid>
+`-IntegerLiteral 0x5637768e0ae0 <col:31> 'int' 0
+(void)[B5.1] (CStyleCastExpr, ToVoid, void)
+   3: IntegerLiteral 0x5637768e0ba0 <lcode.c:645:33> 'int' 0
+0
+   4: ImplicitCastExpr 0x5637768e0bc0 <lcode.c:645:33> 'lua_Number':'double' <IntegralToFloating>
+`-IntegerLiteral 0x5637768e0ba0 <col:33> 'int' 0
+[B5.3] (ImplicitCastExpr, IntegralToFloating, lua_Number)
+   5: DeclRefExpr 0x5637768e0b78 <lcode.c:645:29> 'lua_Number':'double' lvalue Var 0x5637768df2e0 'r' 'lua_Number':'double'
+r
+   6: BinaryOperator 0x5637768e0bd8 <lcode.c:645:29, col:33> 'lua_Number':'double' '='
+|-DeclRefExpr 0x5637768e0b78 <col:29> 'lua_Number':'double' lvalue Var 0x5637768df2e0 'r' 'lua_Number':'double'
+`-ImplicitCastExpr 0x5637768e0bc0 <col:33> 'lua_Number':'double' <IntegralToFloating>
+  `-IntegerLiteral 0x5637768e0ba0 <col:33> 'int' 0
+[B5.5] = [B5.4]
+   T: break;
+   Preds (1): B4
+   Succs (1): B3
+
+ [B6]
+  case OP_LEN:
+   1: IntegerLiteral 0x5637768e0aa8 <lcode.c:644:25> 'int' 0
+0
+   2: ReturnStmt 0x5637768e0ac8 <lcode.c:644:18, col:25>
+`-IntegerLiteral 0x5637768e0aa8 <col:25> 'int' 0
+return [B6.1];
+   Preds (1): B4
+   Succs (1): B0
+
+ [B7]
+  case OP_UNM:
+   1: DeclRefExpr 0x5637768e0978 <lcode.c:643:34> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+v1
+   2: ImplicitCastExpr 0x5637768e09c0 <./luaconf.h:539:27, col:29> 'lua_Number':'double' <LValueToRValue>
+`-ParenExpr 0x5637768e09a0 <col:27, col:29> 'lua_Number':'double' lvalue
+  `-DeclRefExpr 0x5637768e0978 <lcode.c:643:34> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+([B7.1]) (ImplicitCastExpr, LValueToRValue, lua_Number)
+   3: UnaryOperator 0x5637768e09d8 <./luaconf.h:539:26, col:29> 'lua_Number':'double' prefix '-'
+`-ImplicitCastExpr 0x5637768e09c0 <col:27, col:29> 'lua_Number':'double' <LValueToRValue>
+  `-ParenExpr 0x5637768e09a0 <col:27, col:29> 'lua_Number':'double' lvalue
+    `-DeclRefExpr 0x5637768e0978 <lcode.c:643:34> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+-[B7.2]
+   4: DeclRefExpr 0x5637768e0950 <lcode.c:643:18> 'lua_Number':'double' lvalue Var 0x5637768df2e0 'r' 'lua_Number':'double'
+r
+   5: BinaryOperator 0x5637768e0a18 <lcode.c:643:18, ./luaconf.h:539:30> 'lua_Number':'double' '='
+|-DeclRefExpr 0x5637768e0950 <lcode.c:643:18> 'lua_Number':'double' lvalue Var 0x5637768df2e0 'r' 'lua_Number':'double'
+`-ParenExpr 0x5637768e09f8 <./luaconf.h:539:25, col:30> 'lua_Number':'double'
+  `-UnaryOperator 0x5637768e09d8 <col:26, col:29> 'lua_Number':'double' prefix '-'
+    `-ImplicitCastExpr 0x5637768e09c0 <col:27, col:29> 'lua_Number':'double' <LValueToRValue>
+      `-ParenExpr 0x5637768e09a0 <col:27, col:29> 'lua_Number':'double' lvalue
+        `-DeclRefExpr 0x5637768e0978 <lcode.c:643:34> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+[B7.4] = ([B7.3])
+   T: break;
+   Preds (1): B4
+   Succs (1): B3
+
+ [B8]
+  case OP_POW:
+   1: DeclRefExpr 0x5637768e05e0 <./luaconf.h:538:27> 'double (double, double)' Function 0x5637767c70e0 'pow' 'double (double, double)'
+pow
+   2: ImplicitCastExpr 0x5637768e0688 <./luaconf.h:538:27> 'double (*)(double, double)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5637768e05e0 <col:27> 'double (double, double)' Function 0x5637767c70e0 'pow' 'double (double, double)'
+[B8.1] (ImplicitCastExpr, FunctionToPointerDecay, double (*)(double, double))
+   3: DeclRefExpr 0x5637768e0608 <lcode.c:642:34> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+v1
+   4: ImplicitCastExpr 0x5637768e0870 <lcode.c:642:34> 'lua_Number':'double' <LValueToRValue>
+`-DeclRefExpr 0x5637768e0608 <col:34> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+[B8.3] (ImplicitCastExpr, LValueToRValue, lua_Number)
+   5: DeclRefExpr 0x5637768e0630 <lcode.c:642:38> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+v2
+   6: ImplicitCastExpr 0x5637768e0888 <lcode.c:642:38> 'lua_Number':'double' <LValueToRValue>
+`-DeclRefExpr 0x5637768e0630 <col:38> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+[B8.5] (ImplicitCastExpr, LValueToRValue, lua_Number)
+   7: CallExpr 0x5637768e06a0 <./luaconf.h:538:27, col:34> 'double'
+|-ImplicitCastExpr 0x5637768e0688 <col:27> 'double (*)(double, double)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5637768e05e0 <col:27> 'double (double, double)' Function 0x5637767c70e0 'pow' 'double (double, double)'
+|-ImplicitCastExpr 0x5637768e0870 <lcode.c:642:34> 'lua_Number':'double' <LValueToRValue>
+| `-DeclRefExpr 0x5637768e0608 <col:34> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+`-ImplicitCastExpr 0x5637768e0888 <col:38> 'lua_Number':'double' <LValueToRValue>
+  `-DeclRefExpr 0x5637768e0630 <col:38> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+[B8.2]([B8.4], [B8.6])
+   8: DeclRefExpr 0x5637768e05b8 <lcode.c:642:18> 'lua_Number':'double' lvalue Var 0x5637768df2e0 'r' 'lua_Number':'double'
+r
+   9: BinaryOperator 0x5637768e08c0 <lcode.c:642:18, ./luaconf.h:538:35> 'lua_Number':'double' '='
+|-DeclRefExpr 0x5637768e05b8 <lcode.c:642:18> 'lua_Number':'double' lvalue Var 0x5637768df2e0 'r' 'lua_Number':'double'
+`-ParenExpr 0x5637768e08a0 <./luaconf.h:538:26, col:35> 'double'
+  `-CallExpr 0x5637768e06a0 <col:27, col:34> 'double'
+    |-ImplicitCastExpr 0x5637768e0688 <col:27> 'double (*)(double, double)' <FunctionToPointerDecay>
+    | `-DeclRefExpr 0x5637768e05e0 <col:27> 'double (double, double)' Function 0x5637767c70e0 'pow' 'double (double, double)'
+    |-ImplicitCastExpr 0x5637768e0870 <lcode.c:642:34> 'lua_Number':'double' <LValueToRValue>
+    | `-DeclRefExpr 0x5637768e0608 <col:34> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+    `-ImplicitCastExpr 0x5637768e0888 <col:38> 'lua_Number':'double' <LValueToRValue>
+      `-DeclRefExpr 0x5637768e0630 <col:38> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+[B8.8] = ([B8.7])
+   T: break;
+   Preds (1): B4
+   Succs (1): B3
+
+ [B9]
+   1: DeclRefExpr 0x5637768e0270 <lcode.c:641:23> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+v1
+   2: ImplicitCastExpr 0x5637768e04c8 <./luaconf.h:537:27, col:29> 'lua_Number':'double' <LValueToRValue>
+`-ParenExpr 0x5637768e0298 <col:27, col:29> 'lua_Number':'double' lvalue
+  `-DeclRefExpr 0x5637768e0270 <lcode.c:641:23> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+([B9.1]) (ImplicitCastExpr, LValueToRValue, lua_Number)
+   3: DeclRefExpr 0x5637768e02b8 <./luaconf.h:537:33> 'double (double)' Function 0x5637767cbf18 'floor' 'double (double)'
+floor
+   4: ImplicitCastExpr 0x5637768e03f8 <./luaconf.h:537:33> 'double (*)(double)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5637768e02b8 <col:33> 'double (double)' Function 0x5637767cbf18 'floor' 'double (double)'
+[B9.3] (ImplicitCastExpr, FunctionToPointerDecay, double (*)(double))
+   5: DeclRefExpr 0x5637768e02e0 <lcode.c:641:23> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+v1
+   6: ImplicitCastExpr 0x5637768e0370 <./luaconf.h:537:39, col:41> 'lua_Number':'double' <LValueToRValue>
+`-ParenExpr 0x5637768e0308 <col:39, col:41> 'lua_Number':'double' lvalue
+  `-DeclRefExpr 0x5637768e02e0 <lcode.c:641:23> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+([B9.5]) (ImplicitCastExpr, LValueToRValue, lua_Number)
+   7: DeclRefExpr 0x5637768e0328 <lcode.c:641:27> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+v2
+   8: ImplicitCastExpr 0x5637768e0388 <./luaconf.h:537:43, col:45> 'lua_Number':'double' <LValueToRValue>
+`-ParenExpr 0x5637768e0350 <col:43, col:45> 'lua_Number':'double' lvalue
+  `-DeclRefExpr 0x5637768e0328 <lcode.c:641:27> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+([B9.7]) (ImplicitCastExpr, LValueToRValue, lua_Number)
+   9: BinaryOperator 0x5637768e03a0 <./luaconf.h:537:39, col:45> 'double' '/'
+|-ImplicitCastExpr 0x5637768e0370 <col:39, col:41> 'lua_Number':'double' <LValueToRValue>
+| `-ParenExpr 0x5637768e0308 <col:39, col:41> 'lua_Number':'double' lvalue
+|   `-DeclRefExpr 0x5637768e02e0 <lcode.c:641:23> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+`-ImplicitCastExpr 0x5637768e0388 <./luaconf.h:537:43, col:45> 'lua_Number':'double' <LValueToRValue>
+  `-ParenExpr 0x5637768e0350 <col:43, col:45> 'lua_Number':'double' lvalue
+    `-DeclRefExpr 0x5637768e0328 <lcode.c:641:27> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+[B9.6] / [B9.8]
+  10: CallExpr 0x5637768e0410 <./luaconf.h:537:33, col:46> 'double'
+|-ImplicitCastExpr 0x5637768e03f8 <col:33> 'double (*)(double)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5637768e02b8 <col:33> 'double (double)' Function 0x5637767cbf18 'floor' 'double (double)'
+`-BinaryOperator 0x5637768e03a0 <col:39, col:45> 'double' '/'
+  |-ImplicitCastExpr 0x5637768e0370 <col:39, col:41> 'lua_Number':'double' <LValueToRValue>
+  | `-ParenExpr 0x5637768e0308 <col:39, col:41> 'lua_Number':'double' lvalue
+  |   `-DeclRefExpr 0x5637768e02e0 <lcode.c:641:23> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+  `-ImplicitCastExpr 0x5637768e0388 <./luaconf.h:537:43, col:45> 'lua_Number':'double' <LValueToRValue>
+    `-ParenExpr 0x5637768e0350 <col:43, col:45> 'lua_Number':'double' lvalue
+      `-DeclRefExpr 0x5637768e0328 <lcode.c:641:27> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+[B9.4]([B9.9])
+  11: DeclRefExpr 0x5637768e0440 <lcode.c:641:27> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+v2
+  12: ImplicitCastExpr 0x5637768e0488 <./luaconf.h:537:48, col:50> 'lua_Number':'double' <LValueToRValue>
+`-ParenExpr 0x5637768e0468 <col:48, col:50> 'lua_Number':'double' lvalue
+  `-DeclRefExpr 0x5637768e0440 <lcode.c:641:27> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+([B9.11]) (ImplicitCastExpr, LValueToRValue, lua_Number)
+  13: BinaryOperator 0x5637768e04a0 <./luaconf.h:537:33, col:50> 'double' '*'
+|-CallExpr 0x5637768e0410 <col:33, col:46> 'double'
+| |-ImplicitCastExpr 0x5637768e03f8 <col:33> 'double (*)(double)' <FunctionToPointerDecay>
+| | `-DeclRefExpr 0x5637768e02b8 <col:33> 'double (double)' Function 0x5637767cbf18 'floor' 'double (double)'
+| `-BinaryOperator 0x5637768e03a0 <col:39, col:45> 'double' '/'
+|   |-ImplicitCastExpr 0x5637768e0370 <col:39, col:41> 'lua_Number':'double' <LValueToRValue>
+|   | `-ParenExpr 0x5637768e0308 <col:39, col:41> 'lua_Number':'double' lvalue
+|   |   `-DeclRefExpr 0x5637768e02e0 <lcode.c:641:23> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+|   `-ImplicitCastExpr 0x5637768e0388 <./luaconf.h:537:43, col:45> 'lua_Number':'double' <LValueToRValue>
+|     `-ParenExpr 0x5637768e0350 <col:43, col:45> 'lua_Number':'double' lvalue
+|       `-DeclRefExpr 0x5637768e0328 <lcode.c:641:27> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+`-ImplicitCastExpr 0x5637768e0488 <./luaconf.h:537:48, col:50> 'lua_Number':'double' <LValueToRValue>
+  `-ParenExpr 0x5637768e0468 <col:48, col:50> 'lua_Number':'double' lvalue
+    `-DeclRefExpr 0x5637768e0440 <lcode.c:641:27> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+[B9.10] * [B9.12]
+  14: BinaryOperator 0x5637768e04e0 <./luaconf.h:537:27, col:50> 'double' '-'
+|-ImplicitCastExpr 0x5637768e04c8 <col:27, col:29> 'lua_Number':'double' <LValueToRValue>
+| `-ParenExpr 0x5637768e0298 <col:27, col:29> 'lua_Number':'double' lvalue
+|   `-DeclRefExpr 0x5637768e0270 <lcode.c:641:23> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+`-BinaryOperator 0x5637768e04a0 <./luaconf.h:537:33, col:50> 'double' '*'
+  |-CallExpr 0x5637768e0410 <col:33, col:46> 'double'
+  | |-ImplicitCastExpr 0x5637768e03f8 <col:33> 'double (*)(double)' <FunctionToPointerDecay>
+  | | `-DeclRefExpr 0x5637768e02b8 <col:33> 'double (double)' Function 0x5637767cbf18 'floor' 'double (double)'
+  | `-BinaryOperator 0x5637768e03a0 <col:39, col:45> 'double' '/'
+  |   |-ImplicitCastExpr 0x5637768e0370 <col:39, col:41> 'lua_Number':'double' <LValueToRValue>
+  |   | `-ParenExpr 0x5637768e0308 <col:39, col:41> 'lua_Number':'double' lvalue
+  |   |   `-DeclRefExpr 0x5637768e02e0 <lcode.c:641:23> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+  |   `-ImplicitCastExpr 0x5637768e0388 <./luaconf.h:537:43, col:45> 'lua_Number':'double' <LValueToRValue>
+  |     `-ParenExpr 0x5637768e0350 <col:43, col:45> 'lua_Number':'double' lvalue
+  |       `-DeclRefExpr 0x5637768e0328 <lcode.c:641:27> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+  `-ImplicitCastExpr 0x5637768e0488 <./luaconf.h:537:48, col:50> 'lua_Number':'double' <LValueToRValue>
+    `-ParenExpr 0x5637768e0468 <col:48, col:50> 'lua_Number':'double' lvalue
+      `-DeclRefExpr 0x5637768e0440 <lcode.c:641:27> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+[B9.2] - [B9.13]
+  15: DeclRefExpr 0x5637768e0248 <lcode.c:641:7> 'lua_Number':'double' lvalue Var 0x5637768df2e0 'r' 'lua_Number':'double'
+r
+  16: BinaryOperator 0x5637768e0528 <lcode.c:641:7, ./luaconf.h:537:51> 'lua_Number':'double' '='
+|-DeclRefExpr 0x5637768e0248 <lcode.c:641:7> 'lua_Number':'double' lvalue Var 0x5637768df2e0 'r' 'lua_Number':'double'
+`-ParenExpr 0x5637768e0508 <./luaconf.h:537:26, col:51> 'double'
+  `-BinaryOperator 0x5637768e04e0 <col:27, col:50> 'double' '-'
+    |-ImplicitCastExpr 0x5637768e04c8 <col:27, col:29> 'lua_Number':'double' <LValueToRValue>
+    | `-ParenExpr 0x5637768e0298 <col:27, col:29> 'lua_Number':'double' lvalue
+    |   `-DeclRefExpr 0x5637768e0270 <lcode.c:641:23> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+    `-BinaryOperator 0x5637768e04a0 <./luaconf.h:537:33, col:50> 'double' '*'
+      |-CallExpr 0x5637768e0410 <col:33, col:46> 'double'
+      | |-ImplicitCastExpr 0x5637768e03f8 <col:33> 'double (*)(double)' <FunctionToPointerDecay>
+      | | `-DeclRefExpr 0x5637768e02b8 <col:33> 'double (double)' Function 0x5637767cbf18 'floor' 'double (double)'
+      | `-BinaryOperator 0x5637768e03a0 <col:39, col:45> 'double' '/'
+      |   |-ImplicitCastExpr 0x5637768e0370 <col:39, col:41> 'lua_Number':'double' <LValueToRValue>
+      |   | `-ParenExpr 0x5637768e0308 <col:39, col:41> 'lua_Number':'double' lvalue
+      |   |   `-DeclRefExpr 0x5637768e02e0 <lcode.c:641:23> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+      |   `-ImplicitCastExpr 0x5637768e0388 <./luaconf.h:537:43, col:45> 'lua_Number':'double' <LValueToRValue>
+      |     `-ParenExpr 0x5637768e0350 <col:43, col:45> 'lua_Number':'double' lvalue
+      |       `-DeclRefExpr 0x5637768e0328 <lcode.c:641:27> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+      `-ImplicitCastExpr 0x5637768e0488 <./luaconf.h:537:48, col:50> 'lua_Number':'double' <LValueToRValue>
+        `-ParenExpr 0x5637768e0468 <col:48, col:50> 'lua_Number':'double' lvalue
+          `-DeclRefExpr 0x5637768e0440 <lcode.c:641:27> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+[B9.15] = ([B9.14])
+   T: break;
+   Preds (1): B11
+   Succs (1): B3
+
+ [B10]
+   1: IntegerLiteral 0x5637768e01d8 <lcode.c:640:27> 'int' 0
+0
+   2: ReturnStmt 0x5637768e01f8 <lcode.c:640:20, col:27>
+`-IntegerLiteral 0x5637768e01d8 <col:27> 'int' 0
+return [B10.1];
+   Preds (1): B11
+   Succs (1): B0
+
+ [B11]
+  case OP_MOD:
+   1: DeclRefExpr 0x5637768e0138 <lcode.c:640:11> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+v2
+   2: ImplicitCastExpr 0x5637768e0180 <lcode.c:640:11> 'lua_Number':'double' <LValueToRValue>
+`-DeclRefExpr 0x5637768e0138 <col:11> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+[B11.1] (ImplicitCastExpr, LValueToRValue, lua_Number)
+   3: IntegerLiteral 0x5637768e0160 <lcode.c:640:17> 'int' 0
+0
+   4: ImplicitCastExpr 0x5637768e0198 <lcode.c:640:17> 'double' <IntegralToFloating>
+`-IntegerLiteral 0x5637768e0160 <col:17> 'int' 0
+[B11.3] (ImplicitCastExpr, IntegralToFloating, double)
+   5: BinaryOperator 0x5637768e01b0 <lcode.c:640:11, col:17> 'int' '=='
+|-ImplicitCastExpr 0x5637768e0180 <col:11> 'lua_Number':'double' <LValueToRValue>
+| `-DeclRefExpr 0x5637768e0138 <col:11> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+`-ImplicitCastExpr 0x5637768e0198 <col:17> 'double' <IntegralToFloating>
+  `-IntegerLiteral 0x5637768e0160 <col:17> 'int' 0
+[B11.2] == [B11.4]
+   T: if [B11.5]
+   Preds (1): B4
+   Succs (2): B10 B9
+
+ [B12]
+   1: DeclRefExpr 0x5637768dffa0 <lcode.c:638:23> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+v1
+   2: ImplicitCastExpr 0x5637768e0030 <./luaconf.h:536:27, col:29> 'lua_Number':'double' <LValueToRValue>
+`-ParenExpr 0x5637768dffc8 <col:27, col:29> 'lua_Number':'double' lvalue
+  `-DeclRefExpr 0x5637768dffa0 <lcode.c:638:23> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+([B12.1]) (ImplicitCastExpr, LValueToRValue, lua_Number)
+   3: DeclRefExpr 0x5637768dffe8 <lcode.c:638:27> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+v2
+   4: ImplicitCastExpr 0x5637768e0048 <./luaconf.h:536:31, col:33> 'lua_Number':'double' <LValueToRValue>
+`-ParenExpr 0x5637768e0010 <col:31, col:33> 'lua_Number':'double' lvalue
+  `-DeclRefExpr 0x5637768dffe8 <lcode.c:638:27> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+([B12.3]) (ImplicitCastExpr, LValueToRValue, lua_Number)
+   5: BinaryOperator 0x5637768e0060 <./luaconf.h:536:27, col:33> 'double' '/'
+|-ImplicitCastExpr 0x5637768e0030 <col:27, col:29> 'lua_Number':'double' <LValueToRValue>
+| `-ParenExpr 0x5637768dffc8 <col:27, col:29> 'lua_Number':'double' lvalue
+|   `-DeclRefExpr 0x5637768dffa0 <lcode.c:638:23> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+`-ImplicitCastExpr 0x5637768e0048 <./luaconf.h:536:31, col:33> 'lua_Number':'double' <LValueToRValue>
+  `-ParenExpr 0x5637768e0010 <col:31, col:33> 'lua_Number':'double' lvalue
+    `-DeclRefExpr 0x5637768dffe8 <lcode.c:638:27> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+[B12.2] / [B12.4]
+   6: DeclRefExpr 0x5637768dff78 <lcode.c:638:7> 'lua_Number':'double' lvalue Var 0x5637768df2e0 'r' 'lua_Number':'double'
+r
+   7: BinaryOperator 0x5637768e00a8 <lcode.c:638:7, ./luaconf.h:536:34> 'lua_Number':'double' '='
+|-DeclRefExpr 0x5637768dff78 <lcode.c:638:7> 'lua_Number':'double' lvalue Var 0x5637768df2e0 'r' 'lua_Number':'double'
+`-ParenExpr 0x5637768e0088 <./luaconf.h:536:26, col:34> 'double'
+  `-BinaryOperator 0x5637768e0060 <col:27, col:33> 'double' '/'
+    |-ImplicitCastExpr 0x5637768e0030 <col:27, col:29> 'lua_Number':'double' <LValueToRValue>
+    | `-ParenExpr 0x5637768dffc8 <col:27, col:29> 'lua_Number':'double' lvalue
+    |   `-DeclRefExpr 0x5637768dffa0 <lcode.c:638:23> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+    `-ImplicitCastExpr 0x5637768e0048 <./luaconf.h:536:31, col:33> 'lua_Number':'double' <LValueToRValue>
+      `-ParenExpr 0x5637768e0010 <col:31, col:33> 'lua_Number':'double' lvalue
+        `-DeclRefExpr 0x5637768dffe8 <lcode.c:638:27> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+[B12.6] = ([B12.5])
+   T: break;
+   Preds (1): B14
+   Succs (1): B3
+
+ [B13]
+   1: IntegerLiteral 0x5637768dff08 <lcode.c:637:27> 'int' 0
+0
+   2: ReturnStmt 0x5637768dff28 <lcode.c:637:20, col:27>
+`-IntegerLiteral 0x5637768dff08 <col:27> 'int' 0
+return [B13.1];
+   Preds (1): B14
+   Succs (1): B0
+
+ [B14]
+  case OP_DIV:
+   1: DeclRefExpr 0x5637768dfe68 <lcode.c:637:11> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+v2
+   2: ImplicitCastExpr 0x5637768dfeb0 <lcode.c:637:11> 'lua_Number':'double' <LValueToRValue>
+`-DeclRefExpr 0x5637768dfe68 <col:11> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+[B14.1] (ImplicitCastExpr, LValueToRValue, lua_Number)
+   3: IntegerLiteral 0x5637768dfe90 <lcode.c:637:17> 'int' 0
+0
+   4: ImplicitCastExpr 0x5637768dfec8 <lcode.c:637:17> 'double' <IntegralToFloating>
+`-IntegerLiteral 0x5637768dfe90 <col:17> 'int' 0
+[B14.3] (ImplicitCastExpr, IntegralToFloating, double)
+   5: BinaryOperator 0x5637768dfee0 <lcode.c:637:11, col:17> 'int' '=='
+|-ImplicitCastExpr 0x5637768dfeb0 <col:11> 'lua_Number':'double' <LValueToRValue>
+| `-DeclRefExpr 0x5637768dfe68 <col:11> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+`-ImplicitCastExpr 0x5637768dfec8 <col:17> 'double' <IntegralToFloating>
+  `-IntegerLiteral 0x5637768dfe90 <col:17> 'int' 0
+[B14.2] == [B14.4]
+   T: if [B14.5]
+   Preds (1): B4
+   Succs (2): B13 B12
+
+ [B15]
+  case OP_MUL:
+   1: DeclRefExpr 0x5637768dfcd0 <lcode.c:635:34> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+v1
+   2: ImplicitCastExpr 0x5637768dfd60 <./luaconf.h:535:27, col:29> 'lua_Number':'double' <LValueToRValue>
+`-ParenExpr 0x5637768dfcf8 <col:27, col:29> 'lua_Number':'double' lvalue
+  `-DeclRefExpr 0x5637768dfcd0 <lcode.c:635:34> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+([B15.1]) (ImplicitCastExpr, LValueToRValue, lua_Number)
+   3: DeclRefExpr 0x5637768dfd18 <lcode.c:635:38> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+v2
+   4: ImplicitCastExpr 0x5637768dfd78 <./luaconf.h:535:31, col:33> 'lua_Number':'double' <LValueToRValue>
+`-ParenExpr 0x5637768dfd40 <col:31, col:33> 'lua_Number':'double' lvalue
+  `-DeclRefExpr 0x5637768dfd18 <lcode.c:635:38> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+([B15.3]) (ImplicitCastExpr, LValueToRValue, lua_Number)
+   5: BinaryOperator 0x5637768dfd90 <./luaconf.h:535:27, col:33> 'double' '*'
+|-ImplicitCastExpr 0x5637768dfd60 <col:27, col:29> 'lua_Number':'double' <LValueToRValue>
+| `-ParenExpr 0x5637768dfcf8 <col:27, col:29> 'lua_Number':'double' lvalue
+|   `-DeclRefExpr 0x5637768dfcd0 <lcode.c:635:34> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+`-ImplicitCastExpr 0x5637768dfd78 <./luaconf.h:535:31, col:33> 'lua_Number':'double' <LValueToRValue>
+  `-ParenExpr 0x5637768dfd40 <col:31, col:33> 'lua_Number':'double' lvalue
+    `-DeclRefExpr 0x5637768dfd18 <lcode.c:635:38> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+[B15.2] * [B15.4]
+   6: DeclRefExpr 0x5637768dfca8 <lcode.c:635:18> 'lua_Number':'double' lvalue Var 0x5637768df2e0 'r' 'lua_Number':'double'
+r
+   7: BinaryOperator 0x5637768dfdd8 <lcode.c:635:18, ./luaconf.h:535:34> 'lua_Number':'double' '='
+|-DeclRefExpr 0x5637768dfca8 <lcode.c:635:18> 'lua_Number':'double' lvalue Var 0x5637768df2e0 'r' 'lua_Number':'double'
+`-ParenExpr 0x5637768dfdb8 <./luaconf.h:535:26, col:34> 'double'
+  `-BinaryOperator 0x5637768dfd90 <col:27, col:33> 'double' '*'
+    |-ImplicitCastExpr 0x5637768dfd60 <col:27, col:29> 'lua_Number':'double' <LValueToRValue>
+    | `-ParenExpr 0x5637768dfcf8 <col:27, col:29> 'lua_Number':'double' lvalue
+    |   `-DeclRefExpr 0x5637768dfcd0 <lcode.c:635:34> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+    `-ImplicitCastExpr 0x5637768dfd78 <./luaconf.h:535:31, col:33> 'lua_Number':'double' <LValueToRValue>
+      `-ParenExpr 0x5637768dfd40 <col:31, col:33> 'lua_Number':'double' lvalue
+        `-DeclRefExpr 0x5637768dfd18 <lcode.c:635:38> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+[B15.6] = ([B15.5])
+   T: break;
+   Preds (1): B4
+   Succs (1): B3
+
+ [B16]
+  case OP_SUB:
+   1: DeclRefExpr 0x5637768dfb10 <lcode.c:634:34> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+v1
+   2: ImplicitCastExpr 0x5637768dfba0 <./luaconf.h:534:27, col:29> 'lua_Number':'double' <LValueToRValue>
+`-ParenExpr 0x5637768dfb38 <col:27, col:29> 'lua_Number':'double' lvalue
+  `-DeclRefExpr 0x5637768dfb10 <lcode.c:634:34> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+([B16.1]) (ImplicitCastExpr, LValueToRValue, lua_Number)
+   3: DeclRefExpr 0x5637768dfb58 <lcode.c:634:38> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+v2
+   4: ImplicitCastExpr 0x5637768dfbb8 <./luaconf.h:534:31, col:33> 'lua_Number':'double' <LValueToRValue>
+`-ParenExpr 0x5637768dfb80 <col:31, col:33> 'lua_Number':'double' lvalue
+  `-DeclRefExpr 0x5637768dfb58 <lcode.c:634:38> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+([B16.3]) (ImplicitCastExpr, LValueToRValue, lua_Number)
+   5: BinaryOperator 0x5637768dfbd0 <./luaconf.h:534:27, col:33> 'double' '-'
+|-ImplicitCastExpr 0x5637768dfba0 <col:27, col:29> 'lua_Number':'double' <LValueToRValue>
+| `-ParenExpr 0x5637768dfb38 <col:27, col:29> 'lua_Number':'double' lvalue
+|   `-DeclRefExpr 0x5637768dfb10 <lcode.c:634:34> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+`-ImplicitCastExpr 0x5637768dfbb8 <./luaconf.h:534:31, col:33> 'lua_Number':'double' <LValueToRValue>
+  `-ParenExpr 0x5637768dfb80 <col:31, col:33> 'lua_Number':'double' lvalue
+    `-DeclRefExpr 0x5637768dfb58 <lcode.c:634:38> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+[B16.2] - [B16.4]
+   6: DeclRefExpr 0x5637768dfae8 <lcode.c:634:18> 'lua_Number':'double' lvalue Var 0x5637768df2e0 'r' 'lua_Number':'double'
+r
+   7: BinaryOperator 0x5637768dfc18 <lcode.c:634:18, ./luaconf.h:534:34> 'lua_Number':'double' '='
+|-DeclRefExpr 0x5637768dfae8 <lcode.c:634:18> 'lua_Number':'double' lvalue Var 0x5637768df2e0 'r' 'lua_Number':'double'
+`-ParenExpr 0x5637768dfbf8 <./luaconf.h:534:26, col:34> 'double'
+  `-BinaryOperator 0x5637768dfbd0 <col:27, col:33> 'double' '-'
+    |-ImplicitCastExpr 0x5637768dfba0 <col:27, col:29> 'lua_Number':'double' <LValueToRValue>
+    | `-ParenExpr 0x5637768dfb38 <col:27, col:29> 'lua_Number':'double' lvalue
+    |   `-DeclRefExpr 0x5637768dfb10 <lcode.c:634:34> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+    `-ImplicitCastExpr 0x5637768dfbb8 <./luaconf.h:534:31, col:33> 'lua_Number':'double' <LValueToRValue>
+      `-ParenExpr 0x5637768dfb80 <col:31, col:33> 'lua_Number':'double' lvalue
+        `-DeclRefExpr 0x5637768dfb58 <lcode.c:634:38> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+[B16.6] = ([B16.5])
+   T: break;
+   Preds (1): B4
+   Succs (1): B3
+
+ [B17]
+  case OP_ADD:
+   1: DeclRefExpr 0x5637768df950 <lcode.c:633:34> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+v1
+   2: ImplicitCastExpr 0x5637768df9e0 <./luaconf.h:533:27, col:29> 'lua_Number':'double' <LValueToRValue>
+`-ParenExpr 0x5637768df978 <col:27, col:29> 'lua_Number':'double' lvalue
+  `-DeclRefExpr 0x5637768df950 <lcode.c:633:34> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+([B17.1]) (ImplicitCastExpr, LValueToRValue, lua_Number)
+   3: DeclRefExpr 0x5637768df998 <lcode.c:633:38> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+v2
+   4: ImplicitCastExpr 0x5637768df9f8 <./luaconf.h:533:31, col:33> 'lua_Number':'double' <LValueToRValue>
+`-ParenExpr 0x5637768df9c0 <col:31, col:33> 'lua_Number':'double' lvalue
+  `-DeclRefExpr 0x5637768df998 <lcode.c:633:38> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+([B17.3]) (ImplicitCastExpr, LValueToRValue, lua_Number)
+   5: BinaryOperator 0x5637768dfa10 <./luaconf.h:533:27, col:33> 'double' '+'
+|-ImplicitCastExpr 0x5637768df9e0 <col:27, col:29> 'lua_Number':'double' <LValueToRValue>
+| `-ParenExpr 0x5637768df978 <col:27, col:29> 'lua_Number':'double' lvalue
+|   `-DeclRefExpr 0x5637768df950 <lcode.c:633:34> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+`-ImplicitCastExpr 0x5637768df9f8 <./luaconf.h:533:31, col:33> 'lua_Number':'double' <LValueToRValue>
+  `-ParenExpr 0x5637768df9c0 <col:31, col:33> 'lua_Number':'double' lvalue
+    `-DeclRefExpr 0x5637768df998 <lcode.c:633:38> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+[B17.2] + [B17.4]
+   6: DeclRefExpr 0x5637768df928 <lcode.c:633:18> 'lua_Number':'double' lvalue Var 0x5637768df2e0 'r' 'lua_Number':'double'
+r
+   7: BinaryOperator 0x5637768dfa58 <lcode.c:633:18, ./luaconf.h:533:34> 'lua_Number':'double' '='
+|-DeclRefExpr 0x5637768df928 <lcode.c:633:18> 'lua_Number':'double' lvalue Var 0x5637768df2e0 'r' 'lua_Number':'double'
+`-ParenExpr 0x5637768dfa38 <./luaconf.h:533:26, col:34> 'double'
+  `-BinaryOperator 0x5637768dfa10 <col:27, col:33> 'double' '+'
+    |-ImplicitCastExpr 0x5637768df9e0 <col:27, col:29> 'lua_Number':'double' <LValueToRValue>
+    | `-ParenExpr 0x5637768df978 <col:27, col:29> 'lua_Number':'double' lvalue
+    |   `-DeclRefExpr 0x5637768df950 <lcode.c:633:34> 'lua_Number':'double' lvalue Var 0x5637768df200 'v1' 'lua_Number':'double'
+    `-ImplicitCastExpr 0x5637768df9f8 <./luaconf.h:533:31, col:33> 'lua_Number':'double' <LValueToRValue>
+      `-ParenExpr 0x5637768df9c0 <col:31, col:33> 'lua_Number':'double' lvalue
+        `-DeclRefExpr 0x5637768df998 <lcode.c:633:38> 'lua_Number':'double' lvalue Var 0x5637768df270 'v2' 'lua_Number':'double'
+[B17.6] = ([B17.5])
+   T: break;
+   Preds (1): B4
+   Succs (1): B3
+
+ [B18]
+   1: IntegerLiteral 0x5637768df5a0 <lcode.c:629:48> 'int' 0
+0
+   2: ReturnStmt 0x5637768df5c0 <lcode.c:629:41, col:48>
+`-IntegerLiteral 0x5637768df5a0 <col:48> 'int' 0
+return [B18.1];
+   Preds (2): B19 B20
+   Succs (1): B0
+
+ [B19]
+   1: DeclRefExpr 0x5637768df4a8 <lcode.c:629:26> 'int (expdesc *)' Function 0x5637768a9328 'isnumeral' 'int (expdesc *)'
+isnumeral
+   2: ImplicitCastExpr 0x5637768df4f8 <lcode.c:629:26> 'int (*)(expdesc *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5637768df4a8 <col:26> 'int (expdesc *)' Function 0x5637768a9328 'isnumeral' 'int (expdesc *)'
+[B19.1] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(expdesc *))
+   3: DeclRefExpr 0x5637768df4d0 <lcode.c:629:36> 'expdesc *' lvalue ParmVar 0x5637768df000 'e2' 'expdesc *'
+e2
+   4: ImplicitCastExpr 0x5637768df540 <lcode.c:629:36> 'expdesc *' <LValueToRValue>
+`-DeclRefExpr 0x5637768df4d0 <col:36> 'expdesc *' lvalue ParmVar 0x5637768df000 'e2' 'expdesc *'
+[B19.3] (ImplicitCastExpr, LValueToRValue, expdesc *)
+   5: CallExpr 0x5637768df510 <lcode.c:629:26, col:38> 'int'
+|-ImplicitCastExpr 0x5637768df4f8 <col:26> 'int (*)(expdesc *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5637768df4a8 <col:26> 'int (expdesc *)' Function 0x5637768a9328 'isnumeral' 'int (expdesc *)'
+`-ImplicitCastExpr 0x5637768df540 <col:36> 'expdesc *' <LValueToRValue>
+  `-DeclRefExpr 0x5637768df4d0 <col:36> 'expdesc *' lvalue ParmVar 0x5637768df000 'e2' 'expdesc *'
+[B19.2]([B19.4])
+   6: UnaryOperator 0x5637768df558 <lcode.c:629:25, col:38> 'int' prefix '!'
+`-CallExpr 0x5637768df510 <col:26, col:38> 'int'
+  |-ImplicitCastExpr 0x5637768df4f8 <col:26> 'int (*)(expdesc *)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x5637768df4a8 <col:26> 'int (expdesc *)' Function 0x5637768a9328 'isnumeral' 'int (expdesc *)'
+  `-ImplicitCastExpr 0x5637768df540 <col:36> 'expdesc *' <LValueToRValue>
+    `-DeclRefExpr 0x5637768df4d0 <col:36> 'expdesc *' lvalue ParmVar 0x5637768df000 'e2' 'expdesc *'
+![B19.5]
+   T: if [B20.9] || [B19.6]
+   Preds (1): B20
+   Succs (2): B18 B4
+
+ [B20]
+   1: DeclStmt 0x5637768f57f8 <lcode.c:628:14>col:14
+`-VarDecl 0x5637768df200 <col:3, col:14> col:14 used v1 'lua_Number':'double'
+lua_Number v1;
+   2: DeclStmt 0x5637768f57e0 <lcode.c:628:18>col:18
+`-VarDecl 0x5637768df270 <col:3, col:18> col:18 used v2 'lua_Number':'double'
+lua_Number v2;
+   3: DeclStmt 0x5637768f57c8 <lcode.c:628:22>col:22
+`-VarDecl 0x5637768df2e0 <col:3, col:22> col:22 used r 'lua_Number':'double'
+lua_Number r;
+   4: DeclRefExpr 0x5637768df378 <lcode.c:629:8> 'int (expdesc *)' Function 0x5637768a9328 'isnumeral' 'int (expdesc *)'
+isnumeral
+   5: ImplicitCastExpr 0x5637768df428 <lcode.c:629:8> 'int (*)(expdesc *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5637768df378 <col:8> 'int (expdesc *)' Function 0x5637768a9328 'isnumeral' 'int (expdesc *)'
+[B20.4] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(expdesc *))
+   6: DeclRefExpr 0x5637768df3a0 <lcode.c:629:18> 'expdesc *' lvalue ParmVar 0x5637768def90 'e1' 'expdesc *'
+e1
+   7: ImplicitCastExpr 0x5637768df470 <lcode.c:629:18> 'expdesc *' <LValueToRValue>
+`-DeclRefExpr 0x5637768df3a0 <col:18> 'expdesc *' lvalue ParmVar 0x5637768def90 'e1' 'expdesc *'
+[B20.6] (ImplicitCastExpr, LValueToRValue, expdesc *)
+   8: CallExpr 0x5637768df440 <lcode.c:629:8, col:20> 'int'
+|-ImplicitCastExpr 0x5637768df428 <col:8> 'int (*)(expdesc *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5637768df378 <col:8> 'int (expdesc *)' Function 0x5637768a9328 'isnumeral' 'int (expdesc *)'
+`-ImplicitCastExpr 0x5637768df470 <col:18> 'expdesc *' <LValueToRValue>
+  `-DeclRefExpr 0x5637768df3a0 <col:18> 'expdesc *' lvalue ParmVar 0x5637768def90 'e1' 'expdesc *'
+[B20.5]([B20.7])
+   9: UnaryOperator 0x5637768df488 <lcode.c:629:7, col:20> 'int' prefix '!'
+`-CallExpr 0x5637768df440 <col:8, col:20> 'int'
+  |-ImplicitCastExpr 0x5637768df428 <col:8> 'int (*)(expdesc *)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x5637768df378 <col:8> 'int (expdesc *)' Function 0x5637768a9328 'isnumeral' 'int (expdesc *)'
+  `-ImplicitCastExpr 0x5637768df470 <col:18> 'expdesc *' <LValueToRValue>
+    `-DeclRefExpr 0x5637768df3a0 <col:18> 'expdesc *' lvalue ParmVar 0x5637768def90 'e1' 'expdesc *'
+![B20.8]
+   T: [B20.9] || ...
+   Preds (1): B21
+   Succs (2): B18 B19
+
+ [B0 (EXIT)]
+   Preds (6): B1 B2 B6 B10 B13 B18

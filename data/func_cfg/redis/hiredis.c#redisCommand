@@ -1,0 +1,99 @@
+void *redisCommand(redisContext *c, const char *format, ...)
+ [B2 (ENTRY)]
+   Succs (1): B1
+
+ [B1]
+   1: DeclStmt 0x562807079490 <hiredis.c:1075:5, col:15>col:13
+`-VarDecl 0x562807079430 <col:5, col:13> col:13 used ap 'va_list':'struct __va_list_tag [1]'
+va_list ap;
+   2: DeclRefExpr 0x5628070794a8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stdarg.h:33:29> '<builtin fn type>' Function 0x56280705d2e8 '__builtin_va_start' 'void (struct __va_list_tag *, ...)'
+__builtin_va_start
+   3: ImplicitCastExpr 0x562807079520 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stdarg.h:33:29> 'void (*)(struct __va_list_tag *, ...)' <BuiltinFnToFnPtr>
+`-DeclRefExpr 0x5628070794a8 <col:29> '<builtin fn type>' Function 0x56280705d2e8 '__builtin_va_start' 'void (struct __va_list_tag *, ...)'
+[B1.2] (ImplicitCastExpr, BuiltinFnToFnPtr, void (*)(struct __va_list_tag *, ...))
+   4: DeclRefExpr 0x5628070794d0 <hiredis.c:1076:14> 'va_list':'struct __va_list_tag [1]' lvalue Var 0x562807079430 'ap' 'va_list':'struct __va_list_tag [1]'
+ap
+   5: ImplicitCastExpr 0x562807079570 <hiredis.c:1076:14> 'struct __va_list_tag *' <ArrayToPointerDecay>
+`-DeclRefExpr 0x5628070794d0 <col:14> 'va_list':'struct __va_list_tag [1]' lvalue Var 0x562807079430 'ap' 'va_list':'struct __va_list_tag [1]'
+[B1.4] (ImplicitCastExpr, ArrayToPointerDecay, struct __va_list_tag *)
+   6: DeclRefExpr 0x5628070794f8 <hiredis.c:1076:17> 'const char *' lvalue ParmVar 0x5628070792d8 'format' 'const char *'
+format
+   7: CallExpr 0x562807079538 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stdarg.h:33:29, col:57> 'void'
+|-ImplicitCastExpr 0x562807079520 <col:29> 'void (*)(struct __va_list_tag *, ...)' <BuiltinFnToFnPtr>
+| `-DeclRefExpr 0x5628070794a8 <col:29> '<builtin fn type>' Function 0x56280705d2e8 '__builtin_va_start' 'void (struct __va_list_tag *, ...)'
+|-ImplicitCastExpr 0x562807079570 <hiredis.c:1076:14> 'struct __va_list_tag *' <ArrayToPointerDecay>
+| `-DeclRefExpr 0x5628070794d0 <col:14> 'va_list':'struct __va_list_tag [1]' lvalue Var 0x562807079430 'ap' 'va_list':'struct __va_list_tag [1]'
+`-DeclRefExpr 0x5628070794f8 <col:17> 'const char *' lvalue ParmVar 0x5628070792d8 'format' 'const char *'
+[B1.3]([B1.5], [B1.6])
+   8: DeclRefExpr 0x562807079600 <hiredis.c:1077:19> 'void *(redisContext *, const char *, struct __va_list_tag *)' Function 0x562807078e00 'redisvCommand' 'void *(redisContext *, const char *, struct __va_list_tag *)'
+redisvCommand
+   9: ImplicitCastExpr 0x5628070796f8 <hiredis.c:1077:19> 'void *(*)(redisContext *, const char *, struct __va_list_tag *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x562807079600 <col:19> 'void *(redisContext *, const char *, struct __va_list_tag *)' Function 0x562807078e00 'redisvCommand' 'void *(redisContext *, const char *, struct __va_list_tag *)'
+[B1.8] (ImplicitCastExpr, FunctionToPointerDecay, void *(*)(redisContext *, const char *, struct __va_list_tag *))
+  10: DeclRefExpr 0x562807079628 <hiredis.c:1077:33> 'redisContext *' lvalue ParmVar 0x562807079260 'c' 'redisContext *'
+c
+  11: ImplicitCastExpr 0x562807079750 <hiredis.c:1077:33> 'redisContext *' <LValueToRValue>
+`-DeclRefExpr 0x562807079628 <col:33> 'redisContext *' lvalue ParmVar 0x562807079260 'c' 'redisContext *'
+[B1.10] (ImplicitCastExpr, LValueToRValue, redisContext *)
+  12: DeclRefExpr 0x562807079650 <hiredis.c:1077:35> 'const char *' lvalue ParmVar 0x5628070792d8 'format' 'const char *'
+format
+  13: ImplicitCastExpr 0x562807079768 <hiredis.c:1077:35> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x562807079650 <col:35> 'const char *' lvalue ParmVar 0x5628070792d8 'format' 'const char *'
+[B1.12] (ImplicitCastExpr, LValueToRValue, const char *)
+  14: DeclRefExpr 0x562807079678 <hiredis.c:1077:42> 'va_list':'struct __va_list_tag [1]' lvalue Var 0x562807079430 'ap' 'va_list':'struct __va_list_tag [1]'
+ap
+  15: ImplicitCastExpr 0x562807079780 <hiredis.c:1077:42> 'struct __va_list_tag *' <ArrayToPointerDecay>
+`-DeclRefExpr 0x562807079678 <col:42> 'va_list':'struct __va_list_tag [1]' lvalue Var 0x562807079430 'ap' 'va_list':'struct __va_list_tag [1]'
+[B1.14] (ImplicitCastExpr, ArrayToPointerDecay, struct __va_list_tag *)
+  16: CallExpr 0x562807079710 <hiredis.c:1077:19, col:44> 'void *'
+|-ImplicitCastExpr 0x5628070796f8 <col:19> 'void *(*)(redisContext *, const char *, struct __va_list_tag *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x562807079600 <col:19> 'void *(redisContext *, const char *, struct __va_list_tag *)' Function 0x562807078e00 'redisvCommand' 'void *(redisContext *, const char *, struct __va_list_tag *)'
+|-ImplicitCastExpr 0x562807079750 <col:33> 'redisContext *' <LValueToRValue>
+| `-DeclRefExpr 0x562807079628 <col:33> 'redisContext *' lvalue ParmVar 0x562807079260 'c' 'redisContext *'
+|-ImplicitCastExpr 0x562807079768 <col:35> 'const char *' <LValueToRValue>
+| `-DeclRefExpr 0x562807079650 <col:35> 'const char *' lvalue ParmVar 0x5628070792d8 'format' 'const char *'
+`-ImplicitCastExpr 0x562807079780 <col:42> 'struct __va_list_tag *' <ArrayToPointerDecay>
+  `-DeclRefExpr 0x562807079678 <col:42> 'va_list':'struct __va_list_tag [1]' lvalue Var 0x562807079430 'ap' 'va_list':'struct __va_list_tag [1]'
+[B1.9]([B1.11], [B1.13], [B1.15])
+  17: DeclStmt 0x562807079798 <hiredis.c:1077:5, col:45>col:11
+`-VarDecl 0x5628070795a0 <col:5, col:44> col:11 used reply 'void *' cinit
+  `-CallExpr 0x562807079710 <col:19, col:44> 'void *'
+    |-ImplicitCastExpr 0x5628070796f8 <col:19> 'void *(*)(redisContext *, const char *, struct __va_list_tag *)' <FunctionToPointerDecay>
+    | `-DeclRefExpr 0x562807079600 <col:19> 'void *(redisContext *, const char *, struct __va_list_tag *)' Function 0x562807078e00 'redisvCommand' 'void *(redisContext *, const char *, struct __va_list_tag *)'
+    |-ImplicitCastExpr 0x562807079750 <col:33> 'redisContext *' <LValueToRValue>
+    | `-DeclRefExpr 0x562807079628 <col:33> 'redisContext *' lvalue ParmVar 0x562807079260 'c' 'redisContext *'
+    |-ImplicitCastExpr 0x562807079768 <col:35> 'const char *' <LValueToRValue>
+    | `-DeclRefExpr 0x562807079650 <col:35> 'const char *' lvalue ParmVar 0x5628070792d8 'format' 'const char *'
+    `-ImplicitCastExpr 0x562807079780 <col:42> 'struct __va_list_tag *' <ArrayToPointerDecay>
+      `-DeclRefExpr 0x562807079678 <col:42> 'va_list':'struct __va_list_tag [1]' lvalue Var 0x562807079430 'ap' 'va_list':'struct __va_list_tag [1]'
+void *reply = redisvCommand(c, format, ap);
+  18: DeclRefExpr 0x5628070797b0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stdarg.h:34:29> '<builtin fn type>' Function 0x5628070590b8 '__builtin_va_end' 'void (struct __va_list_tag *)'
+__builtin_va_end
+  19: ImplicitCastExpr 0x562807079800 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stdarg.h:34:29> 'void (*)(struct __va_list_tag *)' <BuiltinFnToFnPtr>
+`-DeclRefExpr 0x5628070797b0 <col:29> '<builtin fn type>' Function 0x5628070590b8 '__builtin_va_end' 'void (struct __va_list_tag *)'
+[B1.18] (ImplicitCastExpr, BuiltinFnToFnPtr, void (*)(struct __va_list_tag *))
+  20: DeclRefExpr 0x5628070797d8 <hiredis.c:1078:12> 'va_list':'struct __va_list_tag [1]' lvalue Var 0x562807079430 'ap' 'va_list':'struct __va_list_tag [1]'
+ap
+  21: ImplicitCastExpr 0x562807079848 <hiredis.c:1078:12> 'struct __va_list_tag *' <ArrayToPointerDecay>
+`-DeclRefExpr 0x5628070797d8 <col:12> 'va_list':'struct __va_list_tag [1]' lvalue Var 0x562807079430 'ap' 'va_list':'struct __va_list_tag [1]'
+[B1.20] (ImplicitCastExpr, ArrayToPointerDecay, struct __va_list_tag *)
+  22: CallExpr 0x562807079818 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stdarg.h:34:29, col:48> 'void'
+|-ImplicitCastExpr 0x562807079800 <col:29> 'void (*)(struct __va_list_tag *)' <BuiltinFnToFnPtr>
+| `-DeclRefExpr 0x5628070797b0 <col:29> '<builtin fn type>' Function 0x5628070590b8 '__builtin_va_end' 'void (struct __va_list_tag *)'
+`-ImplicitCastExpr 0x562807079848 <hiredis.c:1078:12> 'struct __va_list_tag *' <ArrayToPointerDecay>
+  `-DeclRefExpr 0x5628070797d8 <col:12> 'va_list':'struct __va_list_tag [1]' lvalue Var 0x562807079430 'ap' 'va_list':'struct __va_list_tag [1]'
+[B1.19]([B1.21])
+  23: DeclRefExpr 0x562807079860 <hiredis.c:1079:12> 'void *' lvalue Var 0x5628070795a0 'reply' 'void *'
+reply
+  24: ImplicitCastExpr 0x562807079888 <hiredis.c:1079:12> 'void *' <LValueToRValue>
+`-DeclRefExpr 0x562807079860 <col:12> 'void *' lvalue Var 0x5628070795a0 'reply' 'void *'
+[B1.23] (ImplicitCastExpr, LValueToRValue, void *)
+  25: ReturnStmt 0x5628070798a0 <hiredis.c:1079:5, col:12>
+`-ImplicitCastExpr 0x562807079888 <col:12> 'void *' <LValueToRValue>
+  `-DeclRefExpr 0x562807079860 <col:12> 'void *' lvalue Var 0x5628070795a0 'reply' 'void *'
+return [B1.24];
+   Preds (1): B2
+   Succs (1): B0
+
+ [B0 (EXIT)]
+   Preds (1): B1

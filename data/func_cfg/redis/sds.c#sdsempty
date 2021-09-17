@@ -1,0 +1,48 @@
+sds sdsempty()
+ [B2 (ENTRY)]
+   Succs (1): B1
+
+ [B1]
+   1: DeclRefExpr 0x55e83d0faef8 <sds.c:140:12> 'sds (const void *, size_t)' Function 0x55e83d0f2ed8 'sdsnewlen' 'sds (const void *, size_t)'
+sdsnewlen
+   2: ImplicitCastExpr 0x55e83d0faff8 <sds.c:140:12> 'sds (*)(const void *, size_t)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55e83d0faef8 <col:12> 'sds (const void *, size_t)' Function 0x55e83d0f2ed8 'sdsnewlen' 'sds (const void *, size_t)'
+[B1.1] (ImplicitCastExpr, FunctionToPointerDecay, sds (*)(const void *, size_t))
+   3: StringLiteral 0x55e83d0faf58 <sds.c:140:22> 'const char [1]' lvalue ""
+""
+   4: ImplicitCastExpr 0x55e83d0fb048 <sds.c:140:22> 'const char *' <ArrayToPointerDecay>
+`-StringLiteral 0x55e83d0faf58 <col:22> 'const char [1]' lvalue ""
+[B1.3] (ImplicitCastExpr, ArrayToPointerDecay, const char *)
+   5: ImplicitCastExpr 0x55e83d0fb060 <sds.c:140:22> 'const void *' <BitCast>
+`-ImplicitCastExpr 0x55e83d0fb048 <col:22> 'const char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x55e83d0faf58 <col:22> 'const char [1]' lvalue ""
+[B1.4] (ImplicitCastExpr, BitCast, const void *)
+   6: IntegerLiteral 0x55e83d0faf80 <sds.c:140:25> 'int' 0
+0
+   7: ImplicitCastExpr 0x55e83d0fb078 <sds.c:140:25> 'size_t':'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x55e83d0faf80 <col:25> 'int' 0
+[B1.6] (ImplicitCastExpr, IntegralCast, size_t)
+   8: CallExpr 0x55e83d0fb010 <sds.c:140:12, col:26> 'sds':'char *'
+|-ImplicitCastExpr 0x55e83d0faff8 <col:12> 'sds (*)(const void *, size_t)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55e83d0faef8 <col:12> 'sds (const void *, size_t)' Function 0x55e83d0f2ed8 'sdsnewlen' 'sds (const void *, size_t)'
+|-ImplicitCastExpr 0x55e83d0fb060 <col:22> 'const void *' <BitCast>
+| `-ImplicitCastExpr 0x55e83d0fb048 <col:22> 'const char *' <ArrayToPointerDecay>
+|   `-StringLiteral 0x55e83d0faf58 <col:22> 'const char [1]' lvalue ""
+`-ImplicitCastExpr 0x55e83d0fb078 <col:25> 'size_t':'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x55e83d0faf80 <col:25> 'int' 0
+[B1.2]([B1.5], [B1.7])
+   9: ReturnStmt 0x55e83d0fb090 <sds.c:140:5, col:26>
+`-CallExpr 0x55e83d0fb010 <col:12, col:26> 'sds':'char *'
+  |-ImplicitCastExpr 0x55e83d0faff8 <col:12> 'sds (*)(const void *, size_t)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55e83d0faef8 <col:12> 'sds (const void *, size_t)' Function 0x55e83d0f2ed8 'sdsnewlen' 'sds (const void *, size_t)'
+  |-ImplicitCastExpr 0x55e83d0fb060 <col:22> 'const void *' <BitCast>
+  | `-ImplicitCastExpr 0x55e83d0fb048 <col:22> 'const char *' <ArrayToPointerDecay>
+  |   `-StringLiteral 0x55e83d0faf58 <col:22> 'const char [1]' lvalue ""
+  `-ImplicitCastExpr 0x55e83d0fb078 <col:25> 'size_t':'unsigned long' <IntegralCast>
+    `-IntegerLiteral 0x55e83d0faf80 <col:25> 'int' 0
+return [B1.8];
+   Preds (1): B2
+   Succs (1): B0
+
+ [B0 (EXIT)]
+   Preds (1): B1

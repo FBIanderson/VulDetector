@@ -1,0 +1,2462 @@
+static int __redisGetSubscribeCallback(redisAsyncContext *ac, redisReply *reply, redisCallback *dstcb)
+ [B42 (ENTRY)]
+   Succs (1): B41
+
+ [B1]
+   1: IntegerLiteral 0x55bf9a618f68 <./read.h:38:18> 'int' 0
+0
+   2: ReturnStmt 0x55bf9a618f88 <async.c:417:5, ./read.h:38:18>
+`-IntegerLiteral 0x55bf9a618f68 <col:18> 'int' 0
+return [B1.1];
+   Preds (2): B2 B3
+   Succs (1): B0
+
+ [B2]
+   1: DeclRefExpr 0x55bf9a618d90 <async.c:415:9> 'int (redisCallbackList *, redisCallback *)' Function 0x55bf9a60ab10 '__redisShiftCallback' 'int (redisCallbackList *, redisCallback *)'
+__redisShiftCallback
+   2: ImplicitCastExpr 0x55bf9a618eb0 <async.c:415:9> 'int (*)(redisCallbackList *, redisCallback *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a618d90 <col:9> 'int (redisCallbackList *, redisCallback *)' Function 0x55bf9a60ab10 '__redisShiftCallback' 'int (redisCallbackList *, redisCallback *)'
+[B2.1] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(redisCallbackList *, redisCallback *))
+   3: DeclRefExpr 0x55bf9a618db8 <async.c:415:31> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+ac
+   4: ImplicitCastExpr 0x55bf9a618de0 <async.c:415:31> 'redisAsyncContext *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a618db8 <col:31> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+[B2.3] (ImplicitCastExpr, LValueToRValue, redisAsyncContext *)
+   5: MemberExpr 0x55bf9a618df8 <async.c:415:31, col:35> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+`-ImplicitCastExpr 0x55bf9a618de0 <col:31> 'redisAsyncContext *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a618db8 <col:31> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+[B2.4]->sub
+   6: MemberExpr 0x55bf9a618e30 <async.c:415:31, col:39> 'redisCallbackList':'struct redisCallbackList' lvalue .invalid 0x55bf9a5c4670
+`-MemberExpr 0x55bf9a618df8 <col:31, col:35> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+  `-ImplicitCastExpr 0x55bf9a618de0 <col:31> 'redisAsyncContext *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a618db8 <col:31> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+[B2.5].invalid
+   7: UnaryOperator 0x55bf9a618e68 <async.c:415:30, col:39> 'redisCallbackList *' prefix '&'
+`-MemberExpr 0x55bf9a618e30 <col:31, col:39> 'redisCallbackList':'struct redisCallbackList' lvalue .invalid 0x55bf9a5c4670
+  `-MemberExpr 0x55bf9a618df8 <col:31, col:35> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+    `-ImplicitCastExpr 0x55bf9a618de0 <col:31> 'redisAsyncContext *' <LValueToRValue>
+      `-DeclRefExpr 0x55bf9a618db8 <col:31> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+&[B2.6]
+   8: DeclRefExpr 0x55bf9a618e88 <async.c:415:47> 'redisCallback *' lvalue ParmVar 0x55bf9a610d98 'dstcb' 'redisCallback *'
+dstcb
+   9: ImplicitCastExpr 0x55bf9a618f00 <async.c:415:47> 'redisCallback *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a618e88 <col:47> 'redisCallback *' lvalue ParmVar 0x55bf9a610d98 'dstcb' 'redisCallback *'
+[B2.8] (ImplicitCastExpr, LValueToRValue, redisCallback *)
+  10: CallExpr 0x55bf9a618ec8 <async.c:415:9, col:52> 'int'
+|-ImplicitCastExpr 0x55bf9a618eb0 <col:9> 'int (*)(redisCallbackList *, redisCallback *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a618d90 <col:9> 'int (redisCallbackList *, redisCallback *)' Function 0x55bf9a60ab10 '__redisShiftCallback' 'int (redisCallbackList *, redisCallback *)'
+|-UnaryOperator 0x55bf9a618e68 <col:30, col:39> 'redisCallbackList *' prefix '&'
+| `-MemberExpr 0x55bf9a618e30 <col:31, col:39> 'redisCallbackList':'struct redisCallbackList' lvalue .invalid 0x55bf9a5c4670
+|   `-MemberExpr 0x55bf9a618df8 <col:31, col:35> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+|     `-ImplicitCastExpr 0x55bf9a618de0 <col:31> 'redisAsyncContext *' <LValueToRValue>
+|       `-DeclRefExpr 0x55bf9a618db8 <col:31> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+`-ImplicitCastExpr 0x55bf9a618f00 <col:47> 'redisCallback *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a618e88 <col:47> 'redisCallback *' lvalue ParmVar 0x55bf9a610d98 'dstcb' 'redisCallback *'
+[B2.2]([B2.7], [B2.9])
+   Preds (1): B41
+   Succs (1): B1
+
+ [B3]
+   1: DeclRefExpr 0x55bf9a618c80 <async.c:412:9> 'void (sds)' Function 0x55bf9a5afcc0 'sdsfree' 'void (sds)'
+sdsfree
+   2: ImplicitCastExpr 0x55bf9a618cd0 <async.c:412:9> 'void (*)(sds)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a618c80 <col:9> 'void (sds)' Function 0x55bf9a5afcc0 'sdsfree' 'void (sds)'
+[B3.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(sds))
+   3: DeclRefExpr 0x55bf9a618ca8 <async.c:412:17> 'sds':'char *' lvalue Var 0x55bf9a612418 'sname' 'sds':'char *'
+sname
+   4: ImplicitCastExpr 0x55bf9a618d18 <async.c:412:17> 'sds':'char *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a618ca8 <col:17> 'sds':'char *' lvalue Var 0x55bf9a612418 'sname' 'sds':'char *'
+[B3.3] (ImplicitCastExpr, LValueToRValue, sds)
+   5: CallExpr 0x55bf9a618ce8 <async.c:412:9, col:22> 'void'
+|-ImplicitCastExpr 0x55bf9a618cd0 <col:9> 'void (*)(sds)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a618c80 <col:9> 'void (sds)' Function 0x55bf9a5afcc0 'sdsfree' 'void (sds)'
+`-ImplicitCastExpr 0x55bf9a618d18 <col:17> 'sds':'char *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a618ca8 <col:17> 'sds':'char *' lvalue Var 0x55bf9a612418 'sname' 'sds':'char *'
+[B3.2]([B3.4])
+   Preds (6): B4 B5 B6 B7 B13 B16
+   Succs (1): B1
+
+ [B4]
+   1: DeclRefExpr 0x55bf9a618a90 <async.c:409:21> 'redisContext *' lvalue Var 0x55bf9a610fa0 'c' 'redisContext *'
+c
+   2: ImplicitCastExpr 0x55bf9a618ab8 <async.c:409:21> 'redisContext *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a618a90 <col:21> 'redisContext *' lvalue Var 0x55bf9a610fa0 'c' 'redisContext *'
+[B4.1] (ImplicitCastExpr, LValueToRValue, redisContext *)
+   3: MemberExpr 0x55bf9a618ad0 <async.c:409:21, col:24> 'int' lvalue ->flags 0x55bf9a5bbd48
+`-ImplicitCastExpr 0x55bf9a618ab8 <col:21> 'redisContext *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a618a90 <col:21> 'redisContext *' lvalue Var 0x55bf9a610fa0 'c' 'redisContext *'
+[B4.2]->flags
+   4: IntegerLiteral 0x55bf9a618b08 <./hiredis.h:73:26> 'int' 32
+32
+   5: UnaryOperator 0x55bf9a618b28 <async.c:409:33, ./hiredis.h:73:26> 'int' prefix '~'
+`-IntegerLiteral 0x55bf9a618b08 <col:26> 'int' 32
+~[B4.4]
+   6: CompoundAssignOperator 0x55bf9a618b48 <async.c:409:21, ./hiredis.h:73:26> 'int' '&=' ComputeLHSTy='int' ComputeResultTy='int'
+|-MemberExpr 0x55bf9a618ad0 <async.c:409:21, col:24> 'int' lvalue ->flags 0x55bf9a5bbd48
+| `-ImplicitCastExpr 0x55bf9a618ab8 <col:21> 'redisContext *' <LValueToRValue>
+|   `-DeclRefExpr 0x55bf9a618a90 <col:21> 'redisContext *' lvalue Var 0x55bf9a610fa0 'c' 'redisContext *'
+`-UnaryOperator 0x55bf9a618b28 <col:33, ./hiredis.h:73:26> 'int' prefix '~'
+  `-IntegerLiteral 0x55bf9a618b08 <col:26> 'int' 32
+[B4.3] &= [B4.5]
+   Preds (1): B5
+   Succs (1): B3
+
+ [B5]
+   1: DeclRefExpr 0x55bf9a6188b0 <async.c:408:33> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+ac
+   2: ImplicitCastExpr 0x55bf9a6188d8 <async.c:408:33> 'redisAsyncContext *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a6188b0 <col:33> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+[B5.1] (ImplicitCastExpr, LValueToRValue, redisAsyncContext *)
+   3: MemberExpr 0x55bf9a6188f0 <async.c:408:33, col:37> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+`-ImplicitCastExpr 0x55bf9a6188d8 <col:33> 'redisAsyncContext *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a6188b0 <col:33> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+[B5.2]->sub
+   4: MemberExpr 0x55bf9a618928 <async.c:408:33, col:41> 'struct dict *' lvalue .patterns 0x55bf9a5c47e0
+`-MemberExpr 0x55bf9a6188f0 <col:33, col:37> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+  `-ImplicitCastExpr 0x55bf9a6188d8 <col:33> 'redisAsyncContext *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a6188b0 <col:33> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+[B5.3].patterns
+   5: ImplicitCastExpr 0x55bf9a618980 <./dict.h:111:23, col:26> 'struct dict *' <LValueToRValue>
+`-ParenExpr 0x55bf9a618960 <col:23, col:26> 'struct dict *' lvalue
+  `-MemberExpr 0x55bf9a618928 <async.c:408:33, col:41> 'struct dict *' lvalue .patterns 0x55bf9a5c47e0
+    `-MemberExpr 0x55bf9a6188f0 <col:33, col:37> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+      `-ImplicitCastExpr 0x55bf9a6188d8 <col:33> 'redisAsyncContext *' <LValueToRValue>
+        `-DeclRefExpr 0x55bf9a6188b0 <col:33> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+([B5.4]) (ImplicitCastExpr, LValueToRValue, struct dict *)
+   6: MemberExpr 0x55bf9a618998 <./dict.h:111:23, col:29> 'unsigned long' lvalue ->used 0x55bf9a5e4118
+`-ImplicitCastExpr 0x55bf9a618980 <col:23, col:26> 'struct dict *' <LValueToRValue>
+  `-ParenExpr 0x55bf9a618960 <col:23, col:26> 'struct dict *' lvalue
+    `-MemberExpr 0x55bf9a618928 <async.c:408:33, col:41> 'struct dict *' lvalue .patterns 0x55bf9a5c47e0
+      `-MemberExpr 0x55bf9a6188f0 <col:33, col:37> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+        `-ImplicitCastExpr 0x55bf9a6188d8 <col:33> 'redisAsyncContext *' <LValueToRValue>
+          `-DeclRefExpr 0x55bf9a6188b0 <col:33> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+[B5.5]->used
+   7: ImplicitCastExpr 0x55bf9a618a10 <./dict.h:111:22, col:33> 'unsigned long' <LValueToRValue>
+`-ParenExpr 0x55bf9a6189d0 <col:22, col:33> 'unsigned long' lvalue
+  `-MemberExpr 0x55bf9a618998 <col:23, col:29> 'unsigned long' lvalue ->used 0x55bf9a5e4118
+    `-ImplicitCastExpr 0x55bf9a618980 <col:23, col:26> 'struct dict *' <LValueToRValue>
+      `-ParenExpr 0x55bf9a618960 <col:23, col:26> 'struct dict *' lvalue
+        `-MemberExpr 0x55bf9a618928 <async.c:408:33, col:41> 'struct dict *' lvalue .patterns 0x55bf9a5c47e0
+          `-MemberExpr 0x55bf9a6188f0 <col:33, col:37> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+            `-ImplicitCastExpr 0x55bf9a6188d8 <col:33> 'redisAsyncContext *' <LValueToRValue>
+              `-DeclRefExpr 0x55bf9a6188b0 <col:33> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+([B5.6]) (ImplicitCastExpr, LValueToRValue, unsigned long)
+   8: IntegerLiteral 0x55bf9a6189f0 <async.c:408:54> 'int' 0
+0
+   9: ImplicitCastExpr 0x55bf9a618a28 <async.c:408:54> 'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x55bf9a6189f0 <col:54> 'int' 0
+[B5.8] (ImplicitCastExpr, IntegralCast, unsigned long)
+  10: BinaryOperator 0x55bf9a618a40 <./dict.h:111:22, async.c:408:54> 'int' '=='
+|-ImplicitCastExpr 0x55bf9a618a10 <./dict.h:111:22, col:33> 'unsigned long' <LValueToRValue>
+| `-ParenExpr 0x55bf9a6189d0 <col:22, col:33> 'unsigned long' lvalue
+|   `-MemberExpr 0x55bf9a618998 <col:23, col:29> 'unsigned long' lvalue ->used 0x55bf9a5e4118
+|     `-ImplicitCastExpr 0x55bf9a618980 <col:23, col:26> 'struct dict *' <LValueToRValue>
+|       `-ParenExpr 0x55bf9a618960 <col:23, col:26> 'struct dict *' lvalue
+|         `-MemberExpr 0x55bf9a618928 <async.c:408:33, col:41> 'struct dict *' lvalue .patterns 0x55bf9a5c47e0
+|           `-MemberExpr 0x55bf9a6188f0 <col:33, col:37> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+|             `-ImplicitCastExpr 0x55bf9a6188d8 <col:33> 'redisAsyncContext *' <LValueToRValue>
+|               `-DeclRefExpr 0x55bf9a6188b0 <col:33> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+`-ImplicitCastExpr 0x55bf9a618a28 <col:54> 'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x55bf9a6189f0 <col:54> 'int' 0
+[B5.7] == [B5.9]
+   T: if [B7.13] && [B6.10] && [B5.10]
+   Preds (1): B6
+   Succs (2): B4 B3
+
+ [B6]
+   1: DeclRefExpr 0x55bf9a6186c0 <async.c:407:33> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+ac
+   2: ImplicitCastExpr 0x55bf9a6186e8 <async.c:407:33> 'redisAsyncContext *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a6186c0 <col:33> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+[B6.1] (ImplicitCastExpr, LValueToRValue, redisAsyncContext *)
+   3: MemberExpr 0x55bf9a618700 <async.c:407:33, col:37> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+`-ImplicitCastExpr 0x55bf9a6186e8 <col:33> 'redisAsyncContext *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a6186c0 <col:33> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+[B6.2]->sub
+   4: MemberExpr 0x55bf9a618738 <async.c:407:33, col:41> 'struct dict *' lvalue .channels 0x55bf9a5c4770
+`-MemberExpr 0x55bf9a618700 <col:33, col:37> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+  `-ImplicitCastExpr 0x55bf9a6186e8 <col:33> 'redisAsyncContext *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a6186c0 <col:33> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+[B6.3].channels
+   5: ImplicitCastExpr 0x55bf9a618790 <./dict.h:111:23, col:26> 'struct dict *' <LValueToRValue>
+`-ParenExpr 0x55bf9a618770 <col:23, col:26> 'struct dict *' lvalue
+  `-MemberExpr 0x55bf9a618738 <async.c:407:33, col:41> 'struct dict *' lvalue .channels 0x55bf9a5c4770
+    `-MemberExpr 0x55bf9a618700 <col:33, col:37> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+      `-ImplicitCastExpr 0x55bf9a6186e8 <col:33> 'redisAsyncContext *' <LValueToRValue>
+        `-DeclRefExpr 0x55bf9a6186c0 <col:33> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+([B6.4]) (ImplicitCastExpr, LValueToRValue, struct dict *)
+   6: MemberExpr 0x55bf9a6187a8 <./dict.h:111:23, col:29> 'unsigned long' lvalue ->used 0x55bf9a5e4118
+`-ImplicitCastExpr 0x55bf9a618790 <col:23, col:26> 'struct dict *' <LValueToRValue>
+  `-ParenExpr 0x55bf9a618770 <col:23, col:26> 'struct dict *' lvalue
+    `-MemberExpr 0x55bf9a618738 <async.c:407:33, col:41> 'struct dict *' lvalue .channels 0x55bf9a5c4770
+      `-MemberExpr 0x55bf9a618700 <col:33, col:37> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+        `-ImplicitCastExpr 0x55bf9a6186e8 <col:33> 'redisAsyncContext *' <LValueToRValue>
+          `-DeclRefExpr 0x55bf9a6186c0 <col:33> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+[B6.5]->used
+   7: ImplicitCastExpr 0x55bf9a618830 <./dict.h:111:22, col:33> 'unsigned long' <LValueToRValue>
+`-ParenExpr 0x55bf9a6187f0 <col:22, col:33> 'unsigned long' lvalue
+  `-MemberExpr 0x55bf9a6187a8 <col:23, col:29> 'unsigned long' lvalue ->used 0x55bf9a5e4118
+    `-ImplicitCastExpr 0x55bf9a618790 <col:23, col:26> 'struct dict *' <LValueToRValue>
+      `-ParenExpr 0x55bf9a618770 <col:23, col:26> 'struct dict *' lvalue
+        `-MemberExpr 0x55bf9a618738 <async.c:407:33, col:41> 'struct dict *' lvalue .channels 0x55bf9a5c4770
+          `-MemberExpr 0x55bf9a618700 <col:33, col:37> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+            `-ImplicitCastExpr 0x55bf9a6186e8 <col:33> 'redisAsyncContext *' <LValueToRValue>
+              `-DeclRefExpr 0x55bf9a6186c0 <col:33> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+([B6.6]) (ImplicitCastExpr, LValueToRValue, unsigned long)
+   8: IntegerLiteral 0x55bf9a618810 <async.c:407:54> 'int' 0
+0
+   9: ImplicitCastExpr 0x55bf9a618848 <async.c:407:54> 'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x55bf9a618810 <col:54> 'int' 0
+[B6.8] (ImplicitCastExpr, IntegralCast, unsigned long)
+  10: BinaryOperator 0x55bf9a618860 <./dict.h:111:22, async.c:407:54> 'int' '=='
+|-ImplicitCastExpr 0x55bf9a618830 <./dict.h:111:22, col:33> 'unsigned long' <LValueToRValue>
+| `-ParenExpr 0x55bf9a6187f0 <col:22, col:33> 'unsigned long' lvalue
+|   `-MemberExpr 0x55bf9a6187a8 <col:23, col:29> 'unsigned long' lvalue ->used 0x55bf9a5e4118
+|     `-ImplicitCastExpr 0x55bf9a618790 <col:23, col:26> 'struct dict *' <LValueToRValue>
+|       `-ParenExpr 0x55bf9a618770 <col:23, col:26> 'struct dict *' lvalue
+|         `-MemberExpr 0x55bf9a618738 <async.c:407:33, col:41> 'struct dict *' lvalue .channels 0x55bf9a5c4770
+|           `-MemberExpr 0x55bf9a618700 <col:33, col:37> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+|             `-ImplicitCastExpr 0x55bf9a6186e8 <col:33> 'redisAsyncContext *' <LValueToRValue>
+|               `-DeclRefExpr 0x55bf9a6186c0 <col:33> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+`-ImplicitCastExpr 0x55bf9a618848 <col:54> 'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x55bf9a618810 <col:54> 'int' 0
+[B6.7] == [B6.9]
+   T: [B7.13] && [B6.10] && ...
+   Preds (1): B7
+   Succs (2): B5 B3
+
+ [B7]
+   1: ConditionalOperator 0x55bf9a6184d0 </usr/include/assert.h:98:6, line:100:67> 'void'
+|-ParenExpr 0x55bf9a618140 <line:98:6, col:11> 'int'
+| `-BinaryOperator 0x55bf9a618118 <async.c:403:24, ./read.h:53:29> 'int' '=='
+|   |-ImplicitCastExpr 0x55bf9a618100 <async.c:403:24, col:43> 'int' <LValueToRValue>
+|   | `-MemberExpr 0x55bf9a6180a8 <col:24, col:43> 'int' lvalue ->type 0x55bf9a5b5fb8
+|   |   `-ImplicitCastExpr 0x55bf9a618090 <col:24, col:40> 'struct redisReply *' <LValueToRValue>
+|   |     `-ArraySubscriptExpr 0x55bf9a618068 <col:24, col:40> 'struct redisReply *' lvalue
+|   |       |-ImplicitCastExpr 0x55bf9a618050 <col:24, col:31> 'struct redisReply **' <LValueToRValue>
+|   |       | `-MemberExpr 0x55bf9a617ff8 <col:24, col:31> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+|   |       |   `-ImplicitCastExpr 0x55bf9a617fe0 <col:24> 'redisReply *' <LValueToRValue>
+|   |       |     `-DeclRefExpr 0x55bf9a617fb8 <col:24> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+|   |       `-IntegerLiteral 0x55bf9a618030 <col:39> 'int' 2
+|   `-IntegerLiteral 0x55bf9a6180e0 <./read.h:53:29> 'int' 3
+|-CStyleCastExpr 0x55bf9a6181e0 </usr/include/assert.h:40:29, line:99:29> 'void' <ToVoid>
+| `-ParenExpr 0x55bf9a6181c0 <col:27, col:29> 'int'
+|   `-IntegerLiteral 0x55bf9a618160 <col:28> 'int' 0
+`-CallExpr 0x55bf9a618428 <line:100:8, col:67> 'void'
+  |-ImplicitCastExpr 0x55bf9a618410 <col:8> 'void (*)(const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55bf9a618208 <col:8> 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' Function 0x55bf9a52ff20 '__assert_fail' 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))'
+  |-ImplicitCastExpr 0x55bf9a618470 <<scratch space>:143:1> 'const char *' <ArrayToPointerDecay>
+  | `-StringLiteral 0x55bf9a6182a8 <col:1> 'const char [47]' lvalue "reply->element[2]->type == REDIS_REPLY_INTEGER"
+  |-ImplicitCastExpr 0x55bf9a618488 <line:144:1> 'const char *' <ArrayToPointerDecay>
+  | `-StringLiteral 0x55bf9a618300 <col:1> 'const char [8]' lvalue "async.c"
+  |-ImplicitCastExpr 0x55bf9a6184a0 <line:145:1> 'unsigned int' <IntegralCast>
+  | `-IntegerLiteral 0x55bf9a618330 <col:1> 'int' 403
+  `-ImplicitCastExpr 0x55bf9a6184b8 </usr/include/assert.h:129:30, col:44> 'const char *' <ArrayToPointerDecay>
+    `-UnaryOperator 0x55bf9a6183f0 <col:30, col:44> 'const char [84]' lvalue prefix '__extension__'
+      `-PredefinedExpr 0x55bf9a6183d0 <col:44> 'const char [84]' lvalue __PRETTY_FUNCTION__
+        `-StringLiteral 0x55bf9a618350 <col:44> 'const char [84]' lvalue "int __redisGetSubscribeCallback(redisAsyncContext *, redisReply *, redisCallback *)"
+([B10.11]) ? [B8.2] : [B9.12]
+   2: DeclRefExpr 0x55bf9a618520 <async.c:406:21> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+reply
+   3: ImplicitCastExpr 0x55bf9a618548 <async.c:406:21> 'redisReply *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a618520 <col:21> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+[B7.2] (ImplicitCastExpr, LValueToRValue, redisReply *)
+   4: MemberExpr 0x55bf9a618560 <async.c:406:21, col:28> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+`-ImplicitCastExpr 0x55bf9a618548 <col:21> 'redisReply *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a618520 <col:21> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+[B7.3]->element
+   5: ImplicitCastExpr 0x55bf9a6185b8 <async.c:406:21, col:28> 'struct redisReply **' <LValueToRValue>
+`-MemberExpr 0x55bf9a618560 <col:21, col:28> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+  `-ImplicitCastExpr 0x55bf9a618548 <col:21> 'redisReply *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a618520 <col:21> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+[B7.4] (ImplicitCastExpr, LValueToRValue, struct redisReply **)
+   6: IntegerLiteral 0x55bf9a618598 <async.c:406:36> 'int' 2
+2
+   7: ArraySubscriptExpr 0x55bf9a6185d0 <async.c:406:21, col:37> 'struct redisReply *' lvalue
+|-ImplicitCastExpr 0x55bf9a6185b8 <col:21, col:28> 'struct redisReply **' <LValueToRValue>
+| `-MemberExpr 0x55bf9a618560 <col:21, col:28> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+|   `-ImplicitCastExpr 0x55bf9a618548 <col:21> 'redisReply *' <LValueToRValue>
+|     `-DeclRefExpr 0x55bf9a618520 <col:21> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+`-IntegerLiteral 0x55bf9a618598 <col:36> 'int' 2
+[B7.5][[B7.6]]
+   8: ImplicitCastExpr 0x55bf9a6185f8 <async.c:406:21, col:37> 'struct redisReply *' <LValueToRValue>
+`-ArraySubscriptExpr 0x55bf9a6185d0 <col:21, col:37> 'struct redisReply *' lvalue
+  |-ImplicitCastExpr 0x55bf9a6185b8 <col:21, col:28> 'struct redisReply **' <LValueToRValue>
+  | `-MemberExpr 0x55bf9a618560 <col:21, col:28> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+  |   `-ImplicitCastExpr 0x55bf9a618548 <col:21> 'redisReply *' <LValueToRValue>
+  |     `-DeclRefExpr 0x55bf9a618520 <col:21> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+  `-IntegerLiteral 0x55bf9a618598 <col:36> 'int' 2
+[B7.7] (ImplicitCastExpr, LValueToRValue, struct redisReply *)
+   9: MemberExpr 0x55bf9a618610 <async.c:406:21, col:40> 'long long' lvalue ->integer 0x55bf9a5b6018
+`-ImplicitCastExpr 0x55bf9a6185f8 <col:21, col:37> 'struct redisReply *' <LValueToRValue>
+  `-ArraySubscriptExpr 0x55bf9a6185d0 <col:21, col:37> 'struct redisReply *' lvalue
+    |-ImplicitCastExpr 0x55bf9a6185b8 <col:21, col:28> 'struct redisReply **' <LValueToRValue>
+    | `-MemberExpr 0x55bf9a618560 <col:21, col:28> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+    |   `-ImplicitCastExpr 0x55bf9a618548 <col:21> 'redisReply *' <LValueToRValue>
+    |     `-DeclRefExpr 0x55bf9a618520 <col:21> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+    `-IntegerLiteral 0x55bf9a618598 <col:36> 'int' 2
+[B7.8]->integer
+  10: ImplicitCastExpr 0x55bf9a618668 <async.c:406:21, col:40> 'long long' <LValueToRValue>
+`-MemberExpr 0x55bf9a618610 <col:21, col:40> 'long long' lvalue ->integer 0x55bf9a5b6018
+  `-ImplicitCastExpr 0x55bf9a6185f8 <col:21, col:37> 'struct redisReply *' <LValueToRValue>
+    `-ArraySubscriptExpr 0x55bf9a6185d0 <col:21, col:37> 'struct redisReply *' lvalue
+      |-ImplicitCastExpr 0x55bf9a6185b8 <col:21, col:28> 'struct redisReply **' <LValueToRValue>
+      | `-MemberExpr 0x55bf9a618560 <col:21, col:28> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+      |   `-ImplicitCastExpr 0x55bf9a618548 <col:21> 'redisReply *' <LValueToRValue>
+      |     `-DeclRefExpr 0x55bf9a618520 <col:21> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+      `-IntegerLiteral 0x55bf9a618598 <col:36> 'int' 2
+[B7.9] (ImplicitCastExpr, LValueToRValue, long long)
+  11: IntegerLiteral 0x55bf9a618648 <async.c:406:51> 'int' 0
+0
+  12: ImplicitCastExpr 0x55bf9a618680 <async.c:406:51> 'long long' <IntegralCast>
+`-IntegerLiteral 0x55bf9a618648 <col:51> 'int' 0
+[B7.11] (ImplicitCastExpr, IntegralCast, long long)
+  13: BinaryOperator 0x55bf9a618698 <async.c:406:21, col:51> 'int' '=='
+|-ImplicitCastExpr 0x55bf9a618668 <col:21, col:40> 'long long' <LValueToRValue>
+| `-MemberExpr 0x55bf9a618610 <col:21, col:40> 'long long' lvalue ->integer 0x55bf9a5b6018
+|   `-ImplicitCastExpr 0x55bf9a6185f8 <col:21, col:37> 'struct redisReply *' <LValueToRValue>
+|     `-ArraySubscriptExpr 0x55bf9a6185d0 <col:21, col:37> 'struct redisReply *' lvalue
+|       |-ImplicitCastExpr 0x55bf9a6185b8 <col:21, col:28> 'struct redisReply **' <LValueToRValue>
+|       | `-MemberExpr 0x55bf9a618560 <col:21, col:28> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+|       |   `-ImplicitCastExpr 0x55bf9a618548 <col:21> 'redisReply *' <LValueToRValue>
+|       |     `-DeclRefExpr 0x55bf9a618520 <col:21> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+|       `-IntegerLiteral 0x55bf9a618598 <col:36> 'int' 2
+`-ImplicitCastExpr 0x55bf9a618680 <col:51> 'long long' <IntegralCast>
+  `-IntegerLiteral 0x55bf9a618648 <col:51> 'int' 0
+[B7.10] == [B7.12]
+   T: [B7.13] && ...
+   Preds (2): B8 B9(Unreachable)
+   Succs (2): B6 B3
+
+ [B8]
+   1: IntegerLiteral 0x55bf9a618160 </usr/include/assert.h:99:28> 'int' 0
+0
+   2: CStyleCastExpr 0x55bf9a6181e0 </usr/include/assert.h:40:29, line:99:29> 'void' <ToVoid>
+`-ParenExpr 0x55bf9a6181c0 <col:27, col:29> 'int'
+  `-IntegerLiteral 0x55bf9a618160 <col:28> 'int' 0
+(void)([B8.1]) (CStyleCastExpr, ToVoid, void)
+   Preds (1): B10
+   Succs (1): B7
+
+ [B9 (NORETURN)]
+   1: DeclRefExpr 0x55bf9a618208 </usr/include/assert.h:100:8> 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' Function 0x55bf9a52ff20 '__assert_fail' 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))'
+__assert_fail
+   2: ImplicitCastExpr 0x55bf9a618410 </usr/include/assert.h:100:8> 'void (*)(const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a618208 <col:8> 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' Function 0x55bf9a52ff20 '__assert_fail' 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))'
+[B9.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(const char *, const char *, unsigned int, const char *) __attribute__((noreturn)))
+   3: StringLiteral 0x55bf9a6182a8 <<scratch space>:143:1> 'const char [47]' lvalue "reply->element[2]->type == REDIS_REPLY_INTEGER"
+"reply->element[2]->type == REDIS_REPLY_INTEGER"
+   4: ImplicitCastExpr 0x55bf9a618470 <<scratch space>:143:1> 'const char *' <ArrayToPointerDecay>
+`-StringLiteral 0x55bf9a6182a8 <col:1> 'const char [47]' lvalue "reply->element[2]->type == REDIS_REPLY_INTEGER"
+[B9.3] (ImplicitCastExpr, ArrayToPointerDecay, const char *)
+   5: StringLiteral 0x55bf9a618300 <<scratch space>:144:1> 'const char [8]' lvalue "async.c"
+"async.c"
+   6: ImplicitCastExpr 0x55bf9a618488 <<scratch space>:144:1> 'const char *' <ArrayToPointerDecay>
+`-StringLiteral 0x55bf9a618300 <col:1> 'const char [8]' lvalue "async.c"
+[B9.5] (ImplicitCastExpr, ArrayToPointerDecay, const char *)
+   7: IntegerLiteral 0x55bf9a618330 <<scratch space>:145:1> 'int' 403
+403
+   8: ImplicitCastExpr 0x55bf9a6184a0 <<scratch space>:145:1> 'unsigned int' <IntegralCast>
+`-IntegerLiteral 0x55bf9a618330 <col:1> 'int' 403
+[B9.7] (ImplicitCastExpr, IntegralCast, unsigned int)
+   9: StringLiteral 0x55bf9a618350 </usr/include/assert.h:129:44> 'const char [84]' lvalue "int __redisGetSubscribeCallback(redisAsyncContext *, redisReply *, redisCallback *)"
+"int __redisGetSubscribeCallback(redisAsyncContext *, redisReply *, redisCallback *)"
+  10: PredefinedExpr 0x55bf9a6183d0 </usr/include/assert.h:129:44> 'const char [84]' lvalue __PRETTY_FUNCTION__
+`-StringLiteral 0x55bf9a618350 <col:44> 'const char [84]' lvalue "int __redisGetSubscribeCallback(redisAsyncContext *, redisReply *, redisCallback *)"
+__PRETTY_FUNCTION__
+  11: ImplicitCastExpr 0x55bf9a6184b8 </usr/include/assert.h:129:30, col:44> 'const char *' <ArrayToPointerDecay>
+`-UnaryOperator 0x55bf9a6183f0 <col:30, col:44> 'const char [84]' lvalue prefix '__extension__'
+  `-PredefinedExpr 0x55bf9a6183d0 <col:44> 'const char [84]' lvalue __PRETTY_FUNCTION__
+    `-StringLiteral 0x55bf9a618350 <col:44> 'const char [84]' lvalue "int __redisGetSubscribeCallback(redisAsyncContext *, redisReply *, redisCallback *)"
+__extension__ [B9.10] (ImplicitCastExpr, ArrayToPointerDecay, const char *)
+  12: CallExpr 0x55bf9a618428 </usr/include/assert.h:100:8, col:67> 'void'
+|-ImplicitCastExpr 0x55bf9a618410 <col:8> 'void (*)(const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a618208 <col:8> 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' Function 0x55bf9a52ff20 '__assert_fail' 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))'
+|-ImplicitCastExpr 0x55bf9a618470 <<scratch space>:143:1> 'const char *' <ArrayToPointerDecay>
+| `-StringLiteral 0x55bf9a6182a8 <col:1> 'const char [47]' lvalue "reply->element[2]->type == REDIS_REPLY_INTEGER"
+|-ImplicitCastExpr 0x55bf9a618488 <line:144:1> 'const char *' <ArrayToPointerDecay>
+| `-StringLiteral 0x55bf9a618300 <col:1> 'const char [8]' lvalue "async.c"
+|-ImplicitCastExpr 0x55bf9a6184a0 <line:145:1> 'unsigned int' <IntegralCast>
+| `-IntegerLiteral 0x55bf9a618330 <col:1> 'int' 403
+`-ImplicitCastExpr 0x55bf9a6184b8 </usr/include/assert.h:129:30, col:44> 'const char *' <ArrayToPointerDecay>
+  `-UnaryOperator 0x55bf9a6183f0 <col:30, col:44> 'const char [84]' lvalue prefix '__extension__'
+    `-PredefinedExpr 0x55bf9a6183d0 <col:44> 'const char [84]' lvalue __PRETTY_FUNCTION__
+      `-StringLiteral 0x55bf9a618350 <col:44> 'const char [84]' lvalue "int __redisGetSubscribeCallback(redisAsyncContext *, redisReply *, redisCallback *)"
+[B9.2]([B9.4], [B9.6], [B9.8], [B9.11])
+   Preds (1): B10
+   Succs (1): B0
+
+ [B10]
+   1: DeclRefExpr 0x55bf9a617fb8 <async.c:403:24> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+reply
+   2: ImplicitCastExpr 0x55bf9a617fe0 <async.c:403:24> 'redisReply *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a617fb8 <col:24> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+[B10.1] (ImplicitCastExpr, LValueToRValue, redisReply *)
+   3: MemberExpr 0x55bf9a617ff8 <async.c:403:24, col:31> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+`-ImplicitCastExpr 0x55bf9a617fe0 <col:24> 'redisReply *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a617fb8 <col:24> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+[B10.2]->element
+   4: ImplicitCastExpr 0x55bf9a618050 <async.c:403:24, col:31> 'struct redisReply **' <LValueToRValue>
+`-MemberExpr 0x55bf9a617ff8 <col:24, col:31> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+  `-ImplicitCastExpr 0x55bf9a617fe0 <col:24> 'redisReply *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a617fb8 <col:24> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+[B10.3] (ImplicitCastExpr, LValueToRValue, struct redisReply **)
+   5: IntegerLiteral 0x55bf9a618030 <async.c:403:39> 'int' 2
+2
+   6: ArraySubscriptExpr 0x55bf9a618068 <async.c:403:24, col:40> 'struct redisReply *' lvalue
+|-ImplicitCastExpr 0x55bf9a618050 <col:24, col:31> 'struct redisReply **' <LValueToRValue>
+| `-MemberExpr 0x55bf9a617ff8 <col:24, col:31> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+|   `-ImplicitCastExpr 0x55bf9a617fe0 <col:24> 'redisReply *' <LValueToRValue>
+|     `-DeclRefExpr 0x55bf9a617fb8 <col:24> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+`-IntegerLiteral 0x55bf9a618030 <col:39> 'int' 2
+[B10.4][[B10.5]]
+   7: ImplicitCastExpr 0x55bf9a618090 <async.c:403:24, col:40> 'struct redisReply *' <LValueToRValue>
+`-ArraySubscriptExpr 0x55bf9a618068 <col:24, col:40> 'struct redisReply *' lvalue
+  |-ImplicitCastExpr 0x55bf9a618050 <col:24, col:31> 'struct redisReply **' <LValueToRValue>
+  | `-MemberExpr 0x55bf9a617ff8 <col:24, col:31> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+  |   `-ImplicitCastExpr 0x55bf9a617fe0 <col:24> 'redisReply *' <LValueToRValue>
+  |     `-DeclRefExpr 0x55bf9a617fb8 <col:24> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+  `-IntegerLiteral 0x55bf9a618030 <col:39> 'int' 2
+[B10.6] (ImplicitCastExpr, LValueToRValue, struct redisReply *)
+   8: MemberExpr 0x55bf9a6180a8 <async.c:403:24, col:43> 'int' lvalue ->type 0x55bf9a5b5fb8
+`-ImplicitCastExpr 0x55bf9a618090 <col:24, col:40> 'struct redisReply *' <LValueToRValue>
+  `-ArraySubscriptExpr 0x55bf9a618068 <col:24, col:40> 'struct redisReply *' lvalue
+    |-ImplicitCastExpr 0x55bf9a618050 <col:24, col:31> 'struct redisReply **' <LValueToRValue>
+    | `-MemberExpr 0x55bf9a617ff8 <col:24, col:31> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+    |   `-ImplicitCastExpr 0x55bf9a617fe0 <col:24> 'redisReply *' <LValueToRValue>
+    |     `-DeclRefExpr 0x55bf9a617fb8 <col:24> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+    `-IntegerLiteral 0x55bf9a618030 <col:39> 'int' 2
+[B10.7]->type
+   9: ImplicitCastExpr 0x55bf9a618100 <async.c:403:24, col:43> 'int' <LValueToRValue>
+`-MemberExpr 0x55bf9a6180a8 <col:24, col:43> 'int' lvalue ->type 0x55bf9a5b5fb8
+  `-ImplicitCastExpr 0x55bf9a618090 <col:24, col:40> 'struct redisReply *' <LValueToRValue>
+    `-ArraySubscriptExpr 0x55bf9a618068 <col:24, col:40> 'struct redisReply *' lvalue
+      |-ImplicitCastExpr 0x55bf9a618050 <col:24, col:31> 'struct redisReply **' <LValueToRValue>
+      | `-MemberExpr 0x55bf9a617ff8 <col:24, col:31> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+      |   `-ImplicitCastExpr 0x55bf9a617fe0 <col:24> 'redisReply *' <LValueToRValue>
+      |     `-DeclRefExpr 0x55bf9a617fb8 <col:24> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+      `-IntegerLiteral 0x55bf9a618030 <col:39> 'int' 2
+[B10.8] (ImplicitCastExpr, LValueToRValue, int)
+  10: IntegerLiteral 0x55bf9a6180e0 <./read.h:53:29> 'int' 3
+3
+  11: BinaryOperator 0x55bf9a618118 <async.c:403:24, ./read.h:53:29> 'int' '=='
+|-ImplicitCastExpr 0x55bf9a618100 <async.c:403:24, col:43> 'int' <LValueToRValue>
+| `-MemberExpr 0x55bf9a6180a8 <col:24, col:43> 'int' lvalue ->type 0x55bf9a5b5fb8
+|   `-ImplicitCastExpr 0x55bf9a618090 <col:24, col:40> 'struct redisReply *' <LValueToRValue>
+|     `-ArraySubscriptExpr 0x55bf9a618068 <col:24, col:40> 'struct redisReply *' lvalue
+|       |-ImplicitCastExpr 0x55bf9a618050 <col:24, col:31> 'struct redisReply **' <LValueToRValue>
+|       | `-MemberExpr 0x55bf9a617ff8 <col:24, col:31> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+|       |   `-ImplicitCastExpr 0x55bf9a617fe0 <col:24> 'redisReply *' <LValueToRValue>
+|       |     `-DeclRefExpr 0x55bf9a617fb8 <col:24> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+|       `-IntegerLiteral 0x55bf9a618030 <col:39> 'int' 2
+`-IntegerLiteral 0x55bf9a6180e0 <./read.h:53:29> 'int' 3
+[B10.9] == [B10.10]
+   T: ([B10.11]) ? ... : ...
+   Preds (2): B11 B12
+   Succs (2): B8 B9
+
+ [B11]
+   1: DeclRefExpr 0x55bf9a617e70 <async.c:399:21> 'int (dict *, const void *)' Function 0x55bf9a5f0850 'dictDelete' 'int (dict *, const void *)'
+dictDelete
+   2: ImplicitCastExpr 0x55bf9a617ee8 <async.c:399:21> 'int (*)(dict *, const void *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a617e70 <col:21> 'int (dict *, const void *)' Function 0x55bf9a5f0850 'dictDelete' 'int (dict *, const void *)'
+[B11.1] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(dict *, const void *))
+   3: DeclRefExpr 0x55bf9a617e98 <async.c:399:32> 'dict *' lvalue Var 0x55bf9a6110e0 'callbacks' 'dict *'
+callbacks
+   4: ImplicitCastExpr 0x55bf9a617f38 <async.c:399:32> 'dict *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a617e98 <col:32> 'dict *' lvalue Var 0x55bf9a6110e0 'callbacks' 'dict *'
+[B11.3] (ImplicitCastExpr, LValueToRValue, dict *)
+   5: DeclRefExpr 0x55bf9a617ec0 <async.c:399:42> 'sds':'char *' lvalue Var 0x55bf9a612418 'sname' 'sds':'char *'
+sname
+   6: ImplicitCastExpr 0x55bf9a617f50 <async.c:399:42> 'sds':'char *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a617ec0 <col:42> 'sds':'char *' lvalue Var 0x55bf9a612418 'sname' 'sds':'char *'
+[B11.5] (ImplicitCastExpr, LValueToRValue, sds)
+   7: ImplicitCastExpr 0x55bf9a617f68 <async.c:399:42> 'const void *' <BitCast>
+`-ImplicitCastExpr 0x55bf9a617f50 <col:42> 'sds':'char *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a617ec0 <col:42> 'sds':'char *' lvalue Var 0x55bf9a612418 'sname' 'sds':'char *'
+[B11.6] (ImplicitCastExpr, BitCast, const void *)
+   8: CallExpr 0x55bf9a617f00 <async.c:399:21, col:47> 'int'
+|-ImplicitCastExpr 0x55bf9a617ee8 <col:21> 'int (*)(dict *, const void *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a617e70 <col:21> 'int (dict *, const void *)' Function 0x55bf9a5f0850 'dictDelete' 'int (dict *, const void *)'
+|-ImplicitCastExpr 0x55bf9a617f38 <col:32> 'dict *' <LValueToRValue>
+| `-DeclRefExpr 0x55bf9a617e98 <col:32> 'dict *' lvalue Var 0x55bf9a6110e0 'callbacks' 'dict *'
+`-ImplicitCastExpr 0x55bf9a617f68 <col:42> 'const void *' <BitCast>
+  `-ImplicitCastExpr 0x55bf9a617f50 <col:42> 'sds':'char *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a617ec0 <col:42> 'sds':'char *' lvalue Var 0x55bf9a612418 'sname' 'sds':'char *'
+[B11.2]([B11.4], [B11.7])
+   Preds (1): B12
+   Succs (1): B10
+
+ [B12]
+   1: DeclRefExpr 0x55bf9a617d98 <async.c:398:21> 'redisCallback *' lvalue Var 0x55bf9a611168 'cb' 'redisCallback *'
+cb
+   2: ImplicitCastExpr 0x55bf9a617dc0 <async.c:398:21> 'redisCallback *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a617d98 <col:21> 'redisCallback *' lvalue Var 0x55bf9a611168 'cb' 'redisCallback *'
+[B12.1] (ImplicitCastExpr, LValueToRValue, redisCallback *)
+   3: MemberExpr 0x55bf9a617dd8 <async.c:398:21, col:25> 'int' lvalue ->pending_subs 0x55bf9a5c1ca0
+`-ImplicitCastExpr 0x55bf9a617dc0 <col:21> 'redisCallback *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a617d98 <col:21> 'redisCallback *' lvalue Var 0x55bf9a611168 'cb' 'redisCallback *'
+[B12.2]->pending_subs
+   4: ImplicitCastExpr 0x55bf9a617e30 <async.c:398:21, col:25> 'int' <LValueToRValue>
+`-MemberExpr 0x55bf9a617dd8 <col:21, col:25> 'int' lvalue ->pending_subs 0x55bf9a5c1ca0
+  `-ImplicitCastExpr 0x55bf9a617dc0 <col:21> 'redisCallback *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a617d98 <col:21> 'redisCallback *' lvalue Var 0x55bf9a611168 'cb' 'redisCallback *'
+[B12.3] (ImplicitCastExpr, LValueToRValue, int)
+   5: IntegerLiteral 0x55bf9a617e10 <async.c:398:41> 'int' 0
+0
+   6: BinaryOperator 0x55bf9a617e48 <async.c:398:21, col:41> 'int' '=='
+|-ImplicitCastExpr 0x55bf9a617e30 <col:21, col:25> 'int' <LValueToRValue>
+| `-MemberExpr 0x55bf9a617dd8 <col:21, col:25> 'int' lvalue ->pending_subs 0x55bf9a5c1ca0
+|   `-ImplicitCastExpr 0x55bf9a617dc0 <col:21> 'redisCallback *' <LValueToRValue>
+|     `-DeclRefExpr 0x55bf9a617d98 <col:21> 'redisCallback *' lvalue Var 0x55bf9a611168 'cb' 'redisCallback *'
+`-IntegerLiteral 0x55bf9a617e10 <col:41> 'int' 0
+[B12.4] == [B12.5]
+   T: if [B12.6]
+   Preds (1): B13
+   Succs (2): B11 B10
+
+ [B13]
+   1: DeclRefExpr 0x55bf9a617948 <async.c:394:13> 'void *(void *, const void *, unsigned long)' Function 0x55bf9a5242e0 'memcpy' 'void *(void *, const void *, unsigned long)'
+memcpy
+   2: ImplicitCastExpr 0x55bf9a617a90 <async.c:394:13> 'void *(*)(void *, const void *, unsigned long)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a617948 <col:13> 'void *(void *, const void *, unsigned long)' Function 0x55bf9a5242e0 'memcpy' 'void *(void *, const void *, unsigned long)'
+[B13.1] (ImplicitCastExpr, FunctionToPointerDecay, void *(*)(void *, const void *, unsigned long))
+   3: DeclRefExpr 0x55bf9a617970 <async.c:394:20> 'redisCallback *' lvalue ParmVar 0x55bf9a610d98 'dstcb' 'redisCallback *'
+dstcb
+   4: ImplicitCastExpr 0x55bf9a617ae8 <async.c:394:20> 'redisCallback *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a617970 <col:20> 'redisCallback *' lvalue ParmVar 0x55bf9a610d98 'dstcb' 'redisCallback *'
+[B13.3] (ImplicitCastExpr, LValueToRValue, redisCallback *)
+   5: ImplicitCastExpr 0x55bf9a617b00 <async.c:394:20> 'void *' <BitCast>
+`-ImplicitCastExpr 0x55bf9a617ae8 <col:20> 'redisCallback *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a617970 <col:20> 'redisCallback *' lvalue ParmVar 0x55bf9a610d98 'dstcb' 'redisCallback *'
+[B13.4] (ImplicitCastExpr, BitCast, void *)
+   6: DeclRefExpr 0x55bf9a617998 <async.c:394:26> 'redisCallback *' lvalue Var 0x55bf9a611168 'cb' 'redisCallback *'
+cb
+   7: ImplicitCastExpr 0x55bf9a617b18 <async.c:394:26> 'redisCallback *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a617998 <col:26> 'redisCallback *' lvalue Var 0x55bf9a611168 'cb' 'redisCallback *'
+[B13.6] (ImplicitCastExpr, LValueToRValue, redisCallback *)
+   8: ImplicitCastExpr 0x55bf9a617b30 <async.c:394:26> 'const void *' <BitCast>
+`-ImplicitCastExpr 0x55bf9a617b18 <col:26> 'redisCallback *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a617998 <col:26> 'redisCallback *' lvalue Var 0x55bf9a611168 'cb' 'redisCallback *'
+[B13.7] (ImplicitCastExpr, BitCast, const void *)
+   9: UnaryExprOrTypeTraitExpr 0x55bf9a617a40 <async.c:394:29, col:42> 'unsigned long' sizeof
+`-ParenExpr 0x55bf9a617a20 <col:35, col:42> 'redisCallback':'struct redisCallback' lvalue
+  `-UnaryOperator 0x55bf9a617a00 <col:36, col:37> 'redisCallback':'struct redisCallback' lvalue prefix '*'
+    `-ImplicitCastExpr 0x55bf9a6179e8 <col:37> 'redisCallback *' <LValueToRValue>
+      `-DeclRefExpr 0x55bf9a6179c0 <col:37> 'redisCallback *' lvalue ParmVar 0x55bf9a610d98 'dstcb' 'redisCallback *'
+sizeof (*dstcb)
+  10: CallExpr 0x55bf9a617aa8 <async.c:394:13, col:43> 'void *'
+|-ImplicitCastExpr 0x55bf9a617a90 <col:13> 'void *(*)(void *, const void *, unsigned long)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a617948 <col:13> 'void *(void *, const void *, unsigned long)' Function 0x55bf9a5242e0 'memcpy' 'void *(void *, const void *, unsigned long)'
+|-ImplicitCastExpr 0x55bf9a617b00 <col:20> 'void *' <BitCast>
+| `-ImplicitCastExpr 0x55bf9a617ae8 <col:20> 'redisCallback *' <LValueToRValue>
+|   `-DeclRefExpr 0x55bf9a617970 <col:20> 'redisCallback *' lvalue ParmVar 0x55bf9a610d98 'dstcb' 'redisCallback *'
+|-ImplicitCastExpr 0x55bf9a617b30 <col:26> 'const void *' <BitCast>
+| `-ImplicitCastExpr 0x55bf9a617b18 <col:26> 'redisCallback *' <LValueToRValue>
+|   `-DeclRefExpr 0x55bf9a617998 <col:26> 'redisCallback *' lvalue Var 0x55bf9a611168 'cb' 'redisCallback *'
+`-UnaryExprOrTypeTraitExpr 0x55bf9a617a40 <col:29, col:42> 'unsigned long' sizeof
+  `-ParenExpr 0x55bf9a617a20 <col:35, col:42> 'redisCallback':'struct redisCallback' lvalue
+    `-UnaryOperator 0x55bf9a617a00 <col:36, col:37> 'redisCallback':'struct redisCallback' lvalue prefix '*'
+      `-ImplicitCastExpr 0x55bf9a6179e8 <col:37> 'redisCallback *' <LValueToRValue>
+        `-DeclRefExpr 0x55bf9a6179c0 <col:37> 'redisCallback *' lvalue ParmVar 0x55bf9a610d98 'dstcb' 'redisCallback *'
+[B13.2]([B13.5], [B13.8], [B13.9])
+  11: DeclRefExpr 0x55bf9a617b48 <async.c:397:17> 'int (const char *, const char *)' Function 0x55bf9a52f820 'strcasecmp' 'int (const char *, const char *)'
+strcasecmp
+  12: ImplicitCastExpr 0x55bf9a617cd0 <async.c:397:17> 'int (*)(const char *, const char *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a617b48 <col:17> 'int (const char *, const char *)' Function 0x55bf9a52f820 'strcasecmp' 'int (const char *, const char *)'
+[B13.11] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(const char *, const char *))
+  13: DeclRefExpr 0x55bf9a617b70 <async.c:397:28> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+stype
+  14: ImplicitCastExpr 0x55bf9a617bc0 <async.c:397:28> 'char *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a617b70 <col:28> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+[B13.13] (ImplicitCastExpr, LValueToRValue, char *)
+  15: DeclRefExpr 0x55bf9a617b98 <async.c:397:34> 'int' lvalue Var 0x55bf9a612300 'pvariant' 'int'
+pvariant
+  16: ImplicitCastExpr 0x55bf9a617bd8 <async.c:397:34> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a617b98 <col:34> 'int' lvalue Var 0x55bf9a612300 'pvariant' 'int'
+[B13.15] (ImplicitCastExpr, LValueToRValue, int)
+  17: BinaryOperator 0x55bf9a617bf0 <async.c:397:28, col:34> 'char *' '+'
+|-ImplicitCastExpr 0x55bf9a617bc0 <col:28> 'char *' <LValueToRValue>
+| `-DeclRefExpr 0x55bf9a617b70 <col:28> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+`-ImplicitCastExpr 0x55bf9a617bd8 <col:34> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a617b98 <col:34> 'int' lvalue Var 0x55bf9a612300 'pvariant' 'int'
+[B13.14] + [B13.16]
+  18: ImplicitCastExpr 0x55bf9a617d20 <async.c:397:28, col:34> 'const char *' <BitCast>
+`-BinaryOperator 0x55bf9a617bf0 <col:28, col:34> 'char *' '+'
+  |-ImplicitCastExpr 0x55bf9a617bc0 <col:28> 'char *' <LValueToRValue>
+  | `-DeclRefExpr 0x55bf9a617b70 <col:28> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+  `-ImplicitCastExpr 0x55bf9a617bd8 <col:34> 'int' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a617b98 <col:34> 'int' lvalue Var 0x55bf9a612300 'pvariant' 'int'
+[B13.17] (ImplicitCastExpr, BitCast, const char *)
+  19: StringLiteral 0x55bf9a617c98 <async.c:397:43> 'const char [12]' lvalue "unsubscribe"
+"unsubscribe"
+  20: ImplicitCastExpr 0x55bf9a617d38 <async.c:397:43> 'const char *' <ArrayToPointerDecay>
+`-StringLiteral 0x55bf9a617c98 <col:43> 'const char [12]' lvalue "unsubscribe"
+[B13.19] (ImplicitCastExpr, ArrayToPointerDecay, const char *)
+  21: CallExpr 0x55bf9a617ce8 <async.c:397:17, col:56> 'int'
+|-ImplicitCastExpr 0x55bf9a617cd0 <col:17> 'int (*)(const char *, const char *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a617b48 <col:17> 'int (const char *, const char *)' Function 0x55bf9a52f820 'strcasecmp' 'int (const char *, const char *)'
+|-ImplicitCastExpr 0x55bf9a617d20 <col:28, col:34> 'const char *' <BitCast>
+| `-BinaryOperator 0x55bf9a617bf0 <col:28, col:34> 'char *' '+'
+|   |-ImplicitCastExpr 0x55bf9a617bc0 <col:28> 'char *' <LValueToRValue>
+|   | `-DeclRefExpr 0x55bf9a617b70 <col:28> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+|   `-ImplicitCastExpr 0x55bf9a617bd8 <col:34> 'int' <LValueToRValue>
+|     `-DeclRefExpr 0x55bf9a617b98 <col:34> 'int' lvalue Var 0x55bf9a612300 'pvariant' 'int'
+`-ImplicitCastExpr 0x55bf9a617d38 <col:43> 'const char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x55bf9a617c98 <col:43> 'const char [12]' lvalue "unsubscribe"
+[B13.12]([B13.18], [B13.20])
+  22: IntegerLiteral 0x55bf9a617d50 <async.c:397:61> 'int' 0
+0
+  23: BinaryOperator 0x55bf9a617d70 <async.c:397:17, col:61> 'int' '=='
+|-CallExpr 0x55bf9a617ce8 <col:17, col:56> 'int'
+| |-ImplicitCastExpr 0x55bf9a617cd0 <col:17> 'int (*)(const char *, const char *)' <FunctionToPointerDecay>
+| | `-DeclRefExpr 0x55bf9a617b48 <col:17> 'int (const char *, const char *)' Function 0x55bf9a52f820 'strcasecmp' 'int (const char *, const char *)'
+| |-ImplicitCastExpr 0x55bf9a617d20 <col:28, col:34> 'const char *' <BitCast>
+| | `-BinaryOperator 0x55bf9a617bf0 <col:28, col:34> 'char *' '+'
+| |   |-ImplicitCastExpr 0x55bf9a617bc0 <col:28> 'char *' <LValueToRValue>
+| |   | `-DeclRefExpr 0x55bf9a617b70 <col:28> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+| |   `-ImplicitCastExpr 0x55bf9a617bd8 <col:34> 'int' <LValueToRValue>
+| |     `-DeclRefExpr 0x55bf9a617b98 <col:34> 'int' lvalue Var 0x55bf9a612300 'pvariant' 'int'
+| `-ImplicitCastExpr 0x55bf9a617d38 <col:43> 'const char *' <ArrayToPointerDecay>
+|   `-StringLiteral 0x55bf9a617c98 <col:43> 'const char [12]' lvalue "unsubscribe"
+`-IntegerLiteral 0x55bf9a617d50 <col:61> 'int' 0
+[B13.21] == [B13.22]
+   T: if [B13.23]
+   Preds (2): B14 B15
+   Succs (2): B12 B3
+
+ [B14]
+   1: DeclRefExpr 0x55bf9a617828 <async.c:391:17> 'redisCallback *' lvalue Var 0x55bf9a611168 'cb' 'redisCallback *'
+cb
+   2: ImplicitCastExpr 0x55bf9a617850 <async.c:391:17> 'redisCallback *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a617828 <col:17> 'redisCallback *' lvalue Var 0x55bf9a611168 'cb' 'redisCallback *'
+[B14.1] (ImplicitCastExpr, LValueToRValue, redisCallback *)
+   3: MemberExpr 0x55bf9a617868 <async.c:391:17, col:21> 'int' lvalue ->pending_subs 0x55bf9a5c1ca0
+`-ImplicitCastExpr 0x55bf9a617850 <col:17> 'redisCallback *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a617828 <col:17> 'redisCallback *' lvalue Var 0x55bf9a611168 'cb' 'redisCallback *'
+[B14.2]->pending_subs
+   4: IntegerLiteral 0x55bf9a6178a0 <async.c:391:37> 'int' 1
+1
+   5: CompoundAssignOperator 0x55bf9a6178c0 <async.c:391:17, col:37> 'int' '-=' ComputeLHSTy='int' ComputeResultTy='int'
+|-MemberExpr 0x55bf9a617868 <col:17, col:21> 'int' lvalue ->pending_subs 0x55bf9a5c1ca0
+| `-ImplicitCastExpr 0x55bf9a617850 <col:17> 'redisCallback *' <LValueToRValue>
+|   `-DeclRefExpr 0x55bf9a617828 <col:17> 'redisCallback *' lvalue Var 0x55bf9a611168 'cb' 'redisCallback *'
+`-IntegerLiteral 0x55bf9a6178a0 <col:37> 'int' 1
+[B14.3] -= [B14.4]
+   Preds (1): B15
+   Succs (1): B13
+
+ [B15]
+   1: DeclRefExpr 0x55bf9a617480 <async.c:387:34> 'dictEntry *' lvalue Var 0x55bf9a612270 'de' 'dictEntry *'
+de
+   2: ImplicitCastExpr 0x55bf9a6174c8 <./dict.h:109:30, col:33> 'dictEntry *' <LValueToRValue>
+`-ParenExpr 0x55bf9a6174a8 <col:30, col:33> 'dictEntry *' lvalue
+  `-DeclRefExpr 0x55bf9a617480 <async.c:387:34> 'dictEntry *' lvalue Var 0x55bf9a612270 'de' 'dictEntry *'
+([B15.1]) (ImplicitCastExpr, LValueToRValue, dictEntry *)
+   3: MemberExpr 0x55bf9a6174e0 <./dict.h:109:30, col:36> 'void *' lvalue ->val 0x55bf9a5c9bb8
+`-ImplicitCastExpr 0x55bf9a6174c8 <col:30, col:33> 'dictEntry *' <LValueToRValue>
+  `-ParenExpr 0x55bf9a6174a8 <col:30, col:33> 'dictEntry *' lvalue
+    `-DeclRefExpr 0x55bf9a617480 <async.c:387:34> 'dictEntry *' lvalue Var 0x55bf9a612270 'de' 'dictEntry *'
+[B15.2]->val
+   4: ImplicitCastExpr 0x55bf9a617538 <./dict.h:109:29, col:39> 'void *' <LValueToRValue>
+`-ParenExpr 0x55bf9a617518 <col:29, col:39> 'void *' lvalue
+  `-MemberExpr 0x55bf9a6174e0 <col:30, col:36> 'void *' lvalue ->val 0x55bf9a5c9bb8
+    `-ImplicitCastExpr 0x55bf9a6174c8 <col:30, col:33> 'dictEntry *' <LValueToRValue>
+      `-ParenExpr 0x55bf9a6174a8 <col:30, col:33> 'dictEntry *' lvalue
+        `-DeclRefExpr 0x55bf9a617480 <async.c:387:34> 'dictEntry *' lvalue Var 0x55bf9a612270 'de' 'dictEntry *'
+([B15.3]) (ImplicitCastExpr, LValueToRValue, void *)
+   5: ImplicitCastExpr 0x55bf9a617550 <./dict.h:109:29, col:39> 'redisCallback *' <BitCast>
+`-ImplicitCastExpr 0x55bf9a617538 <col:29, col:39> 'void *' <LValueToRValue>
+  `-ParenExpr 0x55bf9a617518 <col:29, col:39> 'void *' lvalue
+    `-MemberExpr 0x55bf9a6174e0 <col:30, col:36> 'void *' lvalue ->val 0x55bf9a5c9bb8
+      `-ImplicitCastExpr 0x55bf9a6174c8 <col:30, col:33> 'dictEntry *' <LValueToRValue>
+        `-ParenExpr 0x55bf9a6174a8 <col:30, col:33> 'dictEntry *' lvalue
+          `-DeclRefExpr 0x55bf9a617480 <async.c:387:34> 'dictEntry *' lvalue Var 0x55bf9a612270 'de' 'dictEntry *'
+[B15.4] (ImplicitCastExpr, BitCast, redisCallback *)
+   6: DeclRefExpr 0x55bf9a617458 <async.c:387:13> 'redisCallback *' lvalue Var 0x55bf9a611168 'cb' 'redisCallback *'
+cb
+   7: BinaryOperator 0x55bf9a617568 <async.c:387:13, ./dict.h:109:39> 'redisCallback *' '='
+|-DeclRefExpr 0x55bf9a617458 <async.c:387:13> 'redisCallback *' lvalue Var 0x55bf9a611168 'cb' 'redisCallback *'
+`-ImplicitCastExpr 0x55bf9a617550 <./dict.h:109:29, col:39> 'redisCallback *' <BitCast>
+  `-ImplicitCastExpr 0x55bf9a617538 <col:29, col:39> 'void *' <LValueToRValue>
+    `-ParenExpr 0x55bf9a617518 <col:29, col:39> 'void *' lvalue
+      `-MemberExpr 0x55bf9a6174e0 <col:30, col:36> 'void *' lvalue ->val 0x55bf9a5c9bb8
+        `-ImplicitCastExpr 0x55bf9a6174c8 <col:30, col:33> 'dictEntry *' <LValueToRValue>
+          `-ParenExpr 0x55bf9a6174a8 <col:30, col:33> 'dictEntry *' lvalue
+            `-DeclRefExpr 0x55bf9a617480 <async.c:387:34> 'dictEntry *' lvalue Var 0x55bf9a612270 'de' 'dictEntry *'
+[B15.6] = [B15.5]
+   8: DeclRefExpr 0x55bf9a617590 <async.c:390:17> 'int (const char *, const char *)' Function 0x55bf9a52f820 'strcasecmp' 'int (const char *, const char *)'
+strcasecmp
+   9: ImplicitCastExpr 0x55bf9a617738 <async.c:390:17> 'int (*)(const char *, const char *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a617590 <col:17> 'int (const char *, const char *)' Function 0x55bf9a52f820 'strcasecmp' 'int (const char *, const char *)'
+[B15.8] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(const char *, const char *))
+  10: DeclRefExpr 0x55bf9a6175b8 <async.c:390:28> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+stype
+  11: ImplicitCastExpr 0x55bf9a617608 <async.c:390:28> 'char *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a6175b8 <col:28> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+[B15.10] (ImplicitCastExpr, LValueToRValue, char *)
+  12: DeclRefExpr 0x55bf9a6175e0 <async.c:390:34> 'int' lvalue Var 0x55bf9a612300 'pvariant' 'int'
+pvariant
+  13: ImplicitCastExpr 0x55bf9a617620 <async.c:390:34> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a6175e0 <col:34> 'int' lvalue Var 0x55bf9a612300 'pvariant' 'int'
+[B15.12] (ImplicitCastExpr, LValueToRValue, int)
+  14: BinaryOperator 0x55bf9a617638 <async.c:390:28, col:34> 'char *' '+'
+|-ImplicitCastExpr 0x55bf9a617608 <col:28> 'char *' <LValueToRValue>
+| `-DeclRefExpr 0x55bf9a6175b8 <col:28> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+`-ImplicitCastExpr 0x55bf9a617620 <col:34> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a6175e0 <col:34> 'int' lvalue Var 0x55bf9a612300 'pvariant' 'int'
+[B15.11] + [B15.13]
+  15: ImplicitCastExpr 0x55bf9a617788 <async.c:390:28, col:34> 'const char *' <BitCast>
+`-BinaryOperator 0x55bf9a617638 <col:28, col:34> 'char *' '+'
+  |-ImplicitCastExpr 0x55bf9a617608 <col:28> 'char *' <LValueToRValue>
+  | `-DeclRefExpr 0x55bf9a6175b8 <col:28> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+  `-ImplicitCastExpr 0x55bf9a617620 <col:34> 'int' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a6175e0 <col:34> 'int' lvalue Var 0x55bf9a612300 'pvariant' 'int'
+[B15.14] (ImplicitCastExpr, BitCast, const char *)
+  16: StringLiteral 0x55bf9a6176d8 <async.c:390:43> 'const char [10]' lvalue "subscribe"
+"subscribe"
+  17: ImplicitCastExpr 0x55bf9a6177a0 <async.c:390:43> 'const char *' <ArrayToPointerDecay>
+`-StringLiteral 0x55bf9a6176d8 <col:43> 'const char [10]' lvalue "subscribe"
+[B15.16] (ImplicitCastExpr, ArrayToPointerDecay, const char *)
+  18: CallExpr 0x55bf9a617750 <async.c:390:17, col:54> 'int'
+|-ImplicitCastExpr 0x55bf9a617738 <col:17> 'int (*)(const char *, const char *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a617590 <col:17> 'int (const char *, const char *)' Function 0x55bf9a52f820 'strcasecmp' 'int (const char *, const char *)'
+|-ImplicitCastExpr 0x55bf9a617788 <col:28, col:34> 'const char *' <BitCast>
+| `-BinaryOperator 0x55bf9a617638 <col:28, col:34> 'char *' '+'
+|   |-ImplicitCastExpr 0x55bf9a617608 <col:28> 'char *' <LValueToRValue>
+|   | `-DeclRefExpr 0x55bf9a6175b8 <col:28> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+|   `-ImplicitCastExpr 0x55bf9a617620 <col:34> 'int' <LValueToRValue>
+|     `-DeclRefExpr 0x55bf9a6175e0 <col:34> 'int' lvalue Var 0x55bf9a612300 'pvariant' 'int'
+`-ImplicitCastExpr 0x55bf9a6177a0 <col:43> 'const char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x55bf9a6176d8 <col:43> 'const char [10]' lvalue "subscribe"
+[B15.9]([B15.15], [B15.17])
+  19: IntegerLiteral 0x55bf9a6177e0 <async.c:390:59> 'int' 0
+0
+  20: BinaryOperator 0x55bf9a617800 <async.c:390:17, col:59> 'int' '=='
+|-CallExpr 0x55bf9a617750 <col:17, col:54> 'int'
+| |-ImplicitCastExpr 0x55bf9a617738 <col:17> 'int (*)(const char *, const char *)' <FunctionToPointerDecay>
+| | `-DeclRefExpr 0x55bf9a617590 <col:17> 'int (const char *, const char *)' Function 0x55bf9a52f820 'strcasecmp' 'int (const char *, const char *)'
+| |-ImplicitCastExpr 0x55bf9a617788 <col:28, col:34> 'const char *' <BitCast>
+| | `-BinaryOperator 0x55bf9a617638 <col:28, col:34> 'char *' '+'
+| |   |-ImplicitCastExpr 0x55bf9a617608 <col:28> 'char *' <LValueToRValue>
+| |   | `-DeclRefExpr 0x55bf9a6175b8 <col:28> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+| |   `-ImplicitCastExpr 0x55bf9a617620 <col:34> 'int' <LValueToRValue>
+| |     `-DeclRefExpr 0x55bf9a6175e0 <col:34> 'int' lvalue Var 0x55bf9a612300 'pvariant' 'int'
+| `-ImplicitCastExpr 0x55bf9a6177a0 <col:43> 'const char *' <ArrayToPointerDecay>
+|   `-StringLiteral 0x55bf9a6176d8 <col:43> 'const char [10]' lvalue "subscribe"
+`-IntegerLiteral 0x55bf9a6177e0 <col:59> 'int' 0
+[B15.18] == [B15.19]
+   T: if [B15.20]
+   Preds (1): B16
+   Succs (2): B14 B13
+
+ [B16]
+   1: ConditionalOperator 0x55bf9a616de8 </usr/include/assert.h:98:6, line:100:67> 'void'
+|-ParenExpr 0x55bf9a616ad0 <line:98:6, col:11> 'int'
+| `-BinaryOperator 0x55bf9a616aa8 <async.c:383:16, ./read.h:51:28> 'int' '=='
+|   |-ImplicitCastExpr 0x55bf9a616a90 <async.c:383:16, col:35> 'int' <LValueToRValue>
+|   | `-MemberExpr 0x55bf9a616a38 <col:16, col:35> 'int' lvalue ->type 0x55bf9a5b5fb8
+|   |   `-ImplicitCastExpr 0x55bf9a616a20 <col:16, col:32> 'struct redisReply *' <LValueToRValue>
+|   |     `-ArraySubscriptExpr 0x55bf9a6169f8 <col:16, col:32> 'struct redisReply *' lvalue
+|   |       |-ImplicitCastExpr 0x55bf9a6169e0 <col:16, col:23> 'struct redisReply **' <LValueToRValue>
+|   |       | `-MemberExpr 0x55bf9a616988 <col:16, col:23> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+|   |       |   `-ImplicitCastExpr 0x55bf9a616970 <col:16> 'redisReply *' <LValueToRValue>
+|   |       |     `-DeclRefExpr 0x55bf9a616948 <col:16> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+|   |       `-IntegerLiteral 0x55bf9a6169c0 <col:31> 'int' 1
+|   `-IntegerLiteral 0x55bf9a616a70 <./read.h:51:28> 'int' 1
+|-CStyleCastExpr 0x55bf9a616b70 </usr/include/assert.h:40:29, line:99:29> 'void' <ToVoid>
+| `-ParenExpr 0x55bf9a616b50 <col:27, col:29> 'int'
+|   `-IntegerLiteral 0x55bf9a616af0 <col:28> 'int' 0
+`-CallExpr 0x55bf9a616d40 <line:100:8, col:67> 'void'
+  |-ImplicitCastExpr 0x55bf9a616d28 <col:8> 'void (*)(const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55bf9a616b98 <col:8> 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' Function 0x55bf9a52ff20 '__assert_fail' 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))'
+  |-ImplicitCastExpr 0x55bf9a616d88 <<scratch space>:140:1> 'const char *' <ArrayToPointerDecay>
+  | `-StringLiteral 0x55bf9a616bc0 <col:1> 'const char [46]' lvalue "reply->element[1]->type == REDIS_REPLY_STRING"
+  |-ImplicitCastExpr 0x55bf9a616da0 <line:141:1> 'const char *' <ArrayToPointerDecay>
+  | `-StringLiteral 0x55bf9a616c18 <col:1> 'const char [8]' lvalue "async.c"
+  |-ImplicitCastExpr 0x55bf9a616db8 <line:142:1> 'unsigned int' <IntegralCast>
+  | `-IntegerLiteral 0x55bf9a616c48 <col:1> 'int' 383
+  `-ImplicitCastExpr 0x55bf9a616dd0 </usr/include/assert.h:129:30, col:44> 'const char *' <ArrayToPointerDecay>
+    `-UnaryOperator 0x55bf9a616d08 <col:30, col:44> 'const char [84]' lvalue prefix '__extension__'
+      `-PredefinedExpr 0x55bf9a616ce8 <col:44> 'const char [84]' lvalue __PRETTY_FUNCTION__
+        `-StringLiteral 0x55bf9a616c68 <col:44> 'const char [84]' lvalue "int __redisGetSubscribeCallback(redisAsyncContext *, redisReply *, redisCallback *)"
+([B19.11]) ? [B17.2] : [B18.12]
+   2: DeclRefExpr 0x55bf9a616e60 <async.c:384:17> 'sds (const void *, size_t)' Function 0x55bf9a5af660 'sdsnewlen' 'sds (const void *, size_t)'
+sdsnewlen
+   3: ImplicitCastExpr 0x55bf9a617138 <async.c:384:17> 'sds (*)(const void *, size_t)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a616e60 <col:17> 'sds (const void *, size_t)' Function 0x55bf9a5af660 'sdsnewlen' 'sds (const void *, size_t)'
+[B16.2] (ImplicitCastExpr, FunctionToPointerDecay, sds (*)(const void *, size_t))
+   4: DeclRefExpr 0x55bf9a616e88 <async.c:384:27> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+reply
+   5: ImplicitCastExpr 0x55bf9a616eb0 <async.c:384:27> 'redisReply *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a616e88 <col:27> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+[B16.4] (ImplicitCastExpr, LValueToRValue, redisReply *)
+   6: MemberExpr 0x55bf9a616ec8 <async.c:384:27, col:34> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+`-ImplicitCastExpr 0x55bf9a616eb0 <col:27> 'redisReply *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a616e88 <col:27> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+[B16.5]->element
+   7: ImplicitCastExpr 0x55bf9a616f20 <async.c:384:27, col:34> 'struct redisReply **' <LValueToRValue>
+`-MemberExpr 0x55bf9a616ec8 <col:27, col:34> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+  `-ImplicitCastExpr 0x55bf9a616eb0 <col:27> 'redisReply *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a616e88 <col:27> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+[B16.6] (ImplicitCastExpr, LValueToRValue, struct redisReply **)
+   8: IntegerLiteral 0x55bf9a616f00 <async.c:384:42> 'int' 1
+1
+   9: ArraySubscriptExpr 0x55bf9a616f38 <async.c:384:27, col:43> 'struct redisReply *' lvalue
+|-ImplicitCastExpr 0x55bf9a616f20 <col:27, col:34> 'struct redisReply **' <LValueToRValue>
+| `-MemberExpr 0x55bf9a616ec8 <col:27, col:34> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+|   `-ImplicitCastExpr 0x55bf9a616eb0 <col:27> 'redisReply *' <LValueToRValue>
+|     `-DeclRefExpr 0x55bf9a616e88 <col:27> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+`-IntegerLiteral 0x55bf9a616f00 <col:42> 'int' 1
+[B16.7][[B16.8]]
+  10: ImplicitCastExpr 0x55bf9a616f60 <async.c:384:27, col:43> 'struct redisReply *' <LValueToRValue>
+`-ArraySubscriptExpr 0x55bf9a616f38 <col:27, col:43> 'struct redisReply *' lvalue
+  |-ImplicitCastExpr 0x55bf9a616f20 <col:27, col:34> 'struct redisReply **' <LValueToRValue>
+  | `-MemberExpr 0x55bf9a616ec8 <col:27, col:34> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+  |   `-ImplicitCastExpr 0x55bf9a616eb0 <col:27> 'redisReply *' <LValueToRValue>
+  |     `-DeclRefExpr 0x55bf9a616e88 <col:27> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+  `-IntegerLiteral 0x55bf9a616f00 <col:42> 'int' 1
+[B16.9] (ImplicitCastExpr, LValueToRValue, struct redisReply *)
+  11: MemberExpr 0x55bf9a616f78 <async.c:384:27, col:46> 'char *' lvalue ->str 0x55bf9a5b6130
+`-ImplicitCastExpr 0x55bf9a616f60 <col:27, col:43> 'struct redisReply *' <LValueToRValue>
+  `-ArraySubscriptExpr 0x55bf9a616f38 <col:27, col:43> 'struct redisReply *' lvalue
+    |-ImplicitCastExpr 0x55bf9a616f20 <col:27, col:34> 'struct redisReply **' <LValueToRValue>
+    | `-MemberExpr 0x55bf9a616ec8 <col:27, col:34> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+    |   `-ImplicitCastExpr 0x55bf9a616eb0 <col:27> 'redisReply *' <LValueToRValue>
+    |     `-DeclRefExpr 0x55bf9a616e88 <col:27> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+    `-IntegerLiteral 0x55bf9a616f00 <col:42> 'int' 1
+[B16.10]->str
+  12: ImplicitCastExpr 0x55bf9a617188 <async.c:384:27, col:46> 'char *' <LValueToRValue>
+`-MemberExpr 0x55bf9a616f78 <col:27, col:46> 'char *' lvalue ->str 0x55bf9a5b6130
+  `-ImplicitCastExpr 0x55bf9a616f60 <col:27, col:43> 'struct redisReply *' <LValueToRValue>
+    `-ArraySubscriptExpr 0x55bf9a616f38 <col:27, col:43> 'struct redisReply *' lvalue
+      |-ImplicitCastExpr 0x55bf9a616f20 <col:27, col:34> 'struct redisReply **' <LValueToRValue>
+      | `-MemberExpr 0x55bf9a616ec8 <col:27, col:34> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+      |   `-ImplicitCastExpr 0x55bf9a616eb0 <col:27> 'redisReply *' <LValueToRValue>
+      |     `-DeclRefExpr 0x55bf9a616e88 <col:27> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+      `-IntegerLiteral 0x55bf9a616f00 <col:42> 'int' 1
+[B16.11] (ImplicitCastExpr, LValueToRValue, char *)
+  13: ImplicitCastExpr 0x55bf9a6171a0 <async.c:384:27, col:46> 'const void *' <BitCast>
+`-ImplicitCastExpr 0x55bf9a617188 <col:27, col:46> 'char *' <LValueToRValue>
+  `-MemberExpr 0x55bf9a616f78 <col:27, col:46> 'char *' lvalue ->str 0x55bf9a5b6130
+    `-ImplicitCastExpr 0x55bf9a616f60 <col:27, col:43> 'struct redisReply *' <LValueToRValue>
+      `-ArraySubscriptExpr 0x55bf9a616f38 <col:27, col:43> 'struct redisReply *' lvalue
+        |-ImplicitCastExpr 0x55bf9a616f20 <col:27, col:34> 'struct redisReply **' <LValueToRValue>
+        | `-MemberExpr 0x55bf9a616ec8 <col:27, col:34> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+        |   `-ImplicitCastExpr 0x55bf9a616eb0 <col:27> 'redisReply *' <LValueToRValue>
+        |     `-DeclRefExpr 0x55bf9a616e88 <col:27> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+        `-IntegerLiteral 0x55bf9a616f00 <col:42> 'int' 1
+[B16.12] (ImplicitCastExpr, BitCast, const void *)
+  14: DeclRefExpr 0x55bf9a616fb0 <async.c:384:50> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+reply
+  15: ImplicitCastExpr 0x55bf9a616fd8 <async.c:384:50> 'redisReply *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a616fb0 <col:50> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+[B16.14] (ImplicitCastExpr, LValueToRValue, redisReply *)
+  16: MemberExpr 0x55bf9a616ff0 <async.c:384:50, col:57> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+`-ImplicitCastExpr 0x55bf9a616fd8 <col:50> 'redisReply *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a616fb0 <col:50> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+[B16.15]->element
+  17: ImplicitCastExpr 0x55bf9a617048 <async.c:384:50, col:57> 'struct redisReply **' <LValueToRValue>
+`-MemberExpr 0x55bf9a616ff0 <col:50, col:57> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+  `-ImplicitCastExpr 0x55bf9a616fd8 <col:50> 'redisReply *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a616fb0 <col:50> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+[B16.16] (ImplicitCastExpr, LValueToRValue, struct redisReply **)
+  18: IntegerLiteral 0x55bf9a617028 <async.c:384:65> 'int' 1
+1
+  19: ArraySubscriptExpr 0x55bf9a617060 <async.c:384:50, col:66> 'struct redisReply *' lvalue
+|-ImplicitCastExpr 0x55bf9a617048 <col:50, col:57> 'struct redisReply **' <LValueToRValue>
+| `-MemberExpr 0x55bf9a616ff0 <col:50, col:57> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+|   `-ImplicitCastExpr 0x55bf9a616fd8 <col:50> 'redisReply *' <LValueToRValue>
+|     `-DeclRefExpr 0x55bf9a616fb0 <col:50> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+`-IntegerLiteral 0x55bf9a617028 <col:65> 'int' 1
+[B16.17][[B16.18]]
+  20: ImplicitCastExpr 0x55bf9a617088 <async.c:384:50, col:66> 'struct redisReply *' <LValueToRValue>
+`-ArraySubscriptExpr 0x55bf9a617060 <col:50, col:66> 'struct redisReply *' lvalue
+  |-ImplicitCastExpr 0x55bf9a617048 <col:50, col:57> 'struct redisReply **' <LValueToRValue>
+  | `-MemberExpr 0x55bf9a616ff0 <col:50, col:57> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+  |   `-ImplicitCastExpr 0x55bf9a616fd8 <col:50> 'redisReply *' <LValueToRValue>
+  |     `-DeclRefExpr 0x55bf9a616fb0 <col:50> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+  `-IntegerLiteral 0x55bf9a617028 <col:65> 'int' 1
+[B16.19] (ImplicitCastExpr, LValueToRValue, struct redisReply *)
+  21: MemberExpr 0x55bf9a6170a0 <async.c:384:50, col:69> 'size_t':'unsigned long' lvalue ->len 0x55bf9a5b60d0
+`-ImplicitCastExpr 0x55bf9a617088 <col:50, col:66> 'struct redisReply *' <LValueToRValue>
+  `-ArraySubscriptExpr 0x55bf9a617060 <col:50, col:66> 'struct redisReply *' lvalue
+    |-ImplicitCastExpr 0x55bf9a617048 <col:50, col:57> 'struct redisReply **' <LValueToRValue>
+    | `-MemberExpr 0x55bf9a616ff0 <col:50, col:57> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+    |   `-ImplicitCastExpr 0x55bf9a616fd8 <col:50> 'redisReply *' <LValueToRValue>
+    |     `-DeclRefExpr 0x55bf9a616fb0 <col:50> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+    `-IntegerLiteral 0x55bf9a617028 <col:65> 'int' 1
+[B16.20]->len
+  22: ImplicitCastExpr 0x55bf9a6171b8 <async.c:384:50, col:69> 'size_t':'unsigned long' <LValueToRValue>
+`-MemberExpr 0x55bf9a6170a0 <col:50, col:69> 'size_t':'unsigned long' lvalue ->len 0x55bf9a5b60d0
+  `-ImplicitCastExpr 0x55bf9a617088 <col:50, col:66> 'struct redisReply *' <LValueToRValue>
+    `-ArraySubscriptExpr 0x55bf9a617060 <col:50, col:66> 'struct redisReply *' lvalue
+      |-ImplicitCastExpr 0x55bf9a617048 <col:50, col:57> 'struct redisReply **' <LValueToRValue>
+      | `-MemberExpr 0x55bf9a616ff0 <col:50, col:57> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+      |   `-ImplicitCastExpr 0x55bf9a616fd8 <col:50> 'redisReply *' <LValueToRValue>
+      |     `-DeclRefExpr 0x55bf9a616fb0 <col:50> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+      `-IntegerLiteral 0x55bf9a617028 <col:65> 'int' 1
+[B16.21] (ImplicitCastExpr, LValueToRValue, size_t)
+  23: CallExpr 0x55bf9a617150 <async.c:384:17, col:72> 'sds':'char *'
+|-ImplicitCastExpr 0x55bf9a617138 <col:17> 'sds (*)(const void *, size_t)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a616e60 <col:17> 'sds (const void *, size_t)' Function 0x55bf9a5af660 'sdsnewlen' 'sds (const void *, size_t)'
+|-ImplicitCastExpr 0x55bf9a6171a0 <col:27, col:46> 'const void *' <BitCast>
+| `-ImplicitCastExpr 0x55bf9a617188 <col:27, col:46> 'char *' <LValueToRValue>
+|   `-MemberExpr 0x55bf9a616f78 <col:27, col:46> 'char *' lvalue ->str 0x55bf9a5b6130
+|     `-ImplicitCastExpr 0x55bf9a616f60 <col:27, col:43> 'struct redisReply *' <LValueToRValue>
+|       `-ArraySubscriptExpr 0x55bf9a616f38 <col:27, col:43> 'struct redisReply *' lvalue
+|         |-ImplicitCastExpr 0x55bf9a616f20 <col:27, col:34> 'struct redisReply **' <LValueToRValue>
+|         | `-MemberExpr 0x55bf9a616ec8 <col:27, col:34> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+|         |   `-ImplicitCastExpr 0x55bf9a616eb0 <col:27> 'redisReply *' <LValueToRValue>
+|         |     `-DeclRefExpr 0x55bf9a616e88 <col:27> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+|         `-IntegerLiteral 0x55bf9a616f00 <col:42> 'int' 1
+`-ImplicitCastExpr 0x55bf9a6171b8 <col:50, col:69> 'size_t':'unsigned long' <LValueToRValue>
+  `-MemberExpr 0x55bf9a6170a0 <col:50, col:69> 'size_t':'unsigned long' lvalue ->len 0x55bf9a5b60d0
+    `-ImplicitCastExpr 0x55bf9a617088 <col:50, col:66> 'struct redisReply *' <LValueToRValue>
+      `-ArraySubscriptExpr 0x55bf9a617060 <col:50, col:66> 'struct redisReply *' lvalue
+        |-ImplicitCastExpr 0x55bf9a617048 <col:50, col:57> 'struct redisReply **' <LValueToRValue>
+        | `-MemberExpr 0x55bf9a616ff0 <col:50, col:57> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+        |   `-ImplicitCastExpr 0x55bf9a616fd8 <col:50> 'redisReply *' <LValueToRValue>
+        |     `-DeclRefExpr 0x55bf9a616fb0 <col:50> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+        `-IntegerLiteral 0x55bf9a617028 <col:65> 'int' 1
+[B16.3]([B16.13], [B16.22])
+  24: DeclRefExpr 0x55bf9a616e38 <async.c:384:9> 'sds':'char *' lvalue Var 0x55bf9a612418 'sname' 'sds':'char *'
+sname
+  25: BinaryOperator 0x55bf9a6171d0 <async.c:384:9, col:72> 'sds':'char *' '='
+|-DeclRefExpr 0x55bf9a616e38 <col:9> 'sds':'char *' lvalue Var 0x55bf9a612418 'sname' 'sds':'char *'
+`-CallExpr 0x55bf9a617150 <col:17, col:72> 'sds':'char *'
+  |-ImplicitCastExpr 0x55bf9a617138 <col:17> 'sds (*)(const void *, size_t)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55bf9a616e60 <col:17> 'sds (const void *, size_t)' Function 0x55bf9a5af660 'sdsnewlen' 'sds (const void *, size_t)'
+  |-ImplicitCastExpr 0x55bf9a6171a0 <col:27, col:46> 'const void *' <BitCast>
+  | `-ImplicitCastExpr 0x55bf9a617188 <col:27, col:46> 'char *' <LValueToRValue>
+  |   `-MemberExpr 0x55bf9a616f78 <col:27, col:46> 'char *' lvalue ->str 0x55bf9a5b6130
+  |     `-ImplicitCastExpr 0x55bf9a616f60 <col:27, col:43> 'struct redisReply *' <LValueToRValue>
+  |       `-ArraySubscriptExpr 0x55bf9a616f38 <col:27, col:43> 'struct redisReply *' lvalue
+  |         |-ImplicitCastExpr 0x55bf9a616f20 <col:27, col:34> 'struct redisReply **' <LValueToRValue>
+  |         | `-MemberExpr 0x55bf9a616ec8 <col:27, col:34> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+  |         |   `-ImplicitCastExpr 0x55bf9a616eb0 <col:27> 'redisReply *' <LValueToRValue>
+  |         |     `-DeclRefExpr 0x55bf9a616e88 <col:27> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+  |         `-IntegerLiteral 0x55bf9a616f00 <col:42> 'int' 1
+  `-ImplicitCastExpr 0x55bf9a6171b8 <col:50, col:69> 'size_t':'unsigned long' <LValueToRValue>
+    `-MemberExpr 0x55bf9a6170a0 <col:50, col:69> 'size_t':'unsigned long' lvalue ->len 0x55bf9a5b60d0
+      `-ImplicitCastExpr 0x55bf9a617088 <col:50, col:66> 'struct redisReply *' <LValueToRValue>
+        `-ArraySubscriptExpr 0x55bf9a617060 <col:50, col:66> 'struct redisReply *' lvalue
+          |-ImplicitCastExpr 0x55bf9a617048 <col:50, col:57> 'struct redisReply **' <LValueToRValue>
+          | `-MemberExpr 0x55bf9a616ff0 <col:50, col:57> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+          |   `-ImplicitCastExpr 0x55bf9a616fd8 <col:50> 'redisReply *' <LValueToRValue>
+          |     `-DeclRefExpr 0x55bf9a616fb0 <col:50> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+          `-IntegerLiteral 0x55bf9a617028 <col:65> 'int' 1
+[B16.24] = [B16.23]
+  26: DeclRefExpr 0x55bf9a617220 <async.c:385:14> 'dictEntry *(dict *, const void *)' Function 0x55bf9a5f40b8 'dictFind' 'dictEntry *(dict *, const void *)'
+dictFind
+  27: ImplicitCastExpr 0x55bf9a617298 <async.c:385:14> 'dictEntry *(*)(dict *, const void *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a617220 <col:14> 'dictEntry *(dict *, const void *)' Function 0x55bf9a5f40b8 'dictFind' 'dictEntry *(dict *, const void *)'
+[B16.26] (ImplicitCastExpr, FunctionToPointerDecay, dictEntry *(*)(dict *, const void *))
+  28: DeclRefExpr 0x55bf9a617248 <async.c:385:23> 'dict *' lvalue Var 0x55bf9a6110e0 'callbacks' 'dict *'
+callbacks
+  29: ImplicitCastExpr 0x55bf9a6172e8 <async.c:385:23> 'dict *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a617248 <col:23> 'dict *' lvalue Var 0x55bf9a6110e0 'callbacks' 'dict *'
+[B16.28] (ImplicitCastExpr, LValueToRValue, dict *)
+  30: DeclRefExpr 0x55bf9a617270 <async.c:385:33> 'sds':'char *' lvalue Var 0x55bf9a612418 'sname' 'sds':'char *'
+sname
+  31: ImplicitCastExpr 0x55bf9a617300 <async.c:385:33> 'sds':'char *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a617270 <col:33> 'sds':'char *' lvalue Var 0x55bf9a612418 'sname' 'sds':'char *'
+[B16.30] (ImplicitCastExpr, LValueToRValue, sds)
+  32: ImplicitCastExpr 0x55bf9a617318 <async.c:385:33> 'const void *' <BitCast>
+`-ImplicitCastExpr 0x55bf9a617300 <col:33> 'sds':'char *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a617270 <col:33> 'sds':'char *' lvalue Var 0x55bf9a612418 'sname' 'sds':'char *'
+[B16.31] (ImplicitCastExpr, BitCast, const void *)
+  33: CallExpr 0x55bf9a6172b0 <async.c:385:14, col:38> 'dictEntry *'
+|-ImplicitCastExpr 0x55bf9a617298 <col:14> 'dictEntry *(*)(dict *, const void *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a617220 <col:14> 'dictEntry *(dict *, const void *)' Function 0x55bf9a5f40b8 'dictFind' 'dictEntry *(dict *, const void *)'
+|-ImplicitCastExpr 0x55bf9a6172e8 <col:23> 'dict *' <LValueToRValue>
+| `-DeclRefExpr 0x55bf9a617248 <col:23> 'dict *' lvalue Var 0x55bf9a6110e0 'callbacks' 'dict *'
+`-ImplicitCastExpr 0x55bf9a617318 <col:33> 'const void *' <BitCast>
+  `-ImplicitCastExpr 0x55bf9a617300 <col:33> 'sds':'char *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a617270 <col:33> 'sds':'char *' lvalue Var 0x55bf9a612418 'sname' 'sds':'char *'
+[B16.27]([B16.29], [B16.32])
+  34: DeclRefExpr 0x55bf9a6171f8 <async.c:385:9> 'dictEntry *' lvalue Var 0x55bf9a612270 'de' 'dictEntry *'
+de
+  35: BinaryOperator 0x55bf9a617330 <async.c:385:9, col:38> 'dictEntry *' '='
+|-DeclRefExpr 0x55bf9a6171f8 <col:9> 'dictEntry *' lvalue Var 0x55bf9a612270 'de' 'dictEntry *'
+`-CallExpr 0x55bf9a6172b0 <col:14, col:38> 'dictEntry *'
+  |-ImplicitCastExpr 0x55bf9a617298 <col:14> 'dictEntry *(*)(dict *, const void *)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55bf9a617220 <col:14> 'dictEntry *(dict *, const void *)' Function 0x55bf9a5f40b8 'dictFind' 'dictEntry *(dict *, const void *)'
+  |-ImplicitCastExpr 0x55bf9a6172e8 <col:23> 'dict *' <LValueToRValue>
+  | `-DeclRefExpr 0x55bf9a617248 <col:23> 'dict *' lvalue Var 0x55bf9a6110e0 'callbacks' 'dict *'
+  `-ImplicitCastExpr 0x55bf9a617318 <col:33> 'const void *' <BitCast>
+    `-ImplicitCastExpr 0x55bf9a617300 <col:33> 'sds':'char *' <LValueToRValue>
+      `-DeclRefExpr 0x55bf9a617270 <col:33> 'sds':'char *' lvalue Var 0x55bf9a612418 'sname' 'sds':'char *'
+[B16.34] = [B16.33]
+  36: DeclRefExpr 0x55bf9a617358 <async.c:386:13> 'dictEntry *' lvalue Var 0x55bf9a612270 'de' 'dictEntry *'
+de
+  37: ImplicitCastExpr 0x55bf9a617400 <async.c:386:13> 'dictEntry *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a617358 <col:13> 'dictEntry *' lvalue Var 0x55bf9a612270 'de' 'dictEntry *'
+[B16.36] (ImplicitCastExpr, LValueToRValue, dictEntry *)
+  38: IntegerLiteral 0x55bf9a617380 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+  39: CStyleCastExpr 0x55bf9a6173b8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x55bf9a617380 <col:24> 'int' 0
+(void *)[B16.38] (CStyleCastExpr, NullToPointer, void *)
+  40: ImplicitCastExpr 0x55bf9a617418 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'dictEntry *' <BitCast>
+`-ParenExpr 0x55bf9a6173e0 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x55bf9a6173b8 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x55bf9a617380 <col:24> 'int' 0
+([B16.39]) (ImplicitCastExpr, BitCast, dictEntry *)
+  41: BinaryOperator 0x55bf9a617430 <async.c:386:13, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25> 'int' '!='
+|-ImplicitCastExpr 0x55bf9a617400 <async.c:386:13> 'dictEntry *' <LValueToRValue>
+| `-DeclRefExpr 0x55bf9a617358 <col:13> 'dictEntry *' lvalue Var 0x55bf9a612270 'de' 'dictEntry *'
+`-ImplicitCastExpr 0x55bf9a617418 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'dictEntry *' <BitCast>
+  `-ParenExpr 0x55bf9a6173e0 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x55bf9a6173b8 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x55bf9a617380 <col:24> 'int' 0
+[B16.37] != [B16.40]
+   T: if [B16.41]
+   Preds (2): B17 B18(Unreachable)
+   Succs (2): B15 B3
+
+ [B17]
+   1: IntegerLiteral 0x55bf9a616af0 </usr/include/assert.h:99:28> 'int' 0
+0
+   2: CStyleCastExpr 0x55bf9a616b70 </usr/include/assert.h:40:29, line:99:29> 'void' <ToVoid>
+`-ParenExpr 0x55bf9a616b50 <col:27, col:29> 'int'
+  `-IntegerLiteral 0x55bf9a616af0 <col:28> 'int' 0
+(void)([B17.1]) (CStyleCastExpr, ToVoid, void)
+   Preds (1): B19
+   Succs (1): B16
+
+ [B18 (NORETURN)]
+   1: DeclRefExpr 0x55bf9a616b98 </usr/include/assert.h:100:8> 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' Function 0x55bf9a52ff20 '__assert_fail' 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))'
+__assert_fail
+   2: ImplicitCastExpr 0x55bf9a616d28 </usr/include/assert.h:100:8> 'void (*)(const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a616b98 <col:8> 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' Function 0x55bf9a52ff20 '__assert_fail' 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))'
+[B18.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(const char *, const char *, unsigned int, const char *) __attribute__((noreturn)))
+   3: StringLiteral 0x55bf9a616bc0 <<scratch space>:140:1> 'const char [46]' lvalue "reply->element[1]->type == REDIS_REPLY_STRING"
+"reply->element[1]->type == REDIS_REPLY_STRING"
+   4: ImplicitCastExpr 0x55bf9a616d88 <<scratch space>:140:1> 'const char *' <ArrayToPointerDecay>
+`-StringLiteral 0x55bf9a616bc0 <col:1> 'const char [46]' lvalue "reply->element[1]->type == REDIS_REPLY_STRING"
+[B18.3] (ImplicitCastExpr, ArrayToPointerDecay, const char *)
+   5: StringLiteral 0x55bf9a616c18 <<scratch space>:141:1> 'const char [8]' lvalue "async.c"
+"async.c"
+   6: ImplicitCastExpr 0x55bf9a616da0 <<scratch space>:141:1> 'const char *' <ArrayToPointerDecay>
+`-StringLiteral 0x55bf9a616c18 <col:1> 'const char [8]' lvalue "async.c"
+[B18.5] (ImplicitCastExpr, ArrayToPointerDecay, const char *)
+   7: IntegerLiteral 0x55bf9a616c48 <<scratch space>:142:1> 'int' 383
+383
+   8: ImplicitCastExpr 0x55bf9a616db8 <<scratch space>:142:1> 'unsigned int' <IntegralCast>
+`-IntegerLiteral 0x55bf9a616c48 <col:1> 'int' 383
+[B18.7] (ImplicitCastExpr, IntegralCast, unsigned int)
+   9: StringLiteral 0x55bf9a616c68 </usr/include/assert.h:129:44> 'const char [84]' lvalue "int __redisGetSubscribeCallback(redisAsyncContext *, redisReply *, redisCallback *)"
+"int __redisGetSubscribeCallback(redisAsyncContext *, redisReply *, redisCallback *)"
+  10: PredefinedExpr 0x55bf9a616ce8 </usr/include/assert.h:129:44> 'const char [84]' lvalue __PRETTY_FUNCTION__
+`-StringLiteral 0x55bf9a616c68 <col:44> 'const char [84]' lvalue "int __redisGetSubscribeCallback(redisAsyncContext *, redisReply *, redisCallback *)"
+__PRETTY_FUNCTION__
+  11: ImplicitCastExpr 0x55bf9a616dd0 </usr/include/assert.h:129:30, col:44> 'const char *' <ArrayToPointerDecay>
+`-UnaryOperator 0x55bf9a616d08 <col:30, col:44> 'const char [84]' lvalue prefix '__extension__'
+  `-PredefinedExpr 0x55bf9a616ce8 <col:44> 'const char [84]' lvalue __PRETTY_FUNCTION__
+    `-StringLiteral 0x55bf9a616c68 <col:44> 'const char [84]' lvalue "int __redisGetSubscribeCallback(redisAsyncContext *, redisReply *, redisCallback *)"
+__extension__ [B18.10] (ImplicitCastExpr, ArrayToPointerDecay, const char *)
+  12: CallExpr 0x55bf9a616d40 </usr/include/assert.h:100:8, col:67> 'void'
+|-ImplicitCastExpr 0x55bf9a616d28 <col:8> 'void (*)(const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a616b98 <col:8> 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' Function 0x55bf9a52ff20 '__assert_fail' 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))'
+|-ImplicitCastExpr 0x55bf9a616d88 <<scratch space>:140:1> 'const char *' <ArrayToPointerDecay>
+| `-StringLiteral 0x55bf9a616bc0 <col:1> 'const char [46]' lvalue "reply->element[1]->type == REDIS_REPLY_STRING"
+|-ImplicitCastExpr 0x55bf9a616da0 <line:141:1> 'const char *' <ArrayToPointerDecay>
+| `-StringLiteral 0x55bf9a616c18 <col:1> 'const char [8]' lvalue "async.c"
+|-ImplicitCastExpr 0x55bf9a616db8 <line:142:1> 'unsigned int' <IntegralCast>
+| `-IntegerLiteral 0x55bf9a616c48 <col:1> 'int' 383
+`-ImplicitCastExpr 0x55bf9a616dd0 </usr/include/assert.h:129:30, col:44> 'const char *' <ArrayToPointerDecay>
+  `-UnaryOperator 0x55bf9a616d08 <col:30, col:44> 'const char [84]' lvalue prefix '__extension__'
+    `-PredefinedExpr 0x55bf9a616ce8 <col:44> 'const char [84]' lvalue __PRETTY_FUNCTION__
+      `-StringLiteral 0x55bf9a616c68 <col:44> 'const char [84]' lvalue "int __redisGetSubscribeCallback(redisAsyncContext *, redisReply *, redisCallback *)"
+[B18.2]([B18.4], [B18.6], [B18.8], [B18.11])
+   Preds (1): B19
+   Succs (1): B0
+
+ [B19]
+   1: DeclRefExpr 0x55bf9a616948 <async.c:383:16> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+reply
+   2: ImplicitCastExpr 0x55bf9a616970 <async.c:383:16> 'redisReply *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a616948 <col:16> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+[B19.1] (ImplicitCastExpr, LValueToRValue, redisReply *)
+   3: MemberExpr 0x55bf9a616988 <async.c:383:16, col:23> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+`-ImplicitCastExpr 0x55bf9a616970 <col:16> 'redisReply *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a616948 <col:16> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+[B19.2]->element
+   4: ImplicitCastExpr 0x55bf9a6169e0 <async.c:383:16, col:23> 'struct redisReply **' <LValueToRValue>
+`-MemberExpr 0x55bf9a616988 <col:16, col:23> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+  `-ImplicitCastExpr 0x55bf9a616970 <col:16> 'redisReply *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a616948 <col:16> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+[B19.3] (ImplicitCastExpr, LValueToRValue, struct redisReply **)
+   5: IntegerLiteral 0x55bf9a6169c0 <async.c:383:31> 'int' 1
+1
+   6: ArraySubscriptExpr 0x55bf9a6169f8 <async.c:383:16, col:32> 'struct redisReply *' lvalue
+|-ImplicitCastExpr 0x55bf9a6169e0 <col:16, col:23> 'struct redisReply **' <LValueToRValue>
+| `-MemberExpr 0x55bf9a616988 <col:16, col:23> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+|   `-ImplicitCastExpr 0x55bf9a616970 <col:16> 'redisReply *' <LValueToRValue>
+|     `-DeclRefExpr 0x55bf9a616948 <col:16> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+`-IntegerLiteral 0x55bf9a6169c0 <col:31> 'int' 1
+[B19.4][[B19.5]]
+   7: ImplicitCastExpr 0x55bf9a616a20 <async.c:383:16, col:32> 'struct redisReply *' <LValueToRValue>
+`-ArraySubscriptExpr 0x55bf9a6169f8 <col:16, col:32> 'struct redisReply *' lvalue
+  |-ImplicitCastExpr 0x55bf9a6169e0 <col:16, col:23> 'struct redisReply **' <LValueToRValue>
+  | `-MemberExpr 0x55bf9a616988 <col:16, col:23> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+  |   `-ImplicitCastExpr 0x55bf9a616970 <col:16> 'redisReply *' <LValueToRValue>
+  |     `-DeclRefExpr 0x55bf9a616948 <col:16> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+  `-IntegerLiteral 0x55bf9a6169c0 <col:31> 'int' 1
+[B19.6] (ImplicitCastExpr, LValueToRValue, struct redisReply *)
+   8: MemberExpr 0x55bf9a616a38 <async.c:383:16, col:35> 'int' lvalue ->type 0x55bf9a5b5fb8
+`-ImplicitCastExpr 0x55bf9a616a20 <col:16, col:32> 'struct redisReply *' <LValueToRValue>
+  `-ArraySubscriptExpr 0x55bf9a6169f8 <col:16, col:32> 'struct redisReply *' lvalue
+    |-ImplicitCastExpr 0x55bf9a6169e0 <col:16, col:23> 'struct redisReply **' <LValueToRValue>
+    | `-MemberExpr 0x55bf9a616988 <col:16, col:23> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+    |   `-ImplicitCastExpr 0x55bf9a616970 <col:16> 'redisReply *' <LValueToRValue>
+    |     `-DeclRefExpr 0x55bf9a616948 <col:16> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+    `-IntegerLiteral 0x55bf9a6169c0 <col:31> 'int' 1
+[B19.7]->type
+   9: ImplicitCastExpr 0x55bf9a616a90 <async.c:383:16, col:35> 'int' <LValueToRValue>
+`-MemberExpr 0x55bf9a616a38 <col:16, col:35> 'int' lvalue ->type 0x55bf9a5b5fb8
+  `-ImplicitCastExpr 0x55bf9a616a20 <col:16, col:32> 'struct redisReply *' <LValueToRValue>
+    `-ArraySubscriptExpr 0x55bf9a6169f8 <col:16, col:32> 'struct redisReply *' lvalue
+      |-ImplicitCastExpr 0x55bf9a6169e0 <col:16, col:23> 'struct redisReply **' <LValueToRValue>
+      | `-MemberExpr 0x55bf9a616988 <col:16, col:23> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+      |   `-ImplicitCastExpr 0x55bf9a616970 <col:16> 'redisReply *' <LValueToRValue>
+      |     `-DeclRefExpr 0x55bf9a616948 <col:16> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+      `-IntegerLiteral 0x55bf9a6169c0 <col:31> 'int' 1
+[B19.8] (ImplicitCastExpr, LValueToRValue, int)
+  10: IntegerLiteral 0x55bf9a616a70 <./read.h:51:28> 'int' 1
+1
+  11: BinaryOperator 0x55bf9a616aa8 <async.c:383:16, ./read.h:51:28> 'int' '=='
+|-ImplicitCastExpr 0x55bf9a616a90 <async.c:383:16, col:35> 'int' <LValueToRValue>
+| `-MemberExpr 0x55bf9a616a38 <col:16, col:35> 'int' lvalue ->type 0x55bf9a5b5fb8
+|   `-ImplicitCastExpr 0x55bf9a616a20 <col:16, col:32> 'struct redisReply *' <LValueToRValue>
+|     `-ArraySubscriptExpr 0x55bf9a6169f8 <col:16, col:32> 'struct redisReply *' lvalue
+|       |-ImplicitCastExpr 0x55bf9a6169e0 <col:16, col:23> 'struct redisReply **' <LValueToRValue>
+|       | `-MemberExpr 0x55bf9a616988 <col:16, col:23> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+|       |   `-ImplicitCastExpr 0x55bf9a616970 <col:16> 'redisReply *' <LValueToRValue>
+|       |     `-DeclRefExpr 0x55bf9a616948 <col:16> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+|       `-IntegerLiteral 0x55bf9a6169c0 <col:31> 'int' 1
+`-IntegerLiteral 0x55bf9a616a70 <./read.h:51:28> 'int' 1
+[B19.9] == [B19.10]
+   T: ([B19.11]) ? ... : ...
+   Preds (2): B20 B21
+   Succs (2): B17 B18
+
+ [B20]
+   1: DeclRefExpr 0x55bf9a616820 <async.c:380:25> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+ac
+   2: ImplicitCastExpr 0x55bf9a616848 <async.c:380:25> 'redisAsyncContext *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a616820 <col:25> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+[B20.1] (ImplicitCastExpr, LValueToRValue, redisAsyncContext *)
+   3: MemberExpr 0x55bf9a616860 <async.c:380:25, col:29> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+`-ImplicitCastExpr 0x55bf9a616848 <col:25> 'redisAsyncContext *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a616820 <col:25> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+[B20.2]->sub
+   4: MemberExpr 0x55bf9a616898 <async.c:380:25, col:33> 'struct dict *' lvalue .channels 0x55bf9a5c4770
+`-MemberExpr 0x55bf9a616860 <col:25, col:29> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+  `-ImplicitCastExpr 0x55bf9a616848 <col:25> 'redisAsyncContext *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a616820 <col:25> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+[B20.3].channels
+   5: ImplicitCastExpr 0x55bf9a6168d0 <async.c:380:25, col:33> 'struct dict *' <LValueToRValue>
+`-MemberExpr 0x55bf9a616898 <col:25, col:33> 'struct dict *' lvalue .channels 0x55bf9a5c4770
+  `-MemberExpr 0x55bf9a616860 <col:25, col:29> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+    `-ImplicitCastExpr 0x55bf9a616848 <col:25> 'redisAsyncContext *' <LValueToRValue>
+      `-DeclRefExpr 0x55bf9a616820 <col:25> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+[B20.4] (ImplicitCastExpr, LValueToRValue, struct dict *)
+   6: DeclRefExpr 0x55bf9a6167f8 <async.c:380:13> 'dict *' lvalue Var 0x55bf9a6110e0 'callbacks' 'dict *'
+callbacks
+   7: BinaryOperator 0x55bf9a6168e8 <async.c:380:13, col:33> 'dict *' '='
+|-DeclRefExpr 0x55bf9a6167f8 <col:13> 'dict *' lvalue Var 0x55bf9a6110e0 'callbacks' 'dict *'
+`-ImplicitCastExpr 0x55bf9a6168d0 <col:25, col:33> 'struct dict *' <LValueToRValue>
+  `-MemberExpr 0x55bf9a616898 <col:25, col:33> 'struct dict *' lvalue .channels 0x55bf9a5c4770
+    `-MemberExpr 0x55bf9a616860 <col:25, col:29> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+      `-ImplicitCastExpr 0x55bf9a616848 <col:25> 'redisAsyncContext *' <LValueToRValue>
+        `-DeclRefExpr 0x55bf9a616820 <col:25> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+[B20.6] = [B20.5]
+   Preds (1): B22
+   Succs (1): B19
+
+ [B21]
+   1: DeclRefExpr 0x55bf9a6166e8 <async.c:378:25> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+ac
+   2: ImplicitCastExpr 0x55bf9a616710 <async.c:378:25> 'redisAsyncContext *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a6166e8 <col:25> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+[B21.1] (ImplicitCastExpr, LValueToRValue, redisAsyncContext *)
+   3: MemberExpr 0x55bf9a616728 <async.c:378:25, col:29> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+`-ImplicitCastExpr 0x55bf9a616710 <col:25> 'redisAsyncContext *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a6166e8 <col:25> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+[B21.2]->sub
+   4: MemberExpr 0x55bf9a616760 <async.c:378:25, col:33> 'struct dict *' lvalue .patterns 0x55bf9a5c47e0
+`-MemberExpr 0x55bf9a616728 <col:25, col:29> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+  `-ImplicitCastExpr 0x55bf9a616710 <col:25> 'redisAsyncContext *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a6166e8 <col:25> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+[B21.3].patterns
+   5: ImplicitCastExpr 0x55bf9a616798 <async.c:378:25, col:33> 'struct dict *' <LValueToRValue>
+`-MemberExpr 0x55bf9a616760 <col:25, col:33> 'struct dict *' lvalue .patterns 0x55bf9a5c47e0
+  `-MemberExpr 0x55bf9a616728 <col:25, col:29> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+    `-ImplicitCastExpr 0x55bf9a616710 <col:25> 'redisAsyncContext *' <LValueToRValue>
+      `-DeclRefExpr 0x55bf9a6166e8 <col:25> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+[B21.4] (ImplicitCastExpr, LValueToRValue, struct dict *)
+   6: DeclRefExpr 0x55bf9a6166c0 <async.c:378:13> 'dict *' lvalue Var 0x55bf9a6110e0 'callbacks' 'dict *'
+callbacks
+   7: BinaryOperator 0x55bf9a6167d0 <async.c:378:13, col:33> 'dict *' '='
+|-DeclRefExpr 0x55bf9a6166c0 <col:13> 'dict *' lvalue Var 0x55bf9a6110e0 'callbacks' 'dict *'
+`-ImplicitCastExpr 0x55bf9a616798 <col:25, col:33> 'struct dict *' <LValueToRValue>
+  `-MemberExpr 0x55bf9a616760 <col:25, col:33> 'struct dict *' lvalue .patterns 0x55bf9a5c47e0
+    `-MemberExpr 0x55bf9a616728 <col:25, col:29> 'struct (anonymous struct at ./async.h:103:5)':'struct redisAsyncContext::(anonymous at ./async.h:103:5)' lvalue ->sub 0x55bf9a5c48d0
+      `-ImplicitCastExpr 0x55bf9a616710 <col:25> 'redisAsyncContext *' <LValueToRValue>
+        `-DeclRefExpr 0x55bf9a6166e8 <col:25> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+[B21.6] = [B21.5]
+   Preds (1): B22
+   Succs (1): B19
+
+ [B22]
+   1: ConditionalOperator 0x55bf9a616628 <async.c:375:20, col:53> 'int'
+|-ParenExpr 0x55bf9a6165c8 <col:20, col:45> 'int'
+| `-BinaryOperator 0x55bf9a6165a0 </usr/include/ctype.h:156:3, async.c:375:42> 'int' '=='
+|   |-ParenExpr 0x55bf9a616568 </usr/include/ctype.h:156:3, line:170:16> 'int'
+|   | `-UnaryOperator 0x55bf9a616548 <line:156:4, line:170:15> 'int' prefix '__extension__'
+|   |   `-StmtExpr 0x55bf9a616528 <line:157:4, line:170:15> 'int'
+|   |     `-CompoundStmt 0x55bf9a616500 <line:157:5, line:170:14>
+|   |       |-DeclStmt 0x55bf9a613240 <line:157:7, col:16>col:11
+|   |       | `-VarDecl 0x55bf9a6131e0 <col:7, col:11> col:11 used __res 'int'
+|   |       |-IfStmt 0x55bf9a616488 <line:158:7, line:169:23>
+|   |       | |-<<<NULL>>>
+|   |       | |-<<<NULL>>>
+|   |       | |-BinaryOperator 0x55bf9a6158c0 <line:158:11, col:24> 'int' '>'
+|   |       | | |-UnaryExprOrTypeTraitExpr 0x55bf9a615868 <col:11, col:20> 'unsigned long' sizeof
+|   |       | | | `-ParenExpr 0x55bf9a615848 <col:18, col:20> 'char' lvalue
+|   |       | | |   `-ArraySubscriptExpr 0x55bf9a615820 <async.c:375:29, col:36> 'char' lvalue
+|   |       | | |     |-ImplicitCastExpr 0x55bf9a615808 <col:29> 'char *' <LValueToRValue>
+|   |       | | |     | `-DeclRefExpr 0x55bf9a6157c0 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+|   |       | | |     `-IntegerLiteral 0x55bf9a6157e8 <col:35> 'int' 0
+|   |       | | `-ImplicitCastExpr 0x55bf9a6158a8 </usr/include/ctype.h:158:24> 'unsigned long' <IntegralCast>
+|   |       | |   `-IntegerLiteral 0x55bf9a615888 <col:24> 'int' 1
+|   |       | |-CompoundStmt 0x55bf9a6161f0 <line:159:2, line:167:2>
+|   |       | | `-IfStmt 0x55bf9a6161b8 <line:160:4, line:220:71>
+|   |       | |   |-<<<NULL>>>
+|   |       | |   |-<<<NULL>>>
+|   |       | |   |-CallExpr 0x55bf9a615b00 <line:160:8, col:31> 'int'
+|   |       | |   | |-ImplicitCastExpr 0x55bf9a615ae8 <col:8> 'int (*)()' <BuiltinFnToFnPtr>
+|   |       | |   | | `-DeclRefExpr 0x55bf9a615a10 <col:8> '<builtin fn type>' Function 0x55bf9a615918 '__builtin_constant_p' 'int ()'
+|   |       | |   | `-ArraySubscriptExpr 0x55bf9a615a98 <async.c:375:29, col:36> 'char' lvalue
+|   |       | |   |   |-ImplicitCastExpr 0x55bf9a615a80 <col:29> 'char *' <LValueToRValue>
+|   |       | |   |   | `-DeclRefExpr 0x55bf9a615a38 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+|   |       | |   |   `-IntegerLiteral 0x55bf9a615a60 <col:35> 'int' 0
+|   |       | |   |-CompoundStmt 0x55bf9a615ff0 </usr/include/ctype.h:161:6, line:164:6>
+|   |       | |   | |-DeclStmt 0x55bf9a615c80 <line:162:8, col:21>col:12
+|   |       | |   | | `-VarDecl 0x55bf9a615b48 <col:8, col:20> col:12 used __c 'int' cinit
+|   |       | |   | |   `-ImplicitCastExpr 0x55bf9a615c68 <col:18, col:20> 'int' <IntegralCast>
+|   |       | |   | |     `-ImplicitCastExpr 0x55bf9a615c50 <col:18, col:20> 'char' <LValueToRValue>
+|   |       | |   | |       `-ParenExpr 0x55bf9a615c30 <col:18, col:20> 'char' lvalue
+|   |       | |   | |         `-ArraySubscriptExpr 0x55bf9a615c08 <async.c:375:29, col:36> 'char' lvalue
+|   |       | |   | |           |-ImplicitCastExpr 0x55bf9a615bf0 <col:29> 'char *' <LValueToRValue>
+|   |       | |   | |           | `-DeclRefExpr 0x55bf9a615ba8 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+|   |       | |   | |           `-IntegerLiteral 0x55bf9a615bd0 <col:35> 'int' 0
+|   |       | |   | `-BinaryOperator 0x55bf9a615fc8 </usr/include/ctype.h:163:8, col:55> 'int' '='
+|   |       | |   |   |-DeclRefExpr 0x55bf9a615c98 <col:8> 'int' lvalue Var 0x55bf9a6131e0 '__res' 'int'
+|   |       | |   |   `-ConditionalOperator 0x55bf9a615f98 <col:16, col:55> 'int'
+|   |       | |   |     |-BinaryOperator 0x55bf9a615df0 <col:16, col:36> 'int' '||'
+|   |       | |   |     | |-BinaryOperator 0x55bf9a615d40 <col:16, col:23> 'int' '<'
+|   |       | |   |     | | |-ImplicitCastExpr 0x55bf9a615d28 <col:16> 'int' <LValueToRValue>
+|   |       | |   |     | | | `-DeclRefExpr 0x55bf9a615cc0 <col:16> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+|   |       | |   |     | | `-UnaryOperator 0x55bf9a615d08 <col:22, col:23> 'int' prefix '-'
+|   |       | |   |     | |   `-IntegerLiteral 0x55bf9a615ce8 <col:23> 'int' 128
+|   |       | |   |     | `-BinaryOperator 0x55bf9a615dc8 <col:30, col:36> 'int' '>'
+|   |       | |   |     |   |-ImplicitCastExpr 0x55bf9a615db0 <col:30> 'int' <LValueToRValue>
+|   |       | |   |     |   | `-DeclRefExpr 0x55bf9a615d68 <col:30> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+|   |       | |   |     |   `-IntegerLiteral 0x55bf9a615d90 <col:36> 'int' 255
+|   |       | |   |     |-ImplicitCastExpr 0x55bf9a615f68 <col:42> 'int' <LValueToRValue>
+|   |       | |   |     | `-DeclRefExpr 0x55bf9a615e18 <col:42> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+|   |       | |   |     `-ImplicitCastExpr 0x55bf9a615f80 <col:48, col:55> '__int32_t':'int' <LValueToRValue>
+|   |       | |   |       `-ArraySubscriptExpr 0x55bf9a615f40 <col:48, col:55> 'const __int32_t':'const int' lvalue
+|   |       | |   |         |-ImplicitCastExpr 0x55bf9a615f10 <col:48, col:50> 'const __int32_t *' <LValueToRValue>
+|   |       | |   |         | `-ParenExpr 0x55bf9a615ec8 <col:48, col:50> 'const __int32_t *' lvalue
+|   |       | |   |         |   `-UnaryOperator 0x55bf9a615ea8 <line:220:44, col:66> 'const __int32_t *' lvalue prefix '*'
+|   |       | |   |         |     `-CallExpr 0x55bf9a615e80 <col:45, col:66> 'const __int32_t **'
+|   |       | |   |         |       `-ImplicitCastExpr 0x55bf9a615e68 <col:45> 'const __int32_t **(*)(void)' <FunctionToPointerDecay>
+|   |       | |   |         |         `-DeclRefExpr 0x55bf9a615e40 <col:45> 'const __int32_t **(void)' Function 0x55bf9a53a898 '__ctype_tolower_loc' 'const __int32_t **(void)'
+|   |       | |   |         `-ImplicitCastExpr 0x55bf9a615f28 <line:163:52> 'int' <LValueToRValue>
+|   |       | |   |           `-DeclRefExpr 0x55bf9a615ee8 <col:52> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+|   |       | |   `-BinaryOperator 0x55bf9a616190 <line:166:6, line:220:71> 'int' '='
+|   |       | |     |-DeclRefExpr 0x55bf9a616010 <line:166:6> 'int' lvalue Var 0x55bf9a6131e0 '__res' 'int'
+|   |       | |     `-CallExpr 0x55bf9a616130 <line:220:35, col:71> 'int'
+|   |       | |       |-ImplicitCastExpr 0x55bf9a616118 <col:35> 'int (*)(int)' <FunctionToPointerDecay>
+|   |       | |       | `-DeclRefExpr 0x55bf9a616038 <col:35> 'int (int)' Function 0x55bf9a4fc490 'tolower' 'int (int)'
+|   |       | |       `-ImplicitCastExpr 0x55bf9a616178 <async.c:375:29, col:36> 'int' <IntegralCast>
+|   |       | |         `-ImplicitCastExpr 0x55bf9a616160 <col:29, col:36> 'char' <LValueToRValue>
+|   |       | |           `-ArraySubscriptExpr 0x55bf9a6160c0 <col:29, col:36> 'char' lvalue
+|   |       | |             |-ImplicitCastExpr 0x55bf9a6160a8 <col:29> 'char *' <LValueToRValue>
+|   |       | |             | `-DeclRefExpr 0x55bf9a616060 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+|   |       | |             `-IntegerLiteral 0x55bf9a616088 <col:35> 'int' 0
+|   |       | `-BinaryOperator 0x55bf9a616460 </usr/include/ctype.h:169:2, col:23> 'int' '='
+|   |       |   |-DeclRefExpr 0x55bf9a616208 <col:2> 'int' lvalue Var 0x55bf9a6131e0 '__res' 'int'
+|   |       |   `-ImplicitCastExpr 0x55bf9a616448 <col:10, col:23> '__int32_t':'int' <LValueToRValue>
+|   |       |     `-ArraySubscriptExpr 0x55bf9a616420 <col:10, col:23> 'const __int32_t':'const int' lvalue
+|   |       |       |-ImplicitCastExpr 0x55bf9a616408 <col:10, col:12> 'const __int32_t *' <LValueToRValue>
+|   |       |       | `-ParenExpr 0x55bf9a6162b8 <col:10, col:12> 'const __int32_t *' lvalue
+|   |       |       |   `-UnaryOperator 0x55bf9a616298 <line:220:44, col:66> 'const __int32_t *' lvalue prefix '*'
+|   |       |       |     `-CallExpr 0x55bf9a616270 <col:45, col:66> 'const __int32_t **'
+|   |       |       |       `-ImplicitCastExpr 0x55bf9a616258 <col:45> 'const __int32_t **(*)(void)' <FunctionToPointerDecay>
+|   |       |       |         `-DeclRefExpr 0x55bf9a616230 <col:45> 'const __int32_t **(void)' Function 0x55bf9a53a898 '__ctype_tolower_loc' 'const __int32_t **(void)'
+|   |       |       `-CStyleCastExpr 0x55bf9a6163e0 <line:169:14, col:22> 'int' <IntegralCast>
+|   |       |         `-ImplicitCastExpr 0x55bf9a6163c8 <col:20, col:22> 'char' <LValueToRValue>
+|   |       |           `-ParenExpr 0x55bf9a6163a8 <col:20, col:22> 'char' lvalue
+|   |       |             `-ArraySubscriptExpr 0x55bf9a616338 <async.c:375:29, col:36> 'char' lvalue
+|   |       |               |-ImplicitCastExpr 0x55bf9a616320 <col:29> 'char *' <LValueToRValue>
+|   |       |               | `-DeclRefExpr 0x55bf9a6162d8 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+|   |       |               `-IntegerLiteral 0x55bf9a616300 <col:35> 'int' 0
+|   |       `-ImplicitCastExpr 0x55bf9a6164e8 </usr/include/ctype.h:170:7> 'int' <LValueToRValue>
+|   |         `-DeclRefExpr 0x55bf9a6164c0 <col:7> 'int' lvalue Var 0x55bf9a6131e0 '__res' 'int'
+|   `-CharacterLiteral 0x55bf9a616588 <async.c:375:42> 'int' 112
+|-IntegerLiteral 0x55bf9a6165e8 <col:49> 'int' 1
+`-IntegerLiteral 0x55bf9a616608 <col:53> 'int' 0
+([B25.5]) ? [B23.1] : [B24.1]
+   2: DeclRefExpr 0x55bf9a6131a0 <async.c:375:9> 'int' lvalue Var 0x55bf9a612300 'pvariant' 'int'
+pvariant
+   3: BinaryOperator 0x55bf9a616658 <async.c:375:9, col:53> 'int' '='
+|-DeclRefExpr 0x55bf9a6131a0 <col:9> 'int' lvalue Var 0x55bf9a612300 'pvariant' 'int'
+`-ConditionalOperator 0x55bf9a616628 <col:20, col:53> 'int'
+  |-ParenExpr 0x55bf9a6165c8 <col:20, col:45> 'int'
+  | `-BinaryOperator 0x55bf9a6165a0 </usr/include/ctype.h:156:3, async.c:375:42> 'int' '=='
+  |   |-ParenExpr 0x55bf9a616568 </usr/include/ctype.h:156:3, line:170:16> 'int'
+  |   | `-UnaryOperator 0x55bf9a616548 <line:156:4, line:170:15> 'int' prefix '__extension__'
+  |   |   `-StmtExpr 0x55bf9a616528 <line:157:4, line:170:15> 'int'
+  |   |     `-CompoundStmt 0x55bf9a616500 <line:157:5, line:170:14>
+  |   |       |-DeclStmt 0x55bf9a613240 <line:157:7, col:16>col:11
+  |   |       | `-VarDecl 0x55bf9a6131e0 <col:7, col:11> col:11 used __res 'int'
+  |   |       |-IfStmt 0x55bf9a616488 <line:158:7, line:169:23>
+  |   |       | |-<<<NULL>>>
+  |   |       | |-<<<NULL>>>
+  |   |       | |-BinaryOperator 0x55bf9a6158c0 <line:158:11, col:24> 'int' '>'
+  |   |       | | |-UnaryExprOrTypeTraitExpr 0x55bf9a615868 <col:11, col:20> 'unsigned long' sizeof
+  |   |       | | | `-ParenExpr 0x55bf9a615848 <col:18, col:20> 'char' lvalue
+  |   |       | | |   `-ArraySubscriptExpr 0x55bf9a615820 <async.c:375:29, col:36> 'char' lvalue
+  |   |       | | |     |-ImplicitCastExpr 0x55bf9a615808 <col:29> 'char *' <LValueToRValue>
+  |   |       | | |     | `-DeclRefExpr 0x55bf9a6157c0 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+  |   |       | | |     `-IntegerLiteral 0x55bf9a6157e8 <col:35> 'int' 0
+  |   |       | | `-ImplicitCastExpr 0x55bf9a6158a8 </usr/include/ctype.h:158:24> 'unsigned long' <IntegralCast>
+  |   |       | |   `-IntegerLiteral 0x55bf9a615888 <col:24> 'int' 1
+  |   |       | |-CompoundStmt 0x55bf9a6161f0 <line:159:2, line:167:2>
+  |   |       | | `-IfStmt 0x55bf9a6161b8 <line:160:4, line:220:71>
+  |   |       | |   |-<<<NULL>>>
+  |   |       | |   |-<<<NULL>>>
+  |   |       | |   |-CallExpr 0x55bf9a615b00 <line:160:8, col:31> 'int'
+  |   |       | |   | |-ImplicitCastExpr 0x55bf9a615ae8 <col:8> 'int (*)()' <BuiltinFnToFnPtr>
+  |   |       | |   | | `-DeclRefExpr 0x55bf9a615a10 <col:8> '<builtin fn type>' Function 0x55bf9a615918 '__builtin_constant_p' 'int ()'
+  |   |       | |   | `-ArraySubscriptExpr 0x55bf9a615a98 <async.c:375:29, col:36> 'char' lvalue
+  |   |       | |   |   |-ImplicitCastExpr 0x55bf9a615a80 <col:29> 'char *' <LValueToRValue>
+  |   |       | |   |   | `-DeclRefExpr 0x55bf9a615a38 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+  |   |       | |   |   `-IntegerLiteral 0x55bf9a615a60 <col:35> 'int' 0
+  |   |       | |   |-CompoundStmt 0x55bf9a615ff0 </usr/include/ctype.h:161:6, line:164:6>
+  |   |       | |   | |-DeclStmt 0x55bf9a615c80 <line:162:8, col:21>col:12
+  |   |       | |   | | `-VarDecl 0x55bf9a615b48 <col:8, col:20> col:12 used __c 'int' cinit
+  |   |       | |   | |   `-ImplicitCastExpr 0x55bf9a615c68 <col:18, col:20> 'int' <IntegralCast>
+  |   |       | |   | |     `-ImplicitCastExpr 0x55bf9a615c50 <col:18, col:20> 'char' <LValueToRValue>
+  |   |       | |   | |       `-ParenExpr 0x55bf9a615c30 <col:18, col:20> 'char' lvalue
+  |   |       | |   | |         `-ArraySubscriptExpr 0x55bf9a615c08 <async.c:375:29, col:36> 'char' lvalue
+  |   |       | |   | |           |-ImplicitCastExpr 0x55bf9a615bf0 <col:29> 'char *' <LValueToRValue>
+  |   |       | |   | |           | `-DeclRefExpr 0x55bf9a615ba8 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+  |   |       | |   | |           `-IntegerLiteral 0x55bf9a615bd0 <col:35> 'int' 0
+  |   |       | |   | `-BinaryOperator 0x55bf9a615fc8 </usr/include/ctype.h:163:8, col:55> 'int' '='
+  |   |       | |   |   |-DeclRefExpr 0x55bf9a615c98 <col:8> 'int' lvalue Var 0x55bf9a6131e0 '__res' 'int'
+  |   |       | |   |   `-ConditionalOperator 0x55bf9a615f98 <col:16, col:55> 'int'
+  |   |       | |   |     |-BinaryOperator 0x55bf9a615df0 <col:16, col:36> 'int' '||'
+  |   |       | |   |     | |-BinaryOperator 0x55bf9a615d40 <col:16, col:23> 'int' '<'
+  |   |       | |   |     | | |-ImplicitCastExpr 0x55bf9a615d28 <col:16> 'int' <LValueToRValue>
+  |   |       | |   |     | | | `-DeclRefExpr 0x55bf9a615cc0 <col:16> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+  |   |       | |   |     | | `-UnaryOperator 0x55bf9a615d08 <col:22, col:23> 'int' prefix '-'
+  |   |       | |   |     | |   `-IntegerLiteral 0x55bf9a615ce8 <col:23> 'int' 128
+  |   |       | |   |     | `-BinaryOperator 0x55bf9a615dc8 <col:30, col:36> 'int' '>'
+  |   |       | |   |     |   |-ImplicitCastExpr 0x55bf9a615db0 <col:30> 'int' <LValueToRValue>
+  |   |       | |   |     |   | `-DeclRefExpr 0x55bf9a615d68 <col:30> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+  |   |       | |   |     |   `-IntegerLiteral 0x55bf9a615d90 <col:36> 'int' 255
+  |   |       | |   |     |-ImplicitCastExpr 0x55bf9a615f68 <col:42> 'int' <LValueToRValue>
+  |   |       | |   |     | `-DeclRefExpr 0x55bf9a615e18 <col:42> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+  |   |       | |   |     `-ImplicitCastExpr 0x55bf9a615f80 <col:48, col:55> '__int32_t':'int' <LValueToRValue>
+  |   |       | |   |       `-ArraySubscriptExpr 0x55bf9a615f40 <col:48, col:55> 'const __int32_t':'const int' lvalue
+  |   |       | |   |         |-ImplicitCastExpr 0x55bf9a615f10 <col:48, col:50> 'const __int32_t *' <LValueToRValue>
+  |   |       | |   |         | `-ParenExpr 0x55bf9a615ec8 <col:48, col:50> 'const __int32_t *' lvalue
+  |   |       | |   |         |   `-UnaryOperator 0x55bf9a615ea8 <line:220:44, col:66> 'const __int32_t *' lvalue prefix '*'
+  |   |       | |   |         |     `-CallExpr 0x55bf9a615e80 <col:45, col:66> 'const __int32_t **'
+  |   |       | |   |         |       `-ImplicitCastExpr 0x55bf9a615e68 <col:45> 'const __int32_t **(*)(void)' <FunctionToPointerDecay>
+  |   |       | |   |         |         `-DeclRefExpr 0x55bf9a615e40 <col:45> 'const __int32_t **(void)' Function 0x55bf9a53a898 '__ctype_tolower_loc' 'const __int32_t **(void)'
+  |   |       | |   |         `-ImplicitCastExpr 0x55bf9a615f28 <line:163:52> 'int' <LValueToRValue>
+  |   |       | |   |           `-DeclRefExpr 0x55bf9a615ee8 <col:52> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+  |   |       | |   `-BinaryOperator 0x55bf9a616190 <line:166:6, line:220:71> 'int' '='
+  |   |       | |     |-DeclRefExpr 0x55bf9a616010 <line:166:6> 'int' lvalue Var 0x55bf9a6131e0 '__res' 'int'
+  |   |       | |     `-CallExpr 0x55bf9a616130 <line:220:35, col:71> 'int'
+  |   |       | |       |-ImplicitCastExpr 0x55bf9a616118 <col:35> 'int (*)(int)' <FunctionToPointerDecay>
+  |   |       | |       | `-DeclRefExpr 0x55bf9a616038 <col:35> 'int (int)' Function 0x55bf9a4fc490 'tolower' 'int (int)'
+  |   |       | |       `-ImplicitCastExpr 0x55bf9a616178 <async.c:375:29, col:36> 'int' <IntegralCast>
+  |   |       | |         `-ImplicitCastExpr 0x55bf9a616160 <col:29, col:36> 'char' <LValueToRValue>
+  |   |       | |           `-ArraySubscriptExpr 0x55bf9a6160c0 <col:29, col:36> 'char' lvalue
+  |   |       | |             |-ImplicitCastExpr 0x55bf9a6160a8 <col:29> 'char *' <LValueToRValue>
+  |   |       | |             | `-DeclRefExpr 0x55bf9a616060 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+  |   |       | |             `-IntegerLiteral 0x55bf9a616088 <col:35> 'int' 0
+  |   |       | `-BinaryOperator 0x55bf9a616460 </usr/include/ctype.h:169:2, col:23> 'int' '='
+  |   |       |   |-DeclRefExpr 0x55bf9a616208 <col:2> 'int' lvalue Var 0x55bf9a6131e0 '__res' 'int'
+  |   |       |   `-ImplicitCastExpr 0x55bf9a616448 <col:10, col:23> '__int32_t':'int' <LValueToRValue>
+  |   |       |     `-ArraySubscriptExpr 0x55bf9a616420 <col:10, col:23> 'const __int32_t':'const int' lvalue
+  |   |       |       |-ImplicitCastExpr 0x55bf9a616408 <col:10, col:12> 'const __int32_t *' <LValueToRValue>
+  |   |       |       | `-ParenExpr 0x55bf9a6162b8 <col:10, col:12> 'const __int32_t *' lvalue
+  |   |       |       |   `-UnaryOperator 0x55bf9a616298 <line:220:44, col:66> 'const __int32_t *' lvalue prefix '*'
+  |   |       |       |     `-CallExpr 0x55bf9a616270 <col:45, col:66> 'const __int32_t **'
+  |   |       |       |       `-ImplicitCastExpr 0x55bf9a616258 <col:45> 'const __int32_t **(*)(void)' <FunctionToPointerDecay>
+  |   |       |       |         `-DeclRefExpr 0x55bf9a616230 <col:45> 'const __int32_t **(void)' Function 0x55bf9a53a898 '__ctype_tolower_loc' 'const __int32_t **(void)'
+  |   |       |       `-CStyleCastExpr 0x55bf9a6163e0 <line:169:14, col:22> 'int' <IntegralCast>
+  |   |       |         `-ImplicitCastExpr 0x55bf9a6163c8 <col:20, col:22> 'char' <LValueToRValue>
+  |   |       |           `-ParenExpr 0x55bf9a6163a8 <col:20, col:22> 'char' lvalue
+  |   |       |             `-ArraySubscriptExpr 0x55bf9a616338 <async.c:375:29, col:36> 'char' lvalue
+  |   |       |               |-ImplicitCastExpr 0x55bf9a616320 <col:29> 'char *' <LValueToRValue>
+  |   |       |               | `-DeclRefExpr 0x55bf9a6162d8 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+  |   |       |               `-IntegerLiteral 0x55bf9a616300 <col:35> 'int' 0
+  |   |       `-ImplicitCastExpr 0x55bf9a6164e8 </usr/include/ctype.h:170:7> 'int' <LValueToRValue>
+  |   |         `-DeclRefExpr 0x55bf9a6164c0 <col:7> 'int' lvalue Var 0x55bf9a6131e0 '__res' 'int'
+  |   `-CharacterLiteral 0x55bf9a616588 <async.c:375:42> 'int' 112
+  |-IntegerLiteral 0x55bf9a6165e8 <col:49> 'int' 1
+  `-IntegerLiteral 0x55bf9a616608 <col:53> 'int' 0
+[B22.2] = [B22.1]
+   4: DeclRefExpr 0x55bf9a616680 <async.c:377:13> 'int' lvalue Var 0x55bf9a612300 'pvariant' 'int'
+pvariant
+   5: ImplicitCastExpr 0x55bf9a6166a8 <async.c:377:13> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a616680 <col:13> 'int' lvalue Var 0x55bf9a612300 'pvariant' 'int'
+[B22.4] (ImplicitCastExpr, LValueToRValue, int)
+   T: if [B22.5]
+   Preds (2): B23 B24
+   Succs (2): B21 B20
+
+ [B23]
+   1: IntegerLiteral 0x55bf9a6165e8 <async.c:375:49> 'int' 1
+1
+   Preds (1): B25
+   Succs (1): B22
+
+ [B24]
+   1: IntegerLiteral 0x55bf9a616608 <async.c:375:53> 'int' 0
+0
+   Preds (1): B25
+   Succs (1): B22
+
+ [B25]
+   1: DeclRefExpr 0x55bf9a6164c0 </usr/include/ctype.h:170:7> 'int' lvalue Var 0x55bf9a6131e0 '__res' 'int'
+__res
+   2: ImplicitCastExpr 0x55bf9a6164e8 </usr/include/ctype.h:170:7> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a6164c0 <col:7> 'int' lvalue Var 0x55bf9a6131e0 '__res' 'int'
+[B25.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: StmtExpr 0x55bf9a616528 </usr/include/ctype.h:157:4, line:170:15> 'int'
+`-CompoundStmt 0x55bf9a616500 <line:157:5, line:170:14>
+  |-DeclStmt 0x55bf9a613240 <line:157:7, col:16>col:11
+  | `-VarDecl 0x55bf9a6131e0 <col:7, col:11> col:11 used __res 'int'
+  |-IfStmt 0x55bf9a616488 <line:158:7, line:169:23>
+  | |-<<<NULL>>>
+  | |-<<<NULL>>>
+  | |-BinaryOperator 0x55bf9a6158c0 <line:158:11, col:24> 'int' '>'
+  | | |-UnaryExprOrTypeTraitExpr 0x55bf9a615868 <col:11, col:20> 'unsigned long' sizeof
+  | | | `-ParenExpr 0x55bf9a615848 <col:18, col:20> 'char' lvalue
+  | | |   `-ArraySubscriptExpr 0x55bf9a615820 <async.c:375:29, col:36> 'char' lvalue
+  | | |     |-ImplicitCastExpr 0x55bf9a615808 <col:29> 'char *' <LValueToRValue>
+  | | |     | `-DeclRefExpr 0x55bf9a6157c0 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+  | | |     `-IntegerLiteral 0x55bf9a6157e8 <col:35> 'int' 0
+  | | `-ImplicitCastExpr 0x55bf9a6158a8 </usr/include/ctype.h:158:24> 'unsigned long' <IntegralCast>
+  | |   `-IntegerLiteral 0x55bf9a615888 <col:24> 'int' 1
+  | |-CompoundStmt 0x55bf9a6161f0 <line:159:2, line:167:2>
+  | | `-IfStmt 0x55bf9a6161b8 <line:160:4, line:220:71>
+  | |   |-<<<NULL>>>
+  | |   |-<<<NULL>>>
+  | |   |-CallExpr 0x55bf9a615b00 <line:160:8, col:31> 'int'
+  | |   | |-ImplicitCastExpr 0x55bf9a615ae8 <col:8> 'int (*)()' <BuiltinFnToFnPtr>
+  | |   | | `-DeclRefExpr 0x55bf9a615a10 <col:8> '<builtin fn type>' Function 0x55bf9a615918 '__builtin_constant_p' 'int ()'
+  | |   | `-ArraySubscriptExpr 0x55bf9a615a98 <async.c:375:29, col:36> 'char' lvalue
+  | |   |   |-ImplicitCastExpr 0x55bf9a615a80 <col:29> 'char *' <LValueToRValue>
+  | |   |   | `-DeclRefExpr 0x55bf9a615a38 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+  | |   |   `-IntegerLiteral 0x55bf9a615a60 <col:35> 'int' 0
+  | |   |-CompoundStmt 0x55bf9a615ff0 </usr/include/ctype.h:161:6, line:164:6>
+  | |   | |-DeclStmt 0x55bf9a615c80 <line:162:8, col:21>col:12
+  | |   | | `-VarDecl 0x55bf9a615b48 <col:8, col:20> col:12 used __c 'int' cinit
+  | |   | |   `-ImplicitCastExpr 0x55bf9a615c68 <col:18, col:20> 'int' <IntegralCast>
+  | |   | |     `-ImplicitCastExpr 0x55bf9a615c50 <col:18, col:20> 'char' <LValueToRValue>
+  | |   | |       `-ParenExpr 0x55bf9a615c30 <col:18, col:20> 'char' lvalue
+  | |   | |         `-ArraySubscriptExpr 0x55bf9a615c08 <async.c:375:29, col:36> 'char' lvalue
+  | |   | |           |-ImplicitCastExpr 0x55bf9a615bf0 <col:29> 'char *' <LValueToRValue>
+  | |   | |           | `-DeclRefExpr 0x55bf9a615ba8 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+  | |   | |           `-IntegerLiteral 0x55bf9a615bd0 <col:35> 'int' 0
+  | |   | `-BinaryOperator 0x55bf9a615fc8 </usr/include/ctype.h:163:8, col:55> 'int' '='
+  | |   |   |-DeclRefExpr 0x55bf9a615c98 <col:8> 'int' lvalue Var 0x55bf9a6131e0 '__res' 'int'
+  | |   |   `-ConditionalOperator 0x55bf9a615f98 <col:16, col:55> 'int'
+  | |   |     |-BinaryOperator 0x55bf9a615df0 <col:16, col:36> 'int' '||'
+  | |   |     | |-BinaryOperator 0x55bf9a615d40 <col:16, col:23> 'int' '<'
+  | |   |     | | |-ImplicitCastExpr 0x55bf9a615d28 <col:16> 'int' <LValueToRValue>
+  | |   |     | | | `-DeclRefExpr 0x55bf9a615cc0 <col:16> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+  | |   |     | | `-UnaryOperator 0x55bf9a615d08 <col:22, col:23> 'int' prefix '-'
+  | |   |     | |   `-IntegerLiteral 0x55bf9a615ce8 <col:23> 'int' 128
+  | |   |     | `-BinaryOperator 0x55bf9a615dc8 <col:30, col:36> 'int' '>'
+  | |   |     |   |-ImplicitCastExpr 0x55bf9a615db0 <col:30> 'int' <LValueToRValue>
+  | |   |     |   | `-DeclRefExpr 0x55bf9a615d68 <col:30> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+  | |   |     |   `-IntegerLiteral 0x55bf9a615d90 <col:36> 'int' 255
+  | |   |     |-ImplicitCastExpr 0x55bf9a615f68 <col:42> 'int' <LValueToRValue>
+  | |   |     | `-DeclRefExpr 0x55bf9a615e18 <col:42> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+  | |   |     `-ImplicitCastExpr 0x55bf9a615f80 <col:48, col:55> '__int32_t':'int' <LValueToRValue>
+  | |   |       `-ArraySubscriptExpr 0x55bf9a615f40 <col:48, col:55> 'const __int32_t':'const int' lvalue
+  | |   |         |-ImplicitCastExpr 0x55bf9a615f10 <col:48, col:50> 'const __int32_t *' <LValueToRValue>
+  | |   |         | `-ParenExpr 0x55bf9a615ec8 <col:48, col:50> 'const __int32_t *' lvalue
+  | |   |         |   `-UnaryOperator 0x55bf9a615ea8 <line:220:44, col:66> 'const __int32_t *' lvalue prefix '*'
+  | |   |         |     `-CallExpr 0x55bf9a615e80 <col:45, col:66> 'const __int32_t **'
+  | |   |         |       `-ImplicitCastExpr 0x55bf9a615e68 <col:45> 'const __int32_t **(*)(void)' <FunctionToPointerDecay>
+  | |   |         |         `-DeclRefExpr 0x55bf9a615e40 <col:45> 'const __int32_t **(void)' Function 0x55bf9a53a898 '__ctype_tolower_loc' 'const __int32_t **(void)'
+  | |   |         `-ImplicitCastExpr 0x55bf9a615f28 <line:163:52> 'int' <LValueToRValue>
+  | |   |           `-DeclRefExpr 0x55bf9a615ee8 <col:52> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+  | |   `-BinaryOperator 0x55bf9a616190 <line:166:6, line:220:71> 'int' '='
+  | |     |-DeclRefExpr 0x55bf9a616010 <line:166:6> 'int' lvalue Var 0x55bf9a6131e0 '__res' 'int'
+  | |     `-CallExpr 0x55bf9a616130 <line:220:35, col:71> 'int'
+  | |       |-ImplicitCastExpr 0x55bf9a616118 <col:35> 'int (*)(int)' <FunctionToPointerDecay>
+  | |       | `-DeclRefExpr 0x55bf9a616038 <col:35> 'int (int)' Function 0x55bf9a4fc490 'tolower' 'int (int)'
+  | |       `-ImplicitCastExpr 0x55bf9a616178 <async.c:375:29, col:36> 'int' <IntegralCast>
+  | |         `-ImplicitCastExpr 0x55bf9a616160 <col:29, col:36> 'char' <LValueToRValue>
+  | |           `-ArraySubscriptExpr 0x55bf9a6160c0 <col:29, col:36> 'char' lvalue
+  | |             |-ImplicitCastExpr 0x55bf9a6160a8 <col:29> 'char *' <LValueToRValue>
+  | |             | `-DeclRefExpr 0x55bf9a616060 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+  | |             `-IntegerLiteral 0x55bf9a616088 <col:35> 'int' 0
+  | `-BinaryOperator 0x55bf9a616460 </usr/include/ctype.h:169:2, col:23> 'int' '='
+  |   |-DeclRefExpr 0x55bf9a616208 <col:2> 'int' lvalue Var 0x55bf9a6131e0 '__res' 'int'
+  |   `-ImplicitCastExpr 0x55bf9a616448 <col:10, col:23> '__int32_t':'int' <LValueToRValue>
+  |     `-ArraySubscriptExpr 0x55bf9a616420 <col:10, col:23> 'const __int32_t':'const int' lvalue
+  |       |-ImplicitCastExpr 0x55bf9a616408 <col:10, col:12> 'const __int32_t *' <LValueToRValue>
+  |       | `-ParenExpr 0x55bf9a6162b8 <col:10, col:12> 'const __int32_t *' lvalue
+  |       |   `-UnaryOperator 0x55bf9a616298 <line:220:44, col:66> 'const __int32_t *' lvalue prefix '*'
+  |       |     `-CallExpr 0x55bf9a616270 <col:45, col:66> 'const __int32_t **'
+  |       |       `-ImplicitCastExpr 0x55bf9a616258 <col:45> 'const __int32_t **(*)(void)' <FunctionToPointerDecay>
+  |       |         `-DeclRefExpr 0x55bf9a616230 <col:45> 'const __int32_t **(void)' Function 0x55bf9a53a898 '__ctype_tolower_loc' 'const __int32_t **(void)'
+  |       `-CStyleCastExpr 0x55bf9a6163e0 <line:169:14, col:22> 'int' <IntegralCast>
+  |         `-ImplicitCastExpr 0x55bf9a6163c8 <col:20, col:22> 'char' <LValueToRValue>
+  |           `-ParenExpr 0x55bf9a6163a8 <col:20, col:22> 'char' lvalue
+  |             `-ArraySubscriptExpr 0x55bf9a616338 <async.c:375:29, col:36> 'char' lvalue
+  |               |-ImplicitCastExpr 0x55bf9a616320 <col:29> 'char *' <LValueToRValue>
+  |               | `-DeclRefExpr 0x55bf9a6162d8 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+  |               `-IntegerLiteral 0x55bf9a616300 <col:35> 'int' 0
+  `-ImplicitCastExpr 0x55bf9a6164e8 </usr/include/ctype.h:170:7> 'int' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a6164c0 <col:7> 'int' lvalue Var 0x55bf9a6131e0 '__res' 'int'
+({ ... ; [B25.2] })
+   4: CharacterLiteral 0x55bf9a616588 <async.c:375:42> 'int' 112
+'p'
+   5: BinaryOperator 0x55bf9a6165a0 </usr/include/ctype.h:156:3, async.c:375:42> 'int' '=='
+|-ParenExpr 0x55bf9a616568 </usr/include/ctype.h:156:3, line:170:16> 'int'
+| `-UnaryOperator 0x55bf9a616548 <line:156:4, line:170:15> 'int' prefix '__extension__'
+|   `-StmtExpr 0x55bf9a616528 <line:157:4, line:170:15> 'int'
+|     `-CompoundStmt 0x55bf9a616500 <line:157:5, line:170:14>
+|       |-DeclStmt 0x55bf9a613240 <line:157:7, col:16>col:11
+|       | `-VarDecl 0x55bf9a6131e0 <col:7, col:11> col:11 used __res 'int'
+|       |-IfStmt 0x55bf9a616488 <line:158:7, line:169:23>
+|       | |-<<<NULL>>>
+|       | |-<<<NULL>>>
+|       | |-BinaryOperator 0x55bf9a6158c0 <line:158:11, col:24> 'int' '>'
+|       | | |-UnaryExprOrTypeTraitExpr 0x55bf9a615868 <col:11, col:20> 'unsigned long' sizeof
+|       | | | `-ParenExpr 0x55bf9a615848 <col:18, col:20> 'char' lvalue
+|       | | |   `-ArraySubscriptExpr 0x55bf9a615820 <async.c:375:29, col:36> 'char' lvalue
+|       | | |     |-ImplicitCastExpr 0x55bf9a615808 <col:29> 'char *' <LValueToRValue>
+|       | | |     | `-DeclRefExpr 0x55bf9a6157c0 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+|       | | |     `-IntegerLiteral 0x55bf9a6157e8 <col:35> 'int' 0
+|       | | `-ImplicitCastExpr 0x55bf9a6158a8 </usr/include/ctype.h:158:24> 'unsigned long' <IntegralCast>
+|       | |   `-IntegerLiteral 0x55bf9a615888 <col:24> 'int' 1
+|       | |-CompoundStmt 0x55bf9a6161f0 <line:159:2, line:167:2>
+|       | | `-IfStmt 0x55bf9a6161b8 <line:160:4, line:220:71>
+|       | |   |-<<<NULL>>>
+|       | |   |-<<<NULL>>>
+|       | |   |-CallExpr 0x55bf9a615b00 <line:160:8, col:31> 'int'
+|       | |   | |-ImplicitCastExpr 0x55bf9a615ae8 <col:8> 'int (*)()' <BuiltinFnToFnPtr>
+|       | |   | | `-DeclRefExpr 0x55bf9a615a10 <col:8> '<builtin fn type>' Function 0x55bf9a615918 '__builtin_constant_p' 'int ()'
+|       | |   | `-ArraySubscriptExpr 0x55bf9a615a98 <async.c:375:29, col:36> 'char' lvalue
+|       | |   |   |-ImplicitCastExpr 0x55bf9a615a80 <col:29> 'char *' <LValueToRValue>
+|       | |   |   | `-DeclRefExpr 0x55bf9a615a38 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+|       | |   |   `-IntegerLiteral 0x55bf9a615a60 <col:35> 'int' 0
+|       | |   |-CompoundStmt 0x55bf9a615ff0 </usr/include/ctype.h:161:6, line:164:6>
+|       | |   | |-DeclStmt 0x55bf9a615c80 <line:162:8, col:21>col:12
+|       | |   | | `-VarDecl 0x55bf9a615b48 <col:8, col:20> col:12 used __c 'int' cinit
+|       | |   | |   `-ImplicitCastExpr 0x55bf9a615c68 <col:18, col:20> 'int' <IntegralCast>
+|       | |   | |     `-ImplicitCastExpr 0x55bf9a615c50 <col:18, col:20> 'char' <LValueToRValue>
+|       | |   | |       `-ParenExpr 0x55bf9a615c30 <col:18, col:20> 'char' lvalue
+|       | |   | |         `-ArraySubscriptExpr 0x55bf9a615c08 <async.c:375:29, col:36> 'char' lvalue
+|       | |   | |           |-ImplicitCastExpr 0x55bf9a615bf0 <col:29> 'char *' <LValueToRValue>
+|       | |   | |           | `-DeclRefExpr 0x55bf9a615ba8 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+|       | |   | |           `-IntegerLiteral 0x55bf9a615bd0 <col:35> 'int' 0
+|       | |   | `-BinaryOperator 0x55bf9a615fc8 </usr/include/ctype.h:163:8, col:55> 'int' '='
+|       | |   |   |-DeclRefExpr 0x55bf9a615c98 <col:8> 'int' lvalue Var 0x55bf9a6131e0 '__res' 'int'
+|       | |   |   `-ConditionalOperator 0x55bf9a615f98 <col:16, col:55> 'int'
+|       | |   |     |-BinaryOperator 0x55bf9a615df0 <col:16, col:36> 'int' '||'
+|       | |   |     | |-BinaryOperator 0x55bf9a615d40 <col:16, col:23> 'int' '<'
+|       | |   |     | | |-ImplicitCastExpr 0x55bf9a615d28 <col:16> 'int' <LValueToRValue>
+|       | |   |     | | | `-DeclRefExpr 0x55bf9a615cc0 <col:16> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+|       | |   |     | | `-UnaryOperator 0x55bf9a615d08 <col:22, col:23> 'int' prefix '-'
+|       | |   |     | |   `-IntegerLiteral 0x55bf9a615ce8 <col:23> 'int' 128
+|       | |   |     | `-BinaryOperator 0x55bf9a615dc8 <col:30, col:36> 'int' '>'
+|       | |   |     |   |-ImplicitCastExpr 0x55bf9a615db0 <col:30> 'int' <LValueToRValue>
+|       | |   |     |   | `-DeclRefExpr 0x55bf9a615d68 <col:30> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+|       | |   |     |   `-IntegerLiteral 0x55bf9a615d90 <col:36> 'int' 255
+|       | |   |     |-ImplicitCastExpr 0x55bf9a615f68 <col:42> 'int' <LValueToRValue>
+|       | |   |     | `-DeclRefExpr 0x55bf9a615e18 <col:42> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+|       | |   |     `-ImplicitCastExpr 0x55bf9a615f80 <col:48, col:55> '__int32_t':'int' <LValueToRValue>
+|       | |   |       `-ArraySubscriptExpr 0x55bf9a615f40 <col:48, col:55> 'const __int32_t':'const int' lvalue
+|       | |   |         |-ImplicitCastExpr 0x55bf9a615f10 <col:48, col:50> 'const __int32_t *' <LValueToRValue>
+|       | |   |         | `-ParenExpr 0x55bf9a615ec8 <col:48, col:50> 'const __int32_t *' lvalue
+|       | |   |         |   `-UnaryOperator 0x55bf9a615ea8 <line:220:44, col:66> 'const __int32_t *' lvalue prefix '*'
+|       | |   |         |     `-CallExpr 0x55bf9a615e80 <col:45, col:66> 'const __int32_t **'
+|       | |   |         |       `-ImplicitCastExpr 0x55bf9a615e68 <col:45> 'const __int32_t **(*)(void)' <FunctionToPointerDecay>
+|       | |   |         |         `-DeclRefExpr 0x55bf9a615e40 <col:45> 'const __int32_t **(void)' Function 0x55bf9a53a898 '__ctype_tolower_loc' 'const __int32_t **(void)'
+|       | |   |         `-ImplicitCastExpr 0x55bf9a615f28 <line:163:52> 'int' <LValueToRValue>
+|       | |   |           `-DeclRefExpr 0x55bf9a615ee8 <col:52> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+|       | |   `-BinaryOperator 0x55bf9a616190 <line:166:6, line:220:71> 'int' '='
+|       | |     |-DeclRefExpr 0x55bf9a616010 <line:166:6> 'int' lvalue Var 0x55bf9a6131e0 '__res' 'int'
+|       | |     `-CallExpr 0x55bf9a616130 <line:220:35, col:71> 'int'
+|       | |       |-ImplicitCastExpr 0x55bf9a616118 <col:35> 'int (*)(int)' <FunctionToPointerDecay>
+|       | |       | `-DeclRefExpr 0x55bf9a616038 <col:35> 'int (int)' Function 0x55bf9a4fc490 'tolower' 'int (int)'
+|       | |       `-ImplicitCastExpr 0x55bf9a616178 <async.c:375:29, col:36> 'int' <IntegralCast>
+|       | |         `-ImplicitCastExpr 0x55bf9a616160 <col:29, col:36> 'char' <LValueToRValue>
+|       | |           `-ArraySubscriptExpr 0x55bf9a6160c0 <col:29, col:36> 'char' lvalue
+|       | |             |-ImplicitCastExpr 0x55bf9a6160a8 <col:29> 'char *' <LValueToRValue>
+|       | |             | `-DeclRefExpr 0x55bf9a616060 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+|       | |             `-IntegerLiteral 0x55bf9a616088 <col:35> 'int' 0
+|       | `-BinaryOperator 0x55bf9a616460 </usr/include/ctype.h:169:2, col:23> 'int' '='
+|       |   |-DeclRefExpr 0x55bf9a616208 <col:2> 'int' lvalue Var 0x55bf9a6131e0 '__res' 'int'
+|       |   `-ImplicitCastExpr 0x55bf9a616448 <col:10, col:23> '__int32_t':'int' <LValueToRValue>
+|       |     `-ArraySubscriptExpr 0x55bf9a616420 <col:10, col:23> 'const __int32_t':'const int' lvalue
+|       |       |-ImplicitCastExpr 0x55bf9a616408 <col:10, col:12> 'const __int32_t *' <LValueToRValue>
+|       |       | `-ParenExpr 0x55bf9a6162b8 <col:10, col:12> 'const __int32_t *' lvalue
+|       |       |   `-UnaryOperator 0x55bf9a616298 <line:220:44, col:66> 'const __int32_t *' lvalue prefix '*'
+|       |       |     `-CallExpr 0x55bf9a616270 <col:45, col:66> 'const __int32_t **'
+|       |       |       `-ImplicitCastExpr 0x55bf9a616258 <col:45> 'const __int32_t **(*)(void)' <FunctionToPointerDecay>
+|       |       |         `-DeclRefExpr 0x55bf9a616230 <col:45> 'const __int32_t **(void)' Function 0x55bf9a53a898 '__ctype_tolower_loc' 'const __int32_t **(void)'
+|       |       `-CStyleCastExpr 0x55bf9a6163e0 <line:169:14, col:22> 'int' <IntegralCast>
+|       |         `-ImplicitCastExpr 0x55bf9a6163c8 <col:20, col:22> 'char' <LValueToRValue>
+|       |           `-ParenExpr 0x55bf9a6163a8 <col:20, col:22> 'char' lvalue
+|       |             `-ArraySubscriptExpr 0x55bf9a616338 <async.c:375:29, col:36> 'char' lvalue
+|       |               |-ImplicitCastExpr 0x55bf9a616320 <col:29> 'char *' <LValueToRValue>
+|       |               | `-DeclRefExpr 0x55bf9a6162d8 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+|       |               `-IntegerLiteral 0x55bf9a616300 <col:35> 'int' 0
+|       `-ImplicitCastExpr 0x55bf9a6164e8 </usr/include/ctype.h:170:7> 'int' <LValueToRValue>
+|         `-DeclRefExpr 0x55bf9a6164c0 <col:7> 'int' lvalue Var 0x55bf9a6131e0 '__res' 'int'
+`-CharacterLiteral 0x55bf9a616588 <async.c:375:42> 'int' 112
+(__extension__ [B25.3]) == [B25.4]
+   T: ([B25.5]) ? ... : ...
+   Preds (3): B26 B27 B28
+   Succs (2): B23 B24
+
+ [B26]
+   1: DeclRefExpr 0x55bf9a616230 </usr/include/ctype.h:220:45> 'const __int32_t **(void)' Function 0x55bf9a53a898 '__ctype_tolower_loc' 'const __int32_t **(void)'
+__ctype_tolower_loc
+   2: ImplicitCastExpr 0x55bf9a616258 </usr/include/ctype.h:220:45> 'const __int32_t **(*)(void)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a616230 <col:45> 'const __int32_t **(void)' Function 0x55bf9a53a898 '__ctype_tolower_loc' 'const __int32_t **(void)'
+[B26.1] (ImplicitCastExpr, FunctionToPointerDecay, const __int32_t **(*)(void))
+   3: CallExpr 0x55bf9a616270 </usr/include/ctype.h:220:45, col:66> 'const __int32_t **'
+`-ImplicitCastExpr 0x55bf9a616258 <col:45> 'const __int32_t **(*)(void)' <FunctionToPointerDecay>
+  `-DeclRefExpr 0x55bf9a616230 <col:45> 'const __int32_t **(void)' Function 0x55bf9a53a898 '__ctype_tolower_loc' 'const __int32_t **(void)'
+[B26.2]()
+   4: UnaryOperator 0x55bf9a616298 </usr/include/ctype.h:220:44, col:66> 'const __int32_t *' lvalue prefix '*'
+`-CallExpr 0x55bf9a616270 <col:45, col:66> 'const __int32_t **'
+  `-ImplicitCastExpr 0x55bf9a616258 <col:45> 'const __int32_t **(*)(void)' <FunctionToPointerDecay>
+    `-DeclRefExpr 0x55bf9a616230 <col:45> 'const __int32_t **(void)' Function 0x55bf9a53a898 '__ctype_tolower_loc' 'const __int32_t **(void)'
+*[B26.3]
+   5: ImplicitCastExpr 0x55bf9a616408 </usr/include/ctype.h:169:10, col:12> 'const __int32_t *' <LValueToRValue>
+`-ParenExpr 0x55bf9a6162b8 <col:10, col:12> 'const __int32_t *' lvalue
+  `-UnaryOperator 0x55bf9a616298 <line:220:44, col:66> 'const __int32_t *' lvalue prefix '*'
+    `-CallExpr 0x55bf9a616270 <col:45, col:66> 'const __int32_t **'
+      `-ImplicitCastExpr 0x55bf9a616258 <col:45> 'const __int32_t **(*)(void)' <FunctionToPointerDecay>
+        `-DeclRefExpr 0x55bf9a616230 <col:45> 'const __int32_t **(void)' Function 0x55bf9a53a898 '__ctype_tolower_loc' 'const __int32_t **(void)'
+([B26.4]) (ImplicitCastExpr, LValueToRValue, const __int32_t *)
+   6: DeclRefExpr 0x55bf9a6162d8 <async.c:375:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+stype
+   7: ImplicitCastExpr 0x55bf9a616320 <async.c:375:29> 'char *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a6162d8 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+[B26.6] (ImplicitCastExpr, LValueToRValue, char *)
+   8: IntegerLiteral 0x55bf9a616300 <async.c:375:35> 'int' 0
+0
+   9: ArraySubscriptExpr 0x55bf9a616338 <async.c:375:29, col:36> 'char' lvalue
+|-ImplicitCastExpr 0x55bf9a616320 <col:29> 'char *' <LValueToRValue>
+| `-DeclRefExpr 0x55bf9a6162d8 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+`-IntegerLiteral 0x55bf9a616300 <col:35> 'int' 0
+[B26.7][[B26.8]]
+  10: ImplicitCastExpr 0x55bf9a6163c8 </usr/include/ctype.h:169:20, col:22> 'char' <LValueToRValue>
+`-ParenExpr 0x55bf9a6163a8 <col:20, col:22> 'char' lvalue
+  `-ArraySubscriptExpr 0x55bf9a616338 <async.c:375:29, col:36> 'char' lvalue
+    |-ImplicitCastExpr 0x55bf9a616320 <col:29> 'char *' <LValueToRValue>
+    | `-DeclRefExpr 0x55bf9a6162d8 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+    `-IntegerLiteral 0x55bf9a616300 <col:35> 'int' 0
+([B26.9]) (ImplicitCastExpr, LValueToRValue, char)
+  11: CStyleCastExpr 0x55bf9a6163e0 </usr/include/ctype.h:169:14, col:22> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x55bf9a6163c8 <col:20, col:22> 'char' <LValueToRValue>
+  `-ParenExpr 0x55bf9a6163a8 <col:20, col:22> 'char' lvalue
+    `-ArraySubscriptExpr 0x55bf9a616338 <async.c:375:29, col:36> 'char' lvalue
+      |-ImplicitCastExpr 0x55bf9a616320 <col:29> 'char *' <LValueToRValue>
+      | `-DeclRefExpr 0x55bf9a6162d8 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+      `-IntegerLiteral 0x55bf9a616300 <col:35> 'int' 0
+(int)[B26.10] (CStyleCastExpr, IntegralCast, int)
+  12: ArraySubscriptExpr 0x55bf9a616420 </usr/include/ctype.h:169:10, col:23> 'const __int32_t':'const int' lvalue
+|-ImplicitCastExpr 0x55bf9a616408 <col:10, col:12> 'const __int32_t *' <LValueToRValue>
+| `-ParenExpr 0x55bf9a6162b8 <col:10, col:12> 'const __int32_t *' lvalue
+|   `-UnaryOperator 0x55bf9a616298 <line:220:44, col:66> 'const __int32_t *' lvalue prefix '*'
+|     `-CallExpr 0x55bf9a616270 <col:45, col:66> 'const __int32_t **'
+|       `-ImplicitCastExpr 0x55bf9a616258 <col:45> 'const __int32_t **(*)(void)' <FunctionToPointerDecay>
+|         `-DeclRefExpr 0x55bf9a616230 <col:45> 'const __int32_t **(void)' Function 0x55bf9a53a898 '__ctype_tolower_loc' 'const __int32_t **(void)'
+`-CStyleCastExpr 0x55bf9a6163e0 <line:169:14, col:22> 'int' <IntegralCast>
+  `-ImplicitCastExpr 0x55bf9a6163c8 <col:20, col:22> 'char' <LValueToRValue>
+    `-ParenExpr 0x55bf9a6163a8 <col:20, col:22> 'char' lvalue
+      `-ArraySubscriptExpr 0x55bf9a616338 <async.c:375:29, col:36> 'char' lvalue
+        |-ImplicitCastExpr 0x55bf9a616320 <col:29> 'char *' <LValueToRValue>
+        | `-DeclRefExpr 0x55bf9a6162d8 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+        `-IntegerLiteral 0x55bf9a616300 <col:35> 'int' 0
+[B26.5][[B26.11]]
+  13: ImplicitCastExpr 0x55bf9a616448 </usr/include/ctype.h:169:10, col:23> '__int32_t':'int' <LValueToRValue>
+`-ArraySubscriptExpr 0x55bf9a616420 <col:10, col:23> 'const __int32_t':'const int' lvalue
+  |-ImplicitCastExpr 0x55bf9a616408 <col:10, col:12> 'const __int32_t *' <LValueToRValue>
+  | `-ParenExpr 0x55bf9a6162b8 <col:10, col:12> 'const __int32_t *' lvalue
+  |   `-UnaryOperator 0x55bf9a616298 <line:220:44, col:66> 'const __int32_t *' lvalue prefix '*'
+  |     `-CallExpr 0x55bf9a616270 <col:45, col:66> 'const __int32_t **'
+  |       `-ImplicitCastExpr 0x55bf9a616258 <col:45> 'const __int32_t **(*)(void)' <FunctionToPointerDecay>
+  |         `-DeclRefExpr 0x55bf9a616230 <col:45> 'const __int32_t **(void)' Function 0x55bf9a53a898 '__ctype_tolower_loc' 'const __int32_t **(void)'
+  `-CStyleCastExpr 0x55bf9a6163e0 <line:169:14, col:22> 'int' <IntegralCast>
+    `-ImplicitCastExpr 0x55bf9a6163c8 <col:20, col:22> 'char' <LValueToRValue>
+      `-ParenExpr 0x55bf9a6163a8 <col:20, col:22> 'char' lvalue
+        `-ArraySubscriptExpr 0x55bf9a616338 <async.c:375:29, col:36> 'char' lvalue
+          |-ImplicitCastExpr 0x55bf9a616320 <col:29> 'char *' <LValueToRValue>
+          | `-DeclRefExpr 0x55bf9a6162d8 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+          `-IntegerLiteral 0x55bf9a616300 <col:35> 'int' 0
+[B26.12] (ImplicitCastExpr, LValueToRValue, __int32_t)
+  14: DeclRefExpr 0x55bf9a616208 </usr/include/ctype.h:169:2> 'int' lvalue Var 0x55bf9a6131e0 '__res' 'int'
+__res
+  15: BinaryOperator 0x55bf9a616460 </usr/include/ctype.h:169:2, col:23> 'int' '='
+|-DeclRefExpr 0x55bf9a616208 <col:2> 'int' lvalue Var 0x55bf9a6131e0 '__res' 'int'
+`-ImplicitCastExpr 0x55bf9a616448 <col:10, col:23> '__int32_t':'int' <LValueToRValue>
+  `-ArraySubscriptExpr 0x55bf9a616420 <col:10, col:23> 'const __int32_t':'const int' lvalue
+    |-ImplicitCastExpr 0x55bf9a616408 <col:10, col:12> 'const __int32_t *' <LValueToRValue>
+    | `-ParenExpr 0x55bf9a6162b8 <col:10, col:12> 'const __int32_t *' lvalue
+    |   `-UnaryOperator 0x55bf9a616298 <line:220:44, col:66> 'const __int32_t *' lvalue prefix '*'
+    |     `-CallExpr 0x55bf9a616270 <col:45, col:66> 'const __int32_t **'
+    |       `-ImplicitCastExpr 0x55bf9a616258 <col:45> 'const __int32_t **(*)(void)' <FunctionToPointerDecay>
+    |         `-DeclRefExpr 0x55bf9a616230 <col:45> 'const __int32_t **(void)' Function 0x55bf9a53a898 '__ctype_tolower_loc' 'const __int32_t **(void)'
+    `-CStyleCastExpr 0x55bf9a6163e0 <line:169:14, col:22> 'int' <IntegralCast>
+      `-ImplicitCastExpr 0x55bf9a6163c8 <col:20, col:22> 'char' <LValueToRValue>
+        `-ParenExpr 0x55bf9a6163a8 <col:20, col:22> 'char' lvalue
+          `-ArraySubscriptExpr 0x55bf9a616338 <async.c:375:29, col:36> 'char' lvalue
+            |-ImplicitCastExpr 0x55bf9a616320 <col:29> 'char *' <LValueToRValue>
+            | `-DeclRefExpr 0x55bf9a6162d8 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+            `-IntegerLiteral 0x55bf9a616300 <col:35> 'int' 0
+[B26.14] = [B26.13]
+   Preds (1): B34
+   Succs (1): B25
+
+ [B27]
+   1: DeclRefExpr 0x55bf9a616038 </usr/include/ctype.h:220:35> 'int (int)' Function 0x55bf9a4fc490 'tolower' 'int (int)'
+tolower
+   2: ImplicitCastExpr 0x55bf9a616118 </usr/include/ctype.h:220:35> 'int (*)(int)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a616038 <col:35> 'int (int)' Function 0x55bf9a4fc490 'tolower' 'int (int)'
+[B27.1] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(int))
+   3: DeclRefExpr 0x55bf9a616060 <async.c:375:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+stype
+   4: ImplicitCastExpr 0x55bf9a6160a8 <async.c:375:29> 'char *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a616060 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+[B27.3] (ImplicitCastExpr, LValueToRValue, char *)
+   5: IntegerLiteral 0x55bf9a616088 <async.c:375:35> 'int' 0
+0
+   6: ArraySubscriptExpr 0x55bf9a6160c0 <async.c:375:29, col:36> 'char' lvalue
+|-ImplicitCastExpr 0x55bf9a6160a8 <col:29> 'char *' <LValueToRValue>
+| `-DeclRefExpr 0x55bf9a616060 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+`-IntegerLiteral 0x55bf9a616088 <col:35> 'int' 0
+[B27.4][[B27.5]]
+   7: ImplicitCastExpr 0x55bf9a616160 <async.c:375:29, col:36> 'char' <LValueToRValue>
+`-ArraySubscriptExpr 0x55bf9a6160c0 <col:29, col:36> 'char' lvalue
+  |-ImplicitCastExpr 0x55bf9a6160a8 <col:29> 'char *' <LValueToRValue>
+  | `-DeclRefExpr 0x55bf9a616060 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+  `-IntegerLiteral 0x55bf9a616088 <col:35> 'int' 0
+[B27.6] (ImplicitCastExpr, LValueToRValue, char)
+   8: ImplicitCastExpr 0x55bf9a616178 <async.c:375:29, col:36> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x55bf9a616160 <col:29, col:36> 'char' <LValueToRValue>
+  `-ArraySubscriptExpr 0x55bf9a6160c0 <col:29, col:36> 'char' lvalue
+    |-ImplicitCastExpr 0x55bf9a6160a8 <col:29> 'char *' <LValueToRValue>
+    | `-DeclRefExpr 0x55bf9a616060 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+    `-IntegerLiteral 0x55bf9a616088 <col:35> 'int' 0
+[B27.7] (ImplicitCastExpr, IntegralCast, int)
+   9: CallExpr 0x55bf9a616130 </usr/include/ctype.h:220:35, col:71> 'int'
+|-ImplicitCastExpr 0x55bf9a616118 <col:35> 'int (*)(int)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a616038 <col:35> 'int (int)' Function 0x55bf9a4fc490 'tolower' 'int (int)'
+`-ImplicitCastExpr 0x55bf9a616178 <async.c:375:29, col:36> 'int' <IntegralCast>
+  `-ImplicitCastExpr 0x55bf9a616160 <col:29, col:36> 'char' <LValueToRValue>
+    `-ArraySubscriptExpr 0x55bf9a6160c0 <col:29, col:36> 'char' lvalue
+      |-ImplicitCastExpr 0x55bf9a6160a8 <col:29> 'char *' <LValueToRValue>
+      | `-DeclRefExpr 0x55bf9a616060 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+      `-IntegerLiteral 0x55bf9a616088 <col:35> 'int' 0
+[B27.2]([B27.8])
+  10: DeclRefExpr 0x55bf9a616010 </usr/include/ctype.h:166:6> 'int' lvalue Var 0x55bf9a6131e0 '__res' 'int'
+__res
+  11: BinaryOperator 0x55bf9a616190 </usr/include/ctype.h:166:6, line:220:71> 'int' '='
+|-DeclRefExpr 0x55bf9a616010 <line:166:6> 'int' lvalue Var 0x55bf9a6131e0 '__res' 'int'
+`-CallExpr 0x55bf9a616130 <line:220:35, col:71> 'int'
+  |-ImplicitCastExpr 0x55bf9a616118 <col:35> 'int (*)(int)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55bf9a616038 <col:35> 'int (int)' Function 0x55bf9a4fc490 'tolower' 'int (int)'
+  `-ImplicitCastExpr 0x55bf9a616178 <async.c:375:29, col:36> 'int' <IntegralCast>
+    `-ImplicitCastExpr 0x55bf9a616160 <col:29, col:36> 'char' <LValueToRValue>
+      `-ArraySubscriptExpr 0x55bf9a6160c0 <col:29, col:36> 'char' lvalue
+        |-ImplicitCastExpr 0x55bf9a6160a8 <col:29> 'char *' <LValueToRValue>
+        | `-DeclRefExpr 0x55bf9a616060 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+        `-IntegerLiteral 0x55bf9a616088 <col:35> 'int' 0
+[B27.10] = [B27.9]
+   Preds (1): B33
+   Succs (1): B25
+
+ [B28]
+   1: ConditionalOperator 0x55bf9a615f98 </usr/include/ctype.h:163:16, col:55> 'int'
+|-BinaryOperator 0x55bf9a615df0 <col:16, col:36> 'int' '||'
+| |-BinaryOperator 0x55bf9a615d40 <col:16, col:23> 'int' '<'
+| | |-ImplicitCastExpr 0x55bf9a615d28 <col:16> 'int' <LValueToRValue>
+| | | `-DeclRefExpr 0x55bf9a615cc0 <col:16> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+| | `-UnaryOperator 0x55bf9a615d08 <col:22, col:23> 'int' prefix '-'
+| |   `-IntegerLiteral 0x55bf9a615ce8 <col:23> 'int' 128
+| `-BinaryOperator 0x55bf9a615dc8 <col:30, col:36> 'int' '>'
+|   |-ImplicitCastExpr 0x55bf9a615db0 <col:30> 'int' <LValueToRValue>
+|   | `-DeclRefExpr 0x55bf9a615d68 <col:30> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+|   `-IntegerLiteral 0x55bf9a615d90 <col:36> 'int' 255
+|-ImplicitCastExpr 0x55bf9a615f68 <col:42> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x55bf9a615e18 <col:42> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+`-ImplicitCastExpr 0x55bf9a615f80 <col:48, col:55> '__int32_t':'int' <LValueToRValue>
+  `-ArraySubscriptExpr 0x55bf9a615f40 <col:48, col:55> 'const __int32_t':'const int' lvalue
+    |-ImplicitCastExpr 0x55bf9a615f10 <col:48, col:50> 'const __int32_t *' <LValueToRValue>
+    | `-ParenExpr 0x55bf9a615ec8 <col:48, col:50> 'const __int32_t *' lvalue
+    |   `-UnaryOperator 0x55bf9a615ea8 <line:220:44, col:66> 'const __int32_t *' lvalue prefix '*'
+    |     `-CallExpr 0x55bf9a615e80 <col:45, col:66> 'const __int32_t **'
+    |       `-ImplicitCastExpr 0x55bf9a615e68 <col:45> 'const __int32_t **(*)(void)' <FunctionToPointerDecay>
+    |         `-DeclRefExpr 0x55bf9a615e40 <col:45> 'const __int32_t **(void)' Function 0x55bf9a53a898 '__ctype_tolower_loc' 'const __int32_t **(void)'
+    `-ImplicitCastExpr 0x55bf9a615f28 <line:163:52> 'int' <LValueToRValue>
+      `-DeclRefExpr 0x55bf9a615ee8 <col:52> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+[B32.12] || [B31.4] ? [B29.2] : [B30.9]
+   2: DeclRefExpr 0x55bf9a615c98 </usr/include/ctype.h:163:8> 'int' lvalue Var 0x55bf9a6131e0 '__res' 'int'
+__res
+   3: BinaryOperator 0x55bf9a615fc8 </usr/include/ctype.h:163:8, col:55> 'int' '='
+|-DeclRefExpr 0x55bf9a615c98 <col:8> 'int' lvalue Var 0x55bf9a6131e0 '__res' 'int'
+`-ConditionalOperator 0x55bf9a615f98 <col:16, col:55> 'int'
+  |-BinaryOperator 0x55bf9a615df0 <col:16, col:36> 'int' '||'
+  | |-BinaryOperator 0x55bf9a615d40 <col:16, col:23> 'int' '<'
+  | | |-ImplicitCastExpr 0x55bf9a615d28 <col:16> 'int' <LValueToRValue>
+  | | | `-DeclRefExpr 0x55bf9a615cc0 <col:16> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+  | | `-UnaryOperator 0x55bf9a615d08 <col:22, col:23> 'int' prefix '-'
+  | |   `-IntegerLiteral 0x55bf9a615ce8 <col:23> 'int' 128
+  | `-BinaryOperator 0x55bf9a615dc8 <col:30, col:36> 'int' '>'
+  |   |-ImplicitCastExpr 0x55bf9a615db0 <col:30> 'int' <LValueToRValue>
+  |   | `-DeclRefExpr 0x55bf9a615d68 <col:30> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+  |   `-IntegerLiteral 0x55bf9a615d90 <col:36> 'int' 255
+  |-ImplicitCastExpr 0x55bf9a615f68 <col:42> 'int' <LValueToRValue>
+  | `-DeclRefExpr 0x55bf9a615e18 <col:42> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+  `-ImplicitCastExpr 0x55bf9a615f80 <col:48, col:55> '__int32_t':'int' <LValueToRValue>
+    `-ArraySubscriptExpr 0x55bf9a615f40 <col:48, col:55> 'const __int32_t':'const int' lvalue
+      |-ImplicitCastExpr 0x55bf9a615f10 <col:48, col:50> 'const __int32_t *' <LValueToRValue>
+      | `-ParenExpr 0x55bf9a615ec8 <col:48, col:50> 'const __int32_t *' lvalue
+      |   `-UnaryOperator 0x55bf9a615ea8 <line:220:44, col:66> 'const __int32_t *' lvalue prefix '*'
+      |     `-CallExpr 0x55bf9a615e80 <col:45, col:66> 'const __int32_t **'
+      |       `-ImplicitCastExpr 0x55bf9a615e68 <col:45> 'const __int32_t **(*)(void)' <FunctionToPointerDecay>
+      |         `-DeclRefExpr 0x55bf9a615e40 <col:45> 'const __int32_t **(void)' Function 0x55bf9a53a898 '__ctype_tolower_loc' 'const __int32_t **(void)'
+      `-ImplicitCastExpr 0x55bf9a615f28 <line:163:52> 'int' <LValueToRValue>
+        `-DeclRefExpr 0x55bf9a615ee8 <col:52> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+[B28.2] = [B28.1]
+   Preds (2): B29 B30
+   Succs (1): B25
+
+ [B29]
+   1: DeclRefExpr 0x55bf9a615e18 </usr/include/ctype.h:163:42> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+__c
+   2: ImplicitCastExpr 0x55bf9a615f68 </usr/include/ctype.h:163:42> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a615e18 <col:42> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+[B29.1] (ImplicitCastExpr, LValueToRValue, int)
+   Preds (2): B31 B32
+   Succs (1): B28
+
+ [B30]
+   1: DeclRefExpr 0x55bf9a615e40 </usr/include/ctype.h:220:45> 'const __int32_t **(void)' Function 0x55bf9a53a898 '__ctype_tolower_loc' 'const __int32_t **(void)'
+__ctype_tolower_loc
+   2: ImplicitCastExpr 0x55bf9a615e68 </usr/include/ctype.h:220:45> 'const __int32_t **(*)(void)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a615e40 <col:45> 'const __int32_t **(void)' Function 0x55bf9a53a898 '__ctype_tolower_loc' 'const __int32_t **(void)'
+[B30.1] (ImplicitCastExpr, FunctionToPointerDecay, const __int32_t **(*)(void))
+   3: CallExpr 0x55bf9a615e80 </usr/include/ctype.h:220:45, col:66> 'const __int32_t **'
+`-ImplicitCastExpr 0x55bf9a615e68 <col:45> 'const __int32_t **(*)(void)' <FunctionToPointerDecay>
+  `-DeclRefExpr 0x55bf9a615e40 <col:45> 'const __int32_t **(void)' Function 0x55bf9a53a898 '__ctype_tolower_loc' 'const __int32_t **(void)'
+[B30.2]()
+   4: UnaryOperator 0x55bf9a615ea8 </usr/include/ctype.h:220:44, col:66> 'const __int32_t *' lvalue prefix '*'
+`-CallExpr 0x55bf9a615e80 <col:45, col:66> 'const __int32_t **'
+  `-ImplicitCastExpr 0x55bf9a615e68 <col:45> 'const __int32_t **(*)(void)' <FunctionToPointerDecay>
+    `-DeclRefExpr 0x55bf9a615e40 <col:45> 'const __int32_t **(void)' Function 0x55bf9a53a898 '__ctype_tolower_loc' 'const __int32_t **(void)'
+*[B30.3]
+   5: ImplicitCastExpr 0x55bf9a615f10 </usr/include/ctype.h:163:48, col:50> 'const __int32_t *' <LValueToRValue>
+`-ParenExpr 0x55bf9a615ec8 <col:48, col:50> 'const __int32_t *' lvalue
+  `-UnaryOperator 0x55bf9a615ea8 <line:220:44, col:66> 'const __int32_t *' lvalue prefix '*'
+    `-CallExpr 0x55bf9a615e80 <col:45, col:66> 'const __int32_t **'
+      `-ImplicitCastExpr 0x55bf9a615e68 <col:45> 'const __int32_t **(*)(void)' <FunctionToPointerDecay>
+        `-DeclRefExpr 0x55bf9a615e40 <col:45> 'const __int32_t **(void)' Function 0x55bf9a53a898 '__ctype_tolower_loc' 'const __int32_t **(void)'
+([B30.4]) (ImplicitCastExpr, LValueToRValue, const __int32_t *)
+   6: DeclRefExpr 0x55bf9a615ee8 </usr/include/ctype.h:163:52> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+__c
+   7: ImplicitCastExpr 0x55bf9a615f28 </usr/include/ctype.h:163:52> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a615ee8 <col:52> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+[B30.6] (ImplicitCastExpr, LValueToRValue, int)
+   8: ArraySubscriptExpr 0x55bf9a615f40 </usr/include/ctype.h:163:48, col:55> 'const __int32_t':'const int' lvalue
+|-ImplicitCastExpr 0x55bf9a615f10 <col:48, col:50> 'const __int32_t *' <LValueToRValue>
+| `-ParenExpr 0x55bf9a615ec8 <col:48, col:50> 'const __int32_t *' lvalue
+|   `-UnaryOperator 0x55bf9a615ea8 <line:220:44, col:66> 'const __int32_t *' lvalue prefix '*'
+|     `-CallExpr 0x55bf9a615e80 <col:45, col:66> 'const __int32_t **'
+|       `-ImplicitCastExpr 0x55bf9a615e68 <col:45> 'const __int32_t **(*)(void)' <FunctionToPointerDecay>
+|         `-DeclRefExpr 0x55bf9a615e40 <col:45> 'const __int32_t **(void)' Function 0x55bf9a53a898 '__ctype_tolower_loc' 'const __int32_t **(void)'
+`-ImplicitCastExpr 0x55bf9a615f28 <line:163:52> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a615ee8 <col:52> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+[B30.5][[B30.7]]
+   9: ImplicitCastExpr 0x55bf9a615f80 </usr/include/ctype.h:163:48, col:55> '__int32_t':'int' <LValueToRValue>
+`-ArraySubscriptExpr 0x55bf9a615f40 <col:48, col:55> 'const __int32_t':'const int' lvalue
+  |-ImplicitCastExpr 0x55bf9a615f10 <col:48, col:50> 'const __int32_t *' <LValueToRValue>
+  | `-ParenExpr 0x55bf9a615ec8 <col:48, col:50> 'const __int32_t *' lvalue
+  |   `-UnaryOperator 0x55bf9a615ea8 <line:220:44, col:66> 'const __int32_t *' lvalue prefix '*'
+  |     `-CallExpr 0x55bf9a615e80 <col:45, col:66> 'const __int32_t **'
+  |       `-ImplicitCastExpr 0x55bf9a615e68 <col:45> 'const __int32_t **(*)(void)' <FunctionToPointerDecay>
+  |         `-DeclRefExpr 0x55bf9a615e40 <col:45> 'const __int32_t **(void)' Function 0x55bf9a53a898 '__ctype_tolower_loc' 'const __int32_t **(void)'
+  `-ImplicitCastExpr 0x55bf9a615f28 <line:163:52> 'int' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a615ee8 <col:52> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+[B30.8] (ImplicitCastExpr, LValueToRValue, __int32_t)
+   Preds (1): B31
+   Succs (1): B28
+
+ [B31]
+   1: DeclRefExpr 0x55bf9a615d68 </usr/include/ctype.h:163:30> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+__c
+   2: ImplicitCastExpr 0x55bf9a615db0 </usr/include/ctype.h:163:30> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a615d68 <col:30> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+[B31.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: IntegerLiteral 0x55bf9a615d90 </usr/include/ctype.h:163:36> 'int' 255
+255
+   4: BinaryOperator 0x55bf9a615dc8 </usr/include/ctype.h:163:30, col:36> 'int' '>'
+|-ImplicitCastExpr 0x55bf9a615db0 <col:30> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x55bf9a615d68 <col:30> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+`-IntegerLiteral 0x55bf9a615d90 <col:36> 'int' 255
+[B31.2] > [B31.3]
+   T: [B32.12] || [B31.4] ? ... : ...
+   Preds (1): B32
+   Succs (2): B29 B30
+
+ [B32]
+   1: DeclRefExpr 0x55bf9a615ba8 <async.c:375:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+stype
+   2: ImplicitCastExpr 0x55bf9a615bf0 <async.c:375:29> 'char *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a615ba8 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+[B32.1] (ImplicitCastExpr, LValueToRValue, char *)
+   3: IntegerLiteral 0x55bf9a615bd0 <async.c:375:35> 'int' 0
+0
+   4: ArraySubscriptExpr 0x55bf9a615c08 <async.c:375:29, col:36> 'char' lvalue
+|-ImplicitCastExpr 0x55bf9a615bf0 <col:29> 'char *' <LValueToRValue>
+| `-DeclRefExpr 0x55bf9a615ba8 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+`-IntegerLiteral 0x55bf9a615bd0 <col:35> 'int' 0
+[B32.2][[B32.3]]
+   5: ImplicitCastExpr 0x55bf9a615c50 </usr/include/ctype.h:162:18, col:20> 'char' <LValueToRValue>
+`-ParenExpr 0x55bf9a615c30 <col:18, col:20> 'char' lvalue
+  `-ArraySubscriptExpr 0x55bf9a615c08 <async.c:375:29, col:36> 'char' lvalue
+    |-ImplicitCastExpr 0x55bf9a615bf0 <col:29> 'char *' <LValueToRValue>
+    | `-DeclRefExpr 0x55bf9a615ba8 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+    `-IntegerLiteral 0x55bf9a615bd0 <col:35> 'int' 0
+([B32.4]) (ImplicitCastExpr, LValueToRValue, char)
+   6: ImplicitCastExpr 0x55bf9a615c68 </usr/include/ctype.h:162:18, col:20> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x55bf9a615c50 <col:18, col:20> 'char' <LValueToRValue>
+  `-ParenExpr 0x55bf9a615c30 <col:18, col:20> 'char' lvalue
+    `-ArraySubscriptExpr 0x55bf9a615c08 <async.c:375:29, col:36> 'char' lvalue
+      |-ImplicitCastExpr 0x55bf9a615bf0 <col:29> 'char *' <LValueToRValue>
+      | `-DeclRefExpr 0x55bf9a615ba8 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+      `-IntegerLiteral 0x55bf9a615bd0 <col:35> 'int' 0
+[B32.5] (ImplicitCastExpr, IntegralCast, int)
+   7: DeclStmt 0x55bf9a615c80 </usr/include/ctype.h:162:8, col:21>col:12
+`-VarDecl 0x55bf9a615b48 <col:8, col:20> col:12 used __c 'int' cinit
+  `-ImplicitCastExpr 0x55bf9a615c68 <col:18, col:20> 'int' <IntegralCast>
+    `-ImplicitCastExpr 0x55bf9a615c50 <col:18, col:20> 'char' <LValueToRValue>
+      `-ParenExpr 0x55bf9a615c30 <col:18, col:20> 'char' lvalue
+        `-ArraySubscriptExpr 0x55bf9a615c08 <async.c:375:29, col:36> 'char' lvalue
+          |-ImplicitCastExpr 0x55bf9a615bf0 <col:29> 'char *' <LValueToRValue>
+          | `-DeclRefExpr 0x55bf9a615ba8 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+          `-IntegerLiteral 0x55bf9a615bd0 <col:35> 'int' 0
+int __c = (stype[0]);
+   8: DeclRefExpr 0x55bf9a615cc0 </usr/include/ctype.h:163:16> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+__c
+   9: ImplicitCastExpr 0x55bf9a615d28 </usr/include/ctype.h:163:16> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a615cc0 <col:16> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+[B32.8] (ImplicitCastExpr, LValueToRValue, int)
+  10: IntegerLiteral 0x55bf9a615ce8 </usr/include/ctype.h:163:23> 'int' 128
+128
+  11: UnaryOperator 0x55bf9a615d08 </usr/include/ctype.h:163:22, col:23> 'int' prefix '-'
+`-IntegerLiteral 0x55bf9a615ce8 <col:23> 'int' 128
+-[B32.10]
+  12: BinaryOperator 0x55bf9a615d40 </usr/include/ctype.h:163:16, col:23> 'int' '<'
+|-ImplicitCastExpr 0x55bf9a615d28 <col:16> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x55bf9a615cc0 <col:16> 'int' lvalue Var 0x55bf9a615b48 '__c' 'int'
+`-UnaryOperator 0x55bf9a615d08 <col:22, col:23> 'int' prefix '-'
+  `-IntegerLiteral 0x55bf9a615ce8 <col:23> 'int' 128
+[B32.9] < [B32.11]
+   T: [B32.12] || ...
+   Preds (1): B33(Unreachable)
+   Succs (2): B29 B31
+
+ [B33]
+   1: DeclRefExpr 0x55bf9a615a10 </usr/include/ctype.h:160:8> '<builtin fn type>' Function 0x55bf9a615918 '__builtin_constant_p' 'int ()'
+__builtin_constant_p
+   2: ImplicitCastExpr 0x55bf9a615ae8 </usr/include/ctype.h:160:8> 'int (*)()' <BuiltinFnToFnPtr>
+`-DeclRefExpr 0x55bf9a615a10 <col:8> '<builtin fn type>' Function 0x55bf9a615918 '__builtin_constant_p' 'int ()'
+[B33.1] (ImplicitCastExpr, BuiltinFnToFnPtr, int (*)())
+   3: DeclRefExpr 0x55bf9a615a38 <async.c:375:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+stype
+   4: ImplicitCastExpr 0x55bf9a615a80 <async.c:375:29> 'char *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a615a38 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+[B33.3] (ImplicitCastExpr, LValueToRValue, char *)
+   5: IntegerLiteral 0x55bf9a615a60 <async.c:375:35> 'int' 0
+0
+   6: ArraySubscriptExpr 0x55bf9a615a98 <async.c:375:29, col:36> 'char' lvalue
+|-ImplicitCastExpr 0x55bf9a615a80 <col:29> 'char *' <LValueToRValue>
+| `-DeclRefExpr 0x55bf9a615a38 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+`-IntegerLiteral 0x55bf9a615a60 <col:35> 'int' 0
+[B33.4][[B33.5]]
+   7: CallExpr 0x55bf9a615b00 </usr/include/ctype.h:160:8, col:31> 'int'
+|-ImplicitCastExpr 0x55bf9a615ae8 <col:8> 'int (*)()' <BuiltinFnToFnPtr>
+| `-DeclRefExpr 0x55bf9a615a10 <col:8> '<builtin fn type>' Function 0x55bf9a615918 '__builtin_constant_p' 'int ()'
+`-ArraySubscriptExpr 0x55bf9a615a98 <async.c:375:29, col:36> 'char' lvalue
+  |-ImplicitCastExpr 0x55bf9a615a80 <col:29> 'char *' <LValueToRValue>
+  | `-DeclRefExpr 0x55bf9a615a38 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+  `-IntegerLiteral 0x55bf9a615a60 <col:35> 'int' 0
+[B33.2]([B33.6])
+   T: if [B33.7]
+   Preds (1): B34(Unreachable)
+   Succs (2): B32(Unreachable) B27
+
+ [B34]
+   1: ConditionalOperator 0x55bf9a612fc0 </usr/include/assert.h:98:6, line:100:67> 'void'
+|-ParenExpr 0x55bf9a612c30 <line:98:6, col:11> 'int'
+| `-BinaryOperator 0x55bf9a612c08 <async.c:373:16, ./read.h:51:28> 'int' '=='
+|   |-ImplicitCastExpr 0x55bf9a612bf0 <async.c:373:16, col:35> 'int' <LValueToRValue>
+|   | `-MemberExpr 0x55bf9a612b98 <col:16, col:35> 'int' lvalue ->type 0x55bf9a5b5fb8
+|   |   `-ImplicitCastExpr 0x55bf9a612b80 <col:16, col:32> 'struct redisReply *' <LValueToRValue>
+|   |     `-ArraySubscriptExpr 0x55bf9a612b58 <col:16, col:32> 'struct redisReply *' lvalue
+|   |       |-ImplicitCastExpr 0x55bf9a612b40 <col:16, col:23> 'struct redisReply **' <LValueToRValue>
+|   |       | `-MemberExpr 0x55bf9a612ae8 <col:16, col:23> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+|   |       |   `-ImplicitCastExpr 0x55bf9a612ad0 <col:16> 'redisReply *' <LValueToRValue>
+|   |       |     `-DeclRefExpr 0x55bf9a612aa8 <col:16> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+|   |       `-IntegerLiteral 0x55bf9a612b20 <col:31> 'int' 0
+|   `-IntegerLiteral 0x55bf9a612bd0 <./read.h:51:28> 'int' 1
+|-CStyleCastExpr 0x55bf9a612cd0 </usr/include/assert.h:40:29, line:99:29> 'void' <ToVoid>
+| `-ParenExpr 0x55bf9a612cb0 <col:27, col:29> 'int'
+|   `-IntegerLiteral 0x55bf9a612c50 <col:28> 'int' 0
+`-CallExpr 0x55bf9a612f18 <line:100:8, col:67> 'void'
+  |-ImplicitCastExpr 0x55bf9a612f00 <col:8> 'void (*)(const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55bf9a612cf8 <col:8> 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' Function 0x55bf9a52ff20 '__assert_fail' 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))'
+  |-ImplicitCastExpr 0x55bf9a612f60 <<scratch space>:137:1> 'const char *' <ArrayToPointerDecay>
+  | `-StringLiteral 0x55bf9a612d98 <col:1> 'const char [46]' lvalue "reply->element[0]->type == REDIS_REPLY_STRING"
+  |-ImplicitCastExpr 0x55bf9a612f78 <line:138:1> 'const char *' <ArrayToPointerDecay>
+  | `-StringLiteral 0x55bf9a612df0 <col:1> 'const char [8]' lvalue "async.c"
+  |-ImplicitCastExpr 0x55bf9a612f90 <line:139:1> 'unsigned int' <IntegralCast>
+  | `-IntegerLiteral 0x55bf9a612e20 <col:1> 'int' 373
+  `-ImplicitCastExpr 0x55bf9a612fa8 </usr/include/assert.h:129:30, col:44> 'const char *' <ArrayToPointerDecay>
+    `-UnaryOperator 0x55bf9a612ee0 <col:30, col:44> 'const char [84]' lvalue prefix '__extension__'
+      `-PredefinedExpr 0x55bf9a612ec0 <col:44> 'const char [84]' lvalue __PRETTY_FUNCTION__
+        `-StringLiteral 0x55bf9a612e40 <col:44> 'const char [84]' lvalue "int __redisGetSubscribeCallback(redisAsyncContext *, redisReply *, redisCallback *)"
+([B37.12]) ? [B35.2] : [B36.12]
+   2: DeclRefExpr 0x55bf9a613038 <async.c:374:17> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+reply
+   3: ImplicitCastExpr 0x55bf9a613060 <async.c:374:17> 'redisReply *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a613038 <col:17> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+[B34.2] (ImplicitCastExpr, LValueToRValue, redisReply *)
+   4: MemberExpr 0x55bf9a613078 <async.c:374:17, col:24> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+`-ImplicitCastExpr 0x55bf9a613060 <col:17> 'redisReply *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a613038 <col:17> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+[B34.3]->element
+   5: ImplicitCastExpr 0x55bf9a6130d0 <async.c:374:17, col:24> 'struct redisReply **' <LValueToRValue>
+`-MemberExpr 0x55bf9a613078 <col:17, col:24> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+  `-ImplicitCastExpr 0x55bf9a613060 <col:17> 'redisReply *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a613038 <col:17> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+[B34.4] (ImplicitCastExpr, LValueToRValue, struct redisReply **)
+   6: IntegerLiteral 0x55bf9a6130b0 <async.c:374:32> 'int' 0
+0
+   7: ArraySubscriptExpr 0x55bf9a6130e8 <async.c:374:17, col:33> 'struct redisReply *' lvalue
+|-ImplicitCastExpr 0x55bf9a6130d0 <col:17, col:24> 'struct redisReply **' <LValueToRValue>
+| `-MemberExpr 0x55bf9a613078 <col:17, col:24> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+|   `-ImplicitCastExpr 0x55bf9a613060 <col:17> 'redisReply *' <LValueToRValue>
+|     `-DeclRefExpr 0x55bf9a613038 <col:17> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+`-IntegerLiteral 0x55bf9a6130b0 <col:32> 'int' 0
+[B34.5][[B34.6]]
+   8: ImplicitCastExpr 0x55bf9a613110 <async.c:374:17, col:33> 'struct redisReply *' <LValueToRValue>
+`-ArraySubscriptExpr 0x55bf9a6130e8 <col:17, col:33> 'struct redisReply *' lvalue
+  |-ImplicitCastExpr 0x55bf9a6130d0 <col:17, col:24> 'struct redisReply **' <LValueToRValue>
+  | `-MemberExpr 0x55bf9a613078 <col:17, col:24> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+  |   `-ImplicitCastExpr 0x55bf9a613060 <col:17> 'redisReply *' <LValueToRValue>
+  |     `-DeclRefExpr 0x55bf9a613038 <col:17> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+  `-IntegerLiteral 0x55bf9a6130b0 <col:32> 'int' 0
+[B34.7] (ImplicitCastExpr, LValueToRValue, struct redisReply *)
+   9: MemberExpr 0x55bf9a613128 <async.c:374:17, col:36> 'char *' lvalue ->str 0x55bf9a5b6130
+`-ImplicitCastExpr 0x55bf9a613110 <col:17, col:33> 'struct redisReply *' <LValueToRValue>
+  `-ArraySubscriptExpr 0x55bf9a6130e8 <col:17, col:33> 'struct redisReply *' lvalue
+    |-ImplicitCastExpr 0x55bf9a6130d0 <col:17, col:24> 'struct redisReply **' <LValueToRValue>
+    | `-MemberExpr 0x55bf9a613078 <col:17, col:24> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+    |   `-ImplicitCastExpr 0x55bf9a613060 <col:17> 'redisReply *' <LValueToRValue>
+    |     `-DeclRefExpr 0x55bf9a613038 <col:17> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+    `-IntegerLiteral 0x55bf9a6130b0 <col:32> 'int' 0
+[B34.8]->str
+  10: ImplicitCastExpr 0x55bf9a613160 <async.c:374:17, col:36> 'char *' <LValueToRValue>
+`-MemberExpr 0x55bf9a613128 <col:17, col:36> 'char *' lvalue ->str 0x55bf9a5b6130
+  `-ImplicitCastExpr 0x55bf9a613110 <col:17, col:33> 'struct redisReply *' <LValueToRValue>
+    `-ArraySubscriptExpr 0x55bf9a6130e8 <col:17, col:33> 'struct redisReply *' lvalue
+      |-ImplicitCastExpr 0x55bf9a6130d0 <col:17, col:24> 'struct redisReply **' <LValueToRValue>
+      | `-MemberExpr 0x55bf9a613078 <col:17, col:24> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+      |   `-ImplicitCastExpr 0x55bf9a613060 <col:17> 'redisReply *' <LValueToRValue>
+      |     `-DeclRefExpr 0x55bf9a613038 <col:17> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+      `-IntegerLiteral 0x55bf9a6130b0 <col:32> 'int' 0
+[B34.9] (ImplicitCastExpr, LValueToRValue, char *)
+  11: DeclRefExpr 0x55bf9a613010 <async.c:374:9> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+stype
+  12: BinaryOperator 0x55bf9a613178 <async.c:374:9, col:36> 'char *' '='
+|-DeclRefExpr 0x55bf9a613010 <col:9> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+`-ImplicitCastExpr 0x55bf9a613160 <col:17, col:36> 'char *' <LValueToRValue>
+  `-MemberExpr 0x55bf9a613128 <col:17, col:36> 'char *' lvalue ->str 0x55bf9a5b6130
+    `-ImplicitCastExpr 0x55bf9a613110 <col:17, col:33> 'struct redisReply *' <LValueToRValue>
+      `-ArraySubscriptExpr 0x55bf9a6130e8 <col:17, col:33> 'struct redisReply *' lvalue
+        |-ImplicitCastExpr 0x55bf9a6130d0 <col:17, col:24> 'struct redisReply **' <LValueToRValue>
+        | `-MemberExpr 0x55bf9a613078 <col:17, col:24> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+        |   `-ImplicitCastExpr 0x55bf9a613060 <col:17> 'redisReply *' <LValueToRValue>
+        |     `-DeclRefExpr 0x55bf9a613038 <col:17> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+        `-IntegerLiteral 0x55bf9a6130b0 <col:32> 'int' 0
+[B34.11] = [B34.10]
+  13: DeclStmt 0x55bf9a613240 </usr/include/ctype.h:157:7, col:16>col:11
+`-VarDecl 0x55bf9a6131e0 <col:7, col:11> col:11 used __res 'int'
+int __res;
+  14: UnaryExprOrTypeTraitExpr 0x55bf9a615868 </usr/include/ctype.h:158:11, col:20> 'unsigned long' sizeof
+`-ParenExpr 0x55bf9a615848 <col:18, col:20> 'char' lvalue
+  `-ArraySubscriptExpr 0x55bf9a615820 <async.c:375:29, col:36> 'char' lvalue
+    |-ImplicitCastExpr 0x55bf9a615808 <col:29> 'char *' <LValueToRValue>
+    | `-DeclRefExpr 0x55bf9a6157c0 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+    `-IntegerLiteral 0x55bf9a6157e8 <col:35> 'int' 0
+sizeof (stype[0])
+  15: IntegerLiteral 0x55bf9a615888 </usr/include/ctype.h:158:24> 'int' 1
+1
+  16: ImplicitCastExpr 0x55bf9a6158a8 </usr/include/ctype.h:158:24> 'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x55bf9a615888 <col:24> 'int' 1
+[B34.15] (ImplicitCastExpr, IntegralCast, unsigned long)
+  17: BinaryOperator 0x55bf9a6158c0 </usr/include/ctype.h:158:11, col:24> 'int' '>'
+|-UnaryExprOrTypeTraitExpr 0x55bf9a615868 <col:11, col:20> 'unsigned long' sizeof
+| `-ParenExpr 0x55bf9a615848 <col:18, col:20> 'char' lvalue
+|   `-ArraySubscriptExpr 0x55bf9a615820 <async.c:375:29, col:36> 'char' lvalue
+|     |-ImplicitCastExpr 0x55bf9a615808 <col:29> 'char *' <LValueToRValue>
+|     | `-DeclRefExpr 0x55bf9a6157c0 <col:29> 'char *' lvalue Var 0x55bf9a612390 'stype' 'char *'
+|     `-IntegerLiteral 0x55bf9a6157e8 <col:35> 'int' 0
+`-ImplicitCastExpr 0x55bf9a6158a8 </usr/include/ctype.h:158:24> 'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x55bf9a615888 <col:24> 'int' 1
+[B34.14] > [B34.16]
+   T: if [B34.17]
+   Preds (2): B35 B36(Unreachable)
+   Succs (2): B33(Unreachable) B26
+
+ [B35]
+   1: IntegerLiteral 0x55bf9a612c50 </usr/include/assert.h:99:28> 'int' 0
+0
+   2: CStyleCastExpr 0x55bf9a612cd0 </usr/include/assert.h:40:29, line:99:29> 'void' <ToVoid>
+`-ParenExpr 0x55bf9a612cb0 <col:27, col:29> 'int'
+  `-IntegerLiteral 0x55bf9a612c50 <col:28> 'int' 0
+(void)([B35.1]) (CStyleCastExpr, ToVoid, void)
+   Preds (1): B37
+   Succs (1): B34
+
+ [B36 (NORETURN)]
+   1: DeclRefExpr 0x55bf9a612cf8 </usr/include/assert.h:100:8> 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' Function 0x55bf9a52ff20 '__assert_fail' 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))'
+__assert_fail
+   2: ImplicitCastExpr 0x55bf9a612f00 </usr/include/assert.h:100:8> 'void (*)(const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a612cf8 <col:8> 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' Function 0x55bf9a52ff20 '__assert_fail' 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))'
+[B36.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(const char *, const char *, unsigned int, const char *) __attribute__((noreturn)))
+   3: StringLiteral 0x55bf9a612d98 <<scratch space>:137:1> 'const char [46]' lvalue "reply->element[0]->type == REDIS_REPLY_STRING"
+"reply->element[0]->type == REDIS_REPLY_STRING"
+   4: ImplicitCastExpr 0x55bf9a612f60 <<scratch space>:137:1> 'const char *' <ArrayToPointerDecay>
+`-StringLiteral 0x55bf9a612d98 <col:1> 'const char [46]' lvalue "reply->element[0]->type == REDIS_REPLY_STRING"
+[B36.3] (ImplicitCastExpr, ArrayToPointerDecay, const char *)
+   5: StringLiteral 0x55bf9a612df0 <<scratch space>:138:1> 'const char [8]' lvalue "async.c"
+"async.c"
+   6: ImplicitCastExpr 0x55bf9a612f78 <<scratch space>:138:1> 'const char *' <ArrayToPointerDecay>
+`-StringLiteral 0x55bf9a612df0 <col:1> 'const char [8]' lvalue "async.c"
+[B36.5] (ImplicitCastExpr, ArrayToPointerDecay, const char *)
+   7: IntegerLiteral 0x55bf9a612e20 <<scratch space>:139:1> 'int' 373
+373
+   8: ImplicitCastExpr 0x55bf9a612f90 <<scratch space>:139:1> 'unsigned int' <IntegralCast>
+`-IntegerLiteral 0x55bf9a612e20 <col:1> 'int' 373
+[B36.7] (ImplicitCastExpr, IntegralCast, unsigned int)
+   9: StringLiteral 0x55bf9a612e40 </usr/include/assert.h:129:44> 'const char [84]' lvalue "int __redisGetSubscribeCallback(redisAsyncContext *, redisReply *, redisCallback *)"
+"int __redisGetSubscribeCallback(redisAsyncContext *, redisReply *, redisCallback *)"
+  10: PredefinedExpr 0x55bf9a612ec0 </usr/include/assert.h:129:44> 'const char [84]' lvalue __PRETTY_FUNCTION__
+`-StringLiteral 0x55bf9a612e40 <col:44> 'const char [84]' lvalue "int __redisGetSubscribeCallback(redisAsyncContext *, redisReply *, redisCallback *)"
+__PRETTY_FUNCTION__
+  11: ImplicitCastExpr 0x55bf9a612fa8 </usr/include/assert.h:129:30, col:44> 'const char *' <ArrayToPointerDecay>
+`-UnaryOperator 0x55bf9a612ee0 <col:30, col:44> 'const char [84]' lvalue prefix '__extension__'
+  `-PredefinedExpr 0x55bf9a612ec0 <col:44> 'const char [84]' lvalue __PRETTY_FUNCTION__
+    `-StringLiteral 0x55bf9a612e40 <col:44> 'const char [84]' lvalue "int __redisGetSubscribeCallback(redisAsyncContext *, redisReply *, redisCallback *)"
+__extension__ [B36.10] (ImplicitCastExpr, ArrayToPointerDecay, const char *)
+  12: CallExpr 0x55bf9a612f18 </usr/include/assert.h:100:8, col:67> 'void'
+|-ImplicitCastExpr 0x55bf9a612f00 <col:8> 'void (*)(const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a612cf8 <col:8> 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' Function 0x55bf9a52ff20 '__assert_fail' 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))'
+|-ImplicitCastExpr 0x55bf9a612f60 <<scratch space>:137:1> 'const char *' <ArrayToPointerDecay>
+| `-StringLiteral 0x55bf9a612d98 <col:1> 'const char [46]' lvalue "reply->element[0]->type == REDIS_REPLY_STRING"
+|-ImplicitCastExpr 0x55bf9a612f78 <line:138:1> 'const char *' <ArrayToPointerDecay>
+| `-StringLiteral 0x55bf9a612df0 <col:1> 'const char [8]' lvalue "async.c"
+|-ImplicitCastExpr 0x55bf9a612f90 <line:139:1> 'unsigned int' <IntegralCast>
+| `-IntegerLiteral 0x55bf9a612e20 <col:1> 'int' 373
+`-ImplicitCastExpr 0x55bf9a612fa8 </usr/include/assert.h:129:30, col:44> 'const char *' <ArrayToPointerDecay>
+  `-UnaryOperator 0x55bf9a612ee0 <col:30, col:44> 'const char [84]' lvalue prefix '__extension__'
+    `-PredefinedExpr 0x55bf9a612ec0 <col:44> 'const char [84]' lvalue __PRETTY_FUNCTION__
+      `-StringLiteral 0x55bf9a612e40 <col:44> 'const char [84]' lvalue "int __redisGetSubscribeCallback(redisAsyncContext *, redisReply *, redisCallback *)"
+[B36.2]([B36.4], [B36.6], [B36.8], [B36.11])
+   Preds (1): B37
+   Succs (1): B0
+
+ [B37]
+   1: ConditionalOperator 0x55bf9a612a58 </usr/include/assert.h:98:6, line:100:67> 'void'
+|-ParenExpr 0x55bf9a612658 <line:98:6, col:11> 'int'
+| `-BinaryOperator 0x55bf9a612630 <async.c:372:16, col:35> 'int' '>='
+|   |-ImplicitCastExpr 0x55bf9a612600 <col:16, col:23> 'size_t':'unsigned long' <LValueToRValue>
+|   | `-MemberExpr 0x55bf9a6125a8 <col:16, col:23> 'size_t':'unsigned long' lvalue ->elements 0x55bf9a5b6210
+|   |   `-ImplicitCastExpr 0x55bf9a612590 <col:16> 'redisReply *' <LValueToRValue>
+|   |     `-DeclRefExpr 0x55bf9a612568 <col:16> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+|   `-ImplicitCastExpr 0x55bf9a612618 <col:35> 'unsigned long' <IntegralCast>
+|     `-IntegerLiteral 0x55bf9a6125e0 <col:35> 'int' 2
+|-CStyleCastExpr 0x55bf9a6126f8 </usr/include/assert.h:40:29, line:99:29> 'void' <ToVoid>
+| `-ParenExpr 0x55bf9a6126d8 <col:27, col:29> 'int'
+|   `-IntegerLiteral 0x55bf9a612678 <col:28> 'int' 0
+`-CallExpr 0x55bf9a6129b0 <line:100:8, col:67> 'void'
+  |-ImplicitCastExpr 0x55bf9a612998 <col:8> 'void (*)(const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55bf9a612720 <col:8> 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' Function 0x55bf9a52ff20 '__assert_fail' 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))'
+  |-ImplicitCastExpr 0x55bf9a6129f8 <<scratch space>:134:1> 'const char *' <ArrayToPointerDecay>
+  | `-StringLiteral 0x55bf9a6127c8 <col:1> 'const char [21]' lvalue "reply->elements >= 2"
+  |-ImplicitCastExpr 0x55bf9a612a10 <line:135:1> 'const char *' <ArrayToPointerDecay>
+  | `-StringLiteral 0x55bf9a612808 <col:1> 'const char [8]' lvalue "async.c"
+  |-ImplicitCastExpr 0x55bf9a612a28 <line:136:1> 'unsigned int' <IntegralCast>
+  | `-IntegerLiteral 0x55bf9a612838 <col:1> 'int' 372
+  `-ImplicitCastExpr 0x55bf9a612a40 </usr/include/assert.h:129:30, col:44> 'const char *' <ArrayToPointerDecay>
+    `-UnaryOperator 0x55bf9a612978 <col:30, col:44> 'const char [84]' lvalue prefix '__extension__'
+      `-PredefinedExpr 0x55bf9a612958 <col:44> 'const char [84]' lvalue __PRETTY_FUNCTION__
+        `-StringLiteral 0x55bf9a6128d8 <col:44> 'const char [84]' lvalue "int __redisGetSubscribeCallback(redisAsyncContext *, redisReply *, redisCallback *)"
+([B40.7]) ? [B38.2] : [B39.12]
+   2: DeclRefExpr 0x55bf9a612aa8 <async.c:373:16> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+reply
+   3: ImplicitCastExpr 0x55bf9a612ad0 <async.c:373:16> 'redisReply *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a612aa8 <col:16> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+[B37.2] (ImplicitCastExpr, LValueToRValue, redisReply *)
+   4: MemberExpr 0x55bf9a612ae8 <async.c:373:16, col:23> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+`-ImplicitCastExpr 0x55bf9a612ad0 <col:16> 'redisReply *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a612aa8 <col:16> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+[B37.3]->element
+   5: ImplicitCastExpr 0x55bf9a612b40 <async.c:373:16, col:23> 'struct redisReply **' <LValueToRValue>
+`-MemberExpr 0x55bf9a612ae8 <col:16, col:23> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+  `-ImplicitCastExpr 0x55bf9a612ad0 <col:16> 'redisReply *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a612aa8 <col:16> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+[B37.4] (ImplicitCastExpr, LValueToRValue, struct redisReply **)
+   6: IntegerLiteral 0x55bf9a612b20 <async.c:373:31> 'int' 0
+0
+   7: ArraySubscriptExpr 0x55bf9a612b58 <async.c:373:16, col:32> 'struct redisReply *' lvalue
+|-ImplicitCastExpr 0x55bf9a612b40 <col:16, col:23> 'struct redisReply **' <LValueToRValue>
+| `-MemberExpr 0x55bf9a612ae8 <col:16, col:23> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+|   `-ImplicitCastExpr 0x55bf9a612ad0 <col:16> 'redisReply *' <LValueToRValue>
+|     `-DeclRefExpr 0x55bf9a612aa8 <col:16> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+`-IntegerLiteral 0x55bf9a612b20 <col:31> 'int' 0
+[B37.5][[B37.6]]
+   8: ImplicitCastExpr 0x55bf9a612b80 <async.c:373:16, col:32> 'struct redisReply *' <LValueToRValue>
+`-ArraySubscriptExpr 0x55bf9a612b58 <col:16, col:32> 'struct redisReply *' lvalue
+  |-ImplicitCastExpr 0x55bf9a612b40 <col:16, col:23> 'struct redisReply **' <LValueToRValue>
+  | `-MemberExpr 0x55bf9a612ae8 <col:16, col:23> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+  |   `-ImplicitCastExpr 0x55bf9a612ad0 <col:16> 'redisReply *' <LValueToRValue>
+  |     `-DeclRefExpr 0x55bf9a612aa8 <col:16> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+  `-IntegerLiteral 0x55bf9a612b20 <col:31> 'int' 0
+[B37.7] (ImplicitCastExpr, LValueToRValue, struct redisReply *)
+   9: MemberExpr 0x55bf9a612b98 <async.c:373:16, col:35> 'int' lvalue ->type 0x55bf9a5b5fb8
+`-ImplicitCastExpr 0x55bf9a612b80 <col:16, col:32> 'struct redisReply *' <LValueToRValue>
+  `-ArraySubscriptExpr 0x55bf9a612b58 <col:16, col:32> 'struct redisReply *' lvalue
+    |-ImplicitCastExpr 0x55bf9a612b40 <col:16, col:23> 'struct redisReply **' <LValueToRValue>
+    | `-MemberExpr 0x55bf9a612ae8 <col:16, col:23> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+    |   `-ImplicitCastExpr 0x55bf9a612ad0 <col:16> 'redisReply *' <LValueToRValue>
+    |     `-DeclRefExpr 0x55bf9a612aa8 <col:16> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+    `-IntegerLiteral 0x55bf9a612b20 <col:31> 'int' 0
+[B37.8]->type
+  10: ImplicitCastExpr 0x55bf9a612bf0 <async.c:373:16, col:35> 'int' <LValueToRValue>
+`-MemberExpr 0x55bf9a612b98 <col:16, col:35> 'int' lvalue ->type 0x55bf9a5b5fb8
+  `-ImplicitCastExpr 0x55bf9a612b80 <col:16, col:32> 'struct redisReply *' <LValueToRValue>
+    `-ArraySubscriptExpr 0x55bf9a612b58 <col:16, col:32> 'struct redisReply *' lvalue
+      |-ImplicitCastExpr 0x55bf9a612b40 <col:16, col:23> 'struct redisReply **' <LValueToRValue>
+      | `-MemberExpr 0x55bf9a612ae8 <col:16, col:23> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+      |   `-ImplicitCastExpr 0x55bf9a612ad0 <col:16> 'redisReply *' <LValueToRValue>
+      |     `-DeclRefExpr 0x55bf9a612aa8 <col:16> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+      `-IntegerLiteral 0x55bf9a612b20 <col:31> 'int' 0
+[B37.9] (ImplicitCastExpr, LValueToRValue, int)
+  11: IntegerLiteral 0x55bf9a612bd0 <./read.h:51:28> 'int' 1
+1
+  12: BinaryOperator 0x55bf9a612c08 <async.c:373:16, ./read.h:51:28> 'int' '=='
+|-ImplicitCastExpr 0x55bf9a612bf0 <async.c:373:16, col:35> 'int' <LValueToRValue>
+| `-MemberExpr 0x55bf9a612b98 <col:16, col:35> 'int' lvalue ->type 0x55bf9a5b5fb8
+|   `-ImplicitCastExpr 0x55bf9a612b80 <col:16, col:32> 'struct redisReply *' <LValueToRValue>
+|     `-ArraySubscriptExpr 0x55bf9a612b58 <col:16, col:32> 'struct redisReply *' lvalue
+|       |-ImplicitCastExpr 0x55bf9a612b40 <col:16, col:23> 'struct redisReply **' <LValueToRValue>
+|       | `-MemberExpr 0x55bf9a612ae8 <col:16, col:23> 'struct redisReply **' lvalue ->element 0x55bf9a5b6370
+|       |   `-ImplicitCastExpr 0x55bf9a612ad0 <col:16> 'redisReply *' <LValueToRValue>
+|       |     `-DeclRefExpr 0x55bf9a612aa8 <col:16> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+|       `-IntegerLiteral 0x55bf9a612b20 <col:31> 'int' 0
+`-IntegerLiteral 0x55bf9a612bd0 <./read.h:51:28> 'int' 1
+[B37.10] == [B37.11]
+   T: ([B37.12]) ? ... : ...
+   Preds (2): B38 B39(Unreachable)
+   Succs (2): B35 B36
+
+ [B38]
+   1: IntegerLiteral 0x55bf9a612678 </usr/include/assert.h:99:28> 'int' 0
+0
+   2: CStyleCastExpr 0x55bf9a6126f8 </usr/include/assert.h:40:29, line:99:29> 'void' <ToVoid>
+`-ParenExpr 0x55bf9a6126d8 <col:27, col:29> 'int'
+  `-IntegerLiteral 0x55bf9a612678 <col:28> 'int' 0
+(void)([B38.1]) (CStyleCastExpr, ToVoid, void)
+   Preds (1): B40
+   Succs (1): B37
+
+ [B39 (NORETURN)]
+   1: DeclRefExpr 0x55bf9a612720 </usr/include/assert.h:100:8> 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' Function 0x55bf9a52ff20 '__assert_fail' 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))'
+__assert_fail
+   2: ImplicitCastExpr 0x55bf9a612998 </usr/include/assert.h:100:8> 'void (*)(const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a612720 <col:8> 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' Function 0x55bf9a52ff20 '__assert_fail' 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))'
+[B39.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(const char *, const char *, unsigned int, const char *) __attribute__((noreturn)))
+   3: StringLiteral 0x55bf9a6127c8 <<scratch space>:134:1> 'const char [21]' lvalue "reply->elements >= 2"
+"reply->elements >= 2"
+   4: ImplicitCastExpr 0x55bf9a6129f8 <<scratch space>:134:1> 'const char *' <ArrayToPointerDecay>
+`-StringLiteral 0x55bf9a6127c8 <col:1> 'const char [21]' lvalue "reply->elements >= 2"
+[B39.3] (ImplicitCastExpr, ArrayToPointerDecay, const char *)
+   5: StringLiteral 0x55bf9a612808 <<scratch space>:135:1> 'const char [8]' lvalue "async.c"
+"async.c"
+   6: ImplicitCastExpr 0x55bf9a612a10 <<scratch space>:135:1> 'const char *' <ArrayToPointerDecay>
+`-StringLiteral 0x55bf9a612808 <col:1> 'const char [8]' lvalue "async.c"
+[B39.5] (ImplicitCastExpr, ArrayToPointerDecay, const char *)
+   7: IntegerLiteral 0x55bf9a612838 <<scratch space>:136:1> 'int' 372
+372
+   8: ImplicitCastExpr 0x55bf9a612a28 <<scratch space>:136:1> 'unsigned int' <IntegralCast>
+`-IntegerLiteral 0x55bf9a612838 <col:1> 'int' 372
+[B39.7] (ImplicitCastExpr, IntegralCast, unsigned int)
+   9: StringLiteral 0x55bf9a6128d8 </usr/include/assert.h:129:44> 'const char [84]' lvalue "int __redisGetSubscribeCallback(redisAsyncContext *, redisReply *, redisCallback *)"
+"int __redisGetSubscribeCallback(redisAsyncContext *, redisReply *, redisCallback *)"
+  10: PredefinedExpr 0x55bf9a612958 </usr/include/assert.h:129:44> 'const char [84]' lvalue __PRETTY_FUNCTION__
+`-StringLiteral 0x55bf9a6128d8 <col:44> 'const char [84]' lvalue "int __redisGetSubscribeCallback(redisAsyncContext *, redisReply *, redisCallback *)"
+__PRETTY_FUNCTION__
+  11: ImplicitCastExpr 0x55bf9a612a40 </usr/include/assert.h:129:30, col:44> 'const char *' <ArrayToPointerDecay>
+`-UnaryOperator 0x55bf9a612978 <col:30, col:44> 'const char [84]' lvalue prefix '__extension__'
+  `-PredefinedExpr 0x55bf9a612958 <col:44> 'const char [84]' lvalue __PRETTY_FUNCTION__
+    `-StringLiteral 0x55bf9a6128d8 <col:44> 'const char [84]' lvalue "int __redisGetSubscribeCallback(redisAsyncContext *, redisReply *, redisCallback *)"
+__extension__ [B39.10] (ImplicitCastExpr, ArrayToPointerDecay, const char *)
+  12: CallExpr 0x55bf9a6129b0 </usr/include/assert.h:100:8, col:67> 'void'
+|-ImplicitCastExpr 0x55bf9a612998 <col:8> 'void (*)(const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a612720 <col:8> 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' Function 0x55bf9a52ff20 '__assert_fail' 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))'
+|-ImplicitCastExpr 0x55bf9a6129f8 <<scratch space>:134:1> 'const char *' <ArrayToPointerDecay>
+| `-StringLiteral 0x55bf9a6127c8 <col:1> 'const char [21]' lvalue "reply->elements >= 2"
+|-ImplicitCastExpr 0x55bf9a612a10 <line:135:1> 'const char *' <ArrayToPointerDecay>
+| `-StringLiteral 0x55bf9a612808 <col:1> 'const char [8]' lvalue "async.c"
+|-ImplicitCastExpr 0x55bf9a612a28 <line:136:1> 'unsigned int' <IntegralCast>
+| `-IntegerLiteral 0x55bf9a612838 <col:1> 'int' 372
+`-ImplicitCastExpr 0x55bf9a612a40 </usr/include/assert.h:129:30, col:44> 'const char *' <ArrayToPointerDecay>
+  `-UnaryOperator 0x55bf9a612978 <col:30, col:44> 'const char [84]' lvalue prefix '__extension__'
+    `-PredefinedExpr 0x55bf9a612958 <col:44> 'const char [84]' lvalue __PRETTY_FUNCTION__
+      `-StringLiteral 0x55bf9a6128d8 <col:44> 'const char [84]' lvalue "int __redisGetSubscribeCallback(redisAsyncContext *, redisReply *, redisCallback *)"
+[B39.2]([B39.4], [B39.6], [B39.8], [B39.11])
+   Preds (1): B40
+   Succs (1): B0
+
+ [B40]
+   1: DeclRefExpr 0x55bf9a612568 <async.c:372:16> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+reply
+   2: ImplicitCastExpr 0x55bf9a612590 <async.c:372:16> 'redisReply *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a612568 <col:16> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+[B40.1] (ImplicitCastExpr, LValueToRValue, redisReply *)
+   3: MemberExpr 0x55bf9a6125a8 <async.c:372:16, col:23> 'size_t':'unsigned long' lvalue ->elements 0x55bf9a5b6210
+`-ImplicitCastExpr 0x55bf9a612590 <col:16> 'redisReply *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a612568 <col:16> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+[B40.2]->elements
+   4: ImplicitCastExpr 0x55bf9a612600 <async.c:372:16, col:23> 'size_t':'unsigned long' <LValueToRValue>
+`-MemberExpr 0x55bf9a6125a8 <col:16, col:23> 'size_t':'unsigned long' lvalue ->elements 0x55bf9a5b6210
+  `-ImplicitCastExpr 0x55bf9a612590 <col:16> 'redisReply *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a612568 <col:16> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+[B40.3] (ImplicitCastExpr, LValueToRValue, size_t)
+   5: IntegerLiteral 0x55bf9a6125e0 <async.c:372:35> 'int' 2
+2
+   6: ImplicitCastExpr 0x55bf9a612618 <async.c:372:35> 'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x55bf9a6125e0 <col:35> 'int' 2
+[B40.5] (ImplicitCastExpr, IntegralCast, unsigned long)
+   7: BinaryOperator 0x55bf9a612630 <async.c:372:16, col:35> 'int' '>='
+|-ImplicitCastExpr 0x55bf9a612600 <col:16, col:23> 'size_t':'unsigned long' <LValueToRValue>
+| `-MemberExpr 0x55bf9a6125a8 <col:16, col:23> 'size_t':'unsigned long' lvalue ->elements 0x55bf9a5b6210
+|   `-ImplicitCastExpr 0x55bf9a612590 <col:16> 'redisReply *' <LValueToRValue>
+|     `-DeclRefExpr 0x55bf9a612568 <col:16> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+`-ImplicitCastExpr 0x55bf9a612618 <col:35> 'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x55bf9a6125e0 <col:35> 'int' 2
+[B40.4] >= [B40.6]
+   T: ([B40.7]) ? ... : ...
+   Preds (1): B41
+   Succs (2): B38 B39
+
+ [B41]
+   1: DeclRefExpr 0x55bf9a611000 <async.c:361:25> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+ac
+   2: ImplicitCastExpr 0x55bf9a611028 <async.c:361:25> 'redisAsyncContext *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a611000 <col:25> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+[B41.1] (ImplicitCastExpr, LValueToRValue, redisAsyncContext *)
+   3: MemberExpr 0x55bf9a611040 <async.c:361:25, col:29> 'redisContext':'struct redisContext' lvalue ->c 0x55bf9a5c26f0
+`-ImplicitCastExpr 0x55bf9a611028 <col:25> 'redisAsyncContext *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a611000 <col:25> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+[B41.2]->c
+   4: UnaryOperator 0x55bf9a611098 <async.c:361:23, col:30> 'redisContext *' prefix '&'
+`-ParenExpr 0x55bf9a611078 <col:24, col:30> 'redisContext':'struct redisContext' lvalue
+  `-MemberExpr 0x55bf9a611040 <col:25, col:29> 'redisContext':'struct redisContext' lvalue ->c 0x55bf9a5c26f0
+    `-ImplicitCastExpr 0x55bf9a611028 <col:25> 'redisAsyncContext *' <LValueToRValue>
+      `-DeclRefExpr 0x55bf9a611000 <col:25> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+&([B41.3])
+   5: DeclStmt 0x55bf9a6110b8 <async.c:361:5, col:31>col:19
+`-VarDecl 0x55bf9a610fa0 <col:5, col:30> col:19 used c 'redisContext *' cinit
+  `-UnaryOperator 0x55bf9a611098 <col:23, col:30> 'redisContext *' prefix '&'
+    `-ParenExpr 0x55bf9a611078 <col:24, col:30> 'redisContext':'struct redisContext' lvalue
+      `-MemberExpr 0x55bf9a611040 <col:25, col:29> 'redisContext':'struct redisContext' lvalue ->c 0x55bf9a5c26f0
+        `-ImplicitCastExpr 0x55bf9a611028 <col:25> 'redisAsyncContext *' <LValueToRValue>
+          `-DeclRefExpr 0x55bf9a611000 <col:25> 'redisAsyncContext *' lvalue ParmVar 0x55bf9a610cb8 'ac' 'redisAsyncContext *'
+redisContext *c = &(ac->c);
+   6: DeclStmt 0x55bf9a611140 <async.c:362:5, col:20>col:11
+`-VarDecl 0x55bf9a6110e0 <col:5, col:11> col:11 used callbacks 'dict *'
+dict *callbacks;
+   7: DeclStmt 0x55bf9a6111c8 <async.c:363:5, col:22>col:20
+`-VarDecl 0x55bf9a611168 <col:5, col:20> col:20 used cb 'redisCallback *'
+redisCallback *cb;
+   8: DeclStmt 0x55bf9a6122d0 <async.c:364:5, col:18>col:16
+`-VarDecl 0x55bf9a612270 <col:5, col:16> col:16 used de 'dictEntry *'
+dictEntry *de;
+   9: DeclStmt 0x55bf9a612360 <async.c:365:5, col:17>col:9
+`-VarDecl 0x55bf9a612300 <col:5, col:9> col:9 used pvariant 'int'
+int pvariant;
+  10: DeclStmt 0x55bf9a6123f0 <async.c:366:5, col:16>col:11
+`-VarDecl 0x55bf9a612390 <col:5, col:11> col:11 used stype 'char *'
+char *stype;
+  11: DeclStmt 0x55bf9a612478 <async.c:367:5, col:14>col:9
+`-VarDecl 0x55bf9a612418 <col:5, col:9> col:9 used sname 'sds':'char *'
+sds sname;
+  12: DeclRefExpr 0x55bf9a612490 <async.c:371:9> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+reply
+  13: ImplicitCastExpr 0x55bf9a6124b8 <async.c:371:9> 'redisReply *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a612490 <col:9> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+[B41.12] (ImplicitCastExpr, LValueToRValue, redisReply *)
+  14: MemberExpr 0x55bf9a6124d0 <async.c:371:9, col:16> 'int' lvalue ->type 0x55bf9a5b5fb8
+`-ImplicitCastExpr 0x55bf9a6124b8 <col:9> 'redisReply *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a612490 <col:9> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+[B41.13]->type
+  15: ImplicitCastExpr 0x55bf9a612528 <async.c:371:9, col:16> 'int' <LValueToRValue>
+`-MemberExpr 0x55bf9a6124d0 <col:9, col:16> 'int' lvalue ->type 0x55bf9a5b5fb8
+  `-ImplicitCastExpr 0x55bf9a6124b8 <col:9> 'redisReply *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a612490 <col:9> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+[B41.14] (ImplicitCastExpr, LValueToRValue, int)
+  16: IntegerLiteral 0x55bf9a612508 <./read.h:52:27> 'int' 2
+2
+  17: BinaryOperator 0x55bf9a612540 <async.c:371:9, ./read.h:52:27> 'int' '=='
+|-ImplicitCastExpr 0x55bf9a612528 <async.c:371:9, col:16> 'int' <LValueToRValue>
+| `-MemberExpr 0x55bf9a6124d0 <col:9, col:16> 'int' lvalue ->type 0x55bf9a5b5fb8
+|   `-ImplicitCastExpr 0x55bf9a6124b8 <col:9> 'redisReply *' <LValueToRValue>
+|     `-DeclRefExpr 0x55bf9a612490 <col:9> 'redisReply *' lvalue ParmVar 0x55bf9a610d28 'reply' 'redisReply *'
+`-IntegerLiteral 0x55bf9a612508 <./read.h:52:27> 'int' 2
+[B41.15] == [B41.16]
+   T: if [B41.17]
+   Preds (1): B42
+   Succs (2): B40 B2
+
+ [B0 (EXIT)]
+   Preds (5): B1 B9 B18 B36 B39

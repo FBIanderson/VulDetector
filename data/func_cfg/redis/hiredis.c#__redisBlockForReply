@@ -1,0 +1,118 @@
+static void *__redisBlockForReply(redisContext *c)
+ [B6 (ENTRY)]
+   Succs (1): B5
+
+ [B1]
+   1: IntegerLiteral 0x562807078b50 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+   2: CStyleCastExpr 0x562807078b88 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x562807078b50 <col:24> 'int' 0
+(void *)[B1.1] (CStyleCastExpr, NullToPointer, void *)
+   3: ReturnStmt 0x562807078bd0 <hiredis.c:1065:5, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25>
+`-ParenExpr 0x562807078bb0 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x562807078b88 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x562807078b50 <col:24> 'int' 0
+return ([B1.2]);
+   Preds (1): B5
+   Succs (1): B0
+
+ [B2]
+   1: DeclRefExpr 0x562807078aa0 <hiredis.c:1063:16> 'void *' lvalue Var 0x562807078738 'reply' 'void *'
+reply
+   2: ImplicitCastExpr 0x562807078ac8 <hiredis.c:1063:16> 'void *' <LValueToRValue>
+`-DeclRefExpr 0x562807078aa0 <col:16> 'void *' lvalue Var 0x562807078738 'reply' 'void *'
+[B2.1] (ImplicitCastExpr, LValueToRValue, void *)
+   3: ReturnStmt 0x562807078ae0 <hiredis.c:1063:9, col:16>
+`-ImplicitCastExpr 0x562807078ac8 <col:16> 'void *' <LValueToRValue>
+  `-DeclRefExpr 0x562807078aa0 <col:16> 'void *' lvalue Var 0x562807078738 'reply' 'void *'
+return [B2.2];
+   Preds (1): B4
+   Succs (1): B0
+
+ [B3]
+   1: IntegerLiteral 0x5628070789d0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+   2: CStyleCastExpr 0x562807078a08 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x5628070789d0 <col:24> 'int' 0
+(void *)[B3.1] (CStyleCastExpr, NullToPointer, void *)
+   3: ReturnStmt 0x562807078a50 <hiredis.c:1062:13, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25>
+`-ParenExpr 0x562807078a30 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x562807078a08 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x5628070789d0 <col:24> 'int' 0
+return ([B3.2]);
+   Preds (1): B4
+   Succs (1): B0
+
+ [B4]
+   1: DeclRefExpr 0x562807078888 <hiredis.c:1061:13> 'int (redisContext *, void **)' Function 0x5628070742b0 'redisGetReply' 'int (redisContext *, void **)'
+redisGetReply
+   2: ImplicitCastExpr 0x562807078920 <hiredis.c:1061:13> 'int (*)(redisContext *, void **)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x562807078888 <col:13> 'int (redisContext *, void **)' Function 0x5628070742b0 'redisGetReply' 'int (redisContext *, void **)'
+[B4.1] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(redisContext *, void **))
+   3: DeclRefExpr 0x5628070788b0 <hiredis.c:1061:27> 'redisContext *' lvalue ParmVar 0x562807078568 'c' 'redisContext *'
+c
+   4: ImplicitCastExpr 0x562807078970 <hiredis.c:1061:27> 'redisContext *' <LValueToRValue>
+`-DeclRefExpr 0x5628070788b0 <col:27> 'redisContext *' lvalue ParmVar 0x562807078568 'c' 'redisContext *'
+[B4.3] (ImplicitCastExpr, LValueToRValue, redisContext *)
+   5: DeclRefExpr 0x5628070788d8 <hiredis.c:1061:30> 'void *' lvalue Var 0x562807078738 'reply' 'void *'
+reply
+   6: UnaryOperator 0x562807078900 <hiredis.c:1061:29, col:30> 'void **' prefix '&'
+`-DeclRefExpr 0x5628070788d8 <col:30> 'void *' lvalue Var 0x562807078738 'reply' 'void *'
+&[B4.5]
+   7: CallExpr 0x562807078938 <hiredis.c:1061:13, col:35> 'int'
+|-ImplicitCastExpr 0x562807078920 <col:13> 'int (*)(redisContext *, void **)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x562807078888 <col:13> 'int (redisContext *, void **)' Function 0x5628070742b0 'redisGetReply' 'int (redisContext *, void **)'
+|-ImplicitCastExpr 0x562807078970 <col:27> 'redisContext *' <LValueToRValue>
+| `-DeclRefExpr 0x5628070788b0 <col:27> 'redisContext *' lvalue ParmVar 0x562807078568 'c' 'redisContext *'
+`-UnaryOperator 0x562807078900 <col:29, col:30> 'void **' prefix '&'
+  `-DeclRefExpr 0x5628070788d8 <col:30> 'void *' lvalue Var 0x562807078738 'reply' 'void *'
+[B4.2]([B4.4], [B4.6])
+   8: IntegerLiteral 0x562807078988 <./read.h:38:18> 'int' 0
+0
+   9: BinaryOperator 0x5628070789a8 <hiredis.c:1061:13, ./read.h:38:18> 'int' '!='
+|-CallExpr 0x562807078938 <hiredis.c:1061:13, col:35> 'int'
+| |-ImplicitCastExpr 0x562807078920 <col:13> 'int (*)(redisContext *, void **)' <FunctionToPointerDecay>
+| | `-DeclRefExpr 0x562807078888 <col:13> 'int (redisContext *, void **)' Function 0x5628070742b0 'redisGetReply' 'int (redisContext *, void **)'
+| |-ImplicitCastExpr 0x562807078970 <col:27> 'redisContext *' <LValueToRValue>
+| | `-DeclRefExpr 0x5628070788b0 <col:27> 'redisContext *' lvalue ParmVar 0x562807078568 'c' 'redisContext *'
+| `-UnaryOperator 0x562807078900 <col:29, col:30> 'void **' prefix '&'
+|   `-DeclRefExpr 0x5628070788d8 <col:30> 'void *' lvalue Var 0x562807078738 'reply' 'void *'
+`-IntegerLiteral 0x562807078988 <./read.h:38:18> 'int' 0
+[B4.7] != [B4.8]
+   T: if [B4.9]
+   Preds (1): B5
+   Succs (2): B3 B2
+
+ [B5]
+   1: DeclStmt 0x562807078798 <hiredis.c:1058:5, col:16>col:11
+`-VarDecl 0x562807078738 <col:5, col:11> col:11 used reply 'void *'
+void *reply;
+   2: DeclRefExpr 0x5628070787b0 <hiredis.c:1060:9> 'redisContext *' lvalue ParmVar 0x562807078568 'c' 'redisContext *'
+c
+   3: ImplicitCastExpr 0x5628070787d8 <hiredis.c:1060:9> 'redisContext *' <LValueToRValue>
+`-DeclRefExpr 0x5628070787b0 <col:9> 'redisContext *' lvalue ParmVar 0x562807078568 'c' 'redisContext *'
+[B5.2] (ImplicitCastExpr, LValueToRValue, redisContext *)
+   4: MemberExpr 0x5628070787f0 <hiredis.c:1060:9, col:12> 'int' lvalue ->flags 0x56280702fce8
+`-ImplicitCastExpr 0x5628070787d8 <col:9> 'redisContext *' <LValueToRValue>
+  `-DeclRefExpr 0x5628070787b0 <col:9> 'redisContext *' lvalue ParmVar 0x562807078568 'c' 'redisContext *'
+[B5.3]->flags
+   5: ImplicitCastExpr 0x562807078848 <hiredis.c:1060:9, col:12> 'int' <LValueToRValue>
+`-MemberExpr 0x5628070787f0 <col:9, col:12> 'int' lvalue ->flags 0x56280702fce8
+  `-ImplicitCastExpr 0x5628070787d8 <col:9> 'redisContext *' <LValueToRValue>
+    `-DeclRefExpr 0x5628070787b0 <col:9> 'redisContext *' lvalue ParmVar 0x562807078568 'c' 'redisContext *'
+[B5.4] (ImplicitCastExpr, LValueToRValue, int)
+   6: IntegerLiteral 0x562807078828 <./hiredis.h:53:21> 'int' 1
+1
+   7: BinaryOperator 0x562807078860 <hiredis.c:1060:9, ./hiredis.h:53:21> 'int' '&'
+|-ImplicitCastExpr 0x562807078848 <hiredis.c:1060:9, col:12> 'int' <LValueToRValue>
+| `-MemberExpr 0x5628070787f0 <col:9, col:12> 'int' lvalue ->flags 0x56280702fce8
+|   `-ImplicitCastExpr 0x5628070787d8 <col:9> 'redisContext *' <LValueToRValue>
+|     `-DeclRefExpr 0x5628070787b0 <col:9> 'redisContext *' lvalue ParmVar 0x562807078568 'c' 'redisContext *'
+`-IntegerLiteral 0x562807078828 <./hiredis.h:53:21> 'int' 1
+[B5.5] & [B5.6]
+   T: if [B5.7]
+   Preds (1): B6
+   Succs (2): B4 B1
+
+ [B0 (EXIT)]
+   Preds (3): B1 B2 B3

@@ -1,0 +1,877 @@
+static void fixjump(FuncState *fs, int pc, int dest)
+ [B4 (ENTRY)]
+   Succs (1): B3
+
+ [B1]
+   1: DeclRefExpr 0x5637768afb48 <lcode.c:86:15> 'Instruction *' lvalue Var 0x5637768af1a0 'jmp' 'Instruction *'
+jmp
+   2: ImplicitCastExpr 0x5637768afb70 <lcode.c:86:15> 'Instruction *' <LValueToRValue>
+`-DeclRefExpr 0x5637768afb48 <col:15> 'Instruction *' lvalue Var 0x5637768af1a0 'jmp' 'Instruction *'
+[B1.1] (ImplicitCastExpr, LValueToRValue, Instruction *)
+   3: UnaryOperator 0x5637768afb88 <lcode.c:86:14, col:15> 'Instruction':'unsigned int' lvalue prefix '*'
+`-ImplicitCastExpr 0x5637768afb70 <col:15> 'Instruction *' <LValueToRValue>
+  `-DeclRefExpr 0x5637768afb48 <col:15> 'Instruction *' lvalue Var 0x5637768af1a0 'jmp' 'Instruction *'
+*[B1.2]
+   4: ImplicitCastExpr 0x5637768aff08 <./lopcodes.h:97:33, col:35> 'Instruction':'unsigned int' <LValueToRValue>
+`-ParenExpr 0x5637768afbc8 <col:33, col:35> 'Instruction':'unsigned int' lvalue
+  `-ParenExpr 0x5637768afba8 <line:101:35, col:37> 'Instruction':'unsigned int' lvalue
+    `-UnaryOperator 0x5637768afb88 <lcode.c:86:14, col:15> 'Instruction':'unsigned int' lvalue prefix '*'
+      `-ImplicitCastExpr 0x5637768afb70 <col:15> 'Instruction *' <LValueToRValue>
+        `-DeclRefExpr 0x5637768afb48 <col:15> 'Instruction *' lvalue Var 0x5637768af1a0 'jmp' 'Instruction *'
+(([B1.3])) (ImplicitCastExpr, LValueToRValue, Instruction)
+   5: IntegerLiteral 0x5637768afbe8 <./lopcodes.h:71:39> 'int' 0
+0
+   6: CStyleCastExpr 0x5637768afc18 <./lopcodes.h:71:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+`-IntegerLiteral 0x5637768afbe8 <col:39> 'int' 0
+(Instruction)[B1.5] (CStyleCastExpr, IntegralCast, Instruction)
+   7: UnaryOperator 0x5637768afc40 <./lopcodes.h:71:25, col:39> 'Instruction':'unsigned int' prefix '~'
+`-CStyleCastExpr 0x5637768afc18 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+  `-IntegerLiteral 0x5637768afbe8 <col:39> 'int' 0
+~[B1.6]
+   8: IntegerLiteral 0x5637768afc80 <./lopcodes.h:37:17> 'int' 9
+9
+   9: IntegerLiteral 0x5637768afca0 <./lopcodes.h:38:17> 'int' 9
+9
+  10: BinaryOperator 0x5637768afcc0 <./lopcodes.h:37:17, line:38:17> 'int' '+'
+|-IntegerLiteral 0x5637768afc80 <line:37:17> 'int' 9
+`-IntegerLiteral 0x5637768afca0 <line:38:17> 'int' 9
+[B1.8] + [B1.9]
+  11: BinaryOperator 0x5637768afd08 <./lopcodes.h:71:24, line:39:34> 'Instruction':'unsigned int' '<<'
+|-ParenExpr 0x5637768afc60 <line:71:24, col:40> 'Instruction':'unsigned int'
+| `-UnaryOperator 0x5637768afc40 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+|   `-CStyleCastExpr 0x5637768afc18 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+|     `-IntegerLiteral 0x5637768afbe8 <col:39> 'int' 0
+`-ParenExpr 0x5637768afce8 <line:39:18, col:34> 'int'
+  `-BinaryOperator 0x5637768afcc0 <line:37:17, line:38:17> 'int' '+'
+    |-IntegerLiteral 0x5637768afc80 <line:37:17> 'int' 9
+    `-IntegerLiteral 0x5637768afca0 <line:38:17> 'int' 9
+([B1.7]) << ([B1.10])
+  12: UnaryOperator 0x5637768afd50 <./lopcodes.h:71:22, col:44> 'Instruction':'unsigned int' prefix '~'
+`-ParenExpr 0x5637768afd30 <col:23, col:44> 'Instruction':'unsigned int'
+  `-BinaryOperator 0x5637768afd08 <col:24, line:39:34> 'Instruction':'unsigned int' '<<'
+    |-ParenExpr 0x5637768afc60 <line:71:24, col:40> 'Instruction':'unsigned int'
+    | `-UnaryOperator 0x5637768afc40 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+    |   `-CStyleCastExpr 0x5637768afc18 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+    |     `-IntegerLiteral 0x5637768afbe8 <col:39> 'int' 0
+    `-ParenExpr 0x5637768afce8 <line:39:18, col:34> 'int'
+      `-BinaryOperator 0x5637768afcc0 <line:37:17, line:38:17> 'int' '+'
+        |-IntegerLiteral 0x5637768afc80 <line:37:17> 'int' 9
+        `-IntegerLiteral 0x5637768afca0 <line:38:17> 'int' 9
+~([B1.11])
+  13: IntegerLiteral 0x5637768afd90 <./lopcodes.h:44:17> 'int' 0
+0
+  14: IntegerLiteral 0x5637768afdb0 <./lopcodes.h:42:18> 'int' 6
+6
+  15: BinaryOperator 0x5637768afdd0 <./lopcodes.h:44:17, line:42:18> 'int' '+'
+|-IntegerLiteral 0x5637768afd90 <line:44:17> 'int' 0
+`-IntegerLiteral 0x5637768afdb0 <line:42:18> 'int' 6
+[B1.13] + [B1.14]
+  16: IntegerLiteral 0x5637768afe18 <./lopcodes.h:40:17> 'int' 8
+8
+  17: BinaryOperator 0x5637768afe38 <./lopcodes.h:45:16, line:40:17> 'int' '+'
+|-ParenExpr 0x5637768afdf8 <line:45:16, col:33> 'int'
+| `-BinaryOperator 0x5637768afdd0 <line:44:17, line:42:18> 'int' '+'
+|   |-IntegerLiteral 0x5637768afd90 <line:44:17> 'int' 0
+|   `-IntegerLiteral 0x5637768afdb0 <line:42:18> 'int' 6
+`-IntegerLiteral 0x5637768afe18 <line:40:17> 'int' 8
+([B1.15]) + [B1.16]
+  18: BinaryOperator 0x5637768afe80 <./lopcodes.h:71:21, line:46:31> 'Instruction':'unsigned int' '<<'
+|-ParenExpr 0x5637768afd70 <line:71:21, col:45> 'Instruction':'unsigned int'
+| `-UnaryOperator 0x5637768afd50 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+|   `-ParenExpr 0x5637768afd30 <col:23, col:44> 'Instruction':'unsigned int'
+|     `-BinaryOperator 0x5637768afd08 <col:24, line:39:34> 'Instruction':'unsigned int' '<<'
+|       |-ParenExpr 0x5637768afc60 <line:71:24, col:40> 'Instruction':'unsigned int'
+|       | `-UnaryOperator 0x5637768afc40 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+|       |   `-CStyleCastExpr 0x5637768afc18 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+|       |     `-IntegerLiteral 0x5637768afbe8 <col:39> 'int' 0
+|       `-ParenExpr 0x5637768afce8 <line:39:18, col:34> 'int'
+|         `-BinaryOperator 0x5637768afcc0 <line:37:17, line:38:17> 'int' '+'
+|           |-IntegerLiteral 0x5637768afc80 <line:37:17> 'int' 9
+|           `-IntegerLiteral 0x5637768afca0 <line:38:17> 'int' 9
+`-ParenExpr 0x5637768afe60 <line:46:16, col:31> 'int'
+  `-BinaryOperator 0x5637768afe38 <line:45:16, line:40:17> 'int' '+'
+    |-ParenExpr 0x5637768afdf8 <line:45:16, col:33> 'int'
+    | `-BinaryOperator 0x5637768afdd0 <line:44:17, line:42:18> 'int' '+'
+    |   |-IntegerLiteral 0x5637768afd90 <line:44:17> 'int' 0
+    |   `-IntegerLiteral 0x5637768afdb0 <line:42:18> 'int' 6
+    `-IntegerLiteral 0x5637768afe18 <line:40:17> 'int' 8
+([B1.12]) << ([B1.17])
+  19: UnaryOperator 0x5637768afec8 <./lopcodes.h:74:21, line:71:49> 'Instruction':'unsigned int' prefix '~'
+`-ParenExpr 0x5637768afea8 <col:20, col:49> 'Instruction':'unsigned int'
+  `-BinaryOperator 0x5637768afe80 <col:21, line:46:31> 'Instruction':'unsigned int' '<<'
+    |-ParenExpr 0x5637768afd70 <line:71:21, col:45> 'Instruction':'unsigned int'
+    | `-UnaryOperator 0x5637768afd50 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+    |   `-ParenExpr 0x5637768afd30 <col:23, col:44> 'Instruction':'unsigned int'
+    |     `-BinaryOperator 0x5637768afd08 <col:24, line:39:34> 'Instruction':'unsigned int' '<<'
+    |       |-ParenExpr 0x5637768afc60 <line:71:24, col:40> 'Instruction':'unsigned int'
+    |       | `-UnaryOperator 0x5637768afc40 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+    |       |   `-CStyleCastExpr 0x5637768afc18 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+    |       |     `-IntegerLiteral 0x5637768afbe8 <col:39> 'int' 0
+    |       `-ParenExpr 0x5637768afce8 <line:39:18, col:34> 'int'
+    |         `-BinaryOperator 0x5637768afcc0 <line:37:17, line:38:17> 'int' '+'
+    |           |-IntegerLiteral 0x5637768afc80 <line:37:17> 'int' 9
+    |           `-IntegerLiteral 0x5637768afca0 <line:38:17> 'int' 9
+    `-ParenExpr 0x5637768afe60 <line:46:16, col:31> 'int'
+      `-BinaryOperator 0x5637768afe38 <line:45:16, line:40:17> 'int' '+'
+        |-ParenExpr 0x5637768afdf8 <line:45:16, col:33> 'int'
+        | `-BinaryOperator 0x5637768afdd0 <line:44:17, line:42:18> 'int' '+'
+        |   |-IntegerLiteral 0x5637768afd90 <line:44:17> 'int' 0
+        |   `-IntegerLiteral 0x5637768afdb0 <line:42:18> 'int' 6
+        `-IntegerLiteral 0x5637768afe18 <line:40:17> 'int' 8
+~([B1.18])
+  20: BinaryOperator 0x5637768aff20 <./lopcodes.h:97:33, line:74:32> 'unsigned int' '&'
+|-ImplicitCastExpr 0x5637768aff08 <line:97:33, col:35> 'Instruction':'unsigned int' <LValueToRValue>
+| `-ParenExpr 0x5637768afbc8 <col:33, col:35> 'Instruction':'unsigned int' lvalue
+|   `-ParenExpr 0x5637768afba8 <line:101:35, col:37> 'Instruction':'unsigned int' lvalue
+|     `-UnaryOperator 0x5637768afb88 <lcode.c:86:14, col:15> 'Instruction':'unsigned int' lvalue prefix '*'
+|       `-ImplicitCastExpr 0x5637768afb70 <col:15> 'Instruction *' <LValueToRValue>
+|         `-DeclRefExpr 0x5637768afb48 <col:15> 'Instruction *' lvalue Var 0x5637768af1a0 'jmp' 'Instruction *'
+`-ParenExpr 0x5637768afee8 <./lopcodes.h:74:20, col:32> 'Instruction':'unsigned int'
+  `-UnaryOperator 0x5637768afec8 <col:21, line:71:49> 'Instruction':'unsigned int' prefix '~'
+    `-ParenExpr 0x5637768afea8 <col:20, col:49> 'Instruction':'unsigned int'
+      `-BinaryOperator 0x5637768afe80 <col:21, line:46:31> 'Instruction':'unsigned int' '<<'
+        |-ParenExpr 0x5637768afd70 <line:71:21, col:45> 'Instruction':'unsigned int'
+        | `-UnaryOperator 0x5637768afd50 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+        |   `-ParenExpr 0x5637768afd30 <col:23, col:44> 'Instruction':'unsigned int'
+        |     `-BinaryOperator 0x5637768afd08 <col:24, line:39:34> 'Instruction':'unsigned int' '<<'
+        |       |-ParenExpr 0x5637768afc60 <line:71:24, col:40> 'Instruction':'unsigned int'
+        |       | `-UnaryOperator 0x5637768afc40 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+        |       |   `-CStyleCastExpr 0x5637768afc18 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+        |       |     `-IntegerLiteral 0x5637768afbe8 <col:39> 'int' 0
+        |       `-ParenExpr 0x5637768afce8 <line:39:18, col:34> 'int'
+        |         `-BinaryOperator 0x5637768afcc0 <line:37:17, line:38:17> 'int' '+'
+        |           |-IntegerLiteral 0x5637768afc80 <line:37:17> 'int' 9
+        |           `-IntegerLiteral 0x5637768afca0 <line:38:17> 'int' 9
+        `-ParenExpr 0x5637768afe60 <line:46:16, col:31> 'int'
+          `-BinaryOperator 0x5637768afe38 <line:45:16, line:40:17> 'int' '+'
+            |-ParenExpr 0x5637768afdf8 <line:45:16, col:33> 'int'
+            | `-BinaryOperator 0x5637768afdd0 <line:44:17, line:42:18> 'int' '+'
+            |   |-IntegerLiteral 0x5637768afd90 <line:44:17> 'int' 0
+            |   `-IntegerLiteral 0x5637768afdb0 <line:42:18> 'int' 6
+            `-IntegerLiteral 0x5637768afe18 <line:40:17> 'int' 8
+[B1.4] & ([B1.19])
+  21: DeclRefExpr 0x5637768aff68 <lcode.c:86:20> 'int' lvalue Var 0x5637768af398 'offset' 'int'
+offset
+  22: ImplicitCastExpr 0x5637768b0170 <./lopcodes.h:101:58, col:60> 'int' <LValueToRValue>
+`-ParenExpr 0x5637768aff90 <col:58, col:60> 'int' lvalue
+  `-DeclRefExpr 0x5637768aff68 <lcode.c:86:20> 'int' lvalue Var 0x5637768af398 'offset' 'int'
+([B1.21]) (ImplicitCastExpr, LValueToRValue, int)
+  23: IntegerLiteral 0x5637768affb0 <./lopcodes.h:57:28> 'int' 1
+1
+  24: IntegerLiteral 0x5637768affd0 <./lopcodes.h:37:17> 'int' 9
+9
+  25: IntegerLiteral 0x5637768afff0 <./lopcodes.h:38:17> 'int' 9
+9
+  26: BinaryOperator 0x5637768b0010 <./lopcodes.h:37:17, line:38:17> 'int' '+'
+|-IntegerLiteral 0x5637768affd0 <line:37:17> 'int' 9
+`-IntegerLiteral 0x5637768afff0 <line:38:17> 'int' 9
+[B1.24] + [B1.25]
+  27: BinaryOperator 0x5637768b0058 <./lopcodes.h:57:28, line:39:34> 'int' '<<'
+|-IntegerLiteral 0x5637768affb0 <line:57:28> 'int' 1
+`-ParenExpr 0x5637768b0038 <line:39:18, col:34> 'int'
+  `-BinaryOperator 0x5637768b0010 <line:37:17, line:38:17> 'int' '+'
+    |-IntegerLiteral 0x5637768affd0 <line:37:17> 'int' 9
+    `-IntegerLiteral 0x5637768afff0 <line:38:17> 'int' 9
+[B1.23] << ([B1.26])
+  28: IntegerLiteral 0x5637768b00a0 <./lopcodes.h:57:40> 'int' 1
+1
+  29: BinaryOperator 0x5637768b00c0 <./lopcodes.h:57:27, col:40> 'int' '-'
+|-ParenExpr 0x5637768b0080 <col:27, col:38> 'int'
+| `-BinaryOperator 0x5637768b0058 <col:28, line:39:34> 'int' '<<'
+|   |-IntegerLiteral 0x5637768affb0 <line:57:28> 'int' 1
+|   `-ParenExpr 0x5637768b0038 <line:39:18, col:34> 'int'
+|     `-BinaryOperator 0x5637768b0010 <line:37:17, line:38:17> 'int' '+'
+|       |-IntegerLiteral 0x5637768affd0 <line:37:17> 'int' 9
+|       `-IntegerLiteral 0x5637768afff0 <line:38:17> 'int' 9
+`-IntegerLiteral 0x5637768b00a0 <line:57:40> 'int' 1
+([B1.27]) - [B1.28]
+  30: IntegerLiteral 0x5637768b0108 <./lopcodes.h:58:39> 'int' 1
+1
+  31: BinaryOperator 0x5637768b0128 <./lopcodes.h:57:26, line:58:39> 'int' '>>'
+|-ParenExpr 0x5637768b00e8 <line:57:26, col:41> 'int'
+| `-BinaryOperator 0x5637768b00c0 <col:27, col:40> 'int' '-'
+|   |-ParenExpr 0x5637768b0080 <col:27, col:38> 'int'
+|   | `-BinaryOperator 0x5637768b0058 <col:28, line:39:34> 'int' '<<'
+|   |   |-IntegerLiteral 0x5637768affb0 <line:57:28> 'int' 1
+|   |   `-ParenExpr 0x5637768b0038 <line:39:18, col:34> 'int'
+|   |     `-BinaryOperator 0x5637768b0010 <line:37:17, line:38:17> 'int' '+'
+|   |       |-IntegerLiteral 0x5637768affd0 <line:37:17> 'int' 9
+|   |       `-IntegerLiteral 0x5637768afff0 <line:38:17> 'int' 9
+|   `-IntegerLiteral 0x5637768b00a0 <line:57:40> 'int' 1
+`-IntegerLiteral 0x5637768b0108 <line:58:39> 'int' 1
+([B1.29]) >> [B1.30]
+  32: BinaryOperator 0x5637768b0188 <./lopcodes.h:101:58, line:58:40> 'int' '+'
+|-ImplicitCastExpr 0x5637768b0170 <line:101:58, col:60> 'int' <LValueToRValue>
+| `-ParenExpr 0x5637768aff90 <col:58, col:60> 'int' lvalue
+|   `-DeclRefExpr 0x5637768aff68 <lcode.c:86:20> 'int' lvalue Var 0x5637768af398 'offset' 'int'
+`-ParenExpr 0x5637768b0150 <./lopcodes.h:58:27, col:40> 'int'
+  `-BinaryOperator 0x5637768b0128 <line:57:26, line:58:39> 'int' '>>'
+    |-ParenExpr 0x5637768b00e8 <line:57:26, col:41> 'int'
+    | `-BinaryOperator 0x5637768b00c0 <col:27, col:40> 'int' '-'
+    |   |-ParenExpr 0x5637768b0080 <col:27, col:38> 'int'
+    |   | `-BinaryOperator 0x5637768b0058 <col:28, line:39:34> 'int' '<<'
+    |   |   |-IntegerLiteral 0x5637768affb0 <line:57:28> 'int' 1
+    |   |   `-ParenExpr 0x5637768b0038 <line:39:18, col:34> 'int'
+    |   |     `-BinaryOperator 0x5637768b0010 <line:37:17, line:38:17> 'int' '+'
+    |   |       |-IntegerLiteral 0x5637768affd0 <line:37:17> 'int' 9
+    |   |       `-IntegerLiteral 0x5637768afff0 <line:38:17> 'int' 9
+    |   `-IntegerLiteral 0x5637768b00a0 <line:57:40> 'int' 1
+    `-IntegerLiteral 0x5637768b0108 <line:58:39> 'int' 1
+[B1.22] + ([B1.31])
+  33: CStyleCastExpr 0x5637768b0218 <./llimits.h:75:23, col:30> 'unsigned int' <IntegralCast>
+`-ParenExpr 0x5637768b01f8 <col:26, col:30> 'int'
+  `-BinaryOperator 0x5637768b0188 <./lopcodes.h:101:58, line:58:40> 'int' '+'
+    |-ImplicitCastExpr 0x5637768b0170 <line:101:58, col:60> 'int' <LValueToRValue>
+    | `-ParenExpr 0x5637768aff90 <col:58, col:60> 'int' lvalue
+    |   `-DeclRefExpr 0x5637768aff68 <lcode.c:86:20> 'int' lvalue Var 0x5637768af398 'offset' 'int'
+    `-ParenExpr 0x5637768b0150 <./lopcodes.h:58:27, col:40> 'int'
+      `-BinaryOperator 0x5637768b0128 <line:57:26, line:58:39> 'int' '>>'
+        |-ParenExpr 0x5637768b00e8 <line:57:26, col:41> 'int'
+        | `-BinaryOperator 0x5637768b00c0 <col:27, col:40> 'int' '-'
+        |   |-ParenExpr 0x5637768b0080 <col:27, col:38> 'int'
+        |   | `-BinaryOperator 0x5637768b0058 <col:28, line:39:34> 'int' '<<'
+        |   |   |-IntegerLiteral 0x5637768affb0 <line:57:28> 'int' 1
+        |   |   `-ParenExpr 0x5637768b0038 <line:39:18, col:34> 'int'
+        |   |     `-BinaryOperator 0x5637768b0010 <line:37:17, line:38:17> 'int' '+'
+        |   |       |-IntegerLiteral 0x5637768affd0 <line:37:17> 'int' 9
+        |   |       `-IntegerLiteral 0x5637768afff0 <line:38:17> 'int' 9
+        |   `-IntegerLiteral 0x5637768b00a0 <line:57:40> 'int' 1
+        `-IntegerLiteral 0x5637768b0108 <line:58:39> 'int' 1
+(unsigned int)([B1.32]) (CStyleCastExpr, IntegralCast, unsigned int)
+  34: CStyleCastExpr 0x5637768b02c0 <./llimits.h:75:23, col:30> 'Instruction':'unsigned int' <NoOp>
+`-ParenExpr 0x5637768b02a0 <col:26, col:30> 'unsigned int'
+  `-ParenExpr 0x5637768b0240 <col:22, col:31> 'unsigned int'
+    `-CStyleCastExpr 0x5637768b0218 <col:23, col:30> 'unsigned int' <IntegralCast>
+      `-ParenExpr 0x5637768b01f8 <col:26, col:30> 'int'
+        `-BinaryOperator 0x5637768b0188 <./lopcodes.h:101:58, line:58:40> 'int' '+'
+          |-ImplicitCastExpr 0x5637768b0170 <line:101:58, col:60> 'int' <LValueToRValue>
+          | `-ParenExpr 0x5637768aff90 <col:58, col:60> 'int' lvalue
+          |   `-DeclRefExpr 0x5637768aff68 <lcode.c:86:20> 'int' lvalue Var 0x5637768af398 'offset' 'int'
+          `-ParenExpr 0x5637768b0150 <./lopcodes.h:58:27, col:40> 'int'
+            `-BinaryOperator 0x5637768b0128 <line:57:26, line:58:39> 'int' '>>'
+              |-ParenExpr 0x5637768b00e8 <line:57:26, col:41> 'int'
+              | `-BinaryOperator 0x5637768b00c0 <col:27, col:40> 'int' '-'
+              |   |-ParenExpr 0x5637768b0080 <col:27, col:38> 'int'
+              |   | `-BinaryOperator 0x5637768b0058 <col:28, line:39:34> 'int' '<<'
+              |   |   |-IntegerLiteral 0x5637768affb0 <line:57:28> 'int' 1
+              |   |   `-ParenExpr 0x5637768b0038 <line:39:18, col:34> 'int'
+              |   |     `-BinaryOperator 0x5637768b0010 <line:37:17, line:38:17> 'int' '+'
+              |   |       |-IntegerLiteral 0x5637768affd0 <line:37:17> 'int' 9
+              |   |       `-IntegerLiteral 0x5637768afff0 <line:38:17> 'int' 9
+              |   `-IntegerLiteral 0x5637768b00a0 <line:57:40> 'int' 1
+              `-IntegerLiteral 0x5637768b0108 <line:58:39> 'int' 1
+(Instruction)(([B1.33])) (CStyleCastExpr, NoOp, Instruction)
+  35: IntegerLiteral 0x5637768b0308 <./lopcodes.h:44:17> 'int' 0
+0
+  36: IntegerLiteral 0x5637768b0328 <./lopcodes.h:42:18> 'int' 6
+6
+  37: BinaryOperator 0x5637768b0348 <./lopcodes.h:44:17, line:42:18> 'int' '+'
+|-IntegerLiteral 0x5637768b0308 <line:44:17> 'int' 0
+`-IntegerLiteral 0x5637768b0328 <line:42:18> 'int' 6
+[B1.35] + [B1.36]
+  38: IntegerLiteral 0x5637768b0390 <./lopcodes.h:40:17> 'int' 8
+8
+  39: BinaryOperator 0x5637768b03b0 <./lopcodes.h:45:16, line:40:17> 'int' '+'
+|-ParenExpr 0x5637768b0370 <line:45:16, col:33> 'int'
+| `-BinaryOperator 0x5637768b0348 <line:44:17, line:42:18> 'int' '+'
+|   |-IntegerLiteral 0x5637768b0308 <line:44:17> 'int' 0
+|   `-IntegerLiteral 0x5637768b0328 <line:42:18> 'int' 6
+`-IntegerLiteral 0x5637768b0390 <line:40:17> 'int' 8
+([B1.37]) + [B1.38]
+  40: BinaryOperator 0x5637768b03f8 <./llimits.h:75:22, ./lopcodes.h:46:31> 'Instruction':'unsigned int' '<<'
+|-ParenExpr 0x5637768b02e8 <./llimits.h:75:22, col:31> 'Instruction':'unsigned int'
+| `-CStyleCastExpr 0x5637768b02c0 <col:23, col:30> 'Instruction':'unsigned int' <NoOp>
+|   `-ParenExpr 0x5637768b02a0 <col:26, col:30> 'unsigned int'
+|     `-ParenExpr 0x5637768b0240 <col:22, col:31> 'unsigned int'
+|       `-CStyleCastExpr 0x5637768b0218 <col:23, col:30> 'unsigned int' <IntegralCast>
+|         `-ParenExpr 0x5637768b01f8 <col:26, col:30> 'int'
+|           `-BinaryOperator 0x5637768b0188 <./lopcodes.h:101:58, line:58:40> 'int' '+'
+|             |-ImplicitCastExpr 0x5637768b0170 <line:101:58, col:60> 'int' <LValueToRValue>
+|             | `-ParenExpr 0x5637768aff90 <col:58, col:60> 'int' lvalue
+|             |   `-DeclRefExpr 0x5637768aff68 <lcode.c:86:20> 'int' lvalue Var 0x5637768af398 'offset' 'int'
+|             `-ParenExpr 0x5637768b0150 <./lopcodes.h:58:27, col:40> 'int'
+|               `-BinaryOperator 0x5637768b0128 <line:57:26, line:58:39> 'int' '>>'
+|                 |-ParenExpr 0x5637768b00e8 <line:57:26, col:41> 'int'
+|                 | `-BinaryOperator 0x5637768b00c0 <col:27, col:40> 'int' '-'
+|                 |   |-ParenExpr 0x5637768b0080 <col:27, col:38> 'int'
+|                 |   | `-BinaryOperator 0x5637768b0058 <col:28, line:39:34> 'int' '<<'
+|                 |   |   |-IntegerLiteral 0x5637768affb0 <line:57:28> 'int' 1
+|                 |   |   `-ParenExpr 0x5637768b0038 <line:39:18, col:34> 'int'
+|                 |   |     `-BinaryOperator 0x5637768b0010 <line:37:17, line:38:17> 'int' '+'
+|                 |   |       |-IntegerLiteral 0x5637768affd0 <line:37:17> 'int' 9
+|                 |   |       `-IntegerLiteral 0x5637768afff0 <line:38:17> 'int' 9
+|                 |   `-IntegerLiteral 0x5637768b00a0 <line:57:40> 'int' 1
+|                 `-IntegerLiteral 0x5637768b0108 <line:58:39> 'int' 1
+`-ParenExpr 0x5637768b03d8 <line:46:16, col:31> 'int'
+  `-BinaryOperator 0x5637768b03b0 <line:45:16, line:40:17> 'int' '+'
+    |-ParenExpr 0x5637768b0370 <line:45:16, col:33> 'int'
+    | `-BinaryOperator 0x5637768b0348 <line:44:17, line:42:18> 'int' '+'
+    |   |-IntegerLiteral 0x5637768b0308 <line:44:17> 'int' 0
+    |   `-IntegerLiteral 0x5637768b0328 <line:42:18> 'int' 6
+    `-IntegerLiteral 0x5637768b0390 <line:40:17> 'int' 8
+([B1.34]) << ([B1.39])
+  41: IntegerLiteral 0x5637768b0440 <./lopcodes.h:71:39> 'int' 0
+0
+  42: CStyleCastExpr 0x5637768b0470 <./lopcodes.h:71:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+`-IntegerLiteral 0x5637768b0440 <col:39> 'int' 0
+(Instruction)[B1.41] (CStyleCastExpr, IntegralCast, Instruction)
+  43: UnaryOperator 0x5637768b0498 <./lopcodes.h:71:25, col:39> 'Instruction':'unsigned int' prefix '~'
+`-CStyleCastExpr 0x5637768b0470 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+  `-IntegerLiteral 0x5637768b0440 <col:39> 'int' 0
+~[B1.42]
+  44: IntegerLiteral 0x5637768b04d8 <./lopcodes.h:37:17> 'int' 9
+9
+  45: IntegerLiteral 0x5637768b04f8 <./lopcodes.h:38:17> 'int' 9
+9
+  46: BinaryOperator 0x5637768b0518 <./lopcodes.h:37:17, line:38:17> 'int' '+'
+|-IntegerLiteral 0x5637768b04d8 <line:37:17> 'int' 9
+`-IntegerLiteral 0x5637768b04f8 <line:38:17> 'int' 9
+[B1.44] + [B1.45]
+  47: BinaryOperator 0x5637768b0560 <./lopcodes.h:71:24, line:39:34> 'Instruction':'unsigned int' '<<'
+|-ParenExpr 0x5637768b04b8 <line:71:24, col:40> 'Instruction':'unsigned int'
+| `-UnaryOperator 0x5637768b0498 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+|   `-CStyleCastExpr 0x5637768b0470 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+|     `-IntegerLiteral 0x5637768b0440 <col:39> 'int' 0
+`-ParenExpr 0x5637768b0540 <line:39:18, col:34> 'int'
+  `-BinaryOperator 0x5637768b0518 <line:37:17, line:38:17> 'int' '+'
+    |-IntegerLiteral 0x5637768b04d8 <line:37:17> 'int' 9
+    `-IntegerLiteral 0x5637768b04f8 <line:38:17> 'int' 9
+([B1.43]) << ([B1.46])
+  48: UnaryOperator 0x5637768b05a8 <./lopcodes.h:71:22, col:44> 'Instruction':'unsigned int' prefix '~'
+`-ParenExpr 0x5637768b0588 <col:23, col:44> 'Instruction':'unsigned int'
+  `-BinaryOperator 0x5637768b0560 <col:24, line:39:34> 'Instruction':'unsigned int' '<<'
+    |-ParenExpr 0x5637768b04b8 <line:71:24, col:40> 'Instruction':'unsigned int'
+    | `-UnaryOperator 0x5637768b0498 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+    |   `-CStyleCastExpr 0x5637768b0470 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+    |     `-IntegerLiteral 0x5637768b0440 <col:39> 'int' 0
+    `-ParenExpr 0x5637768b0540 <line:39:18, col:34> 'int'
+      `-BinaryOperator 0x5637768b0518 <line:37:17, line:38:17> 'int' '+'
+        |-IntegerLiteral 0x5637768b04d8 <line:37:17> 'int' 9
+        `-IntegerLiteral 0x5637768b04f8 <line:38:17> 'int' 9
+~([B1.47])
+  49: IntegerLiteral 0x5637768b05e8 <./lopcodes.h:44:17> 'int' 0
+0
+  50: IntegerLiteral 0x5637768b0608 <./lopcodes.h:42:18> 'int' 6
+6
+  51: BinaryOperator 0x5637768b0628 <./lopcodes.h:44:17, line:42:18> 'int' '+'
+|-IntegerLiteral 0x5637768b05e8 <line:44:17> 'int' 0
+`-IntegerLiteral 0x5637768b0608 <line:42:18> 'int' 6
+[B1.49] + [B1.50]
+  52: IntegerLiteral 0x5637768b0670 <./lopcodes.h:40:17> 'int' 8
+8
+  53: BinaryOperator 0x5637768b0690 <./lopcodes.h:45:16, line:40:17> 'int' '+'
+|-ParenExpr 0x5637768b0650 <line:45:16, col:33> 'int'
+| `-BinaryOperator 0x5637768b0628 <line:44:17, line:42:18> 'int' '+'
+|   |-IntegerLiteral 0x5637768b05e8 <line:44:17> 'int' 0
+|   `-IntegerLiteral 0x5637768b0608 <line:42:18> 'int' 6
+`-IntegerLiteral 0x5637768b0670 <line:40:17> 'int' 8
+([B1.51]) + [B1.52]
+  54: BinaryOperator 0x5637768b06d8 <./lopcodes.h:71:21, line:46:31> 'Instruction':'unsigned int' '<<'
+|-ParenExpr 0x5637768b05c8 <line:71:21, col:45> 'Instruction':'unsigned int'
+| `-UnaryOperator 0x5637768b05a8 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+|   `-ParenExpr 0x5637768b0588 <col:23, col:44> 'Instruction':'unsigned int'
+|     `-BinaryOperator 0x5637768b0560 <col:24, line:39:34> 'Instruction':'unsigned int' '<<'
+|       |-ParenExpr 0x5637768b04b8 <line:71:24, col:40> 'Instruction':'unsigned int'
+|       | `-UnaryOperator 0x5637768b0498 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+|       |   `-CStyleCastExpr 0x5637768b0470 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+|       |     `-IntegerLiteral 0x5637768b0440 <col:39> 'int' 0
+|       `-ParenExpr 0x5637768b0540 <line:39:18, col:34> 'int'
+|         `-BinaryOperator 0x5637768b0518 <line:37:17, line:38:17> 'int' '+'
+|           |-IntegerLiteral 0x5637768b04d8 <line:37:17> 'int' 9
+|           `-IntegerLiteral 0x5637768b04f8 <line:38:17> 'int' 9
+`-ParenExpr 0x5637768b06b8 <line:46:16, col:31> 'int'
+  `-BinaryOperator 0x5637768b0690 <line:45:16, line:40:17> 'int' '+'
+    |-ParenExpr 0x5637768b0650 <line:45:16, col:33> 'int'
+    | `-BinaryOperator 0x5637768b0628 <line:44:17, line:42:18> 'int' '+'
+    |   |-IntegerLiteral 0x5637768b05e8 <line:44:17> 'int' 0
+    |   `-IntegerLiteral 0x5637768b0608 <line:42:18> 'int' 6
+    `-IntegerLiteral 0x5637768b0670 <line:40:17> 'int' 8
+([B1.48]) << ([B1.53])
+  55: BinaryOperator 0x5637768b0720 <./lopcodes.h:98:4, line:71:49> 'unsigned int' '&'
+|-ParenExpr 0x5637768b0420 <line:98:4, col:33> 'Instruction':'unsigned int'
+| `-BinaryOperator 0x5637768b03f8 <./llimits.h:75:22, ./lopcodes.h:46:31> 'Instruction':'unsigned int' '<<'
+|   |-ParenExpr 0x5637768b02e8 <./llimits.h:75:22, col:31> 'Instruction':'unsigned int'
+|   | `-CStyleCastExpr 0x5637768b02c0 <col:23, col:30> 'Instruction':'unsigned int' <NoOp>
+|   |   `-ParenExpr 0x5637768b02a0 <col:26, col:30> 'unsigned int'
+|   |     `-ParenExpr 0x5637768b0240 <col:22, col:31> 'unsigned int'
+|   |       `-CStyleCastExpr 0x5637768b0218 <col:23, col:30> 'unsigned int' <IntegralCast>
+|   |         `-ParenExpr 0x5637768b01f8 <col:26, col:30> 'int'
+|   |           `-BinaryOperator 0x5637768b0188 <./lopcodes.h:101:58, line:58:40> 'int' '+'
+|   |             |-ImplicitCastExpr 0x5637768b0170 <line:101:58, col:60> 'int' <LValueToRValue>
+|   |             | `-ParenExpr 0x5637768aff90 <col:58, col:60> 'int' lvalue
+|   |             |   `-DeclRefExpr 0x5637768aff68 <lcode.c:86:20> 'int' lvalue Var 0x5637768af398 'offset' 'int'
+|   |             `-ParenExpr 0x5637768b0150 <./lopcodes.h:58:27, col:40> 'int'
+|   |               `-BinaryOperator 0x5637768b0128 <line:57:26, line:58:39> 'int' '>>'
+|   |                 |-ParenExpr 0x5637768b00e8 <line:57:26, col:41> 'int'
+|   |                 | `-BinaryOperator 0x5637768b00c0 <col:27, col:40> 'int' '-'
+|   |                 |   |-ParenExpr 0x5637768b0080 <col:27, col:38> 'int'
+|   |                 |   | `-BinaryOperator 0x5637768b0058 <col:28, line:39:34> 'int' '<<'
+|   |                 |   |   |-IntegerLiteral 0x5637768affb0 <line:57:28> 'int' 1
+|   |                 |   |   `-ParenExpr 0x5637768b0038 <line:39:18, col:34> 'int'
+|   |                 |   |     `-BinaryOperator 0x5637768b0010 <line:37:17, line:38:17> 'int' '+'
+|   |                 |   |       |-IntegerLiteral 0x5637768affd0 <line:37:17> 'int' 9
+|   |                 |   |       `-IntegerLiteral 0x5637768afff0 <line:38:17> 'int' 9
+|   |                 |   `-IntegerLiteral 0x5637768b00a0 <line:57:40> 'int' 1
+|   |                 `-IntegerLiteral 0x5637768b0108 <line:58:39> 'int' 1
+|   `-ParenExpr 0x5637768b03d8 <line:46:16, col:31> 'int'
+|     `-BinaryOperator 0x5637768b03b0 <line:45:16, line:40:17> 'int' '+'
+|       |-ParenExpr 0x5637768b0370 <line:45:16, col:33> 'int'
+|       | `-BinaryOperator 0x5637768b0348 <line:44:17, line:42:18> 'int' '+'
+|       |   |-IntegerLiteral 0x5637768b0308 <line:44:17> 'int' 0
+|       |   `-IntegerLiteral 0x5637768b0328 <line:42:18> 'int' 6
+|       `-IntegerLiteral 0x5637768b0390 <line:40:17> 'int' 8
+`-ParenExpr 0x5637768b0700 <line:71:20, col:49> 'Instruction':'unsigned int'
+  `-BinaryOperator 0x5637768b06d8 <col:21, line:46:31> 'Instruction':'unsigned int' '<<'
+    |-ParenExpr 0x5637768b05c8 <line:71:21, col:45> 'Instruction':'unsigned int'
+    | `-UnaryOperator 0x5637768b05a8 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+    |   `-ParenExpr 0x5637768b0588 <col:23, col:44> 'Instruction':'unsigned int'
+    |     `-BinaryOperator 0x5637768b0560 <col:24, line:39:34> 'Instruction':'unsigned int' '<<'
+    |       |-ParenExpr 0x5637768b04b8 <line:71:24, col:40> 'Instruction':'unsigned int'
+    |       | `-UnaryOperator 0x5637768b0498 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+    |       |   `-CStyleCastExpr 0x5637768b0470 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+    |       |     `-IntegerLiteral 0x5637768b0440 <col:39> 'int' 0
+    |       `-ParenExpr 0x5637768b0540 <line:39:18, col:34> 'int'
+    |         `-BinaryOperator 0x5637768b0518 <line:37:17, line:38:17> 'int' '+'
+    |           |-IntegerLiteral 0x5637768b04d8 <line:37:17> 'int' 9
+    |           `-IntegerLiteral 0x5637768b04f8 <line:38:17> 'int' 9
+    `-ParenExpr 0x5637768b06b8 <line:46:16, col:31> 'int'
+      `-BinaryOperator 0x5637768b0690 <line:45:16, line:40:17> 'int' '+'
+        |-ParenExpr 0x5637768b0650 <line:45:16, col:33> 'int'
+        | `-BinaryOperator 0x5637768b0628 <line:44:17, line:42:18> 'int' '+'
+        |   |-IntegerLiteral 0x5637768b05e8 <line:44:17> 'int' 0
+        |   `-IntegerLiteral 0x5637768b0608 <line:42:18> 'int' 6
+        `-IntegerLiteral 0x5637768b0670 <line:40:17> 'int' 8
+([B1.40]) & ([B1.54])
+  56: BinaryOperator 0x5637768b29b0 <./lopcodes.h:97:32, line:98:56> 'unsigned int' '|'
+|-ParenExpr 0x5637768aff48 <line:97:32, col:58> 'unsigned int'
+| `-BinaryOperator 0x5637768aff20 <col:33, line:74:32> 'unsigned int' '&'
+|   |-ImplicitCastExpr 0x5637768aff08 <line:97:33, col:35> 'Instruction':'unsigned int' <LValueToRValue>
+|   | `-ParenExpr 0x5637768afbc8 <col:33, col:35> 'Instruction':'unsigned int' lvalue
+|   |   `-ParenExpr 0x5637768afba8 <line:101:35, col:37> 'Instruction':'unsigned int' lvalue
+|   |     `-UnaryOperator 0x5637768afb88 <lcode.c:86:14, col:15> 'Instruction':'unsigned int' lvalue prefix '*'
+|   |       `-ImplicitCastExpr 0x5637768afb70 <col:15> 'Instruction *' <LValueToRValue>
+|   |         `-DeclRefExpr 0x5637768afb48 <col:15> 'Instruction *' lvalue Var 0x5637768af1a0 'jmp' 'Instruction *'
+|   `-ParenExpr 0x5637768afee8 <./lopcodes.h:74:20, col:32> 'Instruction':'unsigned int'
+|     `-UnaryOperator 0x5637768afec8 <col:21, line:71:49> 'Instruction':'unsigned int' prefix '~'
+|       `-ParenExpr 0x5637768afea8 <col:20, col:49> 'Instruction':'unsigned int'
+|         `-BinaryOperator 0x5637768afe80 <col:21, line:46:31> 'Instruction':'unsigned int' '<<'
+|           |-ParenExpr 0x5637768afd70 <line:71:21, col:45> 'Instruction':'unsigned int'
+|           | `-UnaryOperator 0x5637768afd50 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+|           |   `-ParenExpr 0x5637768afd30 <col:23, col:44> 'Instruction':'unsigned int'
+|           |     `-BinaryOperator 0x5637768afd08 <col:24, line:39:34> 'Instruction':'unsigned int' '<<'
+|           |       |-ParenExpr 0x5637768afc60 <line:71:24, col:40> 'Instruction':'unsigned int'
+|           |       | `-UnaryOperator 0x5637768afc40 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+|           |       |   `-CStyleCastExpr 0x5637768afc18 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+|           |       |     `-IntegerLiteral 0x5637768afbe8 <col:39> 'int' 0
+|           |       `-ParenExpr 0x5637768afce8 <line:39:18, col:34> 'int'
+|           |         `-BinaryOperator 0x5637768afcc0 <line:37:17, line:38:17> 'int' '+'
+|           |           |-IntegerLiteral 0x5637768afc80 <line:37:17> 'int' 9
+|           |           `-IntegerLiteral 0x5637768afca0 <line:38:17> 'int' 9
+|           `-ParenExpr 0x5637768afe60 <line:46:16, col:31> 'int'
+|             `-BinaryOperator 0x5637768afe38 <line:45:16, line:40:17> 'int' '+'
+|               |-ParenExpr 0x5637768afdf8 <line:45:16, col:33> 'int'
+|               | `-BinaryOperator 0x5637768afdd0 <line:44:17, line:42:18> 'int' '+'
+|               |   |-IntegerLiteral 0x5637768afd90 <line:44:17> 'int' 0
+|               |   `-IntegerLiteral 0x5637768afdb0 <line:42:18> 'int' 6
+|               `-IntegerLiteral 0x5637768afe18 <line:40:17> 'int' 8
+`-ParenExpr 0x5637768b2990 <line:98:3, col:56> 'unsigned int'
+  `-BinaryOperator 0x5637768b0720 <col:4, line:71:49> 'unsigned int' '&'
+    |-ParenExpr 0x5637768b0420 <line:98:4, col:33> 'Instruction':'unsigned int'
+    | `-BinaryOperator 0x5637768b03f8 <./llimits.h:75:22, ./lopcodes.h:46:31> 'Instruction':'unsigned int' '<<'
+    |   |-ParenExpr 0x5637768b02e8 <./llimits.h:75:22, col:31> 'Instruction':'unsigned int'
+    |   | `-CStyleCastExpr 0x5637768b02c0 <col:23, col:30> 'Instruction':'unsigned int' <NoOp>
+    |   |   `-ParenExpr 0x5637768b02a0 <col:26, col:30> 'unsigned int'
+    |   |     `-ParenExpr 0x5637768b0240 <col:22, col:31> 'unsigned int'
+    |   |       `-CStyleCastExpr 0x5637768b0218 <col:23, col:30> 'unsigned int' <IntegralCast>
+    |   |         `-ParenExpr 0x5637768b01f8 <col:26, col:30> 'int'
+    |   |           `-BinaryOperator 0x5637768b0188 <./lopcodes.h:101:58, line:58:40> 'int' '+'
+    |   |             |-ImplicitCastExpr 0x5637768b0170 <line:101:58, col:60> 'int' <LValueToRValue>
+    |   |             | `-ParenExpr 0x5637768aff90 <col:58, col:60> 'int' lvalue
+    |   |             |   `-DeclRefExpr 0x5637768aff68 <lcode.c:86:20> 'int' lvalue Var 0x5637768af398 'offset' 'int'
+    |   |             `-ParenExpr 0x5637768b0150 <./lopcodes.h:58:27, col:40> 'int'
+    |   |               `-BinaryOperator 0x5637768b0128 <line:57:26, line:58:39> 'int' '>>'
+    |   |                 |-ParenExpr 0x5637768b00e8 <line:57:26, col:41> 'int'
+    |   |                 | `-BinaryOperator 0x5637768b00c0 <col:27, col:40> 'int' '-'
+    |   |                 |   |-ParenExpr 0x5637768b0080 <col:27, col:38> 'int'
+    |   |                 |   | `-BinaryOperator 0x5637768b0058 <col:28, line:39:34> 'int' '<<'
+    |   |                 |   |   |-IntegerLiteral 0x5637768affb0 <line:57:28> 'int' 1
+    |   |                 |   |   `-ParenExpr 0x5637768b0038 <line:39:18, col:34> 'int'
+    |   |                 |   |     `-BinaryOperator 0x5637768b0010 <line:37:17, line:38:17> 'int' '+'
+    |   |                 |   |       |-IntegerLiteral 0x5637768affd0 <line:37:17> 'int' 9
+    |   |                 |   |       `-IntegerLiteral 0x5637768afff0 <line:38:17> 'int' 9
+    |   |                 |   `-IntegerLiteral 0x5637768b00a0 <line:57:40> 'int' 1
+    |   |                 `-IntegerLiteral 0x5637768b0108 <line:58:39> 'int' 1
+    |   `-ParenExpr 0x5637768b03d8 <line:46:16, col:31> 'int'
+    |     `-BinaryOperator 0x5637768b03b0 <line:45:16, line:40:17> 'int' '+'
+    |       |-ParenExpr 0x5637768b0370 <line:45:16, col:33> 'int'
+    |       | `-BinaryOperator 0x5637768b0348 <line:44:17, line:42:18> 'int' '+'
+    |       |   |-IntegerLiteral 0x5637768b0308 <line:44:17> 'int' 0
+    |       |   `-IntegerLiteral 0x5637768b0328 <line:42:18> 'int' 6
+    |       `-IntegerLiteral 0x5637768b0390 <line:40:17> 'int' 8
+    `-ParenExpr 0x5637768b0700 <line:71:20, col:49> 'Instruction':'unsigned int'
+      `-BinaryOperator 0x5637768b06d8 <col:21, line:46:31> 'Instruction':'unsigned int' '<<'
+        |-ParenExpr 0x5637768b05c8 <line:71:21, col:45> 'Instruction':'unsigned int'
+        | `-UnaryOperator 0x5637768b05a8 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+        |   `-ParenExpr 0x5637768b0588 <col:23, col:44> 'Instruction':'unsigned int'
+        |     `-BinaryOperator 0x5637768b0560 <col:24, line:39:34> 'Instruction':'unsigned int' '<<'
+        |       |-ParenExpr 0x5637768b04b8 <line:71:24, col:40> 'Instruction':'unsigned int'
+        |       | `-UnaryOperator 0x5637768b0498 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+        |       |   `-CStyleCastExpr 0x5637768b0470 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+        |       |     `-IntegerLiteral 0x5637768b0440 <col:39> 'int' 0
+        |       `-ParenExpr 0x5637768b0540 <line:39:18, col:34> 'int'
+        |         `-BinaryOperator 0x5637768b0518 <line:37:17, line:38:17> 'int' '+'
+        |           |-IntegerLiteral 0x5637768b04d8 <line:37:17> 'int' 9
+        |           `-IntegerLiteral 0x5637768b04f8 <line:38:17> 'int' 9
+        `-ParenExpr 0x5637768b06b8 <line:46:16, col:31> 'int'
+          `-BinaryOperator 0x5637768b0690 <line:45:16, line:40:17> 'int' '+'
+            |-ParenExpr 0x5637768b0650 <line:45:16, col:33> 'int'
+            | `-BinaryOperator 0x5637768b0628 <line:44:17, line:42:18> 'int' '+'
+            |   |-IntegerLiteral 0x5637768b05e8 <line:44:17> 'int' 0
+            |   `-IntegerLiteral 0x5637768b0608 <line:42:18> 'int' 6
+            `-IntegerLiteral 0x5637768b0670 <line:40:17> 'int' 8
+([B1.20]) | ([B1.55])
+  57: DeclRefExpr 0x5637768afaa8 <lcode.c:86:15> 'Instruction *' lvalue Var 0x5637768af1a0 'jmp' 'Instruction *'
+jmp
+  58: ImplicitCastExpr 0x5637768afad0 <lcode.c:86:15> 'Instruction *' <LValueToRValue>
+`-DeclRefExpr 0x5637768afaa8 <col:15> 'Instruction *' lvalue Var 0x5637768af1a0 'jmp' 'Instruction *'
+[B1.57] (ImplicitCastExpr, LValueToRValue, Instruction *)
+  59: UnaryOperator 0x5637768afae8 <lcode.c:86:14, col:15> 'Instruction':'unsigned int' lvalue prefix '*'
+`-ImplicitCastExpr 0x5637768afad0 <col:15> 'Instruction *' <LValueToRValue>
+  `-DeclRefExpr 0x5637768afaa8 <col:15> 'Instruction *' lvalue Var 0x5637768af1a0 'jmp' 'Instruction *'
+*[B1.58]
+  60: BinaryOperator 0x5637768b29f8 <./lopcodes.h:97:25, line:98:57> 'Instruction':'unsigned int' '='
+|-ParenExpr 0x5637768afb28 <line:97:25, col:27> 'Instruction':'unsigned int' lvalue
+| `-ParenExpr 0x5637768afb08 <line:101:35, col:37> 'Instruction':'unsigned int' lvalue
+|   `-UnaryOperator 0x5637768afae8 <lcode.c:86:14, col:15> 'Instruction':'unsigned int' lvalue prefix '*'
+|     `-ImplicitCastExpr 0x5637768afad0 <col:15> 'Instruction *' <LValueToRValue>
+|       `-DeclRefExpr 0x5637768afaa8 <col:15> 'Instruction *' lvalue Var 0x5637768af1a0 'jmp' 'Instruction *'
+`-ParenExpr 0x5637768b29d8 <./lopcodes.h:97:31, line:98:57> 'unsigned int'
+  `-BinaryOperator 0x5637768b29b0 <line:97:32, line:98:56> 'unsigned int' '|'
+    |-ParenExpr 0x5637768aff48 <line:97:32, col:58> 'unsigned int'
+    | `-BinaryOperator 0x5637768aff20 <col:33, line:74:32> 'unsigned int' '&'
+    |   |-ImplicitCastExpr 0x5637768aff08 <line:97:33, col:35> 'Instruction':'unsigned int' <LValueToRValue>
+    |   | `-ParenExpr 0x5637768afbc8 <col:33, col:35> 'Instruction':'unsigned int' lvalue
+    |   |   `-ParenExpr 0x5637768afba8 <line:101:35, col:37> 'Instruction':'unsigned int' lvalue
+    |   |     `-UnaryOperator 0x5637768afb88 <lcode.c:86:14, col:15> 'Instruction':'unsigned int' lvalue prefix '*'
+    |   |       `-ImplicitCastExpr 0x5637768afb70 <col:15> 'Instruction *' <LValueToRValue>
+    |   |         `-DeclRefExpr 0x5637768afb48 <col:15> 'Instruction *' lvalue Var 0x5637768af1a0 'jmp' 'Instruction *'
+    |   `-ParenExpr 0x5637768afee8 <./lopcodes.h:74:20, col:32> 'Instruction':'unsigned int'
+    |     `-UnaryOperator 0x5637768afec8 <col:21, line:71:49> 'Instruction':'unsigned int' prefix '~'
+    |       `-ParenExpr 0x5637768afea8 <col:20, col:49> 'Instruction':'unsigned int'
+    |         `-BinaryOperator 0x5637768afe80 <col:21, line:46:31> 'Instruction':'unsigned int' '<<'
+    |           |-ParenExpr 0x5637768afd70 <line:71:21, col:45> 'Instruction':'unsigned int'
+    |           | `-UnaryOperator 0x5637768afd50 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+    |           |   `-ParenExpr 0x5637768afd30 <col:23, col:44> 'Instruction':'unsigned int'
+    |           |     `-BinaryOperator 0x5637768afd08 <col:24, line:39:34> 'Instruction':'unsigned int' '<<'
+    |           |       |-ParenExpr 0x5637768afc60 <line:71:24, col:40> 'Instruction':'unsigned int'
+    |           |       | `-UnaryOperator 0x5637768afc40 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+    |           |       |   `-CStyleCastExpr 0x5637768afc18 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+    |           |       |     `-IntegerLiteral 0x5637768afbe8 <col:39> 'int' 0
+    |           |       `-ParenExpr 0x5637768afce8 <line:39:18, col:34> 'int'
+    |           |         `-BinaryOperator 0x5637768afcc0 <line:37:17, line:38:17> 'int' '+'
+    |           |           |-IntegerLiteral 0x5637768afc80 <line:37:17> 'int' 9
+    |           |           `-IntegerLiteral 0x5637768afca0 <line:38:17> 'int' 9
+    |           `-ParenExpr 0x5637768afe60 <line:46:16, col:31> 'int'
+    |             `-BinaryOperator 0x5637768afe38 <line:45:16, line:40:17> 'int' '+'
+    |               |-ParenExpr 0x5637768afdf8 <line:45:16, col:33> 'int'
+    |               | `-BinaryOperator 0x5637768afdd0 <line:44:17, line:42:18> 'int' '+'
+    |               |   |-IntegerLiteral 0x5637768afd90 <line:44:17> 'int' 0
+    |               |   `-IntegerLiteral 0x5637768afdb0 <line:42:18> 'int' 6
+    |               `-IntegerLiteral 0x5637768afe18 <line:40:17> 'int' 8
+    `-ParenExpr 0x5637768b2990 <line:98:3, col:56> 'unsigned int'
+      `-BinaryOperator 0x5637768b0720 <col:4, line:71:49> 'unsigned int' '&'
+        |-ParenExpr 0x5637768b0420 <line:98:4, col:33> 'Instruction':'unsigned int'
+        | `-BinaryOperator 0x5637768b03f8 <./llimits.h:75:22, ./lopcodes.h:46:31> 'Instruction':'unsigned int' '<<'
+        |   |-ParenExpr 0x5637768b02e8 <./llimits.h:75:22, col:31> 'Instruction':'unsigned int'
+        |   | `-CStyleCastExpr 0x5637768b02c0 <col:23, col:30> 'Instruction':'unsigned int' <NoOp>
+        |   |   `-ParenExpr 0x5637768b02a0 <col:26, col:30> 'unsigned int'
+        |   |     `-ParenExpr 0x5637768b0240 <col:22, col:31> 'unsigned int'
+        |   |       `-CStyleCastExpr 0x5637768b0218 <col:23, col:30> 'unsigned int' <IntegralCast>
+        |   |         `-ParenExpr 0x5637768b01f8 <col:26, col:30> 'int'
+        |   |           `-BinaryOperator 0x5637768b0188 <./lopcodes.h:101:58, line:58:40> 'int' '+'
+        |   |             |-ImplicitCastExpr 0x5637768b0170 <line:101:58, col:60> 'int' <LValueToRValue>
+        |   |             | `-ParenExpr 0x5637768aff90 <col:58, col:60> 'int' lvalue
+        |   |             |   `-DeclRefExpr 0x5637768aff68 <lcode.c:86:20> 'int' lvalue Var 0x5637768af398 'offset' 'int'
+        |   |             `-ParenExpr 0x5637768b0150 <./lopcodes.h:58:27, col:40> 'int'
+        |   |               `-BinaryOperator 0x5637768b0128 <line:57:26, line:58:39> 'int' '>>'
+        |   |                 |-ParenExpr 0x5637768b00e8 <line:57:26, col:41> 'int'
+        |   |                 | `-BinaryOperator 0x5637768b00c0 <col:27, col:40> 'int' '-'
+        |   |                 |   |-ParenExpr 0x5637768b0080 <col:27, col:38> 'int'
+        |   |                 |   | `-BinaryOperator 0x5637768b0058 <col:28, line:39:34> 'int' '<<'
+        |   |                 |   |   |-IntegerLiteral 0x5637768affb0 <line:57:28> 'int' 1
+        |   |                 |   |   `-ParenExpr 0x5637768b0038 <line:39:18, col:34> 'int'
+        |   |                 |   |     `-BinaryOperator 0x5637768b0010 <line:37:17, line:38:17> 'int' '+'
+        |   |                 |   |       |-IntegerLiteral 0x5637768affd0 <line:37:17> 'int' 9
+        |   |                 |   |       `-IntegerLiteral 0x5637768afff0 <line:38:17> 'int' 9
+        |   |                 |   `-IntegerLiteral 0x5637768b00a0 <line:57:40> 'int' 1
+        |   |                 `-IntegerLiteral 0x5637768b0108 <line:58:39> 'int' 1
+        |   `-ParenExpr 0x5637768b03d8 <line:46:16, col:31> 'int'
+        |     `-BinaryOperator 0x5637768b03b0 <line:45:16, line:40:17> 'int' '+'
+        |       |-ParenExpr 0x5637768b0370 <line:45:16, col:33> 'int'
+        |       | `-BinaryOperator 0x5637768b0348 <line:44:17, line:42:18> 'int' '+'
+        |       |   |-IntegerLiteral 0x5637768b0308 <line:44:17> 'int' 0
+        |       |   `-IntegerLiteral 0x5637768b0328 <line:42:18> 'int' 6
+        |       `-IntegerLiteral 0x5637768b0390 <line:40:17> 'int' 8
+        `-ParenExpr 0x5637768b0700 <line:71:20, col:49> 'Instruction':'unsigned int'
+          `-BinaryOperator 0x5637768b06d8 <col:21, line:46:31> 'Instruction':'unsigned int' '<<'
+            |-ParenExpr 0x5637768b05c8 <line:71:21, col:45> 'Instruction':'unsigned int'
+            | `-UnaryOperator 0x5637768b05a8 <col:22, col:44> 'Instruction':'unsigned int' prefix '~'
+            |   `-ParenExpr 0x5637768b0588 <col:23, col:44> 'Instruction':'unsigned int'
+            |     `-BinaryOperator 0x5637768b0560 <col:24, line:39:34> 'Instruction':'unsigned int' '<<'
+            |       |-ParenExpr 0x5637768b04b8 <line:71:24, col:40> 'Instruction':'unsigned int'
+            |       | `-UnaryOperator 0x5637768b0498 <col:25, col:39> 'Instruction':'unsigned int' prefix '~'
+            |       |   `-CStyleCastExpr 0x5637768b0470 <col:26, col:39> 'Instruction':'unsigned int' <IntegralCast>
+            |       |     `-IntegerLiteral 0x5637768b0440 <col:39> 'int' 0
+            |       `-ParenExpr 0x5637768b0540 <line:39:18, col:34> 'int'
+            |         `-BinaryOperator 0x5637768b0518 <line:37:17, line:38:17> 'int' '+'
+            |           |-IntegerLiteral 0x5637768b04d8 <line:37:17> 'int' 9
+            |           `-IntegerLiteral 0x5637768b04f8 <line:38:17> 'int' 9
+            `-ParenExpr 0x5637768b06b8 <line:46:16, col:31> 'int'
+              `-BinaryOperator 0x5637768b0690 <line:45:16, line:40:17> 'int' '+'
+                |-ParenExpr 0x5637768b0650 <line:45:16, col:33> 'int'
+                | `-BinaryOperator 0x5637768b0628 <line:44:17, line:42:18> 'int' '+'
+                |   |-IntegerLiteral 0x5637768b05e8 <line:44:17> 'int' 0
+                |   `-IntegerLiteral 0x5637768b0608 <line:42:18> 'int' 6
+                `-IntegerLiteral 0x5637768b0670 <line:40:17> 'int' 8
+(([B1.59])) = ([B1.56])
+   Preds (2): B2 B3
+   Succs (1): B0
+
+ [B2]
+   1: DeclRefExpr 0x5637768af860 <lcode.c:85:5> 'void (LexState *, const char *)' Function 0x56377686aed0 'luaX_syntaxerror' 'void (LexState *, const char *)'
+luaX_syntaxerror
+   2: ImplicitCastExpr 0x5637768af9d8 <lcode.c:85:5> 'void (*)(LexState *, const char *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5637768af860 <col:5> 'void (LexState *, const char *)' Function 0x56377686aed0 'luaX_syntaxerror' 'void (LexState *, const char *)'
+[B2.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(LexState *, const char *))
+   3: DeclRefExpr 0x5637768af888 <lcode.c:85:22> 'FuncState *' lvalue ParmVar 0x5637768aef50 'fs' 'FuncState *'
+fs
+   4: ImplicitCastExpr 0x5637768af8b0 <lcode.c:85:22> 'FuncState *' <LValueToRValue>
+`-DeclRefExpr 0x5637768af888 <col:22> 'FuncState *' lvalue ParmVar 0x5637768aef50 'fs' 'FuncState *'
+[B2.3] (ImplicitCastExpr, LValueToRValue, FuncState *)
+   5: MemberExpr 0x5637768af8c8 <lcode.c:85:22, col:26> 'struct LexState *' lvalue ->ls 0x56377687df60
+`-ImplicitCastExpr 0x5637768af8b0 <col:22> 'FuncState *' <LValueToRValue>
+  `-DeclRefExpr 0x5637768af888 <col:22> 'FuncState *' lvalue ParmVar 0x5637768aef50 'fs' 'FuncState *'
+[B2.4]->ls
+   6: ImplicitCastExpr 0x5637768afa28 <lcode.c:85:22, col:26> 'struct LexState *' <LValueToRValue>
+`-MemberExpr 0x5637768af8c8 <col:22, col:26> 'struct LexState *' lvalue ->ls 0x56377687df60
+  `-ImplicitCastExpr 0x5637768af8b0 <col:22> 'FuncState *' <LValueToRValue>
+    `-DeclRefExpr 0x5637768af888 <col:22> 'FuncState *' lvalue ParmVar 0x5637768aef50 'fs' 'FuncState *'
+[B2.5] (ImplicitCastExpr, LValueToRValue, struct LexState *)
+   7: StringLiteral 0x5637768af938 <lcode.c:85:30> 'char [27]' lvalue "control structure too long"
+"control structure too long"
+   8: ImplicitCastExpr 0x5637768afa40 <lcode.c:85:30> 'char *' <ArrayToPointerDecay>
+`-StringLiteral 0x5637768af938 <col:30> 'char [27]' lvalue "control structure too long"
+[B2.7] (ImplicitCastExpr, ArrayToPointerDecay, char *)
+   9: ImplicitCastExpr 0x5637768afa58 <lcode.c:85:30> 'const char *' <BitCast>
+`-ImplicitCastExpr 0x5637768afa40 <col:30> 'char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x5637768af938 <col:30> 'char [27]' lvalue "control structure too long"
+[B2.8] (ImplicitCastExpr, BitCast, const char *)
+  10: CallExpr 0x5637768af9f0 <lcode.c:85:5, col:58> 'void'
+|-ImplicitCastExpr 0x5637768af9d8 <col:5> 'void (*)(LexState *, const char *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5637768af860 <col:5> 'void (LexState *, const char *)' Function 0x56377686aed0 'luaX_syntaxerror' 'void (LexState *, const char *)'
+|-ImplicitCastExpr 0x5637768afa28 <col:22, col:26> 'struct LexState *' <LValueToRValue>
+| `-MemberExpr 0x5637768af8c8 <col:22, col:26> 'struct LexState *' lvalue ->ls 0x56377687df60
+|   `-ImplicitCastExpr 0x5637768af8b0 <col:22> 'FuncState *' <LValueToRValue>
+|     `-DeclRefExpr 0x5637768af888 <col:22> 'FuncState *' lvalue ParmVar 0x5637768aef50 'fs' 'FuncState *'
+`-ImplicitCastExpr 0x5637768afa58 <col:30> 'const char *' <BitCast>
+  `-ImplicitCastExpr 0x5637768afa40 <col:30> 'char *' <ArrayToPointerDecay>
+    `-StringLiteral 0x5637768af938 <col:30> 'char [27]' lvalue "control structure too long"
+[B2.2]([B2.6], [B2.9])
+   Preds (1): B3
+   Succs (1): B1
+
+ [B3]
+   1: DeclRefExpr 0x5637768af200 <lcode.c:81:23> 'FuncState *' lvalue ParmVar 0x5637768aef50 'fs' 'FuncState *'
+fs
+   2: ImplicitCastExpr 0x5637768af228 <lcode.c:81:23> 'FuncState *' <LValueToRValue>
+`-DeclRefExpr 0x5637768af200 <col:23> 'FuncState *' lvalue ParmVar 0x5637768aef50 'fs' 'FuncState *'
+[B3.1] (ImplicitCastExpr, LValueToRValue, FuncState *)
+   3: MemberExpr 0x5637768af240 <lcode.c:81:23, col:27> 'Proto *' lvalue ->f 0x56377687ddb8
+`-ImplicitCastExpr 0x5637768af228 <col:23> 'FuncState *' <LValueToRValue>
+  `-DeclRefExpr 0x5637768af200 <col:23> 'FuncState *' lvalue ParmVar 0x5637768aef50 'fs' 'FuncState *'
+[B3.2]->f
+   4: ImplicitCastExpr 0x5637768af278 <lcode.c:81:23, col:27> 'Proto *' <LValueToRValue>
+`-MemberExpr 0x5637768af240 <col:23, col:27> 'Proto *' lvalue ->f 0x56377687ddb8
+  `-ImplicitCastExpr 0x5637768af228 <col:23> 'FuncState *' <LValueToRValue>
+    `-DeclRefExpr 0x5637768af200 <col:23> 'FuncState *' lvalue ParmVar 0x5637768aef50 'fs' 'FuncState *'
+[B3.3] (ImplicitCastExpr, LValueToRValue, Proto *)
+   5: MemberExpr 0x5637768af290 <lcode.c:81:23, col:30> 'Instruction *' lvalue ->code 0x563776857e38
+`-ImplicitCastExpr 0x5637768af278 <col:23, col:27> 'Proto *' <LValueToRValue>
+  `-MemberExpr 0x5637768af240 <col:23, col:27> 'Proto *' lvalue ->f 0x56377687ddb8
+    `-ImplicitCastExpr 0x5637768af228 <col:23> 'FuncState *' <LValueToRValue>
+      `-DeclRefExpr 0x5637768af200 <col:23> 'FuncState *' lvalue ParmVar 0x5637768aef50 'fs' 'FuncState *'
+[B3.4]->code
+   6: ImplicitCastExpr 0x5637768af2f0 <lcode.c:81:23, col:30> 'Instruction *' <LValueToRValue>
+`-MemberExpr 0x5637768af290 <col:23, col:30> 'Instruction *' lvalue ->code 0x563776857e38
+  `-ImplicitCastExpr 0x5637768af278 <col:23, col:27> 'Proto *' <LValueToRValue>
+    `-MemberExpr 0x5637768af240 <col:23, col:27> 'Proto *' lvalue ->f 0x56377687ddb8
+      `-ImplicitCastExpr 0x5637768af228 <col:23> 'FuncState *' <LValueToRValue>
+        `-DeclRefExpr 0x5637768af200 <col:23> 'FuncState *' lvalue ParmVar 0x5637768aef50 'fs' 'FuncState *'
+[B3.5] (ImplicitCastExpr, LValueToRValue, Instruction *)
+   7: DeclRefExpr 0x5637768af2c8 <lcode.c:81:35> 'int' lvalue ParmVar 0x5637768aefc8 'pc' 'int'
+pc
+   8: ImplicitCastExpr 0x5637768af308 <lcode.c:81:35> 'int' <LValueToRValue>
+`-DeclRefExpr 0x5637768af2c8 <col:35> 'int' lvalue ParmVar 0x5637768aefc8 'pc' 'int'
+[B3.7] (ImplicitCastExpr, LValueToRValue, int)
+   9: ArraySubscriptExpr 0x5637768af320 <lcode.c:81:23, col:37> 'Instruction':'unsigned int' lvalue
+|-ImplicitCastExpr 0x5637768af2f0 <col:23, col:30> 'Instruction *' <LValueToRValue>
+| `-MemberExpr 0x5637768af290 <col:23, col:30> 'Instruction *' lvalue ->code 0x563776857e38
+|   `-ImplicitCastExpr 0x5637768af278 <col:23, col:27> 'Proto *' <LValueToRValue>
+|     `-MemberExpr 0x5637768af240 <col:23, col:27> 'Proto *' lvalue ->f 0x56377687ddb8
+|       `-ImplicitCastExpr 0x5637768af228 <col:23> 'FuncState *' <LValueToRValue>
+|         `-DeclRefExpr 0x5637768af200 <col:23> 'FuncState *' lvalue ParmVar 0x5637768aef50 'fs' 'FuncState *'
+`-ImplicitCastExpr 0x5637768af308 <col:35> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x5637768af2c8 <col:35> 'int' lvalue ParmVar 0x5637768aefc8 'pc' 'int'
+[B3.6][[B3.8]]
+  10: UnaryOperator 0x5637768af348 <lcode.c:81:22, col:37> 'Instruction *' prefix '&'
+`-ArraySubscriptExpr 0x5637768af320 <col:23, col:37> 'Instruction':'unsigned int' lvalue
+  |-ImplicitCastExpr 0x5637768af2f0 <col:23, col:30> 'Instruction *' <LValueToRValue>
+  | `-MemberExpr 0x5637768af290 <col:23, col:30> 'Instruction *' lvalue ->code 0x563776857e38
+  |   `-ImplicitCastExpr 0x5637768af278 <col:23, col:27> 'Proto *' <LValueToRValue>
+  |     `-MemberExpr 0x5637768af240 <col:23, col:27> 'Proto *' lvalue ->f 0x56377687ddb8
+  |       `-ImplicitCastExpr 0x5637768af228 <col:23> 'FuncState *' <LValueToRValue>
+  |         `-DeclRefExpr 0x5637768af200 <col:23> 'FuncState *' lvalue ParmVar 0x5637768aef50 'fs' 'FuncState *'
+  `-ImplicitCastExpr 0x5637768af308 <col:35> 'int' <LValueToRValue>
+    `-DeclRefExpr 0x5637768af2c8 <col:35> 'int' lvalue ParmVar 0x5637768aefc8 'pc' 'int'
+&[B3.9]
+  11: DeclStmt 0x5637768af368 <lcode.c:81:3, col:38>col:16
+`-VarDecl 0x5637768af1a0 <col:3, col:37> col:16 used jmp 'Instruction *' cinit
+  `-UnaryOperator 0x5637768af348 <col:22, col:37> 'Instruction *' prefix '&'
+    `-ArraySubscriptExpr 0x5637768af320 <col:23, col:37> 'Instruction':'unsigned int' lvalue
+      |-ImplicitCastExpr 0x5637768af2f0 <col:23, col:30> 'Instruction *' <LValueToRValue>
+      | `-MemberExpr 0x5637768af290 <col:23, col:30> 'Instruction *' lvalue ->code 0x563776857e38
+      |   `-ImplicitCastExpr 0x5637768af278 <col:23, col:27> 'Proto *' <LValueToRValue>
+      |     `-MemberExpr 0x5637768af240 <col:23, col:27> 'Proto *' lvalue ->f 0x56377687ddb8
+      |       `-ImplicitCastExpr 0x5637768af228 <col:23> 'FuncState *' <LValueToRValue>
+      |         `-DeclRefExpr 0x5637768af200 <col:23> 'FuncState *' lvalue ParmVar 0x5637768aef50 'fs' 'FuncState *'
+      `-ImplicitCastExpr 0x5637768af308 <col:35> 'int' <LValueToRValue>
+        `-DeclRefExpr 0x5637768af2c8 <col:35> 'int' lvalue ParmVar 0x5637768aefc8 'pc' 'int'
+Instruction *jmp = &fs->f->code[pc];
+  12: DeclRefExpr 0x5637768af3f8 <lcode.c:82:16> 'int' lvalue ParmVar 0x5637768af040 'dest' 'int'
+dest
+  13: ImplicitCastExpr 0x5637768af4c8 <lcode.c:82:16> 'int' <LValueToRValue>
+`-DeclRefExpr 0x5637768af3f8 <col:16> 'int' lvalue ParmVar 0x5637768af040 'dest' 'int'
+[B3.12] (ImplicitCastExpr, LValueToRValue, int)
+  14: DeclRefExpr 0x5637768af420 <lcode.c:82:22> 'int' lvalue ParmVar 0x5637768aefc8 'pc' 'int'
+pc
+  15: ImplicitCastExpr 0x5637768af468 <lcode.c:82:22> 'int' <LValueToRValue>
+`-DeclRefExpr 0x5637768af420 <col:22> 'int' lvalue ParmVar 0x5637768aefc8 'pc' 'int'
+[B3.14] (ImplicitCastExpr, LValueToRValue, int)
+  16: IntegerLiteral 0x5637768af448 <lcode.c:82:25> 'int' 1
+1
+  17: BinaryOperator 0x5637768af480 <lcode.c:82:22, col:25> 'int' '+'
+|-ImplicitCastExpr 0x5637768af468 <col:22> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x5637768af420 <col:22> 'int' lvalue ParmVar 0x5637768aefc8 'pc' 'int'
+`-IntegerLiteral 0x5637768af448 <col:25> 'int' 1
+[B3.15] + [B3.16]
+  18: BinaryOperator 0x5637768af4e0 <lcode.c:82:16, col:26> 'int' '-'
+|-ImplicitCastExpr 0x5637768af4c8 <col:16> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x5637768af3f8 <col:16> 'int' lvalue ParmVar 0x5637768af040 'dest' 'int'
+`-ParenExpr 0x5637768af4a8 <col:21, col:26> 'int'
+  `-BinaryOperator 0x5637768af480 <col:22, col:25> 'int' '+'
+    |-ImplicitCastExpr 0x5637768af468 <col:22> 'int' <LValueToRValue>
+    | `-DeclRefExpr 0x5637768af420 <col:22> 'int' lvalue ParmVar 0x5637768aefc8 'pc' 'int'
+    `-IntegerLiteral 0x5637768af448 <col:25> 'int' 1
+[B3.13] - ([B3.17])
+  19: DeclStmt 0x5637768af508 <lcode.c:82:3, col:27>col:7
+`-VarDecl 0x5637768af398 <col:3, col:26> col:7 used offset 'int' cinit
+  `-BinaryOperator 0x5637768af4e0 <col:16, col:26> 'int' '-'
+    |-ImplicitCastExpr 0x5637768af4c8 <col:16> 'int' <LValueToRValue>
+    | `-DeclRefExpr 0x5637768af3f8 <col:16> 'int' lvalue ParmVar 0x5637768af040 'dest' 'int'
+    `-ParenExpr 0x5637768af4a8 <col:21, col:26> 'int'
+      `-BinaryOperator 0x5637768af480 <col:22, col:25> 'int' '+'
+        |-ImplicitCastExpr 0x5637768af468 <col:22> 'int' <LValueToRValue>
+        | `-DeclRefExpr 0x5637768af420 <col:22> 'int' lvalue ParmVar 0x5637768aefc8 'pc' 'int'
+        `-IntegerLiteral 0x5637768af448 <col:25> 'int' 1
+int offset = dest - (pc + 1);
+  20: IntegerLiteral 0x5637768af520 <./llimits.h:62:31> 'int' 0
+0
+  21: CStyleCastExpr 0x5637768af550 <./llimits.h:62:25, col:31> 'void' <ToVoid>
+`-IntegerLiteral 0x5637768af520 <col:31> 'int' 0
+(void)[B3.20] (CStyleCastExpr, ToVoid, void)
+  22: DeclRefExpr 0x5637768af598 <lcode.c:84:7> 'int (int)' Function 0x5637767959d8 'abs' 'int (int)'
+abs
+  23: ImplicitCastExpr 0x5637768af618 <lcode.c:84:7> 'int (*)(int)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5637768af598 <col:7> 'int (int)' Function 0x5637767959d8 'abs' 'int (int)'
+[B3.22] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(int))
+  24: DeclRefExpr 0x5637768af5c0 <lcode.c:84:11> 'int' lvalue Var 0x5637768af398 'offset' 'int'
+offset
+  25: ImplicitCastExpr 0x5637768af660 <lcode.c:84:11> 'int' <LValueToRValue>
+`-DeclRefExpr 0x5637768af5c0 <col:11> 'int' lvalue Var 0x5637768af398 'offset' 'int'
+[B3.24] (ImplicitCastExpr, LValueToRValue, int)
+  26: CallExpr 0x5637768af630 <lcode.c:84:7, col:17> 'int'
+|-ImplicitCastExpr 0x5637768af618 <col:7> 'int (*)(int)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5637768af598 <col:7> 'int (int)' Function 0x5637767959d8 'abs' 'int (int)'
+`-ImplicitCastExpr 0x5637768af660 <col:11> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x5637768af5c0 <col:11> 'int' lvalue Var 0x5637768af398 'offset' 'int'
+[B3.23]([B3.25])
+  27: IntegerLiteral 0x5637768af678 <./lopcodes.h:57:28> 'int' 1
+1
+  28: IntegerLiteral 0x5637768af698 <./lopcodes.h:37:17> 'int' 9
+9
+  29: IntegerLiteral 0x5637768af6b8 <./lopcodes.h:38:17> 'int' 9
+9
+  30: BinaryOperator 0x5637768af6d8 <./lopcodes.h:37:17, line:38:17> 'int' '+'
+|-IntegerLiteral 0x5637768af698 <line:37:17> 'int' 9
+`-IntegerLiteral 0x5637768af6b8 <line:38:17> 'int' 9
+[B3.28] + [B3.29]
+  31: BinaryOperator 0x5637768af720 <./lopcodes.h:57:28, line:39:34> 'int' '<<'
+|-IntegerLiteral 0x5637768af678 <line:57:28> 'int' 1
+`-ParenExpr 0x5637768af700 <line:39:18, col:34> 'int'
+  `-BinaryOperator 0x5637768af6d8 <line:37:17, line:38:17> 'int' '+'
+    |-IntegerLiteral 0x5637768af698 <line:37:17> 'int' 9
+    `-IntegerLiteral 0x5637768af6b8 <line:38:17> 'int' 9
+[B3.27] << ([B3.30])
+  32: IntegerLiteral 0x5637768af768 <./lopcodes.h:57:40> 'int' 1
+1
+  33: BinaryOperator 0x5637768af788 <./lopcodes.h:57:27, col:40> 'int' '-'
+|-ParenExpr 0x5637768af748 <col:27, col:38> 'int'
+| `-BinaryOperator 0x5637768af720 <col:28, line:39:34> 'int' '<<'
+|   |-IntegerLiteral 0x5637768af678 <line:57:28> 'int' 1
+|   `-ParenExpr 0x5637768af700 <line:39:18, col:34> 'int'
+|     `-BinaryOperator 0x5637768af6d8 <line:37:17, line:38:17> 'int' '+'
+|       |-IntegerLiteral 0x5637768af698 <line:37:17> 'int' 9
+|       `-IntegerLiteral 0x5637768af6b8 <line:38:17> 'int' 9
+`-IntegerLiteral 0x5637768af768 <line:57:40> 'int' 1
+([B3.31]) - [B3.32]
+  34: IntegerLiteral 0x5637768af7d0 <./lopcodes.h:58:39> 'int' 1
+1
+  35: BinaryOperator 0x5637768af7f0 <./lopcodes.h:57:26, line:58:39> 'int' '>>'
+|-ParenExpr 0x5637768af7b0 <line:57:26, col:41> 'int'
+| `-BinaryOperator 0x5637768af788 <col:27, col:40> 'int' '-'
+|   |-ParenExpr 0x5637768af748 <col:27, col:38> 'int'
+|   | `-BinaryOperator 0x5637768af720 <col:28, line:39:34> 'int' '<<'
+|   |   |-IntegerLiteral 0x5637768af678 <line:57:28> 'int' 1
+|   |   `-ParenExpr 0x5637768af700 <line:39:18, col:34> 'int'
+|   |     `-BinaryOperator 0x5637768af6d8 <line:37:17, line:38:17> 'int' '+'
+|   |       |-IntegerLiteral 0x5637768af698 <line:37:17> 'int' 9
+|   |       `-IntegerLiteral 0x5637768af6b8 <line:38:17> 'int' 9
+|   `-IntegerLiteral 0x5637768af768 <line:57:40> 'int' 1
+`-IntegerLiteral 0x5637768af7d0 <line:58:39> 'int' 1
+([B3.33]) >> [B3.34]
+  36: BinaryOperator 0x5637768af838 <lcode.c:84:7, ./lopcodes.h:58:40> 'int' '>'
+|-CallExpr 0x5637768af630 <lcode.c:84:7, col:17> 'int'
+| |-ImplicitCastExpr 0x5637768af618 <col:7> 'int (*)(int)' <FunctionToPointerDecay>
+| | `-DeclRefExpr 0x5637768af598 <col:7> 'int (int)' Function 0x5637767959d8 'abs' 'int (int)'
+| `-ImplicitCastExpr 0x5637768af660 <col:11> 'int' <LValueToRValue>
+|   `-DeclRefExpr 0x5637768af5c0 <col:11> 'int' lvalue Var 0x5637768af398 'offset' 'int'
+`-ParenExpr 0x5637768af818 <./lopcodes.h:58:27, col:40> 'int'
+  `-BinaryOperator 0x5637768af7f0 <line:57:26, line:58:39> 'int' '>>'
+    |-ParenExpr 0x5637768af7b0 <line:57:26, col:41> 'int'
+    | `-BinaryOperator 0x5637768af788 <col:27, col:40> 'int' '-'
+    |   |-ParenExpr 0x5637768af748 <col:27, col:38> 'int'
+    |   | `-BinaryOperator 0x5637768af720 <col:28, line:39:34> 'int' '<<'
+    |   |   |-IntegerLiteral 0x5637768af678 <line:57:28> 'int' 1
+    |   |   `-ParenExpr 0x5637768af700 <line:39:18, col:34> 'int'
+    |   |     `-BinaryOperator 0x5637768af6d8 <line:37:17, line:38:17> 'int' '+'
+    |   |       |-IntegerLiteral 0x5637768af698 <line:37:17> 'int' 9
+    |   |       `-IntegerLiteral 0x5637768af6b8 <line:38:17> 'int' 9
+    |   `-IntegerLiteral 0x5637768af768 <line:57:40> 'int' 1
+    `-IntegerLiteral 0x5637768af7d0 <line:58:39> 'int' 1
+[B3.26] > ([B3.35])
+   T: if [B3.36]
+   Preds (1): B4
+   Succs (2): B2 B1
+
+ [B0 (EXIT)]
+   Preds (1): B1

@@ -1,0 +1,81 @@
+static void f_call(lua_State *L, void *ud)
+ [B2 (ENTRY)]
+   Succs (1): B1
+
+ [B1]
+   1: DeclRefExpr 0x556e5d344c00 <lapi.c:799:42> 'void *' lvalue ParmVar 0x556e5d3449b0 'ud' 'void *'
+ud
+   2: ImplicitCastExpr 0x556e5d344ca0 <./llimits.h:75:26, col:30> 'void *' <LValueToRValue>
+`-ParenExpr 0x556e5d344c80 <col:26, col:30> 'void *' lvalue
+  `-DeclRefExpr 0x556e5d344c00 <lapi.c:799:42> 'void *' lvalue ParmVar 0x556e5d3449b0 'ud' 'void *'
+([B1.1]) (ImplicitCastExpr, LValueToRValue, void *)
+   3: CStyleCastExpr 0x556e5d344cb8 <./llimits.h:75:23, col:30> 'struct CallS *' <BitCast>
+`-ImplicitCastExpr 0x556e5d344ca0 <col:26, col:30> 'void *' <LValueToRValue>
+  `-ParenExpr 0x556e5d344c80 <col:26, col:30> 'void *' lvalue
+    `-DeclRefExpr 0x556e5d344c00 <lapi.c:799:42> 'void *' lvalue ParmVar 0x556e5d3449b0 'ud' 'void *'
+(struct CallS *)[B1.2] (CStyleCastExpr, BitCast, struct CallS *)
+   4: DeclStmt 0x556e5d344d00 <lapi.c:799:3, col:45>col:17
+`-VarDecl 0x556e5d344ba0 <col:3, ./llimits.h:75:31> lapi.c:799:17 used c 'struct CallS *' cinit
+  `-ParenExpr 0x556e5d344ce0 <./llimits.h:75:22, col:31> 'struct CallS *'
+    `-CStyleCastExpr 0x556e5d344cb8 <col:23, col:30> 'struct CallS *' <BitCast>
+      `-ImplicitCastExpr 0x556e5d344ca0 <col:26, col:30> 'void *' <LValueToRValue>
+        `-ParenExpr 0x556e5d344c80 <col:26, col:30> 'void *' lvalue
+          `-DeclRefExpr 0x556e5d344c00 <lapi.c:799:42> 'void *' lvalue ParmVar 0x556e5d3449b0 'ud' 'void *'
+struct CallS *c = ((struct CallS *)(ud));
+   5: DeclRefExpr 0x556e5d344d18 <lapi.c:800:3> 'void (lua_State *, StkId, int)' Function 0x556e5d2e9ff0 'luaD_call' 'void (lua_State *, StkId, int)'
+luaD_call
+   6: ImplicitCastExpr 0x556e5d344e58 <lapi.c:800:3> 'void (*)(lua_State *, StkId, int)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x556e5d344d18 <col:3> 'void (lua_State *, StkId, int)' Function 0x556e5d2e9ff0 'luaD_call' 'void (lua_State *, StkId, int)'
+[B1.5] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(lua_State *, StkId, int))
+   7: DeclRefExpr 0x556e5d344d40 <lapi.c:800:13> 'lua_State *' lvalue ParmVar 0x556e5d344938 'L' 'lua_State *'
+L
+   8: ImplicitCastExpr 0x556e5d344eb0 <lapi.c:800:13> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x556e5d344d40 <col:13> 'lua_State *' lvalue ParmVar 0x556e5d344938 'L' 'lua_State *'
+[B1.7] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   9: DeclRefExpr 0x556e5d344d68 <lapi.c:800:16> 'struct CallS *' lvalue Var 0x556e5d344ba0 'c' 'struct CallS *'
+c
+  10: ImplicitCastExpr 0x556e5d344d90 <lapi.c:800:16> 'struct CallS *' <LValueToRValue>
+`-DeclRefExpr 0x556e5d344d68 <col:16> 'struct CallS *' lvalue Var 0x556e5d344ba0 'c' 'struct CallS *'
+[B1.9] (ImplicitCastExpr, LValueToRValue, struct CallS *)
+  11: MemberExpr 0x556e5d344da8 <lapi.c:800:16, col:19> 'StkId':'TValue *' lvalue ->func 0x556e5d344880
+`-ImplicitCastExpr 0x556e5d344d90 <col:16> 'struct CallS *' <LValueToRValue>
+  `-DeclRefExpr 0x556e5d344d68 <col:16> 'struct CallS *' lvalue Var 0x556e5d344ba0 'c' 'struct CallS *'
+[B1.10]->func
+  12: ImplicitCastExpr 0x556e5d344ec8 <lapi.c:800:16, col:19> 'StkId':'TValue *' <LValueToRValue>
+`-MemberExpr 0x556e5d344da8 <col:16, col:19> 'StkId':'TValue *' lvalue ->func 0x556e5d344880
+  `-ImplicitCastExpr 0x556e5d344d90 <col:16> 'struct CallS *' <LValueToRValue>
+    `-DeclRefExpr 0x556e5d344d68 <col:16> 'struct CallS *' lvalue Var 0x556e5d344ba0 'c' 'struct CallS *'
+[B1.11] (ImplicitCastExpr, LValueToRValue, StkId)
+  13: DeclRefExpr 0x556e5d344de0 <lapi.c:800:25> 'struct CallS *' lvalue Var 0x556e5d344ba0 'c' 'struct CallS *'
+c
+  14: ImplicitCastExpr 0x556e5d344e08 <lapi.c:800:25> 'struct CallS *' <LValueToRValue>
+`-DeclRefExpr 0x556e5d344de0 <col:25> 'struct CallS *' lvalue Var 0x556e5d344ba0 'c' 'struct CallS *'
+[B1.13] (ImplicitCastExpr, LValueToRValue, struct CallS *)
+  15: MemberExpr 0x556e5d344e20 <lapi.c:800:25, col:28> 'int' lvalue ->nresults 0x556e5d3448e0
+`-ImplicitCastExpr 0x556e5d344e08 <col:25> 'struct CallS *' <LValueToRValue>
+  `-DeclRefExpr 0x556e5d344de0 <col:25> 'struct CallS *' lvalue Var 0x556e5d344ba0 'c' 'struct CallS *'
+[B1.14]->nresults
+  16: ImplicitCastExpr 0x556e5d344ee0 <lapi.c:800:25, col:28> 'int' <LValueToRValue>
+`-MemberExpr 0x556e5d344e20 <col:25, col:28> 'int' lvalue ->nresults 0x556e5d3448e0
+  `-ImplicitCastExpr 0x556e5d344e08 <col:25> 'struct CallS *' <LValueToRValue>
+    `-DeclRefExpr 0x556e5d344de0 <col:25> 'struct CallS *' lvalue Var 0x556e5d344ba0 'c' 'struct CallS *'
+[B1.15] (ImplicitCastExpr, LValueToRValue, int)
+  17: CallExpr 0x556e5d344e70 <lapi.c:800:3, col:36> 'void'
+|-ImplicitCastExpr 0x556e5d344e58 <col:3> 'void (*)(lua_State *, StkId, int)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x556e5d344d18 <col:3> 'void (lua_State *, StkId, int)' Function 0x556e5d2e9ff0 'luaD_call' 'void (lua_State *, StkId, int)'
+|-ImplicitCastExpr 0x556e5d344eb0 <col:13> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x556e5d344d40 <col:13> 'lua_State *' lvalue ParmVar 0x556e5d344938 'L' 'lua_State *'
+|-ImplicitCastExpr 0x556e5d344ec8 <col:16, col:19> 'StkId':'TValue *' <LValueToRValue>
+| `-MemberExpr 0x556e5d344da8 <col:16, col:19> 'StkId':'TValue *' lvalue ->func 0x556e5d344880
+|   `-ImplicitCastExpr 0x556e5d344d90 <col:16> 'struct CallS *' <LValueToRValue>
+|     `-DeclRefExpr 0x556e5d344d68 <col:16> 'struct CallS *' lvalue Var 0x556e5d344ba0 'c' 'struct CallS *'
+`-ImplicitCastExpr 0x556e5d344ee0 <col:25, col:28> 'int' <LValueToRValue>
+  `-MemberExpr 0x556e5d344e20 <col:25, col:28> 'int' lvalue ->nresults 0x556e5d3448e0
+    `-ImplicitCastExpr 0x556e5d344e08 <col:25> 'struct CallS *' <LValueToRValue>
+      `-DeclRefExpr 0x556e5d344de0 <col:25> 'struct CallS *' lvalue Var 0x556e5d344ba0 'c' 'struct CallS *'
+[B1.6]([B1.8], [B1.12], [B1.16])
+   Preds (1): B2
+   Succs (1): B0
+
+ [B0 (EXIT)]
+   Preds (1): B1

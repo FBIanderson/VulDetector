@@ -1,0 +1,273 @@
+static int searchvar(FuncState *fs, TString *n)
+ [B7 (ENTRY)]
+   Succs (1): B6
+
+ [B1]
+   1: IntegerLiteral 0x558fa8efbc38 <lparser.c:213:11> 'int' 1
+1
+   2: UnaryOperator 0x558fa8efbc58 <lparser.c:213:10, col:11> 'int' prefix '-'
+`-IntegerLiteral 0x558fa8efbc38 <col:11> 'int' 1
+-[B1.1]
+   3: ReturnStmt 0x558fa8efbc78 <lparser.c:213:3, col:11>
+`-UnaryOperator 0x558fa8efbc58 <col:10, col:11> 'int' prefix '-'
+  `-IntegerLiteral 0x558fa8efbc38 <col:11> 'int' 1
+return [B1.2];
+   Preds (1): B5
+   Succs (1): B0
+
+ [B2]
+   1: DeclRefExpr 0x558fa8efb7e0 <lparser.c:209:33> 'int' lvalue Var 0x558fa8efb5a0 'i' 'int'
+i
+   2: UnaryOperator 0x558fa8efb808 <lparser.c:209:33, col:34> 'int' postfix '--'
+`-DeclRefExpr 0x558fa8efb7e0 <col:33> 'int' lvalue Var 0x558fa8efb5a0 'i' 'int'
+[B2.1]--
+   Preds (1): B4
+   Succs (1): B5
+
+ [B3]
+   1: DeclRefExpr 0x558fa8efbb58 <lparser.c:211:14> 'int' lvalue Var 0x558fa8efb5a0 'i' 'int'
+i
+   2: ImplicitCastExpr 0x558fa8efbb80 <lparser.c:211:14> 'int' <LValueToRValue>
+`-DeclRefExpr 0x558fa8efbb58 <col:14> 'int' lvalue Var 0x558fa8efb5a0 'i' 'int'
+[B3.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: ReturnStmt 0x558fa8efbb98 <lparser.c:211:7, col:14>
+`-ImplicitCastExpr 0x558fa8efbb80 <col:14> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8efbb58 <col:14> 'int' lvalue Var 0x558fa8efb5a0 'i' 'int'
+return [B3.2];
+   Preds (1): B4
+   Succs (1): B0
+
+ [B4]
+   1: DeclRefExpr 0x558fa8efb828 <lparser.c:210:9> 'TString *' lvalue ParmVar 0x558fa8efb440 'n' 'TString *'
+n
+   2: ImplicitCastExpr 0x558fa8efbb00 <lparser.c:210:9> 'TString *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8efb828 <col:9> 'TString *' lvalue ParmVar 0x558fa8efb440 'n' 'TString *'
+[B4.1] (ImplicitCastExpr, LValueToRValue, TString *)
+   3: DeclRefExpr 0x558fa8efb850 <lparser.c:210:24> 'FuncState *' lvalue ParmVar 0x558fa8efb3d0 'fs' 'FuncState *'
+fs
+   4: ImplicitCastExpr 0x558fa8efb898 <lparser.c:32:27, col:30> 'FuncState *' <LValueToRValue>
+`-ParenExpr 0x558fa8efb878 <col:27, col:30> 'FuncState *' lvalue
+  `-DeclRefExpr 0x558fa8efb850 <line:210:24> 'FuncState *' lvalue ParmVar 0x558fa8efb3d0 'fs' 'FuncState *'
+([B4.3]) (ImplicitCastExpr, LValueToRValue, FuncState *)
+   5: MemberExpr 0x558fa8efb8b0 <lparser.c:32:27, col:33> 'Proto *' lvalue ->f 0x558fa8eb3e58
+`-ImplicitCastExpr 0x558fa8efb898 <col:27, col:30> 'FuncState *' <LValueToRValue>
+  `-ParenExpr 0x558fa8efb878 <col:27, col:30> 'FuncState *' lvalue
+    `-DeclRefExpr 0x558fa8efb850 <line:210:24> 'FuncState *' lvalue ParmVar 0x558fa8efb3d0 'fs' 'FuncState *'
+[B4.4]->f
+   6: ImplicitCastExpr 0x558fa8efb8e8 <lparser.c:32:27, col:33> 'Proto *' <LValueToRValue>
+`-MemberExpr 0x558fa8efb8b0 <col:27, col:33> 'Proto *' lvalue ->f 0x558fa8eb3e58
+  `-ImplicitCastExpr 0x558fa8efb898 <col:27, col:30> 'FuncState *' <LValueToRValue>
+    `-ParenExpr 0x558fa8efb878 <col:27, col:30> 'FuncState *' lvalue
+      `-DeclRefExpr 0x558fa8efb850 <line:210:24> 'FuncState *' lvalue ParmVar 0x558fa8efb3d0 'fs' 'FuncState *'
+[B4.5] (ImplicitCastExpr, LValueToRValue, Proto *)
+   7: MemberExpr 0x558fa8efb900 <lparser.c:32:27, col:36> 'struct LocVar *' lvalue ->locvars 0x558fa8e8f090
+`-ImplicitCastExpr 0x558fa8efb8e8 <col:27, col:33> 'Proto *' <LValueToRValue>
+  `-MemberExpr 0x558fa8efb8b0 <col:27, col:33> 'Proto *' lvalue ->f 0x558fa8eb3e58
+    `-ImplicitCastExpr 0x558fa8efb898 <col:27, col:30> 'FuncState *' <LValueToRValue>
+      `-ParenExpr 0x558fa8efb878 <col:27, col:30> 'FuncState *' lvalue
+        `-DeclRefExpr 0x558fa8efb850 <line:210:24> 'FuncState *' lvalue ParmVar 0x558fa8efb3d0 'fs' 'FuncState *'
+[B4.6]->locvars
+   8: ImplicitCastExpr 0x558fa8efba50 <lparser.c:32:27, col:36> 'struct LocVar *' <LValueToRValue>
+`-MemberExpr 0x558fa8efb900 <col:27, col:36> 'struct LocVar *' lvalue ->locvars 0x558fa8e8f090
+  `-ImplicitCastExpr 0x558fa8efb8e8 <col:27, col:33> 'Proto *' <LValueToRValue>
+    `-MemberExpr 0x558fa8efb8b0 <col:27, col:33> 'Proto *' lvalue ->f 0x558fa8eb3e58
+      `-ImplicitCastExpr 0x558fa8efb898 <col:27, col:30> 'FuncState *' <LValueToRValue>
+        `-ParenExpr 0x558fa8efb878 <col:27, col:30> 'FuncState *' lvalue
+          `-DeclRefExpr 0x558fa8efb850 <line:210:24> 'FuncState *' lvalue ParmVar 0x558fa8efb3d0 'fs' 'FuncState *'
+[B4.7] (ImplicitCastExpr, LValueToRValue, struct LocVar *)
+   9: DeclRefExpr 0x558fa8efb938 <lparser.c:210:24> 'FuncState *' lvalue ParmVar 0x558fa8efb3d0 'fs' 'FuncState *'
+fs
+  10: ImplicitCastExpr 0x558fa8efb980 <lparser.c:32:44, col:47> 'FuncState *' <LValueToRValue>
+`-ParenExpr 0x558fa8efb960 <col:44, col:47> 'FuncState *' lvalue
+  `-DeclRefExpr 0x558fa8efb938 <line:210:24> 'FuncState *' lvalue ParmVar 0x558fa8efb3d0 'fs' 'FuncState *'
+([B4.9]) (ImplicitCastExpr, LValueToRValue, FuncState *)
+  11: MemberExpr 0x558fa8efb998 <lparser.c:32:44, col:50> 'unsigned short [200]' lvalue ->actvar 0x558fa8eb46a0
+`-ImplicitCastExpr 0x558fa8efb980 <col:44, col:47> 'FuncState *' <LValueToRValue>
+  `-ParenExpr 0x558fa8efb960 <col:44, col:47> 'FuncState *' lvalue
+    `-DeclRefExpr 0x558fa8efb938 <line:210:24> 'FuncState *' lvalue ParmVar 0x558fa8efb3d0 'fs' 'FuncState *'
+[B4.10]->actvar
+  12: ImplicitCastExpr 0x558fa8efb9f8 <lparser.c:32:44, col:50> 'unsigned short *' <ArrayToPointerDecay>
+`-MemberExpr 0x558fa8efb998 <col:44, col:50> 'unsigned short [200]' lvalue ->actvar 0x558fa8eb46a0
+  `-ImplicitCastExpr 0x558fa8efb980 <col:44, col:47> 'FuncState *' <LValueToRValue>
+    `-ParenExpr 0x558fa8efb960 <col:44, col:47> 'FuncState *' lvalue
+      `-DeclRefExpr 0x558fa8efb938 <line:210:24> 'FuncState *' lvalue ParmVar 0x558fa8efb3d0 'fs' 'FuncState *'
+[B4.11] (ImplicitCastExpr, ArrayToPointerDecay, unsigned short *)
+  13: DeclRefExpr 0x558fa8efb9d0 <lparser.c:210:28> 'int' lvalue Var 0x558fa8efb5a0 'i' 'int'
+i
+  14: ImplicitCastExpr 0x558fa8efba10 <lparser.c:210:28> 'int' <LValueToRValue>
+`-DeclRefExpr 0x558fa8efb9d0 <col:28> 'int' lvalue Var 0x558fa8efb5a0 'i' 'int'
+[B4.13] (ImplicitCastExpr, LValueToRValue, int)
+  15: ArraySubscriptExpr 0x558fa8efba28 <lparser.c:32:44, col:58> 'unsigned short' lvalue
+|-ImplicitCastExpr 0x558fa8efb9f8 <col:44, col:50> 'unsigned short *' <ArrayToPointerDecay>
+| `-MemberExpr 0x558fa8efb998 <col:44, col:50> 'unsigned short [200]' lvalue ->actvar 0x558fa8eb46a0
+|   `-ImplicitCastExpr 0x558fa8efb980 <col:44, col:47> 'FuncState *' <LValueToRValue>
+|     `-ParenExpr 0x558fa8efb960 <col:44, col:47> 'FuncState *' lvalue
+|       `-DeclRefExpr 0x558fa8efb938 <line:210:24> 'FuncState *' lvalue ParmVar 0x558fa8efb3d0 'fs' 'FuncState *'
+`-ImplicitCastExpr 0x558fa8efba10 <col:28> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8efb9d0 <col:28> 'int' lvalue Var 0x558fa8efb5a0 'i' 'int'
+[B4.12][[B4.14]]
+  16: ImplicitCastExpr 0x558fa8efba68 <lparser.c:32:44, col:58> 'unsigned short' <LValueToRValue>
+`-ArraySubscriptExpr 0x558fa8efba28 <col:44, col:58> 'unsigned short' lvalue
+  |-ImplicitCastExpr 0x558fa8efb9f8 <col:44, col:50> 'unsigned short *' <ArrayToPointerDecay>
+  | `-MemberExpr 0x558fa8efb998 <col:44, col:50> 'unsigned short [200]' lvalue ->actvar 0x558fa8eb46a0
+  |   `-ImplicitCastExpr 0x558fa8efb980 <col:44, col:47> 'FuncState *' <LValueToRValue>
+  |     `-ParenExpr 0x558fa8efb960 <col:44, col:47> 'FuncState *' lvalue
+  |       `-DeclRefExpr 0x558fa8efb938 <line:210:24> 'FuncState *' lvalue ParmVar 0x558fa8efb3d0 'fs' 'FuncState *'
+  `-ImplicitCastExpr 0x558fa8efba10 <col:28> 'int' <LValueToRValue>
+    `-DeclRefExpr 0x558fa8efb9d0 <col:28> 'int' lvalue Var 0x558fa8efb5a0 'i' 'int'
+[B4.15] (ImplicitCastExpr, LValueToRValue, unsigned short)
+  17: ArraySubscriptExpr 0x558fa8efba80 <lparser.c:32:27, col:59> 'struct LocVar':'struct LocVar' lvalue
+|-ImplicitCastExpr 0x558fa8efba50 <col:27, col:36> 'struct LocVar *' <LValueToRValue>
+| `-MemberExpr 0x558fa8efb900 <col:27, col:36> 'struct LocVar *' lvalue ->locvars 0x558fa8e8f090
+|   `-ImplicitCastExpr 0x558fa8efb8e8 <col:27, col:33> 'Proto *' <LValueToRValue>
+|     `-MemberExpr 0x558fa8efb8b0 <col:27, col:33> 'Proto *' lvalue ->f 0x558fa8eb3e58
+|       `-ImplicitCastExpr 0x558fa8efb898 <col:27, col:30> 'FuncState *' <LValueToRValue>
+|         `-ParenExpr 0x558fa8efb878 <col:27, col:30> 'FuncState *' lvalue
+|           `-DeclRefExpr 0x558fa8efb850 <line:210:24> 'FuncState *' lvalue ParmVar 0x558fa8efb3d0 'fs' 'FuncState *'
+`-ImplicitCastExpr 0x558fa8efba68 <line:32:44, col:58> 'unsigned short' <LValueToRValue>
+  `-ArraySubscriptExpr 0x558fa8efba28 <col:44, col:58> 'unsigned short' lvalue
+    |-ImplicitCastExpr 0x558fa8efb9f8 <col:44, col:50> 'unsigned short *' <ArrayToPointerDecay>
+    | `-MemberExpr 0x558fa8efb998 <col:44, col:50> 'unsigned short [200]' lvalue ->actvar 0x558fa8eb46a0
+    |   `-ImplicitCastExpr 0x558fa8efb980 <col:44, col:47> 'FuncState *' <LValueToRValue>
+    |     `-ParenExpr 0x558fa8efb960 <col:44, col:47> 'FuncState *' lvalue
+    |       `-DeclRefExpr 0x558fa8efb938 <line:210:24> 'FuncState *' lvalue ParmVar 0x558fa8efb3d0 'fs' 'FuncState *'
+    `-ImplicitCastExpr 0x558fa8efba10 <col:28> 'int' <LValueToRValue>
+      `-DeclRefExpr 0x558fa8efb9d0 <col:28> 'int' lvalue Var 0x558fa8efb5a0 'i' 'int'
+[B4.8][[B4.16]]
+  18: MemberExpr 0x558fa8efbac8 <lparser.c:32:26, line:210:31> 'TString *' lvalue .varname 0x558fa8e8fa10
+`-ParenExpr 0x558fa8efbaa8 <line:32:26, col:60> 'struct LocVar':'struct LocVar' lvalue
+  `-ArraySubscriptExpr 0x558fa8efba80 <col:27, col:59> 'struct LocVar':'struct LocVar' lvalue
+    |-ImplicitCastExpr 0x558fa8efba50 <col:27, col:36> 'struct LocVar *' <LValueToRValue>
+    | `-MemberExpr 0x558fa8efb900 <col:27, col:36> 'struct LocVar *' lvalue ->locvars 0x558fa8e8f090
+    |   `-ImplicitCastExpr 0x558fa8efb8e8 <col:27, col:33> 'Proto *' <LValueToRValue>
+    |     `-MemberExpr 0x558fa8efb8b0 <col:27, col:33> 'Proto *' lvalue ->f 0x558fa8eb3e58
+    |       `-ImplicitCastExpr 0x558fa8efb898 <col:27, col:30> 'FuncState *' <LValueToRValue>
+    |         `-ParenExpr 0x558fa8efb878 <col:27, col:30> 'FuncState *' lvalue
+    |           `-DeclRefExpr 0x558fa8efb850 <line:210:24> 'FuncState *' lvalue ParmVar 0x558fa8efb3d0 'fs' 'FuncState *'
+    `-ImplicitCastExpr 0x558fa8efba68 <line:32:44, col:58> 'unsigned short' <LValueToRValue>
+      `-ArraySubscriptExpr 0x558fa8efba28 <col:44, col:58> 'unsigned short' lvalue
+        |-ImplicitCastExpr 0x558fa8efb9f8 <col:44, col:50> 'unsigned short *' <ArrayToPointerDecay>
+        | `-MemberExpr 0x558fa8efb998 <col:44, col:50> 'unsigned short [200]' lvalue ->actvar 0x558fa8eb46a0
+        |   `-ImplicitCastExpr 0x558fa8efb980 <col:44, col:47> 'FuncState *' <LValueToRValue>
+        |     `-ParenExpr 0x558fa8efb960 <col:44, col:47> 'FuncState *' lvalue
+        |       `-DeclRefExpr 0x558fa8efb938 <line:210:24> 'FuncState *' lvalue ParmVar 0x558fa8efb3d0 'fs' 'FuncState *'
+        `-ImplicitCastExpr 0x558fa8efba10 <col:28> 'int' <LValueToRValue>
+          `-DeclRefExpr 0x558fa8efb9d0 <col:28> 'int' lvalue Var 0x558fa8efb5a0 'i' 'int'
+([B4.17]).varname
+  19: ImplicitCastExpr 0x558fa8efbb18 <lparser.c:32:26, line:210:31> 'TString *' <LValueToRValue>
+`-MemberExpr 0x558fa8efbac8 <line:32:26, line:210:31> 'TString *' lvalue .varname 0x558fa8e8fa10
+  `-ParenExpr 0x558fa8efbaa8 <line:32:26, col:60> 'struct LocVar':'struct LocVar' lvalue
+    `-ArraySubscriptExpr 0x558fa8efba80 <col:27, col:59> 'struct LocVar':'struct LocVar' lvalue
+      |-ImplicitCastExpr 0x558fa8efba50 <col:27, col:36> 'struct LocVar *' <LValueToRValue>
+      | `-MemberExpr 0x558fa8efb900 <col:27, col:36> 'struct LocVar *' lvalue ->locvars 0x558fa8e8f090
+      |   `-ImplicitCastExpr 0x558fa8efb8e8 <col:27, col:33> 'Proto *' <LValueToRValue>
+      |     `-MemberExpr 0x558fa8efb8b0 <col:27, col:33> 'Proto *' lvalue ->f 0x558fa8eb3e58
+      |       `-ImplicitCastExpr 0x558fa8efb898 <col:27, col:30> 'FuncState *' <LValueToRValue>
+      |         `-ParenExpr 0x558fa8efb878 <col:27, col:30> 'FuncState *' lvalue
+      |           `-DeclRefExpr 0x558fa8efb850 <line:210:24> 'FuncState *' lvalue ParmVar 0x558fa8efb3d0 'fs' 'FuncState *'
+      `-ImplicitCastExpr 0x558fa8efba68 <line:32:44, col:58> 'unsigned short' <LValueToRValue>
+        `-ArraySubscriptExpr 0x558fa8efba28 <col:44, col:58> 'unsigned short' lvalue
+          |-ImplicitCastExpr 0x558fa8efb9f8 <col:44, col:50> 'unsigned short *' <ArrayToPointerDecay>
+          | `-MemberExpr 0x558fa8efb998 <col:44, col:50> 'unsigned short [200]' lvalue ->actvar 0x558fa8eb46a0
+          |   `-ImplicitCastExpr 0x558fa8efb980 <col:44, col:47> 'FuncState *' <LValueToRValue>
+          |     `-ParenExpr 0x558fa8efb960 <col:44, col:47> 'FuncState *' lvalue
+          |       `-DeclRefExpr 0x558fa8efb938 <line:210:24> 'FuncState *' lvalue ParmVar 0x558fa8efb3d0 'fs' 'FuncState *'
+          `-ImplicitCastExpr 0x558fa8efba10 <col:28> 'int' <LValueToRValue>
+            `-DeclRefExpr 0x558fa8efb9d0 <col:28> 'int' lvalue Var 0x558fa8efb5a0 'i' 'int'
+[B4.18] (ImplicitCastExpr, LValueToRValue, TString *)
+  20: BinaryOperator 0x558fa8efbb30 <lparser.c:210:9, col:31> 'int' '=='
+|-ImplicitCastExpr 0x558fa8efbb00 <col:9> 'TString *' <LValueToRValue>
+| `-DeclRefExpr 0x558fa8efb828 <col:9> 'TString *' lvalue ParmVar 0x558fa8efb440 'n' 'TString *'
+`-ImplicitCastExpr 0x558fa8efbb18 <line:32:26, line:210:31> 'TString *' <LValueToRValue>
+  `-MemberExpr 0x558fa8efbac8 <line:32:26, line:210:31> 'TString *' lvalue .varname 0x558fa8e8fa10
+    `-ParenExpr 0x558fa8efbaa8 <line:32:26, col:60> 'struct LocVar':'struct LocVar' lvalue
+      `-ArraySubscriptExpr 0x558fa8efba80 <col:27, col:59> 'struct LocVar':'struct LocVar' lvalue
+        |-ImplicitCastExpr 0x558fa8efba50 <col:27, col:36> 'struct LocVar *' <LValueToRValue>
+        | `-MemberExpr 0x558fa8efb900 <col:27, col:36> 'struct LocVar *' lvalue ->locvars 0x558fa8e8f090
+        |   `-ImplicitCastExpr 0x558fa8efb8e8 <col:27, col:33> 'Proto *' <LValueToRValue>
+        |     `-MemberExpr 0x558fa8efb8b0 <col:27, col:33> 'Proto *' lvalue ->f 0x558fa8eb3e58
+        |       `-ImplicitCastExpr 0x558fa8efb898 <col:27, col:30> 'FuncState *' <LValueToRValue>
+        |         `-ParenExpr 0x558fa8efb878 <col:27, col:30> 'FuncState *' lvalue
+        |           `-DeclRefExpr 0x558fa8efb850 <line:210:24> 'FuncState *' lvalue ParmVar 0x558fa8efb3d0 'fs' 'FuncState *'
+        `-ImplicitCastExpr 0x558fa8efba68 <line:32:44, col:58> 'unsigned short' <LValueToRValue>
+          `-ArraySubscriptExpr 0x558fa8efba28 <col:44, col:58> 'unsigned short' lvalue
+            |-ImplicitCastExpr 0x558fa8efb9f8 <col:44, col:50> 'unsigned short *' <ArrayToPointerDecay>
+            | `-MemberExpr 0x558fa8efb998 <col:44, col:50> 'unsigned short [200]' lvalue ->actvar 0x558fa8eb46a0
+            |   `-ImplicitCastExpr 0x558fa8efb980 <col:44, col:47> 'FuncState *' <LValueToRValue>
+            |     `-ParenExpr 0x558fa8efb960 <col:44, col:47> 'FuncState *' lvalue
+            |       `-DeclRefExpr 0x558fa8efb938 <line:210:24> 'FuncState *' lvalue ParmVar 0x558fa8efb3d0 'fs' 'FuncState *'
+            `-ImplicitCastExpr 0x558fa8efba10 <col:28> 'int' <LValueToRValue>
+              `-DeclRefExpr 0x558fa8efb9d0 <col:28> 'int' lvalue Var 0x558fa8efb5a0 'i' 'int'
+[B4.2] == [B4.19]
+   T: if [B4.20]
+   Preds (1): B5
+   Succs (2): B3 B2
+
+ [B5]
+   1: DeclRefExpr 0x558fa8efb758 <lparser.c:209:25> 'int' lvalue Var 0x558fa8efb5a0 'i' 'int'
+i
+   2: ImplicitCastExpr 0x558fa8efb7a0 <lparser.c:209:25> 'int' <LValueToRValue>
+`-DeclRefExpr 0x558fa8efb758 <col:25> 'int' lvalue Var 0x558fa8efb5a0 'i' 'int'
+[B5.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: IntegerLiteral 0x558fa8efb780 <lparser.c:209:30> 'int' 0
+0
+   4: BinaryOperator 0x558fa8efb7b8 <lparser.c:209:25, col:30> 'int' '>='
+|-ImplicitCastExpr 0x558fa8efb7a0 <col:25> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x558fa8efb758 <col:25> 'int' lvalue Var 0x558fa8efb5a0 'i' 'int'
+`-IntegerLiteral 0x558fa8efb780 <col:30> 'int' 0
+[B5.2] >= [B5.3]
+   T: for (...; [B5.4]; ...)
+   Preds (2): B2 B6
+   Succs (2): B4 B1
+
+ [B6]
+   1: DeclStmt 0x558fa8efb600 <lparser.c:208:3, col:8>col:7
+`-VarDecl 0x558fa8efb5a0 <col:3, col:7> col:7 used i 'int'
+int i;
+   2: DeclRefExpr 0x558fa8efb640 <lparser.c:209:10> 'FuncState *' lvalue ParmVar 0x558fa8efb3d0 'fs' 'FuncState *'
+fs
+   3: ImplicitCastExpr 0x558fa8efb668 <lparser.c:209:10> 'FuncState *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8efb640 <col:10> 'FuncState *' lvalue ParmVar 0x558fa8efb3d0 'fs' 'FuncState *'
+[B6.2] (ImplicitCastExpr, LValueToRValue, FuncState *)
+   4: MemberExpr 0x558fa8efb680 <lparser.c:209:10, col:14> 'lu_byte':'unsigned char' lvalue ->nactvar 0x558fa8eb4468
+`-ImplicitCastExpr 0x558fa8efb668 <col:10> 'FuncState *' <LValueToRValue>
+  `-DeclRefExpr 0x558fa8efb640 <col:10> 'FuncState *' lvalue ParmVar 0x558fa8efb3d0 'fs' 'FuncState *'
+[B6.3]->nactvar
+   5: ImplicitCastExpr 0x558fa8efb6d8 <lparser.c:209:10, col:14> 'lu_byte':'unsigned char' <LValueToRValue>
+`-MemberExpr 0x558fa8efb680 <col:10, col:14> 'lu_byte':'unsigned char' lvalue ->nactvar 0x558fa8eb4468
+  `-ImplicitCastExpr 0x558fa8efb668 <col:10> 'FuncState *' <LValueToRValue>
+    `-DeclRefExpr 0x558fa8efb640 <col:10> 'FuncState *' lvalue ParmVar 0x558fa8efb3d0 'fs' 'FuncState *'
+[B6.4] (ImplicitCastExpr, LValueToRValue, lu_byte)
+   6: ImplicitCastExpr 0x558fa8efb6f0 <lparser.c:209:10, col:14> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x558fa8efb6d8 <col:10, col:14> 'lu_byte':'unsigned char' <LValueToRValue>
+  `-MemberExpr 0x558fa8efb680 <col:10, col:14> 'lu_byte':'unsigned char' lvalue ->nactvar 0x558fa8eb4468
+    `-ImplicitCastExpr 0x558fa8efb668 <col:10> 'FuncState *' <LValueToRValue>
+      `-DeclRefExpr 0x558fa8efb640 <col:10> 'FuncState *' lvalue ParmVar 0x558fa8efb3d0 'fs' 'FuncState *'
+[B6.5] (ImplicitCastExpr, IntegralCast, int)
+   7: IntegerLiteral 0x558fa8efb6b8 <lparser.c:209:22> 'int' 1
+1
+   8: BinaryOperator 0x558fa8efb708 <lparser.c:209:10, col:22> 'int' '-'
+|-ImplicitCastExpr 0x558fa8efb6f0 <col:10, col:14> 'int' <IntegralCast>
+| `-ImplicitCastExpr 0x558fa8efb6d8 <col:10, col:14> 'lu_byte':'unsigned char' <LValueToRValue>
+|   `-MemberExpr 0x558fa8efb680 <col:10, col:14> 'lu_byte':'unsigned char' lvalue ->nactvar 0x558fa8eb4468
+|     `-ImplicitCastExpr 0x558fa8efb668 <col:10> 'FuncState *' <LValueToRValue>
+|       `-DeclRefExpr 0x558fa8efb640 <col:10> 'FuncState *' lvalue ParmVar 0x558fa8efb3d0 'fs' 'FuncState *'
+`-IntegerLiteral 0x558fa8efb6b8 <col:22> 'int' 1
+[B6.6] - [B6.7]
+   9: DeclRefExpr 0x558fa8efb618 <lparser.c:209:8> 'int' lvalue Var 0x558fa8efb5a0 'i' 'int'
+i
+  10: BinaryOperator 0x558fa8efb730 <lparser.c:209:8, col:22> 'int' '='
+|-DeclRefExpr 0x558fa8efb618 <col:8> 'int' lvalue Var 0x558fa8efb5a0 'i' 'int'
+`-BinaryOperator 0x558fa8efb708 <col:10, col:22> 'int' '-'
+  |-ImplicitCastExpr 0x558fa8efb6f0 <col:10, col:14> 'int' <IntegralCast>
+  | `-ImplicitCastExpr 0x558fa8efb6d8 <col:10, col:14> 'lu_byte':'unsigned char' <LValueToRValue>
+  |   `-MemberExpr 0x558fa8efb680 <col:10, col:14> 'lu_byte':'unsigned char' lvalue ->nactvar 0x558fa8eb4468
+  |     `-ImplicitCastExpr 0x558fa8efb668 <col:10> 'FuncState *' <LValueToRValue>
+  |       `-DeclRefExpr 0x558fa8efb640 <col:10> 'FuncState *' lvalue ParmVar 0x558fa8efb3d0 'fs' 'FuncState *'
+  `-IntegerLiteral 0x558fa8efb6b8 <col:22> 'int' 1
+[B6.9] = [B6.8]
+   Preds (1): B7
+   Succs (1): B5
+
+ [B0 (EXIT)]
+   Preds (2): B1 B3

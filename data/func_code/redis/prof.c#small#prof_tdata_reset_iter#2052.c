@@ -1,0 +1,7 @@
+static prof_tdata_t *
+prof_tdata_reset_iter(prof_tdata_tree_t *tdatas, prof_tdata_t *tdata,
+    void *arg) {
+	tsdn_t *tsdn = (tsdn_t *)arg;
+
+	return (prof_tdata_expire(tsdn, tdata) ? tdata : NULL);
+}

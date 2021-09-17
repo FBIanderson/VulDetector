@@ -1,0 +1,94 @@
+void strbuf_set_increment(strbuf_t *s, int increment)
+ [B5 (ENTRY)]
+   Succs (1): B4
+
+ [B1]
+   1: DeclRefExpr 0x55c95beead98 <strbuf.c:91:20> 'int' lvalue ParmVar 0x55c95beea930 'increment' 'int'
+increment
+   2: ImplicitCastExpr 0x55c95beeadc0 <strbuf.c:91:20> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55c95beead98 <col:20> 'int' lvalue ParmVar 0x55c95beea930 'increment' 'int'
+[B1.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: DeclRefExpr 0x55c95beead20 <strbuf.c:91:5> 'strbuf_t *' lvalue ParmVar 0x55c95beea8b8 's' 'strbuf_t *'
+s
+   4: ImplicitCastExpr 0x55c95beead48 <strbuf.c:91:5> 'strbuf_t *' <LValueToRValue>
+`-DeclRefExpr 0x55c95beead20 <col:5> 'strbuf_t *' lvalue ParmVar 0x55c95beea8b8 's' 'strbuf_t *'
+[B1.3] (ImplicitCastExpr, LValueToRValue, strbuf_t *)
+   5: MemberExpr 0x55c95beead60 <strbuf.c:91:5, col:8> 'int' lvalue ->increment 0x55c95bee0b98
+`-ImplicitCastExpr 0x55c95beead48 <col:5> 'strbuf_t *' <LValueToRValue>
+  `-DeclRefExpr 0x55c95beead20 <col:5> 'strbuf_t *' lvalue ParmVar 0x55c95beea8b8 's' 'strbuf_t *'
+[B1.4]->increment
+   6: BinaryOperator 0x55c95beeadd8 <strbuf.c:91:5, col:20> 'int' '='
+|-MemberExpr 0x55c95beead60 <col:5, col:8> 'int' lvalue ->increment 0x55c95bee0b98
+| `-ImplicitCastExpr 0x55c95beead48 <col:5> 'strbuf_t *' <LValueToRValue>
+|   `-DeclRefExpr 0x55c95beead20 <col:5> 'strbuf_t *' lvalue ParmVar 0x55c95beea8b8 's' 'strbuf_t *'
+`-ImplicitCastExpr 0x55c95beeadc0 <col:20> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x55c95beead98 <col:20> 'int' lvalue ParmVar 0x55c95beea930 'increment' 'int'
+[B1.5] = [B1.2]
+   Preds (2): B2 B3
+   Succs (1): B0
+
+ [B2]
+   1: DeclRefExpr 0x55c95beeabc8 <strbuf.c:89:9> 'void (const char *, ...)' Function 0x55c95bee8758 'die' 'void (const char *, ...)'
+die
+   2: ImplicitCastExpr 0x55c95beeac70 <strbuf.c:89:9> 'void (*)(const char *, ...)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55c95beeabc8 <col:9> 'void (const char *, ...)' Function 0x55c95bee8758 'die' 'void (const char *, ...)'
+[B2.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(const char *, ...))
+   3: StringLiteral 0x55c95beeac28 <strbuf.c:89:13> 'char [30]' lvalue "BUG: Invalid string increment"
+"BUG: Invalid string increment"
+   4: ImplicitCastExpr 0x55c95beeacb8 <strbuf.c:89:13> 'char *' <ArrayToPointerDecay>
+`-StringLiteral 0x55c95beeac28 <col:13> 'char [30]' lvalue "BUG: Invalid string increment"
+[B2.3] (ImplicitCastExpr, ArrayToPointerDecay, char *)
+   5: ImplicitCastExpr 0x55c95beeacd0 <strbuf.c:89:13> 'const char *' <BitCast>
+`-ImplicitCastExpr 0x55c95beeacb8 <col:13> 'char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x55c95beeac28 <col:13> 'char [30]' lvalue "BUG: Invalid string increment"
+[B2.4] (ImplicitCastExpr, BitCast, const char *)
+   6: CallExpr 0x55c95beeac88 <strbuf.c:89:9, col:44> 'void'
+|-ImplicitCastExpr 0x55c95beeac70 <col:9> 'void (*)(const char *, ...)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55c95beeabc8 <col:9> 'void (const char *, ...)' Function 0x55c95bee8758 'die' 'void (const char *, ...)'
+`-ImplicitCastExpr 0x55c95beeacd0 <col:13> 'const char *' <BitCast>
+  `-ImplicitCastExpr 0x55c95beeacb8 <col:13> 'char *' <ArrayToPointerDecay>
+    `-StringLiteral 0x55c95beeac28 <col:13> 'char [30]' lvalue "BUG: Invalid string increment"
+[B2.2]([B2.5])
+   Preds (2): B3 B4
+   Succs (1): B1
+
+ [B3]
+   1: DeclRefExpr 0x55c95beeaaf8 <strbuf.c:88:27> 'int' lvalue ParmVar 0x55c95beea930 'increment' 'int'
+increment
+   2: ImplicitCastExpr 0x55c95beeab60 <strbuf.c:88:27> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55c95beeaaf8 <col:27> 'int' lvalue ParmVar 0x55c95beea930 'increment' 'int'
+[B3.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: IntegerLiteral 0x55c95beeab20 <strbuf.c:88:41> 'int' 1
+1
+   4: UnaryOperator 0x55c95beeab40 <strbuf.c:88:40, col:41> 'int' prefix '-'
+`-IntegerLiteral 0x55c95beeab20 <col:41> 'int' 1
+-[B3.3]
+   5: BinaryOperator 0x55c95beeab78 <strbuf.c:88:27, col:41> 'int' '=='
+|-ImplicitCastExpr 0x55c95beeab60 <col:27> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x55c95beeaaf8 <col:27> 'int' lvalue ParmVar 0x55c95beea930 'increment' 'int'
+`-UnaryOperator 0x55c95beeab40 <col:40, col:41> 'int' prefix '-'
+  `-IntegerLiteral 0x55c95beeab20 <col:41> 'int' 1
+[B3.2] == [B3.4]
+   T: if [B4.4] || [B3.5]
+   Preds (1): B4
+   Succs (2): B2 B1
+
+ [B4]
+   1: DeclRefExpr 0x55c95beeaa70 <strbuf.c:88:9> 'int' lvalue ParmVar 0x55c95beea930 'increment' 'int'
+increment
+   2: ImplicitCastExpr 0x55c95beeaab8 <strbuf.c:88:9> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55c95beeaa70 <col:9> 'int' lvalue ParmVar 0x55c95beea930 'increment' 'int'
+[B4.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: IntegerLiteral 0x55c95beeaa98 <strbuf.c:88:22> 'int' 0
+0
+   4: BinaryOperator 0x55c95beeaad0 <strbuf.c:88:9, col:22> 'int' '=='
+|-ImplicitCastExpr 0x55c95beeaab8 <col:9> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x55c95beeaa70 <col:9> 'int' lvalue ParmVar 0x55c95beea930 'increment' 'int'
+`-IntegerLiteral 0x55c95beeaa98 <col:22> 'int' 0
+[B4.2] == [B4.3]
+   T: [B4.4] || ...
+   Preds (1): B5
+   Succs (2): B2 B3
+
+ [B0 (EXIT)]
+   Preds (1): B1

@@ -1,0 +1,562 @@
+static void freestack(lua_State *L, lua_State *L1)
+ [B8 (ENTRY)]
+   Succs (1): B7
+
+ [B1]
+   1: ConditionalOperator 0x56411995b0b0 <./lmem.h:20:3, line:22:16> 'void *'
+|-ParenExpr 0x56411995ac20 <line:20:3, col:40> 'int'
+| `-BinaryOperator 0x56411995abf8 <./llimits.h:75:22, ./lmem.h:20:39> 'int' '<='
+|   |-ParenExpr 0x56411995a9e0 <./llimits.h:75:22, col:31> 'size_t':'unsigned long'
+|   | `-CStyleCastExpr 0x56411995a9b8 <col:23, col:30> 'size_t':'unsigned long' <IntegralCast>
+|   |   `-ParenExpr 0x56411995a998 <col:26, col:30> 'int'
+|   |     `-BinaryOperator 0x56411995a930 <./lmem.h:20:17, col:21> 'int' '+'
+|   |       |-ParenExpr 0x56411995a8f0 <col:17, col:19> 'int'
+|   |       | `-IntegerLiteral 0x56411995a8d0 <line:26:63> 'int' 0
+|   |       `-IntegerLiteral 0x56411995a910 <line:20:21> 'int' 1
+|   `-BinaryOperator 0x56411995abd0 <./llimits.h:30:19, ./lmem.h:20:39> 'unsigned long' '/'
+|     |-ParenExpr 0x56411995ab60 <./llimits.h:30:19, col:42> 'unsigned long'
+|     | `-BinaryOperator 0x56411995ab38 <col:20, col:41> 'unsigned long' '-'
+|     |   |-CStyleCastExpr 0x56411995aad8 <col:20, col:39> 'size_t':'unsigned long' <NoOp>
+|     |   | `-ParenExpr 0x56411995aab8 <col:28, col:39> 'size_t':'unsigned long'
+|     |   |   `-UnaryOperator 0x56411995aa58 <col:29, col:38> 'size_t':'unsigned long' prefix '~'
+|     |   |     `-CStyleCastExpr 0x56411995aa30 <col:30, col:38> 'size_t':'unsigned long' <IntegralCast>
+|     |   |       `-IntegerLiteral 0x56411995aa00 <col:38> 'int' 0
+|     |   `-ImplicitCastExpr 0x56411995ab20 <col:41> 'unsigned long' <IntegralCast>
+|     |     `-IntegerLiteral 0x56411995ab00 <col:41> 'int' 2
+|     `-ParenExpr 0x56411995abb0 <./lmem.h:20:37, col:39> 'unsigned long'
+|       `-UnaryExprOrTypeTraitExpr 0x56411995ab90 <line:26:66, col:74> 'unsigned long' sizeof 'TValue':'struct lua_TValue'
+|-CallExpr 0x56411995af70 <line:21:3, col:42> 'void *'
+| |-ImplicitCastExpr 0x56411995af58 <col:3> 'void *(*)(lua_State *, void *, size_t, size_t)' <FunctionToPointerDecay>
+| | `-DeclRefExpr 0x56411995ac40 <col:3> 'void *(lua_State *, void *, size_t, size_t)' Function 0x564119922458 'luaM_realloc_' 'void *(lua_State *, void *, size_t, size_t)'
+| |-ImplicitCastExpr 0x56411995afb8 <lstate.c:63:18> 'lua_State *' <LValueToRValue>
+| | `-DeclRefExpr 0x56411995ac68 <col:18> 'lua_State *' lvalue ParmVar 0x564119959ec8 'L' 'lua_State *'
+| |-ImplicitCastExpr 0x56411995afe8 <./lmem.h:21:20, col:22> 'void *' <BitCast>
+| | `-ImplicitCastExpr 0x56411995afd0 <col:20, col:22> 'StkId':'TValue *' <LValueToRValue>
+| |   `-ParenExpr 0x56411995ad28 <col:20, col:22> 'StkId':'TValue *' lvalue
+| |     `-ParenExpr 0x56411995ad08 <line:26:55, col:57> 'StkId':'TValue *' lvalue
+| |       `-MemberExpr 0x56411995acd0 <lstate.c:63:21, col:25> 'StkId':'TValue *' lvalue ->stack 0x56411992dd80
+| |         `-ImplicitCastExpr 0x56411995acb8 <col:21> 'lua_State *' <LValueToRValue>
+| |           `-DeclRefExpr 0x56411995ac90 <col:21> 'lua_State *' lvalue ParmVar 0x564119959f38 'L1' 'lua_State *'
+| |-BinaryOperator 0x56411995ae60 <./lmem.h:21:25, col:32> 'unsigned long' '*'
+| | |-ImplicitCastExpr 0x56411995ae48 <col:25, col:28> 'unsigned long' <IntegralCast>
+| | | `-ImplicitCastExpr 0x56411995ae30 <col:25, col:28> 'int' <LValueToRValue>
+| | |   `-ParenExpr 0x56411995adc0 <col:25, col:28> 'int' lvalue
+| | |     `-MemberExpr 0x56411995ad88 <lstate.c:63:32, col:36> 'int' lvalue ->stacksize 0x56411992de90
+| | |       `-ImplicitCastExpr 0x56411995ad70 <col:32> 'lua_State *' <LValueToRValue>
+| | |         `-DeclRefExpr 0x56411995ad48 <col:32> 'lua_State *' lvalue ParmVar 0x564119959f38 'L1' 'lua_State *'
+| | `-ParenExpr 0x56411995ae10 <./lmem.h:21:30, col:32> 'unsigned long'
+| |   `-UnaryExprOrTypeTraitExpr 0x56411995adf0 <line:26:66, col:74> 'unsigned long' sizeof 'TValue':'struct lua_TValue'
+| `-BinaryOperator 0x56411995af30 <line:21:35, col:41> 'unsigned long' '*'
+|   |-ImplicitCastExpr 0x56411995af18 <col:35, col:37> 'unsigned long' <IntegralCast>
+|   | `-ParenExpr 0x56411995aea8 <col:35, col:37> 'int'
+|   |   `-IntegerLiteral 0x56411995ae88 <line:26:63> 'int' 0
+|   `-ParenExpr 0x56411995aef8 <line:21:39, col:41> 'unsigned long'
+|     `-UnaryExprOrTypeTraitExpr 0x56411995aed8 <line:26:66, col:74> 'unsigned long' sizeof 'TValue':'struct lua_TValue'
+`-CallExpr 0x56411995b068 <line:22:3, col:16> 'void *'
+  |-ImplicitCastExpr 0x56411995b050 <col:3> 'void *(*)(lua_State *)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x56411995b000 <col:3> 'void *(lua_State *)' Function 0x5641199226a8 'luaM_toobig' 'void *(lua_State *)'
+  `-ImplicitCastExpr 0x56411995b098 <lstate.c:63:18> 'lua_State *' <LValueToRValue>
+    `-DeclRefExpr 0x56411995b028 <col:18> 'lua_State *' lvalue ParmVar 0x564119959ec8 'L' 'lua_State *'
+([B4.15]) ? [B2.21] : [B3.5]
+   Preds (2): B2 B3
+   Succs (1): B0
+
+ [B2]
+   1: DeclRefExpr 0x56411995ac40 <./lmem.h:21:3> 'void *(lua_State *, void *, size_t, size_t)' Function 0x564119922458 'luaM_realloc_' 'void *(lua_State *, void *, size_t, size_t)'
+luaM_realloc_
+   2: ImplicitCastExpr 0x56411995af58 <./lmem.h:21:3> 'void *(*)(lua_State *, void *, size_t, size_t)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x56411995ac40 <col:3> 'void *(lua_State *, void *, size_t, size_t)' Function 0x564119922458 'luaM_realloc_' 'void *(lua_State *, void *, size_t, size_t)'
+[B2.1] (ImplicitCastExpr, FunctionToPointerDecay, void *(*)(lua_State *, void *, size_t, size_t))
+   3: DeclRefExpr 0x56411995ac68 <lstate.c:63:18> 'lua_State *' lvalue ParmVar 0x564119959ec8 'L' 'lua_State *'
+L
+   4: ImplicitCastExpr 0x56411995afb8 <lstate.c:63:18> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x56411995ac68 <col:18> 'lua_State *' lvalue ParmVar 0x564119959ec8 'L' 'lua_State *'
+[B2.3] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   5: DeclRefExpr 0x56411995ac90 <lstate.c:63:21> 'lua_State *' lvalue ParmVar 0x564119959f38 'L1' 'lua_State *'
+L1
+   6: ImplicitCastExpr 0x56411995acb8 <lstate.c:63:21> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x56411995ac90 <col:21> 'lua_State *' lvalue ParmVar 0x564119959f38 'L1' 'lua_State *'
+[B2.5] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   7: MemberExpr 0x56411995acd0 <lstate.c:63:21, col:25> 'StkId':'TValue *' lvalue ->stack 0x56411992dd80
+`-ImplicitCastExpr 0x56411995acb8 <col:21> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x56411995ac90 <col:21> 'lua_State *' lvalue ParmVar 0x564119959f38 'L1' 'lua_State *'
+[B2.6]->stack
+   8: ImplicitCastExpr 0x56411995afd0 <./lmem.h:21:20, col:22> 'StkId':'TValue *' <LValueToRValue>
+`-ParenExpr 0x56411995ad28 <col:20, col:22> 'StkId':'TValue *' lvalue
+  `-ParenExpr 0x56411995ad08 <line:26:55, col:57> 'StkId':'TValue *' lvalue
+    `-MemberExpr 0x56411995acd0 <lstate.c:63:21, col:25> 'StkId':'TValue *' lvalue ->stack 0x56411992dd80
+      `-ImplicitCastExpr 0x56411995acb8 <col:21> 'lua_State *' <LValueToRValue>
+        `-DeclRefExpr 0x56411995ac90 <col:21> 'lua_State *' lvalue ParmVar 0x564119959f38 'L1' 'lua_State *'
+(([B2.7])) (ImplicitCastExpr, LValueToRValue, StkId)
+   9: ImplicitCastExpr 0x56411995afe8 <./lmem.h:21:20, col:22> 'void *' <BitCast>
+`-ImplicitCastExpr 0x56411995afd0 <col:20, col:22> 'StkId':'TValue *' <LValueToRValue>
+  `-ParenExpr 0x56411995ad28 <col:20, col:22> 'StkId':'TValue *' lvalue
+    `-ParenExpr 0x56411995ad08 <line:26:55, col:57> 'StkId':'TValue *' lvalue
+      `-MemberExpr 0x56411995acd0 <lstate.c:63:21, col:25> 'StkId':'TValue *' lvalue ->stack 0x56411992dd80
+        `-ImplicitCastExpr 0x56411995acb8 <col:21> 'lua_State *' <LValueToRValue>
+          `-DeclRefExpr 0x56411995ac90 <col:21> 'lua_State *' lvalue ParmVar 0x564119959f38 'L1' 'lua_State *'
+[B2.8] (ImplicitCastExpr, BitCast, void *)
+  10: DeclRefExpr 0x56411995ad48 <lstate.c:63:32> 'lua_State *' lvalue ParmVar 0x564119959f38 'L1' 'lua_State *'
+L1
+  11: ImplicitCastExpr 0x56411995ad70 <lstate.c:63:32> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x56411995ad48 <col:32> 'lua_State *' lvalue ParmVar 0x564119959f38 'L1' 'lua_State *'
+[B2.10] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  12: MemberExpr 0x56411995ad88 <lstate.c:63:32, col:36> 'int' lvalue ->stacksize 0x56411992de90
+`-ImplicitCastExpr 0x56411995ad70 <col:32> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x56411995ad48 <col:32> 'lua_State *' lvalue ParmVar 0x564119959f38 'L1' 'lua_State *'
+[B2.11]->stacksize
+  13: ImplicitCastExpr 0x56411995ae30 <./lmem.h:21:25, col:28> 'int' <LValueToRValue>
+`-ParenExpr 0x56411995adc0 <col:25, col:28> 'int' lvalue
+  `-MemberExpr 0x56411995ad88 <lstate.c:63:32, col:36> 'int' lvalue ->stacksize 0x56411992de90
+    `-ImplicitCastExpr 0x56411995ad70 <col:32> 'lua_State *' <LValueToRValue>
+      `-DeclRefExpr 0x56411995ad48 <col:32> 'lua_State *' lvalue ParmVar 0x564119959f38 'L1' 'lua_State *'
+([B2.12]) (ImplicitCastExpr, LValueToRValue, int)
+  14: ImplicitCastExpr 0x56411995ae48 <./lmem.h:21:25, col:28> 'unsigned long' <IntegralCast>
+`-ImplicitCastExpr 0x56411995ae30 <col:25, col:28> 'int' <LValueToRValue>
+  `-ParenExpr 0x56411995adc0 <col:25, col:28> 'int' lvalue
+    `-MemberExpr 0x56411995ad88 <lstate.c:63:32, col:36> 'int' lvalue ->stacksize 0x56411992de90
+      `-ImplicitCastExpr 0x56411995ad70 <col:32> 'lua_State *' <LValueToRValue>
+        `-DeclRefExpr 0x56411995ad48 <col:32> 'lua_State *' lvalue ParmVar 0x564119959f38 'L1' 'lua_State *'
+[B2.13] (ImplicitCastExpr, IntegralCast, unsigned long)
+  15: UnaryExprOrTypeTraitExpr 0x56411995adf0 <./lmem.h:26:66, col:74> 'unsigned long' sizeof 'TValue':'struct lua_TValue'
+sizeof(TValue)
+  16: BinaryOperator 0x56411995ae60 <./lmem.h:21:25, col:32> 'unsigned long' '*'
+|-ImplicitCastExpr 0x56411995ae48 <col:25, col:28> 'unsigned long' <IntegralCast>
+| `-ImplicitCastExpr 0x56411995ae30 <col:25, col:28> 'int' <LValueToRValue>
+|   `-ParenExpr 0x56411995adc0 <col:25, col:28> 'int' lvalue
+|     `-MemberExpr 0x56411995ad88 <lstate.c:63:32, col:36> 'int' lvalue ->stacksize 0x56411992de90
+|       `-ImplicitCastExpr 0x56411995ad70 <col:32> 'lua_State *' <LValueToRValue>
+|         `-DeclRefExpr 0x56411995ad48 <col:32> 'lua_State *' lvalue ParmVar 0x564119959f38 'L1' 'lua_State *'
+`-ParenExpr 0x56411995ae10 <./lmem.h:21:30, col:32> 'unsigned long'
+  `-UnaryExprOrTypeTraitExpr 0x56411995adf0 <line:26:66, col:74> 'unsigned long' sizeof 'TValue':'struct lua_TValue'
+[B2.14] * ([B2.15])
+  17: IntegerLiteral 0x56411995ae88 <./lmem.h:26:63> 'int' 0
+0
+  18: ImplicitCastExpr 0x56411995af18 <./lmem.h:21:35, col:37> 'unsigned long' <IntegralCast>
+`-ParenExpr 0x56411995aea8 <col:35, col:37> 'int'
+  `-IntegerLiteral 0x56411995ae88 <line:26:63> 'int' 0
+([B2.17]) (ImplicitCastExpr, IntegralCast, unsigned long)
+  19: UnaryExprOrTypeTraitExpr 0x56411995aed8 <./lmem.h:26:66, col:74> 'unsigned long' sizeof 'TValue':'struct lua_TValue'
+sizeof(TValue)
+  20: BinaryOperator 0x56411995af30 <./lmem.h:21:35, col:41> 'unsigned long' '*'
+|-ImplicitCastExpr 0x56411995af18 <col:35, col:37> 'unsigned long' <IntegralCast>
+| `-ParenExpr 0x56411995aea8 <col:35, col:37> 'int'
+|   `-IntegerLiteral 0x56411995ae88 <line:26:63> 'int' 0
+`-ParenExpr 0x56411995aef8 <line:21:39, col:41> 'unsigned long'
+  `-UnaryExprOrTypeTraitExpr 0x56411995aed8 <line:26:66, col:74> 'unsigned long' sizeof 'TValue':'struct lua_TValue'
+[B2.18] * ([B2.19])
+  21: CallExpr 0x56411995af70 <./lmem.h:21:3, col:42> 'void *'
+|-ImplicitCastExpr 0x56411995af58 <col:3> 'void *(*)(lua_State *, void *, size_t, size_t)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x56411995ac40 <col:3> 'void *(lua_State *, void *, size_t, size_t)' Function 0x564119922458 'luaM_realloc_' 'void *(lua_State *, void *, size_t, size_t)'
+|-ImplicitCastExpr 0x56411995afb8 <lstate.c:63:18> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x56411995ac68 <col:18> 'lua_State *' lvalue ParmVar 0x564119959ec8 'L' 'lua_State *'
+|-ImplicitCastExpr 0x56411995afe8 <./lmem.h:21:20, col:22> 'void *' <BitCast>
+| `-ImplicitCastExpr 0x56411995afd0 <col:20, col:22> 'StkId':'TValue *' <LValueToRValue>
+|   `-ParenExpr 0x56411995ad28 <col:20, col:22> 'StkId':'TValue *' lvalue
+|     `-ParenExpr 0x56411995ad08 <line:26:55, col:57> 'StkId':'TValue *' lvalue
+|       `-MemberExpr 0x56411995acd0 <lstate.c:63:21, col:25> 'StkId':'TValue *' lvalue ->stack 0x56411992dd80
+|         `-ImplicitCastExpr 0x56411995acb8 <col:21> 'lua_State *' <LValueToRValue>
+|           `-DeclRefExpr 0x56411995ac90 <col:21> 'lua_State *' lvalue ParmVar 0x564119959f38 'L1' 'lua_State *'
+|-BinaryOperator 0x56411995ae60 <./lmem.h:21:25, col:32> 'unsigned long' '*'
+| |-ImplicitCastExpr 0x56411995ae48 <col:25, col:28> 'unsigned long' <IntegralCast>
+| | `-ImplicitCastExpr 0x56411995ae30 <col:25, col:28> 'int' <LValueToRValue>
+| |   `-ParenExpr 0x56411995adc0 <col:25, col:28> 'int' lvalue
+| |     `-MemberExpr 0x56411995ad88 <lstate.c:63:32, col:36> 'int' lvalue ->stacksize 0x56411992de90
+| |       `-ImplicitCastExpr 0x56411995ad70 <col:32> 'lua_State *' <LValueToRValue>
+| |         `-DeclRefExpr 0x56411995ad48 <col:32> 'lua_State *' lvalue ParmVar 0x564119959f38 'L1' 'lua_State *'
+| `-ParenExpr 0x56411995ae10 <./lmem.h:21:30, col:32> 'unsigned long'
+|   `-UnaryExprOrTypeTraitExpr 0x56411995adf0 <line:26:66, col:74> 'unsigned long' sizeof 'TValue':'struct lua_TValue'
+`-BinaryOperator 0x56411995af30 <line:21:35, col:41> 'unsigned long' '*'
+  |-ImplicitCastExpr 0x56411995af18 <col:35, col:37> 'unsigned long' <IntegralCast>
+  | `-ParenExpr 0x56411995aea8 <col:35, col:37> 'int'
+  |   `-IntegerLiteral 0x56411995ae88 <line:26:63> 'int' 0
+  `-ParenExpr 0x56411995aef8 <line:21:39, col:41> 'unsigned long'
+    `-UnaryExprOrTypeTraitExpr 0x56411995aed8 <line:26:66, col:74> 'unsigned long' sizeof 'TValue':'struct lua_TValue'
+[B2.2]([B2.4], [B2.9], [B2.16], [B2.20])
+   Preds (1): B4
+   Succs (1): B1
+
+ [B3]
+   1: DeclRefExpr 0x56411995b000 <./lmem.h:22:3> 'void *(lua_State *)' Function 0x5641199226a8 'luaM_toobig' 'void *(lua_State *)'
+luaM_toobig
+   2: ImplicitCastExpr 0x56411995b050 <./lmem.h:22:3> 'void *(*)(lua_State *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x56411995b000 <col:3> 'void *(lua_State *)' Function 0x5641199226a8 'luaM_toobig' 'void *(lua_State *)'
+[B3.1] (ImplicitCastExpr, FunctionToPointerDecay, void *(*)(lua_State *))
+   3: DeclRefExpr 0x56411995b028 <lstate.c:63:18> 'lua_State *' lvalue ParmVar 0x564119959ec8 'L' 'lua_State *'
+L
+   4: ImplicitCastExpr 0x56411995b098 <lstate.c:63:18> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x56411995b028 <col:18> 'lua_State *' lvalue ParmVar 0x564119959ec8 'L' 'lua_State *'
+[B3.3] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   5: CallExpr 0x56411995b068 <./lmem.h:22:3, col:16> 'void *'
+|-ImplicitCastExpr 0x56411995b050 <col:3> 'void *(*)(lua_State *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x56411995b000 <col:3> 'void *(lua_State *)' Function 0x5641199226a8 'luaM_toobig' 'void *(lua_State *)'
+`-ImplicitCastExpr 0x56411995b098 <lstate.c:63:18> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x56411995b028 <col:18> 'lua_State *' lvalue ParmVar 0x564119959ec8 'L' 'lua_State *'
+[B3.2]([B3.4])
+   Preds (1): B4(Unreachable)
+   Succs (1): B1
+
+ [B4]
+   1: ConditionalOperator 0x56411995a880 <./lmem.h:20:3, line:22:16> 'void *'
+|-ParenExpr 0x56411995a3f0 <line:20:3, col:40> 'int'
+| `-BinaryOperator 0x56411995a3c8 <./llimits.h:75:22, ./lmem.h:20:39> 'int' '<='
+|   |-ParenExpr 0x56411995a188 <./llimits.h:75:22, col:31> 'size_t':'unsigned long'
+|   | `-CStyleCastExpr 0x56411995a160 <col:23, col:30> 'size_t':'unsigned long' <IntegralCast>
+|   |   `-ParenExpr 0x56411995a140 <col:26, col:30> 'int'
+|   |     `-BinaryOperator 0x56411995a0d8 <./lmem.h:20:17, col:21> 'int' '+'
+|   |       |-ParenExpr 0x56411995a098 <col:17, col:19> 'int'
+|   |       | `-IntegerLiteral 0x56411995a078 <line:26:63> 'int' 0
+|   |       `-IntegerLiteral 0x56411995a0b8 <line:20:21> 'int' 1
+|   `-BinaryOperator 0x56411995a3a0 <./llimits.h:30:19, ./lmem.h:20:39> 'unsigned long' '/'
+|     |-ParenExpr 0x56411995a308 <./llimits.h:30:19, col:42> 'unsigned long'
+|     | `-BinaryOperator 0x56411995a2e0 <col:20, col:41> 'unsigned long' '-'
+|     |   |-CStyleCastExpr 0x56411995a280 <col:20, col:39> 'size_t':'unsigned long' <NoOp>
+|     |   | `-ParenExpr 0x56411995a260 <col:28, col:39> 'size_t':'unsigned long'
+|     |   |   `-UnaryOperator 0x56411995a200 <col:29, col:38> 'size_t':'unsigned long' prefix '~'
+|     |   |     `-CStyleCastExpr 0x56411995a1d8 <col:30, col:38> 'size_t':'unsigned long' <IntegralCast>
+|     |   |       `-IntegerLiteral 0x56411995a1a8 <col:38> 'int' 0
+|     |   `-ImplicitCastExpr 0x56411995a2c8 <col:41> 'unsigned long' <IntegralCast>
+|     |     `-IntegerLiteral 0x56411995a2a8 <col:41> 'int' 2
+|     `-ParenExpr 0x56411995a380 <./lmem.h:20:37, col:39> 'unsigned long'
+|       `-UnaryExprOrTypeTraitExpr 0x56411995a338 <line:26:66, col:74> 'unsigned long' sizeof 'CallInfo':'struct CallInfo'
+|-CallExpr 0x56411995a740 <line:21:3, col:42> 'void *'
+| |-ImplicitCastExpr 0x56411995a728 <col:3> 'void *(*)(lua_State *, void *, size_t, size_t)' <FunctionToPointerDecay>
+| | `-DeclRefExpr 0x56411995a410 <col:3> 'void *(lua_State *, void *, size_t, size_t)' Function 0x564119922458 'luaM_realloc_' 'void *(lua_State *, void *, size_t, size_t)'
+| |-ImplicitCastExpr 0x56411995a788 <lstate.c:62:18> 'lua_State *' <LValueToRValue>
+| | `-DeclRefExpr 0x56411995a438 <col:18> 'lua_State *' lvalue ParmVar 0x564119959ec8 'L' 'lua_State *'
+| |-ImplicitCastExpr 0x56411995a7b8 <./lmem.h:21:20, col:22> 'void *' <BitCast>
+| | `-ImplicitCastExpr 0x56411995a7a0 <col:20, col:22> 'CallInfo *' <LValueToRValue>
+| |   `-ParenExpr 0x56411995a4f8 <col:20, col:22> 'CallInfo *' lvalue
+| |     `-ParenExpr 0x56411995a4d8 <line:26:55, col:57> 'CallInfo *' lvalue
+| |       `-MemberExpr 0x56411995a4a0 <lstate.c:62:21, col:25> 'CallInfo *' lvalue ->base_ci 0x56411992de30
+| |         `-ImplicitCastExpr 0x56411995a488 <col:21> 'lua_State *' <LValueToRValue>
+| |           `-DeclRefExpr 0x56411995a460 <col:21> 'lua_State *' lvalue ParmVar 0x564119959f38 'L1' 'lua_State *'
+| |-BinaryOperator 0x56411995a630 <./lmem.h:21:25, col:32> 'unsigned long' '*'
+| | |-ImplicitCastExpr 0x56411995a618 <col:25, col:28> 'unsigned long' <IntegralCast>
+| | | `-ImplicitCastExpr 0x56411995a600 <col:25, col:28> 'int' <LValueToRValue>
+| | |   `-ParenExpr 0x56411995a590 <col:25, col:28> 'int' lvalue
+| | |     `-MemberExpr 0x56411995a558 <lstate.c:62:34, col:38> 'int' lvalue ->size_ci 0x56411992def0
+| | |       `-ImplicitCastExpr 0x56411995a540 <col:34> 'lua_State *' <LValueToRValue>
+| | |         `-DeclRefExpr 0x56411995a518 <col:34> 'lua_State *' lvalue ParmVar 0x564119959f38 'L1' 'lua_State *'
+| | `-ParenExpr 0x56411995a5e0 <./lmem.h:21:30, col:32> 'unsigned long'
+| |   `-UnaryExprOrTypeTraitExpr 0x56411995a5c0 <line:26:66, col:74> 'unsigned long' sizeof 'CallInfo':'struct CallInfo'
+| `-BinaryOperator 0x56411995a700 <line:21:35, col:41> 'unsigned long' '*'
+|   |-ImplicitCastExpr 0x56411995a6e8 <col:35, col:37> 'unsigned long' <IntegralCast>
+|   | `-ParenExpr 0x56411995a678 <col:35, col:37> 'int'
+|   |   `-IntegerLiteral 0x56411995a658 <line:26:63> 'int' 0
+|   `-ParenExpr 0x56411995a6c8 <line:21:39, col:41> 'unsigned long'
+|     `-UnaryExprOrTypeTraitExpr 0x56411995a6a8 <line:26:66, col:74> 'unsigned long' sizeof 'CallInfo':'struct CallInfo'
+`-CallExpr 0x56411995a838 <line:22:3, col:16> 'void *'
+  |-ImplicitCastExpr 0x56411995a820 <col:3> 'void *(*)(lua_State *)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x56411995a7d0 <col:3> 'void *(lua_State *)' Function 0x5641199226a8 'luaM_toobig' 'void *(lua_State *)'
+  `-ImplicitCastExpr 0x56411995a868 <lstate.c:62:18> 'lua_State *' <LValueToRValue>
+    `-DeclRefExpr 0x56411995a7f8 <col:18> 'lua_State *' lvalue ParmVar 0x564119959ec8 'L' 'lua_State *'
+([B7.14]) ? [B5.21] : [B6.5]
+   2: IntegerLiteral 0x56411995a8d0 <./lmem.h:26:63> 'int' 0
+0
+   3: IntegerLiteral 0x56411995a910 <./lmem.h:20:21> 'int' 1
+1
+   4: BinaryOperator 0x56411995a930 <./lmem.h:20:17, col:21> 'int' '+'
+|-ParenExpr 0x56411995a8f0 <col:17, col:19> 'int'
+| `-IntegerLiteral 0x56411995a8d0 <line:26:63> 'int' 0
+`-IntegerLiteral 0x56411995a910 <line:20:21> 'int' 1
+([B4.2]) + [B4.3]
+   5: CStyleCastExpr 0x56411995a9b8 <./llimits.h:75:23, col:30> 'size_t':'unsigned long' <IntegralCast>
+`-ParenExpr 0x56411995a998 <col:26, col:30> 'int'
+  `-BinaryOperator 0x56411995a930 <./lmem.h:20:17, col:21> 'int' '+'
+    |-ParenExpr 0x56411995a8f0 <col:17, col:19> 'int'
+    | `-IntegerLiteral 0x56411995a8d0 <line:26:63> 'int' 0
+    `-IntegerLiteral 0x56411995a910 <line:20:21> 'int' 1
+(size_t)([B4.4]) (CStyleCastExpr, IntegralCast, size_t)
+   6: IntegerLiteral 0x56411995aa00 <./llimits.h:30:38> 'int' 0
+0
+   7: CStyleCastExpr 0x56411995aa30 <./llimits.h:30:30, col:38> 'size_t':'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x56411995aa00 <col:38> 'int' 0
+(size_t)[B4.6] (CStyleCastExpr, IntegralCast, size_t)
+   8: UnaryOperator 0x56411995aa58 <./llimits.h:30:29, col:38> 'size_t':'unsigned long' prefix '~'
+`-CStyleCastExpr 0x56411995aa30 <col:30, col:38> 'size_t':'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x56411995aa00 <col:38> 'int' 0
+~[B4.7]
+   9: CStyleCastExpr 0x56411995aad8 <./llimits.h:30:20, col:39> 'size_t':'unsigned long' <NoOp>
+`-ParenExpr 0x56411995aab8 <col:28, col:39> 'size_t':'unsigned long'
+  `-UnaryOperator 0x56411995aa58 <col:29, col:38> 'size_t':'unsigned long' prefix '~'
+    `-CStyleCastExpr 0x56411995aa30 <col:30, col:38> 'size_t':'unsigned long' <IntegralCast>
+      `-IntegerLiteral 0x56411995aa00 <col:38> 'int' 0
+(size_t)([B4.8]) (CStyleCastExpr, NoOp, size_t)
+  10: IntegerLiteral 0x56411995ab00 <./llimits.h:30:41> 'int' 2
+2
+  11: ImplicitCastExpr 0x56411995ab20 <./llimits.h:30:41> 'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x56411995ab00 <col:41> 'int' 2
+[B4.10] (ImplicitCastExpr, IntegralCast, unsigned long)
+  12: BinaryOperator 0x56411995ab38 <./llimits.h:30:20, col:41> 'unsigned long' '-'
+|-CStyleCastExpr 0x56411995aad8 <col:20, col:39> 'size_t':'unsigned long' <NoOp>
+| `-ParenExpr 0x56411995aab8 <col:28, col:39> 'size_t':'unsigned long'
+|   `-UnaryOperator 0x56411995aa58 <col:29, col:38> 'size_t':'unsigned long' prefix '~'
+|     `-CStyleCastExpr 0x56411995aa30 <col:30, col:38> 'size_t':'unsigned long' <IntegralCast>
+|       `-IntegerLiteral 0x56411995aa00 <col:38> 'int' 0
+`-ImplicitCastExpr 0x56411995ab20 <col:41> 'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x56411995ab00 <col:41> 'int' 2
+[B4.9] - [B4.11]
+  13: UnaryExprOrTypeTraitExpr 0x56411995ab90 <./lmem.h:26:66, col:74> 'unsigned long' sizeof 'TValue':'struct lua_TValue'
+sizeof(TValue)
+  14: BinaryOperator 0x56411995abd0 <./llimits.h:30:19, ./lmem.h:20:39> 'unsigned long' '/'
+|-ParenExpr 0x56411995ab60 <./llimits.h:30:19, col:42> 'unsigned long'
+| `-BinaryOperator 0x56411995ab38 <col:20, col:41> 'unsigned long' '-'
+|   |-CStyleCastExpr 0x56411995aad8 <col:20, col:39> 'size_t':'unsigned long' <NoOp>
+|   | `-ParenExpr 0x56411995aab8 <col:28, col:39> 'size_t':'unsigned long'
+|   |   `-UnaryOperator 0x56411995aa58 <col:29, col:38> 'size_t':'unsigned long' prefix '~'
+|   |     `-CStyleCastExpr 0x56411995aa30 <col:30, col:38> 'size_t':'unsigned long' <IntegralCast>
+|   |       `-IntegerLiteral 0x56411995aa00 <col:38> 'int' 0
+|   `-ImplicitCastExpr 0x56411995ab20 <col:41> 'unsigned long' <IntegralCast>
+|     `-IntegerLiteral 0x56411995ab00 <col:41> 'int' 2
+`-ParenExpr 0x56411995abb0 <./lmem.h:20:37, col:39> 'unsigned long'
+  `-UnaryExprOrTypeTraitExpr 0x56411995ab90 <line:26:66, col:74> 'unsigned long' sizeof 'TValue':'struct lua_TValue'
+([B4.12]) / ([B4.13])
+  15: BinaryOperator 0x56411995abf8 <./llimits.h:75:22, ./lmem.h:20:39> 'int' '<='
+|-ParenExpr 0x56411995a9e0 <./llimits.h:75:22, col:31> 'size_t':'unsigned long'
+| `-CStyleCastExpr 0x56411995a9b8 <col:23, col:30> 'size_t':'unsigned long' <IntegralCast>
+|   `-ParenExpr 0x56411995a998 <col:26, col:30> 'int'
+|     `-BinaryOperator 0x56411995a930 <./lmem.h:20:17, col:21> 'int' '+'
+|       |-ParenExpr 0x56411995a8f0 <col:17, col:19> 'int'
+|       | `-IntegerLiteral 0x56411995a8d0 <line:26:63> 'int' 0
+|       `-IntegerLiteral 0x56411995a910 <line:20:21> 'int' 1
+`-BinaryOperator 0x56411995abd0 <./llimits.h:30:19, ./lmem.h:20:39> 'unsigned long' '/'
+  |-ParenExpr 0x56411995ab60 <./llimits.h:30:19, col:42> 'unsigned long'
+  | `-BinaryOperator 0x56411995ab38 <col:20, col:41> 'unsigned long' '-'
+  |   |-CStyleCastExpr 0x56411995aad8 <col:20, col:39> 'size_t':'unsigned long' <NoOp>
+  |   | `-ParenExpr 0x56411995aab8 <col:28, col:39> 'size_t':'unsigned long'
+  |   |   `-UnaryOperator 0x56411995aa58 <col:29, col:38> 'size_t':'unsigned long' prefix '~'
+  |   |     `-CStyleCastExpr 0x56411995aa30 <col:30, col:38> 'size_t':'unsigned long' <IntegralCast>
+  |   |       `-IntegerLiteral 0x56411995aa00 <col:38> 'int' 0
+  |   `-ImplicitCastExpr 0x56411995ab20 <col:41> 'unsigned long' <IntegralCast>
+  |     `-IntegerLiteral 0x56411995ab00 <col:41> 'int' 2
+  `-ParenExpr 0x56411995abb0 <./lmem.h:20:37, col:39> 'unsigned long'
+    `-UnaryExprOrTypeTraitExpr 0x56411995ab90 <line:26:66, col:74> 'unsigned long' sizeof 'TValue':'struct lua_TValue'
+([B4.5]) <= [B4.14]
+   T: ([B4.15]) ? ... : ...
+   Preds (2): B5 B6
+   Succs (2): B2 B3(Unreachable)
+
+ [B5]
+   1: DeclRefExpr 0x56411995a410 <./lmem.h:21:3> 'void *(lua_State *, void *, size_t, size_t)' Function 0x564119922458 'luaM_realloc_' 'void *(lua_State *, void *, size_t, size_t)'
+luaM_realloc_
+   2: ImplicitCastExpr 0x56411995a728 <./lmem.h:21:3> 'void *(*)(lua_State *, void *, size_t, size_t)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x56411995a410 <col:3> 'void *(lua_State *, void *, size_t, size_t)' Function 0x564119922458 'luaM_realloc_' 'void *(lua_State *, void *, size_t, size_t)'
+[B5.1] (ImplicitCastExpr, FunctionToPointerDecay, void *(*)(lua_State *, void *, size_t, size_t))
+   3: DeclRefExpr 0x56411995a438 <lstate.c:62:18> 'lua_State *' lvalue ParmVar 0x564119959ec8 'L' 'lua_State *'
+L
+   4: ImplicitCastExpr 0x56411995a788 <lstate.c:62:18> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x56411995a438 <col:18> 'lua_State *' lvalue ParmVar 0x564119959ec8 'L' 'lua_State *'
+[B5.3] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   5: DeclRefExpr 0x56411995a460 <lstate.c:62:21> 'lua_State *' lvalue ParmVar 0x564119959f38 'L1' 'lua_State *'
+L1
+   6: ImplicitCastExpr 0x56411995a488 <lstate.c:62:21> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x56411995a460 <col:21> 'lua_State *' lvalue ParmVar 0x564119959f38 'L1' 'lua_State *'
+[B5.5] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   7: MemberExpr 0x56411995a4a0 <lstate.c:62:21, col:25> 'CallInfo *' lvalue ->base_ci 0x56411992de30
+`-ImplicitCastExpr 0x56411995a488 <col:21> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x56411995a460 <col:21> 'lua_State *' lvalue ParmVar 0x564119959f38 'L1' 'lua_State *'
+[B5.6]->base_ci
+   8: ImplicitCastExpr 0x56411995a7a0 <./lmem.h:21:20, col:22> 'CallInfo *' <LValueToRValue>
+`-ParenExpr 0x56411995a4f8 <col:20, col:22> 'CallInfo *' lvalue
+  `-ParenExpr 0x56411995a4d8 <line:26:55, col:57> 'CallInfo *' lvalue
+    `-MemberExpr 0x56411995a4a0 <lstate.c:62:21, col:25> 'CallInfo *' lvalue ->base_ci 0x56411992de30
+      `-ImplicitCastExpr 0x56411995a488 <col:21> 'lua_State *' <LValueToRValue>
+        `-DeclRefExpr 0x56411995a460 <col:21> 'lua_State *' lvalue ParmVar 0x564119959f38 'L1' 'lua_State *'
+(([B5.7])) (ImplicitCastExpr, LValueToRValue, CallInfo *)
+   9: ImplicitCastExpr 0x56411995a7b8 <./lmem.h:21:20, col:22> 'void *' <BitCast>
+`-ImplicitCastExpr 0x56411995a7a0 <col:20, col:22> 'CallInfo *' <LValueToRValue>
+  `-ParenExpr 0x56411995a4f8 <col:20, col:22> 'CallInfo *' lvalue
+    `-ParenExpr 0x56411995a4d8 <line:26:55, col:57> 'CallInfo *' lvalue
+      `-MemberExpr 0x56411995a4a0 <lstate.c:62:21, col:25> 'CallInfo *' lvalue ->base_ci 0x56411992de30
+        `-ImplicitCastExpr 0x56411995a488 <col:21> 'lua_State *' <LValueToRValue>
+          `-DeclRefExpr 0x56411995a460 <col:21> 'lua_State *' lvalue ParmVar 0x564119959f38 'L1' 'lua_State *'
+[B5.8] (ImplicitCastExpr, BitCast, void *)
+  10: DeclRefExpr 0x56411995a518 <lstate.c:62:34> 'lua_State *' lvalue ParmVar 0x564119959f38 'L1' 'lua_State *'
+L1
+  11: ImplicitCastExpr 0x56411995a540 <lstate.c:62:34> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x56411995a518 <col:34> 'lua_State *' lvalue ParmVar 0x564119959f38 'L1' 'lua_State *'
+[B5.10] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  12: MemberExpr 0x56411995a558 <lstate.c:62:34, col:38> 'int' lvalue ->size_ci 0x56411992def0
+`-ImplicitCastExpr 0x56411995a540 <col:34> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x56411995a518 <col:34> 'lua_State *' lvalue ParmVar 0x564119959f38 'L1' 'lua_State *'
+[B5.11]->size_ci
+  13: ImplicitCastExpr 0x56411995a600 <./lmem.h:21:25, col:28> 'int' <LValueToRValue>
+`-ParenExpr 0x56411995a590 <col:25, col:28> 'int' lvalue
+  `-MemberExpr 0x56411995a558 <lstate.c:62:34, col:38> 'int' lvalue ->size_ci 0x56411992def0
+    `-ImplicitCastExpr 0x56411995a540 <col:34> 'lua_State *' <LValueToRValue>
+      `-DeclRefExpr 0x56411995a518 <col:34> 'lua_State *' lvalue ParmVar 0x564119959f38 'L1' 'lua_State *'
+([B5.12]) (ImplicitCastExpr, LValueToRValue, int)
+  14: ImplicitCastExpr 0x56411995a618 <./lmem.h:21:25, col:28> 'unsigned long' <IntegralCast>
+`-ImplicitCastExpr 0x56411995a600 <col:25, col:28> 'int' <LValueToRValue>
+  `-ParenExpr 0x56411995a590 <col:25, col:28> 'int' lvalue
+    `-MemberExpr 0x56411995a558 <lstate.c:62:34, col:38> 'int' lvalue ->size_ci 0x56411992def0
+      `-ImplicitCastExpr 0x56411995a540 <col:34> 'lua_State *' <LValueToRValue>
+        `-DeclRefExpr 0x56411995a518 <col:34> 'lua_State *' lvalue ParmVar 0x564119959f38 'L1' 'lua_State *'
+[B5.13] (ImplicitCastExpr, IntegralCast, unsigned long)
+  15: UnaryExprOrTypeTraitExpr 0x56411995a5c0 <./lmem.h:26:66, col:74> 'unsigned long' sizeof 'CallInfo':'struct CallInfo'
+sizeof(CallInfo)
+  16: BinaryOperator 0x56411995a630 <./lmem.h:21:25, col:32> 'unsigned long' '*'
+|-ImplicitCastExpr 0x56411995a618 <col:25, col:28> 'unsigned long' <IntegralCast>
+| `-ImplicitCastExpr 0x56411995a600 <col:25, col:28> 'int' <LValueToRValue>
+|   `-ParenExpr 0x56411995a590 <col:25, col:28> 'int' lvalue
+|     `-MemberExpr 0x56411995a558 <lstate.c:62:34, col:38> 'int' lvalue ->size_ci 0x56411992def0
+|       `-ImplicitCastExpr 0x56411995a540 <col:34> 'lua_State *' <LValueToRValue>
+|         `-DeclRefExpr 0x56411995a518 <col:34> 'lua_State *' lvalue ParmVar 0x564119959f38 'L1' 'lua_State *'
+`-ParenExpr 0x56411995a5e0 <./lmem.h:21:30, col:32> 'unsigned long'
+  `-UnaryExprOrTypeTraitExpr 0x56411995a5c0 <line:26:66, col:74> 'unsigned long' sizeof 'CallInfo':'struct CallInfo'
+[B5.14] * ([B5.15])
+  17: IntegerLiteral 0x56411995a658 <./lmem.h:26:63> 'int' 0
+0
+  18: ImplicitCastExpr 0x56411995a6e8 <./lmem.h:21:35, col:37> 'unsigned long' <IntegralCast>
+`-ParenExpr 0x56411995a678 <col:35, col:37> 'int'
+  `-IntegerLiteral 0x56411995a658 <line:26:63> 'int' 0
+([B5.17]) (ImplicitCastExpr, IntegralCast, unsigned long)
+  19: UnaryExprOrTypeTraitExpr 0x56411995a6a8 <./lmem.h:26:66, col:74> 'unsigned long' sizeof 'CallInfo':'struct CallInfo'
+sizeof(CallInfo)
+  20: BinaryOperator 0x56411995a700 <./lmem.h:21:35, col:41> 'unsigned long' '*'
+|-ImplicitCastExpr 0x56411995a6e8 <col:35, col:37> 'unsigned long' <IntegralCast>
+| `-ParenExpr 0x56411995a678 <col:35, col:37> 'int'
+|   `-IntegerLiteral 0x56411995a658 <line:26:63> 'int' 0
+`-ParenExpr 0x56411995a6c8 <line:21:39, col:41> 'unsigned long'
+  `-UnaryExprOrTypeTraitExpr 0x56411995a6a8 <line:26:66, col:74> 'unsigned long' sizeof 'CallInfo':'struct CallInfo'
+[B5.18] * ([B5.19])
+  21: CallExpr 0x56411995a740 <./lmem.h:21:3, col:42> 'void *'
+|-ImplicitCastExpr 0x56411995a728 <col:3> 'void *(*)(lua_State *, void *, size_t, size_t)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x56411995a410 <col:3> 'void *(lua_State *, void *, size_t, size_t)' Function 0x564119922458 'luaM_realloc_' 'void *(lua_State *, void *, size_t, size_t)'
+|-ImplicitCastExpr 0x56411995a788 <lstate.c:62:18> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x56411995a438 <col:18> 'lua_State *' lvalue ParmVar 0x564119959ec8 'L' 'lua_State *'
+|-ImplicitCastExpr 0x56411995a7b8 <./lmem.h:21:20, col:22> 'void *' <BitCast>
+| `-ImplicitCastExpr 0x56411995a7a0 <col:20, col:22> 'CallInfo *' <LValueToRValue>
+|   `-ParenExpr 0x56411995a4f8 <col:20, col:22> 'CallInfo *' lvalue
+|     `-ParenExpr 0x56411995a4d8 <line:26:55, col:57> 'CallInfo *' lvalue
+|       `-MemberExpr 0x56411995a4a0 <lstate.c:62:21, col:25> 'CallInfo *' lvalue ->base_ci 0x56411992de30
+|         `-ImplicitCastExpr 0x56411995a488 <col:21> 'lua_State *' <LValueToRValue>
+|           `-DeclRefExpr 0x56411995a460 <col:21> 'lua_State *' lvalue ParmVar 0x564119959f38 'L1' 'lua_State *'
+|-BinaryOperator 0x56411995a630 <./lmem.h:21:25, col:32> 'unsigned long' '*'
+| |-ImplicitCastExpr 0x56411995a618 <col:25, col:28> 'unsigned long' <IntegralCast>
+| | `-ImplicitCastExpr 0x56411995a600 <col:25, col:28> 'int' <LValueToRValue>
+| |   `-ParenExpr 0x56411995a590 <col:25, col:28> 'int' lvalue
+| |     `-MemberExpr 0x56411995a558 <lstate.c:62:34, col:38> 'int' lvalue ->size_ci 0x56411992def0
+| |       `-ImplicitCastExpr 0x56411995a540 <col:34> 'lua_State *' <LValueToRValue>
+| |         `-DeclRefExpr 0x56411995a518 <col:34> 'lua_State *' lvalue ParmVar 0x564119959f38 'L1' 'lua_State *'
+| `-ParenExpr 0x56411995a5e0 <./lmem.h:21:30, col:32> 'unsigned long'
+|   `-UnaryExprOrTypeTraitExpr 0x56411995a5c0 <line:26:66, col:74> 'unsigned long' sizeof 'CallInfo':'struct CallInfo'
+`-BinaryOperator 0x56411995a700 <line:21:35, col:41> 'unsigned long' '*'
+  |-ImplicitCastExpr 0x56411995a6e8 <col:35, col:37> 'unsigned long' <IntegralCast>
+  | `-ParenExpr 0x56411995a678 <col:35, col:37> 'int'
+  |   `-IntegerLiteral 0x56411995a658 <line:26:63> 'int' 0
+  `-ParenExpr 0x56411995a6c8 <line:21:39, col:41> 'unsigned long'
+    `-UnaryExprOrTypeTraitExpr 0x56411995a6a8 <line:26:66, col:74> 'unsigned long' sizeof 'CallInfo':'struct CallInfo'
+[B5.2]([B5.4], [B5.9], [B5.16], [B5.20])
+   Preds (1): B7
+   Succs (1): B4
+
+ [B6]
+   1: DeclRefExpr 0x56411995a7d0 <./lmem.h:22:3> 'void *(lua_State *)' Function 0x5641199226a8 'luaM_toobig' 'void *(lua_State *)'
+luaM_toobig
+   2: ImplicitCastExpr 0x56411995a820 <./lmem.h:22:3> 'void *(*)(lua_State *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x56411995a7d0 <col:3> 'void *(lua_State *)' Function 0x5641199226a8 'luaM_toobig' 'void *(lua_State *)'
+[B6.1] (ImplicitCastExpr, FunctionToPointerDecay, void *(*)(lua_State *))
+   3: DeclRefExpr 0x56411995a7f8 <lstate.c:62:18> 'lua_State *' lvalue ParmVar 0x564119959ec8 'L' 'lua_State *'
+L
+   4: ImplicitCastExpr 0x56411995a868 <lstate.c:62:18> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x56411995a7f8 <col:18> 'lua_State *' lvalue ParmVar 0x564119959ec8 'L' 'lua_State *'
+[B6.3] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   5: CallExpr 0x56411995a838 <./lmem.h:22:3, col:16> 'void *'
+|-ImplicitCastExpr 0x56411995a820 <col:3> 'void *(*)(lua_State *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x56411995a7d0 <col:3> 'void *(lua_State *)' Function 0x5641199226a8 'luaM_toobig' 'void *(lua_State *)'
+`-ImplicitCastExpr 0x56411995a868 <lstate.c:62:18> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x56411995a7f8 <col:18> 'lua_State *' lvalue ParmVar 0x564119959ec8 'L' 'lua_State *'
+[B6.2]([B6.4])
+   Preds (1): B7(Unreachable)
+   Succs (1): B4
+
+ [B7]
+   1: IntegerLiteral 0x56411995a078 <./lmem.h:26:63> 'int' 0
+0
+   2: IntegerLiteral 0x56411995a0b8 <./lmem.h:20:21> 'int' 1
+1
+   3: BinaryOperator 0x56411995a0d8 <./lmem.h:20:17, col:21> 'int' '+'
+|-ParenExpr 0x56411995a098 <col:17, col:19> 'int'
+| `-IntegerLiteral 0x56411995a078 <line:26:63> 'int' 0
+`-IntegerLiteral 0x56411995a0b8 <line:20:21> 'int' 1
+([B7.1]) + [B7.2]
+   4: CStyleCastExpr 0x56411995a160 <./llimits.h:75:23, col:30> 'size_t':'unsigned long' <IntegralCast>
+`-ParenExpr 0x56411995a140 <col:26, col:30> 'int'
+  `-BinaryOperator 0x56411995a0d8 <./lmem.h:20:17, col:21> 'int' '+'
+    |-ParenExpr 0x56411995a098 <col:17, col:19> 'int'
+    | `-IntegerLiteral 0x56411995a078 <line:26:63> 'int' 0
+    `-IntegerLiteral 0x56411995a0b8 <line:20:21> 'int' 1
+(size_t)([B7.3]) (CStyleCastExpr, IntegralCast, size_t)
+   5: IntegerLiteral 0x56411995a1a8 <./llimits.h:30:38> 'int' 0
+0
+   6: CStyleCastExpr 0x56411995a1d8 <./llimits.h:30:30, col:38> 'size_t':'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x56411995a1a8 <col:38> 'int' 0
+(size_t)[B7.5] (CStyleCastExpr, IntegralCast, size_t)
+   7: UnaryOperator 0x56411995a200 <./llimits.h:30:29, col:38> 'size_t':'unsigned long' prefix '~'
+`-CStyleCastExpr 0x56411995a1d8 <col:30, col:38> 'size_t':'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x56411995a1a8 <col:38> 'int' 0
+~[B7.6]
+   8: CStyleCastExpr 0x56411995a280 <./llimits.h:30:20, col:39> 'size_t':'unsigned long' <NoOp>
+`-ParenExpr 0x56411995a260 <col:28, col:39> 'size_t':'unsigned long'
+  `-UnaryOperator 0x56411995a200 <col:29, col:38> 'size_t':'unsigned long' prefix '~'
+    `-CStyleCastExpr 0x56411995a1d8 <col:30, col:38> 'size_t':'unsigned long' <IntegralCast>
+      `-IntegerLiteral 0x56411995a1a8 <col:38> 'int' 0
+(size_t)([B7.7]) (CStyleCastExpr, NoOp, size_t)
+   9: IntegerLiteral 0x56411995a2a8 <./llimits.h:30:41> 'int' 2
+2
+  10: ImplicitCastExpr 0x56411995a2c8 <./llimits.h:30:41> 'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x56411995a2a8 <col:41> 'int' 2
+[B7.9] (ImplicitCastExpr, IntegralCast, unsigned long)
+  11: BinaryOperator 0x56411995a2e0 <./llimits.h:30:20, col:41> 'unsigned long' '-'
+|-CStyleCastExpr 0x56411995a280 <col:20, col:39> 'size_t':'unsigned long' <NoOp>
+| `-ParenExpr 0x56411995a260 <col:28, col:39> 'size_t':'unsigned long'
+|   `-UnaryOperator 0x56411995a200 <col:29, col:38> 'size_t':'unsigned long' prefix '~'
+|     `-CStyleCastExpr 0x56411995a1d8 <col:30, col:38> 'size_t':'unsigned long' <IntegralCast>
+|       `-IntegerLiteral 0x56411995a1a8 <col:38> 'int' 0
+`-ImplicitCastExpr 0x56411995a2c8 <col:41> 'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x56411995a2a8 <col:41> 'int' 2
+[B7.8] - [B7.10]
+  12: UnaryExprOrTypeTraitExpr 0x56411995a338 <./lmem.h:26:66, col:74> 'unsigned long' sizeof 'CallInfo':'struct CallInfo'
+sizeof(CallInfo)
+  13: BinaryOperator 0x56411995a3a0 <./llimits.h:30:19, ./lmem.h:20:39> 'unsigned long' '/'
+|-ParenExpr 0x56411995a308 <./llimits.h:30:19, col:42> 'unsigned long'
+| `-BinaryOperator 0x56411995a2e0 <col:20, col:41> 'unsigned long' '-'
+|   |-CStyleCastExpr 0x56411995a280 <col:20, col:39> 'size_t':'unsigned long' <NoOp>
+|   | `-ParenExpr 0x56411995a260 <col:28, col:39> 'size_t':'unsigned long'
+|   |   `-UnaryOperator 0x56411995a200 <col:29, col:38> 'size_t':'unsigned long' prefix '~'
+|   |     `-CStyleCastExpr 0x56411995a1d8 <col:30, col:38> 'size_t':'unsigned long' <IntegralCast>
+|   |       `-IntegerLiteral 0x56411995a1a8 <col:38> 'int' 0
+|   `-ImplicitCastExpr 0x56411995a2c8 <col:41> 'unsigned long' <IntegralCast>
+|     `-IntegerLiteral 0x56411995a2a8 <col:41> 'int' 2
+`-ParenExpr 0x56411995a380 <./lmem.h:20:37, col:39> 'unsigned long'
+  `-UnaryExprOrTypeTraitExpr 0x56411995a338 <line:26:66, col:74> 'unsigned long' sizeof 'CallInfo':'struct CallInfo'
+([B7.11]) / ([B7.12])
+  14: BinaryOperator 0x56411995a3c8 <./llimits.h:75:22, ./lmem.h:20:39> 'int' '<='
+|-ParenExpr 0x56411995a188 <./llimits.h:75:22, col:31> 'size_t':'unsigned long'
+| `-CStyleCastExpr 0x56411995a160 <col:23, col:30> 'size_t':'unsigned long' <IntegralCast>
+|   `-ParenExpr 0x56411995a140 <col:26, col:30> 'int'
+|     `-BinaryOperator 0x56411995a0d8 <./lmem.h:20:17, col:21> 'int' '+'
+|       |-ParenExpr 0x56411995a098 <col:17, col:19> 'int'
+|       | `-IntegerLiteral 0x56411995a078 <line:26:63> 'int' 0
+|       `-IntegerLiteral 0x56411995a0b8 <line:20:21> 'int' 1
+`-BinaryOperator 0x56411995a3a0 <./llimits.h:30:19, ./lmem.h:20:39> 'unsigned long' '/'
+  |-ParenExpr 0x56411995a308 <./llimits.h:30:19, col:42> 'unsigned long'
+  | `-BinaryOperator 0x56411995a2e0 <col:20, col:41> 'unsigned long' '-'
+  |   |-CStyleCastExpr 0x56411995a280 <col:20, col:39> 'size_t':'unsigned long' <NoOp>
+  |   | `-ParenExpr 0x56411995a260 <col:28, col:39> 'size_t':'unsigned long'
+  |   |   `-UnaryOperator 0x56411995a200 <col:29, col:38> 'size_t':'unsigned long' prefix '~'
+  |   |     `-CStyleCastExpr 0x56411995a1d8 <col:30, col:38> 'size_t':'unsigned long' <IntegralCast>
+  |   |       `-IntegerLiteral 0x56411995a1a8 <col:38> 'int' 0
+  |   `-ImplicitCastExpr 0x56411995a2c8 <col:41> 'unsigned long' <IntegralCast>
+  |     `-IntegerLiteral 0x56411995a2a8 <col:41> 'int' 2
+  `-ParenExpr 0x56411995a380 <./lmem.h:20:37, col:39> 'unsigned long'
+    `-UnaryExprOrTypeTraitExpr 0x56411995a338 <line:26:66, col:74> 'unsigned long' sizeof 'CallInfo':'struct CallInfo'
+([B7.4]) <= [B7.13]
+   T: ([B7.14]) ? ... : ...
+   Preds (1): B8
+   Succs (2): B5 B6(Unreachable)
+
+ [B0 (EXIT)]
+   Preds (1): B1

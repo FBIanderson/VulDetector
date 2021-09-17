@@ -1,0 +1,712 @@
+static const char *aux_upvalue(StkId fi, int n, TValue **val)
+ [B14 (ENTRY)]
+   Succs (1): B13
+
+ [B1]
+   1: DeclRefExpr 0x556e5d354888 <lapi.c:1051:12> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+f
+   2: ImplicitCastExpr 0x556e5d3548b0 <lapi.c:1051:12> 'Closure *' <LValueToRValue>
+`-DeclRefExpr 0x556e5d354888 <col:12> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+[B1.1] (ImplicitCastExpr, LValueToRValue, Closure *)
+   3: MemberExpr 0x556e5d3548c8 <lapi.c:1051:12, col:15> 'LClosure':'struct LClosure' lvalue ->l 0x556e5d2c7980
+`-ImplicitCastExpr 0x556e5d3548b0 <col:12> 'Closure *' <LValueToRValue>
+  `-DeclRefExpr 0x556e5d354888 <col:12> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+[B1.2]->l
+   4: MemberExpr 0x556e5d354900 <lapi.c:1051:12, col:17> 'UpVal *[1]' lvalue .upvals 0x556e5d2c7718
+`-MemberExpr 0x556e5d3548c8 <col:12, col:15> 'LClosure':'struct LClosure' lvalue ->l 0x556e5d2c7980
+  `-ImplicitCastExpr 0x556e5d3548b0 <col:12> 'Closure *' <LValueToRValue>
+    `-DeclRefExpr 0x556e5d354888 <col:12> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+[B1.3].upvals
+   5: ImplicitCastExpr 0x556e5d354a18 <lapi.c:1051:12, col:17> 'UpVal **' <ArrayToPointerDecay>
+`-MemberExpr 0x556e5d354900 <col:12, col:17> 'UpVal *[1]' lvalue .upvals 0x556e5d2c7718
+  `-MemberExpr 0x556e5d3548c8 <col:12, col:15> 'LClosure':'struct LClosure' lvalue ->l 0x556e5d2c7980
+    `-ImplicitCastExpr 0x556e5d3548b0 <col:12> 'Closure *' <LValueToRValue>
+      `-DeclRefExpr 0x556e5d354888 <col:12> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+[B1.4] (ImplicitCastExpr, ArrayToPointerDecay, UpVal **)
+   6: DeclRefExpr 0x556e5d354938 <lapi.c:1051:24> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+n
+   7: ImplicitCastExpr 0x556e5d354980 <lapi.c:1051:24> 'int' <LValueToRValue>
+`-DeclRefExpr 0x556e5d354938 <col:24> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+[B1.6] (ImplicitCastExpr, LValueToRValue, int)
+   8: IntegerLiteral 0x556e5d354960 <lapi.c:1051:26> 'int' 1
+1
+   9: BinaryOperator 0x556e5d354998 <lapi.c:1051:24, col:26> 'int' '-'
+|-ImplicitCastExpr 0x556e5d354980 <col:24> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x556e5d354938 <col:24> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+`-IntegerLiteral 0x556e5d354960 <col:26> 'int' 1
+[B1.7] - [B1.8]
+  10: ArraySubscriptExpr 0x556e5d354a30 <lapi.c:1051:12, col:27> 'UpVal *' lvalue
+|-ImplicitCastExpr 0x556e5d354a18 <col:12, col:17> 'UpVal **' <ArrayToPointerDecay>
+| `-MemberExpr 0x556e5d354900 <col:12, col:17> 'UpVal *[1]' lvalue .upvals 0x556e5d2c7718
+|   `-MemberExpr 0x556e5d3548c8 <col:12, col:15> 'LClosure':'struct LClosure' lvalue ->l 0x556e5d2c7980
+|     `-ImplicitCastExpr 0x556e5d3548b0 <col:12> 'Closure *' <LValueToRValue>
+|       `-DeclRefExpr 0x556e5d354888 <col:12> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+`-BinaryOperator 0x556e5d354998 <col:24, col:26> 'int' '-'
+  |-ImplicitCastExpr 0x556e5d354980 <col:24> 'int' <LValueToRValue>
+  | `-DeclRefExpr 0x556e5d354938 <col:24> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+  `-IntegerLiteral 0x556e5d354960 <col:26> 'int' 1
+[B1.5][[B1.9]]
+  11: ImplicitCastExpr 0x556e5d354a58 <lapi.c:1051:12, col:27> 'UpVal *' <LValueToRValue>
+`-ArraySubscriptExpr 0x556e5d354a30 <col:12, col:27> 'UpVal *' lvalue
+  |-ImplicitCastExpr 0x556e5d354a18 <col:12, col:17> 'UpVal **' <ArrayToPointerDecay>
+  | `-MemberExpr 0x556e5d354900 <col:12, col:17> 'UpVal *[1]' lvalue .upvals 0x556e5d2c7718
+  |   `-MemberExpr 0x556e5d3548c8 <col:12, col:15> 'LClosure':'struct LClosure' lvalue ->l 0x556e5d2c7980
+  |     `-ImplicitCastExpr 0x556e5d3548b0 <col:12> 'Closure *' <LValueToRValue>
+  |       `-DeclRefExpr 0x556e5d354888 <col:12> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+  `-BinaryOperator 0x556e5d354998 <col:24, col:26> 'int' '-'
+    |-ImplicitCastExpr 0x556e5d354980 <col:24> 'int' <LValueToRValue>
+    | `-DeclRefExpr 0x556e5d354938 <col:24> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+    `-IntegerLiteral 0x556e5d354960 <col:26> 'int' 1
+[B1.10] (ImplicitCastExpr, LValueToRValue, UpVal *)
+  12: MemberExpr 0x556e5d354a70 <lapi.c:1051:12, col:30> 'TValue *' lvalue ->v 0x556e5d2c5418
+`-ImplicitCastExpr 0x556e5d354a58 <col:12, col:27> 'UpVal *' <LValueToRValue>
+  `-ArraySubscriptExpr 0x556e5d354a30 <col:12, col:27> 'UpVal *' lvalue
+    |-ImplicitCastExpr 0x556e5d354a18 <col:12, col:17> 'UpVal **' <ArrayToPointerDecay>
+    | `-MemberExpr 0x556e5d354900 <col:12, col:17> 'UpVal *[1]' lvalue .upvals 0x556e5d2c7718
+    |   `-MemberExpr 0x556e5d3548c8 <col:12, col:15> 'LClosure':'struct LClosure' lvalue ->l 0x556e5d2c7980
+    |     `-ImplicitCastExpr 0x556e5d3548b0 <col:12> 'Closure *' <LValueToRValue>
+    |       `-DeclRefExpr 0x556e5d354888 <col:12> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+    `-BinaryOperator 0x556e5d354998 <col:24, col:26> 'int' '-'
+      |-ImplicitCastExpr 0x556e5d354980 <col:24> 'int' <LValueToRValue>
+      | `-DeclRefExpr 0x556e5d354938 <col:24> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+      `-IntegerLiteral 0x556e5d354960 <col:26> 'int' 1
+[B1.11]->v
+  13: ImplicitCastExpr 0x556e5d354aa8 <lapi.c:1051:12, col:30> 'TValue *' <LValueToRValue>
+`-MemberExpr 0x556e5d354a70 <col:12, col:30> 'TValue *' lvalue ->v 0x556e5d2c5418
+  `-ImplicitCastExpr 0x556e5d354a58 <col:12, col:27> 'UpVal *' <LValueToRValue>
+    `-ArraySubscriptExpr 0x556e5d354a30 <col:12, col:27> 'UpVal *' lvalue
+      |-ImplicitCastExpr 0x556e5d354a18 <col:12, col:17> 'UpVal **' <ArrayToPointerDecay>
+      | `-MemberExpr 0x556e5d354900 <col:12, col:17> 'UpVal *[1]' lvalue .upvals 0x556e5d2c7718
+      |   `-MemberExpr 0x556e5d3548c8 <col:12, col:15> 'LClosure':'struct LClosure' lvalue ->l 0x556e5d2c7980
+      |     `-ImplicitCastExpr 0x556e5d3548b0 <col:12> 'Closure *' <LValueToRValue>
+      |       `-DeclRefExpr 0x556e5d354888 <col:12> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+      `-BinaryOperator 0x556e5d354998 <col:24, col:26> 'int' '-'
+        |-ImplicitCastExpr 0x556e5d354980 <col:24> 'int' <LValueToRValue>
+        | `-DeclRefExpr 0x556e5d354938 <col:24> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+        `-IntegerLiteral 0x556e5d354960 <col:26> 'int' 1
+[B1.12] (ImplicitCastExpr, LValueToRValue, TValue *)
+  14: DeclRefExpr 0x556e5d354828 <lapi.c:1051:6> 'TValue **' lvalue ParmVar 0x556e5d353700 'val' 'TValue **'
+val
+  15: ImplicitCastExpr 0x556e5d354850 <lapi.c:1051:6> 'TValue **' <LValueToRValue>
+`-DeclRefExpr 0x556e5d354828 <col:6> 'TValue **' lvalue ParmVar 0x556e5d353700 'val' 'TValue **'
+[B1.14] (ImplicitCastExpr, LValueToRValue, TValue **)
+  16: UnaryOperator 0x556e5d354868 <lapi.c:1051:5, col:6> 'TValue *' lvalue prefix '*'
+`-ImplicitCastExpr 0x556e5d354850 <col:6> 'TValue **' <LValueToRValue>
+  `-DeclRefExpr 0x556e5d354828 <col:6> 'TValue **' lvalue ParmVar 0x556e5d353700 'val' 'TValue **'
+*[B1.15]
+  17: BinaryOperator 0x556e5d354ac0 <lapi.c:1051:5, col:30> 'TValue *' '='
+|-UnaryOperator 0x556e5d354868 <col:5, col:6> 'TValue *' lvalue prefix '*'
+| `-ImplicitCastExpr 0x556e5d354850 <col:6> 'TValue **' <LValueToRValue>
+|   `-DeclRefExpr 0x556e5d354828 <col:6> 'TValue **' lvalue ParmVar 0x556e5d353700 'val' 'TValue **'
+`-ImplicitCastExpr 0x556e5d354aa8 <col:12, col:30> 'TValue *' <LValueToRValue>
+  `-MemberExpr 0x556e5d354a70 <col:12, col:30> 'TValue *' lvalue ->v 0x556e5d2c5418
+    `-ImplicitCastExpr 0x556e5d354a58 <col:12, col:27> 'UpVal *' <LValueToRValue>
+      `-ArraySubscriptExpr 0x556e5d354a30 <col:12, col:27> 'UpVal *' lvalue
+        |-ImplicitCastExpr 0x556e5d354a18 <col:12, col:17> 'UpVal **' <ArrayToPointerDecay>
+        | `-MemberExpr 0x556e5d354900 <col:12, col:17> 'UpVal *[1]' lvalue .upvals 0x556e5d2c7718
+        |   `-MemberExpr 0x556e5d3548c8 <col:12, col:15> 'LClosure':'struct LClosure' lvalue ->l 0x556e5d2c7980
+        |     `-ImplicitCastExpr 0x556e5d3548b0 <col:12> 'Closure *' <LValueToRValue>
+        |       `-DeclRefExpr 0x556e5d354888 <col:12> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+        `-BinaryOperator 0x556e5d354998 <col:24, col:26> 'int' '-'
+          |-ImplicitCastExpr 0x556e5d354980 <col:24> 'int' <LValueToRValue>
+          | `-DeclRefExpr 0x556e5d354938 <col:24> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+          `-IntegerLiteral 0x556e5d354960 <col:26> 'int' 1
+[B1.16] = [B1.13]
+  18: DeclRefExpr 0x556e5d354ae8 <lapi.c:1052:19> 'Proto *' lvalue Var 0x556e5d354418 'p' 'Proto *'
+p
+  19: ImplicitCastExpr 0x556e5d354b10 <lapi.c:1052:19> 'Proto *' <LValueToRValue>
+`-DeclRefExpr 0x556e5d354ae8 <col:19> 'Proto *' lvalue Var 0x556e5d354418 'p' 'Proto *'
+[B1.18] (ImplicitCastExpr, LValueToRValue, Proto *)
+  20: MemberExpr 0x556e5d355430 <lapi.c:1052:19, col:22> 'TString **' lvalue ->upvalues 0x556e5d2c4a00
+`-ImplicitCastExpr 0x556e5d354b10 <col:19> 'Proto *' <LValueToRValue>
+  `-DeclRefExpr 0x556e5d354ae8 <col:19> 'Proto *' lvalue Var 0x556e5d354418 'p' 'Proto *'
+[B1.19]->upvalues
+  21: ImplicitCastExpr 0x556e5d3554f0 <lapi.c:1052:19, col:22> 'TString **' <LValueToRValue>
+`-MemberExpr 0x556e5d355430 <col:19, col:22> 'TString **' lvalue ->upvalues 0x556e5d2c4a00
+  `-ImplicitCastExpr 0x556e5d354b10 <col:19> 'Proto *' <LValueToRValue>
+    `-DeclRefExpr 0x556e5d354ae8 <col:19> 'Proto *' lvalue Var 0x556e5d354418 'p' 'Proto *'
+[B1.20] (ImplicitCastExpr, LValueToRValue, TString **)
+  22: DeclRefExpr 0x556e5d355468 <lapi.c:1052:31> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+n
+  23: ImplicitCastExpr 0x556e5d3554b0 <lapi.c:1052:31> 'int' <LValueToRValue>
+`-DeclRefExpr 0x556e5d355468 <col:31> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+[B1.22] (ImplicitCastExpr, LValueToRValue, int)
+  24: IntegerLiteral 0x556e5d355490 <lapi.c:1052:33> 'int' 1
+1
+  25: BinaryOperator 0x556e5d3554c8 <lapi.c:1052:31, col:33> 'int' '-'
+|-ImplicitCastExpr 0x556e5d3554b0 <col:31> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x556e5d355468 <col:31> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+`-IntegerLiteral 0x556e5d355490 <col:33> 'int' 1
+[B1.23] - [B1.24]
+  26: ArraySubscriptExpr 0x556e5d355508 <lapi.c:1052:19, col:34> 'TString *' lvalue
+|-ImplicitCastExpr 0x556e5d3554f0 <col:19, col:22> 'TString **' <LValueToRValue>
+| `-MemberExpr 0x556e5d355430 <col:19, col:22> 'TString **' lvalue ->upvalues 0x556e5d2c4a00
+|   `-ImplicitCastExpr 0x556e5d354b10 <col:19> 'Proto *' <LValueToRValue>
+|     `-DeclRefExpr 0x556e5d354ae8 <col:19> 'Proto *' lvalue Var 0x556e5d354418 'p' 'Proto *'
+`-BinaryOperator 0x556e5d3554c8 <col:31, col:33> 'int' '-'
+  |-ImplicitCastExpr 0x556e5d3554b0 <col:31> 'int' <LValueToRValue>
+  | `-DeclRefExpr 0x556e5d355468 <col:31> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+  `-IntegerLiteral 0x556e5d355490 <col:33> 'int' 1
+[B1.21][[B1.25]]
+  27: ImplicitCastExpr 0x556e5d355570 <./lobject.h:210:39, col:42> 'TString *' <LValueToRValue>
+`-ParenExpr 0x556e5d355530 <col:39, col:42> 'TString *' lvalue
+  `-ArraySubscriptExpr 0x556e5d355508 <lapi.c:1052:19, col:34> 'TString *' lvalue
+    |-ImplicitCastExpr 0x556e5d3554f0 <col:19, col:22> 'TString **' <LValueToRValue>
+    | `-MemberExpr 0x556e5d355430 <col:19, col:22> 'TString **' lvalue ->upvalues 0x556e5d2c4a00
+    |   `-ImplicitCastExpr 0x556e5d354b10 <col:19> 'Proto *' <LValueToRValue>
+    |     `-DeclRefExpr 0x556e5d354ae8 <col:19> 'Proto *' lvalue Var 0x556e5d354418 'p' 'Proto *'
+    `-BinaryOperator 0x556e5d3554c8 <col:31, col:33> 'int' '-'
+      |-ImplicitCastExpr 0x556e5d3554b0 <col:31> 'int' <LValueToRValue>
+      | `-DeclRefExpr 0x556e5d355468 <col:31> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+      `-IntegerLiteral 0x556e5d355490 <col:33> 'int' 1
+([B1.26]) (ImplicitCastExpr, LValueToRValue, TString *)
+  28: IntegerLiteral 0x556e5d355550 <./lobject.h:210:46> 'int' 1
+1
+  29: BinaryOperator 0x556e5d355588 <./lobject.h:210:39, col:46> 'TString *' '+'
+|-ImplicitCastExpr 0x556e5d355570 <col:39, col:42> 'TString *' <LValueToRValue>
+| `-ParenExpr 0x556e5d355530 <col:39, col:42> 'TString *' lvalue
+|   `-ArraySubscriptExpr 0x556e5d355508 <lapi.c:1052:19, col:34> 'TString *' lvalue
+|     |-ImplicitCastExpr 0x556e5d3554f0 <col:19, col:22> 'TString **' <LValueToRValue>
+|     | `-MemberExpr 0x556e5d355430 <col:19, col:22> 'TString **' lvalue ->upvalues 0x556e5d2c4a00
+|     |   `-ImplicitCastExpr 0x556e5d354b10 <col:19> 'Proto *' <LValueToRValue>
+|     |     `-DeclRefExpr 0x556e5d354ae8 <col:19> 'Proto *' lvalue Var 0x556e5d354418 'p' 'Proto *'
+|     `-BinaryOperator 0x556e5d3554c8 <col:31, col:33> 'int' '-'
+|       |-ImplicitCastExpr 0x556e5d3554b0 <col:31> 'int' <LValueToRValue>
+|       | `-DeclRefExpr 0x556e5d355468 <col:31> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+|       `-IntegerLiteral 0x556e5d355490 <col:33> 'int' 1
+`-IntegerLiteral 0x556e5d355550 <./lobject.h:210:46> 'int' 1
+[B1.27] + [B1.28]
+  30: CStyleCastExpr 0x556e5d355618 <./llimits.h:75:23, col:30> 'const char *' <BitCast>
+`-ParenExpr 0x556e5d3555f8 <col:26, col:30> 'TString *'
+  `-BinaryOperator 0x556e5d355588 <./lobject.h:210:39, col:46> 'TString *' '+'
+    |-ImplicitCastExpr 0x556e5d355570 <col:39, col:42> 'TString *' <LValueToRValue>
+    | `-ParenExpr 0x556e5d355530 <col:39, col:42> 'TString *' lvalue
+    |   `-ArraySubscriptExpr 0x556e5d355508 <lapi.c:1052:19, col:34> 'TString *' lvalue
+    |     |-ImplicitCastExpr 0x556e5d3554f0 <col:19, col:22> 'TString **' <LValueToRValue>
+    |     | `-MemberExpr 0x556e5d355430 <col:19, col:22> 'TString **' lvalue ->upvalues 0x556e5d2c4a00
+    |     |   `-ImplicitCastExpr 0x556e5d354b10 <col:19> 'Proto *' <LValueToRValue>
+    |     |     `-DeclRefExpr 0x556e5d354ae8 <col:19> 'Proto *' lvalue Var 0x556e5d354418 'p' 'Proto *'
+    |     `-BinaryOperator 0x556e5d3554c8 <col:31, col:33> 'int' '-'
+    |       |-ImplicitCastExpr 0x556e5d3554b0 <col:31> 'int' <LValueToRValue>
+    |       | `-DeclRefExpr 0x556e5d355468 <col:31> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+    |       `-IntegerLiteral 0x556e5d355490 <col:33> 'int' 1
+    `-IntegerLiteral 0x556e5d355550 <./lobject.h:210:46> 'int' 1
+(const char *)([B1.29]) (CStyleCastExpr, BitCast, const char *)
+  31: ReturnStmt 0x556e5d355660 <lapi.c:1052:5, ./llimits.h:75:31>
+`-ParenExpr 0x556e5d355640 <col:22, col:31> 'const char *'
+  `-CStyleCastExpr 0x556e5d355618 <col:23, col:30> 'const char *' <BitCast>
+    `-ParenExpr 0x556e5d3555f8 <col:26, col:30> 'TString *'
+      `-BinaryOperator 0x556e5d355588 <./lobject.h:210:39, col:46> 'TString *' '+'
+        |-ImplicitCastExpr 0x556e5d355570 <col:39, col:42> 'TString *' <LValueToRValue>
+        | `-ParenExpr 0x556e5d355530 <col:39, col:42> 'TString *' lvalue
+        |   `-ArraySubscriptExpr 0x556e5d355508 <lapi.c:1052:19, col:34> 'TString *' lvalue
+        |     |-ImplicitCastExpr 0x556e5d3554f0 <col:19, col:22> 'TString **' <LValueToRValue>
+        |     | `-MemberExpr 0x556e5d355430 <col:19, col:22> 'TString **' lvalue ->upvalues 0x556e5d2c4a00
+        |     |   `-ImplicitCastExpr 0x556e5d354b10 <col:19> 'Proto *' <LValueToRValue>
+        |     |     `-DeclRefExpr 0x556e5d354ae8 <col:19> 'Proto *' lvalue Var 0x556e5d354418 'p' 'Proto *'
+        |     `-BinaryOperator 0x556e5d3554c8 <col:31, col:33> 'int' '-'
+        |       |-ImplicitCastExpr 0x556e5d3554b0 <col:31> 'int' <LValueToRValue>
+        |       | `-DeclRefExpr 0x556e5d355468 <col:31> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+        |       `-IntegerLiteral 0x556e5d355490 <col:33> 'int' 1
+        `-IntegerLiteral 0x556e5d355550 <./lobject.h:210:46> 'int' 1
+return ([B1.30]);
+   Preds (1): B3
+   Succs (1): B0
+
+ [B2]
+   1: IntegerLiteral 0x556e5d354740 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+   2: CStyleCastExpr 0x556e5d354778 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x556e5d354740 <col:24> 'int' 0
+(void *)[B2.1] (CStyleCastExpr, NullToPointer, void *)
+   3: ImplicitCastExpr 0x556e5d3547c0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'const char *' <NullToPointer>
+`-ParenExpr 0x556e5d3547a0 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x556e5d354778 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x556e5d354740 <col:24> 'int' 0
+([B2.2]) (ImplicitCastExpr, NullToPointer, const char *)
+   4: ReturnStmt 0x556e5d3547d8 <lapi.c:1050:44, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25>
+`-ImplicitCastExpr 0x556e5d3547c0 <col:16, col:25> 'const char *' <NullToPointer>
+  `-ParenExpr 0x556e5d3547a0 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x556e5d354778 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x556e5d354740 <col:24> 'int' 0
+return [B2.3];
+   Preds (1): B3
+   Succs (1): B0
+
+ [B3]
+   1: BinaryOperator 0x556e5d3546d8 <lapi.c:1050:11, col:29> 'int' '&&'
+|-BinaryOperator 0x556e5d3545b8 <col:11, col:16> 'int' '<='
+| |-IntegerLiteral 0x556e5d354558 <col:11> 'int' 1
+| `-ImplicitCastExpr 0x556e5d3545a0 <col:16> 'int' <LValueToRValue>
+|   `-DeclRefExpr 0x556e5d354578 <col:16> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+`-BinaryOperator 0x556e5d3546b0 <col:21, col:29> 'int' '<='
+  |-ImplicitCastExpr 0x556e5d354680 <col:21> 'int' <LValueToRValue>
+  | `-DeclRefExpr 0x556e5d3545e0 <col:21> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+  `-ImplicitCastExpr 0x556e5d354698 <col:26, col:29> 'int' <LValueToRValue>
+    `-MemberExpr 0x556e5d354648 <col:26, col:29> 'int' lvalue ->sizeupvalues 0x556e5d2c4ab8
+      `-ImplicitCastExpr 0x556e5d354630 <col:26> 'Proto *' <LValueToRValue>
+        `-DeclRefExpr 0x556e5d354608 <col:26> 'Proto *' lvalue Var 0x556e5d354418 'p' 'Proto *'
+[B5.10] && [B4.7]
+   2: UnaryOperator 0x556e5d354720 <lapi.c:1050:9, col:41> 'int' prefix '!'
+`-ParenExpr 0x556e5d354700 <col:10, col:41> 'int'
+  `-BinaryOperator 0x556e5d3546d8 <col:11, col:29> 'int' '&&'
+    |-BinaryOperator 0x556e5d3545b8 <col:11, col:16> 'int' '<='
+    | |-IntegerLiteral 0x556e5d354558 <col:11> 'int' 1
+    | `-ImplicitCastExpr 0x556e5d3545a0 <col:16> 'int' <LValueToRValue>
+    |   `-DeclRefExpr 0x556e5d354578 <col:16> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+    `-BinaryOperator 0x556e5d3546b0 <col:21, col:29> 'int' '<='
+      |-ImplicitCastExpr 0x556e5d354680 <col:21> 'int' <LValueToRValue>
+      | `-DeclRefExpr 0x556e5d3545e0 <col:21> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+      `-ImplicitCastExpr 0x556e5d354698 <col:26, col:29> 'int' <LValueToRValue>
+        `-MemberExpr 0x556e5d354648 <col:26, col:29> 'int' lvalue ->sizeupvalues 0x556e5d2c4ab8
+          `-ImplicitCastExpr 0x556e5d354630 <col:26> 'Proto *' <LValueToRValue>
+            `-DeclRefExpr 0x556e5d354608 <col:26> 'Proto *' lvalue Var 0x556e5d354418 'p' 'Proto *'
+!([B3.1])
+   T: if [B3.2]
+   Preds (2): B4 B5
+   Succs (2): B2 B1
+
+ [B4]
+   1: DeclRefExpr 0x556e5d3545e0 <lapi.c:1050:21> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+n
+   2: ImplicitCastExpr 0x556e5d354680 <lapi.c:1050:21> 'int' <LValueToRValue>
+`-DeclRefExpr 0x556e5d3545e0 <col:21> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+[B4.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: DeclRefExpr 0x556e5d354608 <lapi.c:1050:26> 'Proto *' lvalue Var 0x556e5d354418 'p' 'Proto *'
+p
+   4: ImplicitCastExpr 0x556e5d354630 <lapi.c:1050:26> 'Proto *' <LValueToRValue>
+`-DeclRefExpr 0x556e5d354608 <col:26> 'Proto *' lvalue Var 0x556e5d354418 'p' 'Proto *'
+[B4.3] (ImplicitCastExpr, LValueToRValue, Proto *)
+   5: MemberExpr 0x556e5d354648 <lapi.c:1050:26, col:29> 'int' lvalue ->sizeupvalues 0x556e5d2c4ab8
+`-ImplicitCastExpr 0x556e5d354630 <col:26> 'Proto *' <LValueToRValue>
+  `-DeclRefExpr 0x556e5d354608 <col:26> 'Proto *' lvalue Var 0x556e5d354418 'p' 'Proto *'
+[B4.4]->sizeupvalues
+   6: ImplicitCastExpr 0x556e5d354698 <lapi.c:1050:26, col:29> 'int' <LValueToRValue>
+`-MemberExpr 0x556e5d354648 <col:26, col:29> 'int' lvalue ->sizeupvalues 0x556e5d2c4ab8
+  `-ImplicitCastExpr 0x556e5d354630 <col:26> 'Proto *' <LValueToRValue>
+    `-DeclRefExpr 0x556e5d354608 <col:26> 'Proto *' lvalue Var 0x556e5d354418 'p' 'Proto *'
+[B4.5] (ImplicitCastExpr, LValueToRValue, int)
+   7: BinaryOperator 0x556e5d3546b0 <lapi.c:1050:21, col:29> 'int' '<='
+|-ImplicitCastExpr 0x556e5d354680 <col:21> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x556e5d3545e0 <col:21> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+`-ImplicitCastExpr 0x556e5d354698 <col:26, col:29> 'int' <LValueToRValue>
+  `-MemberExpr 0x556e5d354648 <col:26, col:29> 'int' lvalue ->sizeupvalues 0x556e5d2c4ab8
+    `-ImplicitCastExpr 0x556e5d354630 <col:26> 'Proto *' <LValueToRValue>
+      `-DeclRefExpr 0x556e5d354608 <col:26> 'Proto *' lvalue Var 0x556e5d354418 'p' 'Proto *'
+[B4.2] <= [B4.6]
+   Preds (1): B5
+   Succs (1): B3
+
+ [B5]
+   1: DeclRefExpr 0x556e5d354478 <lapi.c:1049:16> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+f
+   2: ImplicitCastExpr 0x556e5d3544a0 <lapi.c:1049:16> 'Closure *' <LValueToRValue>
+`-DeclRefExpr 0x556e5d354478 <col:16> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+[B5.1] (ImplicitCastExpr, LValueToRValue, Closure *)
+   3: MemberExpr 0x556e5d3544b8 <lapi.c:1049:16, col:19> 'LClosure':'struct LClosure' lvalue ->l 0x556e5d2c7980
+`-ImplicitCastExpr 0x556e5d3544a0 <col:16> 'Closure *' <LValueToRValue>
+  `-DeclRefExpr 0x556e5d354478 <col:16> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+[B5.2]->l
+   4: MemberExpr 0x556e5d3544f0 <lapi.c:1049:16, col:21> 'struct Proto *' lvalue .p 0x556e5d2c75c8
+`-MemberExpr 0x556e5d3544b8 <col:16, col:19> 'LClosure':'struct LClosure' lvalue ->l 0x556e5d2c7980
+  `-ImplicitCastExpr 0x556e5d3544a0 <col:16> 'Closure *' <LValueToRValue>
+    `-DeclRefExpr 0x556e5d354478 <col:16> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+[B5.3].p
+   5: ImplicitCastExpr 0x556e5d354528 <lapi.c:1049:16, col:21> 'struct Proto *' <LValueToRValue>
+`-MemberExpr 0x556e5d3544f0 <col:16, col:21> 'struct Proto *' lvalue .p 0x556e5d2c75c8
+  `-MemberExpr 0x556e5d3544b8 <col:16, col:19> 'LClosure':'struct LClosure' lvalue ->l 0x556e5d2c7980
+    `-ImplicitCastExpr 0x556e5d3544a0 <col:16> 'Closure *' <LValueToRValue>
+      `-DeclRefExpr 0x556e5d354478 <col:16> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+[B5.4] (ImplicitCastExpr, LValueToRValue, struct Proto *)
+   6: DeclStmt 0x556e5d354540 <lapi.c:1049:5, col:22>col:12
+`-VarDecl 0x556e5d354418 <col:5, col:21> col:12 used p 'Proto *' cinit
+  `-ImplicitCastExpr 0x556e5d354528 <col:16, col:21> 'struct Proto *' <LValueToRValue>
+    `-MemberExpr 0x556e5d3544f0 <col:16, col:21> 'struct Proto *' lvalue .p 0x556e5d2c75c8
+      `-MemberExpr 0x556e5d3544b8 <col:16, col:19> 'LClosure':'struct LClosure' lvalue ->l 0x556e5d2c7980
+        `-ImplicitCastExpr 0x556e5d3544a0 <col:16> 'Closure *' <LValueToRValue>
+          `-DeclRefExpr 0x556e5d354478 <col:16> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+Proto *p = f->l.p;
+   7: IntegerLiteral 0x556e5d354558 <lapi.c:1050:11> 'int' 1
+1
+   8: DeclRefExpr 0x556e5d354578 <lapi.c:1050:16> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+n
+   9: ImplicitCastExpr 0x556e5d3545a0 <lapi.c:1050:16> 'int' <LValueToRValue>
+`-DeclRefExpr 0x556e5d354578 <col:16> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+[B5.8] (ImplicitCastExpr, LValueToRValue, int)
+  10: BinaryOperator 0x556e5d3545b8 <lapi.c:1050:11, col:16> 'int' '<='
+|-IntegerLiteral 0x556e5d354558 <col:11> 'int' 1
+`-ImplicitCastExpr 0x556e5d3545a0 <col:16> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x556e5d354578 <col:16> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+[B5.7] <= [B5.9]
+   T: [B5.10] && ...
+   Preds (1): B11
+   Succs (2): B4 B3
+
+ [B6]
+   1: DeclRefExpr 0x556e5d3541b0 <lapi.c:1045:13> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+f
+   2: ImplicitCastExpr 0x556e5d3541d8 <lapi.c:1045:13> 'Closure *' <LValueToRValue>
+`-DeclRefExpr 0x556e5d3541b0 <col:13> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+[B6.1] (ImplicitCastExpr, LValueToRValue, Closure *)
+   3: MemberExpr 0x556e5d3541f0 <lapi.c:1045:13, col:16> 'CClosure':'struct CClosure' lvalue ->c 0x556e5d2c7900
+`-ImplicitCastExpr 0x556e5d3541d8 <col:13> 'Closure *' <LValueToRValue>
+  `-DeclRefExpr 0x556e5d3541b0 <col:13> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+[B6.2]->c
+   4: MemberExpr 0x556e5d354228 <lapi.c:1045:13, col:18> 'TValue [1]' lvalue .upvalue 0x556e5d2c5dd8
+`-MemberExpr 0x556e5d3541f0 <col:13, col:16> 'CClosure':'struct CClosure' lvalue ->c 0x556e5d2c7900
+  `-ImplicitCastExpr 0x556e5d3541d8 <col:13> 'Closure *' <LValueToRValue>
+    `-DeclRefExpr 0x556e5d3541b0 <col:13> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+[B6.3].upvalue
+   5: ImplicitCastExpr 0x556e5d3542e8 <lapi.c:1045:13, col:18> 'TValue *' <ArrayToPointerDecay>
+`-MemberExpr 0x556e5d354228 <col:13, col:18> 'TValue [1]' lvalue .upvalue 0x556e5d2c5dd8
+  `-MemberExpr 0x556e5d3541f0 <col:13, col:16> 'CClosure':'struct CClosure' lvalue ->c 0x556e5d2c7900
+    `-ImplicitCastExpr 0x556e5d3541d8 <col:13> 'Closure *' <LValueToRValue>
+      `-DeclRefExpr 0x556e5d3541b0 <col:13> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+[B6.4] (ImplicitCastExpr, ArrayToPointerDecay, TValue *)
+   6: DeclRefExpr 0x556e5d354260 <lapi.c:1045:26> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+n
+   7: ImplicitCastExpr 0x556e5d3542a8 <lapi.c:1045:26> 'int' <LValueToRValue>
+`-DeclRefExpr 0x556e5d354260 <col:26> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+[B6.6] (ImplicitCastExpr, LValueToRValue, int)
+   8: IntegerLiteral 0x556e5d354288 <lapi.c:1045:28> 'int' 1
+1
+   9: BinaryOperator 0x556e5d3542c0 <lapi.c:1045:26, col:28> 'int' '-'
+|-ImplicitCastExpr 0x556e5d3542a8 <col:26> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x556e5d354260 <col:26> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+`-IntegerLiteral 0x556e5d354288 <col:28> 'int' 1
+[B6.7] - [B6.8]
+  10: ArraySubscriptExpr 0x556e5d354300 <lapi.c:1045:13, col:29> 'TValue':'struct lua_TValue' lvalue
+|-ImplicitCastExpr 0x556e5d3542e8 <col:13, col:18> 'TValue *' <ArrayToPointerDecay>
+| `-MemberExpr 0x556e5d354228 <col:13, col:18> 'TValue [1]' lvalue .upvalue 0x556e5d2c5dd8
+|   `-MemberExpr 0x556e5d3541f0 <col:13, col:16> 'CClosure':'struct CClosure' lvalue ->c 0x556e5d2c7900
+|     `-ImplicitCastExpr 0x556e5d3541d8 <col:13> 'Closure *' <LValueToRValue>
+|       `-DeclRefExpr 0x556e5d3541b0 <col:13> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+`-BinaryOperator 0x556e5d3542c0 <col:26, col:28> 'int' '-'
+  |-ImplicitCastExpr 0x556e5d3542a8 <col:26> 'int' <LValueToRValue>
+  | `-DeclRefExpr 0x556e5d354260 <col:26> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+  `-IntegerLiteral 0x556e5d354288 <col:28> 'int' 1
+[B6.5][[B6.9]]
+  11: UnaryOperator 0x556e5d354328 <lapi.c:1045:12, col:29> 'TValue *' prefix '&'
+`-ArraySubscriptExpr 0x556e5d354300 <col:13, col:29> 'TValue':'struct lua_TValue' lvalue
+  |-ImplicitCastExpr 0x556e5d3542e8 <col:13, col:18> 'TValue *' <ArrayToPointerDecay>
+  | `-MemberExpr 0x556e5d354228 <col:13, col:18> 'TValue [1]' lvalue .upvalue 0x556e5d2c5dd8
+  |   `-MemberExpr 0x556e5d3541f0 <col:13, col:16> 'CClosure':'struct CClosure' lvalue ->c 0x556e5d2c7900
+  |     `-ImplicitCastExpr 0x556e5d3541d8 <col:13> 'Closure *' <LValueToRValue>
+  |       `-DeclRefExpr 0x556e5d3541b0 <col:13> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+  `-BinaryOperator 0x556e5d3542c0 <col:26, col:28> 'int' '-'
+    |-ImplicitCastExpr 0x556e5d3542a8 <col:26> 'int' <LValueToRValue>
+    | `-DeclRefExpr 0x556e5d354260 <col:26> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+    `-IntegerLiteral 0x556e5d354288 <col:28> 'int' 1
+&[B6.10]
+  12: DeclRefExpr 0x556e5d354150 <lapi.c:1045:6> 'TValue **' lvalue ParmVar 0x556e5d353700 'val' 'TValue **'
+val
+  13: ImplicitCastExpr 0x556e5d354178 <lapi.c:1045:6> 'TValue **' <LValueToRValue>
+`-DeclRefExpr 0x556e5d354150 <col:6> 'TValue **' lvalue ParmVar 0x556e5d353700 'val' 'TValue **'
+[B6.12] (ImplicitCastExpr, LValueToRValue, TValue **)
+  14: UnaryOperator 0x556e5d354190 <lapi.c:1045:5, col:6> 'TValue *' lvalue prefix '*'
+`-ImplicitCastExpr 0x556e5d354178 <col:6> 'TValue **' <LValueToRValue>
+  `-DeclRefExpr 0x556e5d354150 <col:6> 'TValue **' lvalue ParmVar 0x556e5d353700 'val' 'TValue **'
+*[B6.13]
+  15: BinaryOperator 0x556e5d354348 <lapi.c:1045:5, col:29> 'TValue *' '='
+|-UnaryOperator 0x556e5d354190 <col:5, col:6> 'TValue *' lvalue prefix '*'
+| `-ImplicitCastExpr 0x556e5d354178 <col:6> 'TValue **' <LValueToRValue>
+|   `-DeclRefExpr 0x556e5d354150 <col:6> 'TValue **' lvalue ParmVar 0x556e5d353700 'val' 'TValue **'
+`-UnaryOperator 0x556e5d354328 <col:12, col:29> 'TValue *' prefix '&'
+  `-ArraySubscriptExpr 0x556e5d354300 <col:13, col:29> 'TValue':'struct lua_TValue' lvalue
+    |-ImplicitCastExpr 0x556e5d3542e8 <col:13, col:18> 'TValue *' <ArrayToPointerDecay>
+    | `-MemberExpr 0x556e5d354228 <col:13, col:18> 'TValue [1]' lvalue .upvalue 0x556e5d2c5dd8
+    |   `-MemberExpr 0x556e5d3541f0 <col:13, col:16> 'CClosure':'struct CClosure' lvalue ->c 0x556e5d2c7900
+    |     `-ImplicitCastExpr 0x556e5d3541d8 <col:13> 'Closure *' <LValueToRValue>
+    |       `-DeclRefExpr 0x556e5d3541b0 <col:13> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+    `-BinaryOperator 0x556e5d3542c0 <col:26, col:28> 'int' '-'
+      |-ImplicitCastExpr 0x556e5d3542a8 <col:26> 'int' <LValueToRValue>
+      | `-DeclRefExpr 0x556e5d354260 <col:26> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+      `-IntegerLiteral 0x556e5d354288 <col:28> 'int' 1
+[B6.14] = [B6.11]
+  16: StringLiteral 0x556e5d354370 <lapi.c:1046:12> 'char [1]' lvalue ""
+""
+  17: ImplicitCastExpr 0x556e5d354398 <lapi.c:1046:12> 'char *' <ArrayToPointerDecay>
+`-StringLiteral 0x556e5d354370 <col:12> 'char [1]' lvalue ""
+[B6.16] (ImplicitCastExpr, ArrayToPointerDecay, char *)
+  18: ImplicitCastExpr 0x556e5d3543b0 <lapi.c:1046:12> 'const char *' <BitCast>
+`-ImplicitCastExpr 0x556e5d354398 <col:12> 'char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x556e5d354370 <col:12> 'char [1]' lvalue ""
+[B6.17] (ImplicitCastExpr, BitCast, const char *)
+  19: ReturnStmt 0x556e5d3543c8 <lapi.c:1046:5, col:12>
+`-ImplicitCastExpr 0x556e5d3543b0 <col:12> 'const char *' <BitCast>
+  `-ImplicitCastExpr 0x556e5d354398 <col:12> 'char *' <ArrayToPointerDecay>
+    `-StringLiteral 0x556e5d354370 <col:12> 'char [1]' lvalue ""
+return [B6.18];
+   Preds (1): B8
+   Succs (1): B0
+
+ [B7]
+   1: IntegerLiteral 0x556e5d354068 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+   2: CStyleCastExpr 0x556e5d3540a0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x556e5d354068 <col:24> 'int' 0
+(void *)[B7.1] (CStyleCastExpr, NullToPointer, void *)
+   3: ImplicitCastExpr 0x556e5d3540e8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'const char *' <NullToPointer>
+`-ParenExpr 0x556e5d3540c8 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x556e5d3540a0 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x556e5d354068 <col:24> 'int' 0
+([B7.2]) (ImplicitCastExpr, NullToPointer, const char *)
+   4: ReturnStmt 0x556e5d354100 <lapi.c:1044:43, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25>
+`-ImplicitCastExpr 0x556e5d3540e8 <col:16, col:25> 'const char *' <NullToPointer>
+  `-ParenExpr 0x556e5d3540c8 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x556e5d3540a0 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x556e5d354068 <col:24> 'int' 0
+return [B7.3];
+   Preds (1): B8
+   Succs (1): B0
+
+ [B8]
+   1: BinaryOperator 0x556e5d354000 <lapi.c:1044:11, col:31> 'int' '&&'
+|-BinaryOperator 0x556e5d353e90 <col:11, col:16> 'int' '<='
+| |-IntegerLiteral 0x556e5d353e30 <col:11> 'int' 1
+| `-ImplicitCastExpr 0x556e5d353e78 <col:16> 'int' <LValueToRValue>
+|   `-DeclRefExpr 0x556e5d353e50 <col:16> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+`-BinaryOperator 0x556e5d353fd8 <col:21, col:31> 'int' '<='
+  |-ImplicitCastExpr 0x556e5d353f90 <col:21> 'int' <LValueToRValue>
+  | `-DeclRefExpr 0x556e5d353eb8 <col:21> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+  `-ImplicitCastExpr 0x556e5d353fc0 <col:26, col:31> 'int' <IntegralCast>
+    `-ImplicitCastExpr 0x556e5d353fa8 <col:26, col:31> 'lu_byte':'unsigned char' <LValueToRValue>
+      `-MemberExpr 0x556e5d353f58 <col:26, col:31> 'lu_byte':'unsigned char' lvalue .nupvalues 0x556e5d2c5bb0
+        `-MemberExpr 0x556e5d353f20 <col:26, col:29> 'CClosure':'struct CClosure' lvalue ->c 0x556e5d2c7900
+          `-ImplicitCastExpr 0x556e5d353f08 <col:26> 'Closure *' <LValueToRValue>
+            `-DeclRefExpr 0x556e5d353ee0 <col:26> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+[B10.4] && [B9.9]
+   2: UnaryOperator 0x556e5d354048 <lapi.c:1044:9, col:40> 'int' prefix '!'
+`-ParenExpr 0x556e5d354028 <col:10, col:40> 'int'
+  `-BinaryOperator 0x556e5d354000 <col:11, col:31> 'int' '&&'
+    |-BinaryOperator 0x556e5d353e90 <col:11, col:16> 'int' '<='
+    | |-IntegerLiteral 0x556e5d353e30 <col:11> 'int' 1
+    | `-ImplicitCastExpr 0x556e5d353e78 <col:16> 'int' <LValueToRValue>
+    |   `-DeclRefExpr 0x556e5d353e50 <col:16> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+    `-BinaryOperator 0x556e5d353fd8 <col:21, col:31> 'int' '<='
+      |-ImplicitCastExpr 0x556e5d353f90 <col:21> 'int' <LValueToRValue>
+      | `-DeclRefExpr 0x556e5d353eb8 <col:21> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+      `-ImplicitCastExpr 0x556e5d353fc0 <col:26, col:31> 'int' <IntegralCast>
+        `-ImplicitCastExpr 0x556e5d353fa8 <col:26, col:31> 'lu_byte':'unsigned char' <LValueToRValue>
+          `-MemberExpr 0x556e5d353f58 <col:26, col:31> 'lu_byte':'unsigned char' lvalue .nupvalues 0x556e5d2c5bb0
+            `-MemberExpr 0x556e5d353f20 <col:26, col:29> 'CClosure':'struct CClosure' lvalue ->c 0x556e5d2c7900
+              `-ImplicitCastExpr 0x556e5d353f08 <col:26> 'Closure *' <LValueToRValue>
+                `-DeclRefExpr 0x556e5d353ee0 <col:26> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+!([B8.1])
+   T: if [B8.2]
+   Preds (2): B9 B10
+   Succs (2): B7 B6
+
+ [B9]
+   1: DeclRefExpr 0x556e5d353eb8 <lapi.c:1044:21> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+n
+   2: ImplicitCastExpr 0x556e5d353f90 <lapi.c:1044:21> 'int' <LValueToRValue>
+`-DeclRefExpr 0x556e5d353eb8 <col:21> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+[B9.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: DeclRefExpr 0x556e5d353ee0 <lapi.c:1044:26> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+f
+   4: ImplicitCastExpr 0x556e5d353f08 <lapi.c:1044:26> 'Closure *' <LValueToRValue>
+`-DeclRefExpr 0x556e5d353ee0 <col:26> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+[B9.3] (ImplicitCastExpr, LValueToRValue, Closure *)
+   5: MemberExpr 0x556e5d353f20 <lapi.c:1044:26, col:29> 'CClosure':'struct CClosure' lvalue ->c 0x556e5d2c7900
+`-ImplicitCastExpr 0x556e5d353f08 <col:26> 'Closure *' <LValueToRValue>
+  `-DeclRefExpr 0x556e5d353ee0 <col:26> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+[B9.4]->c
+   6: MemberExpr 0x556e5d353f58 <lapi.c:1044:26, col:31> 'lu_byte':'unsigned char' lvalue .nupvalues 0x556e5d2c5bb0
+`-MemberExpr 0x556e5d353f20 <col:26, col:29> 'CClosure':'struct CClosure' lvalue ->c 0x556e5d2c7900
+  `-ImplicitCastExpr 0x556e5d353f08 <col:26> 'Closure *' <LValueToRValue>
+    `-DeclRefExpr 0x556e5d353ee0 <col:26> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+[B9.5].nupvalues
+   7: ImplicitCastExpr 0x556e5d353fa8 <lapi.c:1044:26, col:31> 'lu_byte':'unsigned char' <LValueToRValue>
+`-MemberExpr 0x556e5d353f58 <col:26, col:31> 'lu_byte':'unsigned char' lvalue .nupvalues 0x556e5d2c5bb0
+  `-MemberExpr 0x556e5d353f20 <col:26, col:29> 'CClosure':'struct CClosure' lvalue ->c 0x556e5d2c7900
+    `-ImplicitCastExpr 0x556e5d353f08 <col:26> 'Closure *' <LValueToRValue>
+      `-DeclRefExpr 0x556e5d353ee0 <col:26> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+[B9.6] (ImplicitCastExpr, LValueToRValue, lu_byte)
+   8: ImplicitCastExpr 0x556e5d353fc0 <lapi.c:1044:26, col:31> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x556e5d353fa8 <col:26, col:31> 'lu_byte':'unsigned char' <LValueToRValue>
+  `-MemberExpr 0x556e5d353f58 <col:26, col:31> 'lu_byte':'unsigned char' lvalue .nupvalues 0x556e5d2c5bb0
+    `-MemberExpr 0x556e5d353f20 <col:26, col:29> 'CClosure':'struct CClosure' lvalue ->c 0x556e5d2c7900
+      `-ImplicitCastExpr 0x556e5d353f08 <col:26> 'Closure *' <LValueToRValue>
+        `-DeclRefExpr 0x556e5d353ee0 <col:26> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+[B9.7] (ImplicitCastExpr, IntegralCast, int)
+   9: BinaryOperator 0x556e5d353fd8 <lapi.c:1044:21, col:31> 'int' '<='
+|-ImplicitCastExpr 0x556e5d353f90 <col:21> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x556e5d353eb8 <col:21> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+`-ImplicitCastExpr 0x556e5d353fc0 <col:26, col:31> 'int' <IntegralCast>
+  `-ImplicitCastExpr 0x556e5d353fa8 <col:26, col:31> 'lu_byte':'unsigned char' <LValueToRValue>
+    `-MemberExpr 0x556e5d353f58 <col:26, col:31> 'lu_byte':'unsigned char' lvalue .nupvalues 0x556e5d2c5bb0
+      `-MemberExpr 0x556e5d353f20 <col:26, col:29> 'CClosure':'struct CClosure' lvalue ->c 0x556e5d2c7900
+        `-ImplicitCastExpr 0x556e5d353f08 <col:26> 'Closure *' <LValueToRValue>
+          `-DeclRefExpr 0x556e5d353ee0 <col:26> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+[B9.2] <= [B9.8]
+   Preds (1): B10
+   Succs (1): B8
+
+ [B10]
+   1: IntegerLiteral 0x556e5d353e30 <lapi.c:1044:11> 'int' 1
+1
+   2: DeclRefExpr 0x556e5d353e50 <lapi.c:1044:16> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+n
+   3: ImplicitCastExpr 0x556e5d353e78 <lapi.c:1044:16> 'int' <LValueToRValue>
+`-DeclRefExpr 0x556e5d353e50 <col:16> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+[B10.2] (ImplicitCastExpr, LValueToRValue, int)
+   4: BinaryOperator 0x556e5d353e90 <lapi.c:1044:11, col:16> 'int' '<='
+|-IntegerLiteral 0x556e5d353e30 <col:11> 'int' 1
+`-ImplicitCastExpr 0x556e5d353e78 <col:16> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x556e5d353e50 <col:16> 'int' lvalue ParmVar 0x556e5d353628 'n' 'int'
+[B10.1] <= [B10.3]
+   T: [B10.4] && ...
+   Preds (1): B11
+   Succs (2): B9 B8
+
+ [B11]
+   1: DeclRefExpr 0x556e5d353be0 <lapi.c:1042:15> 'StkId':'TValue *' lvalue ParmVar 0x556e5d3535b0 'fi' 'StkId':'TValue *'
+fi
+   2: ImplicitCastExpr 0x556e5d353c28 <./lobject.h:98:48, col:50> 'StkId':'TValue *' <LValueToRValue>
+`-ParenExpr 0x556e5d353c08 <col:48, col:50> 'StkId':'TValue *' lvalue
+  `-DeclRefExpr 0x556e5d353be0 <lapi.c:1042:15> 'StkId':'TValue *' lvalue ParmVar 0x556e5d3535b0 'fi' 'StkId':'TValue *'
+([B11.1]) (ImplicitCastExpr, LValueToRValue, StkId)
+   3: MemberExpr 0x556e5d353c40 <./lobject.h:98:48, col:53> 'Value':'Value' lvalue ->value 0x556e5d2b7750
+`-ImplicitCastExpr 0x556e5d353c28 <col:48, col:50> 'StkId':'TValue *' <LValueToRValue>
+  `-ParenExpr 0x556e5d353c08 <col:48, col:50> 'StkId':'TValue *' lvalue
+    `-DeclRefExpr 0x556e5d353be0 <lapi.c:1042:15> 'StkId':'TValue *' lvalue ParmVar 0x556e5d3535b0 'fi' 'StkId':'TValue *'
+[B11.2]->value
+   4: MemberExpr 0x556e5d353c78 <./lobject.h:98:48, col:59> 'GCObject *' lvalue .gc 0x556e5d2b7450
+`-MemberExpr 0x556e5d353c40 <col:48, col:53> 'Value':'Value' lvalue ->value 0x556e5d2b7750
+  `-ImplicitCastExpr 0x556e5d353c28 <col:48, col:50> 'StkId':'TValue *' <LValueToRValue>
+    `-ParenExpr 0x556e5d353c08 <col:48, col:50> 'StkId':'TValue *' lvalue
+      `-DeclRefExpr 0x556e5d353be0 <lapi.c:1042:15> 'StkId':'TValue *' lvalue ParmVar 0x556e5d3535b0 'fi' 'StkId':'TValue *'
+[B11.3].gc
+   5: ImplicitCastExpr 0x556e5d353cb0 <./lobject.h:98:48, col:59> 'GCObject *' <LValueToRValue>
+`-MemberExpr 0x556e5d353c78 <col:48, col:59> 'GCObject *' lvalue .gc 0x556e5d2b7450
+  `-MemberExpr 0x556e5d353c40 <col:48, col:53> 'Value':'Value' lvalue ->value 0x556e5d2b7750
+    `-ImplicitCastExpr 0x556e5d353c28 <col:48, col:50> 'StkId':'TValue *' <LValueToRValue>
+      `-ParenExpr 0x556e5d353c08 <col:48, col:50> 'StkId':'TValue *' lvalue
+        `-DeclRefExpr 0x556e5d353be0 <lapi.c:1042:15> 'StkId':'TValue *' lvalue ParmVar 0x556e5d3535b0 'fi' 'StkId':'TValue *'
+[B11.4] (ImplicitCastExpr, LValueToRValue, GCObject *)
+   6: MemberExpr 0x556e5d353cc8 <./lobject.h:98:48, col:63> 'union Closure':'union Closure' lvalue ->cl 0x556e5d2dd568
+`-ImplicitCastExpr 0x556e5d353cb0 <col:48, col:59> 'GCObject *' <LValueToRValue>
+  `-MemberExpr 0x556e5d353c78 <col:48, col:59> 'GCObject *' lvalue .gc 0x556e5d2b7450
+    `-MemberExpr 0x556e5d353c40 <col:48, col:53> 'Value':'Value' lvalue ->value 0x556e5d2b7750
+      `-ImplicitCastExpr 0x556e5d353c28 <col:48, col:50> 'StkId':'TValue *' <LValueToRValue>
+        `-ParenExpr 0x556e5d353c08 <col:48, col:50> 'StkId':'TValue *' lvalue
+          `-DeclRefExpr 0x556e5d353be0 <lapi.c:1042:15> 'StkId':'TValue *' lvalue ParmVar 0x556e5d3535b0 'fi' 'StkId':'TValue *'
+[B11.5]->cl
+   7: UnaryOperator 0x556e5d353d00 <./lobject.h:98:47, col:63> 'union Closure *' prefix '&'
+`-MemberExpr 0x556e5d353cc8 <col:48, col:63> 'union Closure':'union Closure' lvalue ->cl 0x556e5d2dd568
+  `-ImplicitCastExpr 0x556e5d353cb0 <col:48, col:59> 'GCObject *' <LValueToRValue>
+    `-MemberExpr 0x556e5d353c78 <col:48, col:59> 'GCObject *' lvalue .gc 0x556e5d2b7450
+      `-MemberExpr 0x556e5d353c40 <col:48, col:53> 'Value':'Value' lvalue ->value 0x556e5d2b7750
+        `-ImplicitCastExpr 0x556e5d353c28 <col:48, col:50> 'StkId':'TValue *' <LValueToRValue>
+          `-ParenExpr 0x556e5d353c08 <col:48, col:50> 'StkId':'TValue *' lvalue
+            `-DeclRefExpr 0x556e5d353be0 <lapi.c:1042:15> 'StkId':'TValue *' lvalue ParmVar 0x556e5d3535b0 'fi' 'StkId':'TValue *'
+&[B11.6]
+   8: DeclRefExpr 0x556e5d353bb8 <lapi.c:1042:3> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+f
+   9: BinaryOperator 0x556e5d353d40 <lapi.c:1042:3, ./llimits.h:63:27> 'Closure *' '='
+|-DeclRefExpr 0x556e5d353bb8 <lapi.c:1042:3> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+`-ParenExpr 0x556e5d353d20 <./llimits.h:63:25, col:27> 'union Closure *'
+  `-UnaryOperator 0x556e5d353d00 <./lobject.h:98:47, col:63> 'union Closure *' prefix '&'
+    `-MemberExpr 0x556e5d353cc8 <col:48, col:63> 'union Closure':'union Closure' lvalue ->cl 0x556e5d2dd568
+      `-ImplicitCastExpr 0x556e5d353cb0 <col:48, col:59> 'GCObject *' <LValueToRValue>
+        `-MemberExpr 0x556e5d353c78 <col:48, col:59> 'GCObject *' lvalue .gc 0x556e5d2b7450
+          `-MemberExpr 0x556e5d353c40 <col:48, col:53> 'Value':'Value' lvalue ->value 0x556e5d2b7750
+            `-ImplicitCastExpr 0x556e5d353c28 <col:48, col:50> 'StkId':'TValue *' <LValueToRValue>
+              `-ParenExpr 0x556e5d353c08 <col:48, col:50> 'StkId':'TValue *' lvalue
+                `-DeclRefExpr 0x556e5d353be0 <lapi.c:1042:15> 'StkId':'TValue *' lvalue ParmVar 0x556e5d3535b0 'fi' 'StkId':'TValue *'
+[B11.8] = ([B11.7])
+  10: DeclRefExpr 0x556e5d353d68 <lapi.c:1043:7> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+f
+  11: ImplicitCastExpr 0x556e5d353d90 <lapi.c:1043:7> 'Closure *' <LValueToRValue>
+`-DeclRefExpr 0x556e5d353d68 <col:7> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+[B11.10] (ImplicitCastExpr, LValueToRValue, Closure *)
+  12: MemberExpr 0x556e5d353da8 <lapi.c:1043:7, col:10> 'CClosure':'struct CClosure' lvalue ->c 0x556e5d2c7900
+`-ImplicitCastExpr 0x556e5d353d90 <col:7> 'Closure *' <LValueToRValue>
+  `-DeclRefExpr 0x556e5d353d68 <col:7> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+[B11.11]->c
+  13: MemberExpr 0x556e5d353de0 <lapi.c:1043:7, col:12> 'lu_byte':'unsigned char' lvalue .isC 0x556e5d2c5b58
+`-MemberExpr 0x556e5d353da8 <col:7, col:10> 'CClosure':'struct CClosure' lvalue ->c 0x556e5d2c7900
+  `-ImplicitCastExpr 0x556e5d353d90 <col:7> 'Closure *' <LValueToRValue>
+    `-DeclRefExpr 0x556e5d353d68 <col:7> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+[B11.12].isC
+  14: ImplicitCastExpr 0x556e5d353e18 <lapi.c:1043:7, col:12> 'lu_byte':'unsigned char' <LValueToRValue>
+`-MemberExpr 0x556e5d353de0 <col:7, col:12> 'lu_byte':'unsigned char' lvalue .isC 0x556e5d2c5b58
+  `-MemberExpr 0x556e5d353da8 <col:7, col:10> 'CClosure':'struct CClosure' lvalue ->c 0x556e5d2c7900
+    `-ImplicitCastExpr 0x556e5d353d90 <col:7> 'Closure *' <LValueToRValue>
+      `-DeclRefExpr 0x556e5d353d68 <col:7> 'Closure *' lvalue Var 0x556e5d353900 'f' 'Closure *'
+[B11.13] (ImplicitCastExpr, LValueToRValue, lu_byte)
+   T: if [B11.14]
+   Preds (1): B13
+   Succs (2): B10 B5
+
+ [B12]
+   1: IntegerLiteral 0x556e5d353ad0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+   2: CStyleCastExpr 0x556e5d353b08 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x556e5d353ad0 <col:24> 'int' 0
+(void *)[B12.1] (CStyleCastExpr, NullToPointer, void *)
+   3: ImplicitCastExpr 0x556e5d353b50 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'const char *' <NullToPointer>
+`-ParenExpr 0x556e5d353b30 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x556e5d353b08 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x556e5d353ad0 <col:24> 'int' 0
+([B12.2]) (ImplicitCastExpr, NullToPointer, const char *)
+   4: ReturnStmt 0x556e5d353b68 <lapi.c:1041:26, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25>
+`-ImplicitCastExpr 0x556e5d353b50 <col:16, col:25> 'const char *' <NullToPointer>
+  `-ParenExpr 0x556e5d353b30 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x556e5d353b08 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x556e5d353ad0 <col:24> 'int' 0
+return [B12.3];
+   Preds (1): B13
+   Succs (1): B0
+
+ [B13]
+   1: DeclStmt 0x556e5d353960 <lapi.c:1040:3, col:13>col:12
+`-VarDecl 0x556e5d353900 <col:3, col:12> col:12 used f 'Closure *'
+Closure *f;
+   2: DeclRefExpr 0x556e5d353978 <lapi.c:1041:21> 'StkId':'TValue *' lvalue ParmVar 0x556e5d3535b0 'fi' 'StkId':'TValue *'
+fi
+   3: ImplicitCastExpr 0x556e5d3539c0 <./lobject.h:90:19, col:21> 'StkId':'TValue *' <LValueToRValue>
+`-ParenExpr 0x556e5d3539a0 <col:19, col:21> 'StkId':'TValue *' lvalue
+  `-DeclRefExpr 0x556e5d353978 <lapi.c:1041:21> 'StkId':'TValue *' lvalue ParmVar 0x556e5d3535b0 'fi' 'StkId':'TValue *'
+([B13.2]) (ImplicitCastExpr, LValueToRValue, StkId)
+   4: MemberExpr 0x556e5d3539d8 <./lobject.h:90:19, col:24> 'int' lvalue ->tt 0x556e5d2b77b0
+`-ImplicitCastExpr 0x556e5d3539c0 <col:19, col:21> 'StkId':'TValue *' <LValueToRValue>
+  `-ParenExpr 0x556e5d3539a0 <col:19, col:21> 'StkId':'TValue *' lvalue
+    `-DeclRefExpr 0x556e5d353978 <lapi.c:1041:21> 'StkId':'TValue *' lvalue ParmVar 0x556e5d3535b0 'fi' 'StkId':'TValue *'
+[B13.3]->tt
+   5: ImplicitCastExpr 0x556e5d353a50 <./lobject.h:90:18, col:26> 'int' <LValueToRValue>
+`-ParenExpr 0x556e5d353a10 <col:18, col:26> 'int' lvalue
+  `-MemberExpr 0x556e5d3539d8 <col:19, col:24> 'int' lvalue ->tt 0x556e5d2b77b0
+    `-ImplicitCastExpr 0x556e5d3539c0 <col:19, col:21> 'StkId':'TValue *' <LValueToRValue>
+      `-ParenExpr 0x556e5d3539a0 <col:19, col:21> 'StkId':'TValue *' lvalue
+        `-DeclRefExpr 0x556e5d353978 <lapi.c:1041:21> 'StkId':'TValue *' lvalue ParmVar 0x556e5d3535b0 'fi' 'StkId':'TValue *'
+([B13.4]) (ImplicitCastExpr, LValueToRValue, int)
+   6: IntegerLiteral 0x556e5d353a30 <./lua.h:80:24> 'int' 6
+6
+   7: BinaryOperator 0x556e5d353a68 <./lobject.h:90:18, ./lua.h:80:24> 'int' '=='
+|-ImplicitCastExpr 0x556e5d353a50 <./lobject.h:90:18, col:26> 'int' <LValueToRValue>
+| `-ParenExpr 0x556e5d353a10 <col:18, col:26> 'int' lvalue
+|   `-MemberExpr 0x556e5d3539d8 <col:19, col:24> 'int' lvalue ->tt 0x556e5d2b77b0
+|     `-ImplicitCastExpr 0x556e5d3539c0 <col:19, col:21> 'StkId':'TValue *' <LValueToRValue>
+|       `-ParenExpr 0x556e5d3539a0 <col:19, col:21> 'StkId':'TValue *' lvalue
+|         `-DeclRefExpr 0x556e5d353978 <lapi.c:1041:21> 'StkId':'TValue *' lvalue ParmVar 0x556e5d3535b0 'fi' 'StkId':'TValue *'
+`-IntegerLiteral 0x556e5d353a30 <./lua.h:80:24> 'int' 6
+[B13.5] == [B13.6]
+   8: UnaryOperator 0x556e5d353ab0 <lapi.c:1041:7, ./lobject.h:83:51> 'int' prefix '!'
+`-ParenExpr 0x556e5d353a90 <col:25, col:51> 'int'
+  `-BinaryOperator 0x556e5d353a68 <line:90:18, ./lua.h:80:24> 'int' '=='
+    |-ImplicitCastExpr 0x556e5d353a50 <./lobject.h:90:18, col:26> 'int' <LValueToRValue>
+    | `-ParenExpr 0x556e5d353a10 <col:18, col:26> 'int' lvalue
+    |   `-MemberExpr 0x556e5d3539d8 <col:19, col:24> 'int' lvalue ->tt 0x556e5d2b77b0
+    |     `-ImplicitCastExpr 0x556e5d3539c0 <col:19, col:21> 'StkId':'TValue *' <LValueToRValue>
+    |       `-ParenExpr 0x556e5d3539a0 <col:19, col:21> 'StkId':'TValue *' lvalue
+    |         `-DeclRefExpr 0x556e5d353978 <lapi.c:1041:21> 'StkId':'TValue *' lvalue ParmVar 0x556e5d3535b0 'fi' 'StkId':'TValue *'
+    `-IntegerLiteral 0x556e5d353a30 <./lua.h:80:24> 'int' 6
+!([B13.7])
+   T: if [B13.8]
+   Preds (1): B14
+   Succs (2): B12 B11
+
+ [B0 (EXIT)]
+   Preds (5): B1 B2 B6 B7 B12

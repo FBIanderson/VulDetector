@@ -1,0 +1,605 @@
+int luaD_pcall(lua_State *L, Pfunc func, void *u, ptrdiff_t old_top, ptrdiff_t ef)
+ [B4 (ENTRY)]
+   Succs (1): B3
+
+ [B1]
+   1: DeclRefExpr 0x55f42eee4a28 <ldo.c:476:16> 'ptrdiff_t':'long' lvalue Var 0x55f42eee3850 'old_errfunc' 'ptrdiff_t':'long'
+old_errfunc
+   2: ImplicitCastExpr 0x55f42eee4a50 <ldo.c:476:16> 'ptrdiff_t':'long' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee4a28 <col:16> 'ptrdiff_t':'long' lvalue Var 0x55f42eee3850 'old_errfunc' 'ptrdiff_t':'long'
+[B1.1] (ImplicitCastExpr, LValueToRValue, ptrdiff_t)
+   3: DeclRefExpr 0x55f42eee49b0 <ldo.c:476:3> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+L
+   4: ImplicitCastExpr 0x55f42eee49d8 <ldo.c:476:3> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee49b0 <col:3> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B1.3] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   5: MemberExpr 0x55f42eee49f0 <ldo.c:476:3, col:6> 'ptrdiff_t':'long' lvalue ->errfunc 0x55f42ee890d8
+`-ImplicitCastExpr 0x55f42eee49d8 <col:3> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x55f42eee49b0 <col:3> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B1.4]->errfunc
+   6: BinaryOperator 0x55f42eee4a68 <ldo.c:476:3, col:16> 'ptrdiff_t':'long' '='
+|-MemberExpr 0x55f42eee49f0 <col:3, col:6> 'ptrdiff_t':'long' lvalue ->errfunc 0x55f42ee890d8
+| `-ImplicitCastExpr 0x55f42eee49d8 <col:3> 'lua_State *' <LValueToRValue>
+|   `-DeclRefExpr 0x55f42eee49b0 <col:3> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+`-ImplicitCastExpr 0x55f42eee4a50 <col:16> 'ptrdiff_t':'long' <LValueToRValue>
+  `-DeclRefExpr 0x55f42eee4a28 <col:16> 'ptrdiff_t':'long' lvalue Var 0x55f42eee3850 'old_errfunc' 'ptrdiff_t':'long'
+[B1.5] = [B1.2]
+   7: DeclRefExpr 0x55f42eee4a90 <ldo.c:477:10> 'int' lvalue Var 0x55f42eee3270 'status' 'int'
+status
+   8: ImplicitCastExpr 0x55f42eee4ab8 <ldo.c:477:10> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee4a90 <col:10> 'int' lvalue Var 0x55f42eee3270 'status' 'int'
+[B1.7] (ImplicitCastExpr, LValueToRValue, int)
+   9: ReturnStmt 0x55f42eee4ad0 <ldo.c:477:3, col:10>
+`-ImplicitCastExpr 0x55f42eee4ab8 <col:10> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x55f42eee4a90 <col:10> 'int' lvalue Var 0x55f42eee3270 'status' 'int'
+return [B1.8];
+   Preds (2): B2 B3
+   Succs (1): B0
+
+ [B2]
+   1: DeclRefExpr 0x55f42eee3cc0 <ldo.c:466:33> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+L
+   2: ImplicitCastExpr 0x55f42eee3ce8 <ldo.c:466:33> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee3cc0 <col:33> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.1] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   3: MemberExpr 0x55f42eee3d00 <ldo.c:466:33, ./ldo.h:25:50> 'StkId':'TValue *' lvalue ->stack 0x55f42ee88a30
+`-ImplicitCastExpr 0x55f42eee3ce8 <ldo.c:466:33> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x55f42eee3cc0 <col:33> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.2]->stack
+   4: ImplicitCastExpr 0x55f42eee3d50 <ldo.c:466:33, ./ldo.h:25:50> 'StkId':'TValue *' <LValueToRValue>
+`-MemberExpr 0x55f42eee3d00 <ldo.c:466:33, ./ldo.h:25:50> 'StkId':'TValue *' lvalue ->stack 0x55f42ee88a30
+  `-ImplicitCastExpr 0x55f42eee3ce8 <ldo.c:466:33> 'lua_State *' <LValueToRValue>
+    `-DeclRefExpr 0x55f42eee3cc0 <col:33> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.3] (ImplicitCastExpr, LValueToRValue, StkId)
+   5: CStyleCastExpr 0x55f42eee3d68 <./ldo.h:25:39, col:50> 'char *' <BitCast>
+`-ImplicitCastExpr 0x55f42eee3d50 <ldo.c:466:33, ./ldo.h:25:50> 'StkId':'TValue *' <LValueToRValue>
+  `-MemberExpr 0x55f42eee3d00 <ldo.c:466:33, ./ldo.h:25:50> 'StkId':'TValue *' lvalue ->stack 0x55f42ee88a30
+    `-ImplicitCastExpr 0x55f42eee3ce8 <ldo.c:466:33> 'lua_State *' <LValueToRValue>
+      `-DeclRefExpr 0x55f42eee3cc0 <col:33> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+(char *)[B2.4] (CStyleCastExpr, BitCast, char *)
+   6: DeclRefExpr 0x55f42eee3d90 <ldo.c:466:36> 'ptrdiff_t':'long' lvalue ParmVar 0x55f42eee3028 'old_top' 'ptrdiff_t':'long'
+old_top
+   7: ImplicitCastExpr 0x55f42eee3dd8 <./ldo.h:25:58, col:60> 'ptrdiff_t':'long' <LValueToRValue>
+`-ParenExpr 0x55f42eee3db8 <col:58, col:60> 'ptrdiff_t':'long' lvalue
+  `-DeclRefExpr 0x55f42eee3d90 <ldo.c:466:36> 'ptrdiff_t':'long' lvalue ParmVar 0x55f42eee3028 'old_top' 'ptrdiff_t':'long'
+([B2.6]) (ImplicitCastExpr, LValueToRValue, ptrdiff_t)
+   8: BinaryOperator 0x55f42eee3df0 <./ldo.h:25:39, col:60> 'char *' '+'
+|-CStyleCastExpr 0x55f42eee3d68 <col:39, col:50> 'char *' <BitCast>
+| `-ImplicitCastExpr 0x55f42eee3d50 <ldo.c:466:33, ./ldo.h:25:50> 'StkId':'TValue *' <LValueToRValue>
+|   `-MemberExpr 0x55f42eee3d00 <ldo.c:466:33, ./ldo.h:25:50> 'StkId':'TValue *' lvalue ->stack 0x55f42ee88a30
+|     `-ImplicitCastExpr 0x55f42eee3ce8 <ldo.c:466:33> 'lua_State *' <LValueToRValue>
+|       `-DeclRefExpr 0x55f42eee3cc0 <col:33> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+`-ImplicitCastExpr 0x55f42eee3dd8 <./ldo.h:25:58, col:60> 'ptrdiff_t':'long' <LValueToRValue>
+  `-ParenExpr 0x55f42eee3db8 <col:58, col:60> 'ptrdiff_t':'long' lvalue
+    `-DeclRefExpr 0x55f42eee3d90 <ldo.c:466:36> 'ptrdiff_t':'long' lvalue ParmVar 0x55f42eee3028 'old_top' 'ptrdiff_t':'long'
+[B2.5] + [B2.7]
+   9: CStyleCastExpr 0x55f42eee3e78 <./ldo.h:25:28, col:61> 'TValue *' <BitCast>
+`-ParenExpr 0x55f42eee3e58 <col:38, col:61> 'char *'
+  `-BinaryOperator 0x55f42eee3df0 <col:39, col:60> 'char *' '+'
+    |-CStyleCastExpr 0x55f42eee3d68 <col:39, col:50> 'char *' <BitCast>
+    | `-ImplicitCastExpr 0x55f42eee3d50 <ldo.c:466:33, ./ldo.h:25:50> 'StkId':'TValue *' <LValueToRValue>
+    |   `-MemberExpr 0x55f42eee3d00 <ldo.c:466:33, ./ldo.h:25:50> 'StkId':'TValue *' lvalue ->stack 0x55f42ee88a30
+    |     `-ImplicitCastExpr 0x55f42eee3ce8 <ldo.c:466:33> 'lua_State *' <LValueToRValue>
+    |       `-DeclRefExpr 0x55f42eee3cc0 <col:33> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+    `-ImplicitCastExpr 0x55f42eee3dd8 <./ldo.h:25:58, col:60> 'ptrdiff_t':'long' <LValueToRValue>
+      `-ParenExpr 0x55f42eee3db8 <col:58, col:60> 'ptrdiff_t':'long' lvalue
+        `-DeclRefExpr 0x55f42eee3d90 <ldo.c:466:36> 'ptrdiff_t':'long' lvalue ParmVar 0x55f42eee3028 'old_top' 'ptrdiff_t':'long'
+(TValue *)([B2.8]) (CStyleCastExpr, BitCast, TValue *)
+  10: DeclStmt 0x55f42eee3ec0 <ldo.c:466:5, col:44>col:11
+`-VarDecl 0x55f42eee3c60 <col:5, ./ldo.h:25:62> ldo.c:466:11 used oldtop 'StkId':'TValue *' cinit
+  `-ParenExpr 0x55f42eee3ea0 <./ldo.h:25:27, col:62> 'TValue *'
+    `-CStyleCastExpr 0x55f42eee3e78 <col:28, col:61> 'TValue *' <BitCast>
+      `-ParenExpr 0x55f42eee3e58 <col:38, col:61> 'char *'
+        `-BinaryOperator 0x55f42eee3df0 <col:39, col:60> 'char *' '+'
+          |-CStyleCastExpr 0x55f42eee3d68 <col:39, col:50> 'char *' <BitCast>
+          | `-ImplicitCastExpr 0x55f42eee3d50 <ldo.c:466:33, ./ldo.h:25:50> 'StkId':'TValue *' <LValueToRValue>
+          |   `-MemberExpr 0x55f42eee3d00 <ldo.c:466:33, ./ldo.h:25:50> 'StkId':'TValue *' lvalue ->stack 0x55f42ee88a30
+          |     `-ImplicitCastExpr 0x55f42eee3ce8 <ldo.c:466:33> 'lua_State *' <LValueToRValue>
+          |       `-DeclRefExpr 0x55f42eee3cc0 <col:33> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+          `-ImplicitCastExpr 0x55f42eee3dd8 <./ldo.h:25:58, col:60> 'ptrdiff_t':'long' <LValueToRValue>
+            `-ParenExpr 0x55f42eee3db8 <col:58, col:60> 'ptrdiff_t':'long' lvalue
+              `-DeclRefExpr 0x55f42eee3d90 <ldo.c:466:36> 'ptrdiff_t':'long' lvalue ParmVar 0x55f42eee3028 'old_top' 'ptrdiff_t':'long'
+StkId oldtop = ((TValue *)((char *)L->stack + (old_top)));
+  11: DeclRefExpr 0x55f42eee3ed8 <ldo.c:467:5> 'void (lua_State *, StkId)' Function 0x55f42ee96780 'luaF_close' 'void (lua_State *, StkId)'
+luaF_close
+  12: ImplicitCastExpr 0x55f42eee3f50 <ldo.c:467:5> 'void (*)(lua_State *, StkId)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55f42eee3ed8 <col:5> 'void (lua_State *, StkId)' Function 0x55f42ee96780 'luaF_close' 'void (lua_State *, StkId)'
+[B2.11] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(lua_State *, StkId))
+  13: DeclRefExpr 0x55f42eee3f00 <ldo.c:467:16> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+L
+  14: ImplicitCastExpr 0x55f42eee3fa0 <ldo.c:467:16> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee3f00 <col:16> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.13] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  15: DeclRefExpr 0x55f42eee3f28 <ldo.c:467:19> 'StkId':'TValue *' lvalue Var 0x55f42eee3c60 'oldtop' 'StkId':'TValue *'
+oldtop
+  16: ImplicitCastExpr 0x55f42eee3fb8 <ldo.c:467:19> 'StkId':'TValue *' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee3f28 <col:19> 'StkId':'TValue *' lvalue Var 0x55f42eee3c60 'oldtop' 'StkId':'TValue *'
+[B2.15] (ImplicitCastExpr, LValueToRValue, StkId)
+  17: CallExpr 0x55f42eee3f68 <ldo.c:467:5, col:25> 'void'
+|-ImplicitCastExpr 0x55f42eee3f50 <col:5> 'void (*)(lua_State *, StkId)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55f42eee3ed8 <col:5> 'void (lua_State *, StkId)' Function 0x55f42ee96780 'luaF_close' 'void (lua_State *, StkId)'
+|-ImplicitCastExpr 0x55f42eee3fa0 <col:16> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x55f42eee3f00 <col:16> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+`-ImplicitCastExpr 0x55f42eee3fb8 <col:19> 'StkId':'TValue *' <LValueToRValue>
+  `-DeclRefExpr 0x55f42eee3f28 <col:19> 'StkId':'TValue *' lvalue Var 0x55f42eee3c60 'oldtop' 'StkId':'TValue *'
+[B2.12]([B2.14], [B2.16])
+  18: DeclRefExpr 0x55f42eee3fd0 <ldo.c:468:5> 'void (lua_State *, int, StkId)' Function 0x55f42eebb8c8 'luaD_seterrorobj' 'void (lua_State *, int, StkId)'
+luaD_seterrorobj
+  19: ImplicitCastExpr 0x55f42eee4070 <ldo.c:468:5> 'void (*)(lua_State *, int, StkId)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55f42eee3fd0 <col:5> 'void (lua_State *, int, StkId)' Function 0x55f42eebb8c8 'luaD_seterrorobj' 'void (lua_State *, int, StkId)'
+[B2.18] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(lua_State *, int, StkId))
+  20: DeclRefExpr 0x55f42eee3ff8 <ldo.c:468:22> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+L
+  21: ImplicitCastExpr 0x55f42eee40c8 <ldo.c:468:22> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee3ff8 <col:22> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.20] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  22: DeclRefExpr 0x55f42eee4020 <ldo.c:468:25> 'int' lvalue Var 0x55f42eee3270 'status' 'int'
+status
+  23: ImplicitCastExpr 0x55f42eee40e0 <ldo.c:468:25> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee4020 <col:25> 'int' lvalue Var 0x55f42eee3270 'status' 'int'
+[B2.22] (ImplicitCastExpr, LValueToRValue, int)
+  24: DeclRefExpr 0x55f42eee4048 <ldo.c:468:33> 'StkId':'TValue *' lvalue Var 0x55f42eee3c60 'oldtop' 'StkId':'TValue *'
+oldtop
+  25: ImplicitCastExpr 0x55f42eee40f8 <ldo.c:468:33> 'StkId':'TValue *' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee4048 <col:33> 'StkId':'TValue *' lvalue Var 0x55f42eee3c60 'oldtop' 'StkId':'TValue *'
+[B2.24] (ImplicitCastExpr, LValueToRValue, StkId)
+  26: CallExpr 0x55f42eee4088 <ldo.c:468:5, col:39> 'void'
+|-ImplicitCastExpr 0x55f42eee4070 <col:5> 'void (*)(lua_State *, int, StkId)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55f42eee3fd0 <col:5> 'void (lua_State *, int, StkId)' Function 0x55f42eebb8c8 'luaD_seterrorobj' 'void (lua_State *, int, StkId)'
+|-ImplicitCastExpr 0x55f42eee40c8 <col:22> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x55f42eee3ff8 <col:22> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+|-ImplicitCastExpr 0x55f42eee40e0 <col:25> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x55f42eee4020 <col:25> 'int' lvalue Var 0x55f42eee3270 'status' 'int'
+`-ImplicitCastExpr 0x55f42eee40f8 <col:33> 'StkId':'TValue *' <LValueToRValue>
+  `-DeclRefExpr 0x55f42eee4048 <col:33> 'StkId':'TValue *' lvalue Var 0x55f42eee3c60 'oldtop' 'StkId':'TValue *'
+[B2.19]([B2.21], [B2.23], [B2.25])
+  27: DeclRefExpr 0x55f42eee4188 <ldo.c:469:18> 'unsigned short' lvalue Var 0x55f42eee3360 'oldnCcalls' 'unsigned short'
+oldnCcalls
+  28: ImplicitCastExpr 0x55f42eee41b0 <ldo.c:469:18> 'unsigned short' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee4188 <col:18> 'unsigned short' lvalue Var 0x55f42eee3360 'oldnCcalls' 'unsigned short'
+[B2.27] (ImplicitCastExpr, LValueToRValue, unsigned short)
+  29: DeclRefExpr 0x55f42eee4110 <ldo.c:469:5> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+L
+  30: ImplicitCastExpr 0x55f42eee4138 <ldo.c:469:5> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee4110 <col:5> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.29] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  31: MemberExpr 0x55f42eee4150 <ldo.c:469:5, col:8> 'unsigned short' lvalue ->nCcalls 0x55f42ee88c00
+`-ImplicitCastExpr 0x55f42eee4138 <col:5> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x55f42eee4110 <col:5> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.30]->nCcalls
+  32: BinaryOperator 0x55f42eee41c8 <ldo.c:469:5, col:18> 'unsigned short' '='
+|-MemberExpr 0x55f42eee4150 <col:5, col:8> 'unsigned short' lvalue ->nCcalls 0x55f42ee88c00
+| `-ImplicitCastExpr 0x55f42eee4138 <col:5> 'lua_State *' <LValueToRValue>
+|   `-DeclRefExpr 0x55f42eee4110 <col:5> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+`-ImplicitCastExpr 0x55f42eee41b0 <col:18> 'unsigned short' <LValueToRValue>
+  `-DeclRefExpr 0x55f42eee4188 <col:18> 'unsigned short' lvalue Var 0x55f42eee3360 'oldnCcalls' 'unsigned short'
+[B2.31] = [B2.28]
+  33: DeclRefExpr 0x55f42eee4268 <ldo.c:470:23> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+L
+  34: ImplicitCastExpr 0x55f42eee4290 <ldo.c:470:23> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee4268 <col:23> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.33] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  35: MemberExpr 0x55f42eee42a8 <ldo.c:470:23, ./ldo.h:28:50> 'CallInfo *' lvalue ->base_ci 0x55f42ee88ae0
+`-ImplicitCastExpr 0x55f42eee4290 <ldo.c:470:23> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x55f42eee4268 <col:23> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.34]->base_ci
+  36: ImplicitCastExpr 0x55f42eee42f8 <ldo.c:470:23, ./ldo.h:28:50> 'CallInfo *' <LValueToRValue>
+`-MemberExpr 0x55f42eee42a8 <ldo.c:470:23, ./ldo.h:28:50> 'CallInfo *' lvalue ->base_ci 0x55f42ee88ae0
+  `-ImplicitCastExpr 0x55f42eee4290 <ldo.c:470:23> 'lua_State *' <LValueToRValue>
+    `-DeclRefExpr 0x55f42eee4268 <col:23> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.35] (ImplicitCastExpr, LValueToRValue, CallInfo *)
+  37: CStyleCastExpr 0x55f42eee4310 <./ldo.h:28:39, col:50> 'char *' <BitCast>
+`-ImplicitCastExpr 0x55f42eee42f8 <ldo.c:470:23, ./ldo.h:28:50> 'CallInfo *' <LValueToRValue>
+  `-MemberExpr 0x55f42eee42a8 <ldo.c:470:23, ./ldo.h:28:50> 'CallInfo *' lvalue ->base_ci 0x55f42ee88ae0
+    `-ImplicitCastExpr 0x55f42eee4290 <ldo.c:470:23> 'lua_State *' <LValueToRValue>
+      `-DeclRefExpr 0x55f42eee4268 <col:23> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+(char *)[B2.36] (CStyleCastExpr, BitCast, char *)
+  38: DeclRefExpr 0x55f42eee4338 <ldo.c:470:26> 'ptrdiff_t':'long' lvalue Var 0x55f42eee3478 'old_ci' 'ptrdiff_t':'long'
+old_ci
+  39: ImplicitCastExpr 0x55f42eee4380 <./ldo.h:28:60, col:62> 'ptrdiff_t':'long' <LValueToRValue>
+`-ParenExpr 0x55f42eee4360 <col:60, col:62> 'ptrdiff_t':'long' lvalue
+  `-DeclRefExpr 0x55f42eee4338 <ldo.c:470:26> 'ptrdiff_t':'long' lvalue Var 0x55f42eee3478 'old_ci' 'ptrdiff_t':'long'
+([B2.38]) (ImplicitCastExpr, LValueToRValue, ptrdiff_t)
+  40: BinaryOperator 0x55f42eee4398 <./ldo.h:28:39, col:62> 'char *' '+'
+|-CStyleCastExpr 0x55f42eee4310 <col:39, col:50> 'char *' <BitCast>
+| `-ImplicitCastExpr 0x55f42eee42f8 <ldo.c:470:23, ./ldo.h:28:50> 'CallInfo *' <LValueToRValue>
+|   `-MemberExpr 0x55f42eee42a8 <ldo.c:470:23, ./ldo.h:28:50> 'CallInfo *' lvalue ->base_ci 0x55f42ee88ae0
+|     `-ImplicitCastExpr 0x55f42eee4290 <ldo.c:470:23> 'lua_State *' <LValueToRValue>
+|       `-DeclRefExpr 0x55f42eee4268 <col:23> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+`-ImplicitCastExpr 0x55f42eee4380 <./ldo.h:28:60, col:62> 'ptrdiff_t':'long' <LValueToRValue>
+  `-ParenExpr 0x55f42eee4360 <col:60, col:62> 'ptrdiff_t':'long' lvalue
+    `-DeclRefExpr 0x55f42eee4338 <ldo.c:470:26> 'ptrdiff_t':'long' lvalue Var 0x55f42eee3478 'old_ci' 'ptrdiff_t':'long'
+[B2.37] + [B2.39]
+  41: CStyleCastExpr 0x55f42eee4420 <./ldo.h:28:26, col:63> 'CallInfo *' <BitCast>
+`-ParenExpr 0x55f42eee4400 <col:38, col:63> 'char *'
+  `-BinaryOperator 0x55f42eee4398 <col:39, col:62> 'char *' '+'
+    |-CStyleCastExpr 0x55f42eee4310 <col:39, col:50> 'char *' <BitCast>
+    | `-ImplicitCastExpr 0x55f42eee42f8 <ldo.c:470:23, ./ldo.h:28:50> 'CallInfo *' <LValueToRValue>
+    |   `-MemberExpr 0x55f42eee42a8 <ldo.c:470:23, ./ldo.h:28:50> 'CallInfo *' lvalue ->base_ci 0x55f42ee88ae0
+    |     `-ImplicitCastExpr 0x55f42eee4290 <ldo.c:470:23> 'lua_State *' <LValueToRValue>
+    |       `-DeclRefExpr 0x55f42eee4268 <col:23> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+    `-ImplicitCastExpr 0x55f42eee4380 <./ldo.h:28:60, col:62> 'ptrdiff_t':'long' <LValueToRValue>
+      `-ParenExpr 0x55f42eee4360 <col:60, col:62> 'ptrdiff_t':'long' lvalue
+        `-DeclRefExpr 0x55f42eee4338 <ldo.c:470:26> 'ptrdiff_t':'long' lvalue Var 0x55f42eee3478 'old_ci' 'ptrdiff_t':'long'
+(CallInfo *)([B2.40]) (CStyleCastExpr, BitCast, CallInfo *)
+  42: DeclRefExpr 0x55f42eee41f0 <ldo.c:470:5> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+L
+  43: ImplicitCastExpr 0x55f42eee4218 <ldo.c:470:5> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee41f0 <col:5> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.42] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  44: MemberExpr 0x55f42eee4230 <ldo.c:470:5, col:8> 'CallInfo *' lvalue ->ci 0x55f42ee88928
+`-ImplicitCastExpr 0x55f42eee4218 <col:5> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x55f42eee41f0 <col:5> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.43]->ci
+  45: BinaryOperator 0x55f42eee4468 <ldo.c:470:5, ./ldo.h:28:64> 'CallInfo *' '='
+|-MemberExpr 0x55f42eee4230 <ldo.c:470:5, col:8> 'CallInfo *' lvalue ->ci 0x55f42ee88928
+| `-ImplicitCastExpr 0x55f42eee4218 <col:5> 'lua_State *' <LValueToRValue>
+|   `-DeclRefExpr 0x55f42eee41f0 <col:5> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+`-ParenExpr 0x55f42eee4448 <./ldo.h:28:25, col:64> 'CallInfo *'
+  `-CStyleCastExpr 0x55f42eee4420 <col:26, col:63> 'CallInfo *' <BitCast>
+    `-ParenExpr 0x55f42eee4400 <col:38, col:63> 'char *'
+      `-BinaryOperator 0x55f42eee4398 <col:39, col:62> 'char *' '+'
+        |-CStyleCastExpr 0x55f42eee4310 <col:39, col:50> 'char *' <BitCast>
+        | `-ImplicitCastExpr 0x55f42eee42f8 <ldo.c:470:23, ./ldo.h:28:50> 'CallInfo *' <LValueToRValue>
+        |   `-MemberExpr 0x55f42eee42a8 <ldo.c:470:23, ./ldo.h:28:50> 'CallInfo *' lvalue ->base_ci 0x55f42ee88ae0
+        |     `-ImplicitCastExpr 0x55f42eee4290 <ldo.c:470:23> 'lua_State *' <LValueToRValue>
+        |       `-DeclRefExpr 0x55f42eee4268 <col:23> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+        `-ImplicitCastExpr 0x55f42eee4380 <./ldo.h:28:60, col:62> 'ptrdiff_t':'long' <LValueToRValue>
+          `-ParenExpr 0x55f42eee4360 <col:60, col:62> 'ptrdiff_t':'long' lvalue
+            `-DeclRefExpr 0x55f42eee4338 <ldo.c:470:26> 'ptrdiff_t':'long' lvalue Var 0x55f42eee3478 'old_ci' 'ptrdiff_t':'long'
+[B2.44] = ([B2.41])
+  46: DeclRefExpr 0x55f42eee4508 <ldo.c:471:15> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+L
+  47: ImplicitCastExpr 0x55f42eee4530 <ldo.c:471:15> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee4508 <col:15> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.46] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  48: MemberExpr 0x55f42eee4548 <ldo.c:471:15, col:18> 'CallInfo *' lvalue ->ci 0x55f42ee88928
+`-ImplicitCastExpr 0x55f42eee4530 <col:15> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x55f42eee4508 <col:15> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.47]->ci
+  49: ImplicitCastExpr 0x55f42eee4580 <ldo.c:471:15, col:18> 'CallInfo *' <LValueToRValue>
+`-MemberExpr 0x55f42eee4548 <col:15, col:18> 'CallInfo *' lvalue ->ci 0x55f42ee88928
+  `-ImplicitCastExpr 0x55f42eee4530 <col:15> 'lua_State *' <LValueToRValue>
+    `-DeclRefExpr 0x55f42eee4508 <col:15> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.48] (ImplicitCastExpr, LValueToRValue, CallInfo *)
+  50: MemberExpr 0x55f42eee4598 <ldo.c:471:15, col:22> 'StkId':'TValue *' lvalue ->base 0x55f42ee82c20
+`-ImplicitCastExpr 0x55f42eee4580 <col:15, col:18> 'CallInfo *' <LValueToRValue>
+  `-MemberExpr 0x55f42eee4548 <col:15, col:18> 'CallInfo *' lvalue ->ci 0x55f42ee88928
+    `-ImplicitCastExpr 0x55f42eee4530 <col:15> 'lua_State *' <LValueToRValue>
+      `-DeclRefExpr 0x55f42eee4508 <col:15> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.49]->base
+  51: ImplicitCastExpr 0x55f42eee45d0 <ldo.c:471:15, col:22> 'StkId':'TValue *' <LValueToRValue>
+`-MemberExpr 0x55f42eee4598 <col:15, col:22> 'StkId':'TValue *' lvalue ->base 0x55f42ee82c20
+  `-ImplicitCastExpr 0x55f42eee4580 <col:15, col:18> 'CallInfo *' <LValueToRValue>
+    `-MemberExpr 0x55f42eee4548 <col:15, col:18> 'CallInfo *' lvalue ->ci 0x55f42ee88928
+      `-ImplicitCastExpr 0x55f42eee4530 <col:15> 'lua_State *' <LValueToRValue>
+        `-DeclRefExpr 0x55f42eee4508 <col:15> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.50] (ImplicitCastExpr, LValueToRValue, StkId)
+  52: DeclRefExpr 0x55f42eee4490 <ldo.c:471:5> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+L
+  53: ImplicitCastExpr 0x55f42eee44b8 <ldo.c:471:5> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee4490 <col:5> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.52] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  54: MemberExpr 0x55f42eee44d0 <ldo.c:471:5, col:8> 'StkId':'TValue *' lvalue ->base 0x55f42ee88780
+`-ImplicitCastExpr 0x55f42eee44b8 <col:5> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x55f42eee4490 <col:5> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.53]->base
+  55: BinaryOperator 0x55f42eee45e8 <ldo.c:471:5, col:22> 'StkId':'TValue *' '='
+|-MemberExpr 0x55f42eee44d0 <col:5, col:8> 'StkId':'TValue *' lvalue ->base 0x55f42ee88780
+| `-ImplicitCastExpr 0x55f42eee44b8 <col:5> 'lua_State *' <LValueToRValue>
+|   `-DeclRefExpr 0x55f42eee4490 <col:5> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+`-ImplicitCastExpr 0x55f42eee45d0 <col:15, col:22> 'StkId':'TValue *' <LValueToRValue>
+  `-MemberExpr 0x55f42eee4598 <col:15, col:22> 'StkId':'TValue *' lvalue ->base 0x55f42ee82c20
+    `-ImplicitCastExpr 0x55f42eee4580 <col:15, col:18> 'CallInfo *' <LValueToRValue>
+      `-MemberExpr 0x55f42eee4548 <col:15, col:18> 'CallInfo *' lvalue ->ci 0x55f42ee88928
+        `-ImplicitCastExpr 0x55f42eee4530 <col:15> 'lua_State *' <LValueToRValue>
+          `-DeclRefExpr 0x55f42eee4508 <col:15> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.54] = [B2.51]
+  56: DeclRefExpr 0x55f42eee4688 <ldo.c:472:18> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+L
+  57: ImplicitCastExpr 0x55f42eee46b0 <ldo.c:472:18> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee4688 <col:18> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.56] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  58: MemberExpr 0x55f42eee46c8 <ldo.c:472:18, col:21> 'CallInfo *' lvalue ->ci 0x55f42ee88928
+`-ImplicitCastExpr 0x55f42eee46b0 <col:18> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x55f42eee4688 <col:18> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.57]->ci
+  59: ImplicitCastExpr 0x55f42eee4700 <ldo.c:472:18, col:21> 'CallInfo *' <LValueToRValue>
+`-MemberExpr 0x55f42eee46c8 <col:18, col:21> 'CallInfo *' lvalue ->ci 0x55f42ee88928
+  `-ImplicitCastExpr 0x55f42eee46b0 <col:18> 'lua_State *' <LValueToRValue>
+    `-DeclRefExpr 0x55f42eee4688 <col:18> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.58] (ImplicitCastExpr, LValueToRValue, CallInfo *)
+  60: MemberExpr 0x55f42eee4718 <ldo.c:472:18, col:25> 'const Instruction *' lvalue ->savedpc 0x55f42ee82d88
+`-ImplicitCastExpr 0x55f42eee4700 <col:18, col:21> 'CallInfo *' <LValueToRValue>
+  `-MemberExpr 0x55f42eee46c8 <col:18, col:21> 'CallInfo *' lvalue ->ci 0x55f42ee88928
+    `-ImplicitCastExpr 0x55f42eee46b0 <col:18> 'lua_State *' <LValueToRValue>
+      `-DeclRefExpr 0x55f42eee4688 <col:18> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.59]->savedpc
+  61: ImplicitCastExpr 0x55f42eee4750 <ldo.c:472:18, col:25> 'const Instruction *' <LValueToRValue>
+`-MemberExpr 0x55f42eee4718 <col:18, col:25> 'const Instruction *' lvalue ->savedpc 0x55f42ee82d88
+  `-ImplicitCastExpr 0x55f42eee4700 <col:18, col:21> 'CallInfo *' <LValueToRValue>
+    `-MemberExpr 0x55f42eee46c8 <col:18, col:21> 'CallInfo *' lvalue ->ci 0x55f42ee88928
+      `-ImplicitCastExpr 0x55f42eee46b0 <col:18> 'lua_State *' <LValueToRValue>
+        `-DeclRefExpr 0x55f42eee4688 <col:18> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.60] (ImplicitCastExpr, LValueToRValue, const Instruction *)
+  62: DeclRefExpr 0x55f42eee4610 <ldo.c:472:5> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+L
+  63: ImplicitCastExpr 0x55f42eee4638 <ldo.c:472:5> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee4610 <col:5> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.62] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  64: MemberExpr 0x55f42eee4650 <ldo.c:472:5, col:8> 'const Instruction *' lvalue ->savedpc 0x55f42ee88980
+`-ImplicitCastExpr 0x55f42eee4638 <col:5> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x55f42eee4610 <col:5> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.63]->savedpc
+  65: BinaryOperator 0x55f42eee4768 <ldo.c:472:5, col:25> 'const Instruction *' '='
+|-MemberExpr 0x55f42eee4650 <col:5, col:8> 'const Instruction *' lvalue ->savedpc 0x55f42ee88980
+| `-ImplicitCastExpr 0x55f42eee4638 <col:5> 'lua_State *' <LValueToRValue>
+|   `-DeclRefExpr 0x55f42eee4610 <col:5> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+`-ImplicitCastExpr 0x55f42eee4750 <col:18, col:25> 'const Instruction *' <LValueToRValue>
+  `-MemberExpr 0x55f42eee4718 <col:18, col:25> 'const Instruction *' lvalue ->savedpc 0x55f42ee82d88
+    `-ImplicitCastExpr 0x55f42eee4700 <col:18, col:21> 'CallInfo *' <LValueToRValue>
+      `-MemberExpr 0x55f42eee46c8 <col:18, col:21> 'CallInfo *' lvalue ->ci 0x55f42ee88928
+        `-ImplicitCastExpr 0x55f42eee46b0 <col:18> 'lua_State *' <LValueToRValue>
+          `-DeclRefExpr 0x55f42eee4688 <col:18> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.64] = [B2.61]
+  66: DeclRefExpr 0x55f42eee4808 <ldo.c:473:20> 'lu_byte':'unsigned char' lvalue Var 0x55f42eee3738 'old_allowhooks' 'lu_byte':'unsigned char'
+old_allowhooks
+  67: ImplicitCastExpr 0x55f42eee4830 <ldo.c:473:20> 'lu_byte':'unsigned char' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee4808 <col:20> 'lu_byte':'unsigned char' lvalue Var 0x55f42eee3738 'old_allowhooks' 'lu_byte':'unsigned char'
+[B2.66] (ImplicitCastExpr, LValueToRValue, lu_byte)
+  68: DeclRefExpr 0x55f42eee4790 <ldo.c:473:5> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+L
+  69: ImplicitCastExpr 0x55f42eee47b8 <ldo.c:473:5> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee4790 <col:5> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.68] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  70: MemberExpr 0x55f42eee47d0 <ldo.c:473:5, col:8> 'lu_byte':'unsigned char' lvalue ->allowhook 0x55f42ee88d10
+`-ImplicitCastExpr 0x55f42eee47b8 <col:5> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x55f42eee4790 <col:5> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.69]->allowhook
+  71: BinaryOperator 0x55f42eee4848 <ldo.c:473:5, col:20> 'lu_byte':'unsigned char' '='
+|-MemberExpr 0x55f42eee47d0 <col:5, col:8> 'lu_byte':'unsigned char' lvalue ->allowhook 0x55f42ee88d10
+| `-ImplicitCastExpr 0x55f42eee47b8 <col:5> 'lua_State *' <LValueToRValue>
+|   `-DeclRefExpr 0x55f42eee4790 <col:5> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+`-ImplicitCastExpr 0x55f42eee4830 <col:20> 'lu_byte':'unsigned char' <LValueToRValue>
+  `-DeclRefExpr 0x55f42eee4808 <col:20> 'lu_byte':'unsigned char' lvalue Var 0x55f42eee3738 'old_allowhooks' 'lu_byte':'unsigned char'
+[B2.70] = [B2.67]
+  72: DeclRefExpr 0x55f42eee4870 <ldo.c:474:5> 'void (lua_State *)' Function 0x55f42eebedb8 'restore_stack_limit' 'void (lua_State *)'
+restore_stack_limit
+  73: ImplicitCastExpr 0x55f42eee48c0 <ldo.c:474:5> 'void (*)(lua_State *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55f42eee4870 <col:5> 'void (lua_State *)' Function 0x55f42eebedb8 'restore_stack_limit' 'void (lua_State *)'
+[B2.72] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(lua_State *))
+  74: DeclRefExpr 0x55f42eee4898 <ldo.c:474:25> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+L
+  75: ImplicitCastExpr 0x55f42eee4908 <ldo.c:474:25> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee4898 <col:25> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.74] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  76: CallExpr 0x55f42eee48d8 <ldo.c:474:5, col:26> 'void'
+|-ImplicitCastExpr 0x55f42eee48c0 <col:5> 'void (*)(lua_State *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55f42eee4870 <col:5> 'void (lua_State *)' Function 0x55f42eebedb8 'restore_stack_limit' 'void (lua_State *)'
+`-ImplicitCastExpr 0x55f42eee4908 <col:25> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x55f42eee4898 <col:25> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B2.73]([B2.75])
+   Preds (1): B3
+   Succs (1): B1
+
+ [B3]
+   1: DeclStmt 0x55f42eee32d0 <ldo.c:458:3, col:13>col:7
+`-VarDecl 0x55f42eee3270 <col:3, col:7> col:7 used status 'int'
+int status;
+   2: DeclRefExpr 0x55f42eee33c0 <ldo.c:459:31> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+L
+   3: ImplicitCastExpr 0x55f42eee33e8 <ldo.c:459:31> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee33c0 <col:31> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B3.2] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   4: MemberExpr 0x55f42eee3400 <ldo.c:459:31, col:34> 'unsigned short' lvalue ->nCcalls 0x55f42ee88c00
+`-ImplicitCastExpr 0x55f42eee33e8 <col:31> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x55f42eee33c0 <col:31> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B3.3]->nCcalls
+   5: ImplicitCastExpr 0x55f42eee3438 <ldo.c:459:31, col:34> 'unsigned short' <LValueToRValue>
+`-MemberExpr 0x55f42eee3400 <col:31, col:34> 'unsigned short' lvalue ->nCcalls 0x55f42ee88c00
+  `-ImplicitCastExpr 0x55f42eee33e8 <col:31> 'lua_State *' <LValueToRValue>
+    `-DeclRefExpr 0x55f42eee33c0 <col:31> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B3.4] (ImplicitCastExpr, LValueToRValue, unsigned short)
+   6: DeclStmt 0x55f42eee3450 <ldo.c:459:3, col:41>col:18
+`-VarDecl 0x55f42eee3360 <col:3, col:34> col:18 used oldnCcalls 'unsigned short' cinit
+  `-ImplicitCastExpr 0x55f42eee3438 <col:31, col:34> 'unsigned short' <LValueToRValue>
+    `-MemberExpr 0x55f42eee3400 <col:31, col:34> 'unsigned short' lvalue ->nCcalls 0x55f42ee88c00
+      `-ImplicitCastExpr 0x55f42eee33e8 <col:31> 'lua_State *' <LValueToRValue>
+        `-DeclRefExpr 0x55f42eee33c0 <col:31> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+unsigned short oldnCcalls = L->nCcalls;
+   7: DeclRefExpr 0x55f42eee34d8 <ldo.c:460:32> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+L
+   8: ImplicitCastExpr 0x55f42eee3500 <ldo.c:460:32> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee34d8 <col:32> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B3.7] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   9: MemberExpr 0x55f42eee3518 <ldo.c:460:32, col:35> 'CallInfo *' lvalue ->ci 0x55f42ee88928
+`-ImplicitCastExpr 0x55f42eee3500 <col:32> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x55f42eee34d8 <col:32> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B3.8]->ci
+  10: ImplicitCastExpr 0x55f42eee35b8 <./ldo.h:27:31, col:33> 'CallInfo *' <LValueToRValue>
+`-ParenExpr 0x55f42eee3598 <col:31, col:33> 'CallInfo *' lvalue
+  `-MemberExpr 0x55f42eee3518 <ldo.c:460:32, col:35> 'CallInfo *' lvalue ->ci 0x55f42ee88928
+    `-ImplicitCastExpr 0x55f42eee3500 <col:32> 'lua_State *' <LValueToRValue>
+      `-DeclRefExpr 0x55f42eee34d8 <col:32> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+([B3.9]) (ImplicitCastExpr, LValueToRValue, CallInfo *)
+  11: CStyleCastExpr 0x55f42eee35d0 <./ldo.h:27:23, col:33> 'char *' <BitCast>
+`-ImplicitCastExpr 0x55f42eee35b8 <col:31, col:33> 'CallInfo *' <LValueToRValue>
+  `-ParenExpr 0x55f42eee3598 <col:31, col:33> 'CallInfo *' lvalue
+    `-MemberExpr 0x55f42eee3518 <ldo.c:460:32, col:35> 'CallInfo *' lvalue ->ci 0x55f42ee88928
+      `-ImplicitCastExpr 0x55f42eee3500 <col:32> 'lua_State *' <LValueToRValue>
+        `-DeclRefExpr 0x55f42eee34d8 <col:32> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+(char *)[B3.10] (CStyleCastExpr, BitCast, char *)
+  12: DeclRefExpr 0x55f42eee35f8 <ldo.c:460:29> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+L
+  13: ImplicitCastExpr 0x55f42eee3620 <ldo.c:460:29> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee35f8 <col:29> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B3.12] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  14: MemberExpr 0x55f42eee3638 <ldo.c:460:29, ./ldo.h:27:48> 'CallInfo *' lvalue ->base_ci 0x55f42ee88ae0
+`-ImplicitCastExpr 0x55f42eee3620 <ldo.c:460:29> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x55f42eee35f8 <col:29> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B3.13]->base_ci
+  15: ImplicitCastExpr 0x55f42eee3688 <ldo.c:460:29, ./ldo.h:27:48> 'CallInfo *' <LValueToRValue>
+`-MemberExpr 0x55f42eee3638 <ldo.c:460:29, ./ldo.h:27:48> 'CallInfo *' lvalue ->base_ci 0x55f42ee88ae0
+  `-ImplicitCastExpr 0x55f42eee3620 <ldo.c:460:29> 'lua_State *' <LValueToRValue>
+    `-DeclRefExpr 0x55f42eee35f8 <col:29> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B3.14] (ImplicitCastExpr, LValueToRValue, CallInfo *)
+  16: CStyleCastExpr 0x55f42eee36a0 <./ldo.h:27:37, col:48> 'char *' <BitCast>
+`-ImplicitCastExpr 0x55f42eee3688 <ldo.c:460:29, ./ldo.h:27:48> 'CallInfo *' <LValueToRValue>
+  `-MemberExpr 0x55f42eee3638 <ldo.c:460:29, ./ldo.h:27:48> 'CallInfo *' lvalue ->base_ci 0x55f42ee88ae0
+    `-ImplicitCastExpr 0x55f42eee3620 <ldo.c:460:29> 'lua_State *' <LValueToRValue>
+      `-DeclRefExpr 0x55f42eee35f8 <col:29> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+(char *)[B3.15] (CStyleCastExpr, BitCast, char *)
+  17: BinaryOperator 0x55f42eee36c8 <./ldo.h:27:23, col:48> 'long' '-'
+|-CStyleCastExpr 0x55f42eee35d0 <col:23, col:33> 'char *' <BitCast>
+| `-ImplicitCastExpr 0x55f42eee35b8 <col:31, col:33> 'CallInfo *' <LValueToRValue>
+|   `-ParenExpr 0x55f42eee3598 <col:31, col:33> 'CallInfo *' lvalue
+|     `-MemberExpr 0x55f42eee3518 <ldo.c:460:32, col:35> 'CallInfo *' lvalue ->ci 0x55f42ee88928
+|       `-ImplicitCastExpr 0x55f42eee3500 <col:32> 'lua_State *' <LValueToRValue>
+|         `-DeclRefExpr 0x55f42eee34d8 <col:32> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+`-CStyleCastExpr 0x55f42eee36a0 <./ldo.h:27:37, col:48> 'char *' <BitCast>
+  `-ImplicitCastExpr 0x55f42eee3688 <ldo.c:460:29, ./ldo.h:27:48> 'CallInfo *' <LValueToRValue>
+    `-MemberExpr 0x55f42eee3638 <ldo.c:460:29, ./ldo.h:27:48> 'CallInfo *' lvalue ->base_ci 0x55f42ee88ae0
+      `-ImplicitCastExpr 0x55f42eee3620 <ldo.c:460:29> 'lua_State *' <LValueToRValue>
+        `-DeclRefExpr 0x55f42eee35f8 <col:29> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B3.11] - [B3.16]
+  18: DeclStmt 0x55f42eee3710 <ldo.c:460:3, col:38>col:13
+`-VarDecl 0x55f42eee3478 <col:3, ./ldo.h:27:55> ldo.c:460:13 used old_ci 'ptrdiff_t':'long' cinit
+  `-ParenExpr 0x55f42eee36f0 <./ldo.h:27:22, col:55> 'long'
+    `-BinaryOperator 0x55f42eee36c8 <col:23, col:48> 'long' '-'
+      |-CStyleCastExpr 0x55f42eee35d0 <col:23, col:33> 'char *' <BitCast>
+      | `-ImplicitCastExpr 0x55f42eee35b8 <col:31, col:33> 'CallInfo *' <LValueToRValue>
+      |   `-ParenExpr 0x55f42eee3598 <col:31, col:33> 'CallInfo *' lvalue
+      |     `-MemberExpr 0x55f42eee3518 <ldo.c:460:32, col:35> 'CallInfo *' lvalue ->ci 0x55f42ee88928
+      |       `-ImplicitCastExpr 0x55f42eee3500 <col:32> 'lua_State *' <LValueToRValue>
+      |         `-DeclRefExpr 0x55f42eee34d8 <col:32> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+      `-CStyleCastExpr 0x55f42eee36a0 <./ldo.h:27:37, col:48> 'char *' <BitCast>
+        `-ImplicitCastExpr 0x55f42eee3688 <ldo.c:460:29, ./ldo.h:27:48> 'CallInfo *' <LValueToRValue>
+          `-MemberExpr 0x55f42eee3638 <ldo.c:460:29, ./ldo.h:27:48> 'CallInfo *' lvalue ->base_ci 0x55f42ee88ae0
+            `-ImplicitCastExpr 0x55f42eee3620 <ldo.c:460:29> 'lua_State *' <LValueToRValue>
+              `-DeclRefExpr 0x55f42eee35f8 <col:29> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+ptrdiff_t old_ci = ((char *)(L->ci) - (char *)L->base_ci);
+  19: DeclRefExpr 0x55f42eee3798 <ldo.c:461:28> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+L
+  20: ImplicitCastExpr 0x55f42eee37c0 <ldo.c:461:28> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee3798 <col:28> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B3.19] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  21: MemberExpr 0x55f42eee37d8 <ldo.c:461:28, col:31> 'lu_byte':'unsigned char' lvalue ->allowhook 0x55f42ee88d10
+`-ImplicitCastExpr 0x55f42eee37c0 <col:28> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x55f42eee3798 <col:28> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B3.20]->allowhook
+  22: ImplicitCastExpr 0x55f42eee3810 <ldo.c:461:28, col:31> 'lu_byte':'unsigned char' <LValueToRValue>
+`-MemberExpr 0x55f42eee37d8 <col:28, col:31> 'lu_byte':'unsigned char' lvalue ->allowhook 0x55f42ee88d10
+  `-ImplicitCastExpr 0x55f42eee37c0 <col:28> 'lua_State *' <LValueToRValue>
+    `-DeclRefExpr 0x55f42eee3798 <col:28> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B3.21] (ImplicitCastExpr, LValueToRValue, lu_byte)
+  23: DeclStmt 0x55f42eee3828 <ldo.c:461:3, col:40>col:11
+`-VarDecl 0x55f42eee3738 <col:3, col:31> col:11 used old_allowhooks 'lu_byte':'unsigned char' cinit
+  `-ImplicitCastExpr 0x55f42eee3810 <col:28, col:31> 'lu_byte':'unsigned char' <LValueToRValue>
+    `-MemberExpr 0x55f42eee37d8 <col:28, col:31> 'lu_byte':'unsigned char' lvalue ->allowhook 0x55f42ee88d10
+      `-ImplicitCastExpr 0x55f42eee37c0 <col:28> 'lua_State *' <LValueToRValue>
+        `-DeclRefExpr 0x55f42eee3798 <col:28> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+lu_byte old_allowhooks = L->allowhook;
+  24: DeclRefExpr 0x55f42eee38b0 <ldo.c:462:27> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+L
+  25: ImplicitCastExpr 0x55f42eee38d8 <ldo.c:462:27> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee38b0 <col:27> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B3.24] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  26: MemberExpr 0x55f42eee38f0 <ldo.c:462:27, col:30> 'ptrdiff_t':'long' lvalue ->errfunc 0x55f42ee890d8
+`-ImplicitCastExpr 0x55f42eee38d8 <col:27> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x55f42eee38b0 <col:27> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B3.25]->errfunc
+  27: ImplicitCastExpr 0x55f42eee3928 <ldo.c:462:27, col:30> 'ptrdiff_t':'long' <LValueToRValue>
+`-MemberExpr 0x55f42eee38f0 <col:27, col:30> 'ptrdiff_t':'long' lvalue ->errfunc 0x55f42ee890d8
+  `-ImplicitCastExpr 0x55f42eee38d8 <col:27> 'lua_State *' <LValueToRValue>
+    `-DeclRefExpr 0x55f42eee38b0 <col:27> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B3.26] (ImplicitCastExpr, LValueToRValue, ptrdiff_t)
+  28: DeclStmt 0x55f42eee3940 <ldo.c:462:3, col:37>col:13
+`-VarDecl 0x55f42eee3850 <col:3, col:30> col:13 used old_errfunc 'ptrdiff_t':'long' cinit
+  `-ImplicitCastExpr 0x55f42eee3928 <col:27, col:30> 'ptrdiff_t':'long' <LValueToRValue>
+    `-MemberExpr 0x55f42eee38f0 <col:27, col:30> 'ptrdiff_t':'long' lvalue ->errfunc 0x55f42ee890d8
+      `-ImplicitCastExpr 0x55f42eee38d8 <col:27> 'lua_State *' <LValueToRValue>
+        `-DeclRefExpr 0x55f42eee38b0 <col:27> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+ptrdiff_t old_errfunc = L->errfunc;
+  29: DeclRefExpr 0x55f42eee39d0 <ldo.c:463:16> 'ptrdiff_t':'long' lvalue ParmVar 0x55f42eee3098 'ef' 'ptrdiff_t':'long'
+ef
+  30: ImplicitCastExpr 0x55f42eee39f8 <ldo.c:463:16> 'ptrdiff_t':'long' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee39d0 <col:16> 'ptrdiff_t':'long' lvalue ParmVar 0x55f42eee3098 'ef' 'ptrdiff_t':'long'
+[B3.29] (ImplicitCastExpr, LValueToRValue, ptrdiff_t)
+  31: DeclRefExpr 0x55f42eee3958 <ldo.c:463:3> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+L
+  32: ImplicitCastExpr 0x55f42eee3980 <ldo.c:463:3> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee3958 <col:3> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B3.31] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  33: MemberExpr 0x55f42eee3998 <ldo.c:463:3, col:6> 'ptrdiff_t':'long' lvalue ->errfunc 0x55f42ee890d8
+`-ImplicitCastExpr 0x55f42eee3980 <col:3> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x55f42eee3958 <col:3> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B3.32]->errfunc
+  34: BinaryOperator 0x55f42eee3a10 <ldo.c:463:3, col:16> 'ptrdiff_t':'long' '='
+|-MemberExpr 0x55f42eee3998 <col:3, col:6> 'ptrdiff_t':'long' lvalue ->errfunc 0x55f42ee890d8
+| `-ImplicitCastExpr 0x55f42eee3980 <col:3> 'lua_State *' <LValueToRValue>
+|   `-DeclRefExpr 0x55f42eee3958 <col:3> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+`-ImplicitCastExpr 0x55f42eee39f8 <col:16> 'ptrdiff_t':'long' <LValueToRValue>
+  `-DeclRefExpr 0x55f42eee39d0 <col:16> 'ptrdiff_t':'long' lvalue ParmVar 0x55f42eee3098 'ef' 'ptrdiff_t':'long'
+[B3.33] = [B3.30]
+  35: DeclRefExpr 0x55f42eee3a60 <ldo.c:464:12> 'int (lua_State *, Pfunc, void *)' Function 0x55f42eec2aa0 'luaD_rawrunprotected' 'int (lua_State *, Pfunc, void *)'
+luaD_rawrunprotected
+  36: ImplicitCastExpr 0x55f42eee3b00 <ldo.c:464:12> 'int (*)(lua_State *, Pfunc, void *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55f42eee3a60 <col:12> 'int (lua_State *, Pfunc, void *)' Function 0x55f42eec2aa0 'luaD_rawrunprotected' 'int (lua_State *, Pfunc, void *)'
+[B3.35] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(lua_State *, Pfunc, void *))
+  37: DeclRefExpr 0x55f42eee3a88 <ldo.c:464:33> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+L
+  38: ImplicitCastExpr 0x55f42eee3b58 <ldo.c:464:33> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee3a88 <col:33> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+[B3.37] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  39: DeclRefExpr 0x55f42eee3ab0 <ldo.c:464:36> 'Pfunc':'void (*)(lua_State *, void *)' lvalue ParmVar 0x55f42eee2f40 'func' 'Pfunc':'void (*)(lua_State *, void *)'
+func
+  40: ImplicitCastExpr 0x55f42eee3b70 <ldo.c:464:36> 'Pfunc':'void (*)(lua_State *, void *)' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee3ab0 <col:36> 'Pfunc':'void (*)(lua_State *, void *)' lvalue ParmVar 0x55f42eee2f40 'func' 'Pfunc':'void (*)(lua_State *, void *)'
+[B3.39] (ImplicitCastExpr, LValueToRValue, Pfunc)
+  41: DeclRefExpr 0x55f42eee3ad8 <ldo.c:464:42> 'void *' lvalue ParmVar 0x55f42eee2fb8 'u' 'void *'
+u
+  42: ImplicitCastExpr 0x55f42eee3b88 <ldo.c:464:42> 'void *' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee3ad8 <col:42> 'void *' lvalue ParmVar 0x55f42eee2fb8 'u' 'void *'
+[B3.41] (ImplicitCastExpr, LValueToRValue, void *)
+  43: CallExpr 0x55f42eee3b18 <ldo.c:464:12, col:43> 'int'
+|-ImplicitCastExpr 0x55f42eee3b00 <col:12> 'int (*)(lua_State *, Pfunc, void *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55f42eee3a60 <col:12> 'int (lua_State *, Pfunc, void *)' Function 0x55f42eec2aa0 'luaD_rawrunprotected' 'int (lua_State *, Pfunc, void *)'
+|-ImplicitCastExpr 0x55f42eee3b58 <col:33> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x55f42eee3a88 <col:33> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+|-ImplicitCastExpr 0x55f42eee3b70 <col:36> 'Pfunc':'void (*)(lua_State *, void *)' <LValueToRValue>
+| `-DeclRefExpr 0x55f42eee3ab0 <col:36> 'Pfunc':'void (*)(lua_State *, void *)' lvalue ParmVar 0x55f42eee2f40 'func' 'Pfunc':'void (*)(lua_State *, void *)'
+`-ImplicitCastExpr 0x55f42eee3b88 <col:42> 'void *' <LValueToRValue>
+  `-DeclRefExpr 0x55f42eee3ad8 <col:42> 'void *' lvalue ParmVar 0x55f42eee2fb8 'u' 'void *'
+[B3.36]([B3.38], [B3.40], [B3.42])
+  44: DeclRefExpr 0x55f42eee3a38 <ldo.c:464:3> 'int' lvalue Var 0x55f42eee3270 'status' 'int'
+status
+  45: BinaryOperator 0x55f42eee3ba0 <ldo.c:464:3, col:43> 'int' '='
+|-DeclRefExpr 0x55f42eee3a38 <col:3> 'int' lvalue Var 0x55f42eee3270 'status' 'int'
+`-CallExpr 0x55f42eee3b18 <col:12, col:43> 'int'
+  |-ImplicitCastExpr 0x55f42eee3b00 <col:12> 'int (*)(lua_State *, Pfunc, void *)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55f42eee3a60 <col:12> 'int (lua_State *, Pfunc, void *)' Function 0x55f42eec2aa0 'luaD_rawrunprotected' 'int (lua_State *, Pfunc, void *)'
+  |-ImplicitCastExpr 0x55f42eee3b58 <col:33> 'lua_State *' <LValueToRValue>
+  | `-DeclRefExpr 0x55f42eee3a88 <col:33> 'lua_State *' lvalue ParmVar 0x55f42eee2ed0 'L' 'lua_State *'
+  |-ImplicitCastExpr 0x55f42eee3b70 <col:36> 'Pfunc':'void (*)(lua_State *, void *)' <LValueToRValue>
+  | `-DeclRefExpr 0x55f42eee3ab0 <col:36> 'Pfunc':'void (*)(lua_State *, void *)' lvalue ParmVar 0x55f42eee2f40 'func' 'Pfunc':'void (*)(lua_State *, void *)'
+  `-ImplicitCastExpr 0x55f42eee3b88 <col:42> 'void *' <LValueToRValue>
+    `-DeclRefExpr 0x55f42eee3ad8 <col:42> 'void *' lvalue ParmVar 0x55f42eee2fb8 'u' 'void *'
+[B3.44] = [B3.43]
+  46: DeclRefExpr 0x55f42eee3bc8 <ldo.c:465:7> 'int' lvalue Var 0x55f42eee3270 'status' 'int'
+status
+  47: ImplicitCastExpr 0x55f42eee3c10 <ldo.c:465:7> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55f42eee3bc8 <col:7> 'int' lvalue Var 0x55f42eee3270 'status' 'int'
+[B3.46] (ImplicitCastExpr, LValueToRValue, int)
+  48: IntegerLiteral 0x55f42eee3bf0 <ldo.c:465:17> 'int' 0
+0
+  49: BinaryOperator 0x55f42eee3c28 <ldo.c:465:7, col:17> 'int' '!='
+|-ImplicitCastExpr 0x55f42eee3c10 <col:7> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x55f42eee3bc8 <col:7> 'int' lvalue Var 0x55f42eee3270 'status' 'int'
+`-IntegerLiteral 0x55f42eee3bf0 <col:17> 'int' 0
+[B3.47] != [B3.48]
+   T: if [B3.49]
+   Preds (1): B4
+   Succs (2): B2 B1
+
+ [B0 (EXIT)]
+   Preds (1): B1

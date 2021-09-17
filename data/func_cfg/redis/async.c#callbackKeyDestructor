@@ -1,0 +1,40 @@
+static void callbackKeyDestructor(void *privdata, void *key)
+ [B2 (ENTRY)]
+   Succs (1): B1
+
+ [B1]
+   1: DeclRefExpr 0x55bf9a5ffdb0 <async.c:76:13> 'void *' lvalue ParmVar 0x55bf9a5ffbf8 'privdata' 'void *'
+privdata
+   2: ImplicitCastExpr 0x55bf9a5ffde8 <async.c:76:13> 'void *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a5ffdb0 <col:13> 'void *' lvalue ParmVar 0x55bf9a5ffbf8 'privdata' 'void *'
+[B1.1] (ImplicitCastExpr, LValueToRValue, void *)
+   3: CStyleCastExpr 0x55bf9a5ffe00 <async.c:76:6, col:13> 'void' <ToVoid>
+`-ImplicitCastExpr 0x55bf9a5ffde8 <col:13> 'void *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a5ffdb0 <col:13> 'void *' lvalue ParmVar 0x55bf9a5ffbf8 'privdata' 'void *'
+(void)[B1.2] (CStyleCastExpr, ToVoid, void)
+   4: DeclRefExpr 0x55bf9a5ffe48 <async.c:77:5> 'void (sds)' Function 0x55bf9a5afcc0 'sdsfree' 'void (sds)'
+sdsfree
+   5: ImplicitCastExpr 0x55bf9a5fff48 <async.c:77:5> 'void (*)(sds)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a5ffe48 <col:5> 'void (sds)' Function 0x55bf9a5afcc0 'sdsfree' 'void (sds)'
+[B1.4] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(sds))
+   6: DeclRefExpr 0x55bf9a5ffe70 <async.c:77:18> 'void *' lvalue ParmVar 0x55bf9a5ffc70 'key' 'void *'
+key
+   7: ImplicitCastExpr 0x55bf9a5ffea8 <async.c:77:18> 'void *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a5ffe70 <col:18> 'void *' lvalue ParmVar 0x55bf9a5ffc70 'key' 'void *'
+[B1.6] (ImplicitCastExpr, LValueToRValue, void *)
+   8: CStyleCastExpr 0x55bf9a5ffec0 <async.c:77:13, col:18> 'sds':'char *' <BitCast>
+`-ImplicitCastExpr 0x55bf9a5ffea8 <col:18> 'void *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a5ffe70 <col:18> 'void *' lvalue ParmVar 0x55bf9a5ffc70 'key' 'void *'
+(sds)[B1.7] (CStyleCastExpr, BitCast, sds)
+   9: CallExpr 0x55bf9a5fff60 <async.c:77:5, col:21> 'void'
+|-ImplicitCastExpr 0x55bf9a5fff48 <col:5> 'void (*)(sds)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a5ffe48 <col:5> 'void (sds)' Function 0x55bf9a5afcc0 'sdsfree' 'void (sds)'
+`-CStyleCastExpr 0x55bf9a5ffec0 <col:13, col:18> 'sds':'char *' <BitCast>
+  `-ImplicitCastExpr 0x55bf9a5ffea8 <col:18> 'void *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a5ffe70 <col:18> 'void *' lvalue ParmVar 0x55bf9a5ffc70 'key' 'void *'
+[B1.5]([B1.8])
+   Preds (1): B2
+   Succs (1): B0
+
+ [B0 (EXIT)]
+   Preds (1): B1

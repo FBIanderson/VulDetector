@@ -1,0 +1,15 @@
+TEST_BEGIN(test_bitmap_xfu) {
+	size_t nbits;
+
+	for (nbits = 1; nbits <= BITMAP_MAXBITS; nbits++) {
+		bitmap_info_t binfo;
+		bitmap_info_init(&binfo, nbits);
+		test_bitmap_xfu_body(&binfo, nbits);
+	}
+#define NB(nbits) {							\
+		bitmap_info_t binfo = BITMAP_INFO_INITIALIZER(nbits);	\
+		test_bitmap_xfu_body(&binfo, nbits);			\
+	}
+	NBITS_TAB
+#undef NB
+}

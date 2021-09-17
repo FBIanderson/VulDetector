@@ -1,0 +1,111 @@
+static void *l_alloc(void *ud, void *ptr, size_t osize, size_t nsize)
+ [B4 (ENTRY)]
+   Succs (1): B3
+
+ [B1]
+   1: DeclRefExpr 0x55f89cfde200 <lauxlib.c:635:12> 'void *(void *, unsigned long)' Function 0x55f89cf58c98 'realloc' 'void *(void *, unsigned long)'
+realloc
+   2: ImplicitCastExpr 0x55f89cfde2d8 <lauxlib.c:635:12> 'void *(*)(void *, unsigned long)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55f89cfde200 <col:12> 'void *(void *, unsigned long)' Function 0x55f89cf58c98 'realloc' 'void *(void *, unsigned long)'
+[B1.1] (ImplicitCastExpr, FunctionToPointerDecay, void *(*)(void *, unsigned long))
+   3: DeclRefExpr 0x55f89cfde228 <lauxlib.c:635:20> 'void *' lvalue ParmVar 0x55f89cfddc90 'ptr' 'void *'
+ptr
+   4: ImplicitCastExpr 0x55f89cfde328 <lauxlib.c:635:20> 'void *' <LValueToRValue>
+`-DeclRefExpr 0x55f89cfde228 <col:20> 'void *' lvalue ParmVar 0x55f89cfddc90 'ptr' 'void *'
+[B1.3] (ImplicitCastExpr, LValueToRValue, void *)
+   5: DeclRefExpr 0x55f89cfde250 <lauxlib.c:635:25> 'size_t':'unsigned long' lvalue ParmVar 0x55f89cfddd70 'nsize' 'size_t':'unsigned long'
+nsize
+   6: ImplicitCastExpr 0x55f89cfde340 <lauxlib.c:635:25> 'size_t':'unsigned long' <LValueToRValue>
+`-DeclRefExpr 0x55f89cfde250 <col:25> 'size_t':'unsigned long' lvalue ParmVar 0x55f89cfddd70 'nsize' 'size_t':'unsigned long'
+[B1.5] (ImplicitCastExpr, LValueToRValue, size_t)
+   7: CallExpr 0x55f89cfde2f0 <lauxlib.c:635:12, col:30> 'void *'
+|-ImplicitCastExpr 0x55f89cfde2d8 <col:12> 'void *(*)(void *, unsigned long)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55f89cfde200 <col:12> 'void *(void *, unsigned long)' Function 0x55f89cf58c98 'realloc' 'void *(void *, unsigned long)'
+|-ImplicitCastExpr 0x55f89cfde328 <col:20> 'void *' <LValueToRValue>
+| `-DeclRefExpr 0x55f89cfde228 <col:20> 'void *' lvalue ParmVar 0x55f89cfddc90 'ptr' 'void *'
+`-ImplicitCastExpr 0x55f89cfde340 <col:25> 'size_t':'unsigned long' <LValueToRValue>
+  `-DeclRefExpr 0x55f89cfde250 <col:25> 'size_t':'unsigned long' lvalue ParmVar 0x55f89cfddd70 'nsize' 'size_t':'unsigned long'
+[B1.2]([B1.4], [B1.6])
+   8: ReturnStmt 0x55f89cfde358 <lauxlib.c:635:5, col:30>
+`-CallExpr 0x55f89cfde2f0 <col:12, col:30> 'void *'
+  |-ImplicitCastExpr 0x55f89cfde2d8 <col:12> 'void *(*)(void *, unsigned long)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55f89cfde200 <col:12> 'void *(void *, unsigned long)' Function 0x55f89cf58c98 'realloc' 'void *(void *, unsigned long)'
+  |-ImplicitCastExpr 0x55f89cfde328 <col:20> 'void *' <LValueToRValue>
+  | `-DeclRefExpr 0x55f89cfde228 <col:20> 'void *' lvalue ParmVar 0x55f89cfddc90 'ptr' 'void *'
+  `-ImplicitCastExpr 0x55f89cfde340 <col:25> 'size_t':'unsigned long' <LValueToRValue>
+    `-DeclRefExpr 0x55f89cfde250 <col:25> 'size_t':'unsigned long' lvalue ParmVar 0x55f89cfddd70 'nsize' 'size_t':'unsigned long'
+return [B1.7];
+   Preds (1): B3
+   Succs (1): B0
+
+ [B2]
+   1: DeclRefExpr 0x55f89cfde068 <lauxlib.c:631:5> 'void (void *)' Function 0x55f89cf591c0 'free' 'void (void *)'
+free
+   2: ImplicitCastExpr 0x55f89cfde0e8 <lauxlib.c:631:5> 'void (*)(void *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55f89cfde068 <col:5> 'void (void *)' Function 0x55f89cf591c0 'free' 'void (void *)'
+[B2.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(void *))
+   3: DeclRefExpr 0x55f89cfde090 <lauxlib.c:631:10> 'void *' lvalue ParmVar 0x55f89cfddc90 'ptr' 'void *'
+ptr
+   4: ImplicitCastExpr 0x55f89cfde130 <lauxlib.c:631:10> 'void *' <LValueToRValue>
+`-DeclRefExpr 0x55f89cfde090 <col:10> 'void *' lvalue ParmVar 0x55f89cfddc90 'ptr' 'void *'
+[B2.3] (ImplicitCastExpr, LValueToRValue, void *)
+   5: CallExpr 0x55f89cfde100 <lauxlib.c:631:5, col:13> 'void'
+|-ImplicitCastExpr 0x55f89cfde0e8 <col:5> 'void (*)(void *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55f89cfde068 <col:5> 'void (void *)' Function 0x55f89cf591c0 'free' 'void (void *)'
+`-ImplicitCastExpr 0x55f89cfde130 <col:10> 'void *' <LValueToRValue>
+  `-DeclRefExpr 0x55f89cfde090 <col:10> 'void *' lvalue ParmVar 0x55f89cfddc90 'ptr' 'void *'
+[B2.2]([B2.4])
+   6: IntegerLiteral 0x55f89cfde148 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+   7: CStyleCastExpr 0x55f89cfde180 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x55f89cfde148 <col:24> 'int' 0
+(void *)[B2.6] (CStyleCastExpr, NullToPointer, void *)
+   8: ReturnStmt 0x55f89cfde1c8 <lauxlib.c:632:5, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25>
+`-ParenExpr 0x55f89cfde1a8 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x55f89cfde180 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x55f89cfde148 <col:24> 'int' 0
+return ([B2.7]);
+   Preds (1): B3
+   Succs (1): B0
+
+ [B3]
+   1: DeclRefExpr 0x55f89cfdded8 <lauxlib.c:628:9> 'void *' lvalue ParmVar 0x55f89cfddc18 'ud' 'void *'
+ud
+   2: ImplicitCastExpr 0x55f89cfddf10 <lauxlib.c:628:9> 'void *' <LValueToRValue>
+`-DeclRefExpr 0x55f89cfdded8 <col:9> 'void *' lvalue ParmVar 0x55f89cfddc18 'ud' 'void *'
+[B3.1] (ImplicitCastExpr, LValueToRValue, void *)
+   3: CStyleCastExpr 0x55f89cfddf28 <lauxlib.c:628:3, col:9> 'void' <ToVoid>
+`-ImplicitCastExpr 0x55f89cfddf10 <col:9> 'void *' <LValueToRValue>
+  `-DeclRefExpr 0x55f89cfdded8 <col:9> 'void *' lvalue ParmVar 0x55f89cfddc18 'ud' 'void *'
+(void)[B3.2] (CStyleCastExpr, ToVoid, void)
+   4: DeclRefExpr 0x55f89cfddf50 <lauxlib.c:629:9> 'size_t':'unsigned long' lvalue ParmVar 0x55f89cfddd00 'osize' 'size_t':'unsigned long'
+osize
+   5: ImplicitCastExpr 0x55f89cfddf88 <lauxlib.c:629:9> 'size_t':'unsigned long' <LValueToRValue>
+`-DeclRefExpr 0x55f89cfddf50 <col:9> 'size_t':'unsigned long' lvalue ParmVar 0x55f89cfddd00 'osize' 'size_t':'unsigned long'
+[B3.4] (ImplicitCastExpr, LValueToRValue, size_t)
+   6: CStyleCastExpr 0x55f89cfddfa0 <lauxlib.c:629:3, col:9> 'void' <ToVoid>
+`-ImplicitCastExpr 0x55f89cfddf88 <col:9> 'size_t':'unsigned long' <LValueToRValue>
+  `-DeclRefExpr 0x55f89cfddf50 <col:9> 'size_t':'unsigned long' lvalue ParmVar 0x55f89cfddd00 'osize' 'size_t':'unsigned long'
+(void)[B3.5] (CStyleCastExpr, ToVoid, void)
+   7: DeclRefExpr 0x55f89cfddfc8 <lauxlib.c:630:7> 'size_t':'unsigned long' lvalue ParmVar 0x55f89cfddd70 'nsize' 'size_t':'unsigned long'
+nsize
+   8: ImplicitCastExpr 0x55f89cfde010 <lauxlib.c:630:7> 'size_t':'unsigned long' <LValueToRValue>
+`-DeclRefExpr 0x55f89cfddfc8 <col:7> 'size_t':'unsigned long' lvalue ParmVar 0x55f89cfddd70 'nsize' 'size_t':'unsigned long'
+[B3.7] (ImplicitCastExpr, LValueToRValue, size_t)
+   9: IntegerLiteral 0x55f89cfddff0 <lauxlib.c:630:16> 'int' 0
+0
+  10: ImplicitCastExpr 0x55f89cfde028 <lauxlib.c:630:16> 'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x55f89cfddff0 <col:16> 'int' 0
+[B3.9] (ImplicitCastExpr, IntegralCast, unsigned long)
+  11: BinaryOperator 0x55f89cfde040 <lauxlib.c:630:7, col:16> 'int' '=='
+|-ImplicitCastExpr 0x55f89cfde010 <col:7> 'size_t':'unsigned long' <LValueToRValue>
+| `-DeclRefExpr 0x55f89cfddfc8 <col:7> 'size_t':'unsigned long' lvalue ParmVar 0x55f89cfddd70 'nsize' 'size_t':'unsigned long'
+`-ImplicitCastExpr 0x55f89cfde028 <col:16> 'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x55f89cfddff0 <col:16> 'int' 0
+[B3.8] == [B3.10]
+   T: if [B3.11]
+   Preds (1): B4
+   Succs (2): B2 B1
+
+ [B0 (EXIT)]
+   Preds (2): B1 B2

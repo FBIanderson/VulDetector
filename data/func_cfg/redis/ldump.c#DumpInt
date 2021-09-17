@@ -1,0 +1,65 @@
+static void DumpInt(int x, DumpState *D)
+ [B2 (ENTRY)]
+   Succs (1): B1
+
+ [B1]
+   1: DeclRefExpr 0x562132dd6428 <ldump.c:26:29> 'void (const void *, size_t, DumpState *)' Function 0x562132dd52b0 'DumpBlock' 'void (const void *, size_t, DumpState *)'
+DumpBlock
+   2: ImplicitCastExpr 0x562132dd65c8 <ldump.c:26:29> 'void (*)(const void *, size_t, DumpState *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x562132dd6428 <col:29> 'void (const void *, size_t, DumpState *)' Function 0x562132dd52b0 'DumpBlock' 'void (const void *, size_t, DumpState *)'
+[B1.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(const void *, size_t, DumpState *))
+   3: DeclRefExpr 0x562132dd6450 <ldump.c:47:10> 'int' lvalue ParmVar 0x562132dd6278 'x' 'int'
+x
+   4: UnaryOperator 0x562132dd6478 <ldump.c:27:32, line:47:10> 'int *' prefix '&'
+`-DeclRefExpr 0x562132dd6450 <col:10> 'int' lvalue ParmVar 0x562132dd6278 'x' 'int'
+&[B1.3]
+   5: ImplicitCastExpr 0x562132dd6620 <ldump.c:27:32, line:47:10> 'const void *' <BitCast>
+`-UnaryOperator 0x562132dd6478 <line:27:32, line:47:10> 'int *' prefix '&'
+  `-DeclRefExpr 0x562132dd6450 <col:10> 'int' lvalue ParmVar 0x562132dd6278 'x' 'int'
+[B1.4] (ImplicitCastExpr, BitCast, const void *)
+   6: IntegerLiteral 0x562132dd6498 <ldump.c:27:35> 'int' 1
+1
+   7: ImplicitCastExpr 0x562132dd6560 <ldump.c:26:41, col:43> 'unsigned long' <IntegralCast>
+`-ParenExpr 0x562132dd64b8 <col:41, col:43> 'int'
+  `-IntegerLiteral 0x562132dd6498 <line:27:35> 'int' 1
+([B1.6]) (ImplicitCastExpr, IntegralCast, unsigned long)
+   8: UnaryExprOrTypeTraitExpr 0x562132dd6520 <ldump.c:27:37, col:45> 'unsigned long' sizeof
+`-ParenExpr 0x562132dd6500 <col:43, col:45> 'int' lvalue
+  `-DeclRefExpr 0x562132dd64d8 <line:47:10> 'int' lvalue ParmVar 0x562132dd6278 'x' 'int'
+sizeof (x)
+   9: BinaryOperator 0x562132dd6578 <ldump.c:26:41, col:50> 'unsigned long' '*'
+|-ImplicitCastExpr 0x562132dd6560 <col:41, col:43> 'unsigned long' <IntegralCast>
+| `-ParenExpr 0x562132dd64b8 <col:41, col:43> 'int'
+|   `-IntegerLiteral 0x562132dd6498 <line:27:35> 'int' 1
+`-ParenExpr 0x562132dd6540 <line:26:45, col:50> 'unsigned long'
+  `-UnaryExprOrTypeTraitExpr 0x562132dd6520 <line:27:37, col:45> 'unsigned long' sizeof
+    `-ParenExpr 0x562132dd6500 <col:43, col:45> 'int' lvalue
+      `-DeclRefExpr 0x562132dd64d8 <line:47:10> 'int' lvalue ParmVar 0x562132dd6278 'x' 'int'
+[B1.7] * ([B1.8])
+  10: DeclRefExpr 0x562132dd65a0 <ldump.c:47:12> 'DumpState *' lvalue ParmVar 0x562132dd62e8 'D' 'DumpState *'
+D
+  11: ImplicitCastExpr 0x562132dd6638 <ldump.c:47:12> 'DumpState *' <LValueToRValue>
+`-DeclRefExpr 0x562132dd65a0 <col:12> 'DumpState *' lvalue ParmVar 0x562132dd62e8 'D' 'DumpState *'
+[B1.10] (ImplicitCastExpr, LValueToRValue, DumpState *)
+  12: CallExpr 0x562132dd65e0 <ldump.c:26:29, col:53> 'void'
+|-ImplicitCastExpr 0x562132dd65c8 <col:29> 'void (*)(const void *, size_t, DumpState *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x562132dd6428 <col:29> 'void (const void *, size_t, DumpState *)' Function 0x562132dd52b0 'DumpBlock' 'void (const void *, size_t, DumpState *)'
+|-ImplicitCastExpr 0x562132dd6620 <line:27:32, line:47:10> 'const void *' <BitCast>
+| `-UnaryOperator 0x562132dd6478 <line:27:32, line:47:10> 'int *' prefix '&'
+|   `-DeclRefExpr 0x562132dd6450 <col:10> 'int' lvalue ParmVar 0x562132dd6278 'x' 'int'
+|-BinaryOperator 0x562132dd6578 <line:26:41, col:50> 'unsigned long' '*'
+| |-ImplicitCastExpr 0x562132dd6560 <col:41, col:43> 'unsigned long' <IntegralCast>
+| | `-ParenExpr 0x562132dd64b8 <col:41, col:43> 'int'
+| |   `-IntegerLiteral 0x562132dd6498 <line:27:35> 'int' 1
+| `-ParenExpr 0x562132dd6540 <line:26:45, col:50> 'unsigned long'
+|   `-UnaryExprOrTypeTraitExpr 0x562132dd6520 <line:27:37, col:45> 'unsigned long' sizeof
+|     `-ParenExpr 0x562132dd6500 <col:43, col:45> 'int' lvalue
+|       `-DeclRefExpr 0x562132dd64d8 <line:47:10> 'int' lvalue ParmVar 0x562132dd6278 'x' 'int'
+`-ImplicitCastExpr 0x562132dd6638 <col:12> 'DumpState *' <LValueToRValue>
+  `-DeclRefExpr 0x562132dd65a0 <col:12> 'DumpState *' lvalue ParmVar 0x562132dd62e8 'D' 'DumpState *'
+[B1.2]([B1.5], [B1.9], [B1.11])
+   Preds (1): B2
+   Succs (1): B0
+
+ [B0 (EXIT)]
+   Preds (1): B1

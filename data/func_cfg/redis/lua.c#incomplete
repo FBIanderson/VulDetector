@@ -1,0 +1,238 @@
+static int incomplete(lua_State *L, int status)
+ [B5 (ENTRY)]
+   Succs (1): B4
+
+ [B1]
+   1: IntegerLiteral 0x55cfe6368cd8 <lua.c:173:10> 'int' 0
+0
+   2: ReturnStmt 0x55cfe6368cf8 <lua.c:173:3, col:10>
+`-IntegerLiteral 0x55cfe6368cd8 <col:10> 'int' 0
+return [B1.1];
+   Preds (2): B3 B4
+   Succs (1): B0
+
+ [B2]
+   1: DeclRefExpr 0x55cfe6368a80 <./lua.h:254:23> 'void (lua_State *, int)':'void (lua_State *, int)' Function 0x55cfe6338e00 'lua_settop' 'void (lua_State *, int)':'void (lua_State *, int)'
+lua_settop
+   2: ImplicitCastExpr 0x55cfe6368b78 <./lua.h:254:23> 'void (*)(lua_State *, int)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55cfe6368a80 <col:23> 'void (lua_State *, int)':'void (lua_State *, int)' Function 0x55cfe6338e00 'lua_settop' 'void (lua_State *, int)':'void (lua_State *, int)'
+[B2.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(lua_State *, int))
+   3: DeclRefExpr 0x55cfe6368aa8 <lua.c:169:15> 'lua_State *' lvalue ParmVar 0x55cfe6367160 'L' 'lua_State *'
+L
+   4: ImplicitCastExpr 0x55cfe6368bc8 <lua.c:169:15> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55cfe6368aa8 <col:15> 'lua_State *' lvalue ParmVar 0x55cfe6367160 'L' 'lua_State *'
+[B2.3] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   5: IntegerLiteral 0x55cfe6368ad0 <lua.c:169:18> 'int' 1
+1
+   6: UnaryOperator 0x55cfe6368b10 <./lua.h:254:37, col:40> 'int' prefix '-'
+`-ParenExpr 0x55cfe6368af0 <col:38, col:40> 'int'
+  `-IntegerLiteral 0x55cfe6368ad0 <lua.c:169:18> 'int' 1
+-([B2.5])
+   7: IntegerLiteral 0x55cfe6368b30 <./lua.h:254:42> 'int' 1
+1
+   8: BinaryOperator 0x55cfe6368b50 <./lua.h:254:37, col:42> 'int' '-'
+|-UnaryOperator 0x55cfe6368b10 <col:37, col:40> 'int' prefix '-'
+| `-ParenExpr 0x55cfe6368af0 <col:38, col:40> 'int'
+|   `-IntegerLiteral 0x55cfe6368ad0 <lua.c:169:18> 'int' 1
+`-IntegerLiteral 0x55cfe6368b30 <./lua.h:254:42> 'int' 1
+[B2.6] - [B2.7]
+   9: CallExpr 0x55cfe6368b90 <./lua.h:254:23, col:43> 'void'
+|-ImplicitCastExpr 0x55cfe6368b78 <col:23> 'void (*)(lua_State *, int)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55cfe6368a80 <col:23> 'void (lua_State *, int)':'void (lua_State *, int)' Function 0x55cfe6338e00 'lua_settop' 'void (lua_State *, int)':'void (lua_State *, int)'
+|-ImplicitCastExpr 0x55cfe6368bc8 <lua.c:169:15> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x55cfe6368aa8 <col:15> 'lua_State *' lvalue ParmVar 0x55cfe6367160 'L' 'lua_State *'
+`-BinaryOperator 0x55cfe6368b50 <./lua.h:254:37, col:42> 'int' '-'
+  |-UnaryOperator 0x55cfe6368b10 <col:37, col:40> 'int' prefix '-'
+  | `-ParenExpr 0x55cfe6368af0 <col:38, col:40> 'int'
+  |   `-IntegerLiteral 0x55cfe6368ad0 <lua.c:169:18> 'int' 1
+  `-IntegerLiteral 0x55cfe6368b30 <./lua.h:254:42> 'int' 1
+[B2.2]([B2.4], [B2.8])
+  10: IntegerLiteral 0x55cfe6368be0 <lua.c:170:14> 'int' 1
+1
+  11: ReturnStmt 0x55cfe6368c00 <lua.c:170:7, col:14>
+`-IntegerLiteral 0x55cfe6368be0 <col:14> 'int' 1
+return [B2.10];
+   Preds (1): B3
+   Succs (1): B0
+
+ [B3]
+   1: DeclStmt 0x55cfe6367418 <lua.c:165:5, col:16>col:12
+`-VarDecl 0x55cfe63673b8 <col:5, col:12> col:12 used lmsg 'size_t':'unsigned long'
+size_t lmsg;
+   2: DeclRefExpr 0x55cfe63674a8 <lua.c:166:23> 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)' Function 0x55cfe633b9c8 'lua_tolstring' 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)'
+lua_tolstring
+   3: ImplicitCastExpr 0x55cfe6367580 <lua.c:166:23> 'const char *(*)(lua_State *, int, size_t *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55cfe63674a8 <col:23> 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)' Function 0x55cfe633b9c8 'lua_tolstring' 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)'
+[B3.2] (ImplicitCastExpr, FunctionToPointerDecay, const char *(*)(lua_State *, int, size_t *))
+   4: DeclRefExpr 0x55cfe63674d0 <lua.c:166:37> 'lua_State *' lvalue ParmVar 0x55cfe6367160 'L' 'lua_State *'
+L
+   5: ImplicitCastExpr 0x55cfe6368600 <lua.c:166:37> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55cfe63674d0 <col:37> 'lua_State *' lvalue ParmVar 0x55cfe6367160 'L' 'lua_State *'
+[B3.4] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   6: IntegerLiteral 0x55cfe63674f8 <lua.c:166:41> 'int' 1
+1
+   7: UnaryOperator 0x55cfe6367518 <lua.c:166:40, col:41> 'int' prefix '-'
+`-IntegerLiteral 0x55cfe63674f8 <col:41> 'int' 1
+-[B3.6]
+   8: DeclRefExpr 0x55cfe6367538 <lua.c:166:45> 'size_t':'unsigned long' lvalue Var 0x55cfe63673b8 'lmsg' 'size_t':'unsigned long'
+lmsg
+   9: UnaryOperator 0x55cfe6367560 <lua.c:166:44, col:45> 'size_t *' prefix '&'
+`-DeclRefExpr 0x55cfe6367538 <col:45> 'size_t':'unsigned long' lvalue Var 0x55cfe63673b8 'lmsg' 'size_t':'unsigned long'
+&[B3.8]
+  10: CallExpr 0x55cfe6367598 <lua.c:166:23, col:49> 'const char *'
+|-ImplicitCastExpr 0x55cfe6367580 <col:23> 'const char *(*)(lua_State *, int, size_t *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55cfe63674a8 <col:23> 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)' Function 0x55cfe633b9c8 'lua_tolstring' 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)'
+|-ImplicitCastExpr 0x55cfe6368600 <col:37> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x55cfe63674d0 <col:37> 'lua_State *' lvalue ParmVar 0x55cfe6367160 'L' 'lua_State *'
+|-UnaryOperator 0x55cfe6367518 <col:40, col:41> 'int' prefix '-'
+| `-IntegerLiteral 0x55cfe63674f8 <col:41> 'int' 1
+`-UnaryOperator 0x55cfe6367560 <col:44, col:45> 'size_t *' prefix '&'
+  `-DeclRefExpr 0x55cfe6367538 <col:45> 'size_t':'unsigned long' lvalue Var 0x55cfe63673b8 'lmsg' 'size_t':'unsigned long'
+[B3.3]([B3.5], [B3.7], [B3.9])
+  11: DeclStmt 0x55cfe6368618 <lua.c:166:5, col:50>col:17
+`-VarDecl 0x55cfe6367448 <col:5, col:49> col:17 used msg 'const char *' cinit
+  `-CallExpr 0x55cfe6367598 <col:23, col:49> 'const char *'
+    |-ImplicitCastExpr 0x55cfe6367580 <col:23> 'const char *(*)(lua_State *, int, size_t *)' <FunctionToPointerDecay>
+    | `-DeclRefExpr 0x55cfe63674a8 <col:23> 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)' Function 0x55cfe633b9c8 'lua_tolstring' 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)'
+    |-ImplicitCastExpr 0x55cfe6368600 <col:37> 'lua_State *' <LValueToRValue>
+    | `-DeclRefExpr 0x55cfe63674d0 <col:37> 'lua_State *' lvalue ParmVar 0x55cfe6367160 'L' 'lua_State *'
+    |-UnaryOperator 0x55cfe6367518 <col:40, col:41> 'int' prefix '-'
+    | `-IntegerLiteral 0x55cfe63674f8 <col:41> 'int' 1
+    `-UnaryOperator 0x55cfe6367560 <col:44, col:45> 'size_t *' prefix '&'
+      `-DeclRefExpr 0x55cfe6367538 <col:45> 'size_t':'unsigned long' lvalue Var 0x55cfe63673b8 'lmsg' 'size_t':'unsigned long'
+const char *msg = lua_tolstring(L, -1, &lmsg);
+  12: DeclRefExpr 0x55cfe63686a8 <lua.c:167:22> 'const char *' lvalue Var 0x55cfe6367448 'msg' 'const char *'
+msg
+  13: ImplicitCastExpr 0x55cfe63686f8 <lua.c:167:22> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x55cfe63686a8 <col:22> 'const char *' lvalue Var 0x55cfe6367448 'msg' 'const char *'
+[B3.12] (ImplicitCastExpr, LValueToRValue, const char *)
+  14: DeclRefExpr 0x55cfe63686d0 <lua.c:167:28> 'size_t':'unsigned long' lvalue Var 0x55cfe63673b8 'lmsg' 'size_t':'unsigned long'
+lmsg
+  15: ImplicitCastExpr 0x55cfe6368710 <lua.c:167:28> 'size_t':'unsigned long' <LValueToRValue>
+`-DeclRefExpr 0x55cfe63686d0 <col:28> 'size_t':'unsigned long' lvalue Var 0x55cfe63673b8 'lmsg' 'size_t':'unsigned long'
+[B3.14] (ImplicitCastExpr, LValueToRValue, size_t)
+  16: BinaryOperator 0x55cfe6368728 <lua.c:167:22, col:28> 'const char *' '+'
+|-ImplicitCastExpr 0x55cfe63686f8 <col:22> 'const char *' <LValueToRValue>
+| `-DeclRefExpr 0x55cfe63686a8 <col:22> 'const char *' lvalue Var 0x55cfe6367448 'msg' 'const char *'
+`-ImplicitCastExpr 0x55cfe6368710 <col:28> 'size_t':'unsigned long' <LValueToRValue>
+  `-DeclRefExpr 0x55cfe63686d0 <col:28> 'size_t':'unsigned long' lvalue Var 0x55cfe63673b8 'lmsg' 'size_t':'unsigned long'
+[B3.13] + [B3.15]
+  17: UnaryExprOrTypeTraitExpr 0x55cfe63687a8 <lua.c:167:36, col:58> 'unsigned long' sizeof
+`-ParenExpr 0x55cfe6368788 <col:42, col:58> 'char [8]' lvalue
+  `-StringLiteral 0x55cfe6368750 <./luaconf.h:201:19, col:25> 'char [8]' lvalue "'<eof>'"
+sizeof ("'<eof>'")
+  18: IntegerLiteral 0x55cfe63687c8 <lua.c:167:62> 'int' 1
+1
+  19: ImplicitCastExpr 0x55cfe63687e8 <lua.c:167:62> 'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x55cfe63687c8 <col:62> 'int' 1
+[B3.18] (ImplicitCastExpr, IntegralCast, unsigned long)
+  20: BinaryOperator 0x55cfe6368800 <lua.c:167:36, col:62> 'unsigned long' '-'
+|-UnaryExprOrTypeTraitExpr 0x55cfe63687a8 <col:36, col:58> 'unsigned long' sizeof
+| `-ParenExpr 0x55cfe6368788 <col:42, col:58> 'char [8]' lvalue
+|   `-StringLiteral 0x55cfe6368750 <./luaconf.h:201:19, col:25> 'char [8]' lvalue "'<eof>'"
+`-ImplicitCastExpr 0x55cfe63687e8 <lua.c:167:62> 'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x55cfe63687c8 <col:62> 'int' 1
+[B3.17] - [B3.19]
+  21: BinaryOperator 0x55cfe6368848 <lua.c:167:22, col:63> 'const char *' '-'
+|-BinaryOperator 0x55cfe6368728 <col:22, col:28> 'const char *' '+'
+| |-ImplicitCastExpr 0x55cfe63686f8 <col:22> 'const char *' <LValueToRValue>
+| | `-DeclRefExpr 0x55cfe63686a8 <col:22> 'const char *' lvalue Var 0x55cfe6367448 'msg' 'const char *'
+| `-ImplicitCastExpr 0x55cfe6368710 <col:28> 'size_t':'unsigned long' <LValueToRValue>
+|   `-DeclRefExpr 0x55cfe63686d0 <col:28> 'size_t':'unsigned long' lvalue Var 0x55cfe63673b8 'lmsg' 'size_t':'unsigned long'
+`-ParenExpr 0x55cfe6368828 <col:35, col:63> 'unsigned long'
+  `-BinaryOperator 0x55cfe6368800 <col:36, col:62> 'unsigned long' '-'
+    |-UnaryExprOrTypeTraitExpr 0x55cfe63687a8 <col:36, col:58> 'unsigned long' sizeof
+    | `-ParenExpr 0x55cfe6368788 <col:42, col:58> 'char [8]' lvalue
+    |   `-StringLiteral 0x55cfe6368750 <./luaconf.h:201:19, col:25> 'char [8]' lvalue "'<eof>'"
+    `-ImplicitCastExpr 0x55cfe63687e8 <lua.c:167:62> 'unsigned long' <IntegralCast>
+      `-IntegerLiteral 0x55cfe63687c8 <col:62> 'int' 1
+[B3.16] - ([B3.20])
+  22: DeclStmt 0x55cfe6368870 <lua.c:167:5, col:64>col:17
+`-VarDecl 0x55cfe6368648 <col:5, col:63> col:17 used tp 'const char *' cinit
+  `-BinaryOperator 0x55cfe6368848 <col:22, col:63> 'const char *' '-'
+    |-BinaryOperator 0x55cfe6368728 <col:22, col:28> 'const char *' '+'
+    | |-ImplicitCastExpr 0x55cfe63686f8 <col:22> 'const char *' <LValueToRValue>
+    | | `-DeclRefExpr 0x55cfe63686a8 <col:22> 'const char *' lvalue Var 0x55cfe6367448 'msg' 'const char *'
+    | `-ImplicitCastExpr 0x55cfe6368710 <col:28> 'size_t':'unsigned long' <LValueToRValue>
+    |   `-DeclRefExpr 0x55cfe63686d0 <col:28> 'size_t':'unsigned long' lvalue Var 0x55cfe63673b8 'lmsg' 'size_t':'unsigned long'
+    `-ParenExpr 0x55cfe6368828 <col:35, col:63> 'unsigned long'
+      `-BinaryOperator 0x55cfe6368800 <col:36, col:62> 'unsigned long' '-'
+        |-UnaryExprOrTypeTraitExpr 0x55cfe63687a8 <col:36, col:58> 'unsigned long' sizeof
+        | `-ParenExpr 0x55cfe6368788 <col:42, col:58> 'char [8]' lvalue
+        |   `-StringLiteral 0x55cfe6368750 <./luaconf.h:201:19, col:25> 'char [8]' lvalue "'<eof>'"
+        `-ImplicitCastExpr 0x55cfe63687e8 <lua.c:167:62> 'unsigned long' <IntegralCast>
+          `-IntegerLiteral 0x55cfe63687c8 <col:62> 'int' 1
+const char *tp = msg + lmsg - (sizeof ("'<eof>'") - 1);
+  23: DeclRefExpr 0x55cfe6368888 <lua.c:168:9> 'char *(const char *, const char *)' Function 0x55cfe630dfc8 'strstr' 'char *(const char *, const char *)'
+strstr
+  24: ImplicitCastExpr 0x55cfe6368968 <lua.c:168:9> 'char *(*)(const char *, const char *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55cfe6368888 <col:9> 'char *(const char *, const char *)' Function 0x55cfe630dfc8 'strstr' 'char *(const char *, const char *)'
+[B3.23] (ImplicitCastExpr, FunctionToPointerDecay, char *(*)(const char *, const char *))
+  25: DeclRefExpr 0x55cfe63688b0 <lua.c:168:16> 'const char *' lvalue Var 0x55cfe6367448 'msg' 'const char *'
+msg
+  26: ImplicitCastExpr 0x55cfe63689b8 <lua.c:168:16> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x55cfe63688b0 <col:16> 'const char *' lvalue Var 0x55cfe6367448 'msg' 'const char *'
+[B3.25] (ImplicitCastExpr, LValueToRValue, const char *)
+  27: StringLiteral 0x55cfe63688d8 <./luaconf.h:201:19, col:25> 'char [8]' lvalue "'<eof>'"
+"'<eof>'"
+  28: ImplicitCastExpr 0x55cfe63689d0 <./luaconf.h:201:19, col:25> 'char *' <ArrayToPointerDecay>
+`-StringLiteral 0x55cfe63688d8 <col:19, col:25> 'char [8]' lvalue "'<eof>'"
+[B3.27] (ImplicitCastExpr, ArrayToPointerDecay, char *)
+  29: ImplicitCastExpr 0x55cfe63689e8 <./luaconf.h:201:19, col:25> 'const char *' <BitCast>
+`-ImplicitCastExpr 0x55cfe63689d0 <col:19, col:25> 'char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x55cfe63688d8 <col:19, col:25> 'char [8]' lvalue "'<eof>'"
+[B3.28] (ImplicitCastExpr, BitCast, const char *)
+  30: CallExpr 0x55cfe6368980 <lua.c:168:9, col:36> 'char *'
+|-ImplicitCastExpr 0x55cfe6368968 <col:9> 'char *(*)(const char *, const char *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55cfe6368888 <col:9> 'char *(const char *, const char *)' Function 0x55cfe630dfc8 'strstr' 'char *(const char *, const char *)'
+|-ImplicitCastExpr 0x55cfe63689b8 <col:16> 'const char *' <LValueToRValue>
+| `-DeclRefExpr 0x55cfe63688b0 <col:16> 'const char *' lvalue Var 0x55cfe6367448 'msg' 'const char *'
+`-ImplicitCastExpr 0x55cfe63689e8 <./luaconf.h:201:19, col:25> 'const char *' <BitCast>
+  `-ImplicitCastExpr 0x55cfe63689d0 <col:19, col:25> 'char *' <ArrayToPointerDecay>
+    `-StringLiteral 0x55cfe63688d8 <col:19, col:25> 'char [8]' lvalue "'<eof>'"
+[B3.24]([B3.26], [B3.29])
+  31: DeclRefExpr 0x55cfe6368a00 <lua.c:168:41> 'const char *' lvalue Var 0x55cfe6368648 'tp' 'const char *'
+tp
+  32: ImplicitCastExpr 0x55cfe6368a28 <lua.c:168:41> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x55cfe6368a00 <col:41> 'const char *' lvalue Var 0x55cfe6368648 'tp' 'const char *'
+[B3.31] (ImplicitCastExpr, LValueToRValue, const char *)
+  33: ImplicitCastExpr 0x55cfe6368a40 <lua.c:168:41> 'char *' <BitCast>
+`-ImplicitCastExpr 0x55cfe6368a28 <col:41> 'const char *' <LValueToRValue>
+  `-DeclRefExpr 0x55cfe6368a00 <col:41> 'const char *' lvalue Var 0x55cfe6368648 'tp' 'const char *'
+[B3.32] (ImplicitCastExpr, BitCast, char *)
+  34: BinaryOperator 0x55cfe6368a58 <lua.c:168:9, col:41> 'int' '=='
+|-CallExpr 0x55cfe6368980 <col:9, col:36> 'char *'
+| |-ImplicitCastExpr 0x55cfe6368968 <col:9> 'char *(*)(const char *, const char *)' <FunctionToPointerDecay>
+| | `-DeclRefExpr 0x55cfe6368888 <col:9> 'char *(const char *, const char *)' Function 0x55cfe630dfc8 'strstr' 'char *(const char *, const char *)'
+| |-ImplicitCastExpr 0x55cfe63689b8 <col:16> 'const char *' <LValueToRValue>
+| | `-DeclRefExpr 0x55cfe63688b0 <col:16> 'const char *' lvalue Var 0x55cfe6367448 'msg' 'const char *'
+| `-ImplicitCastExpr 0x55cfe63689e8 <./luaconf.h:201:19, col:25> 'const char *' <BitCast>
+|   `-ImplicitCastExpr 0x55cfe63689d0 <col:19, col:25> 'char *' <ArrayToPointerDecay>
+|     `-StringLiteral 0x55cfe63688d8 <col:19, col:25> 'char [8]' lvalue "'<eof>'"
+`-ImplicitCastExpr 0x55cfe6368a40 <lua.c:168:41> 'char *' <BitCast>
+  `-ImplicitCastExpr 0x55cfe6368a28 <col:41> 'const char *' <LValueToRValue>
+    `-DeclRefExpr 0x55cfe6368a00 <col:41> 'const char *' lvalue Var 0x55cfe6368648 'tp' 'const char *'
+[B3.30] == [B3.33]
+   T: if [B3.34]
+   Preds (1): B4
+   Succs (2): B2 B1
+
+ [B4]
+   1: DeclRefExpr 0x55cfe6367320 <lua.c:164:7> 'int' lvalue ParmVar 0x55cfe63671d8 'status' 'int'
+status
+   2: ImplicitCastExpr 0x55cfe6367368 <lua.c:164:7> 'int' <LValueToRValue>
+`-DeclRefExpr 0x55cfe6367320 <col:7> 'int' lvalue ParmVar 0x55cfe63671d8 'status' 'int'
+[B4.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: IntegerLiteral 0x55cfe6367348 <./lua.h:45:23> 'int' 3
+3
+   4: BinaryOperator 0x55cfe6367380 <lua.c:164:7, ./lua.h:45:23> 'int' '=='
+|-ImplicitCastExpr 0x55cfe6367368 <lua.c:164:7> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x55cfe6367320 <col:7> 'int' lvalue ParmVar 0x55cfe63671d8 'status' 'int'
+`-IntegerLiteral 0x55cfe6367348 <./lua.h:45:23> 'int' 3
+[B4.2] == [B4.3]
+   T: if [B4.4]
+   Preds (1): B5
+   Succs (2): B3 B1
+
+ [B0 (EXIT)]
+   Preds (2): B1 B2

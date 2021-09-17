@@ -1,0 +1,102 @@
+static int panic(lua_State *L)
+ [B2 (ENTRY)]
+   Succs (1): B1
+
+ [B1]
+   1: DeclRefExpr 0x55f89cfde518 <lauxlib.c:640:9> 'lua_State *' lvalue ParmVar 0x55f89cfde3e0 'L' 'lua_State *'
+L
+   2: ImplicitCastExpr 0x55f89cfde550 <lauxlib.c:640:9> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55f89cfde518 <col:9> 'lua_State *' lvalue ParmVar 0x55f89cfde3e0 'L' 'lua_State *'
+[B1.1] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   3: CStyleCastExpr 0x55f89cfde568 <lauxlib.c:640:3, col:9> 'void' <ToVoid>
+`-ImplicitCastExpr 0x55f89cfde550 <col:9> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x55f89cfde518 <col:9> 'lua_State *' lvalue ParmVar 0x55f89cfde3e0 'L' 'lua_State *'
+(void)[B1.2] (CStyleCastExpr, ToVoid, void)
+   4: DeclRefExpr 0x55f89cfde590 <lauxlib.c:641:3> 'int (FILE *, const char *, ...)' Function 0x55f89cef87c8 'fprintf' 'int (FILE *, const char *, ...)'
+fprintf
+   5: ImplicitCastExpr 0x55f89cfde888 <lauxlib.c:641:3> 'int (*)(FILE *, const char *, ...)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55f89cfde590 <col:3> 'int (FILE *, const char *, ...)' Function 0x55f89cef87c8 'fprintf' 'int (FILE *, const char *, ...)'
+[B1.4] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(FILE *, const char *, ...))
+   6: DeclRefExpr 0x55f89cfde5b8 </usr/include/stdio.h:143:16> 'FILE *' lvalue Var 0x55f89cef0db8 'stderr' 'FILE *'
+stderr
+   7: ImplicitCastExpr 0x55f89cf25920 </usr/include/stdio.h:143:16> 'FILE *' <LValueToRValue>
+`-DeclRefExpr 0x55f89cfde5b8 <col:16> 'FILE *' lvalue Var 0x55f89cef0db8 'stderr' 'FILE *'
+[B1.6] (ImplicitCastExpr, LValueToRValue, FILE *)
+   8: StringLiteral 0x55f89cfde618 <lauxlib.c:641:19> 'char [50]' lvalue "PANIC: unprotected error in call to Lua API (%s)\n"
+"PANIC: unprotected error in call to Lua API (%s)\n"
+   9: ImplicitCastExpr 0x55f89cf25938 <lauxlib.c:641:19> 'char *' <ArrayToPointerDecay>
+`-StringLiteral 0x55f89cfde618 <col:19> 'char [50]' lvalue "PANIC: unprotected error in call to Lua API (%s)\n"
+[B1.8] (ImplicitCastExpr, ArrayToPointerDecay, char *)
+  10: ImplicitCastExpr 0x55f89cf25950 <lauxlib.c:641:19> 'const char *' <BitCast>
+`-ImplicitCastExpr 0x55f89cf25938 <col:19> 'char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x55f89cfde618 <col:19> 'char [50]' lvalue "PANIC: unprotected error in call to Lua API (%s)\n"
+[B1.9] (ImplicitCastExpr, BitCast, const char *)
+  11: DeclRefExpr 0x55f89cfde678 <./lua.h:279:27> 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)' Function 0x55f89cfa0f10 'lua_tolstring' 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)'
+lua_tolstring
+  12: ImplicitCastExpr 0x55f89cfde7a8 <./lua.h:279:27> 'const char *(*)(lua_State *, int, size_t *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55f89cfde678 <col:27> 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)' Function 0x55f89cfa0f10 'lua_tolstring' 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)'
+[B1.11] (ImplicitCastExpr, FunctionToPointerDecay, const char *(*)(lua_State *, int, size_t *))
+  13: DeclRefExpr 0x55f89cfde6a0 <lauxlib.c:642:33> 'lua_State *' lvalue ParmVar 0x55f89cfde3e0 'L' 'lua_State *'
+L
+  14: ImplicitCastExpr 0x55f89cfde800 <lauxlib.c:642:33> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55f89cfde6a0 <col:33> 'lua_State *' lvalue ParmVar 0x55f89cfde3e0 'L' 'lua_State *'
+[B1.13] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  15: IntegerLiteral 0x55f89cfde6c8 <lauxlib.c:642:37> 'int' 1
+1
+  16: UnaryOperator 0x55f89cfde6e8 <lauxlib.c:642:36, col:37> 'int' prefix '-'
+`-IntegerLiteral 0x55f89cfde6c8 <col:37> 'int' 1
+-[B1.15]
+  17: IntegerLiteral 0x55f89cfde728 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+  18: CStyleCastExpr 0x55f89cfde760 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x55f89cfde728 <col:24> 'int' 0
+(void *)[B1.17] (CStyleCastExpr, NullToPointer, void *)
+  19: ImplicitCastExpr 0x55f89cfde818 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'size_t *' <NullToPointer>
+`-ParenExpr 0x55f89cfde788 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x55f89cfde760 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x55f89cfde728 <col:24> 'int' 0
+([B1.18]) (ImplicitCastExpr, NullToPointer, size_t *)
+  20: CallExpr 0x55f89cfde7c0 <./lua.h:279:27, col:53> 'const char *'
+|-ImplicitCastExpr 0x55f89cfde7a8 <col:27> 'const char *(*)(lua_State *, int, size_t *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55f89cfde678 <col:27> 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)' Function 0x55f89cfa0f10 'lua_tolstring' 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)'
+|-ImplicitCastExpr 0x55f89cfde800 <lauxlib.c:642:33> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x55f89cfde6a0 <col:33> 'lua_State *' lvalue ParmVar 0x55f89cfde3e0 'L' 'lua_State *'
+|-ParenExpr 0x55f89cfde708 <./lua.h:279:44, col:46> 'int'
+| `-UnaryOperator 0x55f89cfde6e8 <lauxlib.c:642:36, col:37> 'int' prefix '-'
+|   `-IntegerLiteral 0x55f89cfde6c8 <col:37> 'int' 1
+`-ImplicitCastExpr 0x55f89cfde818 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'size_t *' <NullToPointer>
+  `-ParenExpr 0x55f89cfde788 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x55f89cfde760 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x55f89cfde728 <col:24> 'int' 0
+[B1.12]([B1.14], ([B1.16]), [B1.19])
+  21: CallExpr 0x55f89cf258e0 <lauxlib.c:641:3, line:642:39> 'int'
+|-ImplicitCastExpr 0x55f89cfde888 <line:641:3> 'int (*)(FILE *, const char *, ...)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55f89cfde590 <col:3> 'int (FILE *, const char *, ...)' Function 0x55f89cef87c8 'fprintf' 'int (FILE *, const char *, ...)'
+|-ImplicitCastExpr 0x55f89cf25920 </usr/include/stdio.h:143:16> 'FILE *' <LValueToRValue>
+| `-DeclRefExpr 0x55f89cfde5b8 <col:16> 'FILE *' lvalue Var 0x55f89cef0db8 'stderr' 'FILE *'
+|-ImplicitCastExpr 0x55f89cf25950 <lauxlib.c:641:19> 'const char *' <BitCast>
+| `-ImplicitCastExpr 0x55f89cf25938 <col:19> 'char *' <ArrayToPointerDecay>
+|   `-StringLiteral 0x55f89cfde618 <col:19> 'char [50]' lvalue "PANIC: unprotected error in call to Lua API (%s)\n"
+`-CallExpr 0x55f89cfde7c0 <./lua.h:279:27, col:53> 'const char *'
+  |-ImplicitCastExpr 0x55f89cfde7a8 <col:27> 'const char *(*)(lua_State *, int, size_t *)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55f89cfde678 <col:27> 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)' Function 0x55f89cfa0f10 'lua_tolstring' 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)'
+  |-ImplicitCastExpr 0x55f89cfde800 <lauxlib.c:642:33> 'lua_State *' <LValueToRValue>
+  | `-DeclRefExpr 0x55f89cfde6a0 <col:33> 'lua_State *' lvalue ParmVar 0x55f89cfde3e0 'L' 'lua_State *'
+  |-ParenExpr 0x55f89cfde708 <./lua.h:279:44, col:46> 'int'
+  | `-UnaryOperator 0x55f89cfde6e8 <lauxlib.c:642:36, col:37> 'int' prefix '-'
+  |   `-IntegerLiteral 0x55f89cfde6c8 <col:37> 'int' 1
+  `-ImplicitCastExpr 0x55f89cfde818 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'size_t *' <NullToPointer>
+    `-ParenExpr 0x55f89cfde788 <col:16, col:25> 'void *'
+      `-CStyleCastExpr 0x55f89cfde760 <col:17, col:24> 'void *' <NullToPointer>
+        `-IntegerLiteral 0x55f89cfde728 <col:24> 'int' 0
+[B1.5]([B1.7], [B1.10], [B1.20])
+  22: IntegerLiteral 0x55f89cf25968 <lauxlib.c:643:10> 'int' 0
+0
+  23: ReturnStmt 0x55f89cf25988 <lauxlib.c:643:3, col:10>
+`-IntegerLiteral 0x55f89cf25968 <col:10> 'int' 0
+return [B1.22];
+   Preds (1): B2
+   Succs (1): B0
+
+ [B0 (EXIT)]
+   Preds (1): B1

@@ -1,0 +1,107 @@
+static int readable(const char *filename)
+ [B4 (ENTRY)]
+   Succs (1): B3
+
+ [B1]
+   1: DeclRefExpr 0x558048c257c0 <loadlib.c:335:3> 'int (FILE *)' Function 0x558048bf6798 'fclose' 'int (FILE *)'
+fclose
+   2: ImplicitCastExpr 0x558048c25810 <loadlib.c:335:3> 'int (*)(FILE *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x558048c257c0 <col:3> 'int (FILE *)' Function 0x558048bf6798 'fclose' 'int (FILE *)'
+[B1.1] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(FILE *))
+   3: DeclRefExpr 0x558048c257e8 <loadlib.c:335:10> 'FILE *' lvalue Var 0x558048c24ff8 'f' 'FILE *'
+f
+   4: ImplicitCastExpr 0x558048c25858 <loadlib.c:335:10> 'FILE *' <LValueToRValue>
+`-DeclRefExpr 0x558048c257e8 <col:10> 'FILE *' lvalue Var 0x558048c24ff8 'f' 'FILE *'
+[B1.3] (ImplicitCastExpr, LValueToRValue, FILE *)
+   5: CallExpr 0x558048c25828 <loadlib.c:335:3, col:11> 'int'
+|-ImplicitCastExpr 0x558048c25810 <col:3> 'int (*)(FILE *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x558048c257c0 <col:3> 'int (FILE *)' Function 0x558048bf6798 'fclose' 'int (FILE *)'
+`-ImplicitCastExpr 0x558048c25858 <col:10> 'FILE *' <LValueToRValue>
+  `-DeclRefExpr 0x558048c257e8 <col:10> 'FILE *' lvalue Var 0x558048c24ff8 'f' 'FILE *'
+[B1.2]([B1.4])
+   6: IntegerLiteral 0x558048c25870 <loadlib.c:336:10> 'int' 1
+1
+   7: ReturnStmt 0x558048c25890 <loadlib.c:336:3, col:10>
+`-IntegerLiteral 0x558048c25870 <col:10> 'int' 1
+return [B1.6];
+   Preds (1): B3
+   Succs (1): B0
+
+ [B2]
+   1: IntegerLiteral 0x558048c25328 <loadlib.c:334:25> 'int' 0
+0
+   2: ReturnStmt 0x558048c25348 <loadlib.c:334:18, col:25>
+`-IntegerLiteral 0x558048c25328 <col:25> 'int' 0
+return [B2.1];
+   Preds (1): B3
+   Succs (1): B0
+
+ [B3]
+   1: DeclRefExpr 0x558048c25058 <loadlib.c:333:13> 'FILE *(const char *__restrict, const char *__restrict)' Function 0x558048bf6c70 'fopen' 'FILE *(const char *__restrict, const char *__restrict)'
+fopen
+   2: ImplicitCastExpr 0x558048c25178 <loadlib.c:333:13> 'FILE *(*)(const char *__restrict, const char *__restrict)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x558048c25058 <col:13> 'FILE *(const char *__restrict, const char *__restrict)' Function 0x558048bf6c70 'fopen' 'FILE *(const char *__restrict, const char *__restrict)'
+[B3.1] (ImplicitCastExpr, FunctionToPointerDecay, FILE *(*)(const char *__restrict, const char *__restrict))
+   3: DeclRefExpr 0x558048c25080 <loadlib.c:333:19> 'const char *' lvalue ParmVar 0x558048c24eb0 'filename' 'const char *'
+filename
+   4: ImplicitCastExpr 0x558048c251c8 <loadlib.c:333:19> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x558048c25080 <col:19> 'const char *' lvalue ParmVar 0x558048c24eb0 'filename' 'const char *'
+[B3.3] (ImplicitCastExpr, LValueToRValue, const char *)
+   5: StringLiteral 0x558048c250e8 <loadlib.c:333:29> 'char [2]' lvalue "r"
+"r"
+   6: ImplicitCastExpr 0x558048c251e0 <loadlib.c:333:29> 'char *' <ArrayToPointerDecay>
+`-StringLiteral 0x558048c250e8 <col:29> 'char [2]' lvalue "r"
+[B3.5] (ImplicitCastExpr, ArrayToPointerDecay, char *)
+   7: ImplicitCastExpr 0x558048c251f8 <loadlib.c:333:29> 'const char *' <BitCast>
+`-ImplicitCastExpr 0x558048c251e0 <col:29> 'char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x558048c250e8 <col:29> 'char [2]' lvalue "r"
+[B3.6] (ImplicitCastExpr, BitCast, const char *)
+   8: CallExpr 0x558048c25190 <loadlib.c:333:13, col:32> 'FILE *'
+|-ImplicitCastExpr 0x558048c25178 <col:13> 'FILE *(*)(const char *__restrict, const char *__restrict)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x558048c25058 <col:13> 'FILE *(const char *__restrict, const char *__restrict)' Function 0x558048bf6c70 'fopen' 'FILE *(const char *__restrict, const char *__restrict)'
+|-ImplicitCastExpr 0x558048c251c8 <col:19> 'const char *' <LValueToRValue>
+| `-DeclRefExpr 0x558048c25080 <col:19> 'const char *' lvalue ParmVar 0x558048c24eb0 'filename' 'const char *'
+`-ImplicitCastExpr 0x558048c251f8 <col:29> 'const char *' <BitCast>
+  `-ImplicitCastExpr 0x558048c251e0 <col:29> 'char *' <ArrayToPointerDecay>
+    `-StringLiteral 0x558048c250e8 <col:29> 'char [2]' lvalue "r"
+[B3.2]([B3.4], [B3.7])
+   9: DeclStmt 0x558048c25210 <loadlib.c:333:3, col:33>col:9
+`-VarDecl 0x558048c24ff8 <col:3, col:32> col:9 used f 'FILE *' cinit
+  `-CallExpr 0x558048c25190 <col:13, col:32> 'FILE *'
+    |-ImplicitCastExpr 0x558048c25178 <col:13> 'FILE *(*)(const char *__restrict, const char *__restrict)' <FunctionToPointerDecay>
+    | `-DeclRefExpr 0x558048c25058 <col:13> 'FILE *(const char *__restrict, const char *__restrict)' Function 0x558048bf6c70 'fopen' 'FILE *(const char *__restrict, const char *__restrict)'
+    |-ImplicitCastExpr 0x558048c251c8 <col:19> 'const char *' <LValueToRValue>
+    | `-DeclRefExpr 0x558048c25080 <col:19> 'const char *' lvalue ParmVar 0x558048c24eb0 'filename' 'const char *'
+    `-ImplicitCastExpr 0x558048c251f8 <col:29> 'const char *' <BitCast>
+      `-ImplicitCastExpr 0x558048c251e0 <col:29> 'char *' <ArrayToPointerDecay>
+        `-StringLiteral 0x558048c250e8 <col:29> 'char [2]' lvalue "r"
+FILE *f = fopen(filename, "r");
+  10: DeclRefExpr 0x558048c25228 <loadlib.c:334:7> 'FILE *' lvalue Var 0x558048c24ff8 'f' 'FILE *'
+f
+  11: ImplicitCastExpr 0x558048c252d0 <loadlib.c:334:7> 'FILE *' <LValueToRValue>
+`-DeclRefExpr 0x558048c25228 <col:7> 'FILE *' lvalue Var 0x558048c24ff8 'f' 'FILE *'
+[B3.10] (ImplicitCastExpr, LValueToRValue, FILE *)
+  12: IntegerLiteral 0x558048c25250 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+  13: CStyleCastExpr 0x558048c25288 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x558048c25250 <col:24> 'int' 0
+(void *)[B3.12] (CStyleCastExpr, NullToPointer, void *)
+  14: ImplicitCastExpr 0x558048c252e8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'FILE *' <BitCast>
+`-ParenExpr 0x558048c252b0 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x558048c25288 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x558048c25250 <col:24> 'int' 0
+([B3.13]) (ImplicitCastExpr, BitCast, FILE *)
+  15: BinaryOperator 0x558048c25300 <loadlib.c:334:7, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25> 'int' '=='
+|-ImplicitCastExpr 0x558048c252d0 <loadlib.c:334:7> 'FILE *' <LValueToRValue>
+| `-DeclRefExpr 0x558048c25228 <col:7> 'FILE *' lvalue Var 0x558048c24ff8 'f' 'FILE *'
+`-ImplicitCastExpr 0x558048c252e8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'FILE *' <BitCast>
+  `-ParenExpr 0x558048c252b0 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x558048c25288 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x558048c25250 <col:24> 'int' 0
+[B3.11] == [B3.14]
+   T: if [B3.15]
+   Preds (1): B4
+   Succs (2): B2 B1
+
+ [B0 (EXIT)]
+   Preds (2): B1 B2

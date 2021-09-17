@@ -1,0 +1,31 @@
+void redisFreeCommand(char *cmd)
+ [B2 (ENTRY)]
+   Succs (1): B1
+
+ [B1]
+   1: DeclRefExpr 0x562807063ce8 <hiredis.c:651:5> 'void (void *)' Function 0x562806f98070 'free' 'void (void *)'
+free
+   2: ImplicitCastExpr 0x562807063d38 <hiredis.c:651:5> 'void (*)(void *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x562807063ce8 <col:5> 'void (void *)' Function 0x562806f98070 'free' 'void (void *)'
+[B1.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(void *))
+   3: DeclRefExpr 0x562807063d10 <hiredis.c:651:10> 'char *' lvalue ParmVar 0x562807063bb8 'cmd' 'char *'
+cmd
+   4: ImplicitCastExpr 0x562807063d80 <hiredis.c:651:10> 'char *' <LValueToRValue>
+`-DeclRefExpr 0x562807063d10 <col:10> 'char *' lvalue ParmVar 0x562807063bb8 'cmd' 'char *'
+[B1.3] (ImplicitCastExpr, LValueToRValue, char *)
+   5: ImplicitCastExpr 0x562807063d98 <hiredis.c:651:10> 'void *' <BitCast>
+`-ImplicitCastExpr 0x562807063d80 <col:10> 'char *' <LValueToRValue>
+  `-DeclRefExpr 0x562807063d10 <col:10> 'char *' lvalue ParmVar 0x562807063bb8 'cmd' 'char *'
+[B1.4] (ImplicitCastExpr, BitCast, void *)
+   6: CallExpr 0x562807063d50 <hiredis.c:651:5, col:13> 'void'
+|-ImplicitCastExpr 0x562807063d38 <col:5> 'void (*)(void *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x562807063ce8 <col:5> 'void (void *)' Function 0x562806f98070 'free' 'void (void *)'
+`-ImplicitCastExpr 0x562807063d98 <col:10> 'void *' <BitCast>
+  `-ImplicitCastExpr 0x562807063d80 <col:10> 'char *' <LValueToRValue>
+    `-DeclRefExpr 0x562807063d10 <col:10> 'char *' lvalue ParmVar 0x562807063bb8 'cmd' 'char *'
+[B1.2]([B1.5])
+   Preds (1): B2
+   Succs (1): B0
+
+ [B0 (EXIT)]
+   Preds (1): B1

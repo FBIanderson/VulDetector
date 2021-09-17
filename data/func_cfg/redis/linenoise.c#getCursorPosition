@@ -1,0 +1,522 @@
+static int getCursorPosition(int ifd, int ofd)
+ [B16 (ENTRY)]
+   Succs (1): B15
+
+ [B1]
+   1: DeclRefExpr 0x56555a496288 <linenoise.c:295:12> 'int' lvalue Var 0x56555a495110 'cols' 'int'
+cols
+   2: ImplicitCastExpr 0x56555a4962b0 <linenoise.c:295:12> 'int' <LValueToRValue>
+`-DeclRefExpr 0x56555a496288 <col:12> 'int' lvalue Var 0x56555a495110 'cols' 'int'
+[B1.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: ReturnStmt 0x56555a4962c8 <linenoise.c:295:5, col:12>
+`-ImplicitCastExpr 0x56555a4962b0 <col:12> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x56555a496288 <col:12> 'int' lvalue Var 0x56555a495110 'cols' 'int'
+return [B1.2];
+   Preds (1): B3
+   Succs (1): B0
+
+ [B2]
+   1: IntegerLiteral 0x56555a4961f8 <linenoise.c:294:57> 'int' 1
+1
+   2: UnaryOperator 0x56555a496218 <linenoise.c:294:56, col:57> 'int' prefix '-'
+`-IntegerLiteral 0x56555a4961f8 <col:57> 'int' 1
+-[B2.1]
+   3: ReturnStmt 0x56555a496238 <linenoise.c:294:49, col:57>
+`-UnaryOperator 0x56555a496218 <col:56, col:57> 'int' prefix '-'
+  `-IntegerLiteral 0x56555a4961f8 <col:57> 'int' 1
+return [B2.2];
+   Preds (1): B3
+   Succs (1): B0
+
+ [B3]
+   1: DeclRefExpr 0x56555a495f18 <linenoise.c:294:9> 'int (const char *__restrict, const char *__restrict, ...)' Function 0x56555a40e998 'sscanf' 'int (const char *__restrict, const char *__restrict, ...)'
+sscanf
+   2: ImplicitCastExpr 0x56555a496108 <linenoise.c:294:9> 'int (*)(const char *__restrict, const char *__restrict, ...)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x56555a495f18 <col:9> 'int (const char *__restrict, const char *__restrict, ...)' Function 0x56555a40e998 'sscanf' 'int (const char *__restrict, const char *__restrict, ...)'
+[B3.1] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(const char *__restrict, const char *__restrict, ...))
+   3: DeclRefExpr 0x56555a495f40 <linenoise.c:294:16> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+buf
+   4: ImplicitCastExpr 0x56555a495f88 <linenoise.c:294:16> 'char *' <ArrayToPointerDecay>
+`-DeclRefExpr 0x56555a495f40 <col:16> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+[B3.3] (ImplicitCastExpr, ArrayToPointerDecay, char *)
+   5: IntegerLiteral 0x56555a495f68 <linenoise.c:294:20> 'int' 2
+2
+   6: BinaryOperator 0x56555a495fa0 <linenoise.c:294:16, col:20> 'char *' '+'
+|-ImplicitCastExpr 0x56555a495f88 <col:16> 'char *' <ArrayToPointerDecay>
+| `-DeclRefExpr 0x56555a495f40 <col:16> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+`-IntegerLiteral 0x56555a495f68 <col:20> 'int' 2
+[B3.4] + [B3.5]
+   7: ImplicitCastExpr 0x56555a496168 <linenoise.c:294:16, col:20> 'const char *' <BitCast>
+`-BinaryOperator 0x56555a495fa0 <col:16, col:20> 'char *' '+'
+  |-ImplicitCastExpr 0x56555a495f88 <col:16> 'char *' <ArrayToPointerDecay>
+  | `-DeclRefExpr 0x56555a495f40 <col:16> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+  `-IntegerLiteral 0x56555a495f68 <col:20> 'int' 2
+[B3.6] (ImplicitCastExpr, BitCast, const char *)
+   8: StringLiteral 0x56555a495fc8 <linenoise.c:294:22> 'char [6]' lvalue "%d;%d"
+"%d;%d"
+   9: ImplicitCastExpr 0x56555a496180 <linenoise.c:294:22> 'char *' <ArrayToPointerDecay>
+`-StringLiteral 0x56555a495fc8 <col:22> 'char [6]' lvalue "%d;%d"
+[B3.8] (ImplicitCastExpr, ArrayToPointerDecay, char *)
+  10: ImplicitCastExpr 0x56555a496198 <linenoise.c:294:22> 'const char *' <BitCast>
+`-ImplicitCastExpr 0x56555a496180 <col:22> 'char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x56555a495fc8 <col:22> 'char [6]' lvalue "%d;%d"
+[B3.9] (ImplicitCastExpr, BitCast, const char *)
+  11: DeclRefExpr 0x56555a495ff8 <linenoise.c:294:31> 'int' lvalue Var 0x56555a495188 'rows' 'int'
+rows
+  12: UnaryOperator 0x56555a496020 <linenoise.c:294:30, col:31> 'int *' prefix '&'
+`-DeclRefExpr 0x56555a495ff8 <col:31> 'int' lvalue Var 0x56555a495188 'rows' 'int'
+&[B3.11]
+  13: DeclRefExpr 0x56555a496040 <linenoise.c:294:37> 'int' lvalue Var 0x56555a495110 'cols' 'int'
+cols
+  14: UnaryOperator 0x56555a496090 <linenoise.c:294:36, col:37> 'int *' prefix '&'
+`-DeclRefExpr 0x56555a496040 <col:37> 'int' lvalue Var 0x56555a495110 'cols' 'int'
+&[B3.13]
+  15: CallExpr 0x56555a496120 <linenoise.c:294:9, col:41> 'int'
+|-ImplicitCastExpr 0x56555a496108 <col:9> 'int (*)(const char *__restrict, const char *__restrict, ...)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x56555a495f18 <col:9> 'int (const char *__restrict, const char *__restrict, ...)' Function 0x56555a40e998 'sscanf' 'int (const char *__restrict, const char *__restrict, ...)'
+|-ImplicitCastExpr 0x56555a496168 <col:16, col:20> 'const char *' <BitCast>
+| `-BinaryOperator 0x56555a495fa0 <col:16, col:20> 'char *' '+'
+|   |-ImplicitCastExpr 0x56555a495f88 <col:16> 'char *' <ArrayToPointerDecay>
+|   | `-DeclRefExpr 0x56555a495f40 <col:16> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+|   `-IntegerLiteral 0x56555a495f68 <col:20> 'int' 2
+|-ImplicitCastExpr 0x56555a496198 <col:22> 'const char *' <BitCast>
+| `-ImplicitCastExpr 0x56555a496180 <col:22> 'char *' <ArrayToPointerDecay>
+|   `-StringLiteral 0x56555a495fc8 <col:22> 'char [6]' lvalue "%d;%d"
+|-UnaryOperator 0x56555a496020 <col:30, col:31> 'int *' prefix '&'
+| `-DeclRefExpr 0x56555a495ff8 <col:31> 'int' lvalue Var 0x56555a495188 'rows' 'int'
+`-UnaryOperator 0x56555a496090 <col:36, col:37> 'int *' prefix '&'
+  `-DeclRefExpr 0x56555a496040 <col:37> 'int' lvalue Var 0x56555a495110 'cols' 'int'
+[B3.2]([B3.7], [B3.10], [B3.12], [B3.14])
+  16: IntegerLiteral 0x56555a4961b0 <linenoise.c:294:46> 'int' 2
+2
+  17: BinaryOperator 0x56555a4961d0 <linenoise.c:294:9, col:46> 'int' '!='
+|-CallExpr 0x56555a496120 <col:9, col:41> 'int'
+| |-ImplicitCastExpr 0x56555a496108 <col:9> 'int (*)(const char *__restrict, const char *__restrict, ...)' <FunctionToPointerDecay>
+| | `-DeclRefExpr 0x56555a495f18 <col:9> 'int (const char *__restrict, const char *__restrict, ...)' Function 0x56555a40e998 'sscanf' 'int (const char *__restrict, const char *__restrict, ...)'
+| |-ImplicitCastExpr 0x56555a496168 <col:16, col:20> 'const char *' <BitCast>
+| | `-BinaryOperator 0x56555a495fa0 <col:16, col:20> 'char *' '+'
+| |   |-ImplicitCastExpr 0x56555a495f88 <col:16> 'char *' <ArrayToPointerDecay>
+| |   | `-DeclRefExpr 0x56555a495f40 <col:16> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+| |   `-IntegerLiteral 0x56555a495f68 <col:20> 'int' 2
+| |-ImplicitCastExpr 0x56555a496198 <col:22> 'const char *' <BitCast>
+| | `-ImplicitCastExpr 0x56555a496180 <col:22> 'char *' <ArrayToPointerDecay>
+| |   `-StringLiteral 0x56555a495fc8 <col:22> 'char [6]' lvalue "%d;%d"
+| |-UnaryOperator 0x56555a496020 <col:30, col:31> 'int *' prefix '&'
+| | `-DeclRefExpr 0x56555a495ff8 <col:31> 'int' lvalue Var 0x56555a495188 'rows' 'int'
+| `-UnaryOperator 0x56555a496090 <col:36, col:37> 'int *' prefix '&'
+|   `-DeclRefExpr 0x56555a496040 <col:37> 'int' lvalue Var 0x56555a495110 'cols' 'int'
+`-IntegerLiteral 0x56555a4961b0 <col:46> 'int' 2
+[B3.15] != [B3.16]
+   T: if [B3.17]
+   Preds (1): B5
+   Succs (2): B2 B1
+
+ [B4]
+   1: IntegerLiteral 0x56555a495e88 <linenoise.c:293:49> 'int' 1
+1
+   2: UnaryOperator 0x56555a495ea8 <linenoise.c:293:48, col:49> 'int' prefix '-'
+`-IntegerLiteral 0x56555a495e88 <col:49> 'int' 1
+-[B4.1]
+   3: ReturnStmt 0x56555a495ec8 <linenoise.c:293:41, col:49>
+`-UnaryOperator 0x56555a495ea8 <col:48, col:49> 'int' prefix '-'
+  `-IntegerLiteral 0x56555a495e88 <col:49> 'int' 1
+return [B4.2];
+   Preds (2): B5 B6
+   Succs (1): B0
+
+ [B5]
+   1: DeclRefExpr 0x56555a495d68 <linenoise.c:293:26> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+buf
+   2: ImplicitCastExpr 0x56555a495db0 <linenoise.c:293:26> 'char *' <ArrayToPointerDecay>
+`-DeclRefExpr 0x56555a495d68 <col:26> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+[B5.1] (ImplicitCastExpr, ArrayToPointerDecay, char *)
+   3: IntegerLiteral 0x56555a495d90 <linenoise.c:293:30> 'int' 1
+1
+   4: ArraySubscriptExpr 0x56555a495dc8 <linenoise.c:293:26, col:31> 'char' lvalue
+|-ImplicitCastExpr 0x56555a495db0 <col:26> 'char *' <ArrayToPointerDecay>
+| `-DeclRefExpr 0x56555a495d68 <col:26> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+`-IntegerLiteral 0x56555a495d90 <col:30> 'int' 1
+[B5.2][[B5.3]]
+   5: ImplicitCastExpr 0x56555a495e08 <linenoise.c:293:26, col:31> 'char' <LValueToRValue>
+`-ArraySubscriptExpr 0x56555a495dc8 <col:26, col:31> 'char' lvalue
+  |-ImplicitCastExpr 0x56555a495db0 <col:26> 'char *' <ArrayToPointerDecay>
+  | `-DeclRefExpr 0x56555a495d68 <col:26> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+  `-IntegerLiteral 0x56555a495d90 <col:30> 'int' 1
+[B5.4] (ImplicitCastExpr, LValueToRValue, char)
+   6: ImplicitCastExpr 0x56555a495e20 <linenoise.c:293:26, col:31> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x56555a495e08 <col:26, col:31> 'char' <LValueToRValue>
+  `-ArraySubscriptExpr 0x56555a495dc8 <col:26, col:31> 'char' lvalue
+    |-ImplicitCastExpr 0x56555a495db0 <col:26> 'char *' <ArrayToPointerDecay>
+    | `-DeclRefExpr 0x56555a495d68 <col:26> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+    `-IntegerLiteral 0x56555a495d90 <col:30> 'int' 1
+[B5.5] (ImplicitCastExpr, IntegralCast, int)
+   7: CharacterLiteral 0x56555a495df0 <linenoise.c:293:36> 'int' 91
+'['
+   8: BinaryOperator 0x56555a495e38 <linenoise.c:293:26, col:36> 'int' '!='
+|-ImplicitCastExpr 0x56555a495e20 <col:26, col:31> 'int' <IntegralCast>
+| `-ImplicitCastExpr 0x56555a495e08 <col:26, col:31> 'char' <LValueToRValue>
+|   `-ArraySubscriptExpr 0x56555a495dc8 <col:26, col:31> 'char' lvalue
+|     |-ImplicitCastExpr 0x56555a495db0 <col:26> 'char *' <ArrayToPointerDecay>
+|     | `-DeclRefExpr 0x56555a495d68 <col:26> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+|     `-IntegerLiteral 0x56555a495d90 <col:30> 'int' 1
+`-CharacterLiteral 0x56555a495df0 <col:36> 'int' 91
+[B5.6] != [B5.7]
+   T: if [B6.16] || [B5.8]
+   Preds (1): B6
+   Succs (2): B4 B3
+
+ [B6]
+   1: CharacterLiteral 0x56555a495c08 <linenoise.c:290:14> 'int' 0
+'\x00'
+   2: ImplicitCastExpr 0x56555a495c20 <linenoise.c:290:14> 'char' <IntegralCast>
+`-CharacterLiteral 0x56555a495c08 <col:14> 'int' 0
+[B6.1] (ImplicitCastExpr, IntegralCast, char)
+   3: DeclRefExpr 0x56555a495b60 <linenoise.c:290:5> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+buf
+   4: ImplicitCastExpr 0x56555a495bb0 <linenoise.c:290:5> 'char *' <ArrayToPointerDecay>
+`-DeclRefExpr 0x56555a495b60 <col:5> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+[B6.3] (ImplicitCastExpr, ArrayToPointerDecay, char *)
+   5: DeclRefExpr 0x56555a495b88 <linenoise.c:290:9> 'unsigned int' lvalue Var 0x56555a495230 'i' 'unsigned int'
+i
+   6: ImplicitCastExpr 0x56555a495bc8 <linenoise.c:290:9> 'unsigned int' <LValueToRValue>
+`-DeclRefExpr 0x56555a495b88 <col:9> 'unsigned int' lvalue Var 0x56555a495230 'i' 'unsigned int'
+[B6.5] (ImplicitCastExpr, LValueToRValue, unsigned int)
+   7: ArraySubscriptExpr 0x56555a495be0 <linenoise.c:290:5, col:10> 'char' lvalue
+|-ImplicitCastExpr 0x56555a495bb0 <col:5> 'char *' <ArrayToPointerDecay>
+| `-DeclRefExpr 0x56555a495b60 <col:5> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+`-ImplicitCastExpr 0x56555a495bc8 <col:9> 'unsigned int' <LValueToRValue>
+  `-DeclRefExpr 0x56555a495b88 <col:9> 'unsigned int' lvalue Var 0x56555a495230 'i' 'unsigned int'
+[B6.4][[B6.6]]
+   8: BinaryOperator 0x56555a495c38 <linenoise.c:290:5, col:14> 'char' '='
+|-ArraySubscriptExpr 0x56555a495be0 <col:5, col:10> 'char' lvalue
+| |-ImplicitCastExpr 0x56555a495bb0 <col:5> 'char *' <ArrayToPointerDecay>
+| | `-DeclRefExpr 0x56555a495b60 <col:5> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+| `-ImplicitCastExpr 0x56555a495bc8 <col:9> 'unsigned int' <LValueToRValue>
+|   `-DeclRefExpr 0x56555a495b88 <col:9> 'unsigned int' lvalue Var 0x56555a495230 'i' 'unsigned int'
+`-ImplicitCastExpr 0x56555a495c20 <col:14> 'char' <IntegralCast>
+  `-CharacterLiteral 0x56555a495c08 <col:14> 'int' 0
+[B6.7] = [B6.2]
+   9: DeclRefExpr 0x56555a495c60 <linenoise.c:293:9> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+buf
+  10: ImplicitCastExpr 0x56555a495ca8 <linenoise.c:293:9> 'char *' <ArrayToPointerDecay>
+`-DeclRefExpr 0x56555a495c60 <col:9> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+[B6.9] (ImplicitCastExpr, ArrayToPointerDecay, char *)
+  11: IntegerLiteral 0x56555a495c88 <linenoise.c:293:13> 'int' 0
+0
+  12: ArraySubscriptExpr 0x56555a495cc0 <linenoise.c:293:9, col:14> 'char' lvalue
+|-ImplicitCastExpr 0x56555a495ca8 <col:9> 'char *' <ArrayToPointerDecay>
+| `-DeclRefExpr 0x56555a495c60 <col:9> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+`-IntegerLiteral 0x56555a495c88 <col:13> 'int' 0
+[B6.10][[B6.11]]
+  13: ImplicitCastExpr 0x56555a495d10 <linenoise.c:293:9, col:14> 'char' <LValueToRValue>
+`-ArraySubscriptExpr 0x56555a495cc0 <col:9, col:14> 'char' lvalue
+  |-ImplicitCastExpr 0x56555a495ca8 <col:9> 'char *' <ArrayToPointerDecay>
+  | `-DeclRefExpr 0x56555a495c60 <col:9> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+  `-IntegerLiteral 0x56555a495c88 <col:13> 'int' 0
+[B6.12] (ImplicitCastExpr, LValueToRValue, char)
+  14: ImplicitCastExpr 0x56555a495d28 <linenoise.c:293:9, col:14> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x56555a495d10 <col:9, col:14> 'char' <LValueToRValue>
+  `-ArraySubscriptExpr 0x56555a495cc0 <col:9, col:14> 'char' lvalue
+    |-ImplicitCastExpr 0x56555a495ca8 <col:9> 'char *' <ArrayToPointerDecay>
+    | `-DeclRefExpr 0x56555a495c60 <col:9> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+    `-IntegerLiteral 0x56555a495c88 <col:13> 'int' 0
+[B6.13] (ImplicitCastExpr, IntegralCast, int)
+  15: DeclRefExpr 0x56555a495ce8 <linenoise.c:293:19> 'int' EnumConstant 0x56555a490a38 'ESC' 'int'
+ESC
+  16: BinaryOperator 0x56555a495d40 <linenoise.c:293:9, col:19> 'int' '!='
+|-ImplicitCastExpr 0x56555a495d28 <col:9, col:14> 'int' <IntegralCast>
+| `-ImplicitCastExpr 0x56555a495d10 <col:9, col:14> 'char' <LValueToRValue>
+|   `-ArraySubscriptExpr 0x56555a495cc0 <col:9, col:14> 'char' lvalue
+|     |-ImplicitCastExpr 0x56555a495ca8 <col:9> 'char *' <ArrayToPointerDecay>
+|     | `-DeclRefExpr 0x56555a495c60 <col:9> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+|     `-IntegerLiteral 0x56555a495c88 <col:13> 'int' 0
+`-DeclRefExpr 0x56555a495ce8 <col:19> 'int' EnumConstant 0x56555a490a38 'ESC' 'int'
+[B6.14] != [B6.15]
+   T: [B6.16] || ...
+   Preds (3): B9 B11 B13
+   Succs (2): B4 B5
+
+ [B7]
+   Preds (1): B8
+   Succs (1): B13
+
+ [B8]
+   1: DeclRefExpr 0x56555a495ad0 <linenoise.c:288:9> 'unsigned int' lvalue Var 0x56555a495230 'i' 'unsigned int'
+i
+   2: UnaryOperator 0x56555a495af8 <linenoise.c:288:9, col:10> 'unsigned int' postfix '++'
+`-DeclRefExpr 0x56555a495ad0 <col:9> 'unsigned int' lvalue Var 0x56555a495230 'i' 'unsigned int'
+[B8.1]++
+   Preds (1): B10
+   Succs (1): B7
+
+ [B9]
+   T: break;
+   Preds (1): B10
+   Succs (1): B6
+
+ [B10]
+   1: DeclRefExpr 0x56555a495978 <linenoise.c:287:13> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+buf
+   2: ImplicitCastExpr 0x56555a4959c8 <linenoise.c:287:13> 'char *' <ArrayToPointerDecay>
+`-DeclRefExpr 0x56555a495978 <col:13> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+[B10.1] (ImplicitCastExpr, ArrayToPointerDecay, char *)
+   3: DeclRefExpr 0x56555a4959a0 <linenoise.c:287:17> 'unsigned int' lvalue Var 0x56555a495230 'i' 'unsigned int'
+i
+   4: ImplicitCastExpr 0x56555a4959e0 <linenoise.c:287:17> 'unsigned int' <LValueToRValue>
+`-DeclRefExpr 0x56555a4959a0 <col:17> 'unsigned int' lvalue Var 0x56555a495230 'i' 'unsigned int'
+[B10.3] (ImplicitCastExpr, LValueToRValue, unsigned int)
+   5: ArraySubscriptExpr 0x56555a4959f8 <linenoise.c:287:13, col:18> 'char' lvalue
+|-ImplicitCastExpr 0x56555a4959c8 <col:13> 'char *' <ArrayToPointerDecay>
+| `-DeclRefExpr 0x56555a495978 <col:13> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+`-ImplicitCastExpr 0x56555a4959e0 <col:17> 'unsigned int' <LValueToRValue>
+  `-DeclRefExpr 0x56555a4959a0 <col:17> 'unsigned int' lvalue Var 0x56555a495230 'i' 'unsigned int'
+[B10.2][[B10.4]]
+   6: ImplicitCastExpr 0x56555a495a38 <linenoise.c:287:13, col:18> 'char' <LValueToRValue>
+`-ArraySubscriptExpr 0x56555a4959f8 <col:13, col:18> 'char' lvalue
+  |-ImplicitCastExpr 0x56555a4959c8 <col:13> 'char *' <ArrayToPointerDecay>
+  | `-DeclRefExpr 0x56555a495978 <col:13> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+  `-ImplicitCastExpr 0x56555a4959e0 <col:17> 'unsigned int' <LValueToRValue>
+    `-DeclRefExpr 0x56555a4959a0 <col:17> 'unsigned int' lvalue Var 0x56555a495230 'i' 'unsigned int'
+[B10.5] (ImplicitCastExpr, LValueToRValue, char)
+   7: ImplicitCastExpr 0x56555a495a50 <linenoise.c:287:13, col:18> 'int' <IntegralCast>
+`-ImplicitCastExpr 0x56555a495a38 <col:13, col:18> 'char' <LValueToRValue>
+  `-ArraySubscriptExpr 0x56555a4959f8 <col:13, col:18> 'char' lvalue
+    |-ImplicitCastExpr 0x56555a4959c8 <col:13> 'char *' <ArrayToPointerDecay>
+    | `-DeclRefExpr 0x56555a495978 <col:13> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+    `-ImplicitCastExpr 0x56555a4959e0 <col:17> 'unsigned int' <LValueToRValue>
+      `-DeclRefExpr 0x56555a4959a0 <col:17> 'unsigned int' lvalue Var 0x56555a495230 'i' 'unsigned int'
+[B10.6] (ImplicitCastExpr, IntegralCast, int)
+   8: CharacterLiteral 0x56555a495a20 <linenoise.c:287:23> 'int' 82
+'R'
+   9: BinaryOperator 0x56555a495a68 <linenoise.c:287:13, col:23> 'int' '=='
+|-ImplicitCastExpr 0x56555a495a50 <col:13, col:18> 'int' <IntegralCast>
+| `-ImplicitCastExpr 0x56555a495a38 <col:13, col:18> 'char' <LValueToRValue>
+|   `-ArraySubscriptExpr 0x56555a4959f8 <col:13, col:18> 'char' lvalue
+|     |-ImplicitCastExpr 0x56555a4959c8 <col:13> 'char *' <ArrayToPointerDecay>
+|     | `-DeclRefExpr 0x56555a495978 <col:13> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+|     `-ImplicitCastExpr 0x56555a4959e0 <col:17> 'unsigned int' <LValueToRValue>
+|       `-DeclRefExpr 0x56555a4959a0 <col:17> 'unsigned int' lvalue Var 0x56555a495230 'i' 'unsigned int'
+`-CharacterLiteral 0x56555a495a20 <col:23> 'int' 82
+[B10.7] == [B10.8]
+   T: if [B10.9]
+   Preds (1): B12
+   Succs (2): B9 B8
+
+ [B11]
+   T: break;
+   Preds (1): B12
+   Succs (1): B6
+
+ [B12]
+   1: DeclRefExpr 0x56555a4956c8 <linenoise.c:286:13> 'ssize_t (int, void *, size_t)' Function 0x56555a3662c0 'read' 'ssize_t (int, void *, size_t)'
+read
+   2: ImplicitCastExpr 0x56555a495838 <linenoise.c:286:13> 'ssize_t (*)(int, void *, size_t)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x56555a4956c8 <col:13> 'ssize_t (int, void *, size_t)' Function 0x56555a3662c0 'read' 'ssize_t (int, void *, size_t)'
+[B12.1] (ImplicitCastExpr, FunctionToPointerDecay, ssize_t (*)(int, void *, size_t))
+   3: DeclRefExpr 0x56555a4956f0 <linenoise.c:286:18> 'int' lvalue ParmVar 0x56555a494e50 'ifd' 'int'
+ifd
+   4: ImplicitCastExpr 0x56555a495890 <linenoise.c:286:18> 'int' <LValueToRValue>
+`-DeclRefExpr 0x56555a4956f0 <col:18> 'int' lvalue ParmVar 0x56555a494e50 'ifd' 'int'
+[B12.3] (ImplicitCastExpr, LValueToRValue, int)
+   5: DeclRefExpr 0x56555a495718 <linenoise.c:286:22> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+buf
+   6: ImplicitCastExpr 0x56555a495768 <linenoise.c:286:22> 'char *' <ArrayToPointerDecay>
+`-DeclRefExpr 0x56555a495718 <col:22> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+[B12.5] (ImplicitCastExpr, ArrayToPointerDecay, char *)
+   7: DeclRefExpr 0x56555a495740 <linenoise.c:286:26> 'unsigned int' lvalue Var 0x56555a495230 'i' 'unsigned int'
+i
+   8: ImplicitCastExpr 0x56555a495780 <linenoise.c:286:26> 'unsigned int' <LValueToRValue>
+`-DeclRefExpr 0x56555a495740 <col:26> 'unsigned int' lvalue Var 0x56555a495230 'i' 'unsigned int'
+[B12.7] (ImplicitCastExpr, LValueToRValue, unsigned int)
+   9: BinaryOperator 0x56555a495798 <linenoise.c:286:22, col:26> 'char *' '+'
+|-ImplicitCastExpr 0x56555a495768 <col:22> 'char *' <ArrayToPointerDecay>
+| `-DeclRefExpr 0x56555a495718 <col:22> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+`-ImplicitCastExpr 0x56555a495780 <col:26> 'unsigned int' <LValueToRValue>
+  `-DeclRefExpr 0x56555a495740 <col:26> 'unsigned int' lvalue Var 0x56555a495230 'i' 'unsigned int'
+[B12.6] + [B12.8]
+  10: ImplicitCastExpr 0x56555a4958a8 <linenoise.c:286:22, col:26> 'void *' <BitCast>
+`-BinaryOperator 0x56555a495798 <col:22, col:26> 'char *' '+'
+  |-ImplicitCastExpr 0x56555a495768 <col:22> 'char *' <ArrayToPointerDecay>
+  | `-DeclRefExpr 0x56555a495718 <col:22> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+  `-ImplicitCastExpr 0x56555a495780 <col:26> 'unsigned int' <LValueToRValue>
+    `-DeclRefExpr 0x56555a495740 <col:26> 'unsigned int' lvalue Var 0x56555a495230 'i' 'unsigned int'
+[B12.9] (ImplicitCastExpr, BitCast, void *)
+  11: IntegerLiteral 0x56555a4957c0 <linenoise.c:286:28> 'int' 1
+1
+  12: ImplicitCastExpr 0x56555a4958c0 <linenoise.c:286:28> 'size_t':'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x56555a4957c0 <col:28> 'int' 1
+[B12.11] (ImplicitCastExpr, IntegralCast, size_t)
+  13: CallExpr 0x56555a495850 <linenoise.c:286:13, col:29> 'ssize_t':'long'
+|-ImplicitCastExpr 0x56555a495838 <col:13> 'ssize_t (*)(int, void *, size_t)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x56555a4956c8 <col:13> 'ssize_t (int, void *, size_t)' Function 0x56555a3662c0 'read' 'ssize_t (int, void *, size_t)'
+|-ImplicitCastExpr 0x56555a495890 <col:18> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x56555a4956f0 <col:18> 'int' lvalue ParmVar 0x56555a494e50 'ifd' 'int'
+|-ImplicitCastExpr 0x56555a4958a8 <col:22, col:26> 'void *' <BitCast>
+| `-BinaryOperator 0x56555a495798 <col:22, col:26> 'char *' '+'
+|   |-ImplicitCastExpr 0x56555a495768 <col:22> 'char *' <ArrayToPointerDecay>
+|   | `-DeclRefExpr 0x56555a495718 <col:22> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+|   `-ImplicitCastExpr 0x56555a495780 <col:26> 'unsigned int' <LValueToRValue>
+|     `-DeclRefExpr 0x56555a495740 <col:26> 'unsigned int' lvalue Var 0x56555a495230 'i' 'unsigned int'
+`-ImplicitCastExpr 0x56555a4958c0 <col:28> 'size_t':'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x56555a4957c0 <col:28> 'int' 1
+[B12.2]([B12.4], [B12.10], [B12.12])
+  14: IntegerLiteral 0x56555a4958d8 <linenoise.c:286:34> 'int' 1
+1
+  15: ImplicitCastExpr 0x56555a4958f8 <linenoise.c:286:34> 'long' <IntegralCast>
+`-IntegerLiteral 0x56555a4958d8 <col:34> 'int' 1
+[B12.14] (ImplicitCastExpr, IntegralCast, long)
+  16: BinaryOperator 0x56555a495910 <linenoise.c:286:13, col:34> 'int' '!='
+|-CallExpr 0x56555a495850 <col:13, col:29> 'ssize_t':'long'
+| |-ImplicitCastExpr 0x56555a495838 <col:13> 'ssize_t (*)(int, void *, size_t)' <FunctionToPointerDecay>
+| | `-DeclRefExpr 0x56555a4956c8 <col:13> 'ssize_t (int, void *, size_t)' Function 0x56555a3662c0 'read' 'ssize_t (int, void *, size_t)'
+| |-ImplicitCastExpr 0x56555a495890 <col:18> 'int' <LValueToRValue>
+| | `-DeclRefExpr 0x56555a4956f0 <col:18> 'int' lvalue ParmVar 0x56555a494e50 'ifd' 'int'
+| |-ImplicitCastExpr 0x56555a4958a8 <col:22, col:26> 'void *' <BitCast>
+| | `-BinaryOperator 0x56555a495798 <col:22, col:26> 'char *' '+'
+| |   |-ImplicitCastExpr 0x56555a495768 <col:22> 'char *' <ArrayToPointerDecay>
+| |   | `-DeclRefExpr 0x56555a495718 <col:22> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+| |   `-ImplicitCastExpr 0x56555a495780 <col:26> 'unsigned int' <LValueToRValue>
+| |     `-DeclRefExpr 0x56555a495740 <col:26> 'unsigned int' lvalue Var 0x56555a495230 'i' 'unsigned int'
+| `-ImplicitCastExpr 0x56555a4958c0 <col:28> 'size_t':'unsigned long' <IntegralCast>
+|   `-IntegerLiteral 0x56555a4957c0 <col:28> 'int' 1
+`-ImplicitCastExpr 0x56555a4958f8 <col:34> 'long' <IntegralCast>
+  `-IntegerLiteral 0x56555a4958d8 <col:34> 'int' 1
+[B12.13] != [B12.15]
+   T: if [B12.16]
+   Preds (1): B13
+   Succs (2): B11 B10
+
+ [B13]
+   1: DeclRefExpr 0x56555a495580 <linenoise.c:285:12> 'unsigned int' lvalue Var 0x56555a495230 'i' 'unsigned int'
+i
+   2: ImplicitCastExpr 0x56555a495670 <linenoise.c:285:12> 'unsigned int' <LValueToRValue>
+`-DeclRefExpr 0x56555a495580 <col:12> 'unsigned int' lvalue Var 0x56555a495230 'i' 'unsigned int'
+[B13.1] (ImplicitCastExpr, LValueToRValue, unsigned int)
+   3: ImplicitCastExpr 0x56555a495688 <linenoise.c:285:12> 'unsigned long' <IntegralCast>
+`-ImplicitCastExpr 0x56555a495670 <col:12> 'unsigned int' <LValueToRValue>
+  `-DeclRefExpr 0x56555a495580 <col:12> 'unsigned int' lvalue Var 0x56555a495230 'i' 'unsigned int'
+[B13.2] (ImplicitCastExpr, IntegralCast, unsigned long)
+   4: UnaryExprOrTypeTraitExpr 0x56555a4955f0 <linenoise.c:285:16, col:26> 'unsigned long' sizeof
+`-ParenExpr 0x56555a4955d0 <col:22, col:26> 'char [32]' lvalue
+  `-DeclRefExpr 0x56555a4955a8 <col:23> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+sizeof (buf)
+   5: IntegerLiteral 0x56555a495610 <linenoise.c:285:28> 'int' 1
+1
+   6: ImplicitCastExpr 0x56555a495630 <linenoise.c:285:28> 'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x56555a495610 <col:28> 'int' 1
+[B13.5] (ImplicitCastExpr, IntegralCast, unsigned long)
+   7: BinaryOperator 0x56555a495648 <linenoise.c:285:16, col:28> 'unsigned long' '-'
+|-UnaryExprOrTypeTraitExpr 0x56555a4955f0 <col:16, col:26> 'unsigned long' sizeof
+| `-ParenExpr 0x56555a4955d0 <col:22, col:26> 'char [32]' lvalue
+|   `-DeclRefExpr 0x56555a4955a8 <col:23> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+`-ImplicitCastExpr 0x56555a495630 <col:28> 'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x56555a495610 <col:28> 'int' 1
+[B13.4] - [B13.6]
+   8: BinaryOperator 0x56555a4956a0 <linenoise.c:285:12, col:28> 'int' '<'
+|-ImplicitCastExpr 0x56555a495688 <col:12> 'unsigned long' <IntegralCast>
+| `-ImplicitCastExpr 0x56555a495670 <col:12> 'unsigned int' <LValueToRValue>
+|   `-DeclRefExpr 0x56555a495580 <col:12> 'unsigned int' lvalue Var 0x56555a495230 'i' 'unsigned int'
+`-BinaryOperator 0x56555a495648 <col:16, col:28> 'unsigned long' '-'
+  |-UnaryExprOrTypeTraitExpr 0x56555a4955f0 <col:16, col:26> 'unsigned long' sizeof
+  | `-ParenExpr 0x56555a4955d0 <col:22, col:26> 'char [32]' lvalue
+  |   `-DeclRefExpr 0x56555a4955a8 <col:23> 'char [32]' lvalue Var 0x56555a495080 'buf' 'char [32]'
+  `-ImplicitCastExpr 0x56555a495630 <col:28> 'unsigned long' <IntegralCast>
+    `-IntegerLiteral 0x56555a495610 <col:28> 'int' 1
+[B13.3] < [B13.7]
+   T: while [B13.8]
+   Preds (2): B7 B15
+   Succs (2): B12 B6
+
+ [B14]
+   1: IntegerLiteral 0x56555a4954f0 <linenoise.c:282:48> 'int' 1
+1
+   2: UnaryOperator 0x56555a495510 <linenoise.c:282:47, col:48> 'int' prefix '-'
+`-IntegerLiteral 0x56555a4954f0 <col:48> 'int' 1
+-[B14.1]
+   3: ReturnStmt 0x56555a495530 <linenoise.c:282:40, col:48>
+`-UnaryOperator 0x56555a495510 <col:47, col:48> 'int' prefix '-'
+  `-IntegerLiteral 0x56555a4954f0 <col:48> 'int' 1
+return [B14.2];
+   Preds (1): B15
+   Succs (1): B0
+
+ [B15]
+   1: DeclStmt 0x56555a4950e0 <linenoise.c:277:5, col:17>col:10
+`-VarDecl 0x56555a495080 <col:5, col:16> col:10 used buf 'char [32]'
+char buf[32];
+   2: DeclStmt 0x56555a4c9cd0 <linenoise.c:278:9>col:9
+`-VarDecl 0x56555a495110 <col:5, col:9> col:9 used cols 'int'
+int cols;
+   3: DeclStmt 0x56555a4c9ab8 <linenoise.c:278:15>col:15
+`-VarDecl 0x56555a495188 <col:5, col:15> col:15 used rows 'int'
+int rows;
+   4: IntegerLiteral 0x56555a495290 <linenoise.c:279:22> 'int' 0
+0
+   5: ImplicitCastExpr 0x56555a4952b0 <linenoise.c:279:22> 'unsigned int' <IntegralCast>
+`-IntegerLiteral 0x56555a495290 <col:22> 'int' 0
+[B15.4] (ImplicitCastExpr, IntegralCast, unsigned int)
+   6: DeclStmt 0x56555a4952c8 <linenoise.c:279:5, col:23>col:18
+`-VarDecl 0x56555a495230 <col:5, col:22> col:18 used i 'unsigned int' cinit
+  `-ImplicitCastExpr 0x56555a4952b0 <col:22> 'unsigned int' <IntegralCast>
+    `-IntegerLiteral 0x56555a495290 <col:22> 'int' 0
+unsigned int i = 0;
+   7: DeclRefExpr 0x56555a4952e0 <linenoise.c:282:9> 'ssize_t (int, const void *, size_t)' Function 0x56555a3665d0 'write' 'ssize_t (int, const void *, size_t)'
+write
+   8: ImplicitCastExpr 0x56555a4953d8 <linenoise.c:282:9> 'ssize_t (*)(int, const void *, size_t)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x56555a4952e0 <col:9> 'ssize_t (int, const void *, size_t)' Function 0x56555a3665d0 'write' 'ssize_t (int, const void *, size_t)'
+[B15.7] (ImplicitCastExpr, FunctionToPointerDecay, ssize_t (*)(int, const void *, size_t))
+   9: DeclRefExpr 0x56555a495308 <linenoise.c:282:15> 'int' lvalue ParmVar 0x56555a494ec8 'ofd' 'int'
+ofd
+  10: ImplicitCastExpr 0x56555a495430 <linenoise.c:282:15> 'int' <LValueToRValue>
+`-DeclRefExpr 0x56555a495308 <col:15> 'int' lvalue ParmVar 0x56555a494ec8 'ofd' 'int'
+[B15.9] (ImplicitCastExpr, LValueToRValue, int)
+  11: StringLiteral 0x56555a495330 <linenoise.c:282:20> 'char [5]' lvalue "\033[6n"
+"\033[6n"
+  12: ImplicitCastExpr 0x56555a495448 <linenoise.c:282:20> 'char *' <ArrayToPointerDecay>
+`-StringLiteral 0x56555a495330 <col:20> 'char [5]' lvalue "\033[6n"
+[B15.11] (ImplicitCastExpr, ArrayToPointerDecay, char *)
+  13: ImplicitCastExpr 0x56555a495460 <linenoise.c:282:20> 'const void *' <BitCast>
+`-ImplicitCastExpr 0x56555a495448 <col:20> 'char *' <ArrayToPointerDecay>
+  `-StringLiteral 0x56555a495330 <col:20> 'char [5]' lvalue "\033[6n"
+[B15.12] (ImplicitCastExpr, BitCast, const void *)
+  14: IntegerLiteral 0x56555a495360 <linenoise.c:282:31> 'int' 4
+4
+  15: ImplicitCastExpr 0x56555a495478 <linenoise.c:282:31> 'size_t':'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x56555a495360 <col:31> 'int' 4
+[B15.14] (ImplicitCastExpr, IntegralCast, size_t)
+  16: CallExpr 0x56555a4953f0 <linenoise.c:282:9, col:32> 'ssize_t':'long'
+|-ImplicitCastExpr 0x56555a4953d8 <col:9> 'ssize_t (*)(int, const void *, size_t)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x56555a4952e0 <col:9> 'ssize_t (int, const void *, size_t)' Function 0x56555a3665d0 'write' 'ssize_t (int, const void *, size_t)'
+|-ImplicitCastExpr 0x56555a495430 <col:15> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x56555a495308 <col:15> 'int' lvalue ParmVar 0x56555a494ec8 'ofd' 'int'
+|-ImplicitCastExpr 0x56555a495460 <col:20> 'const void *' <BitCast>
+| `-ImplicitCastExpr 0x56555a495448 <col:20> 'char *' <ArrayToPointerDecay>
+|   `-StringLiteral 0x56555a495330 <col:20> 'char [5]' lvalue "\033[6n"
+`-ImplicitCastExpr 0x56555a495478 <col:31> 'size_t':'unsigned long' <IntegralCast>
+  `-IntegerLiteral 0x56555a495360 <col:31> 'int' 4
+[B15.8]([B15.10], [B15.13], [B15.15])
+  17: IntegerLiteral 0x56555a495490 <linenoise.c:282:37> 'int' 4
+4
+  18: ImplicitCastExpr 0x56555a4954b0 <linenoise.c:282:37> 'long' <IntegralCast>
+`-IntegerLiteral 0x56555a495490 <col:37> 'int' 4
+[B15.17] (ImplicitCastExpr, IntegralCast, long)
+  19: BinaryOperator 0x56555a4954c8 <linenoise.c:282:9, col:37> 'int' '!='
+|-CallExpr 0x56555a4953f0 <col:9, col:32> 'ssize_t':'long'
+| |-ImplicitCastExpr 0x56555a4953d8 <col:9> 'ssize_t (*)(int, const void *, size_t)' <FunctionToPointerDecay>
+| | `-DeclRefExpr 0x56555a4952e0 <col:9> 'ssize_t (int, const void *, size_t)' Function 0x56555a3665d0 'write' 'ssize_t (int, const void *, size_t)'
+| |-ImplicitCastExpr 0x56555a495430 <col:15> 'int' <LValueToRValue>
+| | `-DeclRefExpr 0x56555a495308 <col:15> 'int' lvalue ParmVar 0x56555a494ec8 'ofd' 'int'
+| |-ImplicitCastExpr 0x56555a495460 <col:20> 'const void *' <BitCast>
+| | `-ImplicitCastExpr 0x56555a495448 <col:20> 'char *' <ArrayToPointerDecay>
+| |   `-StringLiteral 0x56555a495330 <col:20> 'char [5]' lvalue "\033[6n"
+| `-ImplicitCastExpr 0x56555a495478 <col:31> 'size_t':'unsigned long' <IntegralCast>
+|   `-IntegerLiteral 0x56555a495360 <col:31> 'int' 4
+`-ImplicitCastExpr 0x56555a4954b0 <col:37> 'long' <IntegralCast>
+  `-IntegerLiteral 0x56555a495490 <col:37> 'int' 4
+[B15.16] != [B15.18]
+   T: if [B15.19]
+   Preds (1): B16
+   Succs (2): B14 B13
+
+ [B0 (EXIT)]
+   Preds (4): B1 B2 B4 B14

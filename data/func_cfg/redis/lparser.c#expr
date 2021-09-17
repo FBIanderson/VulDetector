@@ -1,0 +1,40 @@
+static void expr(LexState *ls, expdesc *v)
+ [B2 (ENTRY)]
+   Succs (1): B1
+
+ [B1]
+   1: DeclRefExpr 0x558fa8f29fe8 <lparser.c:857:3> 'BinOpr (LexState *, expdesc *, unsigned int)' Function 0x558fa8f28240 'subexpr' 'BinOpr (LexState *, expdesc *, unsigned int)'
+subexpr
+   2: ImplicitCastExpr 0x558fa8f2a080 <lparser.c:857:3> 'BinOpr (*)(LexState *, expdesc *, unsigned int)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x558fa8f29fe8 <col:3> 'BinOpr (LexState *, expdesc *, unsigned int)' Function 0x558fa8f28240 'subexpr' 'BinOpr (LexState *, expdesc *, unsigned int)'
+[B1.1] (ImplicitCastExpr, FunctionToPointerDecay, BinOpr (*)(LexState *, expdesc *, unsigned int))
+   3: DeclRefExpr 0x558fa8f2a010 <lparser.c:857:11> 'LexState *' lvalue ParmVar 0x558fa8f29e38 'ls' 'LexState *'
+ls
+   4: ImplicitCastExpr 0x558fa8f2a0d8 <lparser.c:857:11> 'LexState *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8f2a010 <col:11> 'LexState *' lvalue ParmVar 0x558fa8f29e38 'ls' 'LexState *'
+[B1.3] (ImplicitCastExpr, LValueToRValue, LexState *)
+   5: DeclRefExpr 0x558fa8f2a038 <lparser.c:857:15> 'expdesc *' lvalue ParmVar 0x558fa8f29ea8 'v' 'expdesc *'
+v
+   6: ImplicitCastExpr 0x558fa8f2a0f0 <lparser.c:857:15> 'expdesc *' <LValueToRValue>
+`-DeclRefExpr 0x558fa8f2a038 <col:15> 'expdesc *' lvalue ParmVar 0x558fa8f29ea8 'v' 'expdesc *'
+[B1.5] (ImplicitCastExpr, LValueToRValue, expdesc *)
+   7: IntegerLiteral 0x558fa8f2a060 <lparser.c:857:18> 'int' 0
+0
+   8: ImplicitCastExpr 0x558fa8f2a108 <lparser.c:857:18> 'unsigned int' <IntegralCast>
+`-IntegerLiteral 0x558fa8f2a060 <col:18> 'int' 0
+[B1.7] (ImplicitCastExpr, IntegralCast, unsigned int)
+   9: CallExpr 0x558fa8f2a098 <lparser.c:857:3, col:19> 'BinOpr':'enum BinOpr'
+|-ImplicitCastExpr 0x558fa8f2a080 <col:3> 'BinOpr (*)(LexState *, expdesc *, unsigned int)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x558fa8f29fe8 <col:3> 'BinOpr (LexState *, expdesc *, unsigned int)' Function 0x558fa8f28240 'subexpr' 'BinOpr (LexState *, expdesc *, unsigned int)'
+|-ImplicitCastExpr 0x558fa8f2a0d8 <col:11> 'LexState *' <LValueToRValue>
+| `-DeclRefExpr 0x558fa8f2a010 <col:11> 'LexState *' lvalue ParmVar 0x558fa8f29e38 'ls' 'LexState *'
+|-ImplicitCastExpr 0x558fa8f2a0f0 <col:15> 'expdesc *' <LValueToRValue>
+| `-DeclRefExpr 0x558fa8f2a038 <col:15> 'expdesc *' lvalue ParmVar 0x558fa8f29ea8 'v' 'expdesc *'
+`-ImplicitCastExpr 0x558fa8f2a108 <col:18> 'unsigned int' <IntegralCast>
+  `-IntegerLiteral 0x558fa8f2a060 <col:18> 'int' 0
+[B1.2]([B1.4], [B1.6], [B1.8])
+   Preds (1): B2
+   Succs (1): B0
+
+ [B0 (EXIT)]
+   Preds (1): B1

@@ -1,0 +1,198 @@
+static int makemask(const char *smask, int count)
+ [B10 (ENTRY)]
+   Succs (1): B9
+
+ [B1]
+   1: DeclRefExpr 0x5615b2490310 <ldblib.c:231:10> 'int' lvalue Var 0x5615b248faa0 'mask' 'int'
+mask
+   2: ImplicitCastExpr 0x5615b2490338 <ldblib.c:231:10> 'int' <LValueToRValue>
+`-DeclRefExpr 0x5615b2490310 <col:10> 'int' lvalue Var 0x5615b248faa0 'mask' 'int'
+[B1.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: ReturnStmt 0x5615b2490350 <ldblib.c:231:3, col:10>
+`-ImplicitCastExpr 0x5615b2490338 <col:10> 'int' <LValueToRValue>
+  `-DeclRefExpr 0x5615b2490310 <col:10> 'int' lvalue Var 0x5615b248faa0 'mask' 'int'
+return [B1.2];
+   Preds (2): B2 B3
+   Succs (1): B0
+
+ [B2]
+   1: DeclRefExpr 0x5615b24901f0 <ldblib.c:230:18> 'int' lvalue Var 0x5615b248faa0 'mask' 'int'
+mask
+   2: IntegerLiteral 0x5615b2490218 <./lua.h:324:24> 'int' 1
+1
+   3: IntegerLiteral 0x5615b2490238 <./lua.h:314:23> 'int' 3
+3
+   4: BinaryOperator 0x5615b2490258 <./lua.h:324:24, line:314:23> 'int' '<<'
+|-IntegerLiteral 0x5615b2490218 <line:324:24> 'int' 1
+`-IntegerLiteral 0x5615b2490238 <line:314:23> 'int' 3
+[B2.2] << [B2.3]
+   5: CompoundAssignOperator 0x5615b24902a0 <ldblib.c:230:18, ./lua.h:324:42> 'int' '|=' ComputeLHSTy='int' ComputeResultTy='int'
+|-DeclRefExpr 0x5615b24901f0 <ldblib.c:230:18> 'int' lvalue Var 0x5615b248faa0 'mask' 'int'
+`-ParenExpr 0x5615b2490280 <./lua.h:324:23, col:42> 'int'
+  `-BinaryOperator 0x5615b2490258 <col:24, line:314:23> 'int' '<<'
+    |-IntegerLiteral 0x5615b2490218 <line:324:24> 'int' 1
+    `-IntegerLiteral 0x5615b2490238 <line:314:23> 'int' 3
+[B2.1] |= ([B2.4])
+   Preds (1): B3
+   Succs (1): B1
+
+ [B3]
+   1: DeclRefExpr 0x5615b2490168 <ldblib.c:230:7> 'int' lvalue ParmVar 0x5615b248f8f8 'count' 'int'
+count
+   2: ImplicitCastExpr 0x5615b24901b0 <ldblib.c:230:7> 'int' <LValueToRValue>
+`-DeclRefExpr 0x5615b2490168 <col:7> 'int' lvalue ParmVar 0x5615b248f8f8 'count' 'int'
+[B3.1] (ImplicitCastExpr, LValueToRValue, int)
+   3: IntegerLiteral 0x5615b2490190 <ldblib.c:230:15> 'int' 0
+0
+   4: BinaryOperator 0x5615b24901c8 <ldblib.c:230:7, col:15> 'int' '>'
+|-ImplicitCastExpr 0x5615b24901b0 <col:7> 'int' <LValueToRValue>
+| `-DeclRefExpr 0x5615b2490168 <col:7> 'int' lvalue ParmVar 0x5615b248f8f8 'count' 'int'
+`-IntegerLiteral 0x5615b2490190 <col:15> 'int' 0
+[B3.2] > [B3.3]
+   T: if [B3.4]
+   Preds (2): B4 B5
+   Succs (2): B2 B1
+
+ [B4]
+   1: DeclRefExpr 0x5615b2490030 <ldblib.c:229:27> 'int' lvalue Var 0x5615b248faa0 'mask' 'int'
+mask
+   2: IntegerLiteral 0x5615b2490058 <./lua.h:323:23> 'int' 1
+1
+   3: IntegerLiteral 0x5615b2490078 <./lua.h:313:22> 'int' 2
+2
+   4: BinaryOperator 0x5615b2490098 <./lua.h:323:23, line:313:22> 'int' '<<'
+|-IntegerLiteral 0x5615b2490058 <line:323:23> 'int' 1
+`-IntegerLiteral 0x5615b2490078 <line:313:22> 'int' 2
+[B4.2] << [B4.3]
+   5: CompoundAssignOperator 0x5615b24900e0 <ldblib.c:229:27, ./lua.h:323:40> 'int' '|=' ComputeLHSTy='int' ComputeResultTy='int'
+|-DeclRefExpr 0x5615b2490030 <ldblib.c:229:27> 'int' lvalue Var 0x5615b248faa0 'mask' 'int'
+`-ParenExpr 0x5615b24900c0 <./lua.h:323:22, col:40> 'int'
+  `-BinaryOperator 0x5615b2490098 <col:23, line:313:22> 'int' '<<'
+    |-IntegerLiteral 0x5615b2490058 <line:323:23> 'int' 1
+    `-IntegerLiteral 0x5615b2490078 <line:313:22> 'int' 2
+[B4.1] |= ([B4.4])
+   Preds (1): B5
+   Succs (1): B3
+
+ [B5]
+   1: DeclRefExpr 0x5615b248ff48 <ldblib.c:229:7> 'char *(const char *, int)' Function 0x5615b23da968 'strchr' 'char *(const char *, int)'
+strchr
+   2: ImplicitCastExpr 0x5615b248ffc8 <ldblib.c:229:7> 'char *(*)(const char *, int)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5615b248ff48 <col:7> 'char *(const char *, int)' Function 0x5615b23da968 'strchr' 'char *(const char *, int)'
+[B5.1] (ImplicitCastExpr, FunctionToPointerDecay, char *(*)(const char *, int))
+   3: DeclRefExpr 0x5615b248ff70 <ldblib.c:229:14> 'const char *' lvalue ParmVar 0x5615b248f880 'smask' 'const char *'
+smask
+   4: ImplicitCastExpr 0x5615b2490018 <ldblib.c:229:14> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x5615b248ff70 <col:14> 'const char *' lvalue ParmVar 0x5615b248f880 'smask' 'const char *'
+[B5.3] (ImplicitCastExpr, LValueToRValue, const char *)
+   5: CharacterLiteral 0x5615b248ff98 <ldblib.c:229:21> 'int' 108
+'l'
+   6: CallExpr 0x5615b248ffe0 <ldblib.c:229:7, col:24> 'char *'
+|-ImplicitCastExpr 0x5615b248ffc8 <col:7> 'char *(*)(const char *, int)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5615b248ff48 <col:7> 'char *(const char *, int)' Function 0x5615b23da968 'strchr' 'char *(const char *, int)'
+|-ImplicitCastExpr 0x5615b2490018 <col:14> 'const char *' <LValueToRValue>
+| `-DeclRefExpr 0x5615b248ff70 <col:14> 'const char *' lvalue ParmVar 0x5615b248f880 'smask' 'const char *'
+`-CharacterLiteral 0x5615b248ff98 <col:21> 'int' 108
+[B5.2]([B5.4], [B5.5])
+   T: if [B5.6]
+   Preds (2): B6 B7
+   Succs (2): B4 B3
+
+ [B6]
+   1: DeclRefExpr 0x5615b248fe28 <ldblib.c:228:27> 'int' lvalue Var 0x5615b248faa0 'mask' 'int'
+mask
+   2: IntegerLiteral 0x5615b248fe50 <./lua.h:322:22> 'int' 1
+1
+   3: IntegerLiteral 0x5615b248fe70 <./lua.h:312:21> 'int' 1
+1
+   4: BinaryOperator 0x5615b248fe90 <./lua.h:322:22, line:312:21> 'int' '<<'
+|-IntegerLiteral 0x5615b248fe50 <line:322:22> 'int' 1
+`-IntegerLiteral 0x5615b248fe70 <line:312:21> 'int' 1
+[B6.2] << [B6.3]
+   5: CompoundAssignOperator 0x5615b248fed8 <ldblib.c:228:27, ./lua.h:322:38> 'int' '|=' ComputeLHSTy='int' ComputeResultTy='int'
+|-DeclRefExpr 0x5615b248fe28 <ldblib.c:228:27> 'int' lvalue Var 0x5615b248faa0 'mask' 'int'
+`-ParenExpr 0x5615b248feb8 <./lua.h:322:21, col:38> 'int'
+  `-BinaryOperator 0x5615b248fe90 <col:22, line:312:21> 'int' '<<'
+    |-IntegerLiteral 0x5615b248fe50 <line:322:22> 'int' 1
+    `-IntegerLiteral 0x5615b248fe70 <line:312:21> 'int' 1
+[B6.1] |= ([B6.4])
+   Preds (1): B7
+   Succs (1): B5
+
+ [B7]
+   1: DeclRefExpr 0x5615b248fd40 <ldblib.c:228:7> 'char *(const char *, int)' Function 0x5615b23da968 'strchr' 'char *(const char *, int)'
+strchr
+   2: ImplicitCastExpr 0x5615b248fdc0 <ldblib.c:228:7> 'char *(*)(const char *, int)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5615b248fd40 <col:7> 'char *(const char *, int)' Function 0x5615b23da968 'strchr' 'char *(const char *, int)'
+[B7.1] (ImplicitCastExpr, FunctionToPointerDecay, char *(*)(const char *, int))
+   3: DeclRefExpr 0x5615b248fd68 <ldblib.c:228:14> 'const char *' lvalue ParmVar 0x5615b248f880 'smask' 'const char *'
+smask
+   4: ImplicitCastExpr 0x5615b248fe10 <ldblib.c:228:14> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x5615b248fd68 <col:14> 'const char *' lvalue ParmVar 0x5615b248f880 'smask' 'const char *'
+[B7.3] (ImplicitCastExpr, LValueToRValue, const char *)
+   5: CharacterLiteral 0x5615b248fd90 <ldblib.c:228:21> 'int' 114
+'r'
+   6: CallExpr 0x5615b248fdd8 <ldblib.c:228:7, col:24> 'char *'
+|-ImplicitCastExpr 0x5615b248fdc0 <col:7> 'char *(*)(const char *, int)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5615b248fd40 <col:7> 'char *(const char *, int)' Function 0x5615b23da968 'strchr' 'char *(const char *, int)'
+|-ImplicitCastExpr 0x5615b248fe10 <col:14> 'const char *' <LValueToRValue>
+| `-DeclRefExpr 0x5615b248fd68 <col:14> 'const char *' lvalue ParmVar 0x5615b248f880 'smask' 'const char *'
+`-CharacterLiteral 0x5615b248fd90 <col:21> 'int' 114
+[B7.2]([B7.4], [B7.5])
+   T: if [B7.6]
+   Preds (2): B8 B9
+   Succs (2): B6 B5
+
+ [B8]
+   1: DeclRefExpr 0x5615b248fc20 <ldblib.c:227:27> 'int' lvalue Var 0x5615b248faa0 'mask' 'int'
+mask
+   2: IntegerLiteral 0x5615b248fc48 <./lua.h:321:23> 'int' 1
+1
+   3: IntegerLiteral 0x5615b248fc68 <./lua.h:311:22> 'int' 0
+0
+   4: BinaryOperator 0x5615b248fc88 <./lua.h:321:23, line:311:22> 'int' '<<'
+|-IntegerLiteral 0x5615b248fc48 <line:321:23> 'int' 1
+`-IntegerLiteral 0x5615b248fc68 <line:311:22> 'int' 0
+[B8.2] << [B8.3]
+   5: CompoundAssignOperator 0x5615b248fcd0 <ldblib.c:227:27, ./lua.h:321:40> 'int' '|=' ComputeLHSTy='int' ComputeResultTy='int'
+|-DeclRefExpr 0x5615b248fc20 <ldblib.c:227:27> 'int' lvalue Var 0x5615b248faa0 'mask' 'int'
+`-ParenExpr 0x5615b248fcb0 <./lua.h:321:22, col:40> 'int'
+  `-BinaryOperator 0x5615b248fc88 <col:23, line:311:22> 'int' '<<'
+    |-IntegerLiteral 0x5615b248fc48 <line:321:23> 'int' 1
+    `-IntegerLiteral 0x5615b248fc68 <line:311:22> 'int' 0
+[B8.1] |= ([B8.4])
+   Preds (1): B9
+   Succs (1): B7
+
+ [B9]
+   1: IntegerLiteral 0x5615b248fb00 <ldblib.c:226:14> 'int' 0
+0
+   2: DeclStmt 0x5615b248fb20 <ldblib.c:226:3, col:15>col:7
+`-VarDecl 0x5615b248faa0 <col:3, col:14> col:7 used mask 'int' cinit
+  `-IntegerLiteral 0x5615b248fb00 <col:14> 'int' 0
+int mask = 0;
+   3: DeclRefExpr 0x5615b248fb38 <ldblib.c:227:7> 'char *(const char *, int)' Function 0x5615b23da968 'strchr' 'char *(const char *, int)'
+strchr
+   4: ImplicitCastExpr 0x5615b248fbb8 <ldblib.c:227:7> 'char *(*)(const char *, int)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x5615b248fb38 <col:7> 'char *(const char *, int)' Function 0x5615b23da968 'strchr' 'char *(const char *, int)'
+[B9.3] (ImplicitCastExpr, FunctionToPointerDecay, char *(*)(const char *, int))
+   5: DeclRefExpr 0x5615b248fb60 <ldblib.c:227:14> 'const char *' lvalue ParmVar 0x5615b248f880 'smask' 'const char *'
+smask
+   6: ImplicitCastExpr 0x5615b248fc08 <ldblib.c:227:14> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x5615b248fb60 <col:14> 'const char *' lvalue ParmVar 0x5615b248f880 'smask' 'const char *'
+[B9.5] (ImplicitCastExpr, LValueToRValue, const char *)
+   7: CharacterLiteral 0x5615b248fb88 <ldblib.c:227:21> 'int' 99
+'c'
+   8: CallExpr 0x5615b248fbd0 <ldblib.c:227:7, col:24> 'char *'
+|-ImplicitCastExpr 0x5615b248fbb8 <col:7> 'char *(*)(const char *, int)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x5615b248fb38 <col:7> 'char *(const char *, int)' Function 0x5615b23da968 'strchr' 'char *(const char *, int)'
+|-ImplicitCastExpr 0x5615b248fc08 <col:14> 'const char *' <LValueToRValue>
+| `-DeclRefExpr 0x5615b248fb60 <col:14> 'const char *' lvalue ParmVar 0x5615b248f880 'smask' 'const char *'
+`-CharacterLiteral 0x5615b248fb88 <col:21> 'int' 99
+[B9.4]([B9.6], [B9.7])
+   T: if [B9.8]
+   Preds (1): B10
+   Succs (2): B8 B7
+
+ [B0 (EXIT)]
+   Preds (1): B1

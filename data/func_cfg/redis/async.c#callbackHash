@@ -1,0 +1,82 @@
+static unsigned int callbackHash(const void *key)
+ [B2 (ENTRY)]
+   Succs (1): B1
+
+ [B1]
+   1: DeclRefExpr 0x55bf9a5fda48 <async.c:54:12> 'unsigned int (const unsigned char *, int)' Function 0x55bf9a5e9438 'dictGenHashFunction' 'unsigned int (const unsigned char *, int)'
+dictGenHashFunction
+   2: ImplicitCastExpr 0x55bf9a5fea28 <async.c:54:12> 'unsigned int (*)(const unsigned char *, int)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a5fda48 <col:12> 'unsigned int (const unsigned char *, int)' Function 0x55bf9a5e9438 'dictGenHashFunction' 'unsigned int (const unsigned char *, int)'
+[B1.1] (ImplicitCastExpr, FunctionToPointerDecay, unsigned int (*)(const unsigned char *, int))
+   3: DeclRefExpr 0x55bf9a5fda70 <async.c:54:55> 'const void *' lvalue ParmVar 0x55bf9a5fd910 'key' 'const void *'
+key
+   4: ImplicitCastExpr 0x55bf9a5fdab0 <async.c:54:55> 'const void *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a5fda70 <col:55> 'const void *' lvalue ParmVar 0x55bf9a5fd910 'key' 'const void *'
+[B1.3] (ImplicitCastExpr, LValueToRValue, const void *)
+   5: CStyleCastExpr 0x55bf9a5fdac8 <async.c:54:32, col:55> 'const unsigned char *' <BitCast>
+`-ImplicitCastExpr 0x55bf9a5fdab0 <col:55> 'const void *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a5fda70 <col:55> 'const void *' lvalue ParmVar 0x55bf9a5fd910 'key' 'const void *'
+(const unsigned char *)[B1.4] (CStyleCastExpr, BitCast, const unsigned char *)
+   6: DeclRefExpr 0x55bf9a5fdaf0 <async.c:55:32> 'size_t (const sds)' Function 0x55bf9a59d9b0 'sdslen' 'size_t (const sds)'
+sdslen
+   7: ImplicitCastExpr 0x55bf9a5fe9b8 <async.c:55:32> 'size_t (*)(const sds)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55bf9a5fdaf0 <col:32> 'size_t (const sds)' Function 0x55bf9a59d9b0 'sdslen' 'size_t (const sds)'
+[B1.6] (ImplicitCastExpr, FunctionToPointerDecay, size_t (*)(const sds))
+   8: DeclRefExpr 0x55bf9a5fdb18 <async.c:55:50> 'const void *' lvalue ParmVar 0x55bf9a5fd910 'key' 'const void *'
+key
+   9: ImplicitCastExpr 0x55bf9a5fdb50 <async.c:55:50> 'const void *' <LValueToRValue>
+`-DeclRefExpr 0x55bf9a5fdb18 <col:50> 'const void *' lvalue ParmVar 0x55bf9a5fd910 'key' 'const void *'
+[B1.8] (ImplicitCastExpr, LValueToRValue, const void *)
+  10: CStyleCastExpr 0x55bf9a5fe930 <async.c:55:39, col:50> 'sds':'char *' <BitCast>
+`-ImplicitCastExpr 0x55bf9a5fdb50 <col:50> 'const void *' <LValueToRValue>
+  `-DeclRefExpr 0x55bf9a5fdb18 <col:50> 'const void *' lvalue ParmVar 0x55bf9a5fd910 'key' 'const void *'
+(const sds)[B1.9] (CStyleCastExpr, BitCast, sds)
+  11: CallExpr 0x55bf9a5fe9d0 <async.c:55:32, col:53> 'size_t':'unsigned long'
+|-ImplicitCastExpr 0x55bf9a5fe9b8 <col:32> 'size_t (*)(const sds)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a5fdaf0 <col:32> 'size_t (const sds)' Function 0x55bf9a59d9b0 'sdslen' 'size_t (const sds)'
+`-CStyleCastExpr 0x55bf9a5fe930 <col:39, col:50> 'sds':'char *' <BitCast>
+  `-ImplicitCastExpr 0x55bf9a5fdb50 <col:50> 'const void *' <LValueToRValue>
+    `-DeclRefExpr 0x55bf9a5fdb18 <col:50> 'const void *' lvalue ParmVar 0x55bf9a5fd910 'key' 'const void *'
+[B1.7]([B1.10])
+  12: ImplicitCastExpr 0x55bf9a5fea78 <async.c:55:32, col:53> 'int' <IntegralCast>
+`-CallExpr 0x55bf9a5fe9d0 <col:32, col:53> 'size_t':'unsigned long'
+  |-ImplicitCastExpr 0x55bf9a5fe9b8 <col:32> 'size_t (*)(const sds)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55bf9a5fdaf0 <col:32> 'size_t (const sds)' Function 0x55bf9a59d9b0 'sdslen' 'size_t (const sds)'
+  `-CStyleCastExpr 0x55bf9a5fe930 <col:39, col:50> 'sds':'char *' <BitCast>
+    `-ImplicitCastExpr 0x55bf9a5fdb50 <col:50> 'const void *' <LValueToRValue>
+      `-DeclRefExpr 0x55bf9a5fdb18 <col:50> 'const void *' lvalue ParmVar 0x55bf9a5fd910 'key' 'const void *'
+[B1.11] (ImplicitCastExpr, IntegralCast, int)
+  13: CallExpr 0x55bf9a5fea40 <async.c:54:12, line:55:54> 'unsigned int'
+|-ImplicitCastExpr 0x55bf9a5fea28 <line:54:12> 'unsigned int (*)(const unsigned char *, int)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55bf9a5fda48 <col:12> 'unsigned int (const unsigned char *, int)' Function 0x55bf9a5e9438 'dictGenHashFunction' 'unsigned int (const unsigned char *, int)'
+|-CStyleCastExpr 0x55bf9a5fdac8 <col:32, col:55> 'const unsigned char *' <BitCast>
+| `-ImplicitCastExpr 0x55bf9a5fdab0 <col:55> 'const void *' <LValueToRValue>
+|   `-DeclRefExpr 0x55bf9a5fda70 <col:55> 'const void *' lvalue ParmVar 0x55bf9a5fd910 'key' 'const void *'
+`-ImplicitCastExpr 0x55bf9a5fea78 <line:55:32, col:53> 'int' <IntegralCast>
+  `-CallExpr 0x55bf9a5fe9d0 <col:32, col:53> 'size_t':'unsigned long'
+    |-ImplicitCastExpr 0x55bf9a5fe9b8 <col:32> 'size_t (*)(const sds)' <FunctionToPointerDecay>
+    | `-DeclRefExpr 0x55bf9a5fdaf0 <col:32> 'size_t (const sds)' Function 0x55bf9a59d9b0 'sdslen' 'size_t (const sds)'
+    `-CStyleCastExpr 0x55bf9a5fe930 <col:39, col:50> 'sds':'char *' <BitCast>
+      `-ImplicitCastExpr 0x55bf9a5fdb50 <col:50> 'const void *' <LValueToRValue>
+        `-DeclRefExpr 0x55bf9a5fdb18 <col:50> 'const void *' lvalue ParmVar 0x55bf9a5fd910 'key' 'const void *'
+[B1.2]([B1.5], [B1.12])
+  14: ReturnStmt 0x55bf9a5fea90 <async.c:54:5, line:55:54>
+`-CallExpr 0x55bf9a5fea40 <line:54:12, line:55:54> 'unsigned int'
+  |-ImplicitCastExpr 0x55bf9a5fea28 <line:54:12> 'unsigned int (*)(const unsigned char *, int)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55bf9a5fda48 <col:12> 'unsigned int (const unsigned char *, int)' Function 0x55bf9a5e9438 'dictGenHashFunction' 'unsigned int (const unsigned char *, int)'
+  |-CStyleCastExpr 0x55bf9a5fdac8 <col:32, col:55> 'const unsigned char *' <BitCast>
+  | `-ImplicitCastExpr 0x55bf9a5fdab0 <col:55> 'const void *' <LValueToRValue>
+  |   `-DeclRefExpr 0x55bf9a5fda70 <col:55> 'const void *' lvalue ParmVar 0x55bf9a5fd910 'key' 'const void *'
+  `-ImplicitCastExpr 0x55bf9a5fea78 <line:55:32, col:53> 'int' <IntegralCast>
+    `-CallExpr 0x55bf9a5fe9d0 <col:32, col:53> 'size_t':'unsigned long'
+      |-ImplicitCastExpr 0x55bf9a5fe9b8 <col:32> 'size_t (*)(const sds)' <FunctionToPointerDecay>
+      | `-DeclRefExpr 0x55bf9a5fdaf0 <col:32> 'size_t (const sds)' Function 0x55bf9a59d9b0 'sdslen' 'size_t (const sds)'
+      `-CStyleCastExpr 0x55bf9a5fe930 <col:39, col:50> 'sds':'char *' <BitCast>
+        `-ImplicitCastExpr 0x55bf9a5fdb50 <col:50> 'const void *' <LValueToRValue>
+          `-DeclRefExpr 0x55bf9a5fdb18 <col:50> 'const void *' lvalue ParmVar 0x55bf9a5fd910 'key' 'const void *'
+return [B1.13];
+   Preds (1): B2
+   Succs (1): B0
+
+ [B0 (EXIT)]
+   Preds (1): B1

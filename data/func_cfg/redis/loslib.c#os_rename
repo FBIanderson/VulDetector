@@ -1,0 +1,193 @@
+static int os_rename(lua_State *L)
+ [B2 (ENTRY)]
+   Succs (1): B1
+
+ [B1]
+   1: DeclRefExpr 0x55626ecff718 <./lauxlib.h:102:32> 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)' Function 0x55626ecf1530 'luaL_checklstring' 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)'
+luaL_checklstring
+   2: ImplicitCastExpr 0x55626ecff828 <./lauxlib.h:102:32> 'const char *(*)(lua_State *, int, size_t *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55626ecff718 <col:32> 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)' Function 0x55626ecf1530 'luaL_checklstring' 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)'
+[B1.1] (ImplicitCastExpr, FunctionToPointerDecay, const char *(*)(lua_State *, int, size_t *))
+   3: DeclRefExpr 0x55626ecff740 <loslib.c:51:43> 'lua_State *' lvalue ParmVar 0x55626ecff568 'L' 'lua_State *'
+L
+   4: ImplicitCastExpr 0x55626ecff880 <loslib.c:51:43> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55626ecff740 <col:43> 'lua_State *' lvalue ParmVar 0x55626ecff568 'L' 'lua_State *'
+[B1.3] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   5: IntegerLiteral 0x55626ecff768 <loslib.c:51:46> 'int' 1
+1
+   6: IntegerLiteral 0x55626ecff7a8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+   7: CStyleCastExpr 0x55626ecff7e0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x55626ecff7a8 <col:24> 'int' 0
+(void *)[B1.6] (CStyleCastExpr, NullToPointer, void *)
+   8: ImplicitCastExpr 0x55626ecff898 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'size_t *' <NullToPointer>
+`-ParenExpr 0x55626ecff808 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x55626ecff7e0 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x55626ecff7a8 <col:24> 'int' 0
+([B1.7]) (ImplicitCastExpr, NullToPointer, size_t *)
+   9: CallExpr 0x55626ecff840 <./lauxlib.h:102:32, col:62> 'const char *'
+|-ImplicitCastExpr 0x55626ecff828 <col:32> 'const char *(*)(lua_State *, int, size_t *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55626ecff718 <col:32> 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)' Function 0x55626ecf1530 'luaL_checklstring' 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)'
+|-ImplicitCastExpr 0x55626ecff880 <loslib.c:51:43> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x55626ecff740 <col:43> 'lua_State *' lvalue ParmVar 0x55626ecff568 'L' 'lua_State *'
+|-ParenExpr 0x55626ecff788 <./lauxlib.h:102:53, col:55> 'int'
+| `-IntegerLiteral 0x55626ecff768 <loslib.c:51:46> 'int' 1
+`-ImplicitCastExpr 0x55626ecff898 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'size_t *' <NullToPointer>
+  `-ParenExpr 0x55626ecff808 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x55626ecff7e0 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x55626ecff7a8 <col:24> 'int' 0
+[B1.2]([B1.4], ([B1.5]), [B1.8])
+  10: DeclStmt 0x55626ecff8d0 <loslib.c:51:3, col:48>col:15
+`-VarDecl 0x55626ecff6b8 <col:3, ./lauxlib.h:102:63> loslib.c:51:15 used fromname 'const char *' cinit
+  `-ParenExpr 0x55626ecff8b0 <./lauxlib.h:102:31, col:63> 'const char *'
+    `-CallExpr 0x55626ecff840 <col:32, col:62> 'const char *'
+      |-ImplicitCastExpr 0x55626ecff828 <col:32> 'const char *(*)(lua_State *, int, size_t *)' <FunctionToPointerDecay>
+      | `-DeclRefExpr 0x55626ecff718 <col:32> 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)' Function 0x55626ecf1530 'luaL_checklstring' 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)'
+      |-ImplicitCastExpr 0x55626ecff880 <loslib.c:51:43> 'lua_State *' <LValueToRValue>
+      | `-DeclRefExpr 0x55626ecff740 <col:43> 'lua_State *' lvalue ParmVar 0x55626ecff568 'L' 'lua_State *'
+      |-ParenExpr 0x55626ecff788 <./lauxlib.h:102:53, col:55> 'int'
+      | `-IntegerLiteral 0x55626ecff768 <loslib.c:51:46> 'int' 1
+      `-ImplicitCastExpr 0x55626ecff898 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'size_t *' <NullToPointer>
+        `-ParenExpr 0x55626ecff808 <col:16, col:25> 'void *'
+          `-CStyleCastExpr 0x55626ecff7e0 <col:17, col:24> 'void *' <NullToPointer>
+            `-IntegerLiteral 0x55626ecff7a8 <col:24> 'int' 0
+const char *fromname = (luaL_checklstring(L, (1), ((void *)0)));
+  11: DeclRefExpr 0x55626ecff960 <./lauxlib.h:102:32> 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)' Function 0x55626ecf1530 'luaL_checklstring' 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)'
+luaL_checklstring
+  12: ImplicitCastExpr 0x55626ecffa70 <./lauxlib.h:102:32> 'const char *(*)(lua_State *, int, size_t *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55626ecff960 <col:32> 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)' Function 0x55626ecf1530 'luaL_checklstring' 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)'
+[B1.11] (ImplicitCastExpr, FunctionToPointerDecay, const char *(*)(lua_State *, int, size_t *))
+  13: DeclRefExpr 0x55626ecff988 <loslib.c:52:41> 'lua_State *' lvalue ParmVar 0x55626ecff568 'L' 'lua_State *'
+L
+  14: ImplicitCastExpr 0x55626ecffac8 <loslib.c:52:41> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55626ecff988 <col:41> 'lua_State *' lvalue ParmVar 0x55626ecff568 'L' 'lua_State *'
+[B1.13] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  15: IntegerLiteral 0x55626ecff9b0 <loslib.c:52:44> 'int' 2
+2
+  16: IntegerLiteral 0x55626ecff9f0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+  17: CStyleCastExpr 0x55626ecffa28 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x55626ecff9f0 <col:24> 'int' 0
+(void *)[B1.16] (CStyleCastExpr, NullToPointer, void *)
+  18: ImplicitCastExpr 0x55626ecffae0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'size_t *' <NullToPointer>
+`-ParenExpr 0x55626ecffa50 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x55626ecffa28 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x55626ecff9f0 <col:24> 'int' 0
+([B1.17]) (ImplicitCastExpr, NullToPointer, size_t *)
+  19: CallExpr 0x55626ecffa88 <./lauxlib.h:102:32, col:62> 'const char *'
+|-ImplicitCastExpr 0x55626ecffa70 <col:32> 'const char *(*)(lua_State *, int, size_t *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55626ecff960 <col:32> 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)' Function 0x55626ecf1530 'luaL_checklstring' 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)'
+|-ImplicitCastExpr 0x55626ecffac8 <loslib.c:52:41> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x55626ecff988 <col:41> 'lua_State *' lvalue ParmVar 0x55626ecff568 'L' 'lua_State *'
+|-ParenExpr 0x55626ecff9d0 <./lauxlib.h:102:53, col:55> 'int'
+| `-IntegerLiteral 0x55626ecff9b0 <loslib.c:52:44> 'int' 2
+`-ImplicitCastExpr 0x55626ecffae0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'size_t *' <NullToPointer>
+  `-ParenExpr 0x55626ecffa50 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x55626ecffa28 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x55626ecff9f0 <col:24> 'int' 0
+[B1.12]([B1.14], ([B1.15]), [B1.18])
+  20: DeclStmt 0x55626ecffb18 <loslib.c:52:3, col:46>col:15
+`-VarDecl 0x55626ecff900 <col:3, ./lauxlib.h:102:63> loslib.c:52:15 used toname 'const char *' cinit
+  `-ParenExpr 0x55626ecffaf8 <./lauxlib.h:102:31, col:63> 'const char *'
+    `-CallExpr 0x55626ecffa88 <col:32, col:62> 'const char *'
+      |-ImplicitCastExpr 0x55626ecffa70 <col:32> 'const char *(*)(lua_State *, int, size_t *)' <FunctionToPointerDecay>
+      | `-DeclRefExpr 0x55626ecff960 <col:32> 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)' Function 0x55626ecf1530 'luaL_checklstring' 'const char *(lua_State *, int, size_t *)':'const char *(lua_State *, int, size_t *)'
+      |-ImplicitCastExpr 0x55626ecffac8 <loslib.c:52:41> 'lua_State *' <LValueToRValue>
+      | `-DeclRefExpr 0x55626ecff988 <col:41> 'lua_State *' lvalue ParmVar 0x55626ecff568 'L' 'lua_State *'
+      |-ParenExpr 0x55626ecff9d0 <./lauxlib.h:102:53, col:55> 'int'
+      | `-IntegerLiteral 0x55626ecff9b0 <loslib.c:52:44> 'int' 2
+      `-ImplicitCastExpr 0x55626ecffae0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'size_t *' <NullToPointer>
+        `-ParenExpr 0x55626ecffa50 <col:16, col:25> 'void *'
+          `-CStyleCastExpr 0x55626ecffa28 <col:17, col:24> 'void *' <NullToPointer>
+            `-IntegerLiteral 0x55626ecff9f0 <col:24> 'int' 0
+const char *toname = (luaL_checklstring(L, (2), ((void *)0)));
+  21: DeclRefExpr 0x55626ecffb30 <loslib.c:53:10> 'int (lua_State *, int, const char *)' Function 0x55626ecfc818 'os_pushresult' 'int (lua_State *, int, const char *)'
+os_pushresult
+  22: ImplicitCastExpr 0x55626ecffd18 <loslib.c:53:10> 'int (*)(lua_State *, int, const char *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55626ecffb30 <col:10> 'int (lua_State *, int, const char *)' Function 0x55626ecfc818 'os_pushresult' 'int (lua_State *, int, const char *)'
+[B1.21] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(lua_State *, int, const char *))
+  23: DeclRefExpr 0x55626ecffb58 <loslib.c:53:24> 'lua_State *' lvalue ParmVar 0x55626ecff568 'L' 'lua_State *'
+L
+  24: ImplicitCastExpr 0x55626ecffd70 <loslib.c:53:24> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55626ecffb58 <col:24> 'lua_State *' lvalue ParmVar 0x55626ecff568 'L' 'lua_State *'
+[B1.23] (ImplicitCastExpr, LValueToRValue, lua_State *)
+  25: DeclRefExpr 0x55626ecffb80 <loslib.c:53:27> 'int (const char *, const char *)' Function 0x55626ecd1228 'rename' 'int (const char *, const char *)'
+rename
+  26: ImplicitCastExpr 0x55626ecffc28 <loslib.c:53:27> 'int (*)(const char *, const char *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55626ecffb80 <col:27> 'int (const char *, const char *)' Function 0x55626ecd1228 'rename' 'int (const char *, const char *)'
+[B1.25] (ImplicitCastExpr, FunctionToPointerDecay, int (*)(const char *, const char *))
+  27: DeclRefExpr 0x55626ecffba8 <loslib.c:53:34> 'const char *' lvalue Var 0x55626ecff6b8 'fromname' 'const char *'
+fromname
+  28: ImplicitCastExpr 0x55626ecffc78 <loslib.c:53:34> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x55626ecffba8 <col:34> 'const char *' lvalue Var 0x55626ecff6b8 'fromname' 'const char *'
+[B1.27] (ImplicitCastExpr, LValueToRValue, const char *)
+  29: DeclRefExpr 0x55626ecffbd0 <loslib.c:53:44> 'const char *' lvalue Var 0x55626ecff900 'toname' 'const char *'
+toname
+  30: ImplicitCastExpr 0x55626ecffc90 <loslib.c:53:44> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x55626ecffbd0 <col:44> 'const char *' lvalue Var 0x55626ecff900 'toname' 'const char *'
+[B1.29] (ImplicitCastExpr, LValueToRValue, const char *)
+  31: CallExpr 0x55626ecffc40 <loslib.c:53:27, col:50> 'int'
+|-ImplicitCastExpr 0x55626ecffc28 <col:27> 'int (*)(const char *, const char *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55626ecffb80 <col:27> 'int (const char *, const char *)' Function 0x55626ecd1228 'rename' 'int (const char *, const char *)'
+|-ImplicitCastExpr 0x55626ecffc78 <col:34> 'const char *' <LValueToRValue>
+| `-DeclRefExpr 0x55626ecffba8 <col:34> 'const char *' lvalue Var 0x55626ecff6b8 'fromname' 'const char *'
+`-ImplicitCastExpr 0x55626ecffc90 <col:44> 'const char *' <LValueToRValue>
+  `-DeclRefExpr 0x55626ecffbd0 <col:44> 'const char *' lvalue Var 0x55626ecff900 'toname' 'const char *'
+[B1.26]([B1.28], [B1.30])
+  32: IntegerLiteral 0x55626ecffca8 <loslib.c:53:55> 'int' 0
+0
+  33: BinaryOperator 0x55626ecffcc8 <loslib.c:53:27, col:55> 'int' '=='
+|-CallExpr 0x55626ecffc40 <col:27, col:50> 'int'
+| |-ImplicitCastExpr 0x55626ecffc28 <col:27> 'int (*)(const char *, const char *)' <FunctionToPointerDecay>
+| | `-DeclRefExpr 0x55626ecffb80 <col:27> 'int (const char *, const char *)' Function 0x55626ecd1228 'rename' 'int (const char *, const char *)'
+| |-ImplicitCastExpr 0x55626ecffc78 <col:34> 'const char *' <LValueToRValue>
+| | `-DeclRefExpr 0x55626ecffba8 <col:34> 'const char *' lvalue Var 0x55626ecff6b8 'fromname' 'const char *'
+| `-ImplicitCastExpr 0x55626ecffc90 <col:44> 'const char *' <LValueToRValue>
+|   `-DeclRefExpr 0x55626ecffbd0 <col:44> 'const char *' lvalue Var 0x55626ecff900 'toname' 'const char *'
+`-IntegerLiteral 0x55626ecffca8 <col:55> 'int' 0
+[B1.31] == [B1.32]
+  34: DeclRefExpr 0x55626ecffcf0 <loslib.c:53:58> 'const char *' lvalue Var 0x55626ecff6b8 'fromname' 'const char *'
+fromname
+  35: ImplicitCastExpr 0x55626ecffd88 <loslib.c:53:58> 'const char *' <LValueToRValue>
+`-DeclRefExpr 0x55626ecffcf0 <col:58> 'const char *' lvalue Var 0x55626ecff6b8 'fromname' 'const char *'
+[B1.34] (ImplicitCastExpr, LValueToRValue, const char *)
+  36: CallExpr 0x55626ecffd30 <loslib.c:53:10, col:66> 'int'
+|-ImplicitCastExpr 0x55626ecffd18 <col:10> 'int (*)(lua_State *, int, const char *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55626ecffb30 <col:10> 'int (lua_State *, int, const char *)' Function 0x55626ecfc818 'os_pushresult' 'int (lua_State *, int, const char *)'
+|-ImplicitCastExpr 0x55626ecffd70 <col:24> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x55626ecffb58 <col:24> 'lua_State *' lvalue ParmVar 0x55626ecff568 'L' 'lua_State *'
+|-BinaryOperator 0x55626ecffcc8 <col:27, col:55> 'int' '=='
+| |-CallExpr 0x55626ecffc40 <col:27, col:50> 'int'
+| | |-ImplicitCastExpr 0x55626ecffc28 <col:27> 'int (*)(const char *, const char *)' <FunctionToPointerDecay>
+| | | `-DeclRefExpr 0x55626ecffb80 <col:27> 'int (const char *, const char *)' Function 0x55626ecd1228 'rename' 'int (const char *, const char *)'
+| | |-ImplicitCastExpr 0x55626ecffc78 <col:34> 'const char *' <LValueToRValue>
+| | | `-DeclRefExpr 0x55626ecffba8 <col:34> 'const char *' lvalue Var 0x55626ecff6b8 'fromname' 'const char *'
+| | `-ImplicitCastExpr 0x55626ecffc90 <col:44> 'const char *' <LValueToRValue>
+| |   `-DeclRefExpr 0x55626ecffbd0 <col:44> 'const char *' lvalue Var 0x55626ecff900 'toname' 'const char *'
+| `-IntegerLiteral 0x55626ecffca8 <col:55> 'int' 0
+`-ImplicitCastExpr 0x55626ecffd88 <col:58> 'const char *' <LValueToRValue>
+  `-DeclRefExpr 0x55626ecffcf0 <col:58> 'const char *' lvalue Var 0x55626ecff6b8 'fromname' 'const char *'
+[B1.22]([B1.24], [B1.33], [B1.35])
+  37: ReturnStmt 0x55626ecffda0 <loslib.c:53:3, col:66>
+`-CallExpr 0x55626ecffd30 <col:10, col:66> 'int'
+  |-ImplicitCastExpr 0x55626ecffd18 <col:10> 'int (*)(lua_State *, int, const char *)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55626ecffb30 <col:10> 'int (lua_State *, int, const char *)' Function 0x55626ecfc818 'os_pushresult' 'int (lua_State *, int, const char *)'
+  |-ImplicitCastExpr 0x55626ecffd70 <col:24> 'lua_State *' <LValueToRValue>
+  | `-DeclRefExpr 0x55626ecffb58 <col:24> 'lua_State *' lvalue ParmVar 0x55626ecff568 'L' 'lua_State *'
+  |-BinaryOperator 0x55626ecffcc8 <col:27, col:55> 'int' '=='
+  | |-CallExpr 0x55626ecffc40 <col:27, col:50> 'int'
+  | | |-ImplicitCastExpr 0x55626ecffc28 <col:27> 'int (*)(const char *, const char *)' <FunctionToPointerDecay>
+  | | | `-DeclRefExpr 0x55626ecffb80 <col:27> 'int (const char *, const char *)' Function 0x55626ecd1228 'rename' 'int (const char *, const char *)'
+  | | |-ImplicitCastExpr 0x55626ecffc78 <col:34> 'const char *' <LValueToRValue>
+  | | | `-DeclRefExpr 0x55626ecffba8 <col:34> 'const char *' lvalue Var 0x55626ecff6b8 'fromname' 'const char *'
+  | | `-ImplicitCastExpr 0x55626ecffc90 <col:44> 'const char *' <LValueToRValue>
+  | |   `-DeclRefExpr 0x55626ecffbd0 <col:44> 'const char *' lvalue Var 0x55626ecff900 'toname' 'const char *'
+  | `-IntegerLiteral 0x55626ecffca8 <col:55> 'int' 0
+  `-ImplicitCastExpr 0x55626ecffd88 <col:58> 'const char *' <LValueToRValue>
+    `-DeclRefExpr 0x55626ecffcf0 <col:58> 'const char *' lvalue Var 0x55626ecff6b8 'fromname' 'const char *'
+return [B1.36];
+   Preds (1): B2
+   Succs (1): B0
+
+ [B0 (EXIT)]
+   Preds (1): B1

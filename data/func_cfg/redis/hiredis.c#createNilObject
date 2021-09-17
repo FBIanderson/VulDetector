@@ -1,0 +1,400 @@
+static void *createNilObject(const redisReadTask *task)
+ [B11 (ENTRY)]
+   Succs (1): B10
+
+ [B1]
+   1: DeclRefExpr 0x56280704d940 <hiredis.c:255:12> 'redisReply *' lvalue Var 0x56280704cab0 'r' 'redisReply *'
+r
+   2: ImplicitCastExpr 0x56280704d968 <hiredis.c:255:12> 'redisReply *' <LValueToRValue>
+`-DeclRefExpr 0x56280704d940 <col:12> 'redisReply *' lvalue Var 0x56280704cab0 'r' 'redisReply *'
+[B1.1] (ImplicitCastExpr, LValueToRValue, redisReply *)
+   3: ImplicitCastExpr 0x56280704d980 <hiredis.c:255:12> 'void *' <BitCast>
+`-ImplicitCastExpr 0x56280704d968 <col:12> 'redisReply *' <LValueToRValue>
+  `-DeclRefExpr 0x56280704d940 <col:12> 'redisReply *' lvalue Var 0x56280704cab0 'r' 'redisReply *'
+[B1.2] (ImplicitCastExpr, BitCast, void *)
+   4: ReturnStmt 0x56280704d998 <hiredis.c:255:5, col:12>
+`-ImplicitCastExpr 0x56280704d980 <col:12> 'void *' <BitCast>
+  `-ImplicitCastExpr 0x56280704d968 <col:12> 'redisReply *' <LValueToRValue>
+    `-DeclRefExpr 0x56280704d940 <col:12> 'redisReply *' lvalue Var 0x56280704cab0 'r' 'redisReply *'
+return [B1.3];
+   Preds (2): B2 B8
+   Succs (1): B0
+
+ [B2]
+   1: ConditionalOperator 0x56280704d6e0 </usr/include/assert.h:98:6, line:100:67> 'void'
+|-ParenExpr 0x56280704d310 <line:98:6, col:11> 'int'
+| `-BinaryOperator 0x56280704d2e8 <hiredis.c:250:16, ./read.h:60:25> 'int' '||'
+|   |-BinaryOperator 0x56280704d1e8 <hiredis.c:250:16, ./read.h:59:25> 'int' '||'
+|   | |-BinaryOperator 0x56280704d0e8 <hiredis.c:250:16, ./read.h:52:27> 'int' '=='
+|   | | |-ImplicitCastExpr 0x56280704d0d0 <hiredis.c:250:16, col:24> 'int' <LValueToRValue>
+|   | | | `-MemberExpr 0x56280704d078 <col:16, col:24> 'int' lvalue ->type 0x562807029f08
+|   | | |   `-ImplicitCastExpr 0x56280704d060 <col:16> 'redisReply *' <LValueToRValue>
+|   | | |     `-DeclRefExpr 0x56280704d038 <col:16> 'redisReply *' lvalue Var 0x56280704cb20 'parent' 'redisReply *'
+|   | | `-IntegerLiteral 0x56280704d0b0 <./read.h:52:27> 'int' 2
+|   | `-BinaryOperator 0x56280704d1c0 <hiredis.c:251:16, ./read.h:59:25> 'int' '=='
+|   |   |-ImplicitCastExpr 0x56280704d1a8 <hiredis.c:251:16, col:24> 'int' <LValueToRValue>
+|   |   | `-MemberExpr 0x56280704d150 <col:16, col:24> 'int' lvalue ->type 0x562807029f08
+|   |   |   `-ImplicitCastExpr 0x56280704d138 <col:16> 'redisReply *' <LValueToRValue>
+|   |   |     `-DeclRefExpr 0x56280704d110 <col:16> 'redisReply *' lvalue Var 0x56280704cb20 'parent' 'redisReply *'
+|   |   `-IntegerLiteral 0x56280704d188 <./read.h:59:25> 'int' 9
+|   `-BinaryOperator 0x56280704d2c0 <hiredis.c:252:16, ./read.h:60:25> 'int' '=='
+|     |-ImplicitCastExpr 0x56280704d2a8 <hiredis.c:252:16, col:24> 'int' <LValueToRValue>
+|     | `-MemberExpr 0x56280704d250 <col:16, col:24> 'int' lvalue ->type 0x562807029f08
+|     |   `-ImplicitCastExpr 0x56280704d238 <col:16> 'redisReply *' <LValueToRValue>
+|     |     `-DeclRefExpr 0x56280704d210 <col:16> 'redisReply *' lvalue Var 0x56280704cb20 'parent' 'redisReply *'
+|     `-IntegerLiteral 0x56280704d288 <./read.h:60:25> 'int' 10
+|-CStyleCastExpr 0x56280704d3b0 </usr/include/assert.h:40:29, line:99:29> 'void' <ToVoid>
+| `-ParenExpr 0x56280704d390 <col:27, col:29> 'int'
+|   `-IntegerLiteral 0x56280704d330 <col:28> 'int' 0
+`-CallExpr 0x56280704d638 <line:100:8, col:67> 'void'
+  |-ImplicitCastExpr 0x56280704d620 <col:8> 'void (*)(const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x56280704d3d8 <col:8> 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' Function 0x562806fa5670 '__assert_fail' 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))'
+  |-ImplicitCastExpr 0x56280704d680 <<scratch space>:136:1> 'const char *' <ArrayToPointerDecay>
+  | `-StringLiteral 0x56280704d400 <col:1> 'const char [104]' lvalue "parent->type == REDIS_REPLY_ARRAY || parent->type == REDIS_REPLY_MAP || parent->type == REDIS_REPLY_SET"
+  |-ImplicitCastExpr 0x56280704d698 <line:137:1> 'const char *' <ArrayToPointerDecay>
+  | `-StringLiteral 0x56280704d490 <col:1> 'const char [10]' lvalue "hiredis.c"
+  |-ImplicitCastExpr 0x56280704d6b0 <line:138:1> 'unsigned int' <IntegralCast>
+  | `-IntegerLiteral 0x56280704d4f0 <col:1> 'int' 252
+  `-ImplicitCastExpr 0x56280704d6c8 </usr/include/assert.h:129:30, col:44> 'const char *' <ArrayToPointerDecay>
+    `-UnaryOperator 0x56280704d600 <col:30, col:44> 'const char [45]' lvalue prefix '__extension__'
+      `-PredefinedExpr 0x56280704d5e0 <col:44> 'const char [45]' lvalue __PRETTY_FUNCTION__
+        `-StringLiteral 0x56280704d588 <col:44> 'const char [45]' lvalue "void *createNilObject(const redisReadTask *)"
+([B7.15] || [B6.6] || [B5.6]) ? [B3.2] : [B4.12]
+   2: DeclRefExpr 0x56280704d878 <hiredis.c:253:38> 'redisReply *' lvalue Var 0x56280704cab0 'r' 'redisReply *'
+r
+   3: ImplicitCastExpr 0x56280704d8a0 <hiredis.c:253:38> 'redisReply *' <LValueToRValue>
+`-DeclRefExpr 0x56280704d878 <col:38> 'redisReply *' lvalue Var 0x56280704cab0 'r' 'redisReply *'
+[B2.2] (ImplicitCastExpr, LValueToRValue, redisReply *)
+   4: DeclRefExpr 0x56280704d730 <hiredis.c:253:9> 'redisReply *' lvalue Var 0x56280704cb20 'parent' 'redisReply *'
+parent
+   5: ImplicitCastExpr 0x56280704d758 <hiredis.c:253:9> 'redisReply *' <LValueToRValue>
+`-DeclRefExpr 0x56280704d730 <col:9> 'redisReply *' lvalue Var 0x56280704cb20 'parent' 'redisReply *'
+[B2.4] (ImplicitCastExpr, LValueToRValue, redisReply *)
+   6: MemberExpr 0x56280704d770 <hiredis.c:253:9, col:17> 'struct redisReply **' lvalue ->element 0x56280702b7e0
+`-ImplicitCastExpr 0x56280704d758 <col:9> 'redisReply *' <LValueToRValue>
+  `-DeclRefExpr 0x56280704d730 <col:9> 'redisReply *' lvalue Var 0x56280704cb20 'parent' 'redisReply *'
+[B2.5]->element
+   7: ImplicitCastExpr 0x56280704d820 <hiredis.c:253:9, col:17> 'struct redisReply **' <LValueToRValue>
+`-MemberExpr 0x56280704d770 <col:9, col:17> 'struct redisReply **' lvalue ->element 0x56280702b7e0
+  `-ImplicitCastExpr 0x56280704d758 <col:9> 'redisReply *' <LValueToRValue>
+    `-DeclRefExpr 0x56280704d730 <col:9> 'redisReply *' lvalue Var 0x56280704cb20 'parent' 'redisReply *'
+[B2.6] (ImplicitCastExpr, LValueToRValue, struct redisReply **)
+   8: DeclRefExpr 0x56280704d7a8 <hiredis.c:253:25> 'const redisReadTask *' lvalue ParmVar 0x56280704c968 'task' 'const redisReadTask *'
+task
+   9: ImplicitCastExpr 0x56280704d7d0 <hiredis.c:253:25> 'const redisReadTask *' <LValueToRValue>
+`-DeclRefExpr 0x56280704d7a8 <col:25> 'const redisReadTask *' lvalue ParmVar 0x56280704c968 'task' 'const redisReadTask *'
+[B2.8] (ImplicitCastExpr, LValueToRValue, const redisReadTask *)
+  10: MemberExpr 0x56280704d7e8 <hiredis.c:253:25, col:31> 'const int' lvalue ->idx 0x562806ff4478
+`-ImplicitCastExpr 0x56280704d7d0 <col:25> 'const redisReadTask *' <LValueToRValue>
+  `-DeclRefExpr 0x56280704d7a8 <col:25> 'const redisReadTask *' lvalue ParmVar 0x56280704c968 'task' 'const redisReadTask *'
+[B2.9]->idx
+  11: ImplicitCastExpr 0x56280704d838 <hiredis.c:253:25, col:31> 'int' <LValueToRValue>
+`-MemberExpr 0x56280704d7e8 <col:25, col:31> 'const int' lvalue ->idx 0x562806ff4478
+  `-ImplicitCastExpr 0x56280704d7d0 <col:25> 'const redisReadTask *' <LValueToRValue>
+    `-DeclRefExpr 0x56280704d7a8 <col:25> 'const redisReadTask *' lvalue ParmVar 0x56280704c968 'task' 'const redisReadTask *'
+[B2.10] (ImplicitCastExpr, LValueToRValue, int)
+  12: ArraySubscriptExpr 0x56280704d850 <hiredis.c:253:9, col:34> 'struct redisReply *' lvalue
+|-ImplicitCastExpr 0x56280704d820 <col:9, col:17> 'struct redisReply **' <LValueToRValue>
+| `-MemberExpr 0x56280704d770 <col:9, col:17> 'struct redisReply **' lvalue ->element 0x56280702b7e0
+|   `-ImplicitCastExpr 0x56280704d758 <col:9> 'redisReply *' <LValueToRValue>
+|     `-DeclRefExpr 0x56280704d730 <col:9> 'redisReply *' lvalue Var 0x56280704cb20 'parent' 'redisReply *'
+`-ImplicitCastExpr 0x56280704d838 <col:25, col:31> 'int' <LValueToRValue>
+  `-MemberExpr 0x56280704d7e8 <col:25, col:31> 'const int' lvalue ->idx 0x562806ff4478
+    `-ImplicitCastExpr 0x56280704d7d0 <col:25> 'const redisReadTask *' <LValueToRValue>
+      `-DeclRefExpr 0x56280704d7a8 <col:25> 'const redisReadTask *' lvalue ParmVar 0x56280704c968 'task' 'const redisReadTask *'
+[B2.7][[B2.11]]
+  13: BinaryOperator 0x56280704d8b8 <hiredis.c:253:9, col:38> 'struct redisReply *' '='
+|-ArraySubscriptExpr 0x56280704d850 <col:9, col:34> 'struct redisReply *' lvalue
+| |-ImplicitCastExpr 0x56280704d820 <col:9, col:17> 'struct redisReply **' <LValueToRValue>
+| | `-MemberExpr 0x56280704d770 <col:9, col:17> 'struct redisReply **' lvalue ->element 0x56280702b7e0
+| |   `-ImplicitCastExpr 0x56280704d758 <col:9> 'redisReply *' <LValueToRValue>
+| |     `-DeclRefExpr 0x56280704d730 <col:9> 'redisReply *' lvalue Var 0x56280704cb20 'parent' 'redisReply *'
+| `-ImplicitCastExpr 0x56280704d838 <col:25, col:31> 'int' <LValueToRValue>
+|   `-MemberExpr 0x56280704d7e8 <col:25, col:31> 'const int' lvalue ->idx 0x562806ff4478
+|     `-ImplicitCastExpr 0x56280704d7d0 <col:25> 'const redisReadTask *' <LValueToRValue>
+|       `-DeclRefExpr 0x56280704d7a8 <col:25> 'const redisReadTask *' lvalue ParmVar 0x56280704c968 'task' 'const redisReadTask *'
+`-ImplicitCastExpr 0x56280704d8a0 <col:38> 'redisReply *' <LValueToRValue>
+  `-DeclRefExpr 0x56280704d878 <col:38> 'redisReply *' lvalue Var 0x56280704cab0 'r' 'redisReply *'
+[B2.12] = [B2.3]
+   Preds (2): B3 B4(Unreachable)
+   Succs (1): B1
+
+ [B3]
+   1: IntegerLiteral 0x56280704d330 </usr/include/assert.h:99:28> 'int' 0
+0
+   2: CStyleCastExpr 0x56280704d3b0 </usr/include/assert.h:40:29, line:99:29> 'void' <ToVoid>
+`-ParenExpr 0x56280704d390 <col:27, col:29> 'int'
+  `-IntegerLiteral 0x56280704d330 <col:28> 'int' 0
+(void)([B3.1]) (CStyleCastExpr, ToVoid, void)
+   Preds (3): B5 B6 B7
+   Succs (1): B2
+
+ [B4 (NORETURN)]
+   1: DeclRefExpr 0x56280704d3d8 </usr/include/assert.h:100:8> 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' Function 0x562806fa5670 '__assert_fail' 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))'
+__assert_fail
+   2: ImplicitCastExpr 0x56280704d620 </usr/include/assert.h:100:8> 'void (*)(const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' <FunctionToPointerDecay>
+`-DeclRefExpr 0x56280704d3d8 <col:8> 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' Function 0x562806fa5670 '__assert_fail' 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))'
+[B4.1] (ImplicitCastExpr, FunctionToPointerDecay, void (*)(const char *, const char *, unsigned int, const char *) __attribute__((noreturn)))
+   3: StringLiteral 0x56280704d400 <<scratch space>:136:1> 'const char [104]' lvalue "parent->type == REDIS_REPLY_ARRAY || parent->type == REDIS_REPLY_MAP || parent->type == REDIS_REPLY_SET"
+"parent->type == REDIS_REPLY_ARRAY || parent->type == REDIS_REPLY_MAP || parent->type == REDIS_REPLY_SET"
+   4: ImplicitCastExpr 0x56280704d680 <<scratch space>:136:1> 'const char *' <ArrayToPointerDecay>
+`-StringLiteral 0x56280704d400 <col:1> 'const char [104]' lvalue "parent->type == REDIS_REPLY_ARRAY || parent->type == REDIS_REPLY_MAP || parent->type == REDIS_REPLY_SET"
+[B4.3] (ImplicitCastExpr, ArrayToPointerDecay, const char *)
+   5: StringLiteral 0x56280704d490 <<scratch space>:137:1> 'const char [10]' lvalue "hiredis.c"
+"hiredis.c"
+   6: ImplicitCastExpr 0x56280704d698 <<scratch space>:137:1> 'const char *' <ArrayToPointerDecay>
+`-StringLiteral 0x56280704d490 <col:1> 'const char [10]' lvalue "hiredis.c"
+[B4.5] (ImplicitCastExpr, ArrayToPointerDecay, const char *)
+   7: IntegerLiteral 0x56280704d4f0 <<scratch space>:138:1> 'int' 252
+252
+   8: ImplicitCastExpr 0x56280704d6b0 <<scratch space>:138:1> 'unsigned int' <IntegralCast>
+`-IntegerLiteral 0x56280704d4f0 <col:1> 'int' 252
+[B4.7] (ImplicitCastExpr, IntegralCast, unsigned int)
+   9: StringLiteral 0x56280704d588 </usr/include/assert.h:129:44> 'const char [45]' lvalue "void *createNilObject(const redisReadTask *)"
+"void *createNilObject(const redisReadTask *)"
+  10: PredefinedExpr 0x56280704d5e0 </usr/include/assert.h:129:44> 'const char [45]' lvalue __PRETTY_FUNCTION__
+`-StringLiteral 0x56280704d588 <col:44> 'const char [45]' lvalue "void *createNilObject(const redisReadTask *)"
+__PRETTY_FUNCTION__
+  11: ImplicitCastExpr 0x56280704d6c8 </usr/include/assert.h:129:30, col:44> 'const char *' <ArrayToPointerDecay>
+`-UnaryOperator 0x56280704d600 <col:30, col:44> 'const char [45]' lvalue prefix '__extension__'
+  `-PredefinedExpr 0x56280704d5e0 <col:44> 'const char [45]' lvalue __PRETTY_FUNCTION__
+    `-StringLiteral 0x56280704d588 <col:44> 'const char [45]' lvalue "void *createNilObject(const redisReadTask *)"
+__extension__ [B4.10] (ImplicitCastExpr, ArrayToPointerDecay, const char *)
+  12: CallExpr 0x56280704d638 </usr/include/assert.h:100:8, col:67> 'void'
+|-ImplicitCastExpr 0x56280704d620 <col:8> 'void (*)(const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x56280704d3d8 <col:8> 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))' Function 0x562806fa5670 '__assert_fail' 'void (const char *, const char *, unsigned int, const char *) __attribute__((noreturn))'
+|-ImplicitCastExpr 0x56280704d680 <<scratch space>:136:1> 'const char *' <ArrayToPointerDecay>
+| `-StringLiteral 0x56280704d400 <col:1> 'const char [104]' lvalue "parent->type == REDIS_REPLY_ARRAY || parent->type == REDIS_REPLY_MAP || parent->type == REDIS_REPLY_SET"
+|-ImplicitCastExpr 0x56280704d698 <line:137:1> 'const char *' <ArrayToPointerDecay>
+| `-StringLiteral 0x56280704d490 <col:1> 'const char [10]' lvalue "hiredis.c"
+|-ImplicitCastExpr 0x56280704d6b0 <line:138:1> 'unsigned int' <IntegralCast>
+| `-IntegerLiteral 0x56280704d4f0 <col:1> 'int' 252
+`-ImplicitCastExpr 0x56280704d6c8 </usr/include/assert.h:129:30, col:44> 'const char *' <ArrayToPointerDecay>
+  `-UnaryOperator 0x56280704d600 <col:30, col:44> 'const char [45]' lvalue prefix '__extension__'
+    `-PredefinedExpr 0x56280704d5e0 <col:44> 'const char [45]' lvalue __PRETTY_FUNCTION__
+      `-StringLiteral 0x56280704d588 <col:44> 'const char [45]' lvalue "void *createNilObject(const redisReadTask *)"
+[B4.2]([B4.4], [B4.6], [B4.8], [B4.11])
+   Preds (1): B5
+   Succs (1): B0
+
+ [B5]
+   1: DeclRefExpr 0x56280704d210 <hiredis.c:252:16> 'redisReply *' lvalue Var 0x56280704cb20 'parent' 'redisReply *'
+parent
+   2: ImplicitCastExpr 0x56280704d238 <hiredis.c:252:16> 'redisReply *' <LValueToRValue>
+`-DeclRefExpr 0x56280704d210 <col:16> 'redisReply *' lvalue Var 0x56280704cb20 'parent' 'redisReply *'
+[B5.1] (ImplicitCastExpr, LValueToRValue, redisReply *)
+   3: MemberExpr 0x56280704d250 <hiredis.c:252:16, col:24> 'int' lvalue ->type 0x562807029f08
+`-ImplicitCastExpr 0x56280704d238 <col:16> 'redisReply *' <LValueToRValue>
+  `-DeclRefExpr 0x56280704d210 <col:16> 'redisReply *' lvalue Var 0x56280704cb20 'parent' 'redisReply *'
+[B5.2]->type
+   4: ImplicitCastExpr 0x56280704d2a8 <hiredis.c:252:16, col:24> 'int' <LValueToRValue>
+`-MemberExpr 0x56280704d250 <col:16, col:24> 'int' lvalue ->type 0x562807029f08
+  `-ImplicitCastExpr 0x56280704d238 <col:16> 'redisReply *' <LValueToRValue>
+    `-DeclRefExpr 0x56280704d210 <col:16> 'redisReply *' lvalue Var 0x56280704cb20 'parent' 'redisReply *'
+[B5.3] (ImplicitCastExpr, LValueToRValue, int)
+   5: IntegerLiteral 0x56280704d288 <./read.h:60:25> 'int' 10
+10
+   6: BinaryOperator 0x56280704d2c0 <hiredis.c:252:16, ./read.h:60:25> 'int' '=='
+|-ImplicitCastExpr 0x56280704d2a8 <hiredis.c:252:16, col:24> 'int' <LValueToRValue>
+| `-MemberExpr 0x56280704d250 <col:16, col:24> 'int' lvalue ->type 0x562807029f08
+|   `-ImplicitCastExpr 0x56280704d238 <col:16> 'redisReply *' <LValueToRValue>
+|     `-DeclRefExpr 0x56280704d210 <col:16> 'redisReply *' lvalue Var 0x56280704cb20 'parent' 'redisReply *'
+`-IntegerLiteral 0x56280704d288 <./read.h:60:25> 'int' 10
+[B5.4] == [B5.5]
+   T: ([B7.15] || [B6.6] || [B5.6]) ? ... : ...
+   Preds (1): B6
+   Succs (2): B3 B4
+
+ [B6]
+   1: DeclRefExpr 0x56280704d110 <hiredis.c:251:16> 'redisReply *' lvalue Var 0x56280704cb20 'parent' 'redisReply *'
+parent
+   2: ImplicitCastExpr 0x56280704d138 <hiredis.c:251:16> 'redisReply *' <LValueToRValue>
+`-DeclRefExpr 0x56280704d110 <col:16> 'redisReply *' lvalue Var 0x56280704cb20 'parent' 'redisReply *'
+[B6.1] (ImplicitCastExpr, LValueToRValue, redisReply *)
+   3: MemberExpr 0x56280704d150 <hiredis.c:251:16, col:24> 'int' lvalue ->type 0x562807029f08
+`-ImplicitCastExpr 0x56280704d138 <col:16> 'redisReply *' <LValueToRValue>
+  `-DeclRefExpr 0x56280704d110 <col:16> 'redisReply *' lvalue Var 0x56280704cb20 'parent' 'redisReply *'
+[B6.2]->type
+   4: ImplicitCastExpr 0x56280704d1a8 <hiredis.c:251:16, col:24> 'int' <LValueToRValue>
+`-MemberExpr 0x56280704d150 <col:16, col:24> 'int' lvalue ->type 0x562807029f08
+  `-ImplicitCastExpr 0x56280704d138 <col:16> 'redisReply *' <LValueToRValue>
+    `-DeclRefExpr 0x56280704d110 <col:16> 'redisReply *' lvalue Var 0x56280704cb20 'parent' 'redisReply *'
+[B6.3] (ImplicitCastExpr, LValueToRValue, int)
+   5: IntegerLiteral 0x56280704d188 <./read.h:59:25> 'int' 9
+9
+   6: BinaryOperator 0x56280704d1c0 <hiredis.c:251:16, ./read.h:59:25> 'int' '=='
+|-ImplicitCastExpr 0x56280704d1a8 <hiredis.c:251:16, col:24> 'int' <LValueToRValue>
+| `-MemberExpr 0x56280704d150 <col:16, col:24> 'int' lvalue ->type 0x562807029f08
+|   `-ImplicitCastExpr 0x56280704d138 <col:16> 'redisReply *' <LValueToRValue>
+|     `-DeclRefExpr 0x56280704d110 <col:16> 'redisReply *' lvalue Var 0x56280704cb20 'parent' 'redisReply *'
+`-IntegerLiteral 0x56280704d188 <./read.h:59:25> 'int' 9
+[B6.4] == [B6.5]
+   T: [B7.15] || [B6.6] || ...
+   Preds (1): B7
+   Succs (2): B3 B5
+
+ [B7]
+   1: DeclRefExpr 0x56280704cf18 <hiredis.c:249:18> 'const redisReadTask *' lvalue ParmVar 0x56280704c968 'task' 'const redisReadTask *'
+task
+   2: ImplicitCastExpr 0x56280704cf40 <hiredis.c:249:18> 'const redisReadTask *' <LValueToRValue>
+`-DeclRefExpr 0x56280704cf18 <col:18> 'const redisReadTask *' lvalue ParmVar 0x56280704c968 'task' 'const redisReadTask *'
+[B7.1] (ImplicitCastExpr, LValueToRValue, const redisReadTask *)
+   3: MemberExpr 0x56280704cf58 <hiredis.c:249:18, col:24> 'struct redisReadTask *const' lvalue ->parent 0x562806ff45d0
+`-ImplicitCastExpr 0x56280704cf40 <col:18> 'const redisReadTask *' <LValueToRValue>
+  `-DeclRefExpr 0x56280704cf18 <col:18> 'const redisReadTask *' lvalue ParmVar 0x56280704c968 'task' 'const redisReadTask *'
+[B7.2]->parent
+   4: ImplicitCastExpr 0x56280704cf90 <hiredis.c:249:18, col:24> 'struct redisReadTask *' <LValueToRValue>
+`-MemberExpr 0x56280704cf58 <col:18, col:24> 'struct redisReadTask *const' lvalue ->parent 0x562806ff45d0
+  `-ImplicitCastExpr 0x56280704cf40 <col:18> 'const redisReadTask *' <LValueToRValue>
+    `-DeclRefExpr 0x56280704cf18 <col:18> 'const redisReadTask *' lvalue ParmVar 0x56280704c968 'task' 'const redisReadTask *'
+[B7.3] (ImplicitCastExpr, LValueToRValue, struct redisReadTask *)
+   5: MemberExpr 0x56280704cfa8 <hiredis.c:249:18, col:32> 'void *' lvalue ->obj 0x562806ff44d8
+`-ImplicitCastExpr 0x56280704cf90 <col:18, col:24> 'struct redisReadTask *' <LValueToRValue>
+  `-MemberExpr 0x56280704cf58 <col:18, col:24> 'struct redisReadTask *const' lvalue ->parent 0x562806ff45d0
+    `-ImplicitCastExpr 0x56280704cf40 <col:18> 'const redisReadTask *' <LValueToRValue>
+      `-DeclRefExpr 0x56280704cf18 <col:18> 'const redisReadTask *' lvalue ParmVar 0x56280704c968 'task' 'const redisReadTask *'
+[B7.4]->obj
+   6: ImplicitCastExpr 0x56280704cfe0 <hiredis.c:249:18, col:32> 'void *' <LValueToRValue>
+`-MemberExpr 0x56280704cfa8 <col:18, col:32> 'void *' lvalue ->obj 0x562806ff44d8
+  `-ImplicitCastExpr 0x56280704cf90 <col:18, col:24> 'struct redisReadTask *' <LValueToRValue>
+    `-MemberExpr 0x56280704cf58 <col:18, col:24> 'struct redisReadTask *const' lvalue ->parent 0x562806ff45d0
+      `-ImplicitCastExpr 0x56280704cf40 <col:18> 'const redisReadTask *' <LValueToRValue>
+        `-DeclRefExpr 0x56280704cf18 <col:18> 'const redisReadTask *' lvalue ParmVar 0x56280704c968 'task' 'const redisReadTask *'
+[B7.5] (ImplicitCastExpr, LValueToRValue, void *)
+   7: ImplicitCastExpr 0x56280704cff8 <hiredis.c:249:18, col:32> 'redisReply *' <BitCast>
+`-ImplicitCastExpr 0x56280704cfe0 <col:18, col:32> 'void *' <LValueToRValue>
+  `-MemberExpr 0x56280704cfa8 <col:18, col:32> 'void *' lvalue ->obj 0x562806ff44d8
+    `-ImplicitCastExpr 0x56280704cf90 <col:18, col:24> 'struct redisReadTask *' <LValueToRValue>
+      `-MemberExpr 0x56280704cf58 <col:18, col:24> 'struct redisReadTask *const' lvalue ->parent 0x562806ff45d0
+        `-ImplicitCastExpr 0x56280704cf40 <col:18> 'const redisReadTask *' <LValueToRValue>
+          `-DeclRefExpr 0x56280704cf18 <col:18> 'const redisReadTask *' lvalue ParmVar 0x56280704c968 'task' 'const redisReadTask *'
+[B7.6] (ImplicitCastExpr, BitCast, redisReply *)
+   8: DeclRefExpr 0x56280704cef0 <hiredis.c:249:9> 'redisReply *' lvalue Var 0x56280704cb20 'parent' 'redisReply *'
+parent
+   9: BinaryOperator 0x56280704d010 <hiredis.c:249:9, col:32> 'redisReply *' '='
+|-DeclRefExpr 0x56280704cef0 <col:9> 'redisReply *' lvalue Var 0x56280704cb20 'parent' 'redisReply *'
+`-ImplicitCastExpr 0x56280704cff8 <col:18, col:32> 'redisReply *' <BitCast>
+  `-ImplicitCastExpr 0x56280704cfe0 <col:18, col:32> 'void *' <LValueToRValue>
+    `-MemberExpr 0x56280704cfa8 <col:18, col:32> 'void *' lvalue ->obj 0x562806ff44d8
+      `-ImplicitCastExpr 0x56280704cf90 <col:18, col:24> 'struct redisReadTask *' <LValueToRValue>
+        `-MemberExpr 0x56280704cf58 <col:18, col:24> 'struct redisReadTask *const' lvalue ->parent 0x562806ff45d0
+          `-ImplicitCastExpr 0x56280704cf40 <col:18> 'const redisReadTask *' <LValueToRValue>
+            `-DeclRefExpr 0x56280704cf18 <col:18> 'const redisReadTask *' lvalue ParmVar 0x56280704c968 'task' 'const redisReadTask *'
+[B7.8] = [B7.7]
+  10: DeclRefExpr 0x56280704d038 <hiredis.c:250:16> 'redisReply *' lvalue Var 0x56280704cb20 'parent' 'redisReply *'
+parent
+  11: ImplicitCastExpr 0x56280704d060 <hiredis.c:250:16> 'redisReply *' <LValueToRValue>
+`-DeclRefExpr 0x56280704d038 <col:16> 'redisReply *' lvalue Var 0x56280704cb20 'parent' 'redisReply *'
+[B7.10] (ImplicitCastExpr, LValueToRValue, redisReply *)
+  12: MemberExpr 0x56280704d078 <hiredis.c:250:16, col:24> 'int' lvalue ->type 0x562807029f08
+`-ImplicitCastExpr 0x56280704d060 <col:16> 'redisReply *' <LValueToRValue>
+  `-DeclRefExpr 0x56280704d038 <col:16> 'redisReply *' lvalue Var 0x56280704cb20 'parent' 'redisReply *'
+[B7.11]->type
+  13: ImplicitCastExpr 0x56280704d0d0 <hiredis.c:250:16, col:24> 'int' <LValueToRValue>
+`-MemberExpr 0x56280704d078 <col:16, col:24> 'int' lvalue ->type 0x562807029f08
+  `-ImplicitCastExpr 0x56280704d060 <col:16> 'redisReply *' <LValueToRValue>
+    `-DeclRefExpr 0x56280704d038 <col:16> 'redisReply *' lvalue Var 0x56280704cb20 'parent' 'redisReply *'
+[B7.12] (ImplicitCastExpr, LValueToRValue, int)
+  14: IntegerLiteral 0x56280704d0b0 <./read.h:52:27> 'int' 2
+2
+  15: BinaryOperator 0x56280704d0e8 <hiredis.c:250:16, ./read.h:52:27> 'int' '=='
+|-ImplicitCastExpr 0x56280704d0d0 <hiredis.c:250:16, col:24> 'int' <LValueToRValue>
+| `-MemberExpr 0x56280704d078 <col:16, col:24> 'int' lvalue ->type 0x562807029f08
+|   `-ImplicitCastExpr 0x56280704d060 <col:16> 'redisReply *' <LValueToRValue>
+|     `-DeclRefExpr 0x56280704d038 <col:16> 'redisReply *' lvalue Var 0x56280704cb20 'parent' 'redisReply *'
+`-IntegerLiteral 0x56280704d0b0 <./read.h:52:27> 'int' 2
+[B7.13] == [B7.14]
+   T: [B7.15] || ...
+   Preds (1): B8
+   Succs (2): B3 B6
+
+ [B8]
+   1: DeclRefExpr 0x56280704ce60 <hiredis.c:248:9> 'const redisReadTask *' lvalue ParmVar 0x56280704c968 'task' 'const redisReadTask *'
+task
+   2: ImplicitCastExpr 0x56280704ce88 <hiredis.c:248:9> 'const redisReadTask *' <LValueToRValue>
+`-DeclRefExpr 0x56280704ce60 <col:9> 'const redisReadTask *' lvalue ParmVar 0x56280704c968 'task' 'const redisReadTask *'
+[B8.1] (ImplicitCastExpr, LValueToRValue, const redisReadTask *)
+   3: MemberExpr 0x56280704cea0 <hiredis.c:248:9, col:15> 'struct redisReadTask *const' lvalue ->parent 0x562806ff45d0
+`-ImplicitCastExpr 0x56280704ce88 <col:9> 'const redisReadTask *' <LValueToRValue>
+  `-DeclRefExpr 0x56280704ce60 <col:9> 'const redisReadTask *' lvalue ParmVar 0x56280704c968 'task' 'const redisReadTask *'
+[B8.2]->parent
+   4: ImplicitCastExpr 0x56280704ced8 <hiredis.c:248:9, col:15> 'struct redisReadTask *' <LValueToRValue>
+`-MemberExpr 0x56280704cea0 <col:9, col:15> 'struct redisReadTask *const' lvalue ->parent 0x562806ff45d0
+  `-ImplicitCastExpr 0x56280704ce88 <col:9> 'const redisReadTask *' <LValueToRValue>
+    `-DeclRefExpr 0x56280704ce60 <col:9> 'const redisReadTask *' lvalue ParmVar 0x56280704c968 'task' 'const redisReadTask *'
+[B8.3] (ImplicitCastExpr, LValueToRValue, struct redisReadTask *)
+   T: if [B8.4]
+   Preds (1): B10
+   Succs (2): B7 B1
+
+ [B9]
+   1: IntegerLiteral 0x56280704cd90 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+   2: CStyleCastExpr 0x56280704cdc8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x56280704cd90 <col:24> 'int' 0
+(void *)[B9.1] (CStyleCastExpr, NullToPointer, void *)
+   3: ReturnStmt 0x56280704ce10 <hiredis.c:246:9, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25>
+`-ParenExpr 0x56280704cdf0 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x56280704cdc8 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x56280704cd90 <col:24> 'int' 0
+return ([B9.2]);
+   Preds (1): B10
+   Succs (1): B0
+
+ [B10]
+   1: DeclStmt 0x562807082550 <hiredis.c:242:17>col:17
+`-VarDecl 0x56280704cab0 <col:5, col:17> col:17 used r 'redisReply *'
+redisReply *r;
+   2: DeclStmt 0x562807082538 <hiredis.c:242:21>col:21
+`-VarDecl 0x56280704cb20 <col:5, col:21> col:21 used parent 'redisReply *'
+redisReply *parent;
+   3: DeclRefExpr 0x56280704cbd8 <hiredis.c:244:9> 'redisReply *(int)' Function 0x5628070413a8 'createReplyObject' 'redisReply *(int)'
+createReplyObject
+   4: ImplicitCastExpr 0x56280704cc20 <hiredis.c:244:9> 'redisReply *(*)(int)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x56280704cbd8 <col:9> 'redisReply *(int)' Function 0x5628070413a8 'createReplyObject' 'redisReply *(int)'
+[B10.3] (ImplicitCastExpr, FunctionToPointerDecay, redisReply *(*)(int))
+   5: IntegerLiteral 0x56280704cc00 <./read.h:54:25> 'int' 4
+4
+   6: CallExpr 0x56280704cc38 <hiredis.c:244:9, col:42> 'redisReply *'
+|-ImplicitCastExpr 0x56280704cc20 <col:9> 'redisReply *(*)(int)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x56280704cbd8 <col:9> 'redisReply *(int)' Function 0x5628070413a8 'createReplyObject' 'redisReply *(int)'
+`-IntegerLiteral 0x56280704cc00 <./read.h:54:25> 'int' 4
+[B10.4]([B10.5])
+   7: DeclRefExpr 0x56280704cbb0 <hiredis.c:244:5> 'redisReply *' lvalue Var 0x56280704cab0 'r' 'redisReply *'
+r
+   8: BinaryOperator 0x56280704cc68 <hiredis.c:244:5, col:42> 'redisReply *' '='
+|-DeclRefExpr 0x56280704cbb0 <col:5> 'redisReply *' lvalue Var 0x56280704cab0 'r' 'redisReply *'
+`-CallExpr 0x56280704cc38 <col:9, col:42> 'redisReply *'
+  |-ImplicitCastExpr 0x56280704cc20 <col:9> 'redisReply *(*)(int)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x56280704cbd8 <col:9> 'redisReply *(int)' Function 0x5628070413a8 'createReplyObject' 'redisReply *(int)'
+  `-IntegerLiteral 0x56280704cc00 <./read.h:54:25> 'int' 4
+[B10.7] = [B10.6]
+   9: DeclRefExpr 0x56280704cc90 <hiredis.c:245:9> 'redisReply *' lvalue Var 0x56280704cab0 'r' 'redisReply *'
+r
+  10: ImplicitCastExpr 0x56280704cd38 <hiredis.c:245:9> 'redisReply *' <LValueToRValue>
+`-DeclRefExpr 0x56280704cc90 <col:9> 'redisReply *' lvalue Var 0x56280704cab0 'r' 'redisReply *'
+[B10.9] (ImplicitCastExpr, LValueToRValue, redisReply *)
+  11: IntegerLiteral 0x56280704ccb8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+  12: CStyleCastExpr 0x56280704ccf0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x56280704ccb8 <col:24> 'int' 0
+(void *)[B10.11] (CStyleCastExpr, NullToPointer, void *)
+  13: ImplicitCastExpr 0x56280704cd50 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'redisReply *' <BitCast>
+`-ParenExpr 0x56280704cd18 <col:16, col:25> 'void *'
+  `-CStyleCastExpr 0x56280704ccf0 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x56280704ccb8 <col:24> 'int' 0
+([B10.12]) (ImplicitCastExpr, BitCast, redisReply *)
+  14: BinaryOperator 0x56280704cd68 <hiredis.c:245:9, /home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:25> 'int' '=='
+|-ImplicitCastExpr 0x56280704cd38 <hiredis.c:245:9> 'redisReply *' <LValueToRValue>
+| `-DeclRefExpr 0x56280704cc90 <col:9> 'redisReply *' lvalue Var 0x56280704cab0 'r' 'redisReply *'
+`-ImplicitCastExpr 0x56280704cd50 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'redisReply *' <BitCast>
+  `-ParenExpr 0x56280704cd18 <col:16, col:25> 'void *'
+    `-CStyleCastExpr 0x56280704ccf0 <col:17, col:24> 'void *' <NullToPointer>
+      `-IntegerLiteral 0x56280704ccb8 <col:24> 'int' 0
+[B10.10] == [B10.13]
+   T: if [B10.14]
+   Preds (1): B11
+   Succs (2): B9 B8
+
+ [B0 (EXIT)]
+   Preds (3): B1 B4 B9

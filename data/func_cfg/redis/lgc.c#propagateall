@@ -1,0 +1,94 @@
+static size_t propagateall(global_State *g)
+ [B6 (ENTRY)]
+   Succs (1): B5
+
+ [B1]
+   1: DeclRefExpr 0x55ef1b1ef798 <lgc.c:326:10> 'size_t':'unsigned long' lvalue Var 0x55ef1b1ef4b8 'm' 'size_t':'unsigned long'
+m
+   2: ImplicitCastExpr 0x55ef1b1ef7c0 <lgc.c:326:10> 'size_t':'unsigned long' <LValueToRValue>
+`-DeclRefExpr 0x55ef1b1ef798 <col:10> 'size_t':'unsigned long' lvalue Var 0x55ef1b1ef4b8 'm' 'size_t':'unsigned long'
+[B1.1] (ImplicitCastExpr, LValueToRValue, size_t)
+   3: ReturnStmt 0x55ef1b1ef7d8 <lgc.c:326:3, col:10>
+`-ImplicitCastExpr 0x55ef1b1ef7c0 <col:10> 'size_t':'unsigned long' <LValueToRValue>
+  `-DeclRefExpr 0x55ef1b1ef798 <col:10> 'size_t':'unsigned long' lvalue Var 0x55ef1b1ef4b8 'm' 'size_t':'unsigned long'
+return [B1.2];
+   Preds (1): B4
+   Succs (1): B0
+
+ [B2]
+   Preds (1): B3
+   Succs (1): B4
+
+ [B3]
+   1: DeclRefExpr 0x55ef1b1ef5f8 <lgc.c:325:19> 'size_t':'unsigned long' lvalue Var 0x55ef1b1ef4b8 'm' 'size_t':'unsigned long'
+m
+   2: DeclRefExpr 0x55ef1b1ef620 <lgc.c:325:24> 'l_mem (global_State *)' Function 0x55ef1b1ead30 'propagatemark' 'l_mem (global_State *)'
+propagatemark
+   3: ImplicitCastExpr 0x55ef1b1ef6c8 <lgc.c:325:24> 'l_mem (*)(global_State *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55ef1b1ef620 <col:24> 'l_mem (global_State *)' Function 0x55ef1b1ead30 'propagatemark' 'l_mem (global_State *)'
+[B3.2] (ImplicitCastExpr, FunctionToPointerDecay, l_mem (*)(global_State *))
+   4: DeclRefExpr 0x55ef1b1ef648 <lgc.c:325:38> 'global_State *' lvalue ParmVar 0x55ef1b1ef2f8 'g' 'global_State *'
+g
+   5: ImplicitCastExpr 0x55ef1b1ef710 <lgc.c:325:38> 'global_State *' <LValueToRValue>
+`-DeclRefExpr 0x55ef1b1ef648 <col:38> 'global_State *' lvalue ParmVar 0x55ef1b1ef2f8 'g' 'global_State *'
+[B3.4] (ImplicitCastExpr, LValueToRValue, global_State *)
+   6: CallExpr 0x55ef1b1ef6e0 <lgc.c:325:24, col:39> 'l_mem':'long'
+|-ImplicitCastExpr 0x55ef1b1ef6c8 <col:24> 'l_mem (*)(global_State *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55ef1b1ef620 <col:24> 'l_mem (global_State *)' Function 0x55ef1b1ead30 'propagatemark' 'l_mem (global_State *)'
+`-ImplicitCastExpr 0x55ef1b1ef710 <col:38> 'global_State *' <LValueToRValue>
+  `-DeclRefExpr 0x55ef1b1ef648 <col:38> 'global_State *' lvalue ParmVar 0x55ef1b1ef2f8 'g' 'global_State *'
+[B3.3]([B3.5])
+   7: ImplicitCastExpr 0x55ef1b1ef728 <lgc.c:325:24, col:39> 'unsigned long' <IntegralCast>
+`-CallExpr 0x55ef1b1ef6e0 <col:24, col:39> 'l_mem':'long'
+  |-ImplicitCastExpr 0x55ef1b1ef6c8 <col:24> 'l_mem (*)(global_State *)' <FunctionToPointerDecay>
+  | `-DeclRefExpr 0x55ef1b1ef620 <col:24> 'l_mem (global_State *)' Function 0x55ef1b1ead30 'propagatemark' 'l_mem (global_State *)'
+  `-ImplicitCastExpr 0x55ef1b1ef710 <col:38> 'global_State *' <LValueToRValue>
+    `-DeclRefExpr 0x55ef1b1ef648 <col:38> 'global_State *' lvalue ParmVar 0x55ef1b1ef2f8 'g' 'global_State *'
+[B3.6] (ImplicitCastExpr, IntegralCast, unsigned long)
+   8: CompoundAssignOperator 0x55ef1b1ef740 <lgc.c:325:19, col:39> 'size_t':'unsigned long' '+=' ComputeLHSTy='unsigned long' ComputeResultTy='unsigned long'
+|-DeclRefExpr 0x55ef1b1ef5f8 <col:19> 'size_t':'unsigned long' lvalue Var 0x55ef1b1ef4b8 'm' 'size_t':'unsigned long'
+`-ImplicitCastExpr 0x55ef1b1ef728 <col:24, col:39> 'unsigned long' <IntegralCast>
+  `-CallExpr 0x55ef1b1ef6e0 <col:24, col:39> 'l_mem':'long'
+    |-ImplicitCastExpr 0x55ef1b1ef6c8 <col:24> 'l_mem (*)(global_State *)' <FunctionToPointerDecay>
+    | `-DeclRefExpr 0x55ef1b1ef620 <col:24> 'l_mem (global_State *)' Function 0x55ef1b1ead30 'propagatemark' 'l_mem (global_State *)'
+    `-ImplicitCastExpr 0x55ef1b1ef710 <col:38> 'global_State *' <LValueToRValue>
+      `-DeclRefExpr 0x55ef1b1ef648 <col:38> 'global_State *' lvalue ParmVar 0x55ef1b1ef2f8 'g' 'global_State *'
+[B3.1] += [B3.7]
+   Preds (1): B4
+   Succs (1): B2
+
+ [B4]
+   1: DeclRefExpr 0x55ef1b1ef568 <lgc.c:325:10> 'global_State *' lvalue ParmVar 0x55ef1b1ef2f8 'g' 'global_State *'
+g
+   2: ImplicitCastExpr 0x55ef1b1ef590 <lgc.c:325:10> 'global_State *' <LValueToRValue>
+`-DeclRefExpr 0x55ef1b1ef568 <col:10> 'global_State *' lvalue ParmVar 0x55ef1b1ef2f8 'g' 'global_State *'
+[B4.1] (ImplicitCastExpr, LValueToRValue, global_State *)
+   3: MemberExpr 0x55ef1b1ef5a8 <lgc.c:325:10, col:13> 'GCObject *' lvalue ->gray 0x55ef1b19ed58
+`-ImplicitCastExpr 0x55ef1b1ef590 <col:10> 'global_State *' <LValueToRValue>
+  `-DeclRefExpr 0x55ef1b1ef568 <col:10> 'global_State *' lvalue ParmVar 0x55ef1b1ef2f8 'g' 'global_State *'
+[B4.2]->gray
+   4: ImplicitCastExpr 0x55ef1b1ef5e0 <lgc.c:325:10, col:13> 'GCObject *' <LValueToRValue>
+`-MemberExpr 0x55ef1b1ef5a8 <col:10, col:13> 'GCObject *' lvalue ->gray 0x55ef1b19ed58
+  `-ImplicitCastExpr 0x55ef1b1ef590 <col:10> 'global_State *' <LValueToRValue>
+    `-DeclRefExpr 0x55ef1b1ef568 <col:10> 'global_State *' lvalue ParmVar 0x55ef1b1ef2f8 'g' 'global_State *'
+[B4.3] (ImplicitCastExpr, LValueToRValue, GCObject *)
+   T: while [B4.4]
+   Preds (2): B2 B5
+   Succs (2): B3 B1
+
+ [B5]
+   1: IntegerLiteral 0x55ef1b1ef518 <lgc.c:324:14> 'int' 0
+0
+   2: ImplicitCastExpr 0x55ef1b1ef538 <lgc.c:324:14> 'size_t':'unsigned long' <IntegralCast>
+`-IntegerLiteral 0x55ef1b1ef518 <col:14> 'int' 0
+[B5.1] (ImplicitCastExpr, IntegralCast, size_t)
+   3: DeclStmt 0x55ef1b1ef550 <lgc.c:324:3, col:15>col:10
+`-VarDecl 0x55ef1b1ef4b8 <col:3, col:14> col:10 used m 'size_t':'unsigned long' cinit
+  `-ImplicitCastExpr 0x55ef1b1ef538 <col:14> 'size_t':'unsigned long' <IntegralCast>
+    `-IntegerLiteral 0x55ef1b1ef518 <col:14> 'int' 0
+size_t m = 0;
+   Preds (1): B6
+   Succs (1): B4
+
+ [B0 (EXIT)]
+   Preds (1): B1

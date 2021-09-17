@@ -1,0 +1,91 @@
+extern lua_State *(luaL_newstate)()
+ [B4 (ENTRY)]
+   Succs (1): B3
+
+ [B1]
+   1: DeclRefExpr 0x55f89cf25f48 <lauxlib.c:650:10> 'lua_State *' lvalue Var 0x55f89cf25b08 'L' 'lua_State *'
+L
+   2: ImplicitCastExpr 0x55f89cf25f70 <lauxlib.c:650:10> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55f89cf25f48 <col:10> 'lua_State *' lvalue Var 0x55f89cf25b08 'L' 'lua_State *'
+[B1.1] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   3: ReturnStmt 0x55f89cf25f88 <lauxlib.c:650:3, col:10>
+`-ImplicitCastExpr 0x55f89cf25f70 <col:10> 'lua_State *' <LValueToRValue>
+  `-DeclRefExpr 0x55f89cf25f48 <col:10> 'lua_State *' lvalue Var 0x55f89cf25b08 'L' 'lua_State *'
+return [B1.2];
+   Preds (2): B2 B3
+   Succs (1): B0
+
+ [B2]
+   1: DeclRefExpr 0x55f89cf25d88 <lauxlib.c:649:10> 'lua_CFunction (lua_State *, lua_CFunction)':'lua_CFunction (lua_State *, lua_CFunction)' Function 0x55f89cf9bd10 'lua_atpanic' 'lua_CFunction (lua_State *, lua_CFunction)':'lua_CFunction (lua_State *, lua_CFunction)'
+lua_atpanic
+   2: ImplicitCastExpr 0x55f89cf25ea8 <lauxlib.c:649:10> 'lua_CFunction (*)(lua_State *, lua_CFunction)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55f89cf25d88 <col:10> 'lua_CFunction (lua_State *, lua_CFunction)':'lua_CFunction (lua_State *, lua_CFunction)' Function 0x55f89cf9bd10 'lua_atpanic' 'lua_CFunction (lua_State *, lua_CFunction)':'lua_CFunction (lua_State *, lua_CFunction)'
+[B2.1] (ImplicitCastExpr, FunctionToPointerDecay, lua_CFunction (*)(lua_State *, lua_CFunction))
+   3: DeclRefExpr 0x55f89cf25db0 <lauxlib.c:649:22> 'lua_State *' lvalue Var 0x55f89cf25b08 'L' 'lua_State *'
+L
+   4: ImplicitCastExpr 0x55f89cf25ef8 <lauxlib.c:649:22> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55f89cf25db0 <col:22> 'lua_State *' lvalue Var 0x55f89cf25b08 'L' 'lua_State *'
+[B2.3] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   5: DeclRefExpr 0x55f89cf25dd8 <lauxlib.c:649:26> 'int (lua_State *)' Function 0x55f89cfde470 'panic' 'int (lua_State *)'
+panic
+   6: UnaryOperator 0x55f89cf25e28 <lauxlib.c:649:25, col:26> 'int (*)(lua_State *)' prefix '&'
+`-DeclRefExpr 0x55f89cf25dd8 <col:26> 'int (lua_State *)' Function 0x55f89cfde470 'panic' 'int (lua_State *)'
+&[B2.5]
+   7: CallExpr 0x55f89cf25ec0 <lauxlib.c:649:10, col:31> 'lua_CFunction':'int (*)(lua_State *)'
+|-ImplicitCastExpr 0x55f89cf25ea8 <col:10> 'lua_CFunction (*)(lua_State *, lua_CFunction)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55f89cf25d88 <col:10> 'lua_CFunction (lua_State *, lua_CFunction)':'lua_CFunction (lua_State *, lua_CFunction)' Function 0x55f89cf9bd10 'lua_atpanic' 'lua_CFunction (lua_State *, lua_CFunction)':'lua_CFunction (lua_State *, lua_CFunction)'
+|-ImplicitCastExpr 0x55f89cf25ef8 <col:22> 'lua_State *' <LValueToRValue>
+| `-DeclRefExpr 0x55f89cf25db0 <col:22> 'lua_State *' lvalue Var 0x55f89cf25b08 'L' 'lua_State *'
+`-UnaryOperator 0x55f89cf25e28 <col:25, col:26> 'int (*)(lua_State *)' prefix '&'
+  `-DeclRefExpr 0x55f89cf25dd8 <col:26> 'int (lua_State *)' Function 0x55f89cfde470 'panic' 'int (lua_State *)'
+[B2.2]([B2.4], [B2.6])
+   Preds (1): B3
+   Succs (1): B1
+
+ [B3]
+   1: DeclRefExpr 0x55f89cf25b68 <lauxlib.c:648:18> 'lua_State *(lua_Alloc, void *)':'lua_State *(lua_Alloc, void *)' Function 0x55f89cf9b6a0 'lua_newstate' 'lua_State *(lua_Alloc, void *)':'lua_State *(lua_Alloc, void *)'
+lua_newstate
+   2: ImplicitCastExpr 0x55f89cf25c98 <lauxlib.c:648:18> 'lua_State *(*)(lua_Alloc, void *)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55f89cf25b68 <col:18> 'lua_State *(lua_Alloc, void *)':'lua_State *(lua_Alloc, void *)' Function 0x55f89cf9b6a0 'lua_newstate' 'lua_State *(lua_Alloc, void *)':'lua_State *(lua_Alloc, void *)'
+[B3.1] (ImplicitCastExpr, FunctionToPointerDecay, lua_State *(*)(lua_Alloc, void *))
+   3: DeclRefExpr 0x55f89cf25b90 <lauxlib.c:648:31> 'void *(void *, void *, size_t, size_t)' Function 0x55f89cfdde18 'l_alloc' 'void *(void *, void *, size_t, size_t)'
+l_alloc
+   4: ImplicitCastExpr 0x55f89cf25d18 <lauxlib.c:648:31> 'void *(*)(void *, void *, size_t, size_t)' <FunctionToPointerDecay>
+`-DeclRefExpr 0x55f89cf25b90 <col:31> 'void *(void *, void *, size_t, size_t)' Function 0x55f89cfdde18 'l_alloc' 'void *(void *, void *, size_t, size_t)'
+[B3.3] (ImplicitCastExpr, FunctionToPointerDecay, void *(*)(void *, void *, size_t, size_t))
+   5: IntegerLiteral 0x55f89cf25bb8 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:24> 'int' 0
+0
+   6: CStyleCastExpr 0x55f89cf25bf0 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:17, col:24> 'void *' <NullToPointer>
+`-IntegerLiteral 0x55f89cf25bb8 <col:24> 'int' 0
+(void *)[B3.5] (CStyleCastExpr, NullToPointer, void *)
+   7: CallExpr 0x55f89cf25cb0 <lauxlib.c:648:18, col:44> 'lua_State *'
+|-ImplicitCastExpr 0x55f89cf25c98 <col:18> 'lua_State *(*)(lua_Alloc, void *)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55f89cf25b68 <col:18> 'lua_State *(lua_Alloc, void *)':'lua_State *(lua_Alloc, void *)' Function 0x55f89cf9b6a0 'lua_newstate' 'lua_State *(lua_Alloc, void *)':'lua_State *(lua_Alloc, void *)'
+|-ImplicitCastExpr 0x55f89cf25d18 <col:31> 'void *(*)(void *, void *, size_t, size_t)' <FunctionToPointerDecay>
+| `-DeclRefExpr 0x55f89cf25b90 <col:31> 'void *(void *, void *, size_t, size_t)' Function 0x55f89cfdde18 'l_alloc' 'void *(void *, void *, size_t, size_t)'
+`-ParenExpr 0x55f89cf25c18 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'void *'
+  `-CStyleCastExpr 0x55f89cf25bf0 <col:17, col:24> 'void *' <NullToPointer>
+    `-IntegerLiteral 0x55f89cf25bb8 <col:24> 'int' 0
+[B3.2]([B3.4], ([B3.6]))
+   8: DeclStmt 0x55f89cf25d30 <lauxlib.c:648:3, col:45>col:14
+`-VarDecl 0x55f89cf25b08 <col:3, col:44> col:14 used L 'lua_State *' cinit
+  `-CallExpr 0x55f89cf25cb0 <col:18, col:44> 'lua_State *'
+    |-ImplicitCastExpr 0x55f89cf25c98 <col:18> 'lua_State *(*)(lua_Alloc, void *)' <FunctionToPointerDecay>
+    | `-DeclRefExpr 0x55f89cf25b68 <col:18> 'lua_State *(lua_Alloc, void *)':'lua_State *(lua_Alloc, void *)' Function 0x55f89cf9b6a0 'lua_newstate' 'lua_State *(lua_Alloc, void *)':'lua_State *(lua_Alloc, void *)'
+    |-ImplicitCastExpr 0x55f89cf25d18 <col:31> 'void *(*)(void *, void *, size_t, size_t)' <FunctionToPointerDecay>
+    | `-DeclRefExpr 0x55f89cf25b90 <col:31> 'void *(void *, void *, size_t, size_t)' Function 0x55f89cfdde18 'l_alloc' 'void *(void *, void *, size_t, size_t)'
+    `-ParenExpr 0x55f89cf25c18 </home/anderson/Documents/llvm/build/lib/clang/6.0.1/include/stddef.h:105:16, col:25> 'void *'
+      `-CStyleCastExpr 0x55f89cf25bf0 <col:17, col:24> 'void *' <NullToPointer>
+        `-IntegerLiteral 0x55f89cf25bb8 <col:24> 'int' 0
+lua_State *L = lua_newstate(l_alloc, ((void *)0));
+   9: DeclRefExpr 0x55f89cf25d48 <lauxlib.c:649:7> 'lua_State *' lvalue Var 0x55f89cf25b08 'L' 'lua_State *'
+L
+  10: ImplicitCastExpr 0x55f89cf25d70 <lauxlib.c:649:7> 'lua_State *' <LValueToRValue>
+`-DeclRefExpr 0x55f89cf25d48 <col:7> 'lua_State *' lvalue Var 0x55f89cf25b08 'L' 'lua_State *'
+[B3.9] (ImplicitCastExpr, LValueToRValue, lua_State *)
+   T: if [B3.10]
+   Preds (1): B4
+   Succs (2): B2 B1
+
+ [B0 (EXIT)]
+   Preds (1): B1
