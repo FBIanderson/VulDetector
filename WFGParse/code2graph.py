@@ -34,6 +34,8 @@ import commands
 #from matplotlib.pyplot import *
 #import matplotlib.pyplot as plt
 import networkx as nx
+
+from sensitive_parse import *
 from slicing import *
 #from networkx.drawing.nx_pydot import to_pydot
 
@@ -43,7 +45,7 @@ import config
 from config import *
 
 from ast_feature import *
-from sensitive_parse import *
+# from SenLocate/sensitive_parse import *
 from wfg_mngr import *
 
 #libclangPath = '/usr/lib/libclang.so.6.0'
@@ -456,7 +458,7 @@ def code2graph(src_cfg_path, src_code_file, line_no=-1):
     # When raw sourcecode file is available
 	if line_no in ['no', -1, '-1']:
 		# Sensitive line is not provided, then try to find from raw code
-		sensitive_lines = extract_sensitive_lines(src_code_file)  
+		sensitive_lines = extract_sensitive_lines(src_code_file)
 	elif line_no.isdigit():	
 		# Sensitive line is denoted in arg
 		sensitive_lines = [int(line_no) ]
