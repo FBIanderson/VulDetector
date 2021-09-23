@@ -26,10 +26,11 @@ from WFGParse.code2graph import *
 from WFGParse.wfg_mngr import *
 from config import *
 
-try:
-	import hungarian
-except Exception, e:
-	import hungarian
+from scipy.optimize import linear_sum_assignment
+# try:
+# 	import hungarian
+# except Exception, e:
+# 	import hungarian
 
 #from matplotlib import pyplot as plt
 import networkx as nx
@@ -74,7 +75,7 @@ def graph_node_distance(g1, g2):
 		cost_matrix.append(row)
 	if len(cost_matrix) == 0:
 		return MAX_VALUE
-	mapping = hungarian.lap(cost_matrix)
+	mapping = linear_sum_assignment(cost_matrix)
 	#print '-------------- cost matrix -------------'
 	#print cost_matrix
 
@@ -118,7 +119,7 @@ def graph_edge_distance(g1, g2):
 		cost_matrix.append(row)
 	if len(cost_matrix) == 0:
 		return -1
-	mapping = hungarian.lap(cost_matrix)
+	mapping = linear_sum_assignment(cost_matrix)
 	# print cost_matrix,mapping
 	distance = caldistance(mapping, cost_matrix)
 	return distance
